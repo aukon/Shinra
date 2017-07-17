@@ -1,0 +1,2 @@
+# Shinra
+Rebornbuddy Combat Routine
