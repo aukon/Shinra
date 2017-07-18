@@ -295,5 +295,15 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Card,
             CastType = CastType.Target
         };
+
+        public Spell SleeveDraw { get; } = new Spell
+        {
+            Name = "Sleeve Draw",
+            ID = 7448,
+            Level = 70,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Card,
+            CastType = CastType.Self
+        };
     }
 }

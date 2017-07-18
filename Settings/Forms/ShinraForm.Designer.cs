@@ -99,9 +99,12 @@
             this.pgeHealers = new System.Windows.Forms.TabPage();
             this.tabHealers = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeAstrologian = new System.Windows.Forms.TabPage();
+            this.AstrologianAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianEarthlyStar = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianSectGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianSect = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.AstrologianCardGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianAspectedBeneficPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -143,6 +146,7 @@
             this.SamuraiCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SamuraiGuren = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiHiganbanaHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiHiganbana = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SamuraiBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -249,6 +253,7 @@
             this.pgeHealers.SuspendLayout();
             this.tabHealers.SuspendLayout();
             this.pgeAstrologian.SuspendLayout();
+            this.AstrologianAoEGroup.SuspendLayout();
             this.AstrologianSectGroup.SuspendLayout();
             this.AstrologianCardGroup.SuspendLayout();
             this.AstrologianHealGroup.SuspendLayout();
@@ -528,11 +533,6 @@
             this.UsePotionPct.Name = "UsePotionPct";
             this.UsePotionPct.Size = new System.Drawing.Size(89, 22);
             this.UsePotionPct.TabIndex = 1;
-            this.UsePotionPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.UsePotionPct.ValueChanged += new System.EventHandler(this.UsePotionPct_ValueChanged);
             // 
             // UsePotion
@@ -572,11 +572,6 @@
             this.ChocoboStanceDancePct.Name = "ChocoboStanceDancePct";
             this.ChocoboStanceDancePct.Size = new System.Drawing.Size(89, 22);
             this.ChocoboStanceDancePct.TabIndex = 6;
-            this.ChocoboStanceDancePct.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.ChocoboStanceDancePct.ValueChanged += new System.EventHandler(this.ChocoboStanceDancePct_ValueChanged);
             // 
             // ChocoboStance
@@ -793,11 +788,6 @@
             this.RedMageVercurePct.Name = "RedMageVercurePct";
             this.RedMageVercurePct.Size = new System.Drawing.Size(89, 22);
             this.RedMageVercurePct.TabIndex = 1;
-            this.RedMageVercurePct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.RedMageVercurePct.ValueChanged += new System.EventHandler(this.RedMageVercurePct_ValueChanged);
             // 
             // RedMageVercure
@@ -844,11 +834,6 @@
             this.RedMageLucidDreamingPct.Name = "RedMageLucidDreamingPct";
             this.RedMageLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.RedMageLucidDreamingPct.TabIndex = 11;
-            this.RedMageLucidDreamingPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.RedMageLucidDreamingPct.ValueChanged += new System.EventHandler(this.RedMageLucidDreamingPct_ValueChanged);
             // 
             // RedMageDrainPct
@@ -858,11 +843,6 @@
             this.RedMageDrainPct.Name = "RedMageDrainPct";
             this.RedMageDrainPct.Size = new System.Drawing.Size(89, 22);
             this.RedMageDrainPct.TabIndex = 10;
-            this.RedMageDrainPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.RedMageDrainPct.ValueChanged += new System.EventHandler(this.RedMageDrainPct_ValueChanged);
             // 
             // RedMageErase
@@ -1048,11 +1028,6 @@
             this.SummonerPhysickPct.Name = "SummonerPhysickPct";
             this.SummonerPhysickPct.Size = new System.Drawing.Size(89, 22);
             this.SummonerPhysickPct.TabIndex = 1;
-            this.SummonerPhysickPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SummonerPhysickPct.ValueChanged += new System.EventHandler(this.SummonerPhysickPct_ValueChanged);
             // 
             // SummonerPhysick
@@ -1127,11 +1102,6 @@
             this.SummonerLucidDreamingPct.Name = "SummonerLucidDreamingPct";
             this.SummonerLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.SummonerLucidDreamingPct.TabIndex = 21;
-            this.SummonerLucidDreamingPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SummonerLucidDreamingPct.ValueChanged += new System.EventHandler(this.SummonerLucidDreamingPct_ValueChanged);
             // 
             // SummonerDrainPct
@@ -1141,11 +1111,6 @@
             this.SummonerDrainPct.Name = "SummonerDrainPct";
             this.SummonerDrainPct.Size = new System.Drawing.Size(89, 22);
             this.SummonerDrainPct.TabIndex = 20;
-            this.SummonerDrainPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SummonerDrainPct.ValueChanged += new System.EventHandler(this.SummonerDrainPct_ValueChanged);
             // 
             // SummonerErase
@@ -1331,6 +1296,7 @@
             // pgeAstrologian
             // 
             this.pgeAstrologian.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeAstrologian.Controls.Add(this.AstrologianAoEGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianSectGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianCardGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianHealGroup);
@@ -1343,11 +1309,37 @@
             this.pgeAstrologian.Text = "Astrologian";
             this.pgeAstrologian.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // AstrologianAoEGroup
+            // 
+            this.AstrologianAoEGroup.Controls.Add(this.AstrologianEarthlyStar);
+            this.AstrologianAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAoEGroup.Location = new System.Drawing.Point(229, 6);
+            this.AstrologianAoEGroup.Name = "AstrologianAoEGroup";
+            this.AstrologianAoEGroup.Size = new System.Drawing.Size(112, 43);
+            this.AstrologianAoEGroup.TabIndex = 4;
+            this.AstrologianAoEGroup.TabStop = false;
+            this.AstrologianAoEGroup.Text = "AoE";
+            // 
+            // AstrologianEarthlyStar
+            // 
+            this.AstrologianEarthlyStar.AutoSize = true;
+            this.AstrologianEarthlyStar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianEarthlyStar.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianEarthlyStar.ForeColor = System.Drawing.Color.White;
+            this.AstrologianEarthlyStar.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianEarthlyStar.Name = "AstrologianEarthlyStar";
+            this.AstrologianEarthlyStar.Size = new System.Drawing.Size(81, 17);
+            this.AstrologianEarthlyStar.TabIndex = 0;
+            this.AstrologianEarthlyStar.TabStop = false;
+            this.AstrologianEarthlyStar.Text = "Earthly Star";
+            this.AstrologianEarthlyStar.UseVisualStyleBackColor = true;
+            this.AstrologianEarthlyStar.CheckedChanged += new System.EventHandler(this.AstrologianEarthlyStar_CheckedChanged);
+            // 
             // AstrologianSectGroup
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(229, 174);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(229, 246);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
             this.AstrologianSectGroup.Size = new System.Drawing.Size(112, 43);
             this.AstrologianSectGroup.TabIndex = 3;
@@ -1374,14 +1366,30 @@
             // 
             // AstrologianCardGroup
             // 
+            this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 125);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 174);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
-            this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 43);
+            this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 66);
             this.AstrologianCardGroup.TabIndex = 2;
             this.AstrologianCardGroup.TabStop = false;
             this.AstrologianCardGroup.Text = "Card";
+            // 
+            // AstrologianSleeveDraw
+            // 
+            this.AstrologianSleeveDraw.AutoSize = true;
+            this.AstrologianSleeveDraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianSleeveDraw.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianSleeveDraw.ForeColor = System.Drawing.Color.White;
+            this.AstrologianSleeveDraw.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianSleeveDraw.Name = "AstrologianSleeveDraw";
+            this.AstrologianSleeveDraw.Size = new System.Drawing.Size(85, 17);
+            this.AstrologianSleeveDraw.TabIndex = 1;
+            this.AstrologianSleeveDraw.TabStop = false;
+            this.AstrologianSleeveDraw.Text = "Sleeve Draw";
+            this.AstrologianSleeveDraw.UseVisualStyleBackColor = true;
+            this.AstrologianSleeveDraw.CheckedChanged += new System.EventHandler(this.AstrologianSleeveDraw_CheckedChanged);
             // 
             // AstrologianDraw
             // 
@@ -1409,7 +1417,7 @@
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBeneficII);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBenefic);
             this.AstrologianHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 55);
             this.AstrologianHealGroup.Name = "AstrologianHealGroup";
             this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 113);
             this.AstrologianHealGroup.TabIndex = 1;
@@ -1423,11 +1431,6 @@
             this.AstrologianAspectedBeneficPct.Name = "AstrologianAspectedBeneficPct";
             this.AstrologianAspectedBeneficPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianAspectedBeneficPct.TabIndex = 7;
-            this.AstrologianAspectedBeneficPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.AstrologianAspectedBeneficPct.ValueChanged += new System.EventHandler(this.AstrologianAspectedBeneficPct_ValueChanged);
             // 
             // AstrologianEssentialDignityPct
@@ -1437,11 +1440,6 @@
             this.AstrologianEssentialDignityPct.Name = "AstrologianEssentialDignityPct";
             this.AstrologianEssentialDignityPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianEssentialDignityPct.TabIndex = 6;
-            this.AstrologianEssentialDignityPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.AstrologianEssentialDignityPct.ValueChanged += new System.EventHandler(this.AstrologianEssentialDignityPct_ValueChanged);
             // 
             // AstrologianBeneficIIPct
@@ -1451,11 +1449,6 @@
             this.AstrologianBeneficIIPct.Name = "AstrologianBeneficIIPct";
             this.AstrologianBeneficIIPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficIIPct.TabIndex = 5;
-            this.AstrologianBeneficIIPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.AstrologianBeneficIIPct.ValueChanged += new System.EventHandler(this.AstrologianBeneficIIPct_ValueChanged);
             // 
             // AstrologianBeneficPct
@@ -1465,11 +1458,6 @@
             this.AstrologianBeneficPct.Name = "AstrologianBeneficPct";
             this.AstrologianBeneficPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficPct.TabIndex = 4;
-            this.AstrologianBeneficPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.AstrologianBeneficPct.ValueChanged += new System.EventHandler(this.AstrologianBeneficPct_ValueChanged);
             // 
             // AstrologianAspectedBenefic
@@ -1560,11 +1548,6 @@
             this.AstrologianLucidDreamingPct.Name = "AstrologianLucidDreamingPct";
             this.AstrologianLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianLucidDreamingPct.TabIndex = 10;
-            this.AstrologianLucidDreamingPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.AstrologianLucidDreamingPct.ValueChanged += new System.EventHandler(this.AstrologianLucidDreamingPct_ValueChanged);
             // 
             // AstrologianRescue
@@ -1883,7 +1866,7 @@
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiMeikyo);
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiHagakure);
             this.SamuraiBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 104);
+            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 105);
             this.SamuraiBuffGroup.Name = "SamuraiBuffGroup";
             this.SamuraiBuffGroup.Size = new System.Drawing.Size(116, 66);
             this.SamuraiBuffGroup.TabIndex = 3;
@@ -1924,7 +1907,7 @@
             // 
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGuren);
             this.SamuraiCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 55);
+            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.SamuraiCooldownGroup.Name = "SamuraiCooldownGroup";
             this.SamuraiCooldownGroup.Size = new System.Drawing.Size(116, 43);
             this.SamuraiCooldownGroup.TabIndex = 2;
@@ -1948,14 +1931,35 @@
             // 
             // SamuraiDoTGroup
             // 
+            this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbanaHP);
             this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbana);
             this.SamuraiDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SamuraiDoTGroup.Location = new System.Drawing.Point(218, 6);
             this.SamuraiDoTGroup.Name = "SamuraiDoTGroup";
-            this.SamuraiDoTGroup.Size = new System.Drawing.Size(116, 43);
+            this.SamuraiDoTGroup.Size = new System.Drawing.Size(203, 44);
             this.SamuraiDoTGroup.TabIndex = 1;
             this.SamuraiDoTGroup.TabStop = false;
             this.SamuraiDoTGroup.Text = "DoT";
+            // 
+            // SamuraiHiganbanaHP
+            // 
+            this.SamuraiHiganbanaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SamuraiHiganbanaHP.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.SamuraiHiganbanaHP.Location = new System.Drawing.Point(92, 16);
+            this.SamuraiHiganbanaHP.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.SamuraiHiganbanaHP.Name = "SamuraiHiganbanaHP";
+            this.SamuraiHiganbanaHP.ShowSymbol = false;
+            this.SamuraiHiganbanaHP.Size = new System.Drawing.Size(105, 22);
+            this.SamuraiHiganbanaHP.TabIndex = 1;
+            this.SamuraiHiganbanaHP.ValueChanged += new System.EventHandler(this.SamuraiHiganbanaHP_ValueChanged);
             // 
             // SamuraiHiganbana
             // 
@@ -2002,11 +2006,6 @@
             this.SamuraiBloodbathPct.Name = "SamuraiBloodbathPct";
             this.SamuraiBloodbathPct.Size = new System.Drawing.Size(89, 22);
             this.SamuraiBloodbathPct.TabIndex = 12;
-            this.SamuraiBloodbathPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SamuraiBloodbathPct.ValueChanged += new System.EventHandler(this.SamuraiBloodbathPct_ValueChanged);
             // 
             // SamuraiInvigoratePct
@@ -2016,11 +2015,6 @@
             this.SamuraiInvigoratePct.Name = "SamuraiInvigoratePct";
             this.SamuraiInvigoratePct.Size = new System.Drawing.Size(89, 22);
             this.SamuraiInvigoratePct.TabIndex = 11;
-            this.SamuraiInvigoratePct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SamuraiInvigoratePct.ValueChanged += new System.EventHandler(this.SamuraiInvigoratePct_ValueChanged);
             // 
             // SamuraiSecondWindPct
@@ -2030,11 +2024,6 @@
             this.SamuraiSecondWindPct.Name = "SamuraiSecondWindPct";
             this.SamuraiSecondWindPct.Size = new System.Drawing.Size(89, 22);
             this.SamuraiSecondWindPct.TabIndex = 10;
-            this.SamuraiSecondWindPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.SamuraiSecondWindPct.ValueChanged += new System.EventHandler(this.SamuraiSecondWindPct_ValueChanged);
             // 
             // SamuraiTrueNorth
@@ -2285,11 +2274,6 @@
             this.BardTacticianPct.Name = "BardTacticianPct";
             this.BardTacticianPct.Size = new System.Drawing.Size(89, 22);
             this.BardTacticianPct.TabIndex = 12;
-            this.BardTacticianPct.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.BardTacticianPct.ValueChanged += new System.EventHandler(this.BardTacticianPct_ValueChanged);
             // 
             // BardInvigoratePct
@@ -2299,11 +2283,6 @@
             this.BardInvigoratePct.Name = "BardInvigoratePct";
             this.BardInvigoratePct.Size = new System.Drawing.Size(89, 22);
             this.BardInvigoratePct.TabIndex = 11;
-            this.BardInvigoratePct.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.BardInvigoratePct.ValueChanged += new System.EventHandler(this.BardInvigoratePct_ValueChanged);
             // 
             // BardSecondWindPct
@@ -2313,11 +2292,6 @@
             this.BardSecondWindPct.Name = "BardSecondWindPct";
             this.BardSecondWindPct.Size = new System.Drawing.Size(89, 22);
             this.BardSecondWindPct.TabIndex = 10;
-            this.BardSecondWindPct.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
             this.BardSecondWindPct.ValueChanged += new System.EventHandler(this.BardSecondWindPct_ValueChanged);
             // 
             // BardPalisade
@@ -2612,11 +2586,6 @@
             this.PaladinClemencyPct.Name = "PaladinClemencyPct";
             this.PaladinClemencyPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinClemencyPct.TabIndex = 1;
-            this.PaladinClemencyPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinClemencyPct.ValueChanged += new System.EventHandler(this.PaladinClemencyPct_ValueChanged);
             // 
             // PaladinClemency
@@ -2674,11 +2643,6 @@
             this.PaladinBulwarkPct.Name = "PaladinBulwarkPct";
             this.PaladinBulwarkPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinBulwarkPct.TabIndex = 6;
-            this.PaladinBulwarkPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinBulwarkPct.ValueChanged += new System.EventHandler(this.PaladinBulwarkPct_ValueChanged);
             // 
             // PaladinSentinelPct
@@ -2688,11 +2652,6 @@
             this.PaladinSentinelPct.Name = "PaladinSentinelPct";
             this.PaladinSentinelPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinSentinelPct.TabIndex = 5;
-            this.PaladinSentinelPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinSentinelPct.ValueChanged += new System.EventHandler(this.PaladinSentinelPct_ValueChanged);
             // 
             // PaladinHallowedGroundPct
@@ -2702,11 +2661,6 @@
             this.PaladinHallowedGroundPct.Name = "PaladinHallowedGroundPct";
             this.PaladinHallowedGroundPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinHallowedGroundPct.TabIndex = 4;
-            this.PaladinHallowedGroundPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinHallowedGroundPct.ValueChanged += new System.EventHandler(this.PaladinHallowedGroundPct_ValueChanged);
             // 
             // PaladinHallowedGround
@@ -2974,11 +2928,6 @@
             this.PaladinAwarenessPct.Name = "PaladinAwarenessPct";
             this.PaladinAwarenessPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinAwarenessPct.TabIndex = 14;
-            this.PaladinAwarenessPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinAwarenessPct.ValueChanged += new System.EventHandler(this.PaladinAwarenessPct_ValueChanged);
             // 
             // PaladinAnticipationPct
@@ -2988,11 +2937,6 @@
             this.PaladinAnticipationPct.Name = "PaladinAnticipationPct";
             this.PaladinAnticipationPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinAnticipationPct.TabIndex = 12;
-            this.PaladinAnticipationPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinAnticipationPct.ValueChanged += new System.EventHandler(this.PaladinAnticipationPct_ValueChanged);
             // 
             // PaladinConvalescencePct
@@ -3002,11 +2946,6 @@
             this.PaladinConvalescencePct.Name = "PaladinConvalescencePct";
             this.PaladinConvalescencePct.Size = new System.Drawing.Size(89, 22);
             this.PaladinConvalescencePct.TabIndex = 11;
-            this.PaladinConvalescencePct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinConvalescencePct.ValueChanged += new System.EventHandler(this.PaladinConvalescencePct_ValueChanged);
             // 
             // PaladinRampartPct
@@ -3016,11 +2955,6 @@
             this.PaladinRampartPct.Name = "PaladinRampartPct";
             this.PaladinRampartPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinRampartPct.TabIndex = 10;
-            this.PaladinRampartPct.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
             this.PaladinRampartPct.ValueChanged += new System.EventHandler(this.PaladinRampartPct_ValueChanged);
             // 
             // PaladinShirk
@@ -3241,6 +3175,8 @@
             this.pgeHealers.ResumeLayout(false);
             this.tabHealers.ResumeLayout(false);
             this.pgeAstrologian.ResumeLayout(false);
+            this.AstrologianAoEGroup.ResumeLayout(false);
+            this.AstrologianAoEGroup.PerformLayout();
             this.AstrologianSectGroup.ResumeLayout(false);
             this.AstrologianCardGroup.ResumeLayout(false);
             this.AstrologianCardGroup.PerformLayout();
@@ -3503,5 +3439,9 @@
         private Design.UserNumeric AstrologianEssentialDignityPct;
         private Design.UserNumeric AstrologianBeneficIIPct;
         private Design.UserNumeric AstrologianBeneficPct;
+        private Design.CustomCheck AstrologianSleeveDraw;
+        private Design.CustomGroup AstrologianAoEGroup;
+        private Design.CustomCheck AstrologianEarthlyStar;
+        private Design.UserNumeric SamuraiHiganbanaHP;
     }
 }

@@ -71,6 +71,24 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> EarthlyStar()
+        {
+            if (Shinra.Settings.AstrologianEarthlyStar && Helpers.EnemiesNearTarget(8) > 2)
+            {
+                return await MySpells.EarthlyStar.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> StellarDetonation()
+        {
+            if (Shinra.Settings.AstrologianEarthlyStar)
+            {
+                return await MySpells.StellarDetonation.Cast(null, false);
+            }
+            return false;
+        }
+
         #endregion
 
         #region Buff
@@ -220,6 +238,15 @@ namespace ShinraCo.Rotations
                 {
                     return await MySpells.LadyOfCrowns.Cast(target);
                 }
+            }
+            return false;
+        }
+
+        private async Task<bool> SleeveDraw()
+        {
+            if (Shinra.Settings.AstrologianSleeveDraw)
+            {
+                return await MySpells.SleeveDraw.Cast();
             }
             return false;
         }

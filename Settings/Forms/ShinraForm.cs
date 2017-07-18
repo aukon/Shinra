@@ -89,6 +89,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region AoE
+
+            AstrologianEarthlyStar.Checked = Shinra.Settings.AstrologianEarthlyStar;
+
+            #endregion
+
             #region Heal
 
             AstrologianBenefic.Checked = Shinra.Settings.AstrologianBenefic;
@@ -106,6 +112,7 @@ namespace ShinraCo.Settings.Forms
             #region Card
 
             AstrologianDraw.Checked = Shinra.Settings.AstrologianDraw;
+            AstrologianSleeveDraw.Checked = Shinra.Settings.AstrologianSleeveDraw;
 
             #endregion
 
@@ -263,6 +270,7 @@ namespace ShinraCo.Settings.Forms
             #region DoT
 
             SamuraiHiganbana.Checked = Shinra.Settings.SamuraiHiganbana;
+            SamuraiHiganbanaHP.Value = Shinra.Settings.SamuraiHiganbanaHP;
 
             #endregion
 
@@ -457,6 +465,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region AoE
+
+        private void AstrologianEarthlyStar_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianEarthlyStar = AstrologianEarthlyStar.Checked;
+        }
+
+        #endregion
+
         #region Heal
 
         private void AstrologianBenefic_CheckedChanged(object sender, EventArgs e)
@@ -506,6 +523,11 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianDraw_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianDraw = AstrologianDraw.Checked;
+        }
+
+        private void AstrologianSleeveDraw_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianSleeveDraw = AstrologianSleeveDraw.Checked;
         }
 
         #endregion
@@ -870,6 +892,11 @@ namespace ShinraCo.Settings.Forms
         private void SamuraiHiganbana_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiHiganbana = SamuraiHiganbana.Checked;
+        }
+
+        private void SamuraiHiganbanaHP_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiHiganbanaHP = Convert.ToInt32(SamuraiHiganbanaHP.Value);
         }
 
         #endregion

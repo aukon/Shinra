@@ -153,7 +153,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> Higanbana()
         {
             if (Shinra.Settings.SamuraiHiganbana && NumSen == 1 && !MovementManager.IsMoving &&
-                Core.Player.CurrentTarget.CurrentHealth > Core.Player.MaxHealth * 20 &&
+                Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.SamuraiHiganbanaHP &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.Higanbana.Name, true, 5000))
             {
                 if (ActionManager.CanCast(MySpells.Higanbana.Name, Core.Player.CurrentTarget))

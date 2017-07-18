@@ -37,6 +37,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
@@ -51,6 +52,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
@@ -67,13 +69,15 @@
             // 
             this.customNumeric1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
             this.customNumeric1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.customNumeric1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customNumeric1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customNumeric1.ForeColor = System.Drawing.Color.White;
             this.customNumeric1.Location = new System.Drawing.Point(0, 0);
             this.customNumeric1.Name = "customNumeric1";
-            this.customNumeric1.Size = new System.Drawing.Size(50, 22);
+            this.customNumeric1.Size = new System.Drawing.Size(89, 22);
             this.customNumeric1.TabIndex = 0;
             this.customNumeric1.TabStop = false;
+            this.customNumeric1.ThousandsSeparator = true;
             this.customNumeric1.Value = new decimal(new int[] {
             100,
             0,

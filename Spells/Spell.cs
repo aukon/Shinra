@@ -274,7 +274,7 @@ namespace ShinraCo.Spells
             {
                 case CastType.TargetLocation:
                 case CastType.SelfLocation:
-                    if (!ActionManager.CanCastLocation(ID, target.Location))
+                    if (!ActionManager.CanCastLocation(ID, target.Location) || Core.Player.IsCasting)
                     {
                         return false;
                     }

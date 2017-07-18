@@ -93,6 +93,18 @@ namespace ShinraCo.Settings.Forms.Design
 
     public sealed class CustomNumeric : NumericUpDown
     {
+        private bool _showSymbol;
+        public bool ShowSymbol
+        {
+            get { return _showSymbol; }
+            set
+            {
+                if (_showSymbol == value) { return; }
+                _showSymbol = value;
+                UpdateEditText();
+            }
+        }
+
         public CustomNumeric()
         {
             Controls[0].Visible = false;
@@ -100,13 +112,19 @@ namespace ShinraCo.Settings.Forms.Design
             ForeColor = Color.White;
             BorderStyle = BorderStyle.FixedSingle;
             TabStop = false;
+            Increment = 5;
+            Maximum = 100;
+            ShowSymbol = true;
         }
 
         protected override void UpdateEditText()
         {
             base.UpdateEditText();
-            ChangingText = true;
-            Text += "%";
+            if (ShowSymbol)
+            {
+                ChangingText = true;
+                Text += "%";
+            }
         }
 
         [DllImport("user32")]

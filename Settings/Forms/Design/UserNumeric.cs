@@ -6,13 +6,42 @@ namespace ShinraCo.Settings.Forms.Design
 {
     public partial class UserNumeric : UserControl
     {
-        [Category("Data")]
-        public decimal Value { get { return customNumeric1.Value; } set { customNumeric1.Value = value; } }
+        [Category("Appearance")]
+        [DefaultValue(typeof(decimal), "100")]
+        public decimal Value
+        {
+            get { return customNumeric1.Value; }
+            set { customNumeric1.Value = value; }
+        }
 
         public event EventHandler ValueChanged
         {
             add { customNumeric1.ValueChanged += value; }
             remove { customNumeric1.ValueChanged -= value; }
+        }
+
+        [Category("Data")]
+        [DefaultValue(typeof(decimal), "5")]
+        public decimal Increment
+        {
+            get { return customNumeric1.Increment; }
+            set { customNumeric1.Increment = value; }
+        }
+
+        [Category("Data")]
+        [DefaultValue(typeof(decimal), "100")]
+        public decimal Maximum
+        {
+            get { return customNumeric1.Maximum; }
+            set { customNumeric1.Maximum = value; }
+        }
+
+        [Category("Data")]
+        [DefaultValue(true)]
+        public bool ShowSymbol
+        {
+            get { return customNumeric1.ShowSymbol; }
+            set { customNumeric1.ShowSymbol = value; }
         }
 
         public UserNumeric()
@@ -25,7 +54,7 @@ namespace ShinraCo.Settings.Forms.Design
             label1.Focus();
             if (customNumeric1.Value < customNumeric1.Maximum)
             {
-                customNumeric1.Value += 5;
+                customNumeric1.Value = Math.Min(customNumeric1.Maximum, customNumeric1.Value + customNumeric1.Increment);
             }
         }
 
@@ -34,7 +63,7 @@ namespace ShinraCo.Settings.Forms.Design
             label1.Focus();
             if (customNumeric1.Value > customNumeric1.Minimum)
             {
-                customNumeric1.Value -= 5;
+                customNumeric1.Value = Math.Max(customNumeric1.Minimum, customNumeric1.Value - customNumeric1.Increment);
             }
         }
 

@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
+using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 
 namespace ShinraCo.Rotations
@@ -51,7 +53,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BioII()
         {
-            if (!ActionManager.HasSpell(MySpells.BioIII.Name) && Shinra.LastSpell.Name != MySpells.TriDisaster.Name &&
+            if (!ActionManager.HasSpell(MySpells.BioIII.Name) && !RecentDoT &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.BioII.Name, true, 3000))
             {
                 return await MySpells.BioII.Cast();
@@ -61,7 +63,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BioIII()
         {
-            if (Shinra.LastSpell.Name != MySpells.TriDisaster.Name && !Core.Player.CurrentTarget.HasAura(MySpells.BioIII.Name, true, 3000))
+            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.BioIII.Name, true, 3000))
             {
                 return await MySpells.BioIII.Cast();
             }
@@ -70,7 +72,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Miasma()
         {
-            if (!ActionManager.HasSpell(MySpells.MiasmaIII.Name) && Shinra.LastSpell.Name != MySpells.TriDisaster.Name &&
+            if (!ActionManager.HasSpell(MySpells.MiasmaIII.Name) && !RecentDoT &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 4000))
             {
                 return await MySpells.Miasma.Cast();
@@ -80,8 +82,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MiasmaIII()
         {
-            if (Shinra.LastSpell.Name != MySpells.TriDisaster.Name &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 4000))
+            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 4000))
             {
                 return await MySpells.MiasmaIII.Cast();
             }
@@ -136,7 +137,7 @@ namespace ShinraCo.Rotations
         {
             if (!MovementManager.IsMoving)
             {
-                return await MySpells.ShadowFlare.Cast(null, false);
+                return await MySpells.ShadowFlare.Cast();
             }
             return false;
         }
@@ -302,8 +303,9 @@ namespace ShinraCo.Rotations
         private static string BioDebuff => Core.Player.ClassLevel >= 66 ? "Bio III" : Core.Player.ClassLevel >= 26 ? "Bio II" : "Bio";
         private static string MiasmaDebuff => Core.Player.ClassLevel >= 66 ? "Miasma III" : "Miasma";
         private static int AetherCount => ActionResourceManager.Arcanist.Aetherflow;
-        private static bool AetherLow => AetherCount == 1 && DataManager.GetSpellData(166).Cooldown.TotalMilliseconds > 8000;
         private static bool PetExists => Core.Player.Pet != null;
+        private static bool AetherLow => AetherCount == 1 && DataManager.GetSpellData(166).Cooldown.TotalMilliseconds > 8000;
+        private static bool RecentDoT { get { return Spell.RecentSpell.Keys.Any(key => key.Contains("Tri-disaster")); } }
 
         private bool UseBane => Shinra.Settings.RotationMode != Modes.Single && Helpers.EnemiesNearTarget(5) > 1 &&
                                 ActionManager.CanCast(MySpells.Bane.Name, Core.Player.CurrentTarget) &&

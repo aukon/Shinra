@@ -11,6 +11,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (await StellarDetonation()) return true;
+                if (await EarthlyStar()) return true;
                 if (await Gravity()) return true;
                 if (await CombustII()) return true;
                 if (await Combust()) return true;
@@ -28,6 +30,8 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
             {
+                if (await StellarDetonation()) return true;
+                if (await EarthlyStar()) return true;
                 if (await Gravity()) return true;
                 if (await CombustII()) return true;
                 return await Combust();
@@ -44,6 +48,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await LucidDreaming()) return true;
+            if (await SleeveDraw()) return true;
             if (await RoyalRoad()) return true;
             if (await Redraw()) return true;
             if (await Spread()) return true;

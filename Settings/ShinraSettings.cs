@@ -129,6 +129,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianEarthlyStar { get; set; }
+
+        #endregion
+
         #region Heal
 
         [Setting, DefaultValue(true)]
@@ -161,6 +168,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool AstrologianDraw { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianSleeveDraw { get; set; }
 
         #endregion
 
@@ -415,6 +425,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool SamuraiHiganbana { get; set; }
+
+        [Setting, DefaultValue(500000)]
+        public int SamuraiHiganbanaHP { get; set; }
 
         #endregion
 
