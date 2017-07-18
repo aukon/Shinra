@@ -218,5 +218,20 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
+
+        // Troubadour
+        // Caustic Bite
+        // Stormbite
+        // Nature's Minne
+
+        public Spell RefulgentArrow { get; } = new Spell
+        {
+            Name = "Refulgent Arrow",
+            ID = 7409,
+            Level = 70,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
     }
 }

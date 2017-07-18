@@ -139,9 +139,18 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Cooldown
+
+            BardSongs.Checked = Shinra.Settings.BardSongs;
+            BardSidewinder.Checked = Shinra.Settings.BardSidewinder;
+
+            #endregion
+
             #region Buff
 
             BardRagingStrikes.Checked = Shinra.Settings.BardRagingStrikes;
+            BardBarrage.Checked = Shinra.Settings.BardBarrage;
+            BardBattleVoice.Checked = Shinra.Settings.BardBattleVoice;
 
             #endregion
 
@@ -586,11 +595,35 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Cooldown
+
+        private void BardSongs_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardSongs = BardSongs.Checked;
+        }
+
+        private void BardSidewinder_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardSidewinder = BardSidewinder.Checked;
+        }
+
+        #endregion
+
         #region Buff
 
         private void BardRagingStrikes_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardRagingStrikes = BardRagingStrikes.Checked;
+        }
+
+        private void BardBarrage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardBarrage = BardBarrage.Checked;
+        }
+
+        private void BardBattleVoice_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardBattleVoice = BardBattleVoice.Checked;
         }
 
         #endregion

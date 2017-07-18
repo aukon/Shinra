@@ -216,10 +216,26 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool BardSongs { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BardSidewinder { get; set; }
+
+        #endregion
+
         #region Buff
 
         [Setting, DefaultValue(true)]
         public bool BardRagingStrikes { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BardBarrage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BardBattleVoice { get; set; }
 
         #endregion
 

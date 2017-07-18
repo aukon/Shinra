@@ -165,7 +165,12 @@
             this.pgeRanged = new System.Windows.Forms.TabPage();
             this.tabRanged = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBard = new System.Windows.Forms.TabPage();
+            this.BardCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardSidewinder = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardSongs = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardBarrage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardBattleVoice = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardRagingStrikes = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BardTacticianPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -273,6 +278,7 @@
             this.pgeRanged.SuspendLayout();
             this.tabRanged.SuspendLayout();
             this.pgeBard.SuspendLayout();
+            this.BardCooldownGroup.SuspendLayout();
             this.BardBuffGroup.SuspendLayout();
             this.BardRoleGroup.SuspendLayout();
             this.pgeMachinist.SuspendLayout();
@@ -2208,6 +2214,7 @@
             // pgeBard
             // 
             this.pgeBard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeBard.Controls.Add(this.BardCooldownGroup);
             this.pgeBard.Controls.Add(this.BardBuffGroup);
             this.pgeBard.Controls.Add(this.BardRoleGroup);
             this.pgeBard.Location = new System.Drawing.Point(104, 4);
@@ -2218,16 +2225,90 @@
             this.pgeBard.Text = "Bard";
             this.pgeBard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // BardCooldownGroup
+            // 
+            this.BardCooldownGroup.Controls.Add(this.BardSidewinder);
+            this.BardCooldownGroup.Controls.Add(this.BardSongs);
+            this.BardCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 6);
+            this.BardCooldownGroup.Name = "BardCooldownGroup";
+            this.BardCooldownGroup.Size = new System.Drawing.Size(109, 66);
+            this.BardCooldownGroup.TabIndex = 2;
+            this.BardCooldownGroup.TabStop = false;
+            this.BardCooldownGroup.Text = "Cooldown";
+            // 
+            // BardSidewinder
+            // 
+            this.BardSidewinder.AutoSize = true;
+            this.BardSidewinder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardSidewinder.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardSidewinder.ForeColor = System.Drawing.Color.White;
+            this.BardSidewinder.Location = new System.Drawing.Point(6, 39);
+            this.BardSidewinder.Name = "BardSidewinder";
+            this.BardSidewinder.Size = new System.Drawing.Size(81, 17);
+            this.BardSidewinder.TabIndex = 1;
+            this.BardSidewinder.TabStop = false;
+            this.BardSidewinder.Text = "Sidewinder";
+            this.BardSidewinder.UseVisualStyleBackColor = true;
+            this.BardSidewinder.CheckedChanged += new System.EventHandler(this.BardSidewinder_CheckedChanged);
+            // 
+            // BardSongs
+            // 
+            this.BardSongs.AutoSize = true;
+            this.BardSongs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardSongs.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardSongs.ForeColor = System.Drawing.Color.White;
+            this.BardSongs.Location = new System.Drawing.Point(6, 16);
+            this.BardSongs.Name = "BardSongs";
+            this.BardSongs.Size = new System.Drawing.Size(55, 17);
+            this.BardSongs.TabIndex = 0;
+            this.BardSongs.TabStop = false;
+            this.BardSongs.Text = "Songs";
+            this.BardSongs.UseVisualStyleBackColor = true;
+            this.BardSongs.CheckedChanged += new System.EventHandler(this.BardSongs_CheckedChanged);
+            // 
             // BardBuffGroup
             // 
+            this.BardBuffGroup.Controls.Add(this.BardBarrage);
+            this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardBuffGroup.Location = new System.Drawing.Point(218, 6);
+            this.BardBuffGroup.Location = new System.Drawing.Point(218, 78);
             this.BardBuffGroup.Name = "BardBuffGroup";
-            this.BardBuffGroup.Size = new System.Drawing.Size(109, 43);
+            this.BardBuffGroup.Size = new System.Drawing.Size(109, 89);
             this.BardBuffGroup.TabIndex = 1;
             this.BardBuffGroup.TabStop = false;
             this.BardBuffGroup.Text = "Buff";
+            // 
+            // BardBarrage
+            // 
+            this.BardBarrage.AutoSize = true;
+            this.BardBarrage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardBarrage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardBarrage.ForeColor = System.Drawing.Color.White;
+            this.BardBarrage.Location = new System.Drawing.Point(6, 39);
+            this.BardBarrage.Name = "BardBarrage";
+            this.BardBarrage.Size = new System.Drawing.Size(63, 17);
+            this.BardBarrage.TabIndex = 2;
+            this.BardBarrage.TabStop = false;
+            this.BardBarrage.Text = "Barrage";
+            this.BardBarrage.UseVisualStyleBackColor = true;
+            this.BardBarrage.CheckedChanged += new System.EventHandler(this.BardBarrage_CheckedChanged);
+            // 
+            // BardBattleVoice
+            // 
+            this.BardBattleVoice.AutoSize = true;
+            this.BardBattleVoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardBattleVoice.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardBattleVoice.ForeColor = System.Drawing.Color.White;
+            this.BardBattleVoice.Location = new System.Drawing.Point(6, 62);
+            this.BardBattleVoice.Name = "BardBattleVoice";
+            this.BardBattleVoice.Size = new System.Drawing.Size(83, 17);
+            this.BardBattleVoice.TabIndex = 1;
+            this.BardBattleVoice.TabStop = false;
+            this.BardBattleVoice.Text = "Battle Voice";
+            this.BardBattleVoice.UseVisualStyleBackColor = true;
+            this.BardBattleVoice.CheckedChanged += new System.EventHandler(this.BardBattleVoice_CheckedChanged);
             // 
             // BardRagingStrikes
             // 
@@ -3208,6 +3289,8 @@
             this.pgeRanged.ResumeLayout(false);
             this.tabRanged.ResumeLayout(false);
             this.pgeBard.ResumeLayout(false);
+            this.BardCooldownGroup.ResumeLayout(false);
+            this.BardCooldownGroup.PerformLayout();
             this.BardBuffGroup.ResumeLayout(false);
             this.BardBuffGroup.PerformLayout();
             this.BardRoleGroup.ResumeLayout(false);
@@ -3443,5 +3526,10 @@
         private Design.CustomGroup AstrologianAoEGroup;
         private Design.CustomCheck AstrologianEarthlyStar;
         private Design.UserNumeric SamuraiHiganbanaHP;
+        private Design.CustomCheck BardBattleVoice;
+        private Design.CustomGroup BardCooldownGroup;
+        private Design.CustomCheck BardSidewinder;
+        private Design.CustomCheck BardSongs;
+        private Design.CustomCheck BardBarrage;
     }
 }

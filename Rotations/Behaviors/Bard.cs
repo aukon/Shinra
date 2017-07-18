@@ -9,6 +9,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Combat()
         {
             if (await IronJaws()) return true;
+            if (await RefulgentArrow()) return true;
             if (await StraightShotBuff()) return true;
             if (await Windbite()) return true;
             if (await VenomousBite()) return true;
