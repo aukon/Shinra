@@ -129,6 +129,8 @@ namespace ShinraCo
                     return new Astrologian();
                 case ClassJobType.Bard:
                     return new Bard();
+                case ClassJobType.Dragoon:
+                    return new Dragoon();
                 case ClassJobType.Paladin:
                     return new Paladin();
                 case ClassJobType.RedMage:
@@ -203,7 +205,7 @@ namespace ShinraCo
 
         public static async Task<bool> ChocoboStance()
         {
-            if (!ChocoboManager.Summoned || Core.Player.IsMounted)
+            if (!ChocoboManager.Summoned || Core.Player.IsMounted || ChocoboManager.Object == null)
             {
                 return false;
             }
