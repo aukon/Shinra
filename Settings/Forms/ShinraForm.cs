@@ -161,6 +161,38 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Dragoon
+
+            #region Role
+
+            DragoonSecondWind.Checked = Shinra.Settings.DragoonSecondWind;
+            DragoonInvigorate.Checked = Shinra.Settings.DragoonInvigorate;
+            DragoonBloodbath.Checked = Shinra.Settings.DragoonBloodbath;
+            DragoonTrueNorth.Checked = Shinra.Settings.DragoonTrueNorth;
+
+            DragoonSecondWindPct.Value = Shinra.Settings.DragoonSecondWindPct;
+            DragoonInvigoratePct.Value = Shinra.Settings.DragoonInvigoratePct;
+            DragoonBloodbathPct.Value = Shinra.Settings.DragoonBloodbathPct;
+
+            #endregion
+
+            #region Cooldown
+
+            DragoonJump.Checked = Shinra.Settings.DragoonJump;
+            DragoonSpineshatter.Checked = Shinra.Settings.DragoonSpineshatter;
+            DragoonDragonfire.Checked = Shinra.Settings.DragoonDragonfire;
+
+            #endregion
+
+            #region Buff
+
+            DragoonLifeSurge.Checked = Shinra.Settings.DragoonLifeSurge;
+            DragoonBloodForBlood.Checked = Shinra.Settings.DragoonBloodForBlood;
+
+            #endregion
+
+            #endregion
+
             #region Paladin
 
             #region Role
@@ -660,6 +692,82 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Dragoon
+
+        #region Role
+
+        private void DragoonSecondWind_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonSecondWind = DragoonSecondWind.Checked;
+        }
+
+        private void DragoonInvigorate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonInvigorate = DragoonInvigorate.Checked;
+        }
+
+        private void DragoonBloodbath_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonBloodbath = DragoonBloodbath.Checked;
+        }
+
+        private void DragoonTrueNorth_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonTrueNorth = DragoonTrueNorth.Checked;
+        }
+
+        private void DragoonSecondWindPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonSecondWindPct = Convert.ToInt32(DragoonSecondWindPct.Value);
+        }
+
+        private void DragoonInvigoratePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonInvigoratePct = Convert.ToInt32(DragoonInvigoratePct.Value);
+        }
+
+        private void DragoonBloodbathPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonBloodbathPct = Convert.ToInt32(DragoonBloodbathPct.Value);
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void DragoonJump_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonJump = DragoonJump.Checked;
+        }
+
+        private void DragoonSpineshatter_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonSpineshatter = DragoonSpineshatter.Checked;
+        }
+
+        private void DragoonDragonfire_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonDragonfire = DragoonDragonfire.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void DragoonLifeSurge_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonLifeSurge = DragoonLifeSurge.Checked;
+        }
+
+        private void DragoonBloodForBlood_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonBloodForBlood = DragoonBloodForBlood.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
         #region Paladin
 
         #region Role
@@ -1043,6 +1151,7 @@ namespace ShinraCo.Settings.Forms
             if (SummonerPet.Text == @"Titan") Shinra.Settings.SummonerPet = SummonerPets.Titan;
             if (SummonerPet.Text == @"Ifrit") Shinra.Settings.SummonerPet = SummonerPets.Ifrit;
         }
+
 
         #endregion
 

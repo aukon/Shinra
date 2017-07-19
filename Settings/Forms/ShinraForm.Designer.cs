@@ -107,6 +107,10 @@
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianAspHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianAspHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianPartyHeal = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianAspBeneficPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianEssDignityPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -135,7 +139,6 @@
             this.pgeMelee = new System.Windows.Forms.TabPage();
             this.tabMelee = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDragoon = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
             this.pgeMonk = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.pgeNinja = new System.Windows.Forms.TabPage();
@@ -237,10 +240,27 @@
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
-            this.AstrologianHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianAspHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianAspHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonTrueNorth = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonCrutch = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonFeint = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonGoad = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonBloodbath = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonInvigorate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonLegSweep = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonJump = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonDragonfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonLifeSurge = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonBloodForBlood = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -299,6 +319,9 @@
             this.PaladinDamageGroup.SuspendLayout();
             this.PaladinRoleGroup.SuspendLayout();
             this.pgeWarrior.SuspendLayout();
+            this.DragoonRoleGroup.SuspendLayout();
+            this.DragoonCooldownGroup.SuspendLayout();
+            this.DragoonBuffGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -1440,6 +1463,54 @@
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
             // 
+            // AstrologianAspHeliosPct
+            // 
+            this.AstrologianAspHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianAspHeliosPct.Location = new System.Drawing.Point(123, 154);
+            this.AstrologianAspHeliosPct.Name = "AstrologianAspHeliosPct";
+            this.AstrologianAspHeliosPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianAspHeliosPct.TabIndex = 12;
+            this.AstrologianAspHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianAspHeliosPct_ValueChanged);
+            // 
+            // AstrologianHeliosPct
+            // 
+            this.AstrologianHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianHeliosPct.Location = new System.Drawing.Point(123, 131);
+            this.AstrologianHeliosPct.Name = "AstrologianHeliosPct";
+            this.AstrologianHeliosPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianHeliosPct.TabIndex = 11;
+            this.AstrologianHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianHeliosPct_ValueChanged);
+            // 
+            // AstrologianAspHelios
+            // 
+            this.AstrologianAspHelios.AutoSize = true;
+            this.AstrologianAspHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianAspHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAspHelios.ForeColor = System.Drawing.Color.White;
+            this.AstrologianAspHelios.Location = new System.Drawing.Point(6, 154);
+            this.AstrologianAspHelios.Name = "AstrologianAspHelios";
+            this.AstrologianAspHelios.Size = new System.Drawing.Size(105, 17);
+            this.AstrologianAspHelios.TabIndex = 10;
+            this.AstrologianAspHelios.TabStop = false;
+            this.AstrologianAspHelios.Text = "Aspected Helios";
+            this.AstrologianAspHelios.UseVisualStyleBackColor = true;
+            this.AstrologianAspHelios.CheckedChanged += new System.EventHandler(this.AstrologianAspHelios_CheckedChanged);
+            // 
+            // AstrologianHelios
+            // 
+            this.AstrologianHelios.AutoSize = true;
+            this.AstrologianHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianHelios.ForeColor = System.Drawing.Color.White;
+            this.AstrologianHelios.Location = new System.Drawing.Point(6, 131);
+            this.AstrologianHelios.Name = "AstrologianHelios";
+            this.AstrologianHelios.Size = new System.Drawing.Size(55, 17);
+            this.AstrologianHelios.TabIndex = 9;
+            this.AstrologianHelios.TabStop = false;
+            this.AstrologianHelios.Text = "Helios";
+            this.AstrologianHelios.UseVisualStyleBackColor = true;
+            this.AstrologianHelios.CheckedChanged += new System.EventHandler(this.AstrologianHelios_CheckedChanged);
+            // 
             // AstrologianPartyHeal
             // 
             this.AstrologianPartyHeal.AutoSize = true;
@@ -1811,7 +1882,9 @@
             // pgeDragoon
             // 
             this.pgeDragoon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeDragoon.Controls.Add(this.label5);
+            this.pgeDragoon.Controls.Add(this.DragoonBuffGroup);
+            this.pgeDragoon.Controls.Add(this.DragoonCooldownGroup);
+            this.pgeDragoon.Controls.Add(this.DragoonRoleGroup);
             this.pgeDragoon.Location = new System.Drawing.Point(104, 4);
             this.pgeDragoon.Name = "pgeDragoon";
             this.pgeDragoon.Padding = new System.Windows.Forms.Padding(3);
@@ -1819,17 +1892,6 @@
             this.pgeDragoon.TabIndex = 0;
             this.pgeDragoon.Text = "Dragoon";
             this.pgeDragoon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(13, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 65);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "N/A";
             // 
             // pgeMonk
             // 
@@ -3236,53 +3298,305 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "N/A";
             // 
-            // AstrologianHelios
+            // DragoonRoleGroup
             // 
-            this.AstrologianHelios.AutoSize = true;
-            this.AstrologianHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianHelios.ForeColor = System.Drawing.Color.White;
-            this.AstrologianHelios.Location = new System.Drawing.Point(6, 131);
-            this.AstrologianHelios.Name = "AstrologianHelios";
-            this.AstrologianHelios.Size = new System.Drawing.Size(55, 17);
-            this.AstrologianHelios.TabIndex = 9;
-            this.AstrologianHelios.TabStop = false;
-            this.AstrologianHelios.Text = "Helios";
-            this.AstrologianHelios.UseVisualStyleBackColor = true;
-            this.AstrologianHelios.CheckedChanged += new System.EventHandler(this.AstrologianHelios_CheckedChanged);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbathPct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigoratePct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWindPct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonTrueNorth);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonCrutch);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonFeint);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonGoad);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbath);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigorate);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonDiversion);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonLegSweep);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonArmsLength);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWind);
+            this.DragoonRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.DragoonRoleGroup.Name = "DragoonRoleGroup";
+            this.DragoonRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.DragoonRoleGroup.TabIndex = 0;
+            this.DragoonRoleGroup.TabStop = false;
+            this.DragoonRoleGroup.Text = "Role";
             // 
-            // AstrologianAspHelios
+            // DragoonCooldownGroup
             // 
-            this.AstrologianAspHelios.AutoSize = true;
-            this.AstrologianAspHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianAspHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianAspHelios.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAspHelios.Location = new System.Drawing.Point(6, 154);
-            this.AstrologianAspHelios.Name = "AstrologianAspHelios";
-            this.AstrologianAspHelios.Size = new System.Drawing.Size(105, 17);
-            this.AstrologianAspHelios.TabIndex = 10;
-            this.AstrologianAspHelios.TabStop = false;
-            this.AstrologianAspHelios.Text = "Aspected Helios";
-            this.AstrologianAspHelios.UseVisualStyleBackColor = true;
-            this.AstrologianAspHelios.CheckedChanged += new System.EventHandler(this.AstrologianAspHelios_CheckedChanged);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonDragonfire);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonSpineshatter);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonJump);
+            this.DragoonCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonCooldownGroup.Location = new System.Drawing.Point(218, 6);
+            this.DragoonCooldownGroup.Name = "DragoonCooldownGroup";
+            this.DragoonCooldownGroup.Size = new System.Drawing.Size(125, 89);
+            this.DragoonCooldownGroup.TabIndex = 1;
+            this.DragoonCooldownGroup.TabStop = false;
+            this.DragoonCooldownGroup.Text = "Cooldown";
             // 
-            // AstrologianHeliosPct
+            // DragoonBuffGroup
             // 
-            this.AstrologianHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianHeliosPct.Location = new System.Drawing.Point(123, 131);
-            this.AstrologianHeliosPct.Name = "AstrologianHeliosPct";
-            this.AstrologianHeliosPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianHeliosPct.TabIndex = 11;
-            this.AstrologianHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianHeliosPct_ValueChanged);
+            this.DragoonBuffGroup.Controls.Add(this.DragoonBloodForBlood);
+            this.DragoonBuffGroup.Controls.Add(this.DragoonLifeSurge);
+            this.DragoonBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBuffGroup.Location = new System.Drawing.Point(218, 101);
+            this.DragoonBuffGroup.Name = "DragoonBuffGroup";
+            this.DragoonBuffGroup.Size = new System.Drawing.Size(125, 66);
+            this.DragoonBuffGroup.TabIndex = 2;
+            this.DragoonBuffGroup.TabStop = false;
+            this.DragoonBuffGroup.Text = "Buff";
             // 
-            // AstrologianAspHeliosPct
+            // DragoonTrueNorth
             // 
-            this.AstrologianAspHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianAspHeliosPct.Location = new System.Drawing.Point(123, 154);
-            this.AstrologianAspHeliosPct.Name = "AstrologianAspHeliosPct";
-            this.AstrologianAspHeliosPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianAspHeliosPct.TabIndex = 12;
-            this.AstrologianAspHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianAspHeliosPct_ValueChanged);
+            this.DragoonTrueNorth.AutoSize = true;
+            this.DragoonTrueNorth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonTrueNorth.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonTrueNorth.ForeColor = System.Drawing.Color.White;
+            this.DragoonTrueNorth.Location = new System.Drawing.Point(6, 223);
+            this.DragoonTrueNorth.Name = "DragoonTrueNorth";
+            this.DragoonTrueNorth.Size = new System.Drawing.Size(77, 17);
+            this.DragoonTrueNorth.TabIndex = 19;
+            this.DragoonTrueNorth.TabStop = false;
+            this.DragoonTrueNorth.Text = "True North";
+            this.DragoonTrueNorth.UseVisualStyleBackColor = true;
+            this.DragoonTrueNorth.CheckedChanged += new System.EventHandler(this.DragoonTrueNorth_CheckedChanged);
+            // 
+            // DragoonCrutch
+            // 
+            this.DragoonCrutch.AutoCheck = false;
+            this.DragoonCrutch.AutoSize = true;
+            this.DragoonCrutch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonCrutch.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonCrutch.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonCrutch.Location = new System.Drawing.Point(6, 200);
+            this.DragoonCrutch.Name = "DragoonCrutch";
+            this.DragoonCrutch.Size = new System.Drawing.Size(57, 17);
+            this.DragoonCrutch.TabIndex = 18;
+            this.DragoonCrutch.TabStop = false;
+            this.DragoonCrutch.Text = "Crutch";
+            this.DragoonCrutch.UseVisualStyleBackColor = true;
+            // 
+            // DragoonFeint
+            // 
+            this.DragoonFeint.AutoCheck = false;
+            this.DragoonFeint.AutoSize = true;
+            this.DragoonFeint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonFeint.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonFeint.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonFeint.Location = new System.Drawing.Point(6, 177);
+            this.DragoonFeint.Name = "DragoonFeint";
+            this.DragoonFeint.Size = new System.Drawing.Size(49, 17);
+            this.DragoonFeint.TabIndex = 17;
+            this.DragoonFeint.TabStop = false;
+            this.DragoonFeint.Text = "Feint";
+            this.DragoonFeint.UseVisualStyleBackColor = true;
+            // 
+            // DragoonGoad
+            // 
+            this.DragoonGoad.AutoCheck = false;
+            this.DragoonGoad.AutoSize = true;
+            this.DragoonGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonGoad.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonGoad.Location = new System.Drawing.Point(6, 154);
+            this.DragoonGoad.Name = "DragoonGoad";
+            this.DragoonGoad.Size = new System.Drawing.Size(51, 17);
+            this.DragoonGoad.TabIndex = 16;
+            this.DragoonGoad.TabStop = false;
+            this.DragoonGoad.Text = "Goad";
+            this.DragoonGoad.UseVisualStyleBackColor = true;
+            // 
+            // DragoonBloodbath
+            // 
+            this.DragoonBloodbath.AutoSize = true;
+            this.DragoonBloodbath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodbath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodbath.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodbath.Location = new System.Drawing.Point(6, 131);
+            this.DragoonBloodbath.Name = "DragoonBloodbath";
+            this.DragoonBloodbath.Size = new System.Drawing.Size(78, 17);
+            this.DragoonBloodbath.TabIndex = 15;
+            this.DragoonBloodbath.TabStop = false;
+            this.DragoonBloodbath.Text = "Bloodbath";
+            this.DragoonBloodbath.UseVisualStyleBackColor = true;
+            this.DragoonBloodbath.CheckedChanged += new System.EventHandler(this.DragoonBloodbath_CheckedChanged);
+            // 
+            // DragoonInvigorate
+            // 
+            this.DragoonInvigorate.AutoSize = true;
+            this.DragoonInvigorate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonInvigorate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonInvigorate.ForeColor = System.Drawing.Color.White;
+            this.DragoonInvigorate.Location = new System.Drawing.Point(6, 108);
+            this.DragoonInvigorate.Name = "DragoonInvigorate";
+            this.DragoonInvigorate.Size = new System.Drawing.Size(75, 17);
+            this.DragoonInvigorate.TabIndex = 14;
+            this.DragoonInvigorate.TabStop = false;
+            this.DragoonInvigorate.Text = "Invigorate";
+            this.DragoonInvigorate.UseVisualStyleBackColor = true;
+            this.DragoonInvigorate.CheckedChanged += new System.EventHandler(this.DragoonInvigorate_CheckedChanged);
+            // 
+            // DragoonDiversion
+            // 
+            this.DragoonDiversion.AutoCheck = false;
+            this.DragoonDiversion.AutoSize = true;
+            this.DragoonDiversion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonDiversion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonDiversion.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonDiversion.Location = new System.Drawing.Point(6, 85);
+            this.DragoonDiversion.Name = "DragoonDiversion";
+            this.DragoonDiversion.Size = new System.Drawing.Size(71, 17);
+            this.DragoonDiversion.TabIndex = 13;
+            this.DragoonDiversion.TabStop = false;
+            this.DragoonDiversion.Text = "Diversion";
+            this.DragoonDiversion.UseVisualStyleBackColor = true;
+            // 
+            // DragoonLegSweep
+            // 
+            this.DragoonLegSweep.AutoCheck = false;
+            this.DragoonLegSweep.AutoSize = true;
+            this.DragoonLegSweep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonLegSweep.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonLegSweep.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonLegSweep.Location = new System.Drawing.Point(6, 62);
+            this.DragoonLegSweep.Name = "DragoonLegSweep";
+            this.DragoonLegSweep.Size = new System.Drawing.Size(78, 17);
+            this.DragoonLegSweep.TabIndex = 12;
+            this.DragoonLegSweep.TabStop = false;
+            this.DragoonLegSweep.Text = "Leg Sweep";
+            this.DragoonLegSweep.UseVisualStyleBackColor = true;
+            // 
+            // DragoonArmsLength
+            // 
+            this.DragoonArmsLength.AutoCheck = false;
+            this.DragoonArmsLength.AutoSize = true;
+            this.DragoonArmsLength.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonArmsLength.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonArmsLength.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonArmsLength.Location = new System.Drawing.Point(6, 39);
+            this.DragoonArmsLength.Name = "DragoonArmsLength";
+            this.DragoonArmsLength.Size = new System.Drawing.Size(90, 17);
+            this.DragoonArmsLength.TabIndex = 11;
+            this.DragoonArmsLength.TabStop = false;
+            this.DragoonArmsLength.Text = "Arm\'s Length";
+            this.DragoonArmsLength.UseVisualStyleBackColor = true;
+            // 
+            // DragoonSecondWind
+            // 
+            this.DragoonSecondWind.AutoSize = true;
+            this.DragoonSecondWind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonSecondWind.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonSecondWind.ForeColor = System.Drawing.Color.White;
+            this.DragoonSecondWind.Location = new System.Drawing.Point(6, 16);
+            this.DragoonSecondWind.Name = "DragoonSecondWind";
+            this.DragoonSecondWind.Size = new System.Drawing.Size(92, 17);
+            this.DragoonSecondWind.TabIndex = 10;
+            this.DragoonSecondWind.TabStop = false;
+            this.DragoonSecondWind.Text = "Second Wind";
+            this.DragoonSecondWind.UseVisualStyleBackColor = true;
+            this.DragoonSecondWind.CheckedChanged += new System.EventHandler(this.DragoonSecondWind_CheckedChanged);
+            // 
+            // DragoonJump
+            // 
+            this.DragoonJump.AutoSize = true;
+            this.DragoonJump.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonJump.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonJump.ForeColor = System.Drawing.Color.White;
+            this.DragoonJump.Location = new System.Drawing.Point(6, 16);
+            this.DragoonJump.Name = "DragoonJump";
+            this.DragoonJump.Size = new System.Drawing.Size(50, 17);
+            this.DragoonJump.TabIndex = 0;
+            this.DragoonJump.TabStop = false;
+            this.DragoonJump.Text = "Jump";
+            this.DragoonJump.UseVisualStyleBackColor = true;
+            this.DragoonJump.CheckedChanged += new System.EventHandler(this.DragoonJump_CheckedChanged);
+            // 
+            // DragoonSpineshatter
+            // 
+            this.DragoonSpineshatter.AutoSize = true;
+            this.DragoonSpineshatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonSpineshatter.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonSpineshatter.ForeColor = System.Drawing.Color.White;
+            this.DragoonSpineshatter.Location = new System.Drawing.Point(6, 39);
+            this.DragoonSpineshatter.Name = "DragoonSpineshatter";
+            this.DragoonSpineshatter.Size = new System.Drawing.Size(113, 17);
+            this.DragoonSpineshatter.TabIndex = 1;
+            this.DragoonSpineshatter.TabStop = false;
+            this.DragoonSpineshatter.Text = "Spineshatter Dive";
+            this.DragoonSpineshatter.UseVisualStyleBackColor = true;
+            this.DragoonSpineshatter.CheckedChanged += new System.EventHandler(this.DragoonSpineshatter_CheckedChanged);
+            // 
+            // DragoonDragonfire
+            // 
+            this.DragoonDragonfire.AutoSize = true;
+            this.DragoonDragonfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonDragonfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonDragonfire.ForeColor = System.Drawing.Color.White;
+            this.DragoonDragonfire.Location = new System.Drawing.Point(6, 62);
+            this.DragoonDragonfire.Name = "DragoonDragonfire";
+            this.DragoonDragonfire.Size = new System.Drawing.Size(104, 17);
+            this.DragoonDragonfire.TabIndex = 2;
+            this.DragoonDragonfire.TabStop = false;
+            this.DragoonDragonfire.Text = "Dragonfire Dive";
+            this.DragoonDragonfire.UseVisualStyleBackColor = true;
+            this.DragoonDragonfire.CheckedChanged += new System.EventHandler(this.DragoonDragonfire_CheckedChanged);
+            // 
+            // DragoonLifeSurge
+            // 
+            this.DragoonLifeSurge.AutoSize = true;
+            this.DragoonLifeSurge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonLifeSurge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonLifeSurge.ForeColor = System.Drawing.Color.White;
+            this.DragoonLifeSurge.Location = new System.Drawing.Point(6, 16);
+            this.DragoonLifeSurge.Name = "DragoonLifeSurge";
+            this.DragoonLifeSurge.Size = new System.Drawing.Size(74, 17);
+            this.DragoonLifeSurge.TabIndex = 0;
+            this.DragoonLifeSurge.TabStop = false;
+            this.DragoonLifeSurge.Text = "Life Surge";
+            this.DragoonLifeSurge.UseVisualStyleBackColor = true;
+            this.DragoonLifeSurge.CheckedChanged += new System.EventHandler(this.DragoonLifeSurge_CheckedChanged);
+            // 
+            // DragoonBloodForBlood
+            // 
+            this.DragoonBloodForBlood.AutoSize = true;
+            this.DragoonBloodForBlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodForBlood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodForBlood.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodForBlood.Location = new System.Drawing.Point(6, 39);
+            this.DragoonBloodForBlood.Name = "DragoonBloodForBlood";
+            this.DragoonBloodForBlood.Size = new System.Drawing.Size(106, 17);
+            this.DragoonBloodForBlood.TabIndex = 1;
+            this.DragoonBloodForBlood.TabStop = false;
+            this.DragoonBloodForBlood.Text = "Blood for Blood";
+            this.DragoonBloodForBlood.UseVisualStyleBackColor = true;
+            this.DragoonBloodForBlood.CheckedChanged += new System.EventHandler(this.DragoonBloodForBlood_CheckedChanged);
+            // 
+            // DragoonSecondWindPct
+            // 
+            this.DragoonSecondWindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonSecondWindPct.Location = new System.Drawing.Point(104, 16);
+            this.DragoonSecondWindPct.Name = "DragoonSecondWindPct";
+            this.DragoonSecondWindPct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonSecondWindPct.TabIndex = 20;
+            this.DragoonSecondWindPct.ValueChanged += new System.EventHandler(this.DragoonSecondWindPct_ValueChanged);
+            // 
+            // DragoonInvigoratePct
+            // 
+            this.DragoonInvigoratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonInvigoratePct.Location = new System.Drawing.Point(104, 108);
+            this.DragoonInvigoratePct.Name = "DragoonInvigoratePct";
+            this.DragoonInvigoratePct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonInvigoratePct.TabIndex = 21;
+            this.DragoonInvigoratePct.ValueChanged += new System.EventHandler(this.DragoonInvigoratePct_ValueChanged);
+            // 
+            // DragoonBloodbathPct
+            // 
+            this.DragoonBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonBloodbathPct.Location = new System.Drawing.Point(104, 131);
+            this.DragoonBloodbathPct.Name = "DragoonBloodbathPct";
+            this.DragoonBloodbathPct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonBloodbathPct.TabIndex = 22;
+            this.DragoonBloodbathPct.ValueChanged += new System.EventHandler(this.DragoonBloodbathPct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -3345,7 +3659,6 @@
             this.pgeMelee.ResumeLayout(false);
             this.tabMelee.ResumeLayout(false);
             this.pgeDragoon.ResumeLayout(false);
-            this.pgeDragoon.PerformLayout();
             this.pgeMonk.ResumeLayout(false);
             this.pgeMonk.PerformLayout();
             this.pgeNinja.ResumeLayout(false);
@@ -3390,6 +3703,12 @@
             this.PaladinRoleGroup.PerformLayout();
             this.pgeWarrior.ResumeLayout(false);
             this.pgeWarrior.PerformLayout();
+            this.DragoonRoleGroup.ResumeLayout(false);
+            this.DragoonRoleGroup.PerformLayout();
+            this.DragoonCooldownGroup.ResumeLayout(false);
+            this.DragoonCooldownGroup.PerformLayout();
+            this.DragoonBuffGroup.ResumeLayout(false);
+            this.DragoonBuffGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3478,7 +3797,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -3609,5 +3927,26 @@
         private Design.UserNumeric AstrologianHeliosPct;
         private Design.CustomCheck AstrologianAspHelios;
         private Design.CustomCheck AstrologianHelios;
+        private Design.CustomGroup DragoonBuffGroup;
+        private Design.CustomCheck DragoonBloodForBlood;
+        private Design.CustomCheck DragoonLifeSurge;
+        private Design.CustomGroup DragoonCooldownGroup;
+        private Design.CustomCheck DragoonDragonfire;
+        private Design.CustomCheck DragoonSpineshatter;
+        private Design.CustomCheck DragoonJump;
+        private Design.CustomGroup DragoonRoleGroup;
+        private Design.CustomCheck DragoonTrueNorth;
+        private Design.CustomCheckDisabled DragoonCrutch;
+        private Design.CustomCheckDisabled DragoonFeint;
+        private Design.CustomCheckDisabled DragoonGoad;
+        private Design.CustomCheck DragoonBloodbath;
+        private Design.CustomCheck DragoonInvigorate;
+        private Design.CustomCheckDisabled DragoonDiversion;
+        private Design.CustomCheckDisabled DragoonLegSweep;
+        private Design.CustomCheckDisabled DragoonArmsLength;
+        private Design.CustomCheck DragoonSecondWind;
+        private Design.UserNumeric DragoonBloodbathPct;
+        private Design.UserNumeric DragoonInvigoratePct;
+        private Design.UserNumeric DragoonSecondWindPct;
     }
 }

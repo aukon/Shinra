@@ -15,7 +15,7 @@ namespace ShinraCo.Rotations
 
         private int _heavyCount;
 
-        #region  Damage
+        #region Damage
 
         private async Task<bool> HeavyShot()
         {

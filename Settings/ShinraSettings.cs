@@ -256,6 +256,58 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Dragoon
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonSecondWind { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonInvigorate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonBloodbath { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonTrueNorth { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int DragoonSecondWindPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int DragoonInvigoratePct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int DragoonBloodbathPct { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonJump { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonSpineshatter { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonDragonfire { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonLifeSurge { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonBloodForBlood { get; set; }
+
+        #endregion
+
+        #endregion
+
         #region Paladin
 
         #region Role

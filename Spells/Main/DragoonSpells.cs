@@ -86,12 +86,77 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
-        // Disembowel
-        // Chaos Thrust
+        public Spell Disembowel { get; } = new Spell
+        {
+            Name = "Disembowel",
+            ID = 87,
+            Level = 38,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell ChaosThrust { get; } = new Spell
+        {
+            Name = "Chaos Thrust",
+            ID = 88,
+            Level = 50,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
     }
 
     public class DragoonSpells : LancerSpells
     {
-        
+        public Spell Jump { get; } = new Spell
+        {
+            Name = "Jump",
+            ID = 92,
+            Level = 30,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell ElusiveJump { get; } = new Spell
+        {
+            Name = "Elusive Jump",
+            ID = 94,
+            Level = 35,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell DoomSpike { get; } = new Spell
+        {
+            Name = "Doom Spike",
+            ID = 86,
+            Level = 40,
+            GCDType = GCDType.On,
+            SpellType = SpellType.AoE,
+            CastType = CastType.Target
+        };
+
+        public Spell SpineshatterDive { get; } = new Spell
+        {
+            Name = "Spineshatter Dive",
+            ID = 95,
+            Level = 45,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell DragonfireDive { get; } = new Spell
+        {
+            Name = "Dragonfire Dive",
+            ID = 96,
+            Level = 50,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
     }
 }
