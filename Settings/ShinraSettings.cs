@@ -139,16 +139,25 @@ namespace ShinraCo.Settings
         #region Heal
 
         [Setting, DefaultValue(true)]
+        public bool AstrologianPartyHeal { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool AstrologianBenefic { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool AstrologianBeneficII { get; set; }
 
         [Setting, DefaultValue(true)]
-        public bool AstrologianEssentialDignity { get; set; }
+        public bool AstrologianEssDignity { get; set; }
 
         [Setting, DefaultValue(true)]
-        public bool AstrologianAspectedBenefic { get; set; }
+        public bool AstrologianAspBenefic { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianHelios { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianAspHelios { get; set; }
 
         [Setting, DefaultValue(50)]
         public int AstrologianBeneficPct { get; set; }
@@ -157,10 +166,16 @@ namespace ShinraCo.Settings
         public int AstrologianBeneficIIPct { get; set; }
 
         [Setting, DefaultValue(30)]
-        public int AstrologianEssentialDignityPct { get; set; }
+        public int AstrologianEssDignityPct { get; set; }
 
         [Setting, DefaultValue(70)]
-        public int AstrologianAspectedBeneficPct { get; set; }
+        public int AstrologianAspBeneficPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int AstrologianHeliosPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int AstrologianAspHeliosPct { get; set; }
 
         #endregion
 

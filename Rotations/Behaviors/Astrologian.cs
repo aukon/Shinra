@@ -68,6 +68,8 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.UsePotion()) return true;
             if (await EssentialDignity()) return true;
+            if (await AspectedHelios()) return true;
+            if (await Helios()) return true;
             if (await BeneficII()) return true;
             if (await Benefic()) return true;
             return await AspectedBenefic();

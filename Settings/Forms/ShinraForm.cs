@@ -97,15 +97,20 @@ namespace ShinraCo.Settings.Forms
 
             #region Heal
 
+            AstrologianPartyHeal.Checked = Shinra.Settings.AstrologianPartyHeal;
             AstrologianBenefic.Checked = Shinra.Settings.AstrologianBenefic;
             AstrologianBeneficII.Checked = Shinra.Settings.AstrologianBeneficII;
-            AstrologianEssentialDignity.Checked = Shinra.Settings.AstrologianEssentialDignity;
-            AstrologianAspectedBenefic.Checked = Shinra.Settings.AstrologianAspectedBenefic;
+            AstrologianEssDignity.Checked = Shinra.Settings.AstrologianEssDignity;
+            AstrologianAspBenefic.Checked = Shinra.Settings.AstrologianAspBenefic;
+            AstrologianHelios.Checked = Shinra.Settings.AstrologianHelios;
+            AstrologianAspHelios.Checked = Shinra.Settings.AstrologianAspHelios;
 
             AstrologianBeneficPct.Value = Shinra.Settings.AstrologianBeneficPct;
             AstrologianBeneficIIPct.Value = Shinra.Settings.AstrologianBeneficIIPct;
-            AstrologianEssentialDignityPct.Value = Shinra.Settings.AstrologianEssentialDignityPct;
-            AstrologianAspectedBeneficPct.Value = Shinra.Settings.AstrologianAspectedBeneficPct;
+            AstrologianEssDignityPct.Value = Shinra.Settings.AstrologianEssDignityPct;
+            AstrologianAspBeneficPct.Value = Shinra.Settings.AstrologianAspBeneficPct;
+            AstrologianHeliosPct.Value = Shinra.Settings.AstrologianHeliosPct;
+            AstrologianAspHeliosPct.Value = Shinra.Settings.AstrologianAspHeliosPct;
 
             #endregion
 
@@ -485,6 +490,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Heal
 
+        private void AstrologianPartyHeal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianPartyHeal = AstrologianPartyHeal.Checked;
+        }
+
         private void AstrologianBenefic_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianBenefic = AstrologianBenefic.Checked;
@@ -495,14 +505,24 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.AstrologianBeneficII = AstrologianBeneficII.Checked;
         }
 
-        private void AstrologianEssentialDignity_CheckedChanged(object sender, EventArgs e)
+        private void AstrologianEssDignity_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.AstrologianEssentialDignity = AstrologianEssentialDignity.Checked;
+            Shinra.Settings.AstrologianEssDignity = AstrologianEssDignity.Checked;
         }
 
-        private void AstrologianAspectedBenefic_CheckedChanged(object sender, EventArgs e)
+        private void AstrologianAspBenefic_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.AstrologianAspectedBenefic = AstrologianAspectedBenefic.Checked;
+            Shinra.Settings.AstrologianAspBenefic = AstrologianAspBenefic.Checked;
+        }
+
+        private void AstrologianHelios_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianHelios = AstrologianHelios.Checked;
+        }
+
+        private void AstrologianAspHelios_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianAspHelios = AstrologianAspHelios.Checked;
         }
 
         private void AstrologianBeneficPct_ValueChanged(object sender, EventArgs e)
@@ -515,14 +535,24 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.AstrologianBeneficIIPct = Convert.ToInt32(AstrologianBeneficIIPct.Value);
         }
 
-        private void AstrologianEssentialDignityPct_ValueChanged(object sender, EventArgs e)
+        private void AstrologianEssDignityPct_ValueChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.AstrologianEssentialDignityPct = Convert.ToInt32(AstrologianEssentialDignityPct.Value);
+            Shinra.Settings.AstrologianEssDignityPct = Convert.ToInt32(AstrologianEssDignityPct.Value);
         }
 
-        private void AstrologianAspectedBeneficPct_ValueChanged(object sender, EventArgs e)
+        private void AstrologianAspBeneficPct_ValueChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.AstrologianAspectedBeneficPct = Convert.ToInt32(AstrologianAspectedBeneficPct.Value);
+            Shinra.Settings.AstrologianAspBeneficPct = Convert.ToInt32(AstrologianAspBeneficPct.Value);
+        }
+
+        private void AstrologianHeliosPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianHeliosPct = Convert.ToInt32(AstrologianHeliosPct.Value);
+        }
+
+        private void AstrologianAspHeliosPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianAspHeliosPct = Convert.ToInt32(AstrologianAspHeliosPct.Value);
         }
 
         #endregion

@@ -107,12 +107,13 @@
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.AstrologianAspectedBeneficPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianEssentialDignityPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianPartyHeal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianAspBeneficPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianEssDignityPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianBeneficIIPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianBeneficPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianAspectedBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianEssentialDignity = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianAspBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianEssDignity = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBeneficII = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -236,6 +237,10 @@
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
+            this.AstrologianHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianAspHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianAspHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1345,7 +1350,7 @@
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(229, 246);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(347, 6);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
             this.AstrologianSectGroup.Size = new System.Drawing.Size(112, 43);
             this.AstrologianSectGroup.TabIndex = 3;
@@ -1375,7 +1380,7 @@
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 174);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 243);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
             this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 66);
             this.AstrologianCardGroup.TabIndex = 2;
@@ -1414,44 +1419,64 @@
             // 
             // AstrologianHealGroup
             // 
-            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspectedBeneficPct);
-            this.AstrologianHealGroup.Controls.Add(this.AstrologianEssentialDignityPct);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspHeliosPct);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianHeliosPct);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspHelios);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianHelios);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianPartyHeal);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspBeneficPct);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianEssDignityPct);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBeneficIIPct);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBeneficPct);
-            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspectedBenefic);
-            this.AstrologianHealGroup.Controls.Add(this.AstrologianEssentialDignity);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianAspBenefic);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianEssDignity);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBeneficII);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBenefic);
             this.AstrologianHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 55);
             this.AstrologianHealGroup.Name = "AstrologianHealGroup";
-            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 113);
+            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 182);
             this.AstrologianHealGroup.TabIndex = 1;
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
             // 
-            // AstrologianAspectedBeneficPct
+            // AstrologianPartyHeal
             // 
-            this.AstrologianAspectedBeneficPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianAspectedBeneficPct.Location = new System.Drawing.Point(123, 85);
-            this.AstrologianAspectedBeneficPct.Name = "AstrologianAspectedBeneficPct";
-            this.AstrologianAspectedBeneficPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianAspectedBeneficPct.TabIndex = 7;
-            this.AstrologianAspectedBeneficPct.ValueChanged += new System.EventHandler(this.AstrologianAspectedBeneficPct_ValueChanged);
+            this.AstrologianPartyHeal.AutoSize = true;
+            this.AstrologianPartyHeal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianPartyHeal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianPartyHeal.ForeColor = System.Drawing.Color.White;
+            this.AstrologianPartyHeal.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianPartyHeal.Name = "AstrologianPartyHeal";
+            this.AstrologianPartyHeal.Size = new System.Drawing.Size(91, 17);
+            this.AstrologianPartyHeal.TabIndex = 8;
+            this.AstrologianPartyHeal.TabStop = false;
+            this.AstrologianPartyHeal.Text = "Party Healing";
+            this.AstrologianPartyHeal.UseVisualStyleBackColor = true;
+            this.AstrologianPartyHeal.CheckedChanged += new System.EventHandler(this.AstrologianPartyHeal_CheckedChanged);
             // 
-            // AstrologianEssentialDignityPct
+            // AstrologianAspBeneficPct
             // 
-            this.AstrologianEssentialDignityPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianEssentialDignityPct.Location = new System.Drawing.Point(123, 62);
-            this.AstrologianEssentialDignityPct.Name = "AstrologianEssentialDignityPct";
-            this.AstrologianEssentialDignityPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianEssentialDignityPct.TabIndex = 6;
-            this.AstrologianEssentialDignityPct.ValueChanged += new System.EventHandler(this.AstrologianEssentialDignityPct_ValueChanged);
+            this.AstrologianAspBeneficPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianAspBeneficPct.Location = new System.Drawing.Point(123, 108);
+            this.AstrologianAspBeneficPct.Name = "AstrologianAspBeneficPct";
+            this.AstrologianAspBeneficPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianAspBeneficPct.TabIndex = 7;
+            this.AstrologianAspBeneficPct.ValueChanged += new System.EventHandler(this.AstrologianAspBeneficPct_ValueChanged);
+            // 
+            // AstrologianEssDignityPct
+            // 
+            this.AstrologianEssDignityPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianEssDignityPct.Location = new System.Drawing.Point(123, 85);
+            this.AstrologianEssDignityPct.Name = "AstrologianEssDignityPct";
+            this.AstrologianEssDignityPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianEssDignityPct.TabIndex = 6;
+            this.AstrologianEssDignityPct.ValueChanged += new System.EventHandler(this.AstrologianEssDignityPct_ValueChanged);
             // 
             // AstrologianBeneficIIPct
             // 
             this.AstrologianBeneficIIPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianBeneficIIPct.Location = new System.Drawing.Point(123, 39);
+            this.AstrologianBeneficIIPct.Location = new System.Drawing.Point(123, 62);
             this.AstrologianBeneficIIPct.Name = "AstrologianBeneficIIPct";
             this.AstrologianBeneficIIPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficIIPct.TabIndex = 5;
@@ -1460,41 +1485,41 @@
             // AstrologianBeneficPct
             // 
             this.AstrologianBeneficPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianBeneficPct.Location = new System.Drawing.Point(123, 16);
+            this.AstrologianBeneficPct.Location = new System.Drawing.Point(123, 39);
             this.AstrologianBeneficPct.Name = "AstrologianBeneficPct";
             this.AstrologianBeneficPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficPct.TabIndex = 4;
             this.AstrologianBeneficPct.ValueChanged += new System.EventHandler(this.AstrologianBeneficPct_ValueChanged);
             // 
-            // AstrologianAspectedBenefic
+            // AstrologianAspBenefic
             // 
-            this.AstrologianAspectedBenefic.AutoSize = true;
-            this.AstrologianAspectedBenefic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianAspectedBenefic.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianAspectedBenefic.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAspectedBenefic.Location = new System.Drawing.Point(6, 85);
-            this.AstrologianAspectedBenefic.Name = "AstrologianAspectedBenefic";
-            this.AstrologianAspectedBenefic.Size = new System.Drawing.Size(111, 17);
-            this.AstrologianAspectedBenefic.TabIndex = 3;
-            this.AstrologianAspectedBenefic.TabStop = false;
-            this.AstrologianAspectedBenefic.Text = "Aspected Benefic";
-            this.AstrologianAspectedBenefic.UseVisualStyleBackColor = true;
-            this.AstrologianAspectedBenefic.CheckedChanged += new System.EventHandler(this.AstrologianAspectedBenefic_CheckedChanged);
+            this.AstrologianAspBenefic.AutoSize = true;
+            this.AstrologianAspBenefic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianAspBenefic.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAspBenefic.ForeColor = System.Drawing.Color.White;
+            this.AstrologianAspBenefic.Location = new System.Drawing.Point(6, 108);
+            this.AstrologianAspBenefic.Name = "AstrologianAspBenefic";
+            this.AstrologianAspBenefic.Size = new System.Drawing.Size(111, 17);
+            this.AstrologianAspBenefic.TabIndex = 3;
+            this.AstrologianAspBenefic.TabStop = false;
+            this.AstrologianAspBenefic.Text = "Aspected Benefic";
+            this.AstrologianAspBenefic.UseVisualStyleBackColor = true;
+            this.AstrologianAspBenefic.CheckedChanged += new System.EventHandler(this.AstrologianAspBenefic_CheckedChanged);
             // 
-            // AstrologianEssentialDignity
+            // AstrologianEssDignity
             // 
-            this.AstrologianEssentialDignity.AutoSize = true;
-            this.AstrologianEssentialDignity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianEssentialDignity.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianEssentialDignity.ForeColor = System.Drawing.Color.White;
-            this.AstrologianEssentialDignity.Location = new System.Drawing.Point(6, 62);
-            this.AstrologianEssentialDignity.Name = "AstrologianEssentialDignity";
-            this.AstrologianEssentialDignity.Size = new System.Drawing.Size(108, 17);
-            this.AstrologianEssentialDignity.TabIndex = 2;
-            this.AstrologianEssentialDignity.TabStop = false;
-            this.AstrologianEssentialDignity.Text = "Essential Dignity";
-            this.AstrologianEssentialDignity.UseVisualStyleBackColor = true;
-            this.AstrologianEssentialDignity.CheckedChanged += new System.EventHandler(this.AstrologianEssentialDignity_CheckedChanged);
+            this.AstrologianEssDignity.AutoSize = true;
+            this.AstrologianEssDignity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianEssDignity.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianEssDignity.ForeColor = System.Drawing.Color.White;
+            this.AstrologianEssDignity.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianEssDignity.Name = "AstrologianEssDignity";
+            this.AstrologianEssDignity.Size = new System.Drawing.Size(108, 17);
+            this.AstrologianEssDignity.TabIndex = 2;
+            this.AstrologianEssDignity.TabStop = false;
+            this.AstrologianEssDignity.Text = "Essential Dignity";
+            this.AstrologianEssDignity.UseVisualStyleBackColor = true;
+            this.AstrologianEssDignity.CheckedChanged += new System.EventHandler(this.AstrologianEssDignity_CheckedChanged);
             // 
             // AstrologianBeneficII
             // 
@@ -1502,7 +1527,7 @@
             this.AstrologianBeneficII.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianBeneficII.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianBeneficII.ForeColor = System.Drawing.Color.White;
-            this.AstrologianBeneficII.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianBeneficII.Location = new System.Drawing.Point(6, 62);
             this.AstrologianBeneficII.Name = "AstrologianBeneficII";
             this.AstrologianBeneficII.Size = new System.Drawing.Size(70, 17);
             this.AstrologianBeneficII.TabIndex = 1;
@@ -1517,7 +1542,7 @@
             this.AstrologianBenefic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianBenefic.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianBenefic.ForeColor = System.Drawing.Color.White;
-            this.AstrologianBenefic.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianBenefic.Location = new System.Drawing.Point(6, 39);
             this.AstrologianBenefic.Name = "AstrologianBenefic";
             this.AstrologianBenefic.Size = new System.Drawing.Size(61, 17);
             this.AstrologianBenefic.TabIndex = 0;
@@ -3211,6 +3236,54 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "N/A";
             // 
+            // AstrologianHelios
+            // 
+            this.AstrologianHelios.AutoSize = true;
+            this.AstrologianHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianHelios.ForeColor = System.Drawing.Color.White;
+            this.AstrologianHelios.Location = new System.Drawing.Point(6, 131);
+            this.AstrologianHelios.Name = "AstrologianHelios";
+            this.AstrologianHelios.Size = new System.Drawing.Size(55, 17);
+            this.AstrologianHelios.TabIndex = 9;
+            this.AstrologianHelios.TabStop = false;
+            this.AstrologianHelios.Text = "Helios";
+            this.AstrologianHelios.UseVisualStyleBackColor = true;
+            this.AstrologianHelios.CheckedChanged += new System.EventHandler(this.AstrologianHelios_CheckedChanged);
+            // 
+            // AstrologianAspHelios
+            // 
+            this.AstrologianAspHelios.AutoSize = true;
+            this.AstrologianAspHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianAspHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAspHelios.ForeColor = System.Drawing.Color.White;
+            this.AstrologianAspHelios.Location = new System.Drawing.Point(6, 154);
+            this.AstrologianAspHelios.Name = "AstrologianAspHelios";
+            this.AstrologianAspHelios.Size = new System.Drawing.Size(105, 17);
+            this.AstrologianAspHelios.TabIndex = 10;
+            this.AstrologianAspHelios.TabStop = false;
+            this.AstrologianAspHelios.Text = "Aspected Helios";
+            this.AstrologianAspHelios.UseVisualStyleBackColor = true;
+            this.AstrologianAspHelios.CheckedChanged += new System.EventHandler(this.AstrologianAspHelios_CheckedChanged);
+            // 
+            // AstrologianHeliosPct
+            // 
+            this.AstrologianHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianHeliosPct.Location = new System.Drawing.Point(123, 131);
+            this.AstrologianHeliosPct.Name = "AstrologianHeliosPct";
+            this.AstrologianHeliosPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianHeliosPct.TabIndex = 11;
+            this.AstrologianHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianHeliosPct_ValueChanged);
+            // 
+            // AstrologianAspHeliosPct
+            // 
+            this.AstrologianAspHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianAspHeliosPct.Location = new System.Drawing.Point(123, 154);
+            this.AstrologianAspHeliosPct.Name = "AstrologianAspHeliosPct";
+            this.AstrologianAspHeliosPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianAspHeliosPct.TabIndex = 12;
+            this.AstrologianAspHeliosPct.ValueChanged += new System.EventHandler(this.AstrologianAspHeliosPct_ValueChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3514,12 +3587,12 @@
         private Design.CustomGroup AstrologianHealGroup;
         private Design.CustomCombo AstrologianSect;
         private Design.CustomCheck AstrologianDraw;
-        private Design.CustomCheck AstrologianAspectedBenefic;
-        private Design.CustomCheck AstrologianEssentialDignity;
+        private Design.CustomCheck AstrologianAspBenefic;
+        private Design.CustomCheck AstrologianEssDignity;
         private Design.CustomCheck AstrologianBeneficII;
         private Design.CustomCheck AstrologianBenefic;
-        private Design.UserNumeric AstrologianAspectedBeneficPct;
-        private Design.UserNumeric AstrologianEssentialDignityPct;
+        private Design.UserNumeric AstrologianAspBeneficPct;
+        private Design.UserNumeric AstrologianEssDignityPct;
         private Design.UserNumeric AstrologianBeneficIIPct;
         private Design.UserNumeric AstrologianBeneficPct;
         private Design.CustomCheck AstrologianSleeveDraw;
@@ -3531,5 +3604,10 @@
         private Design.CustomCheck BardSidewinder;
         private Design.CustomCheck BardSongs;
         private Design.CustomCheck BardBarrage;
+        private Design.CustomCheck AstrologianPartyHeal;
+        private Design.UserNumeric AstrologianAspHeliosPct;
+        private Design.UserNumeric AstrologianHeliosPct;
+        private Design.CustomCheck AstrologianAspHelios;
+        private Design.CustomCheck AstrologianHelios;
     }
 }

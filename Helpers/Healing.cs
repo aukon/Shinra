@@ -26,7 +26,7 @@ namespace ShinraCo
             {
                 return
                     GameObjectManager.GetObjectsOfType<BattleCharacter>(true, true)
-                                     .Where(hm => hm.IsAlive && (PartyMembers.Contains(hm) || hm == Core.Player))
+                                     .Where(hm => hm.IsAlive && (PartyMembers.Contains(hm) || hm == Core.Player || hm == ChocoboManager.Object))
                                      .OrderBy(HPScore);
             }
         }
