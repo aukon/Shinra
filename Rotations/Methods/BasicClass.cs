@@ -121,7 +121,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StraightShot()
         {
-            if (!Core.Player.HasAura("Straight Shot", true, 4000) || Core.Player.HasAura("Straighter Shot"))
+            if (!Core.Player.HasAura(MySpells.Archer.StraightShot.Name, true, 4000) || Core.Player.HasAura("Straighter Shot"))
             {
                 return await MySpells.Archer.StraightShot.Cast();
             }
@@ -139,8 +139,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> VenomousBite()
         {
-            if (!Core.Player.CurrentTarget.HasAura("Venomous Bite", true, 4000) &&
-                Core.Player.CurrentTarget.CurrentHealth > Core.Player.CurrentHealth * 3)
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.Archer.VenomousBite.Name, true, 4000))
             {
                 return await MySpells.Archer.VenomousBite.Cast();
             }

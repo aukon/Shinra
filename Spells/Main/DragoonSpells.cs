@@ -158,5 +158,55 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
+
+        public Spell BattleLitany { get; } = new Spell
+        {
+            Name = "Battle Litany",
+            ID = 3557,
+            Level = 52,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell BloodOfTheDragon { get; } = new Spell
+        {
+            Name = "Blood of the Dragon",
+            ID = 3553,
+            Level = 54,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell FangAndClaw { get; } = new Spell
+        {
+            Name = "Fang and Claw",
+            ID = 3554,
+            Level = 56,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell WheelingThrust { get; } = new Spell
+        {
+            Name = "Wheeling Thrust",
+            ID = 3556,
+            Level = 58,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell Geirskogul { get; } = new Spell
+        {
+            Name = "Geirskogul",
+            ID = 3555,
+            Level = 60,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
     }
 }

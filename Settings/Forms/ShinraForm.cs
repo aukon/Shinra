@@ -181,6 +181,7 @@ namespace ShinraCo.Settings.Forms
             DragoonJump.Checked = Shinra.Settings.DragoonJump;
             DragoonSpineshatter.Checked = Shinra.Settings.DragoonSpineshatter;
             DragoonDragonfire.Checked = Shinra.Settings.DragoonDragonfire;
+            DragoonGeirskogul.Checked = Shinra.Settings.DragoonGeirskogul;
 
             #endregion
 
@@ -188,6 +189,8 @@ namespace ShinraCo.Settings.Forms
 
             DragoonLifeSurge.Checked = Shinra.Settings.DragoonLifeSurge;
             DragoonBloodForBlood.Checked = Shinra.Settings.DragoonBloodForBlood;
+            DragoonBattleLitany.Checked = Shinra.Settings.DragoonBattleLitany;
+            DragoonBloodOfTheDragon.Checked = Shinra.Settings.DragoonBloodOfTheDragon;
 
             #endregion
 
@@ -750,6 +753,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.DragoonDragonfire = DragoonDragonfire.Checked;
         }
 
+        private void DragoonGeirskogul_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonGeirskogul = DragoonGeirskogul.Checked;
+        }
+
         #endregion
 
         #region Buff
@@ -762,6 +770,16 @@ namespace ShinraCo.Settings.Forms
         private void DragoonBloodForBlood_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonBloodForBlood = DragoonBloodForBlood.Checked;
+        }
+
+        private void DragoonBattleLitany_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonBattleLitany = DragoonBattleLitany.Checked;
+        }
+
+        private void DragoonBloodOfTheDragon_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonBloodOfTheDragon = DragoonBloodOfTheDragon.Checked;
         }
 
         #endregion

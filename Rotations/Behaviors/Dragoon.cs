@@ -9,6 +9,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Combat()
         {
             if (await DoomSpike()) return true;
+            if (await WheelingThrust()) return true;
+            if (await FangAndClaw()) return true;
             if (await ChaosThrust()) return true;
             if (await Disembowel()) return true;
             if (await FullThrust()) return true;
@@ -26,9 +28,12 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await TrueNorth()) return true;
+            if (await BloodOfTheDragon()) return true;
             if (await BloodForBlood()) return true;
+            if (await TrueNorth()) return true;
+            if (await BattleLitany()) return true;
             if (await LifeSurge()) return true;
+            if (await Geirskogul()) return true;
             if (await DragonfireDive()) return true;
             if (await SpineshatterDive()) return true;
             if (await Jump()) return true;

@@ -294,6 +294,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool DragoonDragonfire { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool DragoonGeirskogul { get; set; }
+
         #endregion
 
         #region Buff
@@ -303,6 +306,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool DragoonBloodForBlood { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonBattleLitany { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonBloodOfTheDragon { get; set; }
 
         #endregion
 

@@ -40,8 +40,8 @@ namespace ShinraCo.Rotations
         private async Task<bool> ImpulseDrive()
         {
             if (ActionManager.HasSpell(MySpells.ChaosThrust.Name) &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 3000) ||
-                ActionManager.HasSpell(MySpells.Disembowel.Name) && !Core.Player.CurrentTarget.HasAura("Slashing Resistance"))
+                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 6000) ||
+                ActionManager.HasSpell(MySpells.Disembowel.Name) && !Core.Player.CurrentTarget.HasAura(820))
             {
                 return await MySpells.ImpulseDrive.Cast();
             }
@@ -68,11 +68,21 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HeavyThrust()
         {
-            if (!Core.Player.HasAura(MySpells.HeavyThrust.Name, true, 5000))
+            if (!Core.Player.HasAura(MySpells.HeavyThrust.Name, true, 6000))
             {
                 return await MySpells.HeavyThrust.Cast();
             }
             return false;
+        }
+
+        private async Task<bool> FangAndClaw()
+        {
+            return await MySpells.FangAndClaw.Cast();
+        }
+
+        private async Task<bool> WheelingThrust()
+        {
+            return await MySpells.WheelingThrust.Cast();
         }
 
         #endregion
@@ -81,7 +91,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DoomSpike()
         {
-            if (Core.Player.CurrentTPPercent > 30 && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            if (Core.Player.CurrentTPPercent > 30 && Core.Player.HasAura(MySpells.HeavyThrust.Name) && Helpers.EnemiesNearTarget(5) > 2)
             {
                 return await MySpells.DoomSpike.Cast();
             }
@@ -94,7 +104,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Jump()
         {
-            if (Shinra.Settings.DragoonJump && !MovementManager.IsMoving && !RecentJump && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            if (Shinra.Settings.DragoonJump && !MovementManager.IsMoving && !RecentJump && UseJump &&
+                Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
                 return await MySpells.Jump.Cast();
             }
@@ -103,7 +114,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SpineshatterDive()
         {
-            if (Shinra.Settings.DragoonSpineshatter && !MovementManager.IsMoving && !RecentJump &&
+            if (Shinra.Settings.DragoonSpineshatter && !MovementManager.IsMoving && !RecentJump && UseJump &&
                 Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
                 return await MySpells.SpineshatterDive.Cast();
@@ -117,6 +128,15 @@ namespace ShinraCo.Rotations
                 Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
                 return await MySpells.DragonfireDive.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Geirskogul()
+        {
+            if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            {
+                return await MySpells.Geirskogul.Cast();
             }
             return false;
         }
@@ -139,6 +159,25 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.DragoonBloodForBlood)
             {
                 return await MySpells.BloodForBlood.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BattleLitany()
+        {
+            if (Shinra.Settings.DragoonBattleLitany)
+            {
+                return await MySpells.BattleLitany.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BloodOfTheDragon()
+        {
+            if (Shinra.Settings.DragoonBloodOfTheDragon && (ActionManager.LastSpell.Name == MySpells.VorpalThrust.Name ||
+                                                            ActionManager.LastSpell.Name == MySpells.Disembowel.Name))
+            {
+                return await MySpells.BloodOfTheDragon.Cast();
             }
             return false;
         }
@@ -188,6 +227,9 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static bool RecentJump { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Dive") || rs.Contains("Jump")); } }
+
+        private bool UseJump => Core.Player.HasAura(MySpells.BloodOfTheDragon.Name) ||
+                                !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
         #endregion
     }

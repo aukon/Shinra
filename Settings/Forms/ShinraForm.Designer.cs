@@ -139,6 +139,27 @@
             this.pgeMelee = new System.Windows.Forms.TabPage();
             this.tabMelee = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDragoon = new System.Windows.Forms.TabPage();
+            this.DragoonBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonBloodForBlood = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonLifeSurge = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonDragonfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonJump = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonTrueNorth = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonCrutch = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonFeint = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonGoad = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonBloodbath = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonInvigorate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonLegSweep = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DragoonSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMonk = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.pgeNinja = new System.Windows.Forms.TabPage();
@@ -240,27 +261,9 @@
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
-            this.DragoonRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.DragoonCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.DragoonBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.DragoonTrueNorth = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonCrutch = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonFeint = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonGoad = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonBloodbath = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonInvigorate = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonLegSweep = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DragoonSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonJump = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonDragonfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonLifeSurge = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonBloodForBlood = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.DragoonInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.DragoonBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonBattleLitany = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonBloodOfTheDragon = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonGeirskogul = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -293,6 +296,9 @@
             this.pgeMelee.SuspendLayout();
             this.tabMelee.SuspendLayout();
             this.pgeDragoon.SuspendLayout();
+            this.DragoonBuffGroup.SuspendLayout();
+            this.DragoonCooldownGroup.SuspendLayout();
+            this.DragoonRoleGroup.SuspendLayout();
             this.pgeMonk.SuspendLayout();
             this.pgeNinja.SuspendLayout();
             this.pgeSamurai.SuspendLayout();
@@ -319,9 +325,6 @@
             this.PaladinDamageGroup.SuspendLayout();
             this.PaladinRoleGroup.SuspendLayout();
             this.pgeWarrior.SuspendLayout();
-            this.DragoonRoleGroup.SuspendLayout();
-            this.DragoonCooldownGroup.SuspendLayout();
-            this.DragoonBuffGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -1893,6 +1896,309 @@
             this.pgeDragoon.Text = "Dragoon";
             this.pgeDragoon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // DragoonBuffGroup
+            // 
+            this.DragoonBuffGroup.Controls.Add(this.DragoonBloodOfTheDragon);
+            this.DragoonBuffGroup.Controls.Add(this.DragoonBattleLitany);
+            this.DragoonBuffGroup.Controls.Add(this.DragoonBloodForBlood);
+            this.DragoonBuffGroup.Controls.Add(this.DragoonLifeSurge);
+            this.DragoonBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBuffGroup.Location = new System.Drawing.Point(218, 124);
+            this.DragoonBuffGroup.Name = "DragoonBuffGroup";
+            this.DragoonBuffGroup.Size = new System.Drawing.Size(142, 112);
+            this.DragoonBuffGroup.TabIndex = 2;
+            this.DragoonBuffGroup.TabStop = false;
+            this.DragoonBuffGroup.Text = "Buff";
+            // 
+            // DragoonBloodForBlood
+            // 
+            this.DragoonBloodForBlood.AutoSize = true;
+            this.DragoonBloodForBlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodForBlood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodForBlood.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodForBlood.Location = new System.Drawing.Point(6, 39);
+            this.DragoonBloodForBlood.Name = "DragoonBloodForBlood";
+            this.DragoonBloodForBlood.Size = new System.Drawing.Size(106, 17);
+            this.DragoonBloodForBlood.TabIndex = 1;
+            this.DragoonBloodForBlood.TabStop = false;
+            this.DragoonBloodForBlood.Text = "Blood for Blood";
+            this.DragoonBloodForBlood.UseVisualStyleBackColor = true;
+            this.DragoonBloodForBlood.CheckedChanged += new System.EventHandler(this.DragoonBloodForBlood_CheckedChanged);
+            // 
+            // DragoonLifeSurge
+            // 
+            this.DragoonLifeSurge.AutoSize = true;
+            this.DragoonLifeSurge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonLifeSurge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonLifeSurge.ForeColor = System.Drawing.Color.White;
+            this.DragoonLifeSurge.Location = new System.Drawing.Point(6, 16);
+            this.DragoonLifeSurge.Name = "DragoonLifeSurge";
+            this.DragoonLifeSurge.Size = new System.Drawing.Size(74, 17);
+            this.DragoonLifeSurge.TabIndex = 0;
+            this.DragoonLifeSurge.TabStop = false;
+            this.DragoonLifeSurge.Text = "Life Surge";
+            this.DragoonLifeSurge.UseVisualStyleBackColor = true;
+            this.DragoonLifeSurge.CheckedChanged += new System.EventHandler(this.DragoonLifeSurge_CheckedChanged);
+            // 
+            // DragoonCooldownGroup
+            // 
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonGeirskogul);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonDragonfire);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonSpineshatter);
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonJump);
+            this.DragoonCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonCooldownGroup.Location = new System.Drawing.Point(218, 6);
+            this.DragoonCooldownGroup.Name = "DragoonCooldownGroup";
+            this.DragoonCooldownGroup.Size = new System.Drawing.Size(142, 112);
+            this.DragoonCooldownGroup.TabIndex = 1;
+            this.DragoonCooldownGroup.TabStop = false;
+            this.DragoonCooldownGroup.Text = "Cooldown";
+            // 
+            // DragoonDragonfire
+            // 
+            this.DragoonDragonfire.AutoSize = true;
+            this.DragoonDragonfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonDragonfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonDragonfire.ForeColor = System.Drawing.Color.White;
+            this.DragoonDragonfire.Location = new System.Drawing.Point(6, 62);
+            this.DragoonDragonfire.Name = "DragoonDragonfire";
+            this.DragoonDragonfire.Size = new System.Drawing.Size(104, 17);
+            this.DragoonDragonfire.TabIndex = 2;
+            this.DragoonDragonfire.TabStop = false;
+            this.DragoonDragonfire.Text = "Dragonfire Dive";
+            this.DragoonDragonfire.UseVisualStyleBackColor = true;
+            this.DragoonDragonfire.CheckedChanged += new System.EventHandler(this.DragoonDragonfire_CheckedChanged);
+            // 
+            // DragoonSpineshatter
+            // 
+            this.DragoonSpineshatter.AutoSize = true;
+            this.DragoonSpineshatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonSpineshatter.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonSpineshatter.ForeColor = System.Drawing.Color.White;
+            this.DragoonSpineshatter.Location = new System.Drawing.Point(6, 39);
+            this.DragoonSpineshatter.Name = "DragoonSpineshatter";
+            this.DragoonSpineshatter.Size = new System.Drawing.Size(113, 17);
+            this.DragoonSpineshatter.TabIndex = 1;
+            this.DragoonSpineshatter.TabStop = false;
+            this.DragoonSpineshatter.Text = "Spineshatter Dive";
+            this.DragoonSpineshatter.UseVisualStyleBackColor = true;
+            this.DragoonSpineshatter.CheckedChanged += new System.EventHandler(this.DragoonSpineshatter_CheckedChanged);
+            // 
+            // DragoonJump
+            // 
+            this.DragoonJump.AutoSize = true;
+            this.DragoonJump.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonJump.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonJump.ForeColor = System.Drawing.Color.White;
+            this.DragoonJump.Location = new System.Drawing.Point(6, 16);
+            this.DragoonJump.Name = "DragoonJump";
+            this.DragoonJump.Size = new System.Drawing.Size(50, 17);
+            this.DragoonJump.TabIndex = 0;
+            this.DragoonJump.TabStop = false;
+            this.DragoonJump.Text = "Jump";
+            this.DragoonJump.UseVisualStyleBackColor = true;
+            this.DragoonJump.CheckedChanged += new System.EventHandler(this.DragoonJump_CheckedChanged);
+            // 
+            // DragoonRoleGroup
+            // 
+            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbathPct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigoratePct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWindPct);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonTrueNorth);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonCrutch);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonFeint);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonGoad);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbath);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigorate);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonDiversion);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonLegSweep);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonArmsLength);
+            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWind);
+            this.DragoonRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.DragoonRoleGroup.Name = "DragoonRoleGroup";
+            this.DragoonRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.DragoonRoleGroup.TabIndex = 0;
+            this.DragoonRoleGroup.TabStop = false;
+            this.DragoonRoleGroup.Text = "Role";
+            // 
+            // DragoonBloodbathPct
+            // 
+            this.DragoonBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonBloodbathPct.Location = new System.Drawing.Point(104, 131);
+            this.DragoonBloodbathPct.Name = "DragoonBloodbathPct";
+            this.DragoonBloodbathPct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonBloodbathPct.TabIndex = 22;
+            this.DragoonBloodbathPct.ValueChanged += new System.EventHandler(this.DragoonBloodbathPct_ValueChanged);
+            // 
+            // DragoonInvigoratePct
+            // 
+            this.DragoonInvigoratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonInvigoratePct.Location = new System.Drawing.Point(104, 108);
+            this.DragoonInvigoratePct.Name = "DragoonInvigoratePct";
+            this.DragoonInvigoratePct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonInvigoratePct.TabIndex = 21;
+            this.DragoonInvigoratePct.ValueChanged += new System.EventHandler(this.DragoonInvigoratePct_ValueChanged);
+            // 
+            // DragoonSecondWindPct
+            // 
+            this.DragoonSecondWindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonSecondWindPct.Location = new System.Drawing.Point(104, 16);
+            this.DragoonSecondWindPct.Name = "DragoonSecondWindPct";
+            this.DragoonSecondWindPct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonSecondWindPct.TabIndex = 20;
+            this.DragoonSecondWindPct.ValueChanged += new System.EventHandler(this.DragoonSecondWindPct_ValueChanged);
+            // 
+            // DragoonTrueNorth
+            // 
+            this.DragoonTrueNorth.AutoSize = true;
+            this.DragoonTrueNorth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonTrueNorth.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonTrueNorth.ForeColor = System.Drawing.Color.White;
+            this.DragoonTrueNorth.Location = new System.Drawing.Point(6, 223);
+            this.DragoonTrueNorth.Name = "DragoonTrueNorth";
+            this.DragoonTrueNorth.Size = new System.Drawing.Size(77, 17);
+            this.DragoonTrueNorth.TabIndex = 19;
+            this.DragoonTrueNorth.TabStop = false;
+            this.DragoonTrueNorth.Text = "True North";
+            this.DragoonTrueNorth.UseVisualStyleBackColor = true;
+            this.DragoonTrueNorth.CheckedChanged += new System.EventHandler(this.DragoonTrueNorth_CheckedChanged);
+            // 
+            // DragoonCrutch
+            // 
+            this.DragoonCrutch.AutoCheck = false;
+            this.DragoonCrutch.AutoSize = true;
+            this.DragoonCrutch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonCrutch.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonCrutch.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonCrutch.Location = new System.Drawing.Point(6, 200);
+            this.DragoonCrutch.Name = "DragoonCrutch";
+            this.DragoonCrutch.Size = new System.Drawing.Size(57, 17);
+            this.DragoonCrutch.TabIndex = 18;
+            this.DragoonCrutch.TabStop = false;
+            this.DragoonCrutch.Text = "Crutch";
+            this.DragoonCrutch.UseVisualStyleBackColor = true;
+            // 
+            // DragoonFeint
+            // 
+            this.DragoonFeint.AutoCheck = false;
+            this.DragoonFeint.AutoSize = true;
+            this.DragoonFeint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonFeint.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonFeint.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonFeint.Location = new System.Drawing.Point(6, 177);
+            this.DragoonFeint.Name = "DragoonFeint";
+            this.DragoonFeint.Size = new System.Drawing.Size(49, 17);
+            this.DragoonFeint.TabIndex = 17;
+            this.DragoonFeint.TabStop = false;
+            this.DragoonFeint.Text = "Feint";
+            this.DragoonFeint.UseVisualStyleBackColor = true;
+            // 
+            // DragoonGoad
+            // 
+            this.DragoonGoad.AutoCheck = false;
+            this.DragoonGoad.AutoSize = true;
+            this.DragoonGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonGoad.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonGoad.Location = new System.Drawing.Point(6, 154);
+            this.DragoonGoad.Name = "DragoonGoad";
+            this.DragoonGoad.Size = new System.Drawing.Size(51, 17);
+            this.DragoonGoad.TabIndex = 16;
+            this.DragoonGoad.TabStop = false;
+            this.DragoonGoad.Text = "Goad";
+            this.DragoonGoad.UseVisualStyleBackColor = true;
+            // 
+            // DragoonBloodbath
+            // 
+            this.DragoonBloodbath.AutoSize = true;
+            this.DragoonBloodbath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodbath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodbath.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodbath.Location = new System.Drawing.Point(6, 131);
+            this.DragoonBloodbath.Name = "DragoonBloodbath";
+            this.DragoonBloodbath.Size = new System.Drawing.Size(78, 17);
+            this.DragoonBloodbath.TabIndex = 15;
+            this.DragoonBloodbath.TabStop = false;
+            this.DragoonBloodbath.Text = "Bloodbath";
+            this.DragoonBloodbath.UseVisualStyleBackColor = true;
+            this.DragoonBloodbath.CheckedChanged += new System.EventHandler(this.DragoonBloodbath_CheckedChanged);
+            // 
+            // DragoonInvigorate
+            // 
+            this.DragoonInvigorate.AutoSize = true;
+            this.DragoonInvigorate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonInvigorate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonInvigorate.ForeColor = System.Drawing.Color.White;
+            this.DragoonInvigorate.Location = new System.Drawing.Point(6, 108);
+            this.DragoonInvigorate.Name = "DragoonInvigorate";
+            this.DragoonInvigorate.Size = new System.Drawing.Size(75, 17);
+            this.DragoonInvigorate.TabIndex = 14;
+            this.DragoonInvigorate.TabStop = false;
+            this.DragoonInvigorate.Text = "Invigorate";
+            this.DragoonInvigorate.UseVisualStyleBackColor = true;
+            this.DragoonInvigorate.CheckedChanged += new System.EventHandler(this.DragoonInvigorate_CheckedChanged);
+            // 
+            // DragoonDiversion
+            // 
+            this.DragoonDiversion.AutoCheck = false;
+            this.DragoonDiversion.AutoSize = true;
+            this.DragoonDiversion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonDiversion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonDiversion.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonDiversion.Location = new System.Drawing.Point(6, 85);
+            this.DragoonDiversion.Name = "DragoonDiversion";
+            this.DragoonDiversion.Size = new System.Drawing.Size(71, 17);
+            this.DragoonDiversion.TabIndex = 13;
+            this.DragoonDiversion.TabStop = false;
+            this.DragoonDiversion.Text = "Diversion";
+            this.DragoonDiversion.UseVisualStyleBackColor = true;
+            // 
+            // DragoonLegSweep
+            // 
+            this.DragoonLegSweep.AutoCheck = false;
+            this.DragoonLegSweep.AutoSize = true;
+            this.DragoonLegSweep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonLegSweep.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonLegSweep.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonLegSweep.Location = new System.Drawing.Point(6, 62);
+            this.DragoonLegSweep.Name = "DragoonLegSweep";
+            this.DragoonLegSweep.Size = new System.Drawing.Size(78, 17);
+            this.DragoonLegSweep.TabIndex = 12;
+            this.DragoonLegSweep.TabStop = false;
+            this.DragoonLegSweep.Text = "Leg Sweep";
+            this.DragoonLegSweep.UseVisualStyleBackColor = true;
+            // 
+            // DragoonArmsLength
+            // 
+            this.DragoonArmsLength.AutoCheck = false;
+            this.DragoonArmsLength.AutoSize = true;
+            this.DragoonArmsLength.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonArmsLength.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonArmsLength.ForeColor = System.Drawing.Color.DimGray;
+            this.DragoonArmsLength.Location = new System.Drawing.Point(6, 39);
+            this.DragoonArmsLength.Name = "DragoonArmsLength";
+            this.DragoonArmsLength.Size = new System.Drawing.Size(90, 17);
+            this.DragoonArmsLength.TabIndex = 11;
+            this.DragoonArmsLength.TabStop = false;
+            this.DragoonArmsLength.Text = "Arm\'s Length";
+            this.DragoonArmsLength.UseVisualStyleBackColor = true;
+            // 
+            // DragoonSecondWind
+            // 
+            this.DragoonSecondWind.AutoSize = true;
+            this.DragoonSecondWind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonSecondWind.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonSecondWind.ForeColor = System.Drawing.Color.White;
+            this.DragoonSecondWind.Location = new System.Drawing.Point(6, 16);
+            this.DragoonSecondWind.Name = "DragoonSecondWind";
+            this.DragoonSecondWind.Size = new System.Drawing.Size(92, 17);
+            this.DragoonSecondWind.TabIndex = 10;
+            this.DragoonSecondWind.TabStop = false;
+            this.DragoonSecondWind.Text = "Second Wind";
+            this.DragoonSecondWind.UseVisualStyleBackColor = true;
+            this.DragoonSecondWind.CheckedChanged += new System.EventHandler(this.DragoonSecondWind_CheckedChanged);
+            // 
             // pgeMonk
             // 
             this.pgeMonk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -3298,305 +3604,50 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "N/A";
             // 
-            // DragoonRoleGroup
+            // DragoonBattleLitany
             // 
-            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbathPct);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigoratePct);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWindPct);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonTrueNorth);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonCrutch);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonFeint);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonGoad);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonBloodbath);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonInvigorate);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonDiversion);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonLegSweep);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonArmsLength);
-            this.DragoonRoleGroup.Controls.Add(this.DragoonSecondWind);
-            this.DragoonRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonRoleGroup.Location = new System.Drawing.Point(13, 6);
-            this.DragoonRoleGroup.Name = "DragoonRoleGroup";
-            this.DragoonRoleGroup.Size = new System.Drawing.Size(199, 250);
-            this.DragoonRoleGroup.TabIndex = 0;
-            this.DragoonRoleGroup.TabStop = false;
-            this.DragoonRoleGroup.Text = "Role";
+            this.DragoonBattleLitany.AutoSize = true;
+            this.DragoonBattleLitany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBattleLitany.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBattleLitany.ForeColor = System.Drawing.Color.White;
+            this.DragoonBattleLitany.Location = new System.Drawing.Point(6, 62);
+            this.DragoonBattleLitany.Name = "DragoonBattleLitany";
+            this.DragoonBattleLitany.Size = new System.Drawing.Size(86, 17);
+            this.DragoonBattleLitany.TabIndex = 2;
+            this.DragoonBattleLitany.TabStop = false;
+            this.DragoonBattleLitany.Text = "Battle Litany";
+            this.DragoonBattleLitany.UseVisualStyleBackColor = true;
+            this.DragoonBattleLitany.CheckedChanged += new System.EventHandler(this.DragoonBattleLitany_CheckedChanged);
             // 
-            // DragoonCooldownGroup
+            // DragoonBloodOfTheDragon
             // 
-            this.DragoonCooldownGroup.Controls.Add(this.DragoonDragonfire);
-            this.DragoonCooldownGroup.Controls.Add(this.DragoonSpineshatter);
-            this.DragoonCooldownGroup.Controls.Add(this.DragoonJump);
-            this.DragoonCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonCooldownGroup.Location = new System.Drawing.Point(218, 6);
-            this.DragoonCooldownGroup.Name = "DragoonCooldownGroup";
-            this.DragoonCooldownGroup.Size = new System.Drawing.Size(125, 89);
-            this.DragoonCooldownGroup.TabIndex = 1;
-            this.DragoonCooldownGroup.TabStop = false;
-            this.DragoonCooldownGroup.Text = "Cooldown";
+            this.DragoonBloodOfTheDragon.AutoSize = true;
+            this.DragoonBloodOfTheDragon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodOfTheDragon.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodOfTheDragon.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodOfTheDragon.Location = new System.Drawing.Point(6, 85);
+            this.DragoonBloodOfTheDragon.Name = "DragoonBloodOfTheDragon";
+            this.DragoonBloodOfTheDragon.Size = new System.Drawing.Size(130, 17);
+            this.DragoonBloodOfTheDragon.TabIndex = 3;
+            this.DragoonBloodOfTheDragon.TabStop = false;
+            this.DragoonBloodOfTheDragon.Text = "Blood of the Dragon";
+            this.DragoonBloodOfTheDragon.UseVisualStyleBackColor = true;
+            this.DragoonBloodOfTheDragon.CheckedChanged += new System.EventHandler(this.DragoonBloodOfTheDragon_CheckedChanged);
             // 
-            // DragoonBuffGroup
+            // DragoonGeirskogul
             // 
-            this.DragoonBuffGroup.Controls.Add(this.DragoonBloodForBlood);
-            this.DragoonBuffGroup.Controls.Add(this.DragoonLifeSurge);
-            this.DragoonBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBuffGroup.Location = new System.Drawing.Point(218, 101);
-            this.DragoonBuffGroup.Name = "DragoonBuffGroup";
-            this.DragoonBuffGroup.Size = new System.Drawing.Size(125, 66);
-            this.DragoonBuffGroup.TabIndex = 2;
-            this.DragoonBuffGroup.TabStop = false;
-            this.DragoonBuffGroup.Text = "Buff";
-            // 
-            // DragoonTrueNorth
-            // 
-            this.DragoonTrueNorth.AutoSize = true;
-            this.DragoonTrueNorth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonTrueNorth.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonTrueNorth.ForeColor = System.Drawing.Color.White;
-            this.DragoonTrueNorth.Location = new System.Drawing.Point(6, 223);
-            this.DragoonTrueNorth.Name = "DragoonTrueNorth";
-            this.DragoonTrueNorth.Size = new System.Drawing.Size(77, 17);
-            this.DragoonTrueNorth.TabIndex = 19;
-            this.DragoonTrueNorth.TabStop = false;
-            this.DragoonTrueNorth.Text = "True North";
-            this.DragoonTrueNorth.UseVisualStyleBackColor = true;
-            this.DragoonTrueNorth.CheckedChanged += new System.EventHandler(this.DragoonTrueNorth_CheckedChanged);
-            // 
-            // DragoonCrutch
-            // 
-            this.DragoonCrutch.AutoCheck = false;
-            this.DragoonCrutch.AutoSize = true;
-            this.DragoonCrutch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonCrutch.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonCrutch.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonCrutch.Location = new System.Drawing.Point(6, 200);
-            this.DragoonCrutch.Name = "DragoonCrutch";
-            this.DragoonCrutch.Size = new System.Drawing.Size(57, 17);
-            this.DragoonCrutch.TabIndex = 18;
-            this.DragoonCrutch.TabStop = false;
-            this.DragoonCrutch.Text = "Crutch";
-            this.DragoonCrutch.UseVisualStyleBackColor = true;
-            // 
-            // DragoonFeint
-            // 
-            this.DragoonFeint.AutoCheck = false;
-            this.DragoonFeint.AutoSize = true;
-            this.DragoonFeint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonFeint.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonFeint.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonFeint.Location = new System.Drawing.Point(6, 177);
-            this.DragoonFeint.Name = "DragoonFeint";
-            this.DragoonFeint.Size = new System.Drawing.Size(49, 17);
-            this.DragoonFeint.TabIndex = 17;
-            this.DragoonFeint.TabStop = false;
-            this.DragoonFeint.Text = "Feint";
-            this.DragoonFeint.UseVisualStyleBackColor = true;
-            // 
-            // DragoonGoad
-            // 
-            this.DragoonGoad.AutoCheck = false;
-            this.DragoonGoad.AutoSize = true;
-            this.DragoonGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonGoad.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonGoad.Location = new System.Drawing.Point(6, 154);
-            this.DragoonGoad.Name = "DragoonGoad";
-            this.DragoonGoad.Size = new System.Drawing.Size(51, 17);
-            this.DragoonGoad.TabIndex = 16;
-            this.DragoonGoad.TabStop = false;
-            this.DragoonGoad.Text = "Goad";
-            this.DragoonGoad.UseVisualStyleBackColor = true;
-            // 
-            // DragoonBloodbath
-            // 
-            this.DragoonBloodbath.AutoSize = true;
-            this.DragoonBloodbath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonBloodbath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBloodbath.ForeColor = System.Drawing.Color.White;
-            this.DragoonBloodbath.Location = new System.Drawing.Point(6, 131);
-            this.DragoonBloodbath.Name = "DragoonBloodbath";
-            this.DragoonBloodbath.Size = new System.Drawing.Size(78, 17);
-            this.DragoonBloodbath.TabIndex = 15;
-            this.DragoonBloodbath.TabStop = false;
-            this.DragoonBloodbath.Text = "Bloodbath";
-            this.DragoonBloodbath.UseVisualStyleBackColor = true;
-            this.DragoonBloodbath.CheckedChanged += new System.EventHandler(this.DragoonBloodbath_CheckedChanged);
-            // 
-            // DragoonInvigorate
-            // 
-            this.DragoonInvigorate.AutoSize = true;
-            this.DragoonInvigorate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonInvigorate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonInvigorate.ForeColor = System.Drawing.Color.White;
-            this.DragoonInvigorate.Location = new System.Drawing.Point(6, 108);
-            this.DragoonInvigorate.Name = "DragoonInvigorate";
-            this.DragoonInvigorate.Size = new System.Drawing.Size(75, 17);
-            this.DragoonInvigorate.TabIndex = 14;
-            this.DragoonInvigorate.TabStop = false;
-            this.DragoonInvigorate.Text = "Invigorate";
-            this.DragoonInvigorate.UseVisualStyleBackColor = true;
-            this.DragoonInvigorate.CheckedChanged += new System.EventHandler(this.DragoonInvigorate_CheckedChanged);
-            // 
-            // DragoonDiversion
-            // 
-            this.DragoonDiversion.AutoCheck = false;
-            this.DragoonDiversion.AutoSize = true;
-            this.DragoonDiversion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonDiversion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonDiversion.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonDiversion.Location = new System.Drawing.Point(6, 85);
-            this.DragoonDiversion.Name = "DragoonDiversion";
-            this.DragoonDiversion.Size = new System.Drawing.Size(71, 17);
-            this.DragoonDiversion.TabIndex = 13;
-            this.DragoonDiversion.TabStop = false;
-            this.DragoonDiversion.Text = "Diversion";
-            this.DragoonDiversion.UseVisualStyleBackColor = true;
-            // 
-            // DragoonLegSweep
-            // 
-            this.DragoonLegSweep.AutoCheck = false;
-            this.DragoonLegSweep.AutoSize = true;
-            this.DragoonLegSweep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonLegSweep.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonLegSweep.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonLegSweep.Location = new System.Drawing.Point(6, 62);
-            this.DragoonLegSweep.Name = "DragoonLegSweep";
-            this.DragoonLegSweep.Size = new System.Drawing.Size(78, 17);
-            this.DragoonLegSweep.TabIndex = 12;
-            this.DragoonLegSweep.TabStop = false;
-            this.DragoonLegSweep.Text = "Leg Sweep";
-            this.DragoonLegSweep.UseVisualStyleBackColor = true;
-            // 
-            // DragoonArmsLength
-            // 
-            this.DragoonArmsLength.AutoCheck = false;
-            this.DragoonArmsLength.AutoSize = true;
-            this.DragoonArmsLength.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonArmsLength.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonArmsLength.ForeColor = System.Drawing.Color.DimGray;
-            this.DragoonArmsLength.Location = new System.Drawing.Point(6, 39);
-            this.DragoonArmsLength.Name = "DragoonArmsLength";
-            this.DragoonArmsLength.Size = new System.Drawing.Size(90, 17);
-            this.DragoonArmsLength.TabIndex = 11;
-            this.DragoonArmsLength.TabStop = false;
-            this.DragoonArmsLength.Text = "Arm\'s Length";
-            this.DragoonArmsLength.UseVisualStyleBackColor = true;
-            // 
-            // DragoonSecondWind
-            // 
-            this.DragoonSecondWind.AutoSize = true;
-            this.DragoonSecondWind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonSecondWind.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonSecondWind.ForeColor = System.Drawing.Color.White;
-            this.DragoonSecondWind.Location = new System.Drawing.Point(6, 16);
-            this.DragoonSecondWind.Name = "DragoonSecondWind";
-            this.DragoonSecondWind.Size = new System.Drawing.Size(92, 17);
-            this.DragoonSecondWind.TabIndex = 10;
-            this.DragoonSecondWind.TabStop = false;
-            this.DragoonSecondWind.Text = "Second Wind";
-            this.DragoonSecondWind.UseVisualStyleBackColor = true;
-            this.DragoonSecondWind.CheckedChanged += new System.EventHandler(this.DragoonSecondWind_CheckedChanged);
-            // 
-            // DragoonJump
-            // 
-            this.DragoonJump.AutoSize = true;
-            this.DragoonJump.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonJump.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonJump.ForeColor = System.Drawing.Color.White;
-            this.DragoonJump.Location = new System.Drawing.Point(6, 16);
-            this.DragoonJump.Name = "DragoonJump";
-            this.DragoonJump.Size = new System.Drawing.Size(50, 17);
-            this.DragoonJump.TabIndex = 0;
-            this.DragoonJump.TabStop = false;
-            this.DragoonJump.Text = "Jump";
-            this.DragoonJump.UseVisualStyleBackColor = true;
-            this.DragoonJump.CheckedChanged += new System.EventHandler(this.DragoonJump_CheckedChanged);
-            // 
-            // DragoonSpineshatter
-            // 
-            this.DragoonSpineshatter.AutoSize = true;
-            this.DragoonSpineshatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonSpineshatter.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonSpineshatter.ForeColor = System.Drawing.Color.White;
-            this.DragoonSpineshatter.Location = new System.Drawing.Point(6, 39);
-            this.DragoonSpineshatter.Name = "DragoonSpineshatter";
-            this.DragoonSpineshatter.Size = new System.Drawing.Size(113, 17);
-            this.DragoonSpineshatter.TabIndex = 1;
-            this.DragoonSpineshatter.TabStop = false;
-            this.DragoonSpineshatter.Text = "Spineshatter Dive";
-            this.DragoonSpineshatter.UseVisualStyleBackColor = true;
-            this.DragoonSpineshatter.CheckedChanged += new System.EventHandler(this.DragoonSpineshatter_CheckedChanged);
-            // 
-            // DragoonDragonfire
-            // 
-            this.DragoonDragonfire.AutoSize = true;
-            this.DragoonDragonfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonDragonfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonDragonfire.ForeColor = System.Drawing.Color.White;
-            this.DragoonDragonfire.Location = new System.Drawing.Point(6, 62);
-            this.DragoonDragonfire.Name = "DragoonDragonfire";
-            this.DragoonDragonfire.Size = new System.Drawing.Size(104, 17);
-            this.DragoonDragonfire.TabIndex = 2;
-            this.DragoonDragonfire.TabStop = false;
-            this.DragoonDragonfire.Text = "Dragonfire Dive";
-            this.DragoonDragonfire.UseVisualStyleBackColor = true;
-            this.DragoonDragonfire.CheckedChanged += new System.EventHandler(this.DragoonDragonfire_CheckedChanged);
-            // 
-            // DragoonLifeSurge
-            // 
-            this.DragoonLifeSurge.AutoSize = true;
-            this.DragoonLifeSurge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonLifeSurge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonLifeSurge.ForeColor = System.Drawing.Color.White;
-            this.DragoonLifeSurge.Location = new System.Drawing.Point(6, 16);
-            this.DragoonLifeSurge.Name = "DragoonLifeSurge";
-            this.DragoonLifeSurge.Size = new System.Drawing.Size(74, 17);
-            this.DragoonLifeSurge.TabIndex = 0;
-            this.DragoonLifeSurge.TabStop = false;
-            this.DragoonLifeSurge.Text = "Life Surge";
-            this.DragoonLifeSurge.UseVisualStyleBackColor = true;
-            this.DragoonLifeSurge.CheckedChanged += new System.EventHandler(this.DragoonLifeSurge_CheckedChanged);
-            // 
-            // DragoonBloodForBlood
-            // 
-            this.DragoonBloodForBlood.AutoSize = true;
-            this.DragoonBloodForBlood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonBloodForBlood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBloodForBlood.ForeColor = System.Drawing.Color.White;
-            this.DragoonBloodForBlood.Location = new System.Drawing.Point(6, 39);
-            this.DragoonBloodForBlood.Name = "DragoonBloodForBlood";
-            this.DragoonBloodForBlood.Size = new System.Drawing.Size(106, 17);
-            this.DragoonBloodForBlood.TabIndex = 1;
-            this.DragoonBloodForBlood.TabStop = false;
-            this.DragoonBloodForBlood.Text = "Blood for Blood";
-            this.DragoonBloodForBlood.UseVisualStyleBackColor = true;
-            this.DragoonBloodForBlood.CheckedChanged += new System.EventHandler(this.DragoonBloodForBlood_CheckedChanged);
-            // 
-            // DragoonSecondWindPct
-            // 
-            this.DragoonSecondWindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.DragoonSecondWindPct.Location = new System.Drawing.Point(104, 16);
-            this.DragoonSecondWindPct.Name = "DragoonSecondWindPct";
-            this.DragoonSecondWindPct.Size = new System.Drawing.Size(89, 22);
-            this.DragoonSecondWindPct.TabIndex = 20;
-            this.DragoonSecondWindPct.ValueChanged += new System.EventHandler(this.DragoonSecondWindPct_ValueChanged);
-            // 
-            // DragoonInvigoratePct
-            // 
-            this.DragoonInvigoratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.DragoonInvigoratePct.Location = new System.Drawing.Point(104, 108);
-            this.DragoonInvigoratePct.Name = "DragoonInvigoratePct";
-            this.DragoonInvigoratePct.Size = new System.Drawing.Size(89, 22);
-            this.DragoonInvigoratePct.TabIndex = 21;
-            this.DragoonInvigoratePct.ValueChanged += new System.EventHandler(this.DragoonInvigoratePct_ValueChanged);
-            // 
-            // DragoonBloodbathPct
-            // 
-            this.DragoonBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.DragoonBloodbathPct.Location = new System.Drawing.Point(104, 131);
-            this.DragoonBloodbathPct.Name = "DragoonBloodbathPct";
-            this.DragoonBloodbathPct.Size = new System.Drawing.Size(89, 22);
-            this.DragoonBloodbathPct.TabIndex = 22;
-            this.DragoonBloodbathPct.ValueChanged += new System.EventHandler(this.DragoonBloodbathPct_ValueChanged);
+            this.DragoonGeirskogul.AutoSize = true;
+            this.DragoonGeirskogul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonGeirskogul.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonGeirskogul.ForeColor = System.Drawing.Color.White;
+            this.DragoonGeirskogul.Location = new System.Drawing.Point(6, 85);
+            this.DragoonGeirskogul.Name = "DragoonGeirskogul";
+            this.DragoonGeirskogul.Size = new System.Drawing.Size(79, 17);
+            this.DragoonGeirskogul.TabIndex = 3;
+            this.DragoonGeirskogul.TabStop = false;
+            this.DragoonGeirskogul.Text = "Geirskogul";
+            this.DragoonGeirskogul.UseVisualStyleBackColor = true;
+            this.DragoonGeirskogul.CheckedChanged += new System.EventHandler(this.DragoonGeirskogul_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -3659,6 +3710,12 @@
             this.pgeMelee.ResumeLayout(false);
             this.tabMelee.ResumeLayout(false);
             this.pgeDragoon.ResumeLayout(false);
+            this.DragoonBuffGroup.ResumeLayout(false);
+            this.DragoonBuffGroup.PerformLayout();
+            this.DragoonCooldownGroup.ResumeLayout(false);
+            this.DragoonCooldownGroup.PerformLayout();
+            this.DragoonRoleGroup.ResumeLayout(false);
+            this.DragoonRoleGroup.PerformLayout();
             this.pgeMonk.ResumeLayout(false);
             this.pgeMonk.PerformLayout();
             this.pgeNinja.ResumeLayout(false);
@@ -3703,12 +3760,6 @@
             this.PaladinRoleGroup.PerformLayout();
             this.pgeWarrior.ResumeLayout(false);
             this.pgeWarrior.PerformLayout();
-            this.DragoonRoleGroup.ResumeLayout(false);
-            this.DragoonRoleGroup.PerformLayout();
-            this.DragoonCooldownGroup.ResumeLayout(false);
-            this.DragoonCooldownGroup.PerformLayout();
-            this.DragoonBuffGroup.ResumeLayout(false);
-            this.DragoonBuffGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3948,5 +3999,8 @@
         private Design.UserNumeric DragoonBloodbathPct;
         private Design.UserNumeric DragoonInvigoratePct;
         private Design.UserNumeric DragoonSecondWindPct;
+        private Design.CustomCheck DragoonBloodOfTheDragon;
+        private Design.CustomCheck DragoonBattleLitany;
+        private Design.CustomCheck DragoonGeirskogul;
     }
 }
