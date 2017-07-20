@@ -205,7 +205,7 @@ namespace ShinraCo
 
         public static async Task<bool> ChocoboStance()
         {
-            if (!ChocoboManager.Summoned || Core.Player.IsMounted || ChocoboManager.Object == null)
+            if (!Settings.SummonChocobo || !ChocoboManager.Summoned || Core.Player.IsMounted || ChocoboManager.Object == null)
             {
                 return false;
             }
