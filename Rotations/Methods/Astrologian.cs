@@ -205,13 +205,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Ascend()
         {
-            if (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player))
+            if (Shinra.Settings.AstrologianAscend &&
+                (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player) ||
+                 !Helpers.HealManager.Any(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianBeneficPct)))
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDead && hm.Type == GameObjectType.Pc && !hm.HasAura(MySpells.Ascend.Name));
-            
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDead && hm.Type == GameObjectType.Pc &&
+                                                                      !hm.HasAura(MySpells.Ascend.Name));
+
                 if (target != null)
                 {
-                    if (ActionManager.CanCast(MySpells.Ascend.Name, target))
+                    if (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Ascend.Name, target))
                     {
                         if (await MySpells.Role.Swiftcast.Cast(null, false))
                         {
@@ -376,7 +379,9 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianProtect)
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name));
+                var target = Shinra.Settings.AstrologianPartyHeal
+                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name))
+                    : !Core.Player.HasAura(MySpells.Role.Protect.Name) ? Core.Player : null;
 
                 if (target != null)
                 {

@@ -121,6 +121,8 @@
             this.AstrologianBeneficII = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -262,8 +264,7 @@
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
-            this.AstrologianClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianAscend = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1406,7 +1407,7 @@
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 243);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(229, 265);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
             this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 66);
             this.AstrologianCardGroup.TabIndex = 2;
@@ -1445,6 +1446,7 @@
             // 
             // AstrologianHealGroup
             // 
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianAscend);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianAspHeliosPct);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianHeliosPct);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianAspHelios);
@@ -1461,7 +1463,7 @@
             this.AstrologianHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 55);
             this.AstrologianHealGroup.Name = "AstrologianHealGroup";
-            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 182);
+            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 204);
             this.AstrologianHealGroup.TabIndex = 1;
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
@@ -1645,6 +1647,36 @@
             this.AstrologianRoleGroup.TabIndex = 0;
             this.AstrologianRoleGroup.TabStop = false;
             this.AstrologianRoleGroup.Text = "Role";
+            // 
+            // AstrologianEsuna
+            // 
+            this.AstrologianEsuna.AutoSize = true;
+            this.AstrologianEsuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianEsuna.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianEsuna.ForeColor = System.Drawing.Color.White;
+            this.AstrologianEsuna.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianEsuna.Name = "AstrologianEsuna";
+            this.AstrologianEsuna.Size = new System.Drawing.Size(54, 17);
+            this.AstrologianEsuna.TabIndex = 12;
+            this.AstrologianEsuna.TabStop = false;
+            this.AstrologianEsuna.Text = "Esuna";
+            this.AstrologianEsuna.UseVisualStyleBackColor = true;
+            this.AstrologianEsuna.CheckedChanged += new System.EventHandler(this.AstrologianEsuna_CheckedChanged);
+            // 
+            // AstrologianClericStance
+            // 
+            this.AstrologianClericStance.AutoSize = true;
+            this.AstrologianClericStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianClericStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianClericStance.ForeColor = System.Drawing.Color.White;
+            this.AstrologianClericStance.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianClericStance.Name = "AstrologianClericStance";
+            this.AstrologianClericStance.Size = new System.Drawing.Size(88, 17);
+            this.AstrologianClericStance.TabIndex = 11;
+            this.AstrologianClericStance.TabStop = false;
+            this.AstrologianClericStance.Text = "Cleric Stance";
+            this.AstrologianClericStance.UseVisualStyleBackColor = true;
+            this.AstrologianClericStance.CheckedChanged += new System.EventHandler(this.AstrologianClericStance_CheckedChanged);
             // 
             // AstrologianLucidDreamingPct
             // 
@@ -3619,35 +3651,20 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "N/A";
             // 
-            // AstrologianClericStance
+            // AstrologianAscend
             // 
-            this.AstrologianClericStance.AutoSize = true;
-            this.AstrologianClericStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianClericStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianClericStance.ForeColor = System.Drawing.Color.White;
-            this.AstrologianClericStance.Location = new System.Drawing.Point(6, 16);
-            this.AstrologianClericStance.Name = "AstrologianClericStance";
-            this.AstrologianClericStance.Size = new System.Drawing.Size(88, 17);
-            this.AstrologianClericStance.TabIndex = 11;
-            this.AstrologianClericStance.TabStop = false;
-            this.AstrologianClericStance.Text = "Cleric Stance";
-            this.AstrologianClericStance.UseVisualStyleBackColor = true;
-            this.AstrologianClericStance.CheckedChanged += new System.EventHandler(this.AstrologianClericStance_CheckedChanged);
-            // 
-            // AstrologianEsuna
-            // 
-            this.AstrologianEsuna.AutoSize = true;
-            this.AstrologianEsuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianEsuna.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianEsuna.ForeColor = System.Drawing.Color.White;
-            this.AstrologianEsuna.Location = new System.Drawing.Point(6, 85);
-            this.AstrologianEsuna.Name = "AstrologianEsuna";
-            this.AstrologianEsuna.Size = new System.Drawing.Size(54, 17);
-            this.AstrologianEsuna.TabIndex = 12;
-            this.AstrologianEsuna.TabStop = false;
-            this.AstrologianEsuna.Text = "Esuna";
-            this.AstrologianEsuna.UseVisualStyleBackColor = true;
-            this.AstrologianEsuna.CheckedChanged += new System.EventHandler(this.AstrologianEsuna_CheckedChanged);
+            this.AstrologianAscend.AutoSize = true;
+            this.AstrologianAscend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianAscend.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAscend.ForeColor = System.Drawing.Color.White;
+            this.AstrologianAscend.Location = new System.Drawing.Point(6, 177);
+            this.AstrologianAscend.Name = "AstrologianAscend";
+            this.AstrologianAscend.Size = new System.Drawing.Size(60, 17);
+            this.AstrologianAscend.TabIndex = 13;
+            this.AstrologianAscend.TabStop = false;
+            this.AstrologianAscend.Text = "Ascend";
+            this.AstrologianAscend.UseVisualStyleBackColor = true;
+            this.AstrologianAscend.CheckedChanged += new System.EventHandler(this.AstrologianAscend_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -4002,5 +4019,6 @@
         private Design.CustomCheck DragoonGeirskogul;
         private Design.CustomCheck AstrologianEsuna;
         private Design.CustomCheck AstrologianClericStance;
+        private Design.CustomCheck AstrologianAscend;
     }
 }

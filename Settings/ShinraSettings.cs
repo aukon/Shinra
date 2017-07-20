@@ -165,6 +165,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool AstrologianAspHelios { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool AstrologianAscend { get; set; }
+
         [Setting, DefaultValue(50)]
         public int AstrologianBeneficPct { get; set; }
 

@@ -106,6 +106,7 @@ namespace ShinraCo.Settings.Forms
             AstrologianAspBenefic.Checked = Shinra.Settings.AstrologianAspBenefic;
             AstrologianHelios.Checked = Shinra.Settings.AstrologianHelios;
             AstrologianAspHelios.Checked = Shinra.Settings.AstrologianAspHelios;
+            AstrologianAscend.Checked = Shinra.Settings.AstrologianAscend;
 
             AstrologianBeneficPct.Value = Shinra.Settings.AstrologianBeneficPct;
             AstrologianBeneficIIPct.Value = Shinra.Settings.AstrologianBeneficIIPct;
@@ -570,6 +571,11 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianAspHelios_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianAspHelios = AstrologianAspHelios.Checked;
+        }
+
+        private void AstrologianAscend_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianAscend = AstrologianAscend.Checked;
         }
 
         private void AstrologianBeneficPct_ValueChanged(object sender, EventArgs e)
