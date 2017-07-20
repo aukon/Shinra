@@ -57,7 +57,8 @@ namespace ShinraCo.Rotations
             if (await MinorArcana()) return true;
             if (await Undraw()) return true;
             if (await Draw()) return true;
-            return await Protect();
+            if (await Protect()) return true;
+            return await ClericStance();
         }
 
         #endregion
@@ -72,7 +73,9 @@ namespace ShinraCo.Rotations
             if (await Helios()) return true;
             if (await BeneficII()) return true;
             if (await Benefic()) return true;
-            return await AspectedBenefic();
+            if (await AspectedBenefic()) return true;
+            if (await Ascend()) return true;
+            return await Esuna();
         }
 
         #endregion

@@ -128,10 +128,8 @@
             this.AstrologianEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianEsuna = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.AstrologianClericStance = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeScholar = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.pgeWhiteMage = new System.Windows.Forms.TabPage();
@@ -140,9 +138,12 @@
             this.tabMelee = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDragoon = new System.Windows.Forms.TabPage();
             this.DragoonBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonBloodOfTheDragon = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonBattleLitany = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonBloodForBlood = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonLifeSurge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonGeirskogul = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonDragonfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonJump = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -261,9 +262,8 @@
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
-            this.DragoonBattleLitany = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonBloodOfTheDragon = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonGeirskogul = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1627,6 +1627,8 @@
             // 
             // AstrologianRoleGroup
             // 
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianEsuna);
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianClericStance);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreamingPct);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianRescue);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSurecast);
@@ -1634,10 +1636,8 @@
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianEyeForAnEye);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSwiftcast);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreaming);
-            this.AstrologianRoleGroup.Controls.Add(this.AstrologianEsuna);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianProtect);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianBreak);
-            this.AstrologianRoleGroup.Controls.Add(this.AstrologianClericStance);
             this.AstrologianRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.AstrologianRoleGroup.Name = "AstrologianRoleGroup";
@@ -1745,21 +1745,6 @@
             this.AstrologianLucidDreaming.UseVisualStyleBackColor = true;
             this.AstrologianLucidDreaming.CheckedChanged += new System.EventHandler(this.AstrologianLucidDreaming_CheckedChanged);
             // 
-            // AstrologianEsuna
-            // 
-            this.AstrologianEsuna.AutoCheck = false;
-            this.AstrologianEsuna.AutoSize = true;
-            this.AstrologianEsuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianEsuna.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianEsuna.ForeColor = System.Drawing.Color.DimGray;
-            this.AstrologianEsuna.Location = new System.Drawing.Point(6, 85);
-            this.AstrologianEsuna.Name = "AstrologianEsuna";
-            this.AstrologianEsuna.Size = new System.Drawing.Size(54, 17);
-            this.AstrologianEsuna.TabIndex = 3;
-            this.AstrologianEsuna.TabStop = false;
-            this.AstrologianEsuna.Text = "Esuna";
-            this.AstrologianEsuna.UseVisualStyleBackColor = true;
-            // 
             // AstrologianProtect
             // 
             this.AstrologianProtect.AutoSize = true;
@@ -1789,21 +1774,6 @@
             this.AstrologianBreak.TabStop = false;
             this.AstrologianBreak.Text = "Break";
             this.AstrologianBreak.UseVisualStyleBackColor = true;
-            // 
-            // AstrologianClericStance
-            // 
-            this.AstrologianClericStance.AutoCheck = false;
-            this.AstrologianClericStance.AutoSize = true;
-            this.AstrologianClericStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianClericStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianClericStance.ForeColor = System.Drawing.Color.DimGray;
-            this.AstrologianClericStance.Location = new System.Drawing.Point(6, 16);
-            this.AstrologianClericStance.Name = "AstrologianClericStance";
-            this.AstrologianClericStance.Size = new System.Drawing.Size(88, 17);
-            this.AstrologianClericStance.TabIndex = 0;
-            this.AstrologianClericStance.TabStop = false;
-            this.AstrologianClericStance.Text = "Cleric Stance";
-            this.AstrologianClericStance.UseVisualStyleBackColor = true;
             // 
             // pgeScholar
             // 
@@ -1910,6 +1880,36 @@
             this.DragoonBuffGroup.TabStop = false;
             this.DragoonBuffGroup.Text = "Buff";
             // 
+            // DragoonBloodOfTheDragon
+            // 
+            this.DragoonBloodOfTheDragon.AutoSize = true;
+            this.DragoonBloodOfTheDragon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBloodOfTheDragon.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBloodOfTheDragon.ForeColor = System.Drawing.Color.White;
+            this.DragoonBloodOfTheDragon.Location = new System.Drawing.Point(6, 85);
+            this.DragoonBloodOfTheDragon.Name = "DragoonBloodOfTheDragon";
+            this.DragoonBloodOfTheDragon.Size = new System.Drawing.Size(130, 17);
+            this.DragoonBloodOfTheDragon.TabIndex = 3;
+            this.DragoonBloodOfTheDragon.TabStop = false;
+            this.DragoonBloodOfTheDragon.Text = "Blood of the Dragon";
+            this.DragoonBloodOfTheDragon.UseVisualStyleBackColor = true;
+            this.DragoonBloodOfTheDragon.CheckedChanged += new System.EventHandler(this.DragoonBloodOfTheDragon_CheckedChanged);
+            // 
+            // DragoonBattleLitany
+            // 
+            this.DragoonBattleLitany.AutoSize = true;
+            this.DragoonBattleLitany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonBattleLitany.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonBattleLitany.ForeColor = System.Drawing.Color.White;
+            this.DragoonBattleLitany.Location = new System.Drawing.Point(6, 62);
+            this.DragoonBattleLitany.Name = "DragoonBattleLitany";
+            this.DragoonBattleLitany.Size = new System.Drawing.Size(86, 17);
+            this.DragoonBattleLitany.TabIndex = 2;
+            this.DragoonBattleLitany.TabStop = false;
+            this.DragoonBattleLitany.Text = "Battle Litany";
+            this.DragoonBattleLitany.UseVisualStyleBackColor = true;
+            this.DragoonBattleLitany.CheckedChanged += new System.EventHandler(this.DragoonBattleLitany_CheckedChanged);
+            // 
             // DragoonBloodForBlood
             // 
             this.DragoonBloodForBlood.AutoSize = true;
@@ -1953,6 +1953,21 @@
             this.DragoonCooldownGroup.TabIndex = 1;
             this.DragoonCooldownGroup.TabStop = false;
             this.DragoonCooldownGroup.Text = "Cooldown";
+            // 
+            // DragoonGeirskogul
+            // 
+            this.DragoonGeirskogul.AutoSize = true;
+            this.DragoonGeirskogul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonGeirskogul.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonGeirskogul.ForeColor = System.Drawing.Color.White;
+            this.DragoonGeirskogul.Location = new System.Drawing.Point(6, 85);
+            this.DragoonGeirskogul.Name = "DragoonGeirskogul";
+            this.DragoonGeirskogul.Size = new System.Drawing.Size(79, 17);
+            this.DragoonGeirskogul.TabIndex = 3;
+            this.DragoonGeirskogul.TabStop = false;
+            this.DragoonGeirskogul.Text = "Geirskogul";
+            this.DragoonGeirskogul.UseVisualStyleBackColor = true;
+            this.DragoonGeirskogul.CheckedChanged += new System.EventHandler(this.DragoonGeirskogul_CheckedChanged);
             // 
             // DragoonDragonfire
             // 
@@ -3604,50 +3619,35 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "N/A";
             // 
-            // DragoonBattleLitany
+            // AstrologianClericStance
             // 
-            this.DragoonBattleLitany.AutoSize = true;
-            this.DragoonBattleLitany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonBattleLitany.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBattleLitany.ForeColor = System.Drawing.Color.White;
-            this.DragoonBattleLitany.Location = new System.Drawing.Point(6, 62);
-            this.DragoonBattleLitany.Name = "DragoonBattleLitany";
-            this.DragoonBattleLitany.Size = new System.Drawing.Size(86, 17);
-            this.DragoonBattleLitany.TabIndex = 2;
-            this.DragoonBattleLitany.TabStop = false;
-            this.DragoonBattleLitany.Text = "Battle Litany";
-            this.DragoonBattleLitany.UseVisualStyleBackColor = true;
-            this.DragoonBattleLitany.CheckedChanged += new System.EventHandler(this.DragoonBattleLitany_CheckedChanged);
+            this.AstrologianClericStance.AutoSize = true;
+            this.AstrologianClericStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianClericStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianClericStance.ForeColor = System.Drawing.Color.White;
+            this.AstrologianClericStance.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianClericStance.Name = "AstrologianClericStance";
+            this.AstrologianClericStance.Size = new System.Drawing.Size(88, 17);
+            this.AstrologianClericStance.TabIndex = 11;
+            this.AstrologianClericStance.TabStop = false;
+            this.AstrologianClericStance.Text = "Cleric Stance";
+            this.AstrologianClericStance.UseVisualStyleBackColor = true;
+            this.AstrologianClericStance.CheckedChanged += new System.EventHandler(this.AstrologianClericStance_CheckedChanged);
             // 
-            // DragoonBloodOfTheDragon
+            // AstrologianEsuna
             // 
-            this.DragoonBloodOfTheDragon.AutoSize = true;
-            this.DragoonBloodOfTheDragon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonBloodOfTheDragon.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBloodOfTheDragon.ForeColor = System.Drawing.Color.White;
-            this.DragoonBloodOfTheDragon.Location = new System.Drawing.Point(6, 85);
-            this.DragoonBloodOfTheDragon.Name = "DragoonBloodOfTheDragon";
-            this.DragoonBloodOfTheDragon.Size = new System.Drawing.Size(130, 17);
-            this.DragoonBloodOfTheDragon.TabIndex = 3;
-            this.DragoonBloodOfTheDragon.TabStop = false;
-            this.DragoonBloodOfTheDragon.Text = "Blood of the Dragon";
-            this.DragoonBloodOfTheDragon.UseVisualStyleBackColor = true;
-            this.DragoonBloodOfTheDragon.CheckedChanged += new System.EventHandler(this.DragoonBloodOfTheDragon_CheckedChanged);
-            // 
-            // DragoonGeirskogul
-            // 
-            this.DragoonGeirskogul.AutoSize = true;
-            this.DragoonGeirskogul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonGeirskogul.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonGeirskogul.ForeColor = System.Drawing.Color.White;
-            this.DragoonGeirskogul.Location = new System.Drawing.Point(6, 85);
-            this.DragoonGeirskogul.Name = "DragoonGeirskogul";
-            this.DragoonGeirskogul.Size = new System.Drawing.Size(79, 17);
-            this.DragoonGeirskogul.TabIndex = 3;
-            this.DragoonGeirskogul.TabStop = false;
-            this.DragoonGeirskogul.Text = "Geirskogul";
-            this.DragoonGeirskogul.UseVisualStyleBackColor = true;
-            this.DragoonGeirskogul.CheckedChanged += new System.EventHandler(this.DragoonGeirskogul_CheckedChanged);
+            this.AstrologianEsuna.AutoSize = true;
+            this.AstrologianEsuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianEsuna.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianEsuna.ForeColor = System.Drawing.Color.White;
+            this.AstrologianEsuna.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianEsuna.Name = "AstrologianEsuna";
+            this.AstrologianEsuna.Size = new System.Drawing.Size(54, 17);
+            this.AstrologianEsuna.TabIndex = 12;
+            this.AstrologianEsuna.TabStop = false;
+            this.AstrologianEsuna.Text = "Esuna";
+            this.AstrologianEsuna.UseVisualStyleBackColor = true;
+            this.AstrologianEsuna.CheckedChanged += new System.EventHandler(this.AstrologianEsuna_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -3947,10 +3947,8 @@
         private Design.CustomCheckDisabled AstrologianEyeForAnEye;
         private Design.CustomCheck AstrologianSwiftcast;
         private Design.CustomCheck AstrologianLucidDreaming;
-        private Design.CustomCheckDisabled AstrologianEsuna;
         private Design.CustomCheck AstrologianProtect;
         private Design.CustomCheckDisabled AstrologianBreak;
-        private Design.CustomCheckDisabled AstrologianClericStance;
         private Design.CustomGroup AstrologianSectGroup;
         private Design.CustomGroup AstrologianCardGroup;
         private Design.CustomGroup AstrologianHealGroup;
@@ -4002,5 +4000,7 @@
         private Design.CustomCheck DragoonBloodOfTheDragon;
         private Design.CustomCheck DragoonBattleLitany;
         private Design.CustomCheck DragoonGeirskogul;
+        private Design.CustomCheck AstrologianEsuna;
+        private Design.CustomCheck AstrologianClericStance;
     }
 }

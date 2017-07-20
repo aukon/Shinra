@@ -33,5 +33,17 @@ namespace ShinraCo
 
             return auras.Any(aura => aura.TimespanLeft.TotalMilliseconds >= msLeft);
         }
+
+        public static bool HasDispellable(this GameObject unit)
+        {
+            var unitasc = unit as Character;
+            if (unit == null || unitasc == null)
+            {
+                return false;
+            }
+            var auras = unitasc.CharacterAuras.Where(r => r.IsDebuff);
+
+            return auras.Any(aura => aura.IsDispellable);
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Buddy.Coroutines;
 using ff14bot;
+using ff14bot.Enums;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
@@ -201,6 +203,27 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Ascend()
+        {
+            if (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player))
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDead && hm.Type == GameObjectType.Pc && !hm.HasAura(MySpells.Ascend.Name));
+            
+                if (target != null)
+                {
+                    if (ActionManager.CanCast(MySpells.Ascend.Name, target))
+                    {
+                        if (await MySpells.Role.Swiftcast.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                        }
+                    }
+                    return await MySpells.Ascend.Cast(target);
+                }
+            }
+            return false;
+        }
+
         #endregion
 
         #region Card
@@ -209,6 +232,15 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianDraw)
             {
+                if (CardBalance || CardArrow || CardSpear)
+                {
+                    var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
+
+                    if (target != null)
+                    {
+                        return await MySpells.Draw.Cast(target);
+                    }
+                }
                 return await MySpells.Draw.Cast();
             }
             return false;
@@ -234,7 +266,17 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Spread()
         {
-            if (HasSpread && HasBuff || !HasSpread && !HasBuff && (CardBalance || CardArrow || CardSpear))
+            if (HasSpread && HasBuff)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
+
+                if (target != null)
+                {
+                    return await MySpells.Spread.Cast(target);
+                }
+                return await MySpells.Spread.Cast();
+            }
+            if (!HasSpread && !HasBuff && (CardBalance || CardArrow || CardSpear))
             {
                 return await MySpells.Spread.Cast();
             }
@@ -323,17 +365,28 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ClericStance()
         {
-            return await MySpells.Role.ClericStance.Cast();
+            if (Shinra.Settings.AstrologianClericStance)
+            {
+                return await MySpells.Role.ClericStance.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> Protect()
         {
-            if (Shinra.Settings.AstrologianProtect && !Core.Player.HasAura(MySpells.Role.Protect.Name))
+            if (Shinra.Settings.AstrologianProtect)
             {
-                var target = Core.Player;
+                var target = Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name));
 
                 if (target != null)
                 {
+                    if (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Protect.Name, target))
+                    {
+                        if (await MySpells.Role.Swiftcast.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                        }
+                    }
                     return await MySpells.Role.Protect.Cast(target);
                 }
             }
@@ -342,7 +395,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Esuna()
         {
-            return await MySpells.Role.Esuna.Cast();
+            if (Shinra.Settings.AstrologianEsuna)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.HasDispellable());
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Esuna.Cast(target);
+                }
+            }
+            return false;
         }
 
         private async Task<bool> LucidDreaming()

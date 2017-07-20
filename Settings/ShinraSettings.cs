@@ -116,7 +116,13 @@ namespace ShinraCo.Settings
         #region Role
 
         [Setting, DefaultValue(true)]
+        public bool AstrologianClericStance { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool AstrologianProtect { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianEsuna { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool AstrologianLucidDreaming { get; set; }

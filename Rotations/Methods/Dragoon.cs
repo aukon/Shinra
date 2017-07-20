@@ -227,9 +227,9 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static bool RecentJump { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Dive") || rs.Contains("Jump")); } }
+        private static double BloodTimer => Resource.Timer.TotalMilliseconds;
 
-        private bool UseJump => Core.Player.HasAura(MySpells.BloodOfTheDragon.Name) ||
-                                !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
+        private bool UseJump => BloodTimer > 1000 || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
         #endregion
     }

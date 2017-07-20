@@ -81,7 +81,9 @@ namespace ShinraCo.Settings.Forms
 
             #region Role
 
+            AstrologianClericStance.Checked = Shinra.Settings.AstrologianClericStance;
             AstrologianProtect.Checked = Shinra.Settings.AstrologianProtect;
+            AstrologianEsuna.Checked = Shinra.Settings.AstrologianEsuna;
             AstrologianLucidDreaming.Checked = Shinra.Settings.AstrologianLucidDreaming;
             AstrologianSwiftcast.Checked = Shinra.Settings.AstrologianSwiftcast;
 
@@ -492,9 +494,19 @@ namespace ShinraCo.Settings.Forms
 
         #region Role
 
+        private void AstrologianClericStance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianClericStance = AstrologianClericStance.Checked;
+        }
+
         private void AstrologianProtect_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianProtect = AstrologianProtect.Checked;
+        }
+
+        private void AstrologianEsuna_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianEsuna = AstrologianEsuna.Checked;
         }
 
         private void AstrologianLucidDreaming_CheckedChanged(object sender, EventArgs e)

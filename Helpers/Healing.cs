@@ -75,5 +75,10 @@ namespace ShinraCo
                     return false;
             }
         }
+
+        public static bool IsDPS(this Character c)
+        {
+            return !c.IsTank() && !c.IsHealer();
+        }
     }
 }

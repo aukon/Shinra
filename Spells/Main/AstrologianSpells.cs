@@ -56,6 +56,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
+        public Spell Ascend { get; } = new Spell
+        {
+            Name = "Ascend",
+            ID = 3603,
+            Level = 12,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Heal,
+            CastType = CastType.Target
+        };
+
         public Spell EssentialDignity { get; } = new Spell
         {
             Name = "Essential Dignity",
