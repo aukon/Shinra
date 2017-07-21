@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ShinraCo.Settings;
 
 namespace ShinraCo.Rotations
 {
@@ -8,16 +9,39 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (await DoomSpike()) return true;
-            if (await WheelingThrust()) return true;
-            if (await FangAndClaw()) return true;
-            if (await ChaosThrust()) return true;
-            if (await Disembowel()) return true;
-            if (await FullThrust()) return true;
-            if (await VorpalThrust()) return true;
-            if (await HeavyThrust()) return true;
-            if (await ImpulseDrive()) return true;
-            return await TrueThrust();
+            if (Shinra.Settings.RotationMode == Modes.Smart)
+            {
+                if (await SonicThrust()) return true;
+                if (await DoomSpike()) return true;
+                if (await WheelingThrust()) return true;
+                if (await FangAndClaw()) return true;
+                if (await ChaosThrust()) return true;
+                if (await Disembowel()) return true;
+                if (await FullThrust()) return true;
+                if (await VorpalThrust()) return true;
+                if (await HeavyThrust()) return true;
+                if (await ImpulseDrive()) return true;
+                return await TrueThrust();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Single)
+            {
+                if (await WheelingThrust()) return true;
+                if (await FangAndClaw()) return true;
+                if (await ChaosThrust()) return true;
+                if (await Disembowel()) return true;
+                if (await FullThrust()) return true;
+                if (await VorpalThrust()) return true;
+                if (await HeavyThrust()) return true;
+                if (await ImpulseDrive()) return true;
+                return await TrueThrust();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Multi)
+            {
+                if (await SonicThrust()) return true;
+                if (await DoomSpike()) return true;
+                return await HeavyThrust();
+            }
+            return false;
         }
 
         #endregion
@@ -33,6 +57,7 @@ namespace ShinraCo.Rotations
             if (await TrueNorth()) return true;
             if (await BattleLitany()) return true;
             if (await LifeSurge()) return true;
+            if (await MirageDive()) return true;
             if (await Geirskogul()) return true;
             if (await DragonfireDive()) return true;
             if (await SpineshatterDive()) return true;

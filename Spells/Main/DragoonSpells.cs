@@ -208,5 +208,35 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
+
+        public Spell SonicThrust { get; } = new Spell
+        {
+            Name = "Sonic Thrust",
+            ID = 7397,
+            Level = 62,
+            GCDType = GCDType.On,
+            SpellType = SpellType.AoE,
+            CastType = CastType.Target
+        };
+
+        public Spell DragonSight { get; } = new Spell
+        {
+            Name = "Dragon Sight",
+            ID = 7398,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Target
+        };
+
+        public Spell MirageDive { get; } = new Spell
+        {
+            Name = "Mirage Dive",
+            ID = 7399,
+            Level = 68,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
     }
 }

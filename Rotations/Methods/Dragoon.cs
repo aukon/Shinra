@@ -98,6 +98,16 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> SonicThrust()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.DoomSpike.Name && Core.Player.CurrentTPPercent > 30 &&
+                Core.Player.HasAura(MySpells.HeavyThrust.Name) && Helpers.EnemiesNearTarget(5) > 2)
+            {
+                return await MySpells.SonicThrust.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Cooldown
@@ -136,7 +146,19 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                return await MySpells.Geirskogul.Cast();
+                if (NumEyes < 3 || NumEyes == 4 || JumpCooldown > 10 && SpineCooldown > 10)
+                {
+                    return await MySpells.Geirskogul.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> MirageDive()
+        {
+            if (!MovementManager.IsMoving && !RecentJump && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            {
+                return await MySpells.MirageDive.Cast();
             }
             return false;
         }
@@ -228,6 +250,9 @@ namespace ShinraCo.Rotations
 
         private static bool RecentJump { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Dive") || rs.Contains("Jump")); } }
         private static double BloodTimer => Resource.Timer.TotalMilliseconds;
+        private static double JumpCooldown => DataManager.GetSpellData(92).Cooldown.TotalSeconds;
+        private static double SpineCooldown => DataManager.GetSpellData(95).Cooldown.TotalSeconds;
+        private static int NumEyes => Resource.DragonGaze;
 
         private bool UseJump => BloodTimer > 1000 || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
