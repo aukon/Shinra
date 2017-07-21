@@ -23,11 +23,18 @@ namespace ShinraCo.Rotations
             if (await RiotBlade()) return true;
             if (await SavageBlade()) return true;
             if (await FastBlade()) return true;
-            //Lancer
+            // Lancer
             if (await FullThrust()) return true;
             if (await VorpalThrust()) return true;
             if (await HeavyThrust()) return true;
-            return await TrueThrust();
+            if (await TrueThrust()) return true;
+            // Marauder
+            if (await Overpower()) return true;
+            if (await StormsPath()) return true;
+            if (await Maim()) return true;
+            if (await ButchersBlock()) return true;
+            if (await SkullSunder()) return true;
+            return await HeavySwing();
         }
 
         #endregion
@@ -51,7 +58,9 @@ namespace ShinraCo.Rotations
             if (await FightOrFlight()) return true;
             // Lancer
             if (await BloodForBlood()) return true;
-            return await LifeSurge();
+            if (await LifeSurge()) return true;
+            // Marauder
+            return await Berserk();
         }
 
         #endregion

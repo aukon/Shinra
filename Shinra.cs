@@ -124,6 +124,7 @@ namespace ShinraCo
                 case ClassJobType.Archer:
                 case ClassJobType.Gladiator:
                 case ClassJobType.Lancer:
+                case ClassJobType.Marauder:
                     return new BasicClass();
                 case ClassJobType.Astrologian:
                     return new Astrologian();

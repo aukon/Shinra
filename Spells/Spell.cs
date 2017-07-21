@@ -350,6 +350,13 @@ namespace ShinraCo.Spells
                             return false;
                         }
                         break;
+                    case ClassJobType.Marauder:
+                    case ClassJobType.Warrior:
+                        if (DataManager.GetSpellData(31).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
                     case ClassJobType.RedMage:
                         if (DataManager.GetSpellData(7504).Cooldown.TotalMilliseconds < 1000)
                         {

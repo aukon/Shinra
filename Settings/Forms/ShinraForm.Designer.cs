@@ -107,6 +107,7 @@
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianAscend = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianAspHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianAspHelios = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -145,6 +146,7 @@
             this.DragoonBloodForBlood = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonLifeSurge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonMirage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonGeirskogul = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonDragonfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -263,8 +265,51 @@
             this.PaladinLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.AstrologianAscend = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorEquilibriumPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorEquilibrium = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorFellCleave = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorInnerBeast = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorStormsEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorStormsPath = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorMaim = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorStanceGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorStance = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.WarriorBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorThrillOfBattlePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorThrillOfBattle = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorEquilibriumTPPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorVengeancePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorVengeance = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorInfuriate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorEquilibriumTP = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorUnchained = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorBerserk = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorDecimate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorSteelCyclone = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorOverpower = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorAwarenessPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorAnticipationPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorConvalescencePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorRampartPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WarriorShirk = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorUltimatum = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorInterject = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorAwareness = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorReprisal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorAnticipation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorConvalescence = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorOnslaught = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorUpheaval = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorShakeItOff = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorInnerRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -326,6 +371,13 @@
             this.PaladinDamageGroup.SuspendLayout();
             this.PaladinRoleGroup.SuspendLayout();
             this.pgeWarrior.SuspendLayout();
+            this.WarriorHealGroup.SuspendLayout();
+            this.WarriorDamageGroup.SuspendLayout();
+            this.WarriorCooldownGroup.SuspendLayout();
+            this.WarriorStanceGroup.SuspendLayout();
+            this.WarriorBuffGroup.SuspendLayout();
+            this.WarriorAoEGroup.SuspendLayout();
+            this.WarriorRoleGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -1468,6 +1520,21 @@
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
             // 
+            // AstrologianAscend
+            // 
+            this.AstrologianAscend.AutoSize = true;
+            this.AstrologianAscend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianAscend.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianAscend.ForeColor = System.Drawing.Color.White;
+            this.AstrologianAscend.Location = new System.Drawing.Point(6, 177);
+            this.AstrologianAscend.Name = "AstrologianAscend";
+            this.AstrologianAscend.Size = new System.Drawing.Size(60, 17);
+            this.AstrologianAscend.TabIndex = 13;
+            this.AstrologianAscend.TabStop = false;
+            this.AstrologianAscend.Text = "Ascend";
+            this.AstrologianAscend.UseVisualStyleBackColor = true;
+            this.AstrologianAscend.CheckedChanged += new System.EventHandler(this.AstrologianAscend_CheckedChanged);
+            // 
             // AstrologianAspHeliosPct
             // 
             this.AstrologianAspHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -1905,7 +1972,7 @@
             this.DragoonBuffGroup.Controls.Add(this.DragoonBloodForBlood);
             this.DragoonBuffGroup.Controls.Add(this.DragoonLifeSurge);
             this.DragoonBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonBuffGroup.Location = new System.Drawing.Point(218, 124);
+            this.DragoonBuffGroup.Location = new System.Drawing.Point(366, 6);
             this.DragoonBuffGroup.Name = "DragoonBuffGroup";
             this.DragoonBuffGroup.Size = new System.Drawing.Size(142, 112);
             this.DragoonBuffGroup.TabIndex = 2;
@@ -1974,6 +2041,7 @@
             // 
             // DragoonCooldownGroup
             // 
+            this.DragoonCooldownGroup.Controls.Add(this.DragoonMirage);
             this.DragoonCooldownGroup.Controls.Add(this.DragoonGeirskogul);
             this.DragoonCooldownGroup.Controls.Add(this.DragoonDragonfire);
             this.DragoonCooldownGroup.Controls.Add(this.DragoonSpineshatter);
@@ -1981,10 +2049,25 @@
             this.DragoonCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DragoonCooldownGroup.Location = new System.Drawing.Point(218, 6);
             this.DragoonCooldownGroup.Name = "DragoonCooldownGroup";
-            this.DragoonCooldownGroup.Size = new System.Drawing.Size(142, 112);
+            this.DragoonCooldownGroup.Size = new System.Drawing.Size(142, 135);
             this.DragoonCooldownGroup.TabIndex = 1;
             this.DragoonCooldownGroup.TabStop = false;
             this.DragoonCooldownGroup.Text = "Cooldown";
+            // 
+            // DragoonMirage
+            // 
+            this.DragoonMirage.AutoSize = true;
+            this.DragoonMirage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonMirage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonMirage.ForeColor = System.Drawing.Color.White;
+            this.DragoonMirage.Location = new System.Drawing.Point(6, 108);
+            this.DragoonMirage.Name = "DragoonMirage";
+            this.DragoonMirage.Size = new System.Drawing.Size(84, 17);
+            this.DragoonMirage.TabIndex = 4;
+            this.DragoonMirage.TabStop = false;
+            this.DragoonMirage.Text = "Mirage Dive";
+            this.DragoonMirage.UseVisualStyleBackColor = true;
+            this.DragoonMirage.CheckedChanged += new System.EventHandler(this.DragoonMirage_CheckedChanged);
             // 
             // DragoonGeirskogul
             // 
@@ -3631,7 +3714,13 @@
             // pgeWarrior
             // 
             this.pgeWarrior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeWarrior.Controls.Add(this.label11);
+            this.pgeWarrior.Controls.Add(this.WarriorHealGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorDamageGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorCooldownGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorStanceGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorBuffGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorAoEGroup);
+            this.pgeWarrior.Controls.Add(this.WarriorRoleGroup);
             this.pgeWarrior.Location = new System.Drawing.Point(104, 4);
             this.pgeWarrior.Name = "pgeWarrior";
             this.pgeWarrior.Padding = new System.Windows.Forms.Padding(3);
@@ -3640,31 +3729,638 @@
             this.pgeWarrior.Text = "Warrior";
             this.pgeWarrior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
-            // label11
+            // WarriorHealGroup
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(13, 10);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(114, 65);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "N/A";
+            this.WarriorHealGroup.Controls.Add(this.WarriorEquilibriumPct);
+            this.WarriorHealGroup.Controls.Add(this.WarriorEquilibrium);
+            this.WarriorHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorHealGroup.Location = new System.Drawing.Point(344, 216);
+            this.WarriorHealGroup.Name = "WarriorHealGroup";
+            this.WarriorHealGroup.Size = new System.Drawing.Size(189, 44);
+            this.WarriorHealGroup.TabIndex = 6;
+            this.WarriorHealGroup.TabStop = false;
+            this.WarriorHealGroup.Text = "Heal";
             // 
-            // AstrologianAscend
+            // WarriorEquilibriumPct
             // 
-            this.AstrologianAscend.AutoSize = true;
-            this.AstrologianAscend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianAscend.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianAscend.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAscend.Location = new System.Drawing.Point(6, 177);
-            this.AstrologianAscend.Name = "AstrologianAscend";
-            this.AstrologianAscend.Size = new System.Drawing.Size(60, 17);
-            this.AstrologianAscend.TabIndex = 13;
-            this.AstrologianAscend.TabStop = false;
-            this.AstrologianAscend.Text = "Ascend";
-            this.AstrologianAscend.UseVisualStyleBackColor = true;
-            this.AstrologianAscend.CheckedChanged += new System.EventHandler(this.AstrologianAscend_CheckedChanged);
+            this.WarriorEquilibriumPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorEquilibriumPct.Location = new System.Drawing.Point(94, 16);
+            this.WarriorEquilibriumPct.Name = "WarriorEquilibriumPct";
+            this.WarriorEquilibriumPct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorEquilibriumPct.TabIndex = 1;
+            this.WarriorEquilibriumPct.ValueChanged += new System.EventHandler(this.WarriorEquilibriumPct_ValueChanged);
+            // 
+            // WarriorEquilibrium
+            // 
+            this.WarriorEquilibrium.AutoSize = true;
+            this.WarriorEquilibrium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorEquilibrium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorEquilibrium.ForeColor = System.Drawing.Color.White;
+            this.WarriorEquilibrium.Location = new System.Drawing.Point(6, 16);
+            this.WarriorEquilibrium.Name = "WarriorEquilibrium";
+            this.WarriorEquilibrium.Size = new System.Drawing.Size(82, 17);
+            this.WarriorEquilibrium.TabIndex = 0;
+            this.WarriorEquilibrium.TabStop = false;
+            this.WarriorEquilibrium.Text = "Equilibrium";
+            this.WarriorEquilibrium.UseVisualStyleBackColor = true;
+            this.WarriorEquilibrium.CheckedChanged += new System.EventHandler(this.WarriorEquilibrium_CheckedChanged);
+            // 
+            // WarriorDamageGroup
+            // 
+            this.WarriorDamageGroup.Controls.Add(this.WarriorFellCleave);
+            this.WarriorDamageGroup.Controls.Add(this.WarriorInnerBeast);
+            this.WarriorDamageGroup.Controls.Add(this.WarriorStormsEye);
+            this.WarriorDamageGroup.Controls.Add(this.WarriorStormsPath);
+            this.WarriorDamageGroup.Controls.Add(this.WarriorMaim);
+            this.WarriorDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorDamageGroup.Location = new System.Drawing.Point(224, 6);
+            this.WarriorDamageGroup.Name = "WarriorDamageGroup";
+            this.WarriorDamageGroup.Size = new System.Drawing.Size(114, 135);
+            this.WarriorDamageGroup.TabIndex = 5;
+            this.WarriorDamageGroup.TabStop = false;
+            this.WarriorDamageGroup.Text = "Damage";
+            // 
+            // WarriorFellCleave
+            // 
+            this.WarriorFellCleave.AutoSize = true;
+            this.WarriorFellCleave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorFellCleave.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorFellCleave.ForeColor = System.Drawing.Color.White;
+            this.WarriorFellCleave.Location = new System.Drawing.Point(6, 108);
+            this.WarriorFellCleave.Name = "WarriorFellCleave";
+            this.WarriorFellCleave.Size = new System.Drawing.Size(77, 17);
+            this.WarriorFellCleave.TabIndex = 4;
+            this.WarriorFellCleave.TabStop = false;
+            this.WarriorFellCleave.Text = "Fell Cleave";
+            this.WarriorFellCleave.UseVisualStyleBackColor = true;
+            this.WarriorFellCleave.CheckedChanged += new System.EventHandler(this.WarriorFellCleave_CheckedChanged);
+            // 
+            // WarriorInnerBeast
+            // 
+            this.WarriorInnerBeast.AutoSize = true;
+            this.WarriorInnerBeast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorInnerBeast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorInnerBeast.ForeColor = System.Drawing.Color.White;
+            this.WarriorInnerBeast.Location = new System.Drawing.Point(6, 85);
+            this.WarriorInnerBeast.Name = "WarriorInnerBeast";
+            this.WarriorInnerBeast.Size = new System.Drawing.Size(81, 17);
+            this.WarriorInnerBeast.TabIndex = 3;
+            this.WarriorInnerBeast.TabStop = false;
+            this.WarriorInnerBeast.Text = "Inner Beast";
+            this.WarriorInnerBeast.UseVisualStyleBackColor = true;
+            this.WarriorInnerBeast.CheckedChanged += new System.EventHandler(this.WarriorInnerBeast_CheckedChanged);
+            // 
+            // WarriorStormsEye
+            // 
+            this.WarriorStormsEye.AutoSize = true;
+            this.WarriorStormsEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorStormsEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorStormsEye.ForeColor = System.Drawing.Color.White;
+            this.WarriorStormsEye.Location = new System.Drawing.Point(6, 62);
+            this.WarriorStormsEye.Name = "WarriorStormsEye";
+            this.WarriorStormsEye.Size = new System.Drawing.Size(81, 17);
+            this.WarriorStormsEye.TabIndex = 2;
+            this.WarriorStormsEye.TabStop = false;
+            this.WarriorStormsEye.Text = "Storm\'s Eye";
+            this.WarriorStormsEye.UseVisualStyleBackColor = true;
+            this.WarriorStormsEye.CheckedChanged += new System.EventHandler(this.WarriorStormsEye_CheckedChanged);
+            // 
+            // WarriorStormsPath
+            // 
+            this.WarriorStormsPath.AutoSize = true;
+            this.WarriorStormsPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorStormsPath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorStormsPath.ForeColor = System.Drawing.Color.White;
+            this.WarriorStormsPath.Location = new System.Drawing.Point(6, 39);
+            this.WarriorStormsPath.Name = "WarriorStormsPath";
+            this.WarriorStormsPath.Size = new System.Drawing.Size(87, 17);
+            this.WarriorStormsPath.TabIndex = 1;
+            this.WarriorStormsPath.TabStop = false;
+            this.WarriorStormsPath.Text = "Storm\'s Path";
+            this.WarriorStormsPath.UseVisualStyleBackColor = true;
+            this.WarriorStormsPath.CheckedChanged += new System.EventHandler(this.WarriorStormsPath_CheckedChanged);
+            // 
+            // WarriorMaim
+            // 
+            this.WarriorMaim.AutoSize = true;
+            this.WarriorMaim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorMaim.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorMaim.ForeColor = System.Drawing.Color.White;
+            this.WarriorMaim.Location = new System.Drawing.Point(6, 16);
+            this.WarriorMaim.Name = "WarriorMaim";
+            this.WarriorMaim.Size = new System.Drawing.Size(51, 17);
+            this.WarriorMaim.TabIndex = 0;
+            this.WarriorMaim.TabStop = false;
+            this.WarriorMaim.Text = "Maim";
+            this.WarriorMaim.UseVisualStyleBackColor = true;
+            this.WarriorMaim.CheckedChanged += new System.EventHandler(this.WarriorMaim_CheckedChanged);
+            // 
+            // WarriorCooldownGroup
+            // 
+            this.WarriorCooldownGroup.Controls.Add(this.WarriorUpheaval);
+            this.WarriorCooldownGroup.Controls.Add(this.WarriorOnslaught);
+            this.WarriorCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorCooldownGroup.Location = new System.Drawing.Point(224, 242);
+            this.WarriorCooldownGroup.Name = "WarriorCooldownGroup";
+            this.WarriorCooldownGroup.Size = new System.Drawing.Size(114, 66);
+            this.WarriorCooldownGroup.TabIndex = 4;
+            this.WarriorCooldownGroup.TabStop = false;
+            this.WarriorCooldownGroup.Text = "Cooldown";
+            // 
+            // WarriorStanceGroup
+            // 
+            this.WarriorStanceGroup.Controls.Add(this.WarriorStance);
+            this.WarriorStanceGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorStanceGroup.Location = new System.Drawing.Point(344, 266);
+            this.WarriorStanceGroup.Name = "WarriorStanceGroup";
+            this.WarriorStanceGroup.Size = new System.Drawing.Size(112, 43);
+            this.WarriorStanceGroup.TabIndex = 3;
+            this.WarriorStanceGroup.TabStop = false;
+            this.WarriorStanceGroup.Text = "Stance";
+            // 
+            // WarriorStance
+            // 
+            this.WarriorStance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorStance.ForeColor = System.Drawing.Color.White;
+            this.WarriorStance.FormattingEnabled = true;
+            this.WarriorStance.Items.AddRange(new object[] {
+            "None",
+            "Defiance",
+            "Deliverance"});
+            this.WarriorStance.Location = new System.Drawing.Point(6, 16);
+            this.WarriorStance.Name = "WarriorStance";
+            this.WarriorStance.Size = new System.Drawing.Size(100, 21);
+            this.WarriorStance.TabIndex = 0;
+            this.WarriorStance.TabStop = false;
+            this.WarriorStance.SelectedValueChanged += new System.EventHandler(this.WarriorStance_SelectedValueChanged);
+            // 
+            // WarriorBuffGroup
+            // 
+            this.WarriorBuffGroup.Controls.Add(this.WarriorInnerRelease);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorShakeItOff);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorThrillOfBattlePct);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorThrillOfBattle);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorEquilibriumTPPct);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorVengeancePct);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorVengeance);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorInfuriate);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorEquilibriumTP);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorUnchained);
+            this.WarriorBuffGroup.Controls.Add(this.WarriorBerserk);
+            this.WarriorBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorBuffGroup.Location = new System.Drawing.Point(344, 6);
+            this.WarriorBuffGroup.Name = "WarriorBuffGroup";
+            this.WarriorBuffGroup.Size = new System.Drawing.Size(209, 204);
+            this.WarriorBuffGroup.TabIndex = 2;
+            this.WarriorBuffGroup.TabStop = false;
+            this.WarriorBuffGroup.Text = "Buff";
+            // 
+            // WarriorThrillOfBattlePct
+            // 
+            this.WarriorThrillOfBattlePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorThrillOfBattlePct.Location = new System.Drawing.Point(114, 39);
+            this.WarriorThrillOfBattlePct.Name = "WarriorThrillOfBattlePct";
+            this.WarriorThrillOfBattlePct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorThrillOfBattlePct.TabIndex = 8;
+            this.WarriorThrillOfBattlePct.ValueChanged += new System.EventHandler(this.WarriorThrillOfBattlePct_ValueChanged);
+            // 
+            // WarriorThrillOfBattle
+            // 
+            this.WarriorThrillOfBattle.AutoSize = true;
+            this.WarriorThrillOfBattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorThrillOfBattle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorThrillOfBattle.ForeColor = System.Drawing.Color.White;
+            this.WarriorThrillOfBattle.Location = new System.Drawing.Point(6, 39);
+            this.WarriorThrillOfBattle.Name = "WarriorThrillOfBattle";
+            this.WarriorThrillOfBattle.Size = new System.Drawing.Size(95, 17);
+            this.WarriorThrillOfBattle.TabIndex = 7;
+            this.WarriorThrillOfBattle.TabStop = false;
+            this.WarriorThrillOfBattle.Text = "Thrill of Battle";
+            this.WarriorThrillOfBattle.UseVisualStyleBackColor = true;
+            this.WarriorThrillOfBattle.CheckedChanged += new System.EventHandler(this.WarriorThrillOfBattle_CheckedChanged);
+            // 
+            // WarriorEquilibriumTPPct
+            // 
+            this.WarriorEquilibriumTPPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorEquilibriumTPPct.Location = new System.Drawing.Point(114, 131);
+            this.WarriorEquilibriumTPPct.Name = "WarriorEquilibriumTPPct";
+            this.WarriorEquilibriumTPPct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorEquilibriumTPPct.TabIndex = 6;
+            this.WarriorEquilibriumTPPct.ValueChanged += new System.EventHandler(this.WarriorEquilibriumTPPct_ValueChanged);
+            // 
+            // WarriorVengeancePct
+            // 
+            this.WarriorVengeancePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorVengeancePct.Location = new System.Drawing.Point(114, 85);
+            this.WarriorVengeancePct.Name = "WarriorVengeancePct";
+            this.WarriorVengeancePct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorVengeancePct.TabIndex = 5;
+            this.WarriorVengeancePct.ValueChanged += new System.EventHandler(this.WarriorVengeancePct_ValueChanged);
+            // 
+            // WarriorVengeance
+            // 
+            this.WarriorVengeance.AutoSize = true;
+            this.WarriorVengeance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorVengeance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorVengeance.ForeColor = System.Drawing.Color.White;
+            this.WarriorVengeance.Location = new System.Drawing.Point(6, 85);
+            this.WarriorVengeance.Name = "WarriorVengeance";
+            this.WarriorVengeance.Size = new System.Drawing.Size(79, 17);
+            this.WarriorVengeance.TabIndex = 4;
+            this.WarriorVengeance.TabStop = false;
+            this.WarriorVengeance.Text = "Vengeance";
+            this.WarriorVengeance.UseVisualStyleBackColor = true;
+            this.WarriorVengeance.CheckedChanged += new System.EventHandler(this.WarriorVengeance_CheckedChanged);
+            // 
+            // WarriorInfuriate
+            // 
+            this.WarriorInfuriate.AutoSize = true;
+            this.WarriorInfuriate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorInfuriate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorInfuriate.ForeColor = System.Drawing.Color.White;
+            this.WarriorInfuriate.Location = new System.Drawing.Point(6, 108);
+            this.WarriorInfuriate.Name = "WarriorInfuriate";
+            this.WarriorInfuriate.Size = new System.Drawing.Size(67, 17);
+            this.WarriorInfuriate.TabIndex = 3;
+            this.WarriorInfuriate.TabStop = false;
+            this.WarriorInfuriate.Text = "Infuriate";
+            this.WarriorInfuriate.UseVisualStyleBackColor = true;
+            this.WarriorInfuriate.CheckedChanged += new System.EventHandler(this.WarriorInfuriate_CheckedChanged);
+            // 
+            // WarriorEquilibriumTP
+            // 
+            this.WarriorEquilibriumTP.AutoSize = true;
+            this.WarriorEquilibriumTP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorEquilibriumTP.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorEquilibriumTP.ForeColor = System.Drawing.Color.White;
+            this.WarriorEquilibriumTP.Location = new System.Drawing.Point(6, 131);
+            this.WarriorEquilibriumTP.Name = "WarriorEquilibriumTP";
+            this.WarriorEquilibriumTP.Size = new System.Drawing.Size(102, 17);
+            this.WarriorEquilibriumTP.TabIndex = 2;
+            this.WarriorEquilibriumTP.TabStop = false;
+            this.WarriorEquilibriumTP.Text = "Equilibrium (TP)";
+            this.WarriorEquilibriumTP.UseVisualStyleBackColor = true;
+            this.WarriorEquilibriumTP.CheckedChanged += new System.EventHandler(this.WarriorEquilibriumTP_CheckedChanged);
+            // 
+            // WarriorUnchained
+            // 
+            this.WarriorUnchained.AutoSize = true;
+            this.WarriorUnchained.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorUnchained.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorUnchained.ForeColor = System.Drawing.Color.White;
+            this.WarriorUnchained.Location = new System.Drawing.Point(6, 62);
+            this.WarriorUnchained.Name = "WarriorUnchained";
+            this.WarriorUnchained.Size = new System.Drawing.Size(79, 17);
+            this.WarriorUnchained.TabIndex = 1;
+            this.WarriorUnchained.TabStop = false;
+            this.WarriorUnchained.Text = "Unchained";
+            this.WarriorUnchained.UseVisualStyleBackColor = true;
+            this.WarriorUnchained.CheckedChanged += new System.EventHandler(this.WarriorUnchained_CheckedChanged);
+            // 
+            // WarriorBerserk
+            // 
+            this.WarriorBerserk.AutoSize = true;
+            this.WarriorBerserk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorBerserk.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorBerserk.ForeColor = System.Drawing.Color.White;
+            this.WarriorBerserk.Location = new System.Drawing.Point(6, 16);
+            this.WarriorBerserk.Name = "WarriorBerserk";
+            this.WarriorBerserk.Size = new System.Drawing.Size(61, 17);
+            this.WarriorBerserk.TabIndex = 0;
+            this.WarriorBerserk.TabStop = false;
+            this.WarriorBerserk.Text = "Berserk";
+            this.WarriorBerserk.UseVisualStyleBackColor = true;
+            this.WarriorBerserk.CheckedChanged += new System.EventHandler(this.WarriorBerserk_CheckedChanged);
+            // 
+            // WarriorAoEGroup
+            // 
+            this.WarriorAoEGroup.Controls.Add(this.WarriorDecimate);
+            this.WarriorAoEGroup.Controls.Add(this.WarriorSteelCyclone);
+            this.WarriorAoEGroup.Controls.Add(this.WarriorOverpower);
+            this.WarriorAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorAoEGroup.Location = new System.Drawing.Point(224, 147);
+            this.WarriorAoEGroup.Name = "WarriorAoEGroup";
+            this.WarriorAoEGroup.Size = new System.Drawing.Size(114, 89);
+            this.WarriorAoEGroup.TabIndex = 1;
+            this.WarriorAoEGroup.TabStop = false;
+            this.WarriorAoEGroup.Text = "AoE";
+            // 
+            // WarriorDecimate
+            // 
+            this.WarriorDecimate.AutoSize = true;
+            this.WarriorDecimate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorDecimate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorDecimate.ForeColor = System.Drawing.Color.White;
+            this.WarriorDecimate.Location = new System.Drawing.Point(6, 62);
+            this.WarriorDecimate.Name = "WarriorDecimate";
+            this.WarriorDecimate.Size = new System.Drawing.Size(70, 17);
+            this.WarriorDecimate.TabIndex = 2;
+            this.WarriorDecimate.TabStop = false;
+            this.WarriorDecimate.Text = "Decimate";
+            this.WarriorDecimate.UseVisualStyleBackColor = true;
+            this.WarriorDecimate.CheckedChanged += new System.EventHandler(this.WarriorDecimate_CheckedChanged);
+            // 
+            // WarriorSteelCyclone
+            // 
+            this.WarriorSteelCyclone.AutoSize = true;
+            this.WarriorSteelCyclone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorSteelCyclone.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorSteelCyclone.ForeColor = System.Drawing.Color.White;
+            this.WarriorSteelCyclone.Location = new System.Drawing.Point(6, 39);
+            this.WarriorSteelCyclone.Name = "WarriorSteelCyclone";
+            this.WarriorSteelCyclone.Size = new System.Drawing.Size(91, 17);
+            this.WarriorSteelCyclone.TabIndex = 1;
+            this.WarriorSteelCyclone.TabStop = false;
+            this.WarriorSteelCyclone.Text = "Steel Cyclone";
+            this.WarriorSteelCyclone.UseVisualStyleBackColor = true;
+            this.WarriorSteelCyclone.CheckedChanged += new System.EventHandler(this.WarriorSteelCyclone_CheckedChanged);
+            // 
+            // WarriorOverpower
+            // 
+            this.WarriorOverpower.AutoSize = true;
+            this.WarriorOverpower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorOverpower.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorOverpower.ForeColor = System.Drawing.Color.White;
+            this.WarriorOverpower.Location = new System.Drawing.Point(6, 16);
+            this.WarriorOverpower.Name = "WarriorOverpower";
+            this.WarriorOverpower.Size = new System.Drawing.Size(80, 17);
+            this.WarriorOverpower.TabIndex = 0;
+            this.WarriorOverpower.TabStop = false;
+            this.WarriorOverpower.Text = "Overpower";
+            this.WarriorOverpower.UseVisualStyleBackColor = true;
+            this.WarriorOverpower.CheckedChanged += new System.EventHandler(this.WarriorOverpower_CheckedChanged);
+            // 
+            // WarriorRoleGroup
+            // 
+            this.WarriorRoleGroup.Controls.Add(this.WarriorAwarenessPct);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorAnticipationPct);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorConvalescencePct);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorRampartPct);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorShirk);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorUltimatum);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorInterject);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorAwareness);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorReprisal);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorAnticipation);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorConvalescence);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorProvoke);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorLowBlow);
+            this.WarriorRoleGroup.Controls.Add(this.WarriorRampart);
+            this.WarriorRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.WarriorRoleGroup.Name = "WarriorRoleGroup";
+            this.WarriorRoleGroup.Size = new System.Drawing.Size(205, 250);
+            this.WarriorRoleGroup.TabIndex = 0;
+            this.WarriorRoleGroup.TabStop = false;
+            this.WarriorRoleGroup.Text = "Role";
+            // 
+            // WarriorAwarenessPct
+            // 
+            this.WarriorAwarenessPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorAwarenessPct.Location = new System.Drawing.Point(110, 154);
+            this.WarriorAwarenessPct.Name = "WarriorAwarenessPct";
+            this.WarriorAwarenessPct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorAwarenessPct.TabIndex = 23;
+            this.WarriorAwarenessPct.ValueChanged += new System.EventHandler(this.WarriorAwarenessPct_ValueChanged);
+            // 
+            // WarriorAnticipationPct
+            // 
+            this.WarriorAnticipationPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorAnticipationPct.Location = new System.Drawing.Point(110, 108);
+            this.WarriorAnticipationPct.Name = "WarriorAnticipationPct";
+            this.WarriorAnticipationPct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorAnticipationPct.TabIndex = 22;
+            this.WarriorAnticipationPct.ValueChanged += new System.EventHandler(this.WarriorAnticipationPct_ValueChanged);
+            // 
+            // WarriorConvalescencePct
+            // 
+            this.WarriorConvalescencePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorConvalescencePct.Location = new System.Drawing.Point(110, 85);
+            this.WarriorConvalescencePct.Name = "WarriorConvalescencePct";
+            this.WarriorConvalescencePct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorConvalescencePct.TabIndex = 21;
+            this.WarriorConvalescencePct.ValueChanged += new System.EventHandler(this.WarriorConvalescencePct_ValueChanged);
+            // 
+            // WarriorRampartPct
+            // 
+            this.WarriorRampartPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WarriorRampartPct.Location = new System.Drawing.Point(110, 16);
+            this.WarriorRampartPct.Name = "WarriorRampartPct";
+            this.WarriorRampartPct.Size = new System.Drawing.Size(89, 22);
+            this.WarriorRampartPct.TabIndex = 20;
+            this.WarriorRampartPct.ValueChanged += new System.EventHandler(this.WarriorRampartPct_ValueChanged);
+            // 
+            // WarriorShirk
+            // 
+            this.WarriorShirk.AutoCheck = false;
+            this.WarriorShirk.AutoSize = true;
+            this.WarriorShirk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorShirk.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorShirk.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorShirk.Location = new System.Drawing.Point(6, 223);
+            this.WarriorShirk.Name = "WarriorShirk";
+            this.WarriorShirk.Size = new System.Drawing.Size(49, 17);
+            this.WarriorShirk.TabIndex = 19;
+            this.WarriorShirk.TabStop = false;
+            this.WarriorShirk.Text = "Shirk";
+            this.WarriorShirk.UseVisualStyleBackColor = true;
+            // 
+            // WarriorUltimatum
+            // 
+            this.WarriorUltimatum.AutoCheck = false;
+            this.WarriorUltimatum.AutoSize = true;
+            this.WarriorUltimatum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorUltimatum.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorUltimatum.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorUltimatum.Location = new System.Drawing.Point(6, 200);
+            this.WarriorUltimatum.Name = "WarriorUltimatum";
+            this.WarriorUltimatum.Size = new System.Drawing.Size(76, 17);
+            this.WarriorUltimatum.TabIndex = 18;
+            this.WarriorUltimatum.TabStop = false;
+            this.WarriorUltimatum.Text = "Ultimatum";
+            this.WarriorUltimatum.UseVisualStyleBackColor = true;
+            // 
+            // WarriorInterject
+            // 
+            this.WarriorInterject.AutoCheck = false;
+            this.WarriorInterject.AutoSize = true;
+            this.WarriorInterject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorInterject.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorInterject.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorInterject.Location = new System.Drawing.Point(6, 177);
+            this.WarriorInterject.Name = "WarriorInterject";
+            this.WarriorInterject.Size = new System.Drawing.Size(65, 17);
+            this.WarriorInterject.TabIndex = 17;
+            this.WarriorInterject.TabStop = false;
+            this.WarriorInterject.Text = "Interject";
+            this.WarriorInterject.UseVisualStyleBackColor = true;
+            // 
+            // WarriorAwareness
+            // 
+            this.WarriorAwareness.AutoSize = true;
+            this.WarriorAwareness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorAwareness.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorAwareness.ForeColor = System.Drawing.Color.White;
+            this.WarriorAwareness.Location = new System.Drawing.Point(6, 154);
+            this.WarriorAwareness.Name = "WarriorAwareness";
+            this.WarriorAwareness.Size = new System.Drawing.Size(78, 17);
+            this.WarriorAwareness.TabIndex = 16;
+            this.WarriorAwareness.TabStop = false;
+            this.WarriorAwareness.Text = "Awareness";
+            this.WarriorAwareness.UseVisualStyleBackColor = true;
+            this.WarriorAwareness.CheckedChanged += new System.EventHandler(this.WarriorAwareness_CheckedChanged);
+            // 
+            // WarriorReprisal
+            // 
+            this.WarriorReprisal.AutoSize = true;
+            this.WarriorReprisal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorReprisal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorReprisal.ForeColor = System.Drawing.Color.White;
+            this.WarriorReprisal.Location = new System.Drawing.Point(6, 131);
+            this.WarriorReprisal.Name = "WarriorReprisal";
+            this.WarriorReprisal.Size = new System.Drawing.Size(64, 17);
+            this.WarriorReprisal.TabIndex = 15;
+            this.WarriorReprisal.TabStop = false;
+            this.WarriorReprisal.Text = "Reprisal";
+            this.WarriorReprisal.UseVisualStyleBackColor = true;
+            this.WarriorReprisal.CheckedChanged += new System.EventHandler(this.WarriorReprisal_CheckedChanged);
+            // 
+            // WarriorAnticipation
+            // 
+            this.WarriorAnticipation.AutoSize = true;
+            this.WarriorAnticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorAnticipation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorAnticipation.ForeColor = System.Drawing.Color.White;
+            this.WarriorAnticipation.Location = new System.Drawing.Point(6, 108);
+            this.WarriorAnticipation.Name = "WarriorAnticipation";
+            this.WarriorAnticipation.Size = new System.Drawing.Size(86, 17);
+            this.WarriorAnticipation.TabIndex = 14;
+            this.WarriorAnticipation.TabStop = false;
+            this.WarriorAnticipation.Text = "Anticipation";
+            this.WarriorAnticipation.UseVisualStyleBackColor = true;
+            this.WarriorAnticipation.CheckedChanged += new System.EventHandler(this.WarriorAnticipation_CheckedChanged);
+            // 
+            // WarriorConvalescence
+            // 
+            this.WarriorConvalescence.AutoSize = true;
+            this.WarriorConvalescence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorConvalescence.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorConvalescence.ForeColor = System.Drawing.Color.White;
+            this.WarriorConvalescence.Location = new System.Drawing.Point(6, 85);
+            this.WarriorConvalescence.Name = "WarriorConvalescence";
+            this.WarriorConvalescence.Size = new System.Drawing.Size(98, 17);
+            this.WarriorConvalescence.TabIndex = 13;
+            this.WarriorConvalescence.TabStop = false;
+            this.WarriorConvalescence.Text = "Convalescence";
+            this.WarriorConvalescence.UseVisualStyleBackColor = true;
+            this.WarriorConvalescence.CheckedChanged += new System.EventHandler(this.WarriorConvalescence_CheckedChanged);
+            // 
+            // WarriorProvoke
+            // 
+            this.WarriorProvoke.AutoCheck = false;
+            this.WarriorProvoke.AutoSize = true;
+            this.WarriorProvoke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorProvoke.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorProvoke.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorProvoke.Location = new System.Drawing.Point(6, 62);
+            this.WarriorProvoke.Name = "WarriorProvoke";
+            this.WarriorProvoke.Size = new System.Drawing.Size(64, 17);
+            this.WarriorProvoke.TabIndex = 12;
+            this.WarriorProvoke.TabStop = false;
+            this.WarriorProvoke.Text = "Provoke";
+            this.WarriorProvoke.UseVisualStyleBackColor = true;
+            // 
+            // WarriorLowBlow
+            // 
+            this.WarriorLowBlow.AutoCheck = false;
+            this.WarriorLowBlow.AutoSize = true;
+            this.WarriorLowBlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorLowBlow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorLowBlow.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorLowBlow.Location = new System.Drawing.Point(6, 39);
+            this.WarriorLowBlow.Name = "WarriorLowBlow";
+            this.WarriorLowBlow.Size = new System.Drawing.Size(73, 17);
+            this.WarriorLowBlow.TabIndex = 11;
+            this.WarriorLowBlow.TabStop = false;
+            this.WarriorLowBlow.Text = "Low Blow";
+            this.WarriorLowBlow.UseVisualStyleBackColor = true;
+            // 
+            // WarriorRampart
+            // 
+            this.WarriorRampart.AutoSize = true;
+            this.WarriorRampart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorRampart.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorRampart.ForeColor = System.Drawing.Color.White;
+            this.WarriorRampart.Location = new System.Drawing.Point(6, 16);
+            this.WarriorRampart.Name = "WarriorRampart";
+            this.WarriorRampart.Size = new System.Drawing.Size(66, 17);
+            this.WarriorRampart.TabIndex = 10;
+            this.WarriorRampart.TabStop = false;
+            this.WarriorRampart.Text = "Rampart";
+            this.WarriorRampart.UseVisualStyleBackColor = true;
+            this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
+            // 
+            // WarriorOnslaught
+            // 
+            this.WarriorOnslaught.AutoSize = true;
+            this.WarriorOnslaught.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorOnslaught.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorOnslaught.ForeColor = System.Drawing.Color.White;
+            this.WarriorOnslaught.Location = new System.Drawing.Point(6, 16);
+            this.WarriorOnslaught.Name = "WarriorOnslaught";
+            this.WarriorOnslaught.Size = new System.Drawing.Size(78, 17);
+            this.WarriorOnslaught.TabIndex = 0;
+            this.WarriorOnslaught.TabStop = false;
+            this.WarriorOnslaught.Text = "Onslaught";
+            this.WarriorOnslaught.UseVisualStyleBackColor = true;
+            this.WarriorOnslaught.CheckedChanged += new System.EventHandler(this.WarriorOnslaught_CheckedChanged);
+            // 
+            // WarriorUpheaval
+            // 
+            this.WarriorUpheaval.AutoSize = true;
+            this.WarriorUpheaval.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorUpheaval.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorUpheaval.ForeColor = System.Drawing.Color.White;
+            this.WarriorUpheaval.Location = new System.Drawing.Point(6, 39);
+            this.WarriorUpheaval.Name = "WarriorUpheaval";
+            this.WarriorUpheaval.Size = new System.Drawing.Size(71, 17);
+            this.WarriorUpheaval.TabIndex = 1;
+            this.WarriorUpheaval.TabStop = false;
+            this.WarriorUpheaval.Text = "Upheaval";
+            this.WarriorUpheaval.UseVisualStyleBackColor = true;
+            this.WarriorUpheaval.CheckedChanged += new System.EventHandler(this.WarriorUpheaval_CheckedChanged);
+            // 
+            // WarriorShakeItOff
+            // 
+            this.WarriorShakeItOff.AutoSize = true;
+            this.WarriorShakeItOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorShakeItOff.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorShakeItOff.ForeColor = System.Drawing.Color.White;
+            this.WarriorShakeItOff.Location = new System.Drawing.Point(6, 154);
+            this.WarriorShakeItOff.Name = "WarriorShakeItOff";
+            this.WarriorShakeItOff.Size = new System.Drawing.Size(84, 17);
+            this.WarriorShakeItOff.TabIndex = 9;
+            this.WarriorShakeItOff.TabStop = false;
+            this.WarriorShakeItOff.Text = "Shake it Off";
+            this.WarriorShakeItOff.UseVisualStyleBackColor = true;
+            this.WarriorShakeItOff.CheckedChanged += new System.EventHandler(this.WarriorShakeItOff_CheckedChanged);
+            // 
+            // WarriorInnerRelease
+            // 
+            this.WarriorInnerRelease.AutoSize = true;
+            this.WarriorInnerRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorInnerRelease.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorInnerRelease.ForeColor = System.Drawing.Color.White;
+            this.WarriorInnerRelease.Location = new System.Drawing.Point(6, 177);
+            this.WarriorInnerRelease.Name = "WarriorInnerRelease";
+            this.WarriorInnerRelease.Size = new System.Drawing.Size(92, 17);
+            this.WarriorInnerRelease.TabIndex = 10;
+            this.WarriorInnerRelease.TabStop = false;
+            this.WarriorInnerRelease.Text = "Inner Release";
+            this.WarriorInnerRelease.UseVisualStyleBackColor = true;
+            this.WarriorInnerRelease.CheckedChanged += new System.EventHandler(this.WarriorInnerRelease_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -3776,7 +4472,19 @@
             this.PaladinRoleGroup.ResumeLayout(false);
             this.PaladinRoleGroup.PerformLayout();
             this.pgeWarrior.ResumeLayout(false);
-            this.pgeWarrior.PerformLayout();
+            this.WarriorHealGroup.ResumeLayout(false);
+            this.WarriorHealGroup.PerformLayout();
+            this.WarriorDamageGroup.ResumeLayout(false);
+            this.WarriorDamageGroup.PerformLayout();
+            this.WarriorCooldownGroup.ResumeLayout(false);
+            this.WarriorCooldownGroup.PerformLayout();
+            this.WarriorStanceGroup.ResumeLayout(false);
+            this.WarriorBuffGroup.ResumeLayout(false);
+            this.WarriorBuffGroup.PerformLayout();
+            this.WarriorAoEGroup.ResumeLayout(false);
+            this.WarriorAoEGroup.PerformLayout();
+            this.WarriorRoleGroup.ResumeLayout(false);
+            this.WarriorRoleGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3869,7 +4577,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
         private Design.CustomGroup RotationGroup;
         private Design.CustomCombo RotationModKey;
         private Design.CustomCombo RotationKey;
@@ -4020,5 +4727,51 @@
         private Design.CustomCheck AstrologianEsuna;
         private Design.CustomCheck AstrologianClericStance;
         private Design.CustomCheck AstrologianAscend;
+        private Design.CustomCheck DragoonMirage;
+        private Design.CustomGroup WarriorRoleGroup;
+        private Design.CustomCheckDisabled WarriorShirk;
+        private Design.CustomCheckDisabled WarriorUltimatum;
+        private Design.CustomCheckDisabled WarriorInterject;
+        private Design.CustomCheck WarriorAwareness;
+        private Design.CustomCheck WarriorReprisal;
+        private Design.CustomCheck WarriorAnticipation;
+        private Design.CustomCheck WarriorConvalescence;
+        private Design.CustomCheckDisabled WarriorProvoke;
+        private Design.CustomCheckDisabled WarriorLowBlow;
+        private Design.CustomCheck WarriorRampart;
+        private Design.UserNumeric WarriorAwarenessPct;
+        private Design.UserNumeric WarriorAnticipationPct;
+        private Design.UserNumeric WarriorConvalescencePct;
+        private Design.UserNumeric WarriorRampartPct;
+        private Design.CustomGroup WarriorBuffGroup;
+        private Design.CustomCheck WarriorBerserk;
+        private Design.CustomGroup WarriorAoEGroup;
+        private Design.CustomCheck WarriorDecimate;
+        private Design.CustomCheck WarriorSteelCyclone;
+        private Design.CustomCheck WarriorOverpower;
+        private Design.CustomGroup WarriorStanceGroup;
+        private Design.CustomCombo WarriorStance;
+        private Design.CustomGroup WarriorCooldownGroup;
+        private Design.CustomCheck WarriorEquilibriumTP;
+        private Design.CustomCheck WarriorUnchained;
+        private Design.CustomGroup WarriorDamageGroup;
+        private Design.CustomCheck WarriorFellCleave;
+        private Design.CustomCheck WarriorInnerBeast;
+        private Design.CustomCheck WarriorStormsEye;
+        private Design.CustomCheck WarriorStormsPath;
+        private Design.CustomCheck WarriorMaim;
+        private Design.CustomGroup WarriorHealGroup;
+        private Design.UserNumeric WarriorEquilibriumPct;
+        private Design.CustomCheck WarriorEquilibrium;
+        private Design.CustomCheck WarriorInfuriate;
+        private Design.UserNumeric WarriorVengeancePct;
+        private Design.CustomCheck WarriorVengeance;
+        private Design.UserNumeric WarriorEquilibriumTPPct;
+        private Design.UserNumeric WarriorThrillOfBattlePct;
+        private Design.CustomCheck WarriorThrillOfBattle;
+        private Design.CustomCheck WarriorUpheaval;
+        private Design.CustomCheck WarriorOnslaught;
+        private Design.CustomCheck WarriorInnerRelease;
+        private Design.CustomCheck WarriorShakeItOff;
     }
 }

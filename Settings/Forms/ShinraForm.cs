@@ -185,6 +185,7 @@ namespace ShinraCo.Settings.Forms
             DragoonSpineshatter.Checked = Shinra.Settings.DragoonSpineshatter;
             DragoonDragonfire.Checked = Shinra.Settings.DragoonDragonfire;
             DragoonGeirskogul.Checked = Shinra.Settings.DragoonGeirskogul;
+            DragoonMirage.Checked = Shinra.Settings.DragoonMirage;
 
             #endregion
 
@@ -364,6 +365,80 @@ namespace ShinraCo.Settings.Forms
             #region Pet
 
             SummonerPet.Text = Convert.ToString(Shinra.Settings.SummonerPet);
+
+            #endregion
+
+            #endregion
+
+            #region Warrior
+
+            #region Role
+
+            WarriorRampart.Checked = Shinra.Settings.WarriorRampart;
+            WarriorConvalescence.Checked = Shinra.Settings.WarriorConvalescence;
+            WarriorAnticipation.Checked = Shinra.Settings.WarriorAnticipation;
+            WarriorReprisal.Checked = Shinra.Settings.WarriorReprisal;
+            WarriorAwareness.Checked = Shinra.Settings.WarriorAwareness;
+
+            WarriorRampartPct.Value = Shinra.Settings.WarriorRampartPct;
+            WarriorConvalescencePct.Value = Shinra.Settings.WarriorConvalescencePct;
+            WarriorAnticipationPct.Value = Shinra.Settings.WarriorAnticipationPct;
+            WarriorAwarenessPct.Value = Shinra.Settings.WarriorAwarenessPct;
+
+            #endregion
+
+            #region Damage
+
+            WarriorMaim.Checked = Shinra.Settings.WarriorMaim;
+            WarriorStormsPath.Checked = Shinra.Settings.WarriorStormsPath;
+            WarriorStormsEye.Checked = Shinra.Settings.WarriorStormsEye;
+            WarriorInnerBeast.Checked = Shinra.Settings.WarriorInnerBeast;
+            WarriorFellCleave.Checked = Shinra.Settings.WarriorFellCleave;
+
+            #endregion
+
+            #region AoE
+
+            WarriorOverpower.Checked = Shinra.Settings.WarriorOverpower;
+            WarriorSteelCyclone.Checked = Shinra.Settings.WarriorSteelCyclone;
+            WarriorDecimate.Checked = Shinra.Settings.WarriorDecimate;
+
+            #endregion
+
+            #region Cooldown
+
+            WarriorOnslaught.Checked = Shinra.Settings.WarriorOnslaught;
+            WarriorUpheaval.Checked = Shinra.Settings.WarriorUpheaval;
+
+            #endregion
+
+            #region Buff
+
+            WarriorBerserk.Checked = Shinra.Settings.WarriorBerserk;
+            WarriorThrillOfBattle.Checked = Shinra.Settings.WarriorThrillOfBattle;
+            WarriorUnchained.Checked = Shinra.Settings.WarriorUnchained;
+            WarriorVengeance.Checked = Shinra.Settings.WarriorVengeance;
+            WarriorInfuriate.Checked = Shinra.Settings.WarriorInfuriate;
+            WarriorEquilibriumTP.Checked = Shinra.Settings.WarriorEquilibriumTP;
+            WarriorShakeItOff.Checked = Shinra.Settings.WarriorShakeItOff;
+            WarriorInnerRelease.Checked = Shinra.Settings.WarriorInnerRelease;
+
+            WarriorThrillOfBattlePct.Value = Shinra.Settings.WarriorThrillOfBattlePct;
+            WarriorVengeancePct.Value = Shinra.Settings.WarriorVengeancePct;
+            WarriorEquilibriumTPPct.Value = Shinra.Settings.WarriorEquilibriumTPPct;
+
+            #endregion
+
+            #region Heal
+
+            WarriorEquilibrium.Checked = Shinra.Settings.WarriorEquilibrium;
+            WarriorEquilibriumPct.Value = Shinra.Settings.WarriorEquilibriumPct;
+
+            #endregion
+
+            #region Stance
+
+            WarriorStance.Text = Convert.ToString(Shinra.Settings.WarriorStance);
 
             #endregion
 
@@ -774,6 +849,11 @@ namespace ShinraCo.Settings.Forms
         private void DragoonGeirskogul_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonGeirskogul = DragoonGeirskogul.Checked;
+        }
+
+        private void DragoonMirage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonMirage = DragoonMirage.Checked;
         }
 
         #endregion
@@ -1188,6 +1268,205 @@ namespace ShinraCo.Settings.Forms
             if (SummonerPet.Text == @"Ifrit") Shinra.Settings.SummonerPet = SummonerPets.Ifrit;
         }
 
+
+        #endregion
+
+        #endregion
+
+        #region Warrior
+
+        #region Role
+
+        private void WarriorRampart_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorRampart = WarriorRampart.Checked;
+        }
+
+        private void WarriorConvalescence_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorConvalescence = WarriorConvalescence.Checked;
+        }
+
+        private void WarriorAnticipation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorAnticipation = WarriorAnticipation.Checked;
+        }
+
+        private void WarriorReprisal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorReprisal = WarriorReprisal.Checked;
+        }
+
+        private void WarriorAwareness_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorAwareness = WarriorAwareness.Checked;
+        }
+
+        private void WarriorRampartPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorRampartPct = Convert.ToInt32(WarriorRampartPct.Value);
+        }
+
+        private void WarriorConvalescencePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorConvalescencePct = Convert.ToInt32(WarriorConvalescencePct.Value);
+        }
+
+        private void WarriorAnticipationPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorAnticipationPct = Convert.ToInt32(WarriorAnticipationPct.Value);
+        }
+
+        private void WarriorAwarenessPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorAwarenessPct = Convert.ToInt32(WarriorAwarenessPct.Value);
+        }
+
+        #endregion
+
+        #region Damage
+
+        private void WarriorMaim_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorMaim = WarriorMaim.Checked;
+        }
+
+        private void WarriorStormsPath_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorStormsPath = WarriorStormsPath.Checked;
+        }
+
+        private void WarriorStormsEye_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorStormsEye = WarriorStormsEye.Checked;
+        }
+
+        private void WarriorInnerBeast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorInnerBeast = WarriorInnerBeast.Checked;
+        }
+
+        private void WarriorFellCleave_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorFellCleave = WarriorFellCleave.Checked;
+        }
+
+        #endregion
+
+        #region AoE
+
+        private void WarriorOverpower_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorOverpower = WarriorOverpower.Checked;
+        }
+
+        private void WarriorSteelCyclone_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorSteelCyclone = WarriorSteelCyclone.Checked;
+        }
+
+        private void WarriorDecimate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorDecimate = WarriorDecimate.Checked;
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void WarriorOnslaught_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorOnslaught = WarriorOnslaught.Checked;
+        }
+
+        private void WarriorUpheaval_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorUpheaval = WarriorUpheaval.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void WarriorBerserk_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorBerserk = WarriorBerserk.Checked;
+        }
+
+        private void WarriorThrillOfBattle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorThrillOfBattle = WarriorThrillOfBattle.Checked;
+        }
+
+        private void WarriorUnchained_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorUnchained = WarriorUnchained.Checked;
+        }
+
+        private void WarriorVengeance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorVengeance = WarriorVengeance.Checked;
+        }
+
+        private void WarriorInfuriate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorInfuriate = WarriorInfuriate.Checked;
+        }
+
+        private void WarriorEquilibriumTP_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorEquilibriumTP = WarriorEquilibriumTP.Checked;
+        }
+
+        private void WarriorShakeItOff_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorShakeItOff = WarriorShakeItOff.Checked;
+        }
+
+        private void WarriorInnerRelease_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorInnerRelease = WarriorInnerRelease.Checked;
+        }
+
+        private void WarriorThrillOfBattlePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorThrillOfBattlePct = Convert.ToInt32(WarriorThrillOfBattlePct.Value);
+        }
+
+        private void WarriorVengeancePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorVengeancePct = Convert.ToInt32(WarriorVengeancePct.Value);
+        }
+
+        private void WarriorEquilibriumTPPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorEquilibriumTPPct = Convert.ToInt32(WarriorEquilibriumTPPct.Value);
+        }
+
+        #endregion
+
+        #region Heal
+
+        private void WarriorEquilibrium_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorEquilibrium = WarriorEquilibrium.Checked;
+        }
+
+        private void WarriorEquilibriumPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorEquilibriumPct = Convert.ToInt32(WarriorEquilibriumPct.Value);
+        }
+
+        #endregion
+
+        #region Stance
+
+        private void WarriorStance_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (WarriorStance.Text == @"None") Shinra.Settings.WarriorStance = WarriorStances.None;
+            if (WarriorStance.Text == @"Defiance") Shinra.Settings.WarriorStance = WarriorStances.Defiance;
+            if (WarriorStance.Text == @"Deliverance") Shinra.Settings.WarriorStance = WarriorStances.Deliverance;
+        }
 
         #endregion
 

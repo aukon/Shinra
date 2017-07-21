@@ -26,12 +26,11 @@ namespace ShinraCo.Settings
         Defender
     }
 
-    public enum SummonerPets
+    public enum AstrologianSects
     {
         None,
-        Garuda,
-        Titan,
-        Ifrit
+        Diurnal,
+        Nocturnal
     }
 
     public enum PaladinOaths
@@ -41,11 +40,19 @@ namespace ShinraCo.Settings
         Sword
     }
 
-    public enum AstrologianSects
+    public enum SummonerPets
     {
         None,
-        Diurnal,
-        Nocturnal
+        Garuda,
+        Titan,
+        Ifrit
+    }
+
+    public enum WarriorStances
+    {
+        None,
+        Defiance,
+        Deliverance
     }
 
     #endregion
@@ -305,6 +312,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool DragoonGeirskogul { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DragoonMirage { get; set; }
 
         #endregion
 
@@ -586,6 +596,137 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(SummonerPets.Garuda)]
         public SummonerPets SummonerPet { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region Warrior
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorRampart { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorConvalescence { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorAnticipation { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorReprisal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorAwareness { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int WarriorRampartPct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int WarriorConvalescencePct { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int WarriorAnticipationPct { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int WarriorAwarenessPct { get; set; }
+
+        #endregion
+
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorMaim { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorStormsPath { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorStormsEye { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorInnerBeast { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorFellCleave { get; set; }
+
+        #endregion
+
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorOverpower { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorSteelCyclone { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorDecimate { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorOnslaught { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorUpheaval { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorBerserk { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorThrillOfBattle { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorUnchained { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorVengeance { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorInfuriate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorEquilibriumTP { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorShakeItOff { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorInnerRelease { get; set; }
+
+        [Setting, DefaultValue(30)]
+        public int WarriorThrillOfBattlePct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int WarriorVengeancePct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int WarriorEquilibriumTPPct { get; set; }
+
+        #endregion
+
+        #region Heal
+
+        [Setting, DefaultValue(true)]
+        public bool WarriorEquilibrium { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int WarriorEquilibriumPct { get; set; }
+
+        #endregion
+
+        #region Stance
+
+        [Setting, DefaultValue(WarriorStances.Defiance)]
+        public WarriorStances WarriorStance { get; set; }
 
         #endregion
 

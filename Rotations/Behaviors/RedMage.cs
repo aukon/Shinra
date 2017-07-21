@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ShinraCo.Settings;
 
 namespace ShinraCo.Rotations
 {
@@ -8,22 +9,50 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (await Drain()) return true;
-            if (await EnchantedMoulinet()) return true;
-            if (await Scatter()) return true;
-            if (await Verholy()) return true;
-            if (await Verflare()) return true;
-            if (await EnchantedRiposte()) return true;
-            if (await EnchantedZwerchhau()) return true;
-            if (await EnchantedRedoublement()) return true;
-            if (await Veraero()) return true;
-            if (await Verthunder()) return true;
-            if (await Verstone()) return true;
-            if (await Verfire()) return true;
-            if (await Impact()) return true;
-            if (await JoltII()) return true;
-            if (await Jolt()) return true;
-            return await Riposte();
+            if (Shinra.Settings.RotationMode == Modes.Smart)
+            {
+                if (await Drain()) return true;
+                if (await EnchantedMoulinet()) return true;
+                if (await Scatter()) return true;
+                if (await Verholy()) return true;
+                if (await Verflare()) return true;
+                if (await EnchantedRiposte()) return true;
+                if (await EnchantedZwerchhau()) return true;
+                if (await EnchantedRedoublement()) return true;
+                if (await Veraero()) return true;
+                if (await Verthunder()) return true;
+                if (await Verstone()) return true;
+                if (await Verfire()) return true;
+                if (await Impact()) return true;
+                if (await JoltII()) return true;
+                if (await Jolt()) return true;
+                return await Riposte();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Single)
+            {
+                if (await Drain()) return true;
+                if (await Verholy()) return true;
+                if (await Verflare()) return true;
+                if (await EnchantedRiposte()) return true;
+                if (await EnchantedZwerchhau()) return true;
+                if (await EnchantedRedoublement()) return true;
+                if (await Veraero()) return true;
+                if (await Verthunder()) return true;
+                if (await Verstone()) return true;
+                if (await Verfire()) return true;
+                if (await Impact()) return true;
+                if (await JoltII()) return true;
+                if (await Jolt()) return true;
+                return await Riposte();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Multi)
+            {
+                if (await Drain()) return true;
+                if (await EnchantedMoulinet()) return true;
+                if (await Scatter()) return true;
+                return await Riposte();
+            }
+            return false;
         }
 
         #endregion

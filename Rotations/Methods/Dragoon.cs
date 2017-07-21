@@ -156,7 +156,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MirageDive()
         {
-            if (!MovementManager.IsMoving && !RecentJump && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            if (Shinra.Settings.DragoonMirage && !MovementManager.IsMoving && !RecentJump && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
                 return await MySpells.MirageDive.Cast();
             }
@@ -196,8 +196,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BloodOfTheDragon()
         {
-            if (Shinra.Settings.DragoonBloodOfTheDragon && (ActionManager.LastSpell.Name == MySpells.VorpalThrust.Name ||
-                                                            ActionManager.LastSpell.Name == MySpells.Disembowel.Name))
+            if (Shinra.Settings.DragoonBloodOfTheDragon && BloodTimer == 0 &&
+                (ActionManager.LastSpell.Name == MySpells.VorpalThrust.Name || ActionManager.LastSpell.Name == MySpells.Disembowel.Name))
             {
                 return await MySpells.BloodOfTheDragon.Cast();
             }
@@ -254,7 +254,7 @@ namespace ShinraCo.Rotations
         private static double SpineCooldown => DataManager.GetSpellData(95).Cooldown.TotalSeconds;
         private static int NumEyes => Resource.DragonGaze;
 
-        private bool UseJump => BloodTimer > 1000 || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
+        private bool UseJump => BloodTimer > 500 || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
         #endregion
     }

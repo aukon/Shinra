@@ -266,6 +266,65 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region Marauder
+
+        private async Task<bool> HeavySwing()
+        {
+            return await MySpells.Marauder.HeavySwing.Cast();
+        }
+
+        private async Task<bool> SkullSunder()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Marauder.HeavySwing.Name)
+            {
+                return await MySpells.Marauder.SkullSunder.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Berserk()
+        {
+            return await MySpells.Marauder.Berserk.Cast();
+        }
+
+        private async Task<bool> Overpower()
+        {
+            if (Shinra.Settings.RotationMode != Modes.Single && Core.Player.CurrentTPPercent > 30)
+            {
+                return await MySpells.Marauder.Overpower.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Maim()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Marauder.HeavySwing.Name && !Core.Player.CurrentTarget.HasAura(819))
+            {
+                return await MySpells.Marauder.Maim.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> ButchersBlock()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Marauder.SkullSunder.Name)
+            {
+                return await MySpells.Marauder.ButchersBlock.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> StormsPath()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Marauder.Maim.Name)
+            {
+                return await MySpells.Marauder.StormsPath.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Role
 
         private async Task<bool> SecondWind()
