@@ -140,6 +140,8 @@ namespace ShinraCo
                     return new Samurai();
                 case ClassJobType.Summoner:
                     return new Summoner();
+                case ClassJobType.Warrior:
+                    return new Warrior();
                 default:
                     Logging.Write(Colors.Red, $@"[Shinra] {classJob} is not supported.");
                     return new Default();

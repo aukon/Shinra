@@ -38,11 +38,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Maim()
         {
-            if (Shinra.Settings.WarriorMaim && ActionManager.LastSpell.Name == MySpells.HeavySwing.Name &&
-                (!Core.Player.CurrentTarget.HasAura(819, false, 6000) || Shinra.Settings.WarriorStormsPath ||
-                 Shinra.Settings.WarriorStormsEye && !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000)))
+            if (Shinra.Settings.WarriorMaim && ActionManager.LastSpell.Name == MySpells.HeavySwing.Name)
             {
-                return await MySpells.Maim.Cast();
+                if (!Core.Player.CurrentTarget.HasAura(819, false, 6000) ||
+                    Shinra.Settings.WarriorStormsPath && ActionManager.HasSpell(MySpells.StormsPath.Name) ||
+                    Shinra.Settings.WarriorStormsEye && ActionManager.HasSpell(MySpells.StormsEye.Name) &&
+                    !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
+                {
+                    return await MySpells.Maim.Cast();
+                }
             }
             return false;
         }
