@@ -73,14 +73,14 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RefulgentArrow()
         {
-            if (Shinra.Settings.BardBarrage && BarrageCooldown > 0 && BarrageCooldown < 5 &&
+            if (Shinra.Settings.BardBarrage && BarrageCooldown > 0 && BarrageCooldown < 5000 &&
                 Core.Player.HasAura(MySpells.StraightShot.Name, true, 8000))
             {
                 return false;
             }
             if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
             {
-                if (await MySpells.Barrage.Cast())
+                if (await MySpells.Barrage.Cast(null, false))
                 {
                     await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
                 }
@@ -180,7 +180,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.EmpyrealArrow.Name, Core.Player.CurrentTarget) &&
                 (!ActionManager.HasSpell(MySpells.RefulgentArrow.Name) || _heavyCount > 3))
             {
-                if (await MySpells.Barrage.Cast())
+                if (await MySpells.Barrage.Cast(null, false))
                 {
                     await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
                 }
