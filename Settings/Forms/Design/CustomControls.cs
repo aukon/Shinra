@@ -52,6 +52,12 @@ namespace ShinraCo.Settings.Forms.Design
             ForeColor = Color.White;
             TabStop = false;
         }
+
+        protected override void OnSelectedValueChanged(EventArgs e)
+        {
+            Parent.Focus();
+            base.OnSelectedValueChanged(e);
+        }
     }
 
     #endregion

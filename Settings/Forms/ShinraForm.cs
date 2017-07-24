@@ -42,6 +42,7 @@ namespace ShinraCo.Settings.Forms
         {
             ShinraBanner.Image = _shinraBanner;
             HotkeyManager.Unregister("Shinra Rotation");
+            HotkeyManager.Unregister("Shinra Tank");
             Location = Shinra.Settings.WindowLocation;
 
             #region Main Settings
@@ -66,9 +67,11 @@ namespace ShinraCo.Settings.Forms
 
             RotationOverlay.Checked = Shinra.Settings.RotationOverlay;
             RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
+            TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
 
             var kc = new KeysConverter();
             RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
+            TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
 
             #endregion
 
@@ -219,8 +222,6 @@ namespace ShinraCo.Settings.Forms
             #region Damage
 
             PaladinGoringBlade.Checked = Shinra.Settings.PaladinGoringBlade;
-            PaladinRoyalAuthority.Checked = Shinra.Settings.PaladinRoyalAuthority;
-            PaladinHolySpirit.Checked = Shinra.Settings.PaladinHolySpirit;
 
             #endregion
 
@@ -389,7 +390,6 @@ namespace ShinraCo.Settings.Forms
             #region Damage
 
             WarriorMaim.Checked = Shinra.Settings.WarriorMaim;
-            WarriorStormsPath.Checked = Shinra.Settings.WarriorStormsPath;
             WarriorStormsEye.Checked = Shinra.Settings.WarriorStormsEye;
             WarriorInnerBeast.Checked = Shinra.Settings.WarriorInnerBeast;
             WarriorFellCleave.Checked = Shinra.Settings.WarriorFellCleave;
@@ -450,6 +450,8 @@ namespace ShinraCo.Settings.Forms
         {
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Shinra.Settings.RotationHotkey),
                                    Helpers.GetModkey(Shinra.Settings.RotationHotkey), hk => Shinra.CycleRotation());
+            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Shinra.Settings.TankHotkey),
+                                   Helpers.GetModkey(Shinra.Settings.TankHotkey), hk => Shinra.CycleRotation(true));
             Shinra.Settings.WindowLocation = Location;
             Shinra.Settings.Save();
         }
@@ -519,6 +521,17 @@ namespace ShinraCo.Settings.Forms
         private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
         {
             Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
+        }
+
+        private void TankMode_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (TankMode.Text == @"DPS") Shinra.Settings.TankMode = TankModes.DPS;
+            if (TankMode.Text == @"Enmity") Shinra.Settings.TankMode = TankModes.Enmity;
+        }
+
+        private void TankHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.TankHotkey = TankHotkey.Hotkey;
         }
 
         #endregion
@@ -903,16 +916,6 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.PaladinGoringBlade = PaladinGoringBlade.Checked;
         }
 
-        private void PaladinRoyalAuthority_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.PaladinRoyalAuthority = PaladinRoyalAuthority.Checked;
-        }
-
-        private void PaladinHolySpirit_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.PaladinHolySpirit = PaladinHolySpirit.Checked;
-        }
-
         #endregion
 
         #region AoE
@@ -1229,7 +1232,6 @@ namespace ShinraCo.Settings.Forms
             if (SummonerPet.Text == @"Ifrit") Shinra.Settings.SummonerPet = SummonerPets.Ifrit;
         }
 
-
         #endregion
 
         #endregion
@@ -1290,11 +1292,6 @@ namespace ShinraCo.Settings.Forms
         private void WarriorMaim_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WarriorMaim = WarriorMaim.Checked;
-        }
-
-        private void WarriorStormsPath_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.WarriorStormsPath = WarriorStormsPath.Checked;
         }
 
         private void WarriorStormsEye_CheckedChanged(object sender, EventArgs e)
@@ -1433,6 +1430,6 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
-        #endregion 
+        #endregion
     }
 }

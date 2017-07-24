@@ -31,6 +31,8 @@ namespace ShinraCo
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());
+            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey),
+                                   Helpers.GetModkey(Settings.TankHotkey), hk => CycleRotation(true));
         }
 
         public sealed override void Pulse()
@@ -42,6 +44,7 @@ namespace ShinraCo
         {
             Logging.Write(Colors.GreenYellow, @"[Shinra] Shutting down...");
             HotkeyManager.Unregister("Shinra Rotation");
+            HotkeyManager.Unregister("Shinra Tank");
         }
 
         #endregion
@@ -61,11 +64,35 @@ namespace ShinraCo
             _configForm.ShowDialog();
         }
 
-        public static void CycleRotation()
+        public static void CycleRotation(bool isTank = false)
         {
             var textColor = Colors.GreenYellow;
             var shadowColor = Color.FromRgb(0, 0, 0);
 
+            if (isTank)
+            {
+                switch (Settings.TankMode)
+                {
+                    case TankModes.DPS:
+                        Settings.TankMode = TankModes.Enmity;
+                        if (Settings.RotationOverlay)
+                        {
+                            Core.OverlayManager.AddToast(() => @"Shinra Tank >>> Enmity", TimeSpan.FromMilliseconds(1000), textColor,
+                                                         shadowColor, new FontFamily("Agency FB"));
+                        }
+                        break;
+                    case TankModes.Enmity:
+                        Settings.TankMode = TankModes.DPS;
+                        if (Settings.RotationOverlay)
+                        {
+                            Core.OverlayManager.AddToast(() => @"Shinra Tank >>> DPS", TimeSpan.FromMilliseconds(1000), textColor,
+                                                         shadowColor, new FontFamily("Agency FB"));
+                        }
+                        break;
+                }
+                Logging.Write(Colors.Yellow, $@"[Shinra] Tank >>> {Settings.RotationMode}");
+                return;
+            }
             switch (Settings.RotationMode)
             {
                 case Modes.Smart:

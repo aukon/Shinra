@@ -38,10 +38,10 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Maim()
         {
-            if (Shinra.Settings.WarriorMaim && ActionManager.LastSpell.Name == MySpells.HeavySwing.Name)
+            if (ActionManager.LastSpell.Name == MySpells.HeavySwing.Name)
             {
-                if (!Core.Player.CurrentTarget.HasAura(819, false, 6000) ||
-                    Shinra.Settings.WarriorStormsPath && ActionManager.HasSpell(MySpells.StormsPath.Name) ||
+                if (Shinra.Settings.TankMode == TankModes.DPS && ActionManager.HasSpell(MySpells.StormsPath.Name) ||
+                    Shinra.Settings.WarriorMaim && !Core.Player.CurrentTarget.HasAura(819, false, 6000) ||
                     Shinra.Settings.WarriorStormsEye && ActionManager.HasSpell(MySpells.StormsEye.Name) &&
                     !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
                 {
@@ -53,7 +53,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StormsPath()
         {
-            if (Shinra.Settings.WarriorStormsPath && ActionManager.LastSpell.Name == MySpells.Maim.Name)
+            if (ActionManager.LastSpell.Name == MySpells.Maim.Name)
             {
                 return await MySpells.StormsPath.Cast();
             }
@@ -62,8 +62,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StormsEye()
         {
-            if (Shinra.Settings.WarriorStormsEye && ActionManager.LastSpell.Name == MySpells.Maim.Name &&
-                !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
+            if (ActionManager.LastSpell.Name == MySpells.Maim.Name && !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
             {
                 return await MySpells.StormsEye.Cast();
             }

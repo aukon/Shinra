@@ -3,6 +3,7 @@ using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
+using Resource = ff14bot.Managers.ActionResourceManager.Paladin;
 
 namespace ShinraCo.Rotations
 {
@@ -39,7 +40,7 @@ namespace ShinraCo.Rotations
         {
             if (ActionManager.LastSpell.Name == MySpells.FastBlade.Name)
             {
-                if (Shinra.Settings.PaladinRoyalAuthority && ActionManager.HasSpell(MySpells.RoyalAuthority.Name) ||
+                if (Shinra.Settings.TankMode == TankModes.DPS && ActionManager.HasSpell(MySpells.RoyalAuthority.Name) ||
                     Shinra.Settings.PaladinGoringBlade && ActionManager.HasSpell(MySpells.GoringBlade.Name) &&
                     !Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 4000) || Core.Player.CurrentManaPercent < 40)
                 {
@@ -51,20 +52,17 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> GoringBlade()
         {
-            if (Shinra.Settings.PaladinGoringBlade)
+            if (ActionManager.LastSpell.Name == MySpells.RiotBlade.Name &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 4000))
             {
-                if (ActionManager.LastSpell.Name == MySpells.RiotBlade.Name &&
-                    !Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 4000))
-                {
-                    return await MySpells.GoringBlade.Cast();
-                }
+                return await MySpells.GoringBlade.Cast();
             }
             return false;
         }
 
         private async Task<bool> RoyalAuthority()
         {
-            if (Shinra.Settings.PaladinRoyalAuthority && ActionManager.LastSpell.Name == MySpells.RiotBlade.Name)
+            if (ActionManager.LastSpell.Name == MySpells.RiotBlade.Name)
             {
                 return await MySpells.RoyalAuthority.Cast();
             }
@@ -73,7 +71,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HolySpirit()
         {
-            if (Shinra.Settings.PaladinHolySpirit)
+            if (Shinra.Settings.TankMode == TankModes.DPS)
             {
                 if (!MovementManager.IsMoving && Core.Player.HasAura(MySpells.Requiescat.Name, true, 2000))
                 {
@@ -329,7 +327,7 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static int OathValue => ActionResourceManager.Paladin.Oath;
+        private static int OathValue => Resource.Oath;
 
         #endregion
     }

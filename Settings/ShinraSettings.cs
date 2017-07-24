@@ -17,6 +17,12 @@ namespace ShinraCo.Settings
         Multi
     }
 
+    public enum TankModes
+    {
+        DPS,
+        Enmity
+    }
+
     public enum Stances
     {
         Free,
@@ -107,6 +113,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(Keys.None)]
         public Keys RotationHotkey { get; set; }
+
+        [Setting, DefaultValue(TankModes.DPS)]
+        public TankModes TankMode { get; set; }
+
+        [Setting, DefaultValue(Keys.None)]
+        public Keys TankHotkey { get; set; }
 
         #endregion
 
@@ -370,12 +382,6 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool PaladinGoringBlade { get; set; }
 
-        [Setting, DefaultValue(true)]
-        public bool PaladinRoyalAuthority { get; set; }
-
-        [Setting, DefaultValue(true)]
-        public bool PaladinHolySpirit { get; set; }
-
         #endregion
 
         #region AoE
@@ -634,9 +640,6 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool WarriorMaim { get; set; }
-
-        [Setting, DefaultValue(true)]
-        public bool WarriorStormsPath { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool WarriorStormsEye { get; set; }

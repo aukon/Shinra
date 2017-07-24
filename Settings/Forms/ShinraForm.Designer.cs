@@ -35,9 +35,13 @@
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.RotationGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.RotationHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.RotationOverlay = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.TankHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
+            this.TankMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.RotationHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.RotationMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.TankHotkeyLabel = new System.Windows.Forms.Label();
+            this.TankModeLabel = new System.Windows.Forms.Label();
             this.RotationKeyLabel = new System.Windows.Forms.Label();
             this.RotationModeLabel = new System.Windows.Forms.Label();
             this.ItemGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -244,8 +248,6 @@
             this.PaladinSpiritsWithin = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinShieldSwipe = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.PaladinHolySpirit = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.PaladinRoyalAuthority = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinGoringBlade = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.PaladinAwarenessPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -270,7 +272,6 @@
             this.WarriorFellCleave = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorInnerBeast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorStormsEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WarriorStormsPath = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorMaim = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.WarriorUpheaval = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -459,32 +460,22 @@
             // 
             // RotationGroup
             // 
-            this.RotationGroup.Controls.Add(this.RotationHotkey);
             this.RotationGroup.Controls.Add(this.RotationOverlay);
+            this.RotationGroup.Controls.Add(this.TankHotkey);
+            this.RotationGroup.Controls.Add(this.TankMode);
+            this.RotationGroup.Controls.Add(this.RotationHotkey);
             this.RotationGroup.Controls.Add(this.RotationMode);
+            this.RotationGroup.Controls.Add(this.TankHotkeyLabel);
+            this.RotationGroup.Controls.Add(this.TankModeLabel);
             this.RotationGroup.Controls.Add(this.RotationKeyLabel);
             this.RotationGroup.Controls.Add(this.RotationModeLabel);
             this.RotationGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RotationGroup.Location = new System.Drawing.Point(218, 6);
             this.RotationGroup.Name = "RotationGroup";
-            this.RotationGroup.Size = new System.Drawing.Size(228, 104);
+            this.RotationGroup.Size = new System.Drawing.Size(216, 144);
             this.RotationGroup.TabIndex = 2;
             this.RotationGroup.TabStop = false;
             this.RotationGroup.Text = "Rotation";
-            // 
-            // RotationHotkey
-            // 
-            this.RotationHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RotationHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RotationHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RotationHotkey.ForeColor = System.Drawing.Color.White;
-            this.RotationHotkey.Location = new System.Drawing.Point(132, 77);
-            this.RotationHotkey.Name = "RotationHotkey";
-            this.RotationHotkey.ReadOnly = true;
-            this.RotationHotkey.Size = new System.Drawing.Size(90, 21);
-            this.RotationHotkey.TabIndex = 3;
-            this.RotationHotkey.TabStop = false;
-            this.RotationHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RotationHotkey_KeyDown);
             // 
             // RotationOverlay
             // 
@@ -501,6 +492,51 @@
             this.RotationOverlay.UseVisualStyleBackColor = true;
             this.RotationOverlay.CheckedChanged += new System.EventHandler(this.RotationOverlay_CheckedChanged);
             // 
+            // TankHotkey
+            // 
+            this.TankHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.TankHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TankHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TankHotkey.ForeColor = System.Drawing.Color.White;
+            this.TankHotkey.Location = new System.Drawing.Point(120, 117);
+            this.TankHotkey.Name = "TankHotkey";
+            this.TankHotkey.ReadOnly = true;
+            this.TankHotkey.Size = new System.Drawing.Size(90, 21);
+            this.TankHotkey.TabIndex = 9;
+            this.TankHotkey.TabStop = false;
+            this.TankHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TankHotkey_KeyDown);
+            // 
+            // TankMode
+            // 
+            this.TankMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.TankMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TankMode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.TankMode.ForeColor = System.Drawing.Color.White;
+            this.TankMode.FormattingEnabled = true;
+            this.TankMode.Items.AddRange(new object[] {
+            "DPS",
+            "Enmity"});
+            this.TankMode.Location = new System.Drawing.Point(6, 117);
+            this.TankMode.Name = "TankMode";
+            this.TankMode.Size = new System.Drawing.Size(108, 21);
+            this.TankMode.TabIndex = 7;
+            this.TankMode.TabStop = false;
+            this.TankMode.SelectedValueChanged += new System.EventHandler(this.TankMode_SelectedValueChanged);
+            // 
+            // RotationHotkey
+            // 
+            this.RotationHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.RotationHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RotationHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RotationHotkey.ForeColor = System.Drawing.Color.White;
+            this.RotationHotkey.Location = new System.Drawing.Point(120, 73);
+            this.RotationHotkey.Name = "RotationHotkey";
+            this.RotationHotkey.ReadOnly = true;
+            this.RotationHotkey.Size = new System.Drawing.Size(90, 21);
+            this.RotationHotkey.TabIndex = 3;
+            this.RotationHotkey.TabStop = false;
+            this.RotationHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RotationHotkey_KeyDown);
+            // 
             // RotationMode
             // 
             this.RotationMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -512,18 +548,38 @@
             "Smart",
             "Single",
             "Multi"});
-            this.RotationMode.Location = new System.Drawing.Point(6, 77);
+            this.RotationMode.Location = new System.Drawing.Point(6, 73);
             this.RotationMode.Name = "RotationMode";
-            this.RotationMode.Size = new System.Drawing.Size(120, 21);
+            this.RotationMode.Size = new System.Drawing.Size(108, 21);
             this.RotationMode.TabIndex = 0;
             this.RotationMode.TabStop = false;
             this.RotationMode.SelectedValueChanged += new System.EventHandler(this.RotationMode_SelectedValueChanged);
+            // 
+            // TankHotkeyLabel
+            // 
+            this.TankHotkeyLabel.AutoSize = true;
+            this.TankHotkeyLabel.ForeColor = System.Drawing.Color.White;
+            this.TankHotkeyLabel.Location = new System.Drawing.Point(120, 100);
+            this.TankHotkeyLabel.Name = "TankHotkeyLabel";
+            this.TankHotkeyLabel.Size = new System.Drawing.Size(43, 13);
+            this.TankHotkeyLabel.TabIndex = 10;
+            this.TankHotkeyLabel.Text = "Hotkey";
+            // 
+            // TankModeLabel
+            // 
+            this.TankModeLabel.AutoSize = true;
+            this.TankModeLabel.ForeColor = System.Drawing.Color.White;
+            this.TankModeLabel.Location = new System.Drawing.Point(6, 100);
+            this.TankModeLabel.Name = "TankModeLabel";
+            this.TankModeLabel.Size = new System.Drawing.Size(63, 13);
+            this.TankModeLabel.TabIndex = 8;
+            this.TankModeLabel.Text = "Tank Mode";
             // 
             // RotationKeyLabel
             // 
             this.RotationKeyLabel.AutoSize = true;
             this.RotationKeyLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationKeyLabel.Location = new System.Drawing.Point(132, 60);
+            this.RotationKeyLabel.Location = new System.Drawing.Point(120, 56);
             this.RotationKeyLabel.Name = "RotationKeyLabel";
             this.RotationKeyLabel.Size = new System.Drawing.Size(43, 13);
             this.RotationKeyLabel.TabIndex = 4;
@@ -533,7 +589,7 @@
             // 
             this.RotationModeLabel.AutoSize = true;
             this.RotationModeLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationModeLabel.Location = new System.Drawing.Point(6, 60);
+            this.RotationModeLabel.Location = new System.Drawing.Point(6, 56);
             this.RotationModeLabel.Name = "RotationModeLabel";
             this.RotationModeLabel.Size = new System.Drawing.Size(85, 13);
             this.RotationModeLabel.TabIndex = 3;
@@ -544,7 +600,7 @@
             this.ItemGroup.Controls.Add(this.UsePotionPct);
             this.ItemGroup.Controls.Add(this.UsePotion);
             this.ItemGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ItemGroup.Location = new System.Drawing.Point(452, 6);
+            this.ItemGroup.Location = new System.Drawing.Point(440, 6);
             this.ItemGroup.Name = "ItemGroup";
             this.ItemGroup.Size = new System.Drawing.Size(191, 44);
             this.ItemGroup.TabIndex = 1;
@@ -585,7 +641,7 @@
             this.ChocoboGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ChocoboGroup.Location = new System.Drawing.Point(13, 6);
             this.ChocoboGroup.Name = "ChocoboGroup";
-            this.ChocoboGroup.Size = new System.Drawing.Size(199, 127);
+            this.ChocoboGroup.Size = new System.Drawing.Size(199, 123);
             this.ChocoboGroup.TabIndex = 0;
             this.ChocoboGroup.TabStop = false;
             this.ChocoboGroup.Text = "Chocobo";
@@ -611,7 +667,7 @@
             "Attacker",
             "Healer",
             "Defender"});
-            this.ChocoboStance.Location = new System.Drawing.Point(6, 100);
+            this.ChocoboStance.Location = new System.Drawing.Point(6, 96);
             this.ChocoboStance.Name = "ChocoboStance";
             this.ChocoboStance.Size = new System.Drawing.Size(120, 21);
             this.ChocoboStance.TabIndex = 3;
@@ -622,7 +678,7 @@
             // 
             this.ChocoboStanceLabel.AutoSize = true;
             this.ChocoboStanceLabel.ForeColor = System.Drawing.Color.White;
-            this.ChocoboStanceLabel.Location = new System.Drawing.Point(6, 83);
+            this.ChocoboStanceLabel.Location = new System.Drawing.Point(6, 79);
             this.ChocoboStanceLabel.Name = "ChocoboStanceLabel";
             this.ChocoboStanceLabel.Size = new System.Drawing.Size(91, 13);
             this.ChocoboStanceLabel.TabIndex = 4;
@@ -3081,7 +3137,7 @@
             // 
             this.PaladinOathGroup.Controls.Add(this.PaladinOath);
             this.PaladinOathGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinOathGroup.Location = new System.Drawing.Point(344, 197);
+            this.PaladinOathGroup.Location = new System.Drawing.Point(224, 245);
             this.PaladinOathGroup.Name = "PaladinOathGroup";
             this.PaladinOathGroup.Size = new System.Drawing.Size(102, 43);
             this.PaladinOathGroup.TabIndex = 6;
@@ -3267,7 +3323,7 @@
             this.PaladinAoEGroup.Controls.Add(this.PaladinTotalEclipse);
             this.PaladinAoEGroup.Controls.Add(this.PaladinFlash);
             this.PaladinAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinAoEGroup.Location = new System.Drawing.Point(224, 101);
+            this.PaladinAoEGroup.Location = new System.Drawing.Point(224, 55);
             this.PaladinAoEGroup.Name = "PaladinAoEGroup";
             this.PaladinAoEGroup.Size = new System.Drawing.Size(114, 66);
             this.PaladinAoEGroup.TabIndex = 3;
@@ -3311,7 +3367,7 @@
             this.PaladinCooldownGroup.Controls.Add(this.PaladinSpiritsWithin);
             this.PaladinCooldownGroup.Controls.Add(this.PaladinShieldSwipe);
             this.PaladinCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinCooldownGroup.Location = new System.Drawing.Point(224, 173);
+            this.PaladinCooldownGroup.Location = new System.Drawing.Point(224, 127);
             this.PaladinCooldownGroup.Name = "PaladinCooldownGroup";
             this.PaladinCooldownGroup.Size = new System.Drawing.Size(114, 112);
             this.PaladinCooldownGroup.TabIndex = 2;
@@ -3380,46 +3436,14 @@
             // 
             // PaladinDamageGroup
             // 
-            this.PaladinDamageGroup.Controls.Add(this.PaladinHolySpirit);
-            this.PaladinDamageGroup.Controls.Add(this.PaladinRoyalAuthority);
             this.PaladinDamageGroup.Controls.Add(this.PaladinGoringBlade);
             this.PaladinDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinDamageGroup.Location = new System.Drawing.Point(224, 6);
             this.PaladinDamageGroup.Name = "PaladinDamageGroup";
-            this.PaladinDamageGroup.Size = new System.Drawing.Size(114, 89);
+            this.PaladinDamageGroup.Size = new System.Drawing.Size(114, 43);
             this.PaladinDamageGroup.TabIndex = 1;
             this.PaladinDamageGroup.TabStop = false;
             this.PaladinDamageGroup.Text = "Damage";
-            // 
-            // PaladinHolySpirit
-            // 
-            this.PaladinHolySpirit.AutoSize = true;
-            this.PaladinHolySpirit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PaladinHolySpirit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinHolySpirit.ForeColor = System.Drawing.Color.White;
-            this.PaladinHolySpirit.Location = new System.Drawing.Point(6, 62);
-            this.PaladinHolySpirit.Name = "PaladinHolySpirit";
-            this.PaladinHolySpirit.Size = new System.Drawing.Size(76, 17);
-            this.PaladinHolySpirit.TabIndex = 2;
-            this.PaladinHolySpirit.TabStop = false;
-            this.PaladinHolySpirit.Text = "Holy Spirit";
-            this.PaladinHolySpirit.UseVisualStyleBackColor = true;
-            this.PaladinHolySpirit.CheckedChanged += new System.EventHandler(this.PaladinHolySpirit_CheckedChanged);
-            // 
-            // PaladinRoyalAuthority
-            // 
-            this.PaladinRoyalAuthority.AutoSize = true;
-            this.PaladinRoyalAuthority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PaladinRoyalAuthority.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinRoyalAuthority.ForeColor = System.Drawing.Color.White;
-            this.PaladinRoyalAuthority.Location = new System.Drawing.Point(6, 39);
-            this.PaladinRoyalAuthority.Name = "PaladinRoyalAuthority";
-            this.PaladinRoyalAuthority.Size = new System.Drawing.Size(102, 17);
-            this.PaladinRoyalAuthority.TabIndex = 1;
-            this.PaladinRoyalAuthority.TabStop = false;
-            this.PaladinRoyalAuthority.Text = "Royal Authority";
-            this.PaladinRoyalAuthority.UseVisualStyleBackColor = true;
-            this.PaladinRoyalAuthority.CheckedChanged += new System.EventHandler(this.PaladinRoyalAuthority_CheckedChanged);
             // 
             // PaladinGoringBlade
             // 
@@ -3705,12 +3729,11 @@
             this.WarriorDamageGroup.Controls.Add(this.WarriorFellCleave);
             this.WarriorDamageGroup.Controls.Add(this.WarriorInnerBeast);
             this.WarriorDamageGroup.Controls.Add(this.WarriorStormsEye);
-            this.WarriorDamageGroup.Controls.Add(this.WarriorStormsPath);
             this.WarriorDamageGroup.Controls.Add(this.WarriorMaim);
             this.WarriorDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WarriorDamageGroup.Location = new System.Drawing.Point(224, 6);
             this.WarriorDamageGroup.Name = "WarriorDamageGroup";
-            this.WarriorDamageGroup.Size = new System.Drawing.Size(114, 135);
+            this.WarriorDamageGroup.Size = new System.Drawing.Size(114, 112);
             this.WarriorDamageGroup.TabIndex = 5;
             this.WarriorDamageGroup.TabStop = false;
             this.WarriorDamageGroup.Text = "Damage";
@@ -3721,7 +3744,7 @@
             this.WarriorFellCleave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WarriorFellCleave.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WarriorFellCleave.ForeColor = System.Drawing.Color.White;
-            this.WarriorFellCleave.Location = new System.Drawing.Point(6, 108);
+            this.WarriorFellCleave.Location = new System.Drawing.Point(6, 85);
             this.WarriorFellCleave.Name = "WarriorFellCleave";
             this.WarriorFellCleave.Size = new System.Drawing.Size(77, 17);
             this.WarriorFellCleave.TabIndex = 4;
@@ -3736,7 +3759,7 @@
             this.WarriorInnerBeast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WarriorInnerBeast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WarriorInnerBeast.ForeColor = System.Drawing.Color.White;
-            this.WarriorInnerBeast.Location = new System.Drawing.Point(6, 85);
+            this.WarriorInnerBeast.Location = new System.Drawing.Point(6, 62);
             this.WarriorInnerBeast.Name = "WarriorInnerBeast";
             this.WarriorInnerBeast.Size = new System.Drawing.Size(81, 17);
             this.WarriorInnerBeast.TabIndex = 3;
@@ -3751,7 +3774,7 @@
             this.WarriorStormsEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WarriorStormsEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WarriorStormsEye.ForeColor = System.Drawing.Color.White;
-            this.WarriorStormsEye.Location = new System.Drawing.Point(6, 62);
+            this.WarriorStormsEye.Location = new System.Drawing.Point(6, 39);
             this.WarriorStormsEye.Name = "WarriorStormsEye";
             this.WarriorStormsEye.Size = new System.Drawing.Size(81, 17);
             this.WarriorStormsEye.TabIndex = 2;
@@ -3759,21 +3782,6 @@
             this.WarriorStormsEye.Text = "Storm\'s Eye";
             this.WarriorStormsEye.UseVisualStyleBackColor = true;
             this.WarriorStormsEye.CheckedChanged += new System.EventHandler(this.WarriorStormsEye_CheckedChanged);
-            // 
-            // WarriorStormsPath
-            // 
-            this.WarriorStormsPath.AutoSize = true;
-            this.WarriorStormsPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WarriorStormsPath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorStormsPath.ForeColor = System.Drawing.Color.White;
-            this.WarriorStormsPath.Location = new System.Drawing.Point(6, 39);
-            this.WarriorStormsPath.Name = "WarriorStormsPath";
-            this.WarriorStormsPath.Size = new System.Drawing.Size(87, 17);
-            this.WarriorStormsPath.TabIndex = 1;
-            this.WarriorStormsPath.TabStop = false;
-            this.WarriorStormsPath.Text = "Storm\'s Path";
-            this.WarriorStormsPath.UseVisualStyleBackColor = true;
-            this.WarriorStormsPath.CheckedChanged += new System.EventHandler(this.WarriorStormsPath_CheckedChanged);
             // 
             // WarriorMaim
             // 
@@ -3795,7 +3803,7 @@
             this.WarriorCooldownGroup.Controls.Add(this.WarriorUpheaval);
             this.WarriorCooldownGroup.Controls.Add(this.WarriorOnslaught);
             this.WarriorCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorCooldownGroup.Location = new System.Drawing.Point(224, 242);
+            this.WarriorCooldownGroup.Location = new System.Drawing.Point(224, 219);
             this.WarriorCooldownGroup.Name = "WarriorCooldownGroup";
             this.WarriorCooldownGroup.Size = new System.Drawing.Size(114, 66);
             this.WarriorCooldownGroup.TabIndex = 4;
@@ -3836,9 +3844,9 @@
             // 
             this.WarriorStanceGroup.Controls.Add(this.WarriorStance);
             this.WarriorStanceGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorStanceGroup.Location = new System.Drawing.Point(344, 266);
+            this.WarriorStanceGroup.Location = new System.Drawing.Point(224, 291);
             this.WarriorStanceGroup.Name = "WarriorStanceGroup";
-            this.WarriorStanceGroup.Size = new System.Drawing.Size(112, 43);
+            this.WarriorStanceGroup.Size = new System.Drawing.Size(114, 43);
             this.WarriorStanceGroup.TabIndex = 3;
             this.WarriorStanceGroup.TabStop = false;
             this.WarriorStanceGroup.Text = "Stance";
@@ -3856,7 +3864,7 @@
             "Deliverance"});
             this.WarriorStance.Location = new System.Drawing.Point(6, 16);
             this.WarriorStance.Name = "WarriorStance";
-            this.WarriorStance.Size = new System.Drawing.Size(100, 21);
+            this.WarriorStance.Size = new System.Drawing.Size(102, 21);
             this.WarriorStance.TabIndex = 0;
             this.WarriorStance.TabStop = false;
             this.WarriorStance.SelectedValueChanged += new System.EventHandler(this.WarriorStance_SelectedValueChanged);
@@ -4035,7 +4043,7 @@
             this.WarriorAoEGroup.Controls.Add(this.WarriorSteelCyclone);
             this.WarriorAoEGroup.Controls.Add(this.WarriorOverpower);
             this.WarriorAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorAoEGroup.Location = new System.Drawing.Point(224, 147);
+            this.WarriorAoEGroup.Location = new System.Drawing.Point(224, 124);
             this.WarriorAoEGroup.Name = "WarriorAoEGroup";
             this.WarriorAoEGroup.Size = new System.Drawing.Size(114, 89);
             this.WarriorAoEGroup.TabIndex = 1;
@@ -4558,8 +4566,6 @@
         private Design.CustomGroup PaladinRoleGroup;
         private Design.CustomCheck PaladinTotalEclipse;
         private Design.CustomCheck PaladinFlash;
-        private Design.CustomCheck PaladinHolySpirit;
-        private Design.CustomCheck PaladinRoyalAuthority;
         private Design.CustomCheck PaladinGoringBlade;
         private Design.UserNumeric PaladinAwarenessPct;
         private Design.UserNumeric PaladinAnticipationPct;
@@ -4690,7 +4696,6 @@
         private Design.CustomCheck WarriorFellCleave;
         private Design.CustomCheck WarriorInnerBeast;
         private Design.CustomCheck WarriorStormsEye;
-        private Design.CustomCheck WarriorStormsPath;
         private Design.CustomCheck WarriorMaim;
         private Design.CustomGroup WarriorHealGroup;
         private Design.UserNumeric WarriorEquilibriumPct;
@@ -4706,5 +4711,9 @@
         private Design.CustomCheck WarriorInnerRelease;
         private Design.CustomCheck WarriorShakeItOff;
         private Design.HotkeyBox RotationHotkey;
+        private System.Windows.Forms.Label TankHotkeyLabel;
+        private Design.HotkeyBox TankHotkey;
+        private System.Windows.Forms.Label TankModeLabel;
+        private Design.CustomCombo TankMode;
     }
 }
