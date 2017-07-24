@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using System.Windows.Input;
 using ff14bot.Helpers;
 using Newtonsoft.Json;
 
@@ -107,10 +106,7 @@ namespace ShinraCo.Settings
         public Modes RotationMode { get; set; }
 
         [Setting, DefaultValue(Keys.None)]
-        public Keys RotationKey { get; set; }
-
-        [Setting, DefaultValue(ModifierKeys.None)]
-        public ModifierKeys RotationModKey { get; set; }
+        public Keys RotationHotkey { get; set; }
 
         #endregion
 

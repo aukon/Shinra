@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace ShinraCo.Settings.Forms.Design
 {
@@ -84,6 +85,88 @@ namespace ShinraCo.Settings.Forms.Design
             graphics.DrawLine(borderPen, 0, boxTop, textOffset, boxTop);
             graphics.DrawLine(borderPen, textRight - 2, boxTop, Width - 1, boxTop);
             graphics.DrawLine(borderPen, Width - 1, boxTop, Width - 1, Height - 1);
+        }
+    }
+
+    #endregion
+
+    #region HotkeyBox
+
+    public class HotkeyBox : TextBox
+    {
+        private Keys _hotkey;
+
+        [Browsable(false)]
+        [DefaultValue(Keys.None)]
+        public Keys Hotkey { get { return _hotkey; } set { _hotkey = value; } }
+
+        public HotkeyBox()
+        {
+            BackColor = Color.FromArgb(52, 52, 52);
+            BorderStyle = BorderStyle.FixedSingle;
+            Font = new Font("Segoe UI", 8.25F);
+            ForeColor = Color.White;
+            ReadOnly = true;
+            TabStop = false;
+            AutoSize = false;
+        }
+
+        private void RefreshText()
+        {
+            var converter = new KeysConverter();
+            Text = converter.ConvertToString(Hotkey);
+            Parent.Focus();
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Escape)
+            {
+                if (e.KeyCode != Keys.Menu &&
+                    e.KeyCode != Keys.ShiftKey &&
+                    e.KeyCode != Keys.ControlKey &&
+                    e.KeyCode != Keys.LWin &&
+                    e.KeyCode != Keys.RWin)
+                {
+                    Hotkey = e.KeyData;
+                    RefreshText();
+                }
+            }
+            else
+            {
+                Hotkey = Keys.None;
+                RefreshText();
+            }
+            base.OnKeyDown(e);
+        }
+
+        [DllImport("user32")]
+        private static extern IntPtr GetWindowDC(IntPtr hwnd);
+        private const int WmPaint = 0x0F;
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WmPaint)
+            {
+                var dc = GetWindowDC(Handle);
+                var g = Graphics.FromHdc(dc);
+                {
+                    g.DrawRectangle(Pens.White, 0, 0, Width - 1, Height - 1);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+    #region NoSelectButton
+
+    public sealed class NoSelectButton : Button
+    {
+        public NoSelectButton()
+        {
+            SetStyle(ControlStyles.Selectable, false);
         }
     }
 

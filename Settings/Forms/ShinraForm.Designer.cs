@@ -31,15 +31,13 @@
             this.ShinraBorder = new System.Windows.Forms.Panel();
             this.ShinraContainer = new System.Windows.Forms.Panel();
             this.ShinraBanner = new System.Windows.Forms.PictureBox();
-            this.ShinraClose = new System.Windows.Forms.Button();
+            this.ShinraClose = new ShinraCo.Settings.Forms.Design.NoSelectButton();
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.RotationGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RotationHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.RotationOverlay = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.RotationModKey = new ShinraCo.Settings.Forms.Design.CustomCombo();
-            this.RotationKey = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.RotationMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
-            this.RotationModKeyLabel = new System.Windows.Forms.Label();
             this.RotationKeyLabel = new System.Windows.Forms.Label();
             this.RotationModeLabel = new System.Windows.Forms.Label();
             this.ItemGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -275,9 +273,13 @@
             this.WarriorStormsPath = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorMaim = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorUpheaval = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorOnslaught = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorStanceGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.WarriorStance = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.WarriorBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WarriorInnerRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WarriorShakeItOff = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorThrillOfBattlePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WarriorThrillOfBattle = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorEquilibriumTPPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -306,10 +308,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WarriorOnslaught = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WarriorUpheaval = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WarriorShakeItOff = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WarriorInnerRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -461,11 +459,9 @@
             // 
             // RotationGroup
             // 
+            this.RotationGroup.Controls.Add(this.RotationHotkey);
             this.RotationGroup.Controls.Add(this.RotationOverlay);
-            this.RotationGroup.Controls.Add(this.RotationModKey);
-            this.RotationGroup.Controls.Add(this.RotationKey);
             this.RotationGroup.Controls.Add(this.RotationMode);
-            this.RotationGroup.Controls.Add(this.RotationModKeyLabel);
             this.RotationGroup.Controls.Add(this.RotationKeyLabel);
             this.RotationGroup.Controls.Add(this.RotationModeLabel);
             this.RotationGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
@@ -475,6 +471,20 @@
             this.RotationGroup.TabIndex = 2;
             this.RotationGroup.TabStop = false;
             this.RotationGroup.Text = "Rotation";
+            // 
+            // RotationHotkey
+            // 
+            this.RotationHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.RotationHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.RotationHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RotationHotkey.ForeColor = System.Drawing.Color.White;
+            this.RotationHotkey.Location = new System.Drawing.Point(132, 77);
+            this.RotationHotkey.Name = "RotationHotkey";
+            this.RotationHotkey.ReadOnly = true;
+            this.RotationHotkey.Size = new System.Drawing.Size(90, 21);
+            this.RotationHotkey.TabIndex = 3;
+            this.RotationHotkey.TabStop = false;
+            this.RotationHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RotationHotkey_KeyDown);
             // 
             // RotationOverlay
             // 
@@ -490,71 +500,6 @@
             this.RotationOverlay.Text = "Show Overlay";
             this.RotationOverlay.UseVisualStyleBackColor = true;
             this.RotationOverlay.CheckedChanged += new System.EventHandler(this.RotationOverlay_CheckedChanged);
-            // 
-            // RotationModKey
-            // 
-            this.RotationModKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RotationModKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RotationModKey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RotationModKey.ForeColor = System.Drawing.Color.White;
-            this.RotationModKey.FormattingEnabled = true;
-            this.RotationModKey.Items.AddRange(new object[] {
-            "None",
-            "Alt",
-            "Control",
-            "Shift"});
-            this.RotationModKey.Location = new System.Drawing.Point(132, 77);
-            this.RotationModKey.Name = "RotationModKey";
-            this.RotationModKey.Size = new System.Drawing.Size(90, 21);
-            this.RotationModKey.TabIndex = 2;
-            this.RotationModKey.TabStop = false;
-            this.RotationModKey.SelectedValueChanged += new System.EventHandler(this.CycleRotationModKey_SelectedValueChanged);
-            // 
-            // RotationKey
-            // 
-            this.RotationKey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RotationKey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RotationKey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RotationKey.ForeColor = System.Drawing.Color.White;
-            this.RotationKey.FormattingEnabled = true;
-            this.RotationKey.Items.AddRange(new object[] {
-            "None",
-            "Oemtilde",
-            "XButton1",
-            "XButton2",
-            "Space",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.RotationKey.Location = new System.Drawing.Point(132, 33);
-            this.RotationKey.Name = "RotationKey";
-            this.RotationKey.Size = new System.Drawing.Size(90, 21);
-            this.RotationKey.TabIndex = 1;
-            this.RotationKey.TabStop = false;
-            this.RotationKey.SelectedValueChanged += new System.EventHandler(this.CycleRotationKey_SelectedValueChanged);
             // 
             // RotationMode
             // 
@@ -574,21 +519,11 @@
             this.RotationMode.TabStop = false;
             this.RotationMode.SelectedValueChanged += new System.EventHandler(this.RotationMode_SelectedValueChanged);
             // 
-            // RotationModKeyLabel
-            // 
-            this.RotationModKeyLabel.AutoSize = true;
-            this.RotationModKeyLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationModKeyLabel.Location = new System.Drawing.Point(132, 60);
-            this.RotationModKeyLabel.Name = "RotationModKeyLabel";
-            this.RotationModKeyLabel.Size = new System.Drawing.Size(51, 13);
-            this.RotationModKeyLabel.TabIndex = 5;
-            this.RotationModKeyLabel.Text = "Modifier";
-            // 
             // RotationKeyLabel
             // 
             this.RotationKeyLabel.AutoSize = true;
             this.RotationKeyLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationKeyLabel.Location = new System.Drawing.Point(132, 16);
+            this.RotationKeyLabel.Location = new System.Drawing.Point(132, 60);
             this.RotationKeyLabel.Name = "RotationKeyLabel";
             this.RotationKeyLabel.Size = new System.Drawing.Size(43, 13);
             this.RotationKeyLabel.TabIndex = 4;
@@ -3867,6 +3802,36 @@
             this.WarriorCooldownGroup.TabStop = false;
             this.WarriorCooldownGroup.Text = "Cooldown";
             // 
+            // WarriorUpheaval
+            // 
+            this.WarriorUpheaval.AutoSize = true;
+            this.WarriorUpheaval.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorUpheaval.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorUpheaval.ForeColor = System.Drawing.Color.White;
+            this.WarriorUpheaval.Location = new System.Drawing.Point(6, 39);
+            this.WarriorUpheaval.Name = "WarriorUpheaval";
+            this.WarriorUpheaval.Size = new System.Drawing.Size(71, 17);
+            this.WarriorUpheaval.TabIndex = 1;
+            this.WarriorUpheaval.TabStop = false;
+            this.WarriorUpheaval.Text = "Upheaval";
+            this.WarriorUpheaval.UseVisualStyleBackColor = true;
+            this.WarriorUpheaval.CheckedChanged += new System.EventHandler(this.WarriorUpheaval_CheckedChanged);
+            // 
+            // WarriorOnslaught
+            // 
+            this.WarriorOnslaught.AutoSize = true;
+            this.WarriorOnslaught.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorOnslaught.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorOnslaught.ForeColor = System.Drawing.Color.White;
+            this.WarriorOnslaught.Location = new System.Drawing.Point(6, 16);
+            this.WarriorOnslaught.Name = "WarriorOnslaught";
+            this.WarriorOnslaught.Size = new System.Drawing.Size(78, 17);
+            this.WarriorOnslaught.TabIndex = 0;
+            this.WarriorOnslaught.TabStop = false;
+            this.WarriorOnslaught.Text = "Onslaught";
+            this.WarriorOnslaught.UseVisualStyleBackColor = true;
+            this.WarriorOnslaught.CheckedChanged += new System.EventHandler(this.WarriorOnslaught_CheckedChanged);
+            // 
             // WarriorStanceGroup
             // 
             this.WarriorStanceGroup.Controls.Add(this.WarriorStance);
@@ -3916,6 +3881,36 @@
             this.WarriorBuffGroup.TabIndex = 2;
             this.WarriorBuffGroup.TabStop = false;
             this.WarriorBuffGroup.Text = "Buff";
+            // 
+            // WarriorInnerRelease
+            // 
+            this.WarriorInnerRelease.AutoSize = true;
+            this.WarriorInnerRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorInnerRelease.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorInnerRelease.ForeColor = System.Drawing.Color.White;
+            this.WarriorInnerRelease.Location = new System.Drawing.Point(6, 177);
+            this.WarriorInnerRelease.Name = "WarriorInnerRelease";
+            this.WarriorInnerRelease.Size = new System.Drawing.Size(92, 17);
+            this.WarriorInnerRelease.TabIndex = 10;
+            this.WarriorInnerRelease.TabStop = false;
+            this.WarriorInnerRelease.Text = "Inner Release";
+            this.WarriorInnerRelease.UseVisualStyleBackColor = true;
+            this.WarriorInnerRelease.CheckedChanged += new System.EventHandler(this.WarriorInnerRelease_CheckedChanged);
+            // 
+            // WarriorShakeItOff
+            // 
+            this.WarriorShakeItOff.AutoSize = true;
+            this.WarriorShakeItOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WarriorShakeItOff.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WarriorShakeItOff.ForeColor = System.Drawing.Color.White;
+            this.WarriorShakeItOff.Location = new System.Drawing.Point(6, 154);
+            this.WarriorShakeItOff.Name = "WarriorShakeItOff";
+            this.WarriorShakeItOff.Size = new System.Drawing.Size(84, 17);
+            this.WarriorShakeItOff.TabIndex = 9;
+            this.WarriorShakeItOff.TabStop = false;
+            this.WarriorShakeItOff.Text = "Shake it Off";
+            this.WarriorShakeItOff.UseVisualStyleBackColor = true;
+            this.WarriorShakeItOff.CheckedChanged += new System.EventHandler(this.WarriorShakeItOff_CheckedChanged);
             // 
             // WarriorThrillOfBattlePct
             // 
@@ -4302,66 +4297,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // WarriorOnslaught
-            // 
-            this.WarriorOnslaught.AutoSize = true;
-            this.WarriorOnslaught.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WarriorOnslaught.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorOnslaught.ForeColor = System.Drawing.Color.White;
-            this.WarriorOnslaught.Location = new System.Drawing.Point(6, 16);
-            this.WarriorOnslaught.Name = "WarriorOnslaught";
-            this.WarriorOnslaught.Size = new System.Drawing.Size(78, 17);
-            this.WarriorOnslaught.TabIndex = 0;
-            this.WarriorOnslaught.TabStop = false;
-            this.WarriorOnslaught.Text = "Onslaught";
-            this.WarriorOnslaught.UseVisualStyleBackColor = true;
-            this.WarriorOnslaught.CheckedChanged += new System.EventHandler(this.WarriorOnslaught_CheckedChanged);
-            // 
-            // WarriorUpheaval
-            // 
-            this.WarriorUpheaval.AutoSize = true;
-            this.WarriorUpheaval.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WarriorUpheaval.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorUpheaval.ForeColor = System.Drawing.Color.White;
-            this.WarriorUpheaval.Location = new System.Drawing.Point(6, 39);
-            this.WarriorUpheaval.Name = "WarriorUpheaval";
-            this.WarriorUpheaval.Size = new System.Drawing.Size(71, 17);
-            this.WarriorUpheaval.TabIndex = 1;
-            this.WarriorUpheaval.TabStop = false;
-            this.WarriorUpheaval.Text = "Upheaval";
-            this.WarriorUpheaval.UseVisualStyleBackColor = true;
-            this.WarriorUpheaval.CheckedChanged += new System.EventHandler(this.WarriorUpheaval_CheckedChanged);
-            // 
-            // WarriorShakeItOff
-            // 
-            this.WarriorShakeItOff.AutoSize = true;
-            this.WarriorShakeItOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WarriorShakeItOff.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorShakeItOff.ForeColor = System.Drawing.Color.White;
-            this.WarriorShakeItOff.Location = new System.Drawing.Point(6, 154);
-            this.WarriorShakeItOff.Name = "WarriorShakeItOff";
-            this.WarriorShakeItOff.Size = new System.Drawing.Size(84, 17);
-            this.WarriorShakeItOff.TabIndex = 9;
-            this.WarriorShakeItOff.TabStop = false;
-            this.WarriorShakeItOff.Text = "Shake it Off";
-            this.WarriorShakeItOff.UseVisualStyleBackColor = true;
-            this.WarriorShakeItOff.CheckedChanged += new System.EventHandler(this.WarriorShakeItOff_CheckedChanged);
-            // 
-            // WarriorInnerRelease
-            // 
-            this.WarriorInnerRelease.AutoSize = true;
-            this.WarriorInnerRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WarriorInnerRelease.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorInnerRelease.ForeColor = System.Drawing.Color.White;
-            this.WarriorInnerRelease.Location = new System.Drawing.Point(6, 177);
-            this.WarriorInnerRelease.Name = "WarriorInnerRelease";
-            this.WarriorInnerRelease.Size = new System.Drawing.Size(92, 17);
-            this.WarriorInnerRelease.TabIndex = 10;
-            this.WarriorInnerRelease.TabStop = false;
-            this.WarriorInnerRelease.Text = "Inner Release";
-            this.WarriorInnerRelease.UseVisualStyleBackColor = true;
-            this.WarriorInnerRelease.CheckedChanged += new System.EventHandler(this.WarriorInnerRelease_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4501,7 +4436,7 @@
         private System.Windows.Forms.TabPage pgeMelee;
         private System.Windows.Forms.TabPage pgeRanged;
         private System.Windows.Forms.TabPage pgeTanks;
-        private System.Windows.Forms.Button ShinraClose;
+        private Design.NoSelectButton ShinraClose;
         private Design.CustomTab tabCasters;
         private System.Windows.Forms.TabPage pgeBlackMage;
         private System.Windows.Forms.TabPage pgeRedMage;
@@ -4578,10 +4513,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private Design.CustomGroup RotationGroup;
-        private Design.CustomCombo RotationModKey;
-        private Design.CustomCombo RotationKey;
         private Design.CustomCombo RotationMode;
-        private System.Windows.Forms.Label RotationModKeyLabel;
         private System.Windows.Forms.Label RotationKeyLabel;
         private System.Windows.Forms.Label RotationModeLabel;
         private Design.CustomCheck RotationOverlay;
@@ -4773,5 +4705,6 @@
         private Design.CustomCheck WarriorOnslaught;
         private Design.CustomCheck WarriorInnerRelease;
         private Design.CustomCheck WarriorShakeItOff;
+        private Design.HotkeyBox RotationHotkey;
     }
 }

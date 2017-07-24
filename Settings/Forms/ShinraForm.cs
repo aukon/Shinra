@@ -68,8 +68,7 @@ namespace ShinraCo.Settings.Forms
             RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
 
             var kc = new KeysConverter();
-            RotationKey.Text = kc.ConvertToString(Shinra.Settings.RotationKey);
-            RotationModKey.Text = kc.ConvertToString(Shinra.Settings.RotationModKey);
+            RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
 
             #endregion
 
@@ -449,8 +448,8 @@ namespace ShinraCo.Settings.Forms
 
         private void ShinraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            HotkeyManager.Register("Shinra Rotation", Shinra.Settings.RotationKey, Shinra.Settings.RotationModKey,
-                                   hk => Shinra.CycleRotation());
+            HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Shinra.Settings.RotationHotkey),
+                                   Helpers.GetModkey(Shinra.Settings.RotationHotkey), hk => Shinra.CycleRotation());
             Shinra.Settings.WindowLocation = Location;
             Shinra.Settings.Save();
         }
@@ -517,47 +516,9 @@ namespace ShinraCo.Settings.Forms
             if (RotationMode.Text == @"Multi") Shinra.Settings.RotationMode = Modes.Multi;
         }
 
-        private void CycleRotationKey_SelectedValueChanged(object sender, EventArgs e)
+        private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
         {
-            if (RotationKey.Text == @"None") Shinra.Settings.RotationKey = Keys.None;
-            if (RotationKey.Text == @"Oemtilde") Shinra.Settings.RotationKey = Keys.Oemtilde;
-            if (RotationKey.Text == @"XButton1") Shinra.Settings.RotationKey = Keys.XButton1;
-            if (RotationKey.Text == @"XButton2") Shinra.Settings.RotationKey = Keys.XButton2;
-            if (RotationKey.Text == @"Space") Shinra.Settings.RotationKey = Keys.Space;
-            if (RotationKey.Text == @"A") Shinra.Settings.RotationKey = Keys.A;
-            if (RotationKey.Text == @"B") Shinra.Settings.RotationKey = Keys.B;
-            if (RotationKey.Text == @"C") Shinra.Settings.RotationKey = Keys.C;
-            if (RotationKey.Text == @"D") Shinra.Settings.RotationKey = Keys.D;
-            if (RotationKey.Text == @"E") Shinra.Settings.RotationKey = Keys.E;
-            if (RotationKey.Text == @"F") Shinra.Settings.RotationKey = Keys.F;
-            if (RotationKey.Text == @"G") Shinra.Settings.RotationKey = Keys.G;
-            if (RotationKey.Text == @"H") Shinra.Settings.RotationKey = Keys.H;
-            if (RotationKey.Text == @"I") Shinra.Settings.RotationKey = Keys.I;
-            if (RotationKey.Text == @"J") Shinra.Settings.RotationKey = Keys.J;
-            if (RotationKey.Text == @"K") Shinra.Settings.RotationKey = Keys.K;
-            if (RotationKey.Text == @"L") Shinra.Settings.RotationKey = Keys.L;
-            if (RotationKey.Text == @"M") Shinra.Settings.RotationKey = Keys.M;
-            if (RotationKey.Text == @"N") Shinra.Settings.RotationKey = Keys.N;
-            if (RotationKey.Text == @"O") Shinra.Settings.RotationKey = Keys.O;
-            if (RotationKey.Text == @"P") Shinra.Settings.RotationKey = Keys.P;
-            if (RotationKey.Text == @"Q") Shinra.Settings.RotationKey = Keys.Q;
-            if (RotationKey.Text == @"R") Shinra.Settings.RotationKey = Keys.R;
-            if (RotationKey.Text == @"S") Shinra.Settings.RotationKey = Keys.S;
-            if (RotationKey.Text == @"T") Shinra.Settings.RotationKey = Keys.T;
-            if (RotationKey.Text == @"U") Shinra.Settings.RotationKey = Keys.U;
-            if (RotationKey.Text == @"V") Shinra.Settings.RotationKey = Keys.V;
-            if (RotationKey.Text == @"W") Shinra.Settings.RotationKey = Keys.W;
-            if (RotationKey.Text == @"X") Shinra.Settings.RotationKey = Keys.X;
-            if (RotationKey.Text == @"Y") Shinra.Settings.RotationKey = Keys.Y;
-            if (RotationKey.Text == @"Z") Shinra.Settings.RotationKey = Keys.Z;
-        }
-
-        private void CycleRotationModKey_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (RotationModKey.Text == @"None") Shinra.Settings.RotationModKey = System.Windows.Input.ModifierKeys.None;
-            if (RotationModKey.Text == @"Alt") Shinra.Settings.RotationModKey = System.Windows.Input.ModifierKeys.Alt;
-            if (RotationModKey.Text == @"Control") Shinra.Settings.RotationModKey = System.Windows.Input.ModifierKeys.Control;
-            if (RotationModKey.Text == @"Shift") Shinra.Settings.RotationModKey = System.Windows.Input.ModifierKeys.Shift;
+            Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
         }
 
         #endregion
@@ -1472,6 +1433,6 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
-        #endregion
+        #endregion 
     }
 }

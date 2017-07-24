@@ -29,7 +29,8 @@ namespace ShinraCo
         public sealed override void Initialize()
         {
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
-            HotkeyManager.Register("Shinra Rotation", Settings.RotationKey, Settings.RotationModKey, hk => CycleRotation());
+            HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
+                                   Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());
         }
 
         public sealed override void Pulse()
@@ -62,33 +63,37 @@ namespace ShinraCo
 
         public static void CycleRotation()
         {
+            var textColor = Colors.GreenYellow;
+            var shadowColor = Color.FromRgb(0, 0, 0);
+
             switch (Settings.RotationMode)
             {
                 case Modes.Smart:
                     Settings.RotationMode = Modes.Single;
                     if (Settings.RotationOverlay)
                     {
-                        Core.OverlayManager.AddToast("Shinra Rotation >>> Single", 2000);
+                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Single", TimeSpan.FromMilliseconds(1000), textColor,
+                                                     shadowColor, new FontFamily("Agency FB"));
                     }
-                    Logging.Write(Colors.Yellow, @"[Shinra] Rotation >>> Single");
-                    return;
+                    break;
                 case Modes.Single:
                     Settings.RotationMode = Modes.Multi;
                     if (Settings.RotationOverlay)
                     {
-                        Core.OverlayManager.AddToast("Shinra Rotation >>> Multi", 2000);
+                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Multi", TimeSpan.FromMilliseconds(1000), textColor,
+                                                     shadowColor, new FontFamily("Agency FB"));
                     }
-                    Logging.Write(Colors.Yellow, @"[Shinra] Rotation >>> Multi");
-                    return;
+                    break;
                 case Modes.Multi:
                     Settings.RotationMode = Modes.Smart;
                     if (Settings.RotationOverlay)
                     {
-                        Core.OverlayManager.AddToast("Shinra Rotation >>> Smart", 2000);
+                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Smart", TimeSpan.FromMilliseconds(1000), textColor,
+                                                     shadowColor, new FontFamily("Agency FB"));
                     }
-                    Logging.Write(Colors.Yellow, @"[Shinra] Rotation >>> Smart");
-                    return;
+                    break;
             }
+            Logging.Write(Colors.Yellow, $@"[Shinra] Rotation >>> {Settings.RotationMode}");
         }
 
         #endregion

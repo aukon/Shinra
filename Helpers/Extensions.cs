@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
+using System.Windows.Input;
 using ff14bot;
 using ff14bot.Enums;
 
@@ -43,6 +45,17 @@ namespace ShinraCo
                 return File.ReadAllText(VersionPath);
             }
             catch { return null; }
+        }
+
+        public static Keys GetHotkey(Keys number)
+        {
+            return (Keys)((int)number & 0x0000FFFF);
+        }
+
+        public static ModifierKeys GetModkey(Keys number)
+        {
+            var key = (Keys)((int)number & 0xFFFF0000);
+            return (ModifierKeys)Enum.Parse(typeof(ModifierKeys), key.ToString());
         }
     }
 }
