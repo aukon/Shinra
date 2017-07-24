@@ -162,6 +162,8 @@ namespace ShinraCo
                     return new Astrologian();
                 case ClassJobType.Bard:
                     return new Bard();
+                case ClassJobType.DarkKnight:
+                    return new DarkKnight();
                 case ClassJobType.Dragoon:
                     return new Dragoon();
                 case ClassJobType.Paladin:

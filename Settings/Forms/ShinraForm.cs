@@ -166,6 +166,44 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Dark Knight
+
+            #region Role
+
+            DarkKnightRampart.Checked = Shinra.Settings.DarkKnightRampart;
+            DarkKnightConvalescence.Checked = Shinra.Settings.DarkKnightConvalescence;
+            DarkKnightAnticipation.Checked = Shinra.Settings.DarkKnightAnticipation;
+            DarkKnightReprisal.Checked = Shinra.Settings.DarkKnightReprisal;
+            DarkKnightAwareness.Checked = Shinra.Settings.DarkKnightAwareness;
+
+            DarkKnightRampartPct.Value = Shinra.Settings.DarkKnightRampartPct;
+            DarkKnightConvalescencePct.Value = Shinra.Settings.DarkKnightConvalescencePct;
+            DarkKnightAnticipationPct.Value = Shinra.Settings.DarkKnightAnticipationPct;
+            DarkKnightAwarenessPct.Value = Shinra.Settings.DarkKnightAwarenessPct;
+
+            #endregion
+
+            #region AoE
+
+            DarkKnightUnleash.Checked = Shinra.Settings.DarkKnightUnleash;
+
+            #endregion
+
+            #region Buff
+
+            DarkKnightBloodWeapon.Checked = Shinra.Settings.DarkKnightBloodWeapon;
+
+            #endregion
+
+            #region Aura
+
+            DarkKnightGrit.Checked = Shinra.Settings.DarkKnightGrit;
+            DarkKnightDarkside.Checked = Shinra.Settings.DarkKnightDarkside;
+
+            #endregion
+
+            #endregion
+
             #region Dragoon
 
             #region Role
@@ -756,6 +794,91 @@ namespace ShinraCo.Settings.Forms
         private void BardBattleVoice_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardBattleVoice = BardBattleVoice.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Dark Knight
+
+        #region Role
+
+        private void DarkKnightRampart_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightRampart = DarkKnightRampart.Checked;
+        }
+
+        private void DarkKnightConvalescence_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightConvalescence = DarkKnightConvalescence.Checked;
+        }
+
+        private void DarkKnightAnticipation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAnticipation = DarkKnightAnticipation.Checked;
+        }
+
+        private void DarkKnightReprisal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightReprisal = DarkKnightReprisal.Checked;
+        }
+
+        private void DarkKnightAwareness_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAwareness = DarkKnightAwareness.Checked;
+        }
+
+        private void DarkKnightRampartPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightRampartPct = Convert.ToInt32(DarkKnightRampartPct.Value);
+        }
+
+        private void DarkKnightConvalescencePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightConvalescencePct = Convert.ToInt32(DarkKnightConvalescencePct.Value);
+        }
+
+        private void DarkKnightAnticipationPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAnticipationPct = Convert.ToInt32(DarkKnightAnticipationPct.Value);
+        }
+
+        private void DarkKnightAwarenessPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAwarenessPct = Convert.ToInt32(DarkKnightAwarenessPct.Value);
+        }
+
+        #endregion
+
+        #region AoE
+
+        private void DarkKnightUnleash_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightUnleash = DarkKnightUnleash.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void DarkKnightBloodWeapon_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBloodWeapon = DarkKnightBloodWeapon.Checked;
+        }
+
+        #endregion
+
+        #region Aura
+
+        private void DarkKnightGrit_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightGrit = DarkKnightGrit.Checked;
+        }
+
+        private void DarkKnightDarkside_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightDarkside = DarkKnightDarkside.Checked;
         }
 
         #endregion

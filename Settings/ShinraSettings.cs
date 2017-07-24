@@ -280,6 +280,65 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Dark Knight
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightRampart { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightConvalescence { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightAnticipation { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightReprisal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightAwareness { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int DarkKnightRampartPct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int DarkKnightConvalescencePct { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int DarkKnightAnticipationPct { get; set; }
+
+        [Setting, DefaultValue(80)]
+        public int DarkKnightAwarenessPct { get; set; }
+
+        #endregion
+
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightUnleash { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightBloodWeapon { get; set; }
+
+        #endregion
+
+        #region Aura
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightGrit { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightDarkside { get; set; }
+
+        #endregion
+
+        #endregion
+
         #region Dragoon
 
         #region Role

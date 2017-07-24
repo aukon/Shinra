@@ -336,6 +336,12 @@ namespace ShinraCo.Spells
                             return false;
                         }
                         break;
+                    case ClassJobType.DarkKnight:
+                        if (DataManager.GetSpellData(3617).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
                     case ClassJobType.Gladiator:
                     case ClassJobType.Paladin:
                         if (DataManager.GetSpellData(9).Cooldown.TotalMilliseconds < 1000)

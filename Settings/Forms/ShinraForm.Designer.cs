@@ -223,7 +223,26 @@
             this.pgeTanks = new System.Windows.Forms.TabPage();
             this.tabTanks = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDarkKnight = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
+            this.DarkKnightBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightBloodWeapon = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightAuraGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightDarkside = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightGrit = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightAwarenessPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DarkKnightAnticipationPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DarkKnightConvalescencePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DarkKnightRampartPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DarkKnightShirk = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightUltimatum = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightInterject = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightAwareness = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightReprisal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightAnticipation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightConvalescence = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgePaladin = new System.Windows.Forms.TabPage();
             this.PaladinOathGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.PaladinOath = new ShinraCo.Settings.Forms.Design.CustomCombo();
@@ -309,6 +328,8 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightUnleash = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -361,6 +382,9 @@
             this.pgeTanks.SuspendLayout();
             this.tabTanks.SuspendLayout();
             this.pgeDarkKnight.SuspendLayout();
+            this.DarkKnightBuffGroup.SuspendLayout();
+            this.DarkKnightAuraGroup.SuspendLayout();
+            this.DarkKnightRoleGroup.SuspendLayout();
             this.pgePaladin.SuspendLayout();
             this.PaladinOathGroup.SuspendLayout();
             this.PaladinHealGroup.SuspendLayout();
@@ -377,6 +401,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.DarkKnightAoEGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -3095,7 +3120,10 @@
             // pgeDarkKnight
             // 
             this.pgeDarkKnight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeDarkKnight.Controls.Add(this.label9);
+            this.pgeDarkKnight.Controls.Add(this.DarkKnightAoEGroup);
+            this.pgeDarkKnight.Controls.Add(this.DarkKnightBuffGroup);
+            this.pgeDarkKnight.Controls.Add(this.DarkKnightAuraGroup);
+            this.pgeDarkKnight.Controls.Add(this.DarkKnightRoleGroup);
             this.pgeDarkKnight.Location = new System.Drawing.Point(104, 4);
             this.pgeDarkKnight.Name = "pgeDarkKnight";
             this.pgeDarkKnight.Padding = new System.Windows.Forms.Padding(3);
@@ -3104,16 +3132,283 @@
             this.pgeDarkKnight.Text = "Dark Knight";
             this.pgeDarkKnight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
-            // label9
+            // DarkKnightBuffGroup
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(13, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 65);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "N/A";
+            this.DarkKnightBuffGroup.Controls.Add(this.DarkKnightBloodWeapon);
+            this.DarkKnightBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightBuffGroup.Location = new System.Drawing.Point(224, 55);
+            this.DarkKnightBuffGroup.Name = "DarkKnightBuffGroup";
+            this.DarkKnightBuffGroup.Size = new System.Drawing.Size(113, 43);
+            this.DarkKnightBuffGroup.TabIndex = 2;
+            this.DarkKnightBuffGroup.TabStop = false;
+            this.DarkKnightBuffGroup.Text = "Buff";
+            // 
+            // DarkKnightBloodWeapon
+            // 
+            this.DarkKnightBloodWeapon.AutoSize = true;
+            this.DarkKnightBloodWeapon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightBloodWeapon.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightBloodWeapon.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightBloodWeapon.Location = new System.Drawing.Point(6, 16);
+            this.DarkKnightBloodWeapon.Name = "DarkKnightBloodWeapon";
+            this.DarkKnightBloodWeapon.Size = new System.Drawing.Size(101, 17);
+            this.DarkKnightBloodWeapon.TabIndex = 0;
+            this.DarkKnightBloodWeapon.TabStop = false;
+            this.DarkKnightBloodWeapon.Text = "Blood Weapon";
+            this.DarkKnightBloodWeapon.UseVisualStyleBackColor = true;
+            this.DarkKnightBloodWeapon.CheckedChanged += new System.EventHandler(this.DarkKnightBloodWeapon_CheckedChanged);
+            // 
+            // DarkKnightAuraGroup
+            // 
+            this.DarkKnightAuraGroup.Controls.Add(this.DarkKnightDarkside);
+            this.DarkKnightAuraGroup.Controls.Add(this.DarkKnightGrit);
+            this.DarkKnightAuraGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightAuraGroup.Location = new System.Drawing.Point(224, 104);
+            this.DarkKnightAuraGroup.Name = "DarkKnightAuraGroup";
+            this.DarkKnightAuraGroup.Size = new System.Drawing.Size(113, 66);
+            this.DarkKnightAuraGroup.TabIndex = 1;
+            this.DarkKnightAuraGroup.TabStop = false;
+            this.DarkKnightAuraGroup.Text = "Aura";
+            // 
+            // DarkKnightDarkside
+            // 
+            this.DarkKnightDarkside.AutoSize = true;
+            this.DarkKnightDarkside.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightDarkside.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightDarkside.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightDarkside.Location = new System.Drawing.Point(6, 39);
+            this.DarkKnightDarkside.Name = "DarkKnightDarkside";
+            this.DarkKnightDarkside.Size = new System.Drawing.Size(68, 17);
+            this.DarkKnightDarkside.TabIndex = 1;
+            this.DarkKnightDarkside.TabStop = false;
+            this.DarkKnightDarkside.Text = "Darkside";
+            this.DarkKnightDarkside.UseVisualStyleBackColor = true;
+            this.DarkKnightDarkside.CheckedChanged += new System.EventHandler(this.DarkKnightDarkside_CheckedChanged);
+            // 
+            // DarkKnightGrit
+            // 
+            this.DarkKnightGrit.AutoSize = true;
+            this.DarkKnightGrit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightGrit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightGrit.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightGrit.Location = new System.Drawing.Point(6, 16);
+            this.DarkKnightGrit.Name = "DarkKnightGrit";
+            this.DarkKnightGrit.Size = new System.Drawing.Size(42, 17);
+            this.DarkKnightGrit.TabIndex = 0;
+            this.DarkKnightGrit.TabStop = false;
+            this.DarkKnightGrit.Text = "Grit";
+            this.DarkKnightGrit.UseVisualStyleBackColor = true;
+            this.DarkKnightGrit.CheckedChanged += new System.EventHandler(this.DarkKnightGrit_CheckedChanged);
+            // 
+            // DarkKnightRoleGroup
+            // 
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightAwarenessPct);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightAnticipationPct);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightConvalescencePct);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightRampartPct);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightShirk);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightUltimatum);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightInterject);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightAwareness);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightReprisal);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightAnticipation);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightConvalescence);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightProvoke);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightLowBlow);
+            this.DarkKnightRoleGroup.Controls.Add(this.DarkKnightRampart);
+            this.DarkKnightRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.DarkKnightRoleGroup.Name = "DarkKnightRoleGroup";
+            this.DarkKnightRoleGroup.Size = new System.Drawing.Size(205, 250);
+            this.DarkKnightRoleGroup.TabIndex = 0;
+            this.DarkKnightRoleGroup.TabStop = false;
+            this.DarkKnightRoleGroup.Text = "Role";
+            // 
+            // DarkKnightAwarenessPct
+            // 
+            this.DarkKnightAwarenessPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DarkKnightAwarenessPct.Location = new System.Drawing.Point(110, 154);
+            this.DarkKnightAwarenessPct.Name = "DarkKnightAwarenessPct";
+            this.DarkKnightAwarenessPct.Size = new System.Drawing.Size(89, 22);
+            this.DarkKnightAwarenessPct.TabIndex = 28;
+            this.DarkKnightAwarenessPct.ValueChanged += new System.EventHandler(this.DarkKnightAwarenessPct_ValueChanged);
+            // 
+            // DarkKnightAnticipationPct
+            // 
+            this.DarkKnightAnticipationPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DarkKnightAnticipationPct.Location = new System.Drawing.Point(110, 108);
+            this.DarkKnightAnticipationPct.Name = "DarkKnightAnticipationPct";
+            this.DarkKnightAnticipationPct.Size = new System.Drawing.Size(89, 22);
+            this.DarkKnightAnticipationPct.TabIndex = 27;
+            this.DarkKnightAnticipationPct.ValueChanged += new System.EventHandler(this.DarkKnightAnticipationPct_ValueChanged);
+            // 
+            // DarkKnightConvalescencePct
+            // 
+            this.DarkKnightConvalescencePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DarkKnightConvalescencePct.Location = new System.Drawing.Point(110, 85);
+            this.DarkKnightConvalescencePct.Name = "DarkKnightConvalescencePct";
+            this.DarkKnightConvalescencePct.Size = new System.Drawing.Size(89, 22);
+            this.DarkKnightConvalescencePct.TabIndex = 26;
+            this.DarkKnightConvalescencePct.ValueChanged += new System.EventHandler(this.DarkKnightConvalescencePct_ValueChanged);
+            // 
+            // DarkKnightRampartPct
+            // 
+            this.DarkKnightRampartPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DarkKnightRampartPct.Location = new System.Drawing.Point(110, 16);
+            this.DarkKnightRampartPct.Name = "DarkKnightRampartPct";
+            this.DarkKnightRampartPct.Size = new System.Drawing.Size(89, 22);
+            this.DarkKnightRampartPct.TabIndex = 25;
+            this.DarkKnightRampartPct.ValueChanged += new System.EventHandler(this.DarkKnightRampartPct_ValueChanged);
+            // 
+            // DarkKnightShirk
+            // 
+            this.DarkKnightShirk.AutoCheck = false;
+            this.DarkKnightShirk.AutoSize = true;
+            this.DarkKnightShirk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightShirk.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightShirk.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightShirk.Location = new System.Drawing.Point(6, 223);
+            this.DarkKnightShirk.Name = "DarkKnightShirk";
+            this.DarkKnightShirk.Size = new System.Drawing.Size(49, 17);
+            this.DarkKnightShirk.TabIndex = 24;
+            this.DarkKnightShirk.TabStop = false;
+            this.DarkKnightShirk.Text = "Shirk";
+            this.DarkKnightShirk.UseVisualStyleBackColor = true;
+            // 
+            // DarkKnightUltimatum
+            // 
+            this.DarkKnightUltimatum.AutoCheck = false;
+            this.DarkKnightUltimatum.AutoSize = true;
+            this.DarkKnightUltimatum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightUltimatum.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightUltimatum.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightUltimatum.Location = new System.Drawing.Point(6, 200);
+            this.DarkKnightUltimatum.Name = "DarkKnightUltimatum";
+            this.DarkKnightUltimatum.Size = new System.Drawing.Size(76, 17);
+            this.DarkKnightUltimatum.TabIndex = 23;
+            this.DarkKnightUltimatum.TabStop = false;
+            this.DarkKnightUltimatum.Text = "Ultimatum";
+            this.DarkKnightUltimatum.UseVisualStyleBackColor = true;
+            // 
+            // DarkKnightInterject
+            // 
+            this.DarkKnightInterject.AutoCheck = false;
+            this.DarkKnightInterject.AutoSize = true;
+            this.DarkKnightInterject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightInterject.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightInterject.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightInterject.Location = new System.Drawing.Point(6, 177);
+            this.DarkKnightInterject.Name = "DarkKnightInterject";
+            this.DarkKnightInterject.Size = new System.Drawing.Size(65, 17);
+            this.DarkKnightInterject.TabIndex = 22;
+            this.DarkKnightInterject.TabStop = false;
+            this.DarkKnightInterject.Text = "Interject";
+            this.DarkKnightInterject.UseVisualStyleBackColor = true;
+            // 
+            // DarkKnightAwareness
+            // 
+            this.DarkKnightAwareness.AutoSize = true;
+            this.DarkKnightAwareness.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightAwareness.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightAwareness.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightAwareness.Location = new System.Drawing.Point(6, 154);
+            this.DarkKnightAwareness.Name = "DarkKnightAwareness";
+            this.DarkKnightAwareness.Size = new System.Drawing.Size(78, 17);
+            this.DarkKnightAwareness.TabIndex = 21;
+            this.DarkKnightAwareness.TabStop = false;
+            this.DarkKnightAwareness.Text = "Awareness";
+            this.DarkKnightAwareness.UseVisualStyleBackColor = true;
+            this.DarkKnightAwareness.CheckedChanged += new System.EventHandler(this.DarkKnightAwareness_CheckedChanged);
+            // 
+            // DarkKnightReprisal
+            // 
+            this.DarkKnightReprisal.AutoSize = true;
+            this.DarkKnightReprisal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightReprisal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightReprisal.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightReprisal.Location = new System.Drawing.Point(6, 131);
+            this.DarkKnightReprisal.Name = "DarkKnightReprisal";
+            this.DarkKnightReprisal.Size = new System.Drawing.Size(64, 17);
+            this.DarkKnightReprisal.TabIndex = 20;
+            this.DarkKnightReprisal.TabStop = false;
+            this.DarkKnightReprisal.Text = "Reprisal";
+            this.DarkKnightReprisal.UseVisualStyleBackColor = true;
+            this.DarkKnightReprisal.CheckedChanged += new System.EventHandler(this.DarkKnightReprisal_CheckedChanged);
+            // 
+            // DarkKnightAnticipation
+            // 
+            this.DarkKnightAnticipation.AutoSize = true;
+            this.DarkKnightAnticipation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightAnticipation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightAnticipation.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightAnticipation.Location = new System.Drawing.Point(6, 108);
+            this.DarkKnightAnticipation.Name = "DarkKnightAnticipation";
+            this.DarkKnightAnticipation.Size = new System.Drawing.Size(86, 17);
+            this.DarkKnightAnticipation.TabIndex = 19;
+            this.DarkKnightAnticipation.TabStop = false;
+            this.DarkKnightAnticipation.Text = "Anticipation";
+            this.DarkKnightAnticipation.UseVisualStyleBackColor = true;
+            this.DarkKnightAnticipation.CheckedChanged += new System.EventHandler(this.DarkKnightAnticipation_CheckedChanged);
+            // 
+            // DarkKnightConvalescence
+            // 
+            this.DarkKnightConvalescence.AutoSize = true;
+            this.DarkKnightConvalescence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightConvalescence.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightConvalescence.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightConvalescence.Location = new System.Drawing.Point(6, 85);
+            this.DarkKnightConvalescence.Name = "DarkKnightConvalescence";
+            this.DarkKnightConvalescence.Size = new System.Drawing.Size(98, 17);
+            this.DarkKnightConvalescence.TabIndex = 18;
+            this.DarkKnightConvalescence.TabStop = false;
+            this.DarkKnightConvalescence.Text = "Convalescence";
+            this.DarkKnightConvalescence.UseVisualStyleBackColor = true;
+            this.DarkKnightConvalescence.CheckedChanged += new System.EventHandler(this.DarkKnightConvalescence_CheckedChanged);
+            // 
+            // DarkKnightProvoke
+            // 
+            this.DarkKnightProvoke.AutoCheck = false;
+            this.DarkKnightProvoke.AutoSize = true;
+            this.DarkKnightProvoke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightProvoke.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightProvoke.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightProvoke.Location = new System.Drawing.Point(6, 62);
+            this.DarkKnightProvoke.Name = "DarkKnightProvoke";
+            this.DarkKnightProvoke.Size = new System.Drawing.Size(64, 17);
+            this.DarkKnightProvoke.TabIndex = 17;
+            this.DarkKnightProvoke.TabStop = false;
+            this.DarkKnightProvoke.Text = "Provoke";
+            this.DarkKnightProvoke.UseVisualStyleBackColor = true;
+            // 
+            // DarkKnightLowBlow
+            // 
+            this.DarkKnightLowBlow.AutoCheck = false;
+            this.DarkKnightLowBlow.AutoSize = true;
+            this.DarkKnightLowBlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightLowBlow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightLowBlow.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightLowBlow.Location = new System.Drawing.Point(6, 39);
+            this.DarkKnightLowBlow.Name = "DarkKnightLowBlow";
+            this.DarkKnightLowBlow.Size = new System.Drawing.Size(73, 17);
+            this.DarkKnightLowBlow.TabIndex = 16;
+            this.DarkKnightLowBlow.TabStop = false;
+            this.DarkKnightLowBlow.Text = "Low Blow";
+            this.DarkKnightLowBlow.UseVisualStyleBackColor = true;
+            // 
+            // DarkKnightRampart
+            // 
+            this.DarkKnightRampart.AutoSize = true;
+            this.DarkKnightRampart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightRampart.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightRampart.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightRampart.Location = new System.Drawing.Point(6, 16);
+            this.DarkKnightRampart.Name = "DarkKnightRampart";
+            this.DarkKnightRampart.Size = new System.Drawing.Size(66, 17);
+            this.DarkKnightRampart.TabIndex = 15;
+            this.DarkKnightRampart.TabStop = false;
+            this.DarkKnightRampart.Text = "Rampart";
+            this.DarkKnightRampart.UseVisualStyleBackColor = true;
+            this.DarkKnightRampart.CheckedChanged += new System.EventHandler(this.DarkKnightRampart_CheckedChanged);
             // 
             // pgePaladin
             // 
@@ -4305,6 +4600,32 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // DarkKnightAoEGroup
+            // 
+            this.DarkKnightAoEGroup.Controls.Add(this.DarkKnightUnleash);
+            this.DarkKnightAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightAoEGroup.Location = new System.Drawing.Point(224, 6);
+            this.DarkKnightAoEGroup.Name = "DarkKnightAoEGroup";
+            this.DarkKnightAoEGroup.Size = new System.Drawing.Size(113, 43);
+            this.DarkKnightAoEGroup.TabIndex = 3;
+            this.DarkKnightAoEGroup.TabStop = false;
+            this.DarkKnightAoEGroup.Text = "AoE";
+            // 
+            // DarkKnightUnleash
+            // 
+            this.DarkKnightUnleash.AutoSize = true;
+            this.DarkKnightUnleash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightUnleash.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightUnleash.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightUnleash.Location = new System.Drawing.Point(6, 16);
+            this.DarkKnightUnleash.Name = "DarkKnightUnleash";
+            this.DarkKnightUnleash.Size = new System.Drawing.Size(65, 17);
+            this.DarkKnightUnleash.TabIndex = 0;
+            this.DarkKnightUnleash.TabStop = false;
+            this.DarkKnightUnleash.Text = "Unleash";
+            this.DarkKnightUnleash.UseVisualStyleBackColor = true;
+            this.DarkKnightUnleash.CheckedChanged += new System.EventHandler(this.DarkKnightUnleash_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4399,7 +4720,12 @@
             this.pgeTanks.ResumeLayout(false);
             this.tabTanks.ResumeLayout(false);
             this.pgeDarkKnight.ResumeLayout(false);
-            this.pgeDarkKnight.PerformLayout();
+            this.DarkKnightBuffGroup.ResumeLayout(false);
+            this.DarkKnightBuffGroup.PerformLayout();
+            this.DarkKnightAuraGroup.ResumeLayout(false);
+            this.DarkKnightAuraGroup.PerformLayout();
+            this.DarkKnightRoleGroup.ResumeLayout(false);
+            this.DarkKnightRoleGroup.PerformLayout();
             this.pgePaladin.ResumeLayout(false);
             this.PaladinOathGroup.ResumeLayout(false);
             this.PaladinHealGroup.ResumeLayout(false);
@@ -4428,6 +4754,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.DarkKnightAoEGroup.ResumeLayout(false);
+            this.DarkKnightAoEGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4519,7 +4847,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private Design.CustomGroup RotationGroup;
         private Design.CustomCombo RotationMode;
         private System.Windows.Forms.Label RotationKeyLabel;
@@ -4715,5 +5042,27 @@
         private Design.HotkeyBox TankHotkey;
         private System.Windows.Forms.Label TankModeLabel;
         private Design.CustomCombo TankMode;
+        private Design.CustomGroup DarkKnightRoleGroup;
+        private Design.UserNumeric DarkKnightAwarenessPct;
+        private Design.UserNumeric DarkKnightAnticipationPct;
+        private Design.UserNumeric DarkKnightConvalescencePct;
+        private Design.UserNumeric DarkKnightRampartPct;
+        private Design.CustomCheckDisabled DarkKnightShirk;
+        private Design.CustomCheckDisabled DarkKnightUltimatum;
+        private Design.CustomCheckDisabled DarkKnightInterject;
+        private Design.CustomCheck DarkKnightAwareness;
+        private Design.CustomCheck DarkKnightReprisal;
+        private Design.CustomCheck DarkKnightAnticipation;
+        private Design.CustomCheck DarkKnightConvalescence;
+        private Design.CustomCheckDisabled DarkKnightProvoke;
+        private Design.CustomCheckDisabled DarkKnightLowBlow;
+        private Design.CustomCheck DarkKnightRampart;
+        private Design.CustomGroup DarkKnightAuraGroup;
+        private Design.CustomCheck DarkKnightDarkside;
+        private Design.CustomCheck DarkKnightGrit;
+        private Design.CustomGroup DarkKnightBuffGroup;
+        private Design.CustomCheck DarkKnightBloodWeapon;
+        private Design.CustomGroup DarkKnightAoEGroup;
+        private Design.CustomCheck DarkKnightUnleash;
     }
 }
