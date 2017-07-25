@@ -183,15 +183,53 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Damage
+
+            DarkKnightBloodspiller.Checked = Shinra.Settings.DarkKnightBloodspiller;
+
+            #endregion
+
             #region AoE
 
             DarkKnightUnleash.Checked = Shinra.Settings.DarkKnightUnleash;
+            DarkKnightPassenger.Checked = Shinra.Settings.DarkKnightPassenger;
+            DarkKnightQuietus.Checked = Shinra.Settings.DarkKnightQuietus;
+            DarkKnightAbyssalDrain.Checked = Shinra.Settings.DarkKnightAbyssalDrain;
+
+            #endregion
+
+            #region Cooldown
+
+            DarkKnightSaltedEarth.Checked = Shinra.Settings.DarkKnightSaltedEarth;
+            DarkKnightPlunge.Checked = Shinra.Settings.DarkKnightPlunge;
+            DarkKnightCarveAndSpit.Checked = Shinra.Settings.DarkKnightCarveAndSpit;
 
             #endregion
 
             #region Buff
 
             DarkKnightBloodWeapon.Checked = Shinra.Settings.DarkKnightBloodWeapon;
+            DarkKnightBloodPrice.Checked = Shinra.Settings.DarkKnightBloodPrice;
+            DarkKnightShadowWall.Checked = Shinra.Settings.DarkKnightShadowWall;
+            DarkKnightLivingDead.Checked = Shinra.Settings.DarkKnightLivingDead;
+            DarkKnightDelirium.Checked = Shinra.Settings.DarkKnightDelirium;
+            DarkKnightBlackestNight.Checked = Shinra.Settings.DarkKnightBlackestNight;
+
+            DarkKnightBloodPricePct.Value = Shinra.Settings.DarkKnightBloodPricePct;
+            DarkKnightShadowWallPct.Value = Shinra.Settings.DarkKnightShadowWallPct;
+            DarkKnightLivingDeadPct.Value = Shinra.Settings.DarkKnightLivingDeadPct;
+            DarkKnightBlackestNightPct.Value = Shinra.Settings.DarkKnightBlackestNightPct;
+
+            #endregion
+
+            #region Dark Arts
+
+            DarkKnightSouleaterArts.Checked = Shinra.Settings.DarkKnightSouleaterArts;
+            DarkKnightPassengerArts.Checked = Shinra.Settings.DarkKnightPassengerArts;
+            DarkKnightAbyssalArts.Checked = Shinra.Settings.DarkKnightAbyssalArts;
+            DarkKnightCarveArts.Checked = Shinra.Settings.DarkKnightCarveArts;
+            DarkKnightQuietusArts.Checked = Shinra.Settings.DarkKnightQuietusArts;
+            DarkKnightBloodspillerArts.Checked = Shinra.Settings.DarkKnightBloodspillerArts;
 
             #endregion
 
@@ -851,11 +889,54 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Damage
+
+        private void DarkKnightBloodspiller_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBloodspiller = DarkKnightBloodspiller.Checked;
+        }
+
+        #endregion
+
         #region AoE
 
         private void DarkKnightUnleash_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightUnleash = DarkKnightUnleash.Checked;
+        }
+
+        private void DarkKnightPassenger_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightPassenger = DarkKnightPassenger.Checked;
+        }
+
+        private void DarkKnightAbyssalDrain_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAbyssalDrain = DarkKnightAbyssalDrain.Checked;
+        }
+
+        private void DarkKnightQuietus_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightQuietus = DarkKnightQuietus.Checked;
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void DarkKnightSaltedEarth_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightSaltedEarth = DarkKnightSaltedEarth.Checked;
+        }
+
+        private void DarkKnightPlunge_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightPlunge = DarkKnightPlunge.Checked;
+        }
+
+        private void DarkKnightCarveAndSpit_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightCarveAndSpit = DarkKnightCarveAndSpit.Checked;
         }
 
         #endregion
@@ -865,6 +946,85 @@ namespace ShinraCo.Settings.Forms
         private void DarkKnightBloodWeapon_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightBloodWeapon = DarkKnightBloodWeapon.Checked;
+        }
+
+        private void DarkKnightBloodPrice_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBloodPrice = DarkKnightBloodPrice.Checked;
+        }
+
+        private void DarkKnightShadowWall_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightShadowWall = DarkKnightShadowWall.Checked;
+        }
+
+        private void DarkKnightLivingDead_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightLivingDead = DarkKnightLivingDead.Checked;
+        }
+
+        private void DarkKnightDelirium_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightDelirium = DarkKnightDelirium.Checked;
+        }
+
+        private void DarkKnightBlackestNight_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBlackestNight = DarkKnightBlackestNight.Checked;
+        }
+
+        private void DarkKnightBloodPricePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBloodPricePct = Convert.ToInt32(DarkKnightBloodPricePct.Value);
+        }
+
+        private void DarkKnightShadowWallPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightShadowWallPct = Convert.ToInt32(DarkKnightShadowWallPct.Value);
+        }
+
+        private void DarkKnightLivingDeadPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightLivingDeadPct = Convert.ToInt32(DarkKnightLivingDeadPct.Value);
+        }
+
+        private void DarkKnightBlackestNightPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBlackestNightPct = Convert.ToInt32(DarkKnightBlackestNightPct.Value);
+        }
+
+        #endregion
+
+        #region Dark Arts
+
+        private void DarkKnightSouleaterArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightSouleaterArts = DarkKnightSouleaterArts.Checked;
+        }
+
+        private void DarkKnightPassengerArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightPassengerArts = DarkKnightPassengerArts.Checked;
+        }
+
+        private void DarkKnightAbyssalArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightAbyssalArts = DarkKnightAbyssalArts.Checked;
+        }
+
+        private void DarkKnightCarveArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightCarveArts = DarkKnightCarveArts.Checked;
+        }
+
+        private void DarkKnightQuietusArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightQuietusArts = DarkKnightQuietusArts.Checked;
+        }
+
+        private void DarkKnightBloodspillerArts_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightBloodspillerArts = DarkKnightBloodspillerArts.Checked;
         }
 
         #endregion

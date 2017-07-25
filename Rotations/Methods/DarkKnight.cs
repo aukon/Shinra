@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
+using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.DarkKnight;
 
@@ -37,9 +39,47 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SyphonStrike()
         {
-            if (ActionManager.LastSpell.Name == MySpells.HardSlash.Name && Core.Player.CurrentManaPercent < 40)
+            if (ActionManager.LastSpell.Name == MySpells.HardSlash.Name)
             {
-                return await MySpells.SyphonStrike.Cast();
+                if (Shinra.Settings.TankMode == TankModes.DPS && ActionManager.HasSpell(MySpells.Souleater.Name) ||
+                    Core.Player.CurrentManaPercent < 40)
+                {
+                    return await MySpells.SyphonStrike.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Souleater()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.SyphonStrike.Name)
+            {
+                if (Shinra.Settings.DarkKnightSouleaterArts && Core.Player.CurrentManaPercent > 40 &&
+                    ActionManager.CanCast(MySpells.Souleater.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.Souleater.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Bloodspiller()
+        {
+            if (Shinra.Settings.DarkKnightBloodspiller && BloodValue >= 50)
+            {
+                if (Shinra.Settings.DarkKnightBloodspillerArts && Core.Player.CurrentManaPercent > 40 &&
+                    ActionManager.CanCast(MySpells.Bloodspiller.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.Bloodspiller.Cast();
             }
             return false;
         }
@@ -57,6 +97,97 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> DarkPassenger()
+        {
+            if (Shinra.Settings.DarkKnightPassenger && Shinra.Settings.RotationMode != Modes.Single &&
+                Core.Player.CurrentManaPercent > 40 && Helpers.EnemiesNearTarget(5) > 2)
+            {
+                if (Shinra.Settings.DarkKnightPassengerArts &&
+                    ActionManager.CanCast(MySpells.DarkPassenger.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.DarkPassenger.Cast(null, !Core.Player.HasAura(MySpells.DarkArts.Name));
+            }
+            return false;
+        }
+
+        private async Task<bool> AbyssalDrain()
+        {
+            if (Shinra.Settings.DarkKnightAbyssalDrain && Core.Player.CurrentManaPercent > 40)
+            {
+                if (Shinra.Settings.DarkKnightAbyssalArts && Core.Player.CurrentHealthPercent < 70 &&
+                    ActionManager.CanCast(MySpells.AbyssalDrain.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.AbyssalDrain.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Quietus()
+        {
+            if (Shinra.Settings.DarkKnightQuietus && Core.Player.CurrentManaPercent < 70 && BloodValue >= 50)
+            {
+                if (Shinra.Settings.DarkKnightQuietusArts && Core.Player.CurrentManaPercent > 40 &&
+                    ActionManager.CanCast(MySpells.Quietus.Name, Core.Player))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.Quietus.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private async Task<bool> SaltedEarth()
+        {
+            if (Shinra.Settings.DarkKnightSaltedEarth && !MovementManager.IsMoving)
+            {
+                return await MySpells.SaltedEarth.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Plunge()
+        {
+            if (Shinra.Settings.DarkKnightPlunge && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.Plunge.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> CarveAndSpit()
+        {
+            if (Shinra.Settings.DarkKnightCarveAndSpit && (Shinra.Settings.DarkKnightCarveArts || Core.Player.CurrentManaPercent < 70))
+            {
+                if (Shinra.Settings.DarkKnightCarveArts && Core.Player.CurrentManaPercent > 40 &&
+                    ActionManager.CanCast(MySpells.CarveAndSpit.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.DarkArts.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
+                    }
+                }
+                return await MySpells.CarveAndSpit.Cast(null, !Core.Player.HasAura(MySpells.DarkArts.Name));
+            }
+            return false;
+        }
+
         #endregion
 
         #region Buff
@@ -66,6 +197,54 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.DarkKnightBloodWeapon)
             {
                 return await MySpells.BloodWeapon.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BloodPrice()
+        {
+            if (Shinra.Settings.DarkKnightBloodPrice && Core.Player.CurrentManaPercent < Shinra.Settings.DarkKnightBloodPricePct)
+            {
+                return await MySpells.BloodPrice.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> ShadowWall()
+        {
+            if (Shinra.Settings.DarkKnightShadowWall && Core.Player.CurrentHealthPercent < Shinra.Settings.DarkKnightShadowWallPct)
+            {
+                return await MySpells.ShadowWall.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> LivingDead()
+        {
+            if (Shinra.Settings.DarkKnightLivingDead && Core.Player.CurrentHealthPercent < Shinra.Settings.DarkKnightLivingDeadPct)
+            {
+                return await MySpells.LivingDead.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Delirium()
+        {
+            if (Shinra.Settings.DarkKnightDelirium && Core.Player.CurrentManaPercent < 70 && BloodValue >= 50)
+            {
+                if (Core.Player.HasAura(MySpells.BloodWeapon.Name) || Core.Player.HasAura(MySpells.BloodPrice.Name))
+                {
+                    return await MySpells.Delirium.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> BlackestNight()
+        {
+            if (Shinra.Settings.DarkKnightBlackestNight && Core.Player.CurrentHealthPercent < Shinra.Settings.DarkKnightBlackestNightPct)
+            {
+                return await MySpells.BlackestNight.Cast();
             }
             return false;
         }

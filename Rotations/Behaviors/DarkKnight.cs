@@ -11,7 +11,11 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (await Quietus()) return true;
+                if (await AbyssalDrain()) return true;
                 if (await Unleash()) return true;
+                if (await Bloodspiller()) return true;
+                if (await Souleater()) return true;
                 if (await SyphonStrike()) return true;
                 if (await PowerSlash()) return true;
                 if (await SpinningSlash()) return true;
@@ -19,6 +23,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (await Souleater()) return true;
                 if (await SyphonStrike()) return true;
                 if (await PowerSlash()) return true;
                 if (await SpinningSlash()) return true;
@@ -26,7 +31,10 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
             {
+                if (await Quietus()) return true;
+                if (await AbyssalDrain()) return true;
                 if (await Unleash()) return true;
+                if (await Souleater()) return true;
                 if (await SyphonStrike()) return true;
                 return await HardSlash();
             }
@@ -42,13 +50,22 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await Grit()) return true;
+            if (await LivingDead()) return true;
+            if (await ShadowWall()) return true;
+            if (await BlackestNight()) return true;
+            if (await Delirium()) return true;
             if (await Rampart()) return true;
             if (await Convalescence()) return true;
             if (await Anticipation()) return true;
             if (await Awareness()) return true;
             if (await Reprisal()) return true;
+            if (await Plunge()) return true;
             if (await Darkside()) return true;
-            return await BloodWeapon();
+            if (await BloodPrice()) return true;
+            if (await BloodWeapon()) return true;
+            if (await CarveAndSpit()) return true;
+            if (await SaltedEarth()) return true;
+            return await DarkPassenger();
         }
 
         #endregion

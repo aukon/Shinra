@@ -313,10 +313,39 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightBloodspiller { get; set; }
+
+        #endregion
+
         #region AoE
 
         [Setting, DefaultValue(true)]
         public bool DarkKnightUnleash { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightPassenger { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightAbyssalDrain { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightQuietus { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightSaltedEarth { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightPlunge { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightCarveAndSpit { get; set; }
 
         #endregion
 
@@ -324,6 +353,55 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool DarkKnightBloodWeapon { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightBloodPrice { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightShadowWall { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightLivingDead { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightDelirium { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightBlackestNight { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int DarkKnightBloodPricePct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int DarkKnightShadowWallPct { get; set; }
+
+        [Setting, DefaultValue(10)]
+        public int DarkKnightLivingDeadPct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int DarkKnightBlackestNightPct { get; set; }
+
+        #endregion
+
+        #region Dark Arts
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightSouleaterArts { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightPassengerArts { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightAbyssalArts { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightCarveArts { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightQuietusArts { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightBloodspillerArts { get; set; }
 
         #endregion
 
