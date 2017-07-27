@@ -154,6 +154,7 @@ namespace ShinraCo
             {
                 case ClassJobType.Arcanist:
                 case ClassJobType.Archer:
+                case ClassJobType.Conjurer:
                 case ClassJobType.Gladiator:
                 case ClassJobType.Lancer:
                 case ClassJobType.Marauder:
@@ -176,6 +177,8 @@ namespace ShinraCo
                     return new Summoner();
                 case ClassJobType.Warrior:
                     return new Warrior();
+                case ClassJobType.WhiteMage:
+                    return new WhiteMage();
                 default:
                     Logging.Write(Colors.Red, $@"[Shinra] {classJob} is not supported.");
                     return new Default();

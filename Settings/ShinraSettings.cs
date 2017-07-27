@@ -868,6 +868,106 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region White Mage
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageClericStance { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageProtect { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageEsuna { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageLucidDreaming { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageSwiftcast { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int WhiteMageLucidDreamingPct { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMagePresenceOfMind { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageThinAir { get; set; }
+
+        #endregion
+
+        #region Heal
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMagePartyHeal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageCure { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageCureII { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageTetragrammaton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageBenediction { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageRegen { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageMedica { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageMedicaII { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageAssize { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMagePlenary { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageRaise { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int WhiteMageCurePct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int WhiteMageCureIIPct { get; set; }
+
+        [Setting, DefaultValue(30)]
+        public int WhiteMageTetragrammatonPct { get; set; }
+
+        [Setting, DefaultValue(10)]
+        public int WhiteMageBenedictionPct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int WhiteMageRegenPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int WhiteMageMedicaPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int WhiteMageMedicaIIPct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int WhiteMageAssizePct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int WhiteMagePlenaryPct { get; set; }
+
+        #endregion
+
+        #endregion
+
         #endregion
     }
 }

@@ -519,6 +519,55 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region White Mage
+
+            #region Role
+
+            WhiteMageClericStance.Checked = Shinra.Settings.WhiteMageClericStance;
+            WhiteMageProtect.Checked = Shinra.Settings.WhiteMageProtect;
+            WhiteMageEsuna.Checked = Shinra.Settings.WhiteMageEsuna;
+            WhiteMageLucidDreaming.Checked = Shinra.Settings.WhiteMageLucidDreaming;
+            WhiteMageSwiftcast.Checked = Shinra.Settings.WhiteMageSwiftcast;
+
+            WhiteMageLucidDreamingPct.Value = Shinra.Settings.WhiteMageLucidDreamingPct;
+
+            #endregion
+
+            #region Buff
+
+            WhiteMagePresenceOfMind.Checked = Shinra.Settings.WhiteMagePresenceOfMind;
+            WhiteMageThinAir.Checked = Shinra.Settings.WhiteMageThinAir;
+
+            #endregion
+
+            #region Heal
+
+            WhiteMagePartyHeal.Checked = Shinra.Settings.WhiteMagePartyHeal;
+            WhiteMageCure.Checked = Shinra.Settings.WhiteMageCure;
+            WhiteMageCureII.Checked = Shinra.Settings.WhiteMageCureII;
+            WhiteMageTetragrammaton.Checked = Shinra.Settings.WhiteMageTetragrammaton;
+            WhiteMageBenediction.Checked = Shinra.Settings.WhiteMageBenediction;
+            WhiteMageRegen.Checked = Shinra.Settings.WhiteMageRegen;
+            WhiteMageMedica.Checked = Shinra.Settings.WhiteMageMedica;
+            WhiteMageMedicaII.Checked = Shinra.Settings.WhiteMageMedicaII;
+            WhiteMageAssize.Checked = Shinra.Settings.WhiteMageAssize;
+            WhiteMagePlenary.Checked = Shinra.Settings.WhiteMagePlenary;
+            WhiteMageRaise.Checked = Shinra.Settings.WhiteMageRaise;
+
+            WhiteMageCurePct.Value = Shinra.Settings.WhiteMageCurePct;
+            WhiteMageCureIIPct.Value = Shinra.Settings.WhiteMageCureIIPct;
+            WhiteMageTetragrammatonPct.Value = Shinra.Settings.WhiteMageTetragrammatonPct;
+            WhiteMageBenedictionPct.Value = Shinra.Settings.WhiteMageBenedictionPct;
+            WhiteMageRegenPct.Value = Shinra.Settings.WhiteMageRegenPct;
+            WhiteMageMedicaPct.Value = Shinra.Settings.WhiteMageMedicaPct;
+            WhiteMageMedicaIIPct.Value = Shinra.Settings.WhiteMageMedicaIIPct;
+            WhiteMageAssizePct.Value = Shinra.Settings.WhiteMageAssizePct;
+            WhiteMagePlenaryPct.Value = Shinra.Settings.WhiteMagePlenaryPct;
+
+            #endregion
+
+            #endregion
+
             #endregion
         }
 
@@ -1707,6 +1756,162 @@ namespace ShinraCo.Settings.Forms
             if (WarriorStance.Text == @"None") Shinra.Settings.WarriorStance = WarriorStances.None;
             if (WarriorStance.Text == @"Defiance") Shinra.Settings.WarriorStance = WarriorStances.Defiance;
             if (WarriorStance.Text == @"Deliverance") Shinra.Settings.WarriorStance = WarriorStances.Deliverance;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region White Mage
+
+        #region Role
+
+        private void WhiteMageClericStance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageClericStance = WhiteMageClericStance.Checked;
+        }
+
+        private void WhiteMageProtect_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageProtect = WhiteMageProtect.Checked;
+        }
+
+        private void WhiteMageEsuna_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageEsuna = WhiteMageEsuna.Checked;
+        }
+
+        private void WhiteMageLucidDreaming_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLucidDreaming = WhiteMageLucidDreaming.Checked;
+        }
+
+        private void WhiteMageSwiftcast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageSwiftcast = WhiteMageSwiftcast.Checked;
+        }
+
+        private void WhiteMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLucidDreamingPct = Convert.ToInt32(WhiteMageLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void WhiteMagePresenceOfMind_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePresenceOfMind = WhiteMagePresenceOfMind.Checked;
+        }
+
+        private void WhiteMageThinAir_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageThinAir = WhiteMageThinAir.Checked;
+        }
+
+        #endregion
+
+        #region Heal
+
+        private void WhiteMagePartyHeal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePartyHeal = WhiteMagePartyHeal.Checked;
+        }
+
+        private void WhiteMageCure_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageCure = WhiteMageCure.Checked;
+        }
+
+        private void WhiteMageCureII_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageCureII = WhiteMageCureII.Checked;
+        }
+
+        private void WhiteMageTetragrammaton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageTetragrammaton = WhiteMageTetragrammaton.Checked;
+        }
+
+        private void WhiteMageBenediction_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageBenediction = WhiteMageBenediction.Checked;
+        }
+
+        private void WhiteMageRegen_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageRegen = WhiteMageRegen.Checked;
+        }
+
+        private void WhiteMageMedica_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageMedica = WhiteMageMedica.Checked;
+        }
+
+        private void WhiteMageMedicaII_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageMedicaII = WhiteMageMedicaII.Checked;
+        }
+
+        private void WhiteMageAssize_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageAssize = WhiteMageAssize.Checked;
+        }
+
+        private void WhiteMagePlenary_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePlenary = WhiteMagePlenary.Checked;
+        }
+
+        private void WhiteMageRaise_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageRaise = WhiteMageRaise.Checked;
+        }
+
+        private void WhiteMageCurePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageCurePct = Convert.ToInt32(WhiteMageCurePct.Value);
+        }
+
+        private void WhiteMageCureIIPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageCureIIPct = Convert.ToInt32(WhiteMageCureIIPct.Value);
+        }
+
+        private void WhiteMageTetragrammatonPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageTetragrammatonPct = Convert.ToInt32(WhiteMageTetragrammatonPct.Value);
+        }
+
+        private void WhiteMageBenedictionPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageBenedictionPct = Convert.ToInt32(WhiteMageBenedictionPct.Value);
+        }
+
+        private void WhiteMageRegenPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageRegenPct = Convert.ToInt32(WhiteMageRegenPct.Value);
+        }
+
+        private void WhiteMageMedicaPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageMedicaPct = Convert.ToInt32(WhiteMageMedicaPct.Value);
+        }
+
+        private void WhiteMageMedicaIIPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageMedicaIIPct = Convert.ToInt32(WhiteMageMedicaIIPct.Value);
+        }
+
+        private void WhiteMageAssizePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageAssizePct = Convert.ToInt32(WhiteMageAssizePct.Value);
+        }
+
+        private void WhiteMagePlenaryPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePlenaryPct = Convert.ToInt32(WhiteMagePlenaryPct.Value);
         }
 
         #endregion

@@ -158,6 +158,61 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region Conjurer
+
+        private async Task<bool> Stone()
+        {
+            if (!ActionManager.HasSpell(MySpells.Conjurer.StoneII.Name))
+            {
+                return await MySpells.Conjurer.Stone.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> StoneII()
+        {
+            return await MySpells.Conjurer.StoneII.Cast();
+        }
+
+        private async Task<bool> Aero()
+        {
+            if (!ActionManager.HasSpell(MySpells.Conjurer.AeroII.Name) &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.Conjurer.Aero.Name, true, 3000))
+            {
+                return await MySpells.Conjurer.Aero.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> AeroII()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.Conjurer.AeroII.Name, true, 3000))
+            {
+                return await MySpells.Conjurer.AeroII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Cure()
+        {
+            if (Core.Player.CurrentHealthPercent < 50)
+            {
+                return await MySpells.Conjurer.Cure.Cast(Core.Player);
+            }
+            return false;
+        }
+
+        private async Task<bool> CureII()
+        {
+            if (Core.Player.CurrentHealthPercent < 40)
+            {
+                return await MySpells.Conjurer.CureII.Cast(Core.Player);
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Gladiator
 
         private async Task<bool> FastBlade()

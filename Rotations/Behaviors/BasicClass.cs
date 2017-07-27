@@ -17,6 +17,11 @@ namespace ShinraCo.Rotations
             if (await VenomousBite()) return true;
             if (await StraightShot()) return true;
             if (await HeavyShot()) return true;
+            // Conjurer
+            if (await AeroII()) return true;
+            if (await Aero()) return true;
+            if (await StoneII()) return true;
+            if (await Stone()) return true;
             // Gladiator
             if (await Flash()) return true;
             if (await RageOfHalone()) return true;
@@ -72,6 +77,9 @@ namespace ShinraCo.Rotations
             if (await Shinra.UsePotion()) return true;
             // Arcanist
             if (await Physick()) return true;
+            // Conjurer
+            if (await CureII()) return true;
+            if (await Cure()) return true;
             // Role
             return await SecondWind();
         }

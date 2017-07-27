@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Bard;
@@ -126,7 +127,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickNock()
         {
-            if (Core.Player.CurrentTPPercent > 40 && Helpers.EnemiesNearTarget(5) > 2)
+            if (Shinra.Settings.RotationMode != Modes.Single && Core.Player.CurrentTPPercent > 40 && Helpers.EnemiesNearTarget(5) > 2)
             {
                 return await MySpells.QuickNock.Cast();
             }
@@ -135,7 +136,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RainOfDeath()
         {
-            if (Helpers.EnemiesNearTarget(5) > 1)
+            if (Shinra.Settings.RotationMode != Modes.Single && Helpers.EnemiesNearTarget(5) > 1)
             {
                 return await MySpells.RainOfDeath.Cast();
             }

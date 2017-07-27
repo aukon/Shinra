@@ -1,0 +1,96 @@
+﻿using System.Threading.Tasks;
+using ShinraCo.Settings;
+
+namespace ShinraCo.Rotations
+{
+    public sealed partial class WhiteMage : Rotation
+    {
+        #region Combat
+
+        public override async Task<bool> Combat()
+        {
+            if (Shinra.Settings.RotationMode == Modes.Smart)
+            {
+                if (await AeroIII()) return true;
+                if (await Holy()) return true;
+                if (await AeroII()) return true;
+                if (await Aero()) return true;
+                if (await StoneIV()) return true;
+                if (await StoneIII()) return true;
+                if (await StoneII()) return true;
+                return await Stone();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Single)
+            {
+                if (await AeroIII()) return true;
+                if (await AeroII()) return true;
+                if (await Aero()) return true;
+                if (await StoneIV()) return true;
+                if (await StoneIII()) return true;
+                if (await StoneII()) return true;
+                return await Stone();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Multi)
+            {
+                if (await AeroIII()) return true;
+                return await Holy();
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region CombatBuff
+
+        public override async Task<bool> CombatBuff()
+        {
+            if (await Shinra.SummonChocobo()) return true;
+            if (await Shinra.ChocoboStance()) return true;
+            if (await LucidDreaming()) return true;
+            if (await PresenceOfMind()) return true;
+            if (await Protect()) return true;
+            return await ClericStance();
+        }
+
+        #endregion
+
+        #region Heal
+
+        public override async Task<bool> Heal()
+        {
+            if (await Shinra.UsePotion()) return true;
+            if (await Benediction()) return true;
+            if (await Tetragrammaton()) return true;
+            if (await PlenaryIndulgence()) return true;
+            if (await Assize()) return true;
+            if (await MedicaII()) return true;
+            if (await Medica()) return true;
+            if (await CureII()) return true;
+            if (await Cure()) return true;
+            if (await Regen()) return true;
+            if (await Raise()) return true;
+            return await Esuna();
+        }
+
+        #endregion
+
+        #region PreCombatBuff
+
+        public override async Task<bool> PreCombatBuff()
+        {
+            if (await Shinra.SummonChocobo()) return true;
+            return await Protect();
+        }
+
+        #endregion
+
+        #region Pull
+
+        public override async Task<bool> Pull()
+        {
+            return await Combat();
+        }
+
+        #endregion
+    }
+}

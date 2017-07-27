@@ -146,7 +146,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (NumEyes < 3 || NumEyes == 4 || JumpCooldown > 10 && SpineCooldown > 10)
+                if (NumEyes == 4 || JumpCooldown > 25 && SpineCooldown > 25 || Core.Player.ClassLevel < 70)
                 {
                     return await MySpells.Geirskogul.Cast();
                 }
