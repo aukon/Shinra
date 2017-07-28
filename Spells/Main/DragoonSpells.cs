@@ -238,5 +238,15 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
+
+        public Spell Nastrond { get; } = new Spell
+        {
+            Name = "Nastrond",
+            ID = 7400,
+            Level = 70,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
     }
 }

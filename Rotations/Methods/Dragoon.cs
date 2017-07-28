@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using ff14bot;
 using ff14bot.Managers;
@@ -146,10 +147,19 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (NumEyes == 4 || JumpCooldown > 25 && SpineCooldown > 25 || Core.Player.ClassLevel < 70)
+                if (NumEyes == 4 || !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 || Core.Player.ClassLevel < 70)
                 {
                     return await MySpells.Geirskogul.Cast();
                 }
+            }
+            return false;
+        }
+
+        private async Task<bool> Nastrond()
+        {
+            if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
+            {
+                return await MySpells.Nastrond.Cast();
             }
             return false;
         }
@@ -196,7 +206,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BloodOfTheDragon()
         {
-            if (Shinra.Settings.DragoonBloodOfTheDragon && BloodTimer == 0 &&
+            if (Shinra.Settings.DragoonBloodOfTheDragon && !BloodActive &&
                 (ActionManager.LastSpell.Name == MySpells.VorpalThrust.Name || ActionManager.LastSpell.Name == MySpells.Disembowel.Name))
             {
                 return await MySpells.BloodOfTheDragon.Cast();
@@ -249,12 +259,12 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static bool RecentJump { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Dive") || rs.Contains("Jump")); } }
-        private static double BloodTimer => Resource.Timer.TotalMilliseconds;
+        private static bool BloodActive => Resource.Timer != TimeSpan.Zero;
         private static double JumpCooldown => DataManager.GetSpellData(92).Cooldown.TotalSeconds;
         private static double SpineCooldown => DataManager.GetSpellData(95).Cooldown.TotalSeconds;
         private static int NumEyes => Resource.DragonGaze;
 
-        private bool UseJump => BloodTimer > 500 || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
+        private bool UseJump => BloodActive || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
         #endregion
     }

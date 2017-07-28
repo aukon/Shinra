@@ -57,6 +57,7 @@ namespace ShinraCo.Rotations
             if (await TrueNorth()) return true;
             if (await BattleLitany()) return true;
             if (await LifeSurge()) return true;
+            if (await Nastrond()) return true;
             if (await MirageDive()) return true;
             if (await Geirskogul()) return true;
             if (await DragonfireDive()) return true;
