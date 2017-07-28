@@ -380,7 +380,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.AstrologianProtect)
             {
                 var target = Shinra.Settings.AstrologianPartyHeal
-                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name))
+                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm != ChocoboManager.Object)
                     : !Core.Player.HasAura(MySpells.Role.Protect.Name) ? Core.Player : null;
 
                 if (target != null)

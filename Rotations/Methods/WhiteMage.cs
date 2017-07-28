@@ -300,7 +300,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.WhiteMageProtect)
             {
                 var target = Shinra.Settings.WhiteMagePartyHeal
-                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name))
+                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm != ChocoboManager.Object)
                     : !Core.Player.HasAura(MySpells.Role.Protect.Name) ? Core.Player : null;
 
                 if (target != null)
