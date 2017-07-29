@@ -39,7 +39,12 @@ namespace ShinraCo.Rotations
             if (await Maim()) return true;
             if (await ButchersBlock()) return true;
             if (await SkullSunder()) return true;
-            return await HeavySwing();
+            if (await HeavySwing()) return true;
+            // Pugilist
+            if (await SnapPunch()) return true;
+            if (await TwinSnakes()) return true;
+            if (await TrueStrike()) return true;
+            return await Bootshine();
         }
 
         #endregion
@@ -65,7 +70,9 @@ namespace ShinraCo.Rotations
             if (await BloodForBlood()) return true;
             if (await LifeSurge()) return true;
             // Marauder
-            return await Berserk();
+            if (await Berserk()) return true;
+            // Pugilist
+            return await InternalRelease();
         }
 
         #endregion

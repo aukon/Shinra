@@ -278,6 +278,51 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Monk
+
+            #region Role
+
+            MonkSecondWind.Checked = Shinra.Settings.MonkSecondWind;
+            MonkInvigorate.Checked = Shinra.Settings.MonkInvigorate;
+            MonkBloodbath.Checked = Shinra.Settings.MonkBloodbath;
+            MonkTrueNorth.Checked = Shinra.Settings.MonkTrueNorth;
+
+            MonkSecondWindPct.Value = Shinra.Settings.MonkSecondWindPct;
+            MonkInvigoratePct.Value = Shinra.Settings.MonkInvigoratePct;
+            MonkBloodbathPct.Value = Shinra.Settings.MonkBloodbathPct;
+
+            #endregion
+
+            #region DoT
+
+            MonkDemolish.Checked = Shinra.Settings.MonkDemolish;
+            MonkDemolishHP.Value = Shinra.Settings.MonkDemolishHP;
+
+            #endregion
+
+            #region Cooldown
+
+            MonkShoulderTackle.Checked = Shinra.Settings.MonkShoulderTackle;
+            MonkSteelPeak.Checked = Shinra.Settings.MonkSteelPeak;
+            MonkHowlingFist.Checked = Shinra.Settings.MonkHowlingFist;
+
+            #endregion
+
+            #region Buff
+
+            MonkInternalRelease.Checked = Shinra.Settings.MonkInternalRelease;
+            MonkPerfectBalance.Checked = Shinra.Settings.MonkPerfectBalance;
+
+            #endregion
+
+            #region Fists
+
+            MonkFist.Text = Convert.ToString(Shinra.Settings.MonkFist);
+
+            #endregion
+
+            #endregion
+
             #region Paladin
 
             #region Role
@@ -1184,6 +1229,108 @@ namespace ShinraCo.Settings.Forms
         private void DragoonBloodOfTheDragon_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonBloodOfTheDragon = DragoonBloodOfTheDragon.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Monk
+
+        #region Role
+
+        private void MonkSecondWind_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkSecondWind = MonkSecondWind.Checked;
+        }
+
+        private void MonkInvigorate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkInvigorate = MonkInvigorate.Checked;
+        }
+
+        private void MonkBloodbath_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkBloodbath = MonkBloodbath.Checked;
+        }
+
+        private void MonkTrueNorth_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkTrueNorth = MonkTrueNorth.Checked;
+        }
+
+        private void MonkSecondWindPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkSecondWindPct = Convert.ToInt32(MonkSecondWindPct.Value);
+        }
+
+        private void MonkInvigoratePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkInvigoratePct = Convert.ToInt32(MonkInvigoratePct.Value);
+        }
+
+        private void MonkBloodbathPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkBloodbathPct = Convert.ToInt32(MonkBloodbathPct.Value);
+        }
+
+        #endregion
+
+        #region DoT
+
+        private void MonkDemolish_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkDemolish = MonkDemolish.Checked;
+        }
+
+        private void MonkDemolishHP_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkDemolishHP = Convert.ToInt32(MonkDemolishHP.Value);
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void MonkShoulderTackle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkShoulderTackle = MonkShoulderTackle.Checked;
+        }
+
+        private void MonkSteelPeak_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkSteelPeak = MonkSteelPeak.Checked;
+        }
+
+        private void MonkHowlingFist_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkHowlingFist = MonkHowlingFist.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void MonkInternalRelease_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkInternalRelease = MonkInternalRelease.Checked;
+        }
+
+        private void MonkPerfectBalance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkPerfectBalance = MonkPerfectBalance.Checked;
+        }
+
+        #endregion
+
+        #region Fists
+
+        private void MonkFist_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (MonkFist.Text == @"None") Shinra.Settings.MonkFist = MonkFists.None;
+            if (MonkFist.Text == @"Earth") Shinra.Settings.MonkFist = MonkFists.Earth;
+            if (MonkFist.Text == @"Wind") Shinra.Settings.MonkFist = MonkFists.Wind;
+            if (MonkFist.Text == @"Fire") Shinra.Settings.MonkFist = MonkFists.Fire;
         }
 
         #endregion

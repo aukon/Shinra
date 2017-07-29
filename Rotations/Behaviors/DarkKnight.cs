@@ -65,7 +65,8 @@ namespace ShinraCo.Rotations
             if (await BloodWeapon()) return true;
             if (await CarveAndSpit()) return true;
             if (await SaltedEarth()) return true;
-            return await DarkPassenger();
+            if (await DarkPassenger()) return true;
+            return await DarkArts();
         }
 
         #endregion

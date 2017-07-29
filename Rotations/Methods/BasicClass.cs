@@ -380,6 +380,47 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region Pugilist
+
+        private async Task<bool> Bootshine()
+        {
+            return await MySpells.Pugilist.Bootshine.Cast();
+        }
+
+        private async Task<bool> TrueStrike()
+        {
+            if (Core.Player.HasAura(108))
+            {
+                return await MySpells.Pugilist.TrueStrike.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> SnapPunch()
+        {
+            if (Core.Player.HasAura(109))
+            {
+                return await MySpells.Pugilist.SnapPunch.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> InternalRelease()
+        {
+            return await MySpells.Pugilist.InternalRelease.Cast();
+        }
+
+        private async Task<bool> TwinSnakes()
+        {
+            if (Core.Player.HasAura(108) && !Core.Player.HasAura(MySpells.Pugilist.TwinSnakes.Name, true, 3000))
+            {
+                return await MySpells.Pugilist.TwinSnakes.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Role
 
         private async Task<bool> SecondWind()

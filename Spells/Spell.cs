@@ -370,6 +370,13 @@ namespace ShinraCo.Spells
                             return false;
                         }
                         break;
+                    case ClassJobType.Pugilist:
+                    case ClassJobType.Monk:
+                        if (DataManager.GetSpellData(53).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
                     case ClassJobType.RedMage:
                         if (DataManager.GetSpellData(7504).Cooldown.TotalMilliseconds < 1000)
                         {

@@ -54,14 +54,6 @@ namespace ShinraCo.Rotations
         {
             if (ActionManager.LastSpell.Name == MySpells.SyphonStrike.Name)
             {
-                if (Shinra.Settings.DarkKnightSouleaterArts && Core.Player.CurrentManaPercent > 40 &&
-                    ActionManager.CanCast(MySpells.Souleater.Name, Core.Player.CurrentTarget))
-                {
-                    if (await MySpells.DarkArts.Cast(null, false))
-                    {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
-                    }
-                }
                 return await MySpells.Souleater.Cast();
             }
             return false;
@@ -100,12 +92,12 @@ namespace ShinraCo.Rotations
         private async Task<bool> DarkPassenger()
         {
             if (Shinra.Settings.DarkKnightPassenger && Shinra.Settings.RotationMode != Modes.Single &&
-                Core.Player.CurrentManaPercent > 40 && Helpers.EnemiesNearTarget(5) > 2)
+                Core.Player.CurrentManaPercent > 60 && Helpers.EnemiesNearTarget(5) > 2)
             {
                 if (Shinra.Settings.DarkKnightPassengerArts &&
                     ActionManager.CanCast(MySpells.DarkPassenger.Name, Core.Player.CurrentTarget))
                 {
-                    if (await MySpells.DarkArts.Cast(null, false))
+                    if (await MySpells.DarkArts.Cast())
                     {
                         await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
                     }
@@ -117,7 +109,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AbyssalDrain()
         {
-            if (Shinra.Settings.DarkKnightAbyssalDrain && Core.Player.CurrentManaPercent > 40)
+            if (Shinra.Settings.DarkKnightAbyssalDrain && Core.Player.CurrentManaPercent > 60)
             {
                 if (Shinra.Settings.DarkKnightAbyssalArts && Core.Player.CurrentHealthPercent < 70 &&
                     ActionManager.CanCast(MySpells.AbyssalDrain.Name, Core.Player.CurrentTarget))
@@ -178,7 +170,7 @@ namespace ShinraCo.Rotations
                 if (Shinra.Settings.DarkKnightCarveArts && Core.Player.CurrentManaPercent > 40 &&
                     ActionManager.CanCast(MySpells.CarveAndSpit.Name, Core.Player.CurrentTarget))
                 {
-                    if (await MySpells.DarkArts.Cast(null, false))
+                    if (await MySpells.DarkArts.Cast())
                     {
                         await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
                     }
@@ -206,6 +198,18 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.DarkKnightBloodPrice && Core.Player.CurrentManaPercent < Shinra.Settings.DarkKnightBloodPricePct)
             {
                 return await MySpells.BloodPrice.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> DarkArts()
+        {
+            if (Shinra.Settings.DarkKnightSouleaterArts && ActionManager.LastSpell.Name == MySpells.SyphonStrike.Name)
+            {
+                if (Core.Player.CurrentManaPercent > 60 && !Core.Player.HasAura(MySpells.DarkArts.Name))
+                {
+                    return await MySpells.DarkArts.Cast();
+                }
             }
             return false;
         }

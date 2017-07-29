@@ -8,5 +8,6 @@
         public GladiatorSpells Gladiator { get; set; } = new GladiatorSpells();
         public LancerSpells Lancer { get; } = new LancerSpells();
         public MarauderSpells Marauder { get; } = new MarauderSpells();
+        public PugilistSpells Pugilist { get; } = new PugilistSpells();
     }
 }

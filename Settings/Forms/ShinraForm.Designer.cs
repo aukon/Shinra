@@ -203,7 +203,32 @@
             this.DragoonArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.DragoonSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMonk = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
+            this.MonkCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkHowlingFist = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkSteelPeak = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkShoulderTackle = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkDemolishHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MonkDemolish = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkFistsGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkFist = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.MonkBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkPerfectBalance = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkInternalRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MonkInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MonkSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MonkTrueNorth = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkCrutch = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkFeint = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkGoad = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkBloodbath = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkInvigorate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkLegSweep = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MonkSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeNinja = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.pgeSamurai = new System.Windows.Forms.TabPage();
@@ -429,6 +454,11 @@
             this.DragoonCooldownGroup.SuspendLayout();
             this.DragoonRoleGroup.SuspendLayout();
             this.pgeMonk.SuspendLayout();
+            this.MonkCooldownGroup.SuspendLayout();
+            this.MonkDoTGroup.SuspendLayout();
+            this.MonkFistsGroup.SuspendLayout();
+            this.MonkBuffGroup.SuspendLayout();
+            this.MonkRoleGroup.SuspendLayout();
             this.pgeNinja.SuspendLayout();
             this.pgeSamurai.SuspendLayout();
             this.SamuraiBuffGroup.SuspendLayout();
@@ -2903,7 +2933,11 @@
             // pgeMonk
             // 
             this.pgeMonk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeMonk.Controls.Add(this.label6);
+            this.pgeMonk.Controls.Add(this.MonkCooldownGroup);
+            this.pgeMonk.Controls.Add(this.MonkDoTGroup);
+            this.pgeMonk.Controls.Add(this.MonkFistsGroup);
+            this.pgeMonk.Controls.Add(this.MonkBuffGroup);
+            this.pgeMonk.Controls.Add(this.MonkRoleGroup);
             this.pgeMonk.Location = new System.Drawing.Point(104, 4);
             this.pgeMonk.Name = "pgeMonk";
             this.pgeMonk.Padding = new System.Windows.Forms.Padding(3);
@@ -2912,16 +2946,382 @@
             this.pgeMonk.Text = "Monk";
             this.pgeMonk.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
-            // label6
+            // MonkCooldownGroup
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(13, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 65);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "N/A";
+            this.MonkCooldownGroup.Controls.Add(this.MonkHowlingFist);
+            this.MonkCooldownGroup.Controls.Add(this.MonkSteelPeak);
+            this.MonkCooldownGroup.Controls.Add(this.MonkShoulderTackle);
+            this.MonkCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkCooldownGroup.Location = new System.Drawing.Point(218, 56);
+            this.MonkCooldownGroup.Name = "MonkCooldownGroup";
+            this.MonkCooldownGroup.Size = new System.Drawing.Size(117, 89);
+            this.MonkCooldownGroup.TabIndex = 4;
+            this.MonkCooldownGroup.TabStop = false;
+            this.MonkCooldownGroup.Text = "Cooldown";
+            // 
+            // MonkHowlingFist
+            // 
+            this.MonkHowlingFist.AutoSize = true;
+            this.MonkHowlingFist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkHowlingFist.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkHowlingFist.ForeColor = System.Drawing.Color.White;
+            this.MonkHowlingFist.Location = new System.Drawing.Point(6, 62);
+            this.MonkHowlingFist.Name = "MonkHowlingFist";
+            this.MonkHowlingFist.Size = new System.Drawing.Size(88, 17);
+            this.MonkHowlingFist.TabIndex = 2;
+            this.MonkHowlingFist.TabStop = false;
+            this.MonkHowlingFist.Text = "Howling Fist";
+            this.MonkHowlingFist.UseVisualStyleBackColor = true;
+            this.MonkHowlingFist.CheckedChanged += new System.EventHandler(this.MonkHowlingFist_CheckedChanged);
+            // 
+            // MonkSteelPeak
+            // 
+            this.MonkSteelPeak.AutoSize = true;
+            this.MonkSteelPeak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkSteelPeak.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkSteelPeak.ForeColor = System.Drawing.Color.White;
+            this.MonkSteelPeak.Location = new System.Drawing.Point(6, 39);
+            this.MonkSteelPeak.Name = "MonkSteelPeak";
+            this.MonkSteelPeak.Size = new System.Drawing.Size(75, 17);
+            this.MonkSteelPeak.TabIndex = 1;
+            this.MonkSteelPeak.TabStop = false;
+            this.MonkSteelPeak.Text = "Steel Peak";
+            this.MonkSteelPeak.UseVisualStyleBackColor = true;
+            this.MonkSteelPeak.CheckedChanged += new System.EventHandler(this.MonkSteelPeak_CheckedChanged);
+            // 
+            // MonkShoulderTackle
+            // 
+            this.MonkShoulderTackle.AutoSize = true;
+            this.MonkShoulderTackle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkShoulderTackle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkShoulderTackle.ForeColor = System.Drawing.Color.White;
+            this.MonkShoulderTackle.Location = new System.Drawing.Point(6, 16);
+            this.MonkShoulderTackle.Name = "MonkShoulderTackle";
+            this.MonkShoulderTackle.Size = new System.Drawing.Size(103, 17);
+            this.MonkShoulderTackle.TabIndex = 0;
+            this.MonkShoulderTackle.TabStop = false;
+            this.MonkShoulderTackle.Text = "Shoulder Tackle";
+            this.MonkShoulderTackle.UseVisualStyleBackColor = true;
+            this.MonkShoulderTackle.CheckedChanged += new System.EventHandler(this.MonkShoulderTackle_CheckedChanged);
+            // 
+            // MonkDoTGroup
+            // 
+            this.MonkDoTGroup.Controls.Add(this.MonkDemolishHP);
+            this.MonkDoTGroup.Controls.Add(this.MonkDemolish);
+            this.MonkDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkDoTGroup.Location = new System.Drawing.Point(218, 6);
+            this.MonkDoTGroup.Name = "MonkDoTGroup";
+            this.MonkDoTGroup.Size = new System.Drawing.Size(194, 44);
+            this.MonkDoTGroup.TabIndex = 3;
+            this.MonkDoTGroup.TabStop = false;
+            this.MonkDoTGroup.Text = "DoT";
+            // 
+            // MonkDemolishHP
+            // 
+            this.MonkDemolishHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkDemolishHP.Increment = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.MonkDemolishHP.Location = new System.Drawing.Point(83, 16);
+            this.MonkDemolishHP.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.MonkDemolishHP.Name = "MonkDemolishHP";
+            this.MonkDemolishHP.ShowSymbol = false;
+            this.MonkDemolishHP.Size = new System.Drawing.Size(105, 22);
+            this.MonkDemolishHP.TabIndex = 1;
+            this.MonkDemolishHP.ValueChanged += new System.EventHandler(this.MonkDemolishHP_ValueChanged);
+            // 
+            // MonkDemolish
+            // 
+            this.MonkDemolish.AutoSize = true;
+            this.MonkDemolish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkDemolish.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkDemolish.ForeColor = System.Drawing.Color.White;
+            this.MonkDemolish.Location = new System.Drawing.Point(6, 16);
+            this.MonkDemolish.Name = "MonkDemolish";
+            this.MonkDemolish.Size = new System.Drawing.Size(71, 17);
+            this.MonkDemolish.TabIndex = 0;
+            this.MonkDemolish.TabStop = false;
+            this.MonkDemolish.Text = "Demolish";
+            this.MonkDemolish.UseVisualStyleBackColor = true;
+            this.MonkDemolish.CheckedChanged += new System.EventHandler(this.MonkDemolish_CheckedChanged);
+            // 
+            // MonkFistsGroup
+            // 
+            this.MonkFistsGroup.Controls.Add(this.MonkFist);
+            this.MonkFistsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFistsGroup.Location = new System.Drawing.Point(218, 223);
+            this.MonkFistsGroup.Name = "MonkFistsGroup";
+            this.MonkFistsGroup.Size = new System.Drawing.Size(102, 43);
+            this.MonkFistsGroup.TabIndex = 2;
+            this.MonkFistsGroup.TabStop = false;
+            this.MonkFistsGroup.Text = "Fists";
+            // 
+            // MonkFist
+            // 
+            this.MonkFist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkFist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkFist.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFist.ForeColor = System.Drawing.Color.White;
+            this.MonkFist.FormattingEnabled = true;
+            this.MonkFist.Items.AddRange(new object[] {
+            "None",
+            "Earth",
+            "Wind",
+            "Fire"});
+            this.MonkFist.Location = new System.Drawing.Point(6, 16);
+            this.MonkFist.Name = "MonkFist";
+            this.MonkFist.Size = new System.Drawing.Size(90, 21);
+            this.MonkFist.TabIndex = 0;
+            this.MonkFist.TabStop = false;
+            this.MonkFist.SelectedValueChanged += new System.EventHandler(this.MonkFist_SelectedValueChanged);
+            // 
+            // MonkBuffGroup
+            // 
+            this.MonkBuffGroup.Controls.Add(this.MonkPerfectBalance);
+            this.MonkBuffGroup.Controls.Add(this.MonkInternalRelease);
+            this.MonkBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkBuffGroup.Location = new System.Drawing.Point(218, 151);
+            this.MonkBuffGroup.Name = "MonkBuffGroup";
+            this.MonkBuffGroup.Size = new System.Drawing.Size(117, 66);
+            this.MonkBuffGroup.TabIndex = 1;
+            this.MonkBuffGroup.TabStop = false;
+            this.MonkBuffGroup.Text = "Buff";
+            // 
+            // MonkPerfectBalance
+            // 
+            this.MonkPerfectBalance.AutoSize = true;
+            this.MonkPerfectBalance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkPerfectBalance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkPerfectBalance.ForeColor = System.Drawing.Color.White;
+            this.MonkPerfectBalance.Location = new System.Drawing.Point(6, 39);
+            this.MonkPerfectBalance.Name = "MonkPerfectBalance";
+            this.MonkPerfectBalance.Size = new System.Drawing.Size(101, 17);
+            this.MonkPerfectBalance.TabIndex = 3;
+            this.MonkPerfectBalance.TabStop = false;
+            this.MonkPerfectBalance.Text = "Perfect Balance";
+            this.MonkPerfectBalance.UseVisualStyleBackColor = true;
+            this.MonkPerfectBalance.CheckedChanged += new System.EventHandler(this.MonkPerfectBalance_CheckedChanged);
+            // 
+            // MonkInternalRelease
+            // 
+            this.MonkInternalRelease.AutoSize = true;
+            this.MonkInternalRelease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkInternalRelease.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkInternalRelease.ForeColor = System.Drawing.Color.White;
+            this.MonkInternalRelease.Location = new System.Drawing.Point(6, 16);
+            this.MonkInternalRelease.Name = "MonkInternalRelease";
+            this.MonkInternalRelease.Size = new System.Drawing.Size(105, 17);
+            this.MonkInternalRelease.TabIndex = 0;
+            this.MonkInternalRelease.TabStop = false;
+            this.MonkInternalRelease.Text = "Internal Release";
+            this.MonkInternalRelease.UseVisualStyleBackColor = true;
+            this.MonkInternalRelease.CheckedChanged += new System.EventHandler(this.MonkInternalRelease_CheckedChanged);
+            // 
+            // MonkRoleGroup
+            // 
+            this.MonkRoleGroup.Controls.Add(this.MonkBloodbathPct);
+            this.MonkRoleGroup.Controls.Add(this.MonkInvigoratePct);
+            this.MonkRoleGroup.Controls.Add(this.MonkSecondWindPct);
+            this.MonkRoleGroup.Controls.Add(this.MonkTrueNorth);
+            this.MonkRoleGroup.Controls.Add(this.MonkCrutch);
+            this.MonkRoleGroup.Controls.Add(this.MonkFeint);
+            this.MonkRoleGroup.Controls.Add(this.MonkGoad);
+            this.MonkRoleGroup.Controls.Add(this.MonkBloodbath);
+            this.MonkRoleGroup.Controls.Add(this.MonkInvigorate);
+            this.MonkRoleGroup.Controls.Add(this.MonkDiversion);
+            this.MonkRoleGroup.Controls.Add(this.MonkLegSweep);
+            this.MonkRoleGroup.Controls.Add(this.MonkArmsLength);
+            this.MonkRoleGroup.Controls.Add(this.MonkSecondWind);
+            this.MonkRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.MonkRoleGroup.Name = "MonkRoleGroup";
+            this.MonkRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.MonkRoleGroup.TabIndex = 0;
+            this.MonkRoleGroup.TabStop = false;
+            this.MonkRoleGroup.Text = "Role";
+            // 
+            // MonkBloodbathPct
+            // 
+            this.MonkBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkBloodbathPct.Location = new System.Drawing.Point(104, 131);
+            this.MonkBloodbathPct.Name = "MonkBloodbathPct";
+            this.MonkBloodbathPct.Size = new System.Drawing.Size(89, 22);
+            this.MonkBloodbathPct.TabIndex = 35;
+            this.MonkBloodbathPct.ValueChanged += new System.EventHandler(this.MonkBloodbathPct_ValueChanged);
+            // 
+            // MonkInvigoratePct
+            // 
+            this.MonkInvigoratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkInvigoratePct.Location = new System.Drawing.Point(104, 108);
+            this.MonkInvigoratePct.Name = "MonkInvigoratePct";
+            this.MonkInvigoratePct.Size = new System.Drawing.Size(89, 22);
+            this.MonkInvigoratePct.TabIndex = 34;
+            this.MonkInvigoratePct.ValueChanged += new System.EventHandler(this.MonkInvigoratePct_ValueChanged);
+            // 
+            // MonkSecondWindPct
+            // 
+            this.MonkSecondWindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkSecondWindPct.Location = new System.Drawing.Point(104, 16);
+            this.MonkSecondWindPct.Name = "MonkSecondWindPct";
+            this.MonkSecondWindPct.Size = new System.Drawing.Size(89, 22);
+            this.MonkSecondWindPct.TabIndex = 33;
+            this.MonkSecondWindPct.ValueChanged += new System.EventHandler(this.MonkSecondWindPct_ValueChanged);
+            // 
+            // MonkTrueNorth
+            // 
+            this.MonkTrueNorth.AutoSize = true;
+            this.MonkTrueNorth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkTrueNorth.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkTrueNorth.ForeColor = System.Drawing.Color.White;
+            this.MonkTrueNorth.Location = new System.Drawing.Point(6, 223);
+            this.MonkTrueNorth.Name = "MonkTrueNorth";
+            this.MonkTrueNorth.Size = new System.Drawing.Size(77, 17);
+            this.MonkTrueNorth.TabIndex = 32;
+            this.MonkTrueNorth.TabStop = false;
+            this.MonkTrueNorth.Text = "True North";
+            this.MonkTrueNorth.UseVisualStyleBackColor = true;
+            this.MonkTrueNorth.CheckedChanged += new System.EventHandler(this.MonkTrueNorth_CheckedChanged);
+            // 
+            // MonkCrutch
+            // 
+            this.MonkCrutch.AutoCheck = false;
+            this.MonkCrutch.AutoSize = true;
+            this.MonkCrutch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkCrutch.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkCrutch.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkCrutch.Location = new System.Drawing.Point(6, 200);
+            this.MonkCrutch.Name = "MonkCrutch";
+            this.MonkCrutch.Size = new System.Drawing.Size(57, 17);
+            this.MonkCrutch.TabIndex = 31;
+            this.MonkCrutch.TabStop = false;
+            this.MonkCrutch.Text = "Crutch";
+            this.MonkCrutch.UseVisualStyleBackColor = true;
+            // 
+            // MonkFeint
+            // 
+            this.MonkFeint.AutoCheck = false;
+            this.MonkFeint.AutoSize = true;
+            this.MonkFeint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkFeint.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFeint.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkFeint.Location = new System.Drawing.Point(6, 177);
+            this.MonkFeint.Name = "MonkFeint";
+            this.MonkFeint.Size = new System.Drawing.Size(49, 17);
+            this.MonkFeint.TabIndex = 30;
+            this.MonkFeint.TabStop = false;
+            this.MonkFeint.Text = "Feint";
+            this.MonkFeint.UseVisualStyleBackColor = true;
+            // 
+            // MonkGoad
+            // 
+            this.MonkGoad.AutoCheck = false;
+            this.MonkGoad.AutoSize = true;
+            this.MonkGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkGoad.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkGoad.Location = new System.Drawing.Point(6, 154);
+            this.MonkGoad.Name = "MonkGoad";
+            this.MonkGoad.Size = new System.Drawing.Size(51, 17);
+            this.MonkGoad.TabIndex = 29;
+            this.MonkGoad.TabStop = false;
+            this.MonkGoad.Text = "Goad";
+            this.MonkGoad.UseVisualStyleBackColor = true;
+            // 
+            // MonkBloodbath
+            // 
+            this.MonkBloodbath.AutoSize = true;
+            this.MonkBloodbath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkBloodbath.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkBloodbath.ForeColor = System.Drawing.Color.White;
+            this.MonkBloodbath.Location = new System.Drawing.Point(6, 131);
+            this.MonkBloodbath.Name = "MonkBloodbath";
+            this.MonkBloodbath.Size = new System.Drawing.Size(78, 17);
+            this.MonkBloodbath.TabIndex = 28;
+            this.MonkBloodbath.TabStop = false;
+            this.MonkBloodbath.Text = "Bloodbath";
+            this.MonkBloodbath.UseVisualStyleBackColor = true;
+            this.MonkBloodbath.CheckedChanged += new System.EventHandler(this.MonkBloodbath_CheckedChanged);
+            // 
+            // MonkInvigorate
+            // 
+            this.MonkInvigorate.AutoSize = true;
+            this.MonkInvigorate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkInvigorate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkInvigorate.ForeColor = System.Drawing.Color.White;
+            this.MonkInvigorate.Location = new System.Drawing.Point(6, 108);
+            this.MonkInvigorate.Name = "MonkInvigorate";
+            this.MonkInvigorate.Size = new System.Drawing.Size(75, 17);
+            this.MonkInvigorate.TabIndex = 27;
+            this.MonkInvigorate.TabStop = false;
+            this.MonkInvigorate.Text = "Invigorate";
+            this.MonkInvigorate.UseVisualStyleBackColor = true;
+            this.MonkInvigorate.CheckedChanged += new System.EventHandler(this.MonkInvigorate_CheckedChanged);
+            // 
+            // MonkDiversion
+            // 
+            this.MonkDiversion.AutoCheck = false;
+            this.MonkDiversion.AutoSize = true;
+            this.MonkDiversion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkDiversion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkDiversion.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkDiversion.Location = new System.Drawing.Point(6, 85);
+            this.MonkDiversion.Name = "MonkDiversion";
+            this.MonkDiversion.Size = new System.Drawing.Size(71, 17);
+            this.MonkDiversion.TabIndex = 26;
+            this.MonkDiversion.TabStop = false;
+            this.MonkDiversion.Text = "Diversion";
+            this.MonkDiversion.UseVisualStyleBackColor = true;
+            // 
+            // MonkLegSweep
+            // 
+            this.MonkLegSweep.AutoCheck = false;
+            this.MonkLegSweep.AutoSize = true;
+            this.MonkLegSweep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkLegSweep.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkLegSweep.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkLegSweep.Location = new System.Drawing.Point(6, 62);
+            this.MonkLegSweep.Name = "MonkLegSweep";
+            this.MonkLegSweep.Size = new System.Drawing.Size(78, 17);
+            this.MonkLegSweep.TabIndex = 25;
+            this.MonkLegSweep.TabStop = false;
+            this.MonkLegSweep.Text = "Leg Sweep";
+            this.MonkLegSweep.UseVisualStyleBackColor = true;
+            // 
+            // MonkArmsLength
+            // 
+            this.MonkArmsLength.AutoCheck = false;
+            this.MonkArmsLength.AutoSize = true;
+            this.MonkArmsLength.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkArmsLength.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkArmsLength.ForeColor = System.Drawing.Color.DimGray;
+            this.MonkArmsLength.Location = new System.Drawing.Point(6, 39);
+            this.MonkArmsLength.Name = "MonkArmsLength";
+            this.MonkArmsLength.Size = new System.Drawing.Size(90, 17);
+            this.MonkArmsLength.TabIndex = 24;
+            this.MonkArmsLength.TabStop = false;
+            this.MonkArmsLength.Text = "Arm\'s Length";
+            this.MonkArmsLength.UseVisualStyleBackColor = true;
+            // 
+            // MonkSecondWind
+            // 
+            this.MonkSecondWind.AutoSize = true;
+            this.MonkSecondWind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkSecondWind.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkSecondWind.ForeColor = System.Drawing.Color.White;
+            this.MonkSecondWind.Location = new System.Drawing.Point(6, 16);
+            this.MonkSecondWind.Name = "MonkSecondWind";
+            this.MonkSecondWind.Size = new System.Drawing.Size(92, 17);
+            this.MonkSecondWind.TabIndex = 23;
+            this.MonkSecondWind.TabStop = false;
+            this.MonkSecondWind.Text = "Second Wind";
+            this.MonkSecondWind.UseVisualStyleBackColor = true;
+            this.MonkSecondWind.CheckedChanged += new System.EventHandler(this.MonkSecondWind_CheckedChanged);
             // 
             // pgeNinja
             // 
@@ -5615,7 +6015,15 @@
             this.DragoonRoleGroup.ResumeLayout(false);
             this.DragoonRoleGroup.PerformLayout();
             this.pgeMonk.ResumeLayout(false);
-            this.pgeMonk.PerformLayout();
+            this.MonkCooldownGroup.ResumeLayout(false);
+            this.MonkCooldownGroup.PerformLayout();
+            this.MonkDoTGroup.ResumeLayout(false);
+            this.MonkDoTGroup.PerformLayout();
+            this.MonkFistsGroup.ResumeLayout(false);
+            this.MonkBuffGroup.ResumeLayout(false);
+            this.MonkBuffGroup.PerformLayout();
+            this.MonkRoleGroup.ResumeLayout(false);
+            this.MonkRoleGroup.PerformLayout();
             this.pgeNinja.ResumeLayout(false);
             this.pgeNinja.PerformLayout();
             this.pgeSamurai.ResumeLayout(false);
@@ -5770,7 +6178,6 @@
         private Design.CustomCheck RedMageCorpsACorps;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private Design.CustomGroup RotationGroup;
@@ -6051,5 +6458,31 @@
         private Design.CustomGroup WhiteMageBuffGroup;
         private Design.CustomCheck WhiteMageThinAir;
         private Design.CustomCheck WhiteMagePresenceOfMind;
+        private Design.CustomGroup MonkRoleGroup;
+        private Design.UserNumeric MonkBloodbathPct;
+        private Design.UserNumeric MonkInvigoratePct;
+        private Design.UserNumeric MonkSecondWindPct;
+        private Design.CustomCheck MonkTrueNorth;
+        private Design.CustomCheckDisabled MonkCrutch;
+        private Design.CustomCheckDisabled MonkFeint;
+        private Design.CustomCheckDisabled MonkGoad;
+        private Design.CustomCheck MonkBloodbath;
+        private Design.CustomCheck MonkInvigorate;
+        private Design.CustomCheckDisabled MonkDiversion;
+        private Design.CustomCheckDisabled MonkLegSweep;
+        private Design.CustomCheckDisabled MonkArmsLength;
+        private Design.CustomCheck MonkSecondWind;
+        private Design.CustomGroup MonkBuffGroup;
+        private Design.CustomCheck MonkInternalRelease;
+        private Design.CustomGroup MonkFistsGroup;
+        private Design.CustomCombo MonkFist;
+        private Design.CustomGroup MonkDoTGroup;
+        private Design.UserNumeric MonkDemolishHP;
+        private Design.CustomCheck MonkDemolish;
+        private Design.CustomGroup MonkCooldownGroup;
+        private Design.CustomCheck MonkPerfectBalance;
+        private Design.CustomCheck MonkHowlingFist;
+        private Design.CustomCheck MonkSteelPeak;
+        private Design.CustomCheck MonkShoulderTackle;
     }
 }

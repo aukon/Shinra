@@ -38,6 +38,14 @@ namespace ShinraCo.Settings
         Nocturnal
     }
 
+    public enum MonkFists
+    {
+        None,
+        Earth,
+        Wind,
+        Fire
+    }
+
     public enum PaladinOaths
     {
         None,
@@ -476,6 +484,75 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool DragoonBloodOfTheDragon { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region Monk
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool MonkSecondWind { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkInvigorate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkBloodbath { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkTrueNorth { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int MonkSecondWindPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int MonkInvigoratePct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int MonkBloodbathPct { get; set; }
+
+        #endregion
+
+        #region DoT
+
+        [Setting, DefaultValue(true)]
+        public bool MonkDemolish { get; set; }
+
+        [Setting, DefaultValue(500000)]
+        public int MonkDemolishHP { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool MonkShoulderTackle { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkSteelPeak { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkHowlingFist { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool MonkInternalRelease { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkPerfectBalance { get; set; }
+
+        #endregion
+
+        #region Fists
+
+        [Setting, DefaultValue(MonkFists.Fire)]
+        public MonkFists MonkFist { get; set; }
 
         #endregion
 

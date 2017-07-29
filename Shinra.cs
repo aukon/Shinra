@@ -158,6 +158,7 @@ namespace ShinraCo
                 case ClassJobType.Gladiator:
                 case ClassJobType.Lancer:
                 case ClassJobType.Marauder:
+                case ClassJobType.Pugilist:
                     return new BasicClass();
                 case ClassJobType.Astrologian:
                     return new Astrologian();
@@ -167,6 +168,8 @@ namespace ShinraCo
                     return new DarkKnight();
                 case ClassJobType.Dragoon:
                     return new Dragoon();
+                case ClassJobType.Monk:
+                    return new Monk();
                 case ClassJobType.Paladin:
                     return new Paladin();
                 case ClassJobType.RedMage:
