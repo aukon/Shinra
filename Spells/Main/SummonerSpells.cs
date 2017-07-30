@@ -239,7 +239,15 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Target
         };
 
-        // Aetherpact
+        public Spell Aetherpact { get; } = new Spell
+        {
+            Name = "Aetherpact",
+            ID = 7423,
+            Level = 64,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
 
         public Spell BioIII { get; } = new Spell
         {
@@ -261,7 +269,24 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Target
         };
 
-        // Summon Bahamut
-        // Enkindle Bahamut
+        public Spell SummonBahamut { get; } = new Spell
+        {
+            Name = "Summon Bahamut",
+            ID = 7427,
+            Level = 70,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell EnkindleBahamut { get; } = new Spell
+        {
+            Name = "Enkindle Bahamut",
+            ID = 7429,
+            Level = 70,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
     }
 }

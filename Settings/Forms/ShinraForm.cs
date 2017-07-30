@@ -477,6 +477,30 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region AoE
+
+            SummonerBane.Checked = Shinra.Settings.SummonerBane;
+
+            #endregion
+
+            #region Cooldown
+
+            SummonerShadowFlare.Checked = Shinra.Settings.SummonerShadowFlare;
+            SummonerEnkindle.Checked = Shinra.Settings.SummonerEnkindle;
+            SummonerTriDisaster.Checked = Shinra.Settings.SummonerTriDisaster;
+            SummonerEnkindleBahamut.Checked = Shinra.Settings.SummonerEnkindleBahamut;
+
+            #endregion
+
+            #region Buff
+
+            SummonerRouse.Checked = Shinra.Settings.SummonerRouse;
+            SummonerDreadwyrmTrance.Checked = Shinra.Settings.SummonerDreadwyrmTrance;
+            SummonerAetherpact.Checked = Shinra.Settings.SummonerAetherpact;
+            SummonerSummonBahamut.Checked = Shinra.Settings.SummonerSummonBahamut;
+
+            #endregion
+
             #region Heal
 
             SummonerPhysick.Checked = Shinra.Settings.SummonerPhysick;
@@ -1689,6 +1713,63 @@ namespace ShinraCo.Settings.Forms
         private void SummonerLucidDreamingPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerLucidDreamingPct = Convert.ToInt32(SummonerLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region AoE
+
+        private void SummonerBane_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerBane = SummonerBane.Checked;
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void SummonerShadowFlare_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerShadowFlare = SummonerShadowFlare.Checked;
+        }
+
+        private void SummonerEnkindle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerEnkindle = SummonerEnkindle.Checked;
+        }
+
+        private void SummonerTriDisaster_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerTriDisaster = SummonerTriDisaster.Checked;
+        }
+
+        private void SummonerEnkindleBahamut_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerEnkindleBahamut = SummonerEnkindleBahamut.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void SummonerRouse_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerRouse = SummonerRouse.Checked;
+        }
+
+        private void SummonerDreadwyrmTrance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerDreadwyrmTrance = SummonerDreadwyrmTrance.Checked;
+        }
+
+        private void SummonerAetherpact_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerAetherpact = SummonerAetherpact.Checked;
+        }
+
+        private void SummonerSummonBahamut_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerSummonBahamut = SummonerSummonBahamut.Checked;
         }
 
         #endregion

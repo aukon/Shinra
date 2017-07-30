@@ -125,6 +125,10 @@ namespace ShinraCo.Rotations
 
                 if (target != null)
                 {
+                    if (Shinra.Settings.WhiteMageCureII && Core.Player.HasAura(155))
+                    {
+                        return await MySpells.CureII.Cast(target);
+                    }
                     return await MySpells.Cure.Cast(target);
                 }
             }

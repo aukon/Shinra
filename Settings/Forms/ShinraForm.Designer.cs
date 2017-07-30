@@ -80,6 +80,17 @@
             this.RedMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeSummoner = new System.Windows.Forms.TabPage();
+            this.SummonerAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerBane = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerEnkindleBahamut = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerTriDisaster = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerEnkindle = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerShadowFlare = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerSummonBahamut = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerDreadwyrmTrance = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SummonerPhysickPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SummonerPhysick = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -204,6 +215,9 @@
             this.DragoonSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMonk = new System.Windows.Forms.TabPage();
             this.MonkCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkFireTackle = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkElixirField = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkForbiddenChakra = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkHowlingFist = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkSteelPeak = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkShoulderTackle = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -213,6 +227,8 @@
             this.MonkFistsGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MonkFist = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MonkBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkBrotherhood = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkRiddleOfFire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkPerfectBalance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkInternalRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -411,11 +427,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkForbiddenChakra = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkElixirField = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkFireTackle = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkRiddleOfFire = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkBrotherhood = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerAetherpact = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -432,6 +444,9 @@
             this.RedMageHealGroup.SuspendLayout();
             this.RedMageRoleGroup.SuspendLayout();
             this.pgeSummoner.SuspendLayout();
+            this.SummonerAoEGroup.SuspendLayout();
+            this.SummonerCooldownGroup.SuspendLayout();
+            this.SummonerBuffGroup.SuspendLayout();
             this.SummonerHealGroup.SuspendLayout();
             this.SummonerPetGroup.SuspendLayout();
             this.SummonerRoleGroup.SuspendLayout();
@@ -1201,6 +1216,9 @@
             // pgeSummoner
             // 
             this.pgeSummoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSummoner.Controls.Add(this.SummonerAoEGroup);
+            this.pgeSummoner.Controls.Add(this.SummonerCooldownGroup);
+            this.pgeSummoner.Controls.Add(this.SummonerBuffGroup);
             this.pgeSummoner.Controls.Add(this.SummonerHealGroup);
             this.pgeSummoner.Controls.Add(this.SummonerPetGroup);
             this.pgeSummoner.Controls.Add(this.SummonerRoleGroup);
@@ -1212,12 +1230,171 @@
             this.pgeSummoner.Text = "Summoner";
             this.pgeSummoner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // SummonerAoEGroup
+            // 
+            this.SummonerAoEGroup.Controls.Add(this.SummonerBane);
+            this.SummonerAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerAoEGroup.Location = new System.Drawing.Point(229, 6);
+            this.SummonerAoEGroup.Name = "SummonerAoEGroup";
+            this.SummonerAoEGroup.Size = new System.Drawing.Size(129, 44);
+            this.SummonerAoEGroup.TabIndex = 5;
+            this.SummonerAoEGroup.TabStop = false;
+            this.SummonerAoEGroup.Text = "AoE";
+            // 
+            // SummonerBane
+            // 
+            this.SummonerBane.AutoSize = true;
+            this.SummonerBane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerBane.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerBane.ForeColor = System.Drawing.Color.White;
+            this.SummonerBane.Location = new System.Drawing.Point(6, 16);
+            this.SummonerBane.Name = "SummonerBane";
+            this.SummonerBane.Size = new System.Drawing.Size(49, 17);
+            this.SummonerBane.TabIndex = 0;
+            this.SummonerBane.TabStop = false;
+            this.SummonerBane.Text = "Bane";
+            this.SummonerBane.UseVisualStyleBackColor = true;
+            this.SummonerBane.CheckedChanged += new System.EventHandler(this.SummonerBane_CheckedChanged);
+            // 
+            // SummonerCooldownGroup
+            // 
+            this.SummonerCooldownGroup.Controls.Add(this.SummonerEnkindleBahamut);
+            this.SummonerCooldownGroup.Controls.Add(this.SummonerTriDisaster);
+            this.SummonerCooldownGroup.Controls.Add(this.SummonerEnkindle);
+            this.SummonerCooldownGroup.Controls.Add(this.SummonerShadowFlare);
+            this.SummonerCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerCooldownGroup.Location = new System.Drawing.Point(229, 56);
+            this.SummonerCooldownGroup.Name = "SummonerCooldownGroup";
+            this.SummonerCooldownGroup.Size = new System.Drawing.Size(129, 112);
+            this.SummonerCooldownGroup.TabIndex = 4;
+            this.SummonerCooldownGroup.TabStop = false;
+            this.SummonerCooldownGroup.Text = "Cooldown";
+            // 
+            // SummonerEnkindleBahamut
+            // 
+            this.SummonerEnkindleBahamut.AutoSize = true;
+            this.SummonerEnkindleBahamut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerEnkindleBahamut.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerEnkindleBahamut.ForeColor = System.Drawing.Color.White;
+            this.SummonerEnkindleBahamut.Location = new System.Drawing.Point(6, 85);
+            this.SummonerEnkindleBahamut.Name = "SummonerEnkindleBahamut";
+            this.SummonerEnkindleBahamut.Size = new System.Drawing.Size(117, 17);
+            this.SummonerEnkindleBahamut.TabIndex = 4;
+            this.SummonerEnkindleBahamut.TabStop = false;
+            this.SummonerEnkindleBahamut.Text = "Enkindle Bahamut";
+            this.SummonerEnkindleBahamut.UseVisualStyleBackColor = true;
+            this.SummonerEnkindleBahamut.CheckedChanged += new System.EventHandler(this.SummonerEnkindleBahamut_CheckedChanged);
+            // 
+            // SummonerTriDisaster
+            // 
+            this.SummonerTriDisaster.AutoSize = true;
+            this.SummonerTriDisaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerTriDisaster.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerTriDisaster.ForeColor = System.Drawing.Color.White;
+            this.SummonerTriDisaster.Location = new System.Drawing.Point(6, 62);
+            this.SummonerTriDisaster.Name = "SummonerTriDisaster";
+            this.SummonerTriDisaster.Size = new System.Drawing.Size(78, 17);
+            this.SummonerTriDisaster.TabIndex = 3;
+            this.SummonerTriDisaster.TabStop = false;
+            this.SummonerTriDisaster.Text = "Tri-disaster";
+            this.SummonerTriDisaster.UseVisualStyleBackColor = true;
+            this.SummonerTriDisaster.CheckedChanged += new System.EventHandler(this.SummonerTriDisaster_CheckedChanged);
+            // 
+            // SummonerEnkindle
+            // 
+            this.SummonerEnkindle.AutoSize = true;
+            this.SummonerEnkindle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerEnkindle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerEnkindle.ForeColor = System.Drawing.Color.White;
+            this.SummonerEnkindle.Location = new System.Drawing.Point(6, 39);
+            this.SummonerEnkindle.Name = "SummonerEnkindle";
+            this.SummonerEnkindle.Size = new System.Drawing.Size(68, 17);
+            this.SummonerEnkindle.TabIndex = 2;
+            this.SummonerEnkindle.TabStop = false;
+            this.SummonerEnkindle.Text = "Enkindle";
+            this.SummonerEnkindle.UseVisualStyleBackColor = true;
+            this.SummonerEnkindle.CheckedChanged += new System.EventHandler(this.SummonerEnkindle_CheckedChanged);
+            // 
+            // SummonerShadowFlare
+            // 
+            this.SummonerShadowFlare.AutoSize = true;
+            this.SummonerShadowFlare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerShadowFlare.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerShadowFlare.ForeColor = System.Drawing.Color.White;
+            this.SummonerShadowFlare.Location = new System.Drawing.Point(6, 16);
+            this.SummonerShadowFlare.Name = "SummonerShadowFlare";
+            this.SummonerShadowFlare.Size = new System.Drawing.Size(93, 17);
+            this.SummonerShadowFlare.TabIndex = 1;
+            this.SummonerShadowFlare.TabStop = false;
+            this.SummonerShadowFlare.Text = "Shadow Flare";
+            this.SummonerShadowFlare.UseVisualStyleBackColor = true;
+            this.SummonerShadowFlare.CheckedChanged += new System.EventHandler(this.SummonerShadowFlare_CheckedChanged);
+            // 
+            // SummonerBuffGroup
+            // 
+            this.SummonerBuffGroup.Controls.Add(this.SummonerAetherpact);
+            this.SummonerBuffGroup.Controls.Add(this.SummonerSummonBahamut);
+            this.SummonerBuffGroup.Controls.Add(this.SummonerDreadwyrmTrance);
+            this.SummonerBuffGroup.Controls.Add(this.SummonerRouse);
+            this.SummonerBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerBuffGroup.Location = new System.Drawing.Point(229, 174);
+            this.SummonerBuffGroup.Name = "SummonerBuffGroup";
+            this.SummonerBuffGroup.Size = new System.Drawing.Size(129, 112);
+            this.SummonerBuffGroup.TabIndex = 3;
+            this.SummonerBuffGroup.TabStop = false;
+            this.SummonerBuffGroup.Text = "Buff";
+            // 
+            // SummonerSummonBahamut
+            // 
+            this.SummonerSummonBahamut.AutoSize = true;
+            this.SummonerSummonBahamut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerSummonBahamut.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerSummonBahamut.ForeColor = System.Drawing.Color.White;
+            this.SummonerSummonBahamut.Location = new System.Drawing.Point(6, 85);
+            this.SummonerSummonBahamut.Name = "SummonerSummonBahamut";
+            this.SummonerSummonBahamut.Size = new System.Drawing.Size(117, 17);
+            this.SummonerSummonBahamut.TabIndex = 1;
+            this.SummonerSummonBahamut.TabStop = false;
+            this.SummonerSummonBahamut.Text = "Summon Bahamut";
+            this.SummonerSummonBahamut.UseVisualStyleBackColor = true;
+            this.SummonerSummonBahamut.CheckedChanged += new System.EventHandler(this.SummonerSummonBahamut_CheckedChanged);
+            // 
+            // SummonerDreadwyrmTrance
+            // 
+            this.SummonerDreadwyrmTrance.AutoSize = true;
+            this.SummonerDreadwyrmTrance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerDreadwyrmTrance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerDreadwyrmTrance.ForeColor = System.Drawing.Color.White;
+            this.SummonerDreadwyrmTrance.Location = new System.Drawing.Point(6, 39);
+            this.SummonerDreadwyrmTrance.Name = "SummonerDreadwyrmTrance";
+            this.SummonerDreadwyrmTrance.Size = new System.Drawing.Size(116, 17);
+            this.SummonerDreadwyrmTrance.TabIndex = 0;
+            this.SummonerDreadwyrmTrance.TabStop = false;
+            this.SummonerDreadwyrmTrance.Text = "Dreadwyrm Trance";
+            this.SummonerDreadwyrmTrance.UseVisualStyleBackColor = true;
+            this.SummonerDreadwyrmTrance.CheckedChanged += new System.EventHandler(this.SummonerDreadwyrmTrance_CheckedChanged);
+            // 
+            // SummonerRouse
+            // 
+            this.SummonerRouse.AutoSize = true;
+            this.SummonerRouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerRouse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerRouse.ForeColor = System.Drawing.Color.White;
+            this.SummonerRouse.Location = new System.Drawing.Point(6, 16);
+            this.SummonerRouse.Name = "SummonerRouse";
+            this.SummonerRouse.Size = new System.Drawing.Size(55, 17);
+            this.SummonerRouse.TabIndex = 0;
+            this.SummonerRouse.TabStop = false;
+            this.SummonerRouse.Text = "Rouse";
+            this.SummonerRouse.UseVisualStyleBackColor = true;
+            this.SummonerRouse.CheckedChanged += new System.EventHandler(this.SummonerRouse_CheckedChanged);
+            // 
             // SummonerHealGroup
             // 
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysickPct);
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysick);
             this.SummonerHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.SummonerHealGroup.Location = new System.Drawing.Point(364, 6);
             this.SummonerHealGroup.Name = "SummonerHealGroup";
             this.SummonerHealGroup.Size = new System.Drawing.Size(167, 44);
             this.SummonerHealGroup.TabIndex = 2;
@@ -1252,7 +1429,7 @@
             // 
             this.SummonerPetGroup.Controls.Add(this.SummonerPet);
             this.SummonerPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerPetGroup.Location = new System.Drawing.Point(229, 56);
+            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 56);
             this.SummonerPetGroup.Name = "SummonerPetGroup";
             this.SummonerPetGroup.Size = new System.Drawing.Size(112, 43);
             this.SummonerPetGroup.TabIndex = 1;
@@ -2963,6 +3140,51 @@
             this.MonkCooldownGroup.TabStop = false;
             this.MonkCooldownGroup.Text = "Cooldown";
             // 
+            // MonkFireTackle
+            // 
+            this.MonkFireTackle.AutoSize = true;
+            this.MonkFireTackle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkFireTackle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFireTackle.ForeColor = System.Drawing.Color.White;
+            this.MonkFireTackle.Location = new System.Drawing.Point(6, 131);
+            this.MonkFireTackle.Name = "MonkFireTackle";
+            this.MonkFireTackle.Size = new System.Drawing.Size(75, 17);
+            this.MonkFireTackle.TabIndex = 5;
+            this.MonkFireTackle.TabStop = false;
+            this.MonkFireTackle.Text = "Fire Tackle";
+            this.MonkFireTackle.UseVisualStyleBackColor = true;
+            this.MonkFireTackle.CheckedChanged += new System.EventHandler(this.MonkFireTackle_CheckedChanged);
+            // 
+            // MonkElixirField
+            // 
+            this.MonkElixirField.AutoSize = true;
+            this.MonkElixirField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkElixirField.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkElixirField.ForeColor = System.Drawing.Color.White;
+            this.MonkElixirField.Location = new System.Drawing.Point(6, 108);
+            this.MonkElixirField.Name = "MonkElixirField";
+            this.MonkElixirField.Size = new System.Drawing.Size(75, 17);
+            this.MonkElixirField.TabIndex = 4;
+            this.MonkElixirField.TabStop = false;
+            this.MonkElixirField.Text = "Elixir Field";
+            this.MonkElixirField.UseVisualStyleBackColor = true;
+            this.MonkElixirField.CheckedChanged += new System.EventHandler(this.MonkElixirField_CheckedChanged);
+            // 
+            // MonkForbiddenChakra
+            // 
+            this.MonkForbiddenChakra.AutoSize = true;
+            this.MonkForbiddenChakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkForbiddenChakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkForbiddenChakra.ForeColor = System.Drawing.Color.White;
+            this.MonkForbiddenChakra.Location = new System.Drawing.Point(6, 85);
+            this.MonkForbiddenChakra.Name = "MonkForbiddenChakra";
+            this.MonkForbiddenChakra.Size = new System.Drawing.Size(116, 17);
+            this.MonkForbiddenChakra.TabIndex = 3;
+            this.MonkForbiddenChakra.TabStop = false;
+            this.MonkForbiddenChakra.Text = "Forbidden Chakra";
+            this.MonkForbiddenChakra.UseVisualStyleBackColor = true;
+            this.MonkForbiddenChakra.CheckedChanged += new System.EventHandler(this.MonkForbiddenChakra_CheckedChanged);
+            // 
             // MonkHowlingFist
             // 
             this.MonkHowlingFist.AutoSize = true;
@@ -3098,6 +3320,36 @@
             this.MonkBuffGroup.TabIndex = 1;
             this.MonkBuffGroup.TabStop = false;
             this.MonkBuffGroup.Text = "Buff";
+            // 
+            // MonkBrotherhood
+            // 
+            this.MonkBrotherhood.AutoSize = true;
+            this.MonkBrotherhood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkBrotherhood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkBrotherhood.ForeColor = System.Drawing.Color.White;
+            this.MonkBrotherhood.Location = new System.Drawing.Point(6, 85);
+            this.MonkBrotherhood.Name = "MonkBrotherhood";
+            this.MonkBrotherhood.Size = new System.Drawing.Size(90, 17);
+            this.MonkBrotherhood.TabIndex = 5;
+            this.MonkBrotherhood.TabStop = false;
+            this.MonkBrotherhood.Text = "Brotherhood";
+            this.MonkBrotherhood.UseVisualStyleBackColor = true;
+            this.MonkBrotherhood.CheckedChanged += new System.EventHandler(this.MonkBrotherhood_CheckedChanged);
+            // 
+            // MonkRiddleOfFire
+            // 
+            this.MonkRiddleOfFire.AutoSize = true;
+            this.MonkRiddleOfFire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkRiddleOfFire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkRiddleOfFire.ForeColor = System.Drawing.Color.White;
+            this.MonkRiddleOfFire.Location = new System.Drawing.Point(6, 62);
+            this.MonkRiddleOfFire.Name = "MonkRiddleOfFire";
+            this.MonkRiddleOfFire.Size = new System.Drawing.Size(92, 17);
+            this.MonkRiddleOfFire.TabIndex = 4;
+            this.MonkRiddleOfFire.TabStop = false;
+            this.MonkRiddleOfFire.Text = "Riddle of Fire";
+            this.MonkRiddleOfFire.UseVisualStyleBackColor = true;
+            this.MonkRiddleOfFire.CheckedChanged += new System.EventHandler(this.MonkRiddleOfFire_CheckedChanged);
             // 
             // MonkPerfectBalance
             // 
@@ -5884,80 +6136,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MonkForbiddenChakra
+            // SummonerAetherpact
             // 
-            this.MonkForbiddenChakra.AutoSize = true;
-            this.MonkForbiddenChakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkForbiddenChakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkForbiddenChakra.ForeColor = System.Drawing.Color.White;
-            this.MonkForbiddenChakra.Location = new System.Drawing.Point(6, 85);
-            this.MonkForbiddenChakra.Name = "MonkForbiddenChakra";
-            this.MonkForbiddenChakra.Size = new System.Drawing.Size(116, 17);
-            this.MonkForbiddenChakra.TabIndex = 3;
-            this.MonkForbiddenChakra.TabStop = false;
-            this.MonkForbiddenChakra.Text = "Forbidden Chakra";
-            this.MonkForbiddenChakra.UseVisualStyleBackColor = true;
-            this.MonkForbiddenChakra.CheckedChanged += new System.EventHandler(this.MonkForbiddenChakra_CheckedChanged);
-            // 
-            // MonkElixirField
-            // 
-            this.MonkElixirField.AutoSize = true;
-            this.MonkElixirField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkElixirField.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkElixirField.ForeColor = System.Drawing.Color.White;
-            this.MonkElixirField.Location = new System.Drawing.Point(6, 108);
-            this.MonkElixirField.Name = "MonkElixirField";
-            this.MonkElixirField.Size = new System.Drawing.Size(75, 17);
-            this.MonkElixirField.TabIndex = 4;
-            this.MonkElixirField.TabStop = false;
-            this.MonkElixirField.Text = "Elixir Field";
-            this.MonkElixirField.UseVisualStyleBackColor = true;
-            this.MonkElixirField.CheckedChanged += new System.EventHandler(this.MonkElixirField_CheckedChanged);
-            // 
-            // MonkFireTackle
-            // 
-            this.MonkFireTackle.AutoSize = true;
-            this.MonkFireTackle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkFireTackle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkFireTackle.ForeColor = System.Drawing.Color.White;
-            this.MonkFireTackle.Location = new System.Drawing.Point(6, 131);
-            this.MonkFireTackle.Name = "MonkFireTackle";
-            this.MonkFireTackle.Size = new System.Drawing.Size(75, 17);
-            this.MonkFireTackle.TabIndex = 5;
-            this.MonkFireTackle.TabStop = false;
-            this.MonkFireTackle.Text = "Fire Tackle";
-            this.MonkFireTackle.UseVisualStyleBackColor = true;
-            this.MonkFireTackle.CheckedChanged += new System.EventHandler(this.MonkFireTackle_CheckedChanged);
-            // 
-            // MonkRiddleOfFire
-            // 
-            this.MonkRiddleOfFire.AutoSize = true;
-            this.MonkRiddleOfFire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkRiddleOfFire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkRiddleOfFire.ForeColor = System.Drawing.Color.White;
-            this.MonkRiddleOfFire.Location = new System.Drawing.Point(6, 62);
-            this.MonkRiddleOfFire.Name = "MonkRiddleOfFire";
-            this.MonkRiddleOfFire.Size = new System.Drawing.Size(92, 17);
-            this.MonkRiddleOfFire.TabIndex = 4;
-            this.MonkRiddleOfFire.TabStop = false;
-            this.MonkRiddleOfFire.Text = "Riddle of Fire";
-            this.MonkRiddleOfFire.UseVisualStyleBackColor = true;
-            this.MonkRiddleOfFire.CheckedChanged += new System.EventHandler(this.MonkRiddleOfFire_CheckedChanged);
-            // 
-            // MonkBrotherhood
-            // 
-            this.MonkBrotherhood.AutoSize = true;
-            this.MonkBrotherhood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkBrotherhood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkBrotherhood.ForeColor = System.Drawing.Color.White;
-            this.MonkBrotherhood.Location = new System.Drawing.Point(6, 85);
-            this.MonkBrotherhood.Name = "MonkBrotherhood";
-            this.MonkBrotherhood.Size = new System.Drawing.Size(90, 17);
-            this.MonkBrotherhood.TabIndex = 5;
-            this.MonkBrotherhood.TabStop = false;
-            this.MonkBrotherhood.Text = "Brotherhood";
-            this.MonkBrotherhood.UseVisualStyleBackColor = true;
-            this.MonkBrotherhood.CheckedChanged += new System.EventHandler(this.MonkBrotherhood_CheckedChanged);
+            this.SummonerAetherpact.AutoSize = true;
+            this.SummonerAetherpact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerAetherpact.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerAetherpact.ForeColor = System.Drawing.Color.White;
+            this.SummonerAetherpact.Location = new System.Drawing.Point(6, 62);
+            this.SummonerAetherpact.Name = "SummonerAetherpact";
+            this.SummonerAetherpact.Size = new System.Drawing.Size(79, 17);
+            this.SummonerAetherpact.TabIndex = 2;
+            this.SummonerAetherpact.TabStop = false;
+            this.SummonerAetherpact.Text = "Aetherpact";
+            this.SummonerAetherpact.UseVisualStyleBackColor = true;
+            this.SummonerAetherpact.CheckedChanged += new System.EventHandler(this.SummonerAetherpact_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -5996,6 +6188,12 @@
             this.RedMageRoleGroup.ResumeLayout(false);
             this.RedMageRoleGroup.PerformLayout();
             this.pgeSummoner.ResumeLayout(false);
+            this.SummonerAoEGroup.ResumeLayout(false);
+            this.SummonerAoEGroup.PerformLayout();
+            this.SummonerCooldownGroup.ResumeLayout(false);
+            this.SummonerCooldownGroup.PerformLayout();
+            this.SummonerBuffGroup.ResumeLayout(false);
+            this.SummonerBuffGroup.PerformLayout();
             this.SummonerHealGroup.ResumeLayout(false);
             this.SummonerHealGroup.PerformLayout();
             this.SummonerPetGroup.ResumeLayout(false);
@@ -6502,5 +6700,17 @@
         private Design.CustomCheck MonkForbiddenChakra;
         private Design.CustomCheck MonkBrotherhood;
         private Design.CustomCheck MonkRiddleOfFire;
+        private Design.CustomGroup SummonerAoEGroup;
+        private Design.CustomCheck SummonerBane;
+        private Design.CustomGroup SummonerCooldownGroup;
+        private Design.CustomGroup SummonerBuffGroup;
+        private Design.CustomCheck SummonerRouse;
+        private Design.CustomCheck SummonerEnkindleBahamut;
+        private Design.CustomCheck SummonerTriDisaster;
+        private Design.CustomCheck SummonerEnkindle;
+        private Design.CustomCheck SummonerShadowFlare;
+        private Design.CustomCheck SummonerSummonBahamut;
+        private Design.CustomCheck SummonerDreadwyrmTrance;
+        private Design.CustomCheck SummonerAetherpact;
     }
 }

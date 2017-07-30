@@ -30,6 +30,8 @@ namespace ShinraCo.Rotations
             if (await SummonIII()) return true;
             if (await SummonII()) return true;
             if (await Summon()) return true;
+            if (await EnkindleBahamut()) return true;
+            if (await SummonBahamut()) return true;
             if (await Deathflare()) return true;
             if (await DreadwyrmTrance()) return true;
             if (await TriDisaster()) return true;
@@ -41,6 +43,7 @@ namespace ShinraCo.Rotations
             if (await Rouse()) return true;
             if (await Enkindle()) return true;
             if (await ShadowFlare()) return true;
+            if (await Aetherpact()) return true;
             return await LucidDreaming();
         }
 

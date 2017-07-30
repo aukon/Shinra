@@ -801,6 +801,45 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerBane { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerShadowFlare { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerEnkindle { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerTriDisaster { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerEnkindleBahamut { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerRouse { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerDreadwyrmTrance { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerAetherpact { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerSummonBahamut { get; set; }
+
+        #endregion
+
         #region Heal
 
         [Setting, DefaultValue(true)]
