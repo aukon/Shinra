@@ -410,6 +410,15 @@ namespace ShinraCo.Rotations
             return await MySpells.Pugilist.InternalRelease.Cast();
         }
 
+        private async Task<bool> FistsOfEarth()
+        {
+            if (!Core.Player.HasAura(MySpells.Pugilist.FistsOfEarth.Name))
+            {
+                return await MySpells.Pugilist.FistsOfEarth.Cast();
+            }
+            return false;
+        }
+
         private async Task<bool> TwinSnakes()
         {
             if (Core.Player.HasAura(108) && !Core.Player.HasAura(MySpells.Pugilist.TwinSnakes.Name, true, 3000))

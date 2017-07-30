@@ -114,6 +114,33 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> ForbiddenChakra()
+        {
+            if (Shinra.Settings.MonkForbiddenChakra && Resource.FithChakra == 5)
+            {
+                return await MySpells.ForbiddenChakra.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> ElixirField()
+        {
+            if (Shinra.Settings.MonkElixirField)
+            {
+                return await MySpells.ElixirField.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FireTackle()
+        {
+            if (Shinra.Settings.MonkFireTackle && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.FireTackle.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Buff
@@ -136,6 +163,24 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> RiddleOfFire()
+        {
+            if (Shinra.Settings.MonkRiddleOfFire)
+            {
+                return await MySpells.RiddleOfFire.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Brotherhood()
+        {
+            if (Shinra.Settings.MonkBrotherhood)
+            {
+                return await MySpells.Brotherhood.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Fists
@@ -146,14 +191,17 @@ namespace ShinraCo.Rotations
                 Shinra.Settings.MonkFist == MonkFists.Wind && !ActionManager.HasSpell(MySpells.FistsOfWind.Name) ||
                 Shinra.Settings.MonkFist == MonkFists.Fire && !ActionManager.HasSpell(MySpells.FistsOfFire.Name))
             {
-                return await MySpells.FistsOfEarth.Cast();
+                if (!Core.Player.HasAura(MySpells.FistsOfEarth.Name))
+                {
+                    return await MySpells.FistsOfEarth.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> FistsOfWind()
         {
-            if (Shinra.Settings.MonkFist == MonkFists.Wind)
+            if (Shinra.Settings.MonkFist == MonkFists.Wind && !Core.Player.HasAura(MySpells.FistsOfWind.Name))
             {
                 return await MySpells.FistsOfWind.Cast();
             }
@@ -162,7 +210,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FistsOfFire()
         {
-            if (Shinra.Settings.MonkFist == MonkFists.Fire)
+            if (Shinra.Settings.MonkFist == MonkFists.Fire && !Core.Player.HasAura(MySpells.FistsOfFire.Name))
             {
                 return await MySpells.FistsOfFire.Cast();
             }

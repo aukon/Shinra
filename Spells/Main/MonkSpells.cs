@@ -188,5 +188,135 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
+
+        public Spell FormShift { get; } = new Spell
+        {
+            Name = "Form Shift",
+            ID = 4262,
+            Level = 52,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Meditation { get; } = new Spell
+        {
+            Name = "Meditation",
+            ID = 3546,
+            Level = 54,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell ForbiddenChakra { get; } = new Spell
+        {
+            Name = "The Forbidden Chakra",
+            ID = 3547,
+            Level = 54,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell ElixirField { get; } = new Spell
+        {
+            Name = "Elixir Field",
+            ID = 3545,
+            Level = 56,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell Purification { get; } = new Spell
+        {
+            Name = "Purification",
+            ID = 3544,
+            Level = 58,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell TornadoKick { get; } = new Spell
+        {
+            Name = "Tornado Kick",
+            ID = 3543,
+            Level = 60,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell RiddleOfEarth { get; } = new Spell
+        {
+            Name = "Riddle of Earth",
+            ID = 7394,
+            Level = 64,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell EarthTackle { get; } = new Spell
+        {
+            Name = "Earth Tackle",
+            ID = 7864,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell WindTackle { get; } = new Spell
+        {
+            Name = "Wind Tackle",
+            ID = 7865,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell FireTackle { get; } = new Spell
+        {
+            Name = "Fire Tackle",
+            ID = 7866,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell RiddleOfWind { get; } = new Spell
+        {
+            Name = "Riddle of Wind",
+            ID = 7868,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell RiddleOfFire { get; } = new Spell
+        {
+            Name = "Riddle of Fire",
+            ID = 7395,
+            Level = 68,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Brotherhood { get; } = new Spell
+        {
+            Name = "Brotherhood",
+            ID = 7396,
+            Level = 70,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
     }
 }

@@ -50,10 +50,15 @@ namespace ShinraCo.Rotations
             if (await FistsOfFire()) return true;
             if (await FistsOfWind()) return true;
             if (await FistsOfEarth()) return true;
+            if (await FireTackle()) return true;
             if (await ShoulderTackle()) return true;
             if (await PerfectBalance()) return true;
-            if (await InternalRelease()) return true;
             if (await TrueNorth()) return true;
+            if (await InternalRelease()) return true;
+            if (await RiddleOfFire()) return true;
+            if (await ForbiddenChakra()) return true;
+            if (await Brotherhood()) return true;
+            if (await ElixirField()) return true;
             if (await HowlingFist()) return true;
             if (await SteelPeak()) return true;
             return await Invigorate();

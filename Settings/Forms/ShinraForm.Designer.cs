@@ -294,13 +294,9 @@
             this.DarkKnightBloodspillerArts = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightCarveArts = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightAbyssalArts = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightPassengerArts = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightSouleaterArts = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DarkKnightQuietus = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightAbyssalDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightPassenger = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightUnleash = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DarkKnightBlackestNightPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.DarkKnightBlackestNight = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -415,6 +411,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkForbiddenChakra = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkElixirField = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkFireTackle = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkRiddleOfFire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkBrotherhood = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -2948,13 +2949,16 @@
             // 
             // MonkCooldownGroup
             // 
+            this.MonkCooldownGroup.Controls.Add(this.MonkFireTackle);
+            this.MonkCooldownGroup.Controls.Add(this.MonkElixirField);
+            this.MonkCooldownGroup.Controls.Add(this.MonkForbiddenChakra);
             this.MonkCooldownGroup.Controls.Add(this.MonkHowlingFist);
             this.MonkCooldownGroup.Controls.Add(this.MonkSteelPeak);
             this.MonkCooldownGroup.Controls.Add(this.MonkShoulderTackle);
             this.MonkCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MonkCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.MonkCooldownGroup.Name = "MonkCooldownGroup";
-            this.MonkCooldownGroup.Size = new System.Drawing.Size(117, 89);
+            this.MonkCooldownGroup.Size = new System.Drawing.Size(128, 158);
             this.MonkCooldownGroup.TabIndex = 4;
             this.MonkCooldownGroup.TabStop = false;
             this.MonkCooldownGroup.Text = "Cooldown";
@@ -3055,7 +3059,7 @@
             // 
             this.MonkFistsGroup.Controls.Add(this.MonkFist);
             this.MonkFistsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkFistsGroup.Location = new System.Drawing.Point(218, 223);
+            this.MonkFistsGroup.Location = new System.Drawing.Point(218, 220);
             this.MonkFistsGroup.Name = "MonkFistsGroup";
             this.MonkFistsGroup.Size = new System.Drawing.Size(102, 43);
             this.MonkFistsGroup.TabIndex = 2;
@@ -3083,12 +3087,14 @@
             // 
             // MonkBuffGroup
             // 
+            this.MonkBuffGroup.Controls.Add(this.MonkBrotherhood);
+            this.MonkBuffGroup.Controls.Add(this.MonkRiddleOfFire);
             this.MonkBuffGroup.Controls.Add(this.MonkPerfectBalance);
             this.MonkBuffGroup.Controls.Add(this.MonkInternalRelease);
             this.MonkBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkBuffGroup.Location = new System.Drawing.Point(218, 151);
+            this.MonkBuffGroup.Location = new System.Drawing.Point(352, 56);
             this.MonkBuffGroup.Name = "MonkBuffGroup";
-            this.MonkBuffGroup.Size = new System.Drawing.Size(117, 66);
+            this.MonkBuffGroup.Size = new System.Drawing.Size(117, 112);
             this.MonkBuffGroup.TabIndex = 1;
             this.MonkBuffGroup.TabStop = false;
             this.MonkBuffGroup.Text = "Buff";
@@ -4122,7 +4128,7 @@
             this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightPlunge);
             this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightSaltedEarth);
             this.DarkKnightCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightCooldownGroup.Location = new System.Drawing.Point(224, 173);
+            this.DarkKnightCooldownGroup.Location = new System.Drawing.Point(224, 104);
             this.DarkKnightCooldownGroup.Name = "DarkKnightCooldownGroup";
             this.DarkKnightCooldownGroup.Size = new System.Drawing.Size(114, 89);
             this.DarkKnightCooldownGroup.TabIndex = 5;
@@ -4180,12 +4186,11 @@
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightBloodspillerArts);
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightCarveArts);
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightAbyssalArts);
-            this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightPassengerArts);
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightSouleaterArts);
             this.DarkKnightArtsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightArtsGroup.Location = new System.Drawing.Point(344, 171);
+            this.DarkKnightArtsGroup.Location = new System.Drawing.Point(224, 199);
             this.DarkKnightArtsGroup.Name = "DarkKnightArtsGroup";
-            this.DarkKnightArtsGroup.Size = new System.Drawing.Size(114, 158);
+            this.DarkKnightArtsGroup.Size = new System.Drawing.Size(114, 135);
             this.DarkKnightArtsGroup.TabIndex = 4;
             this.DarkKnightArtsGroup.TabStop = false;
             this.DarkKnightArtsGroup.Text = "Dark Arts";
@@ -4196,7 +4201,7 @@
             this.DarkKnightQuietusArts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightQuietusArts.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightQuietusArts.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightQuietusArts.Location = new System.Drawing.Point(6, 108);
+            this.DarkKnightQuietusArts.Location = new System.Drawing.Point(6, 85);
             this.DarkKnightQuietusArts.Name = "DarkKnightQuietusArts";
             this.DarkKnightQuietusArts.Size = new System.Drawing.Size(63, 17);
             this.DarkKnightQuietusArts.TabIndex = 5;
@@ -4211,7 +4216,7 @@
             this.DarkKnightBloodspillerArts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightBloodspillerArts.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightBloodspillerArts.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightBloodspillerArts.Location = new System.Drawing.Point(6, 131);
+            this.DarkKnightBloodspillerArts.Location = new System.Drawing.Point(6, 108);
             this.DarkKnightBloodspillerArts.Name = "DarkKnightBloodspillerArts";
             this.DarkKnightBloodspillerArts.Size = new System.Drawing.Size(85, 17);
             this.DarkKnightBloodspillerArts.TabIndex = 4;
@@ -4226,7 +4231,7 @@
             this.DarkKnightCarveArts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightCarveArts.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightCarveArts.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightCarveArts.Location = new System.Drawing.Point(6, 85);
+            this.DarkKnightCarveArts.Location = new System.Drawing.Point(6, 62);
             this.DarkKnightCarveArts.Name = "DarkKnightCarveArts";
             this.DarkKnightCarveArts.Size = new System.Drawing.Size(97, 17);
             this.DarkKnightCarveArts.TabIndex = 3;
@@ -4241,7 +4246,7 @@
             this.DarkKnightAbyssalArts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightAbyssalArts.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightAbyssalArts.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightAbyssalArts.Location = new System.Drawing.Point(6, 62);
+            this.DarkKnightAbyssalArts.Location = new System.Drawing.Point(6, 39);
             this.DarkKnightAbyssalArts.Name = "DarkKnightAbyssalArts";
             this.DarkKnightAbyssalArts.Size = new System.Drawing.Size(92, 17);
             this.DarkKnightAbyssalArts.TabIndex = 2;
@@ -4249,21 +4254,6 @@
             this.DarkKnightAbyssalArts.Text = "Abyssal Drain";
             this.DarkKnightAbyssalArts.UseVisualStyleBackColor = true;
             this.DarkKnightAbyssalArts.CheckedChanged += new System.EventHandler(this.DarkKnightAbyssalArts_CheckedChanged);
-            // 
-            // DarkKnightPassengerArts
-            // 
-            this.DarkKnightPassengerArts.AutoSize = true;
-            this.DarkKnightPassengerArts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightPassengerArts.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightPassengerArts.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightPassengerArts.Location = new System.Drawing.Point(6, 39);
-            this.DarkKnightPassengerArts.Name = "DarkKnightPassengerArts";
-            this.DarkKnightPassengerArts.Size = new System.Drawing.Size(102, 17);
-            this.DarkKnightPassengerArts.TabIndex = 1;
-            this.DarkKnightPassengerArts.TabStop = false;
-            this.DarkKnightPassengerArts.Text = "Dark Passenger";
-            this.DarkKnightPassengerArts.UseVisualStyleBackColor = true;
-            this.DarkKnightPassengerArts.CheckedChanged += new System.EventHandler(this.DarkKnightPassengerArts_CheckedChanged);
             // 
             // DarkKnightSouleaterArts
             // 
@@ -4283,13 +4273,10 @@
             // DarkKnightAoEGroup
             // 
             this.DarkKnightAoEGroup.Controls.Add(this.DarkKnightQuietus);
-            this.DarkKnightAoEGroup.Controls.Add(this.DarkKnightAbyssalDrain);
-            this.DarkKnightAoEGroup.Controls.Add(this.DarkKnightPassenger);
-            this.DarkKnightAoEGroup.Controls.Add(this.DarkKnightUnleash);
             this.DarkKnightAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightAoEGroup.Location = new System.Drawing.Point(224, 55);
             this.DarkKnightAoEGroup.Name = "DarkKnightAoEGroup";
-            this.DarkKnightAoEGroup.Size = new System.Drawing.Size(114, 112);
+            this.DarkKnightAoEGroup.Size = new System.Drawing.Size(114, 43);
             this.DarkKnightAoEGroup.TabIndex = 3;
             this.DarkKnightAoEGroup.TabStop = false;
             this.DarkKnightAoEGroup.Text = "AoE";
@@ -4300,7 +4287,7 @@
             this.DarkKnightQuietus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightQuietus.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightQuietus.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightQuietus.Location = new System.Drawing.Point(6, 85);
+            this.DarkKnightQuietus.Location = new System.Drawing.Point(6, 16);
             this.DarkKnightQuietus.Name = "DarkKnightQuietus";
             this.DarkKnightQuietus.Size = new System.Drawing.Size(63, 17);
             this.DarkKnightQuietus.TabIndex = 3;
@@ -4308,51 +4295,6 @@
             this.DarkKnightQuietus.Text = "Quietus";
             this.DarkKnightQuietus.UseVisualStyleBackColor = true;
             this.DarkKnightQuietus.CheckedChanged += new System.EventHandler(this.DarkKnightQuietus_CheckedChanged);
-            // 
-            // DarkKnightAbyssalDrain
-            // 
-            this.DarkKnightAbyssalDrain.AutoSize = true;
-            this.DarkKnightAbyssalDrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightAbyssalDrain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightAbyssalDrain.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightAbyssalDrain.Location = new System.Drawing.Point(6, 62);
-            this.DarkKnightAbyssalDrain.Name = "DarkKnightAbyssalDrain";
-            this.DarkKnightAbyssalDrain.Size = new System.Drawing.Size(92, 17);
-            this.DarkKnightAbyssalDrain.TabIndex = 2;
-            this.DarkKnightAbyssalDrain.TabStop = false;
-            this.DarkKnightAbyssalDrain.Text = "Abyssal Drain";
-            this.DarkKnightAbyssalDrain.UseVisualStyleBackColor = true;
-            this.DarkKnightAbyssalDrain.CheckedChanged += new System.EventHandler(this.DarkKnightAbyssalDrain_CheckedChanged);
-            // 
-            // DarkKnightPassenger
-            // 
-            this.DarkKnightPassenger.AutoSize = true;
-            this.DarkKnightPassenger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightPassenger.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightPassenger.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightPassenger.Location = new System.Drawing.Point(6, 39);
-            this.DarkKnightPassenger.Name = "DarkKnightPassenger";
-            this.DarkKnightPassenger.Size = new System.Drawing.Size(102, 17);
-            this.DarkKnightPassenger.TabIndex = 1;
-            this.DarkKnightPassenger.TabStop = false;
-            this.DarkKnightPassenger.Text = "Dark Passenger";
-            this.DarkKnightPassenger.UseVisualStyleBackColor = true;
-            this.DarkKnightPassenger.CheckedChanged += new System.EventHandler(this.DarkKnightPassenger_CheckedChanged);
-            // 
-            // DarkKnightUnleash
-            // 
-            this.DarkKnightUnleash.AutoSize = true;
-            this.DarkKnightUnleash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightUnleash.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightUnleash.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightUnleash.Location = new System.Drawing.Point(6, 16);
-            this.DarkKnightUnleash.Name = "DarkKnightUnleash";
-            this.DarkKnightUnleash.Size = new System.Drawing.Size(65, 17);
-            this.DarkKnightUnleash.TabIndex = 0;
-            this.DarkKnightUnleash.TabStop = false;
-            this.DarkKnightUnleash.Text = "Unleash";
-            this.DarkKnightUnleash.UseVisualStyleBackColor = true;
-            this.DarkKnightUnleash.CheckedChanged += new System.EventHandler(this.DarkKnightUnleash_CheckedChanged);
             // 
             // DarkKnightBuffGroup
             // 
@@ -4505,7 +4447,7 @@
             this.DarkKnightAuraGroup.Controls.Add(this.DarkKnightDarkside);
             this.DarkKnightAuraGroup.Controls.Add(this.DarkKnightGrit);
             this.DarkKnightAuraGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightAuraGroup.Location = new System.Drawing.Point(224, 268);
+            this.DarkKnightAuraGroup.Location = new System.Drawing.Point(344, 171);
             this.DarkKnightAuraGroup.Name = "DarkKnightAuraGroup";
             this.DarkKnightAuraGroup.Size = new System.Drawing.Size(114, 66);
             this.DarkKnightAuraGroup.TabIndex = 1;
@@ -5942,6 +5884,81 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // MonkForbiddenChakra
+            // 
+            this.MonkForbiddenChakra.AutoSize = true;
+            this.MonkForbiddenChakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkForbiddenChakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkForbiddenChakra.ForeColor = System.Drawing.Color.White;
+            this.MonkForbiddenChakra.Location = new System.Drawing.Point(6, 85);
+            this.MonkForbiddenChakra.Name = "MonkForbiddenChakra";
+            this.MonkForbiddenChakra.Size = new System.Drawing.Size(116, 17);
+            this.MonkForbiddenChakra.TabIndex = 3;
+            this.MonkForbiddenChakra.TabStop = false;
+            this.MonkForbiddenChakra.Text = "Forbidden Chakra";
+            this.MonkForbiddenChakra.UseVisualStyleBackColor = true;
+            this.MonkForbiddenChakra.CheckedChanged += new System.EventHandler(this.MonkForbiddenChakra_CheckedChanged);
+            // 
+            // MonkElixirField
+            // 
+            this.MonkElixirField.AutoSize = true;
+            this.MonkElixirField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkElixirField.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkElixirField.ForeColor = System.Drawing.Color.White;
+            this.MonkElixirField.Location = new System.Drawing.Point(6, 108);
+            this.MonkElixirField.Name = "MonkElixirField";
+            this.MonkElixirField.Size = new System.Drawing.Size(75, 17);
+            this.MonkElixirField.TabIndex = 4;
+            this.MonkElixirField.TabStop = false;
+            this.MonkElixirField.Text = "Elixir Field";
+            this.MonkElixirField.UseVisualStyleBackColor = true;
+            this.MonkElixirField.CheckedChanged += new System.EventHandler(this.MonkElixirField_CheckedChanged);
+            // 
+            // MonkFireTackle
+            // 
+            this.MonkFireTackle.AutoSize = true;
+            this.MonkFireTackle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkFireTackle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFireTackle.ForeColor = System.Drawing.Color.White;
+            this.MonkFireTackle.Location = new System.Drawing.Point(6, 131);
+            this.MonkFireTackle.Name = "MonkFireTackle";
+            this.MonkFireTackle.Size = new System.Drawing.Size(75, 17);
+            this.MonkFireTackle.TabIndex = 5;
+            this.MonkFireTackle.TabStop = false;
+            this.MonkFireTackle.Text = "Fire Tackle";
+            this.MonkFireTackle.UseVisualStyleBackColor = true;
+            this.MonkFireTackle.CheckedChanged += new System.EventHandler(this.MonkFireTackle_CheckedChanged);
+            // 
+            // MonkRiddleOfFire
+            // 
+            this.MonkRiddleOfFire.AutoSize = true;
+            this.MonkRiddleOfFire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkRiddleOfFire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkRiddleOfFire.ForeColor = System.Drawing.Color.White;
+            this.MonkRiddleOfFire.Location = new System.Drawing.Point(6, 62);
+            this.MonkRiddleOfFire.Name = "MonkRiddleOfFire";
+            this.MonkRiddleOfFire.Size = new System.Drawing.Size(92, 17);
+            this.MonkRiddleOfFire.TabIndex = 4;
+            this.MonkRiddleOfFire.TabStop = false;
+            this.MonkRiddleOfFire.Text = "Riddle of Fire";
+            this.MonkRiddleOfFire.UseVisualStyleBackColor = true;
+            this.MonkRiddleOfFire.CheckedChanged += new System.EventHandler(this.MonkRiddleOfFire_CheckedChanged);
+            // 
+            // MonkBrotherhood
+            // 
+            this.MonkBrotherhood.AutoSize = true;
+            this.MonkBrotherhood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkBrotherhood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkBrotherhood.ForeColor = System.Drawing.Color.White;
+            this.MonkBrotherhood.Location = new System.Drawing.Point(6, 85);
+            this.MonkBrotherhood.Name = "MonkBrotherhood";
+            this.MonkBrotherhood.Size = new System.Drawing.Size(90, 17);
+            this.MonkBrotherhood.TabIndex = 5;
+            this.MonkBrotherhood.TabStop = false;
+            this.MonkBrotherhood.Text = "Brotherhood";
+            this.MonkBrotherhood.UseVisualStyleBackColor = true;
+            this.MonkBrotherhood.CheckedChanged += new System.EventHandler(this.MonkBrotherhood_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6396,11 +6413,8 @@
         private Design.CustomGroup DarkKnightBuffGroup;
         private Design.CustomCheck DarkKnightBloodWeapon;
         private Design.CustomGroup DarkKnightAoEGroup;
-        private Design.CustomCheck DarkKnightUnleash;
         private Design.CustomGroup DarkKnightArtsGroup;
-        private Design.CustomCheck DarkKnightPassengerArts;
         private Design.CustomCheck DarkKnightSouleaterArts;
-        private Design.CustomCheck DarkKnightPassenger;
         private Design.UserNumeric DarkKnightLivingDeadPct;
         private Design.UserNumeric DarkKnightShadowWallPct;
         private Design.CustomCheck DarkKnightLivingDead;
@@ -6408,7 +6422,6 @@
         private Design.CustomCheck DarkKnightBloodPrice;
         private Design.UserNumeric DarkKnightBloodPricePct;
         private Design.CustomCheck DarkKnightQuietus;
-        private Design.CustomCheck DarkKnightAbyssalDrain;
         private Design.CustomGroup DarkKnightCooldownGroup;
         private Design.CustomCheck DarkKnightCarveAndSpit;
         private Design.CustomCheck DarkKnightPlunge;
@@ -6484,5 +6497,10 @@
         private Design.CustomCheck MonkHowlingFist;
         private Design.CustomCheck MonkSteelPeak;
         private Design.CustomCheck MonkShoulderTackle;
+        private Design.CustomCheck MonkFireTackle;
+        private Design.CustomCheck MonkElixirField;
+        private Design.CustomCheck MonkForbiddenChakra;
+        private Design.CustomCheck MonkBrotherhood;
+        private Design.CustomCheck MonkRiddleOfFire;
     }
 }

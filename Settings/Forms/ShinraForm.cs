@@ -191,10 +191,7 @@ namespace ShinraCo.Settings.Forms
 
             #region AoE
 
-            DarkKnightUnleash.Checked = Shinra.Settings.DarkKnightUnleash;
-            DarkKnightPassenger.Checked = Shinra.Settings.DarkKnightPassenger;
             DarkKnightQuietus.Checked = Shinra.Settings.DarkKnightQuietus;
-            DarkKnightAbyssalDrain.Checked = Shinra.Settings.DarkKnightAbyssalDrain;
 
             #endregion
 
@@ -225,7 +222,6 @@ namespace ShinraCo.Settings.Forms
             #region Dark Arts
 
             DarkKnightSouleaterArts.Checked = Shinra.Settings.DarkKnightSouleaterArts;
-            DarkKnightPassengerArts.Checked = Shinra.Settings.DarkKnightPassengerArts;
             DarkKnightAbyssalArts.Checked = Shinra.Settings.DarkKnightAbyssalArts;
             DarkKnightCarveArts.Checked = Shinra.Settings.DarkKnightCarveArts;
             DarkKnightQuietusArts.Checked = Shinra.Settings.DarkKnightQuietusArts;
@@ -305,6 +301,9 @@ namespace ShinraCo.Settings.Forms
             MonkShoulderTackle.Checked = Shinra.Settings.MonkShoulderTackle;
             MonkSteelPeak.Checked = Shinra.Settings.MonkSteelPeak;
             MonkHowlingFist.Checked = Shinra.Settings.MonkHowlingFist;
+            MonkForbiddenChakra.Checked = Shinra.Settings.MonkForbiddenChakra;
+            MonkElixirField.Checked = Shinra.Settings.MonkElixirField;
+            MonkFireTackle.Checked = Shinra.Settings.MonkFireTackle;
 
             #endregion
 
@@ -312,6 +311,8 @@ namespace ShinraCo.Settings.Forms
 
             MonkInternalRelease.Checked = Shinra.Settings.MonkInternalRelease;
             MonkPerfectBalance.Checked = Shinra.Settings.MonkPerfectBalance;
+            MonkRiddleOfFire.Checked = Shinra.Settings.MonkRiddleOfFire;
+            MonkBrotherhood.Checked = Shinra.Settings.MonkBrotherhood;
 
             #endregion
 
@@ -994,21 +995,6 @@ namespace ShinraCo.Settings.Forms
 
         #region AoE
 
-        private void DarkKnightUnleash_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.DarkKnightUnleash = DarkKnightUnleash.Checked;
-        }
-
-        private void DarkKnightPassenger_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.DarkKnightPassenger = DarkKnightPassenger.Checked;
-        }
-
-        private void DarkKnightAbyssalDrain_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.DarkKnightAbyssalDrain = DarkKnightAbyssalDrain.Checked;
-        }
-
         private void DarkKnightQuietus_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightQuietus = DarkKnightQuietus.Checked;
@@ -1094,11 +1080,6 @@ namespace ShinraCo.Settings.Forms
         private void DarkKnightSouleaterArts_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightSouleaterArts = DarkKnightSouleaterArts.Checked;
-        }
-
-        private void DarkKnightPassengerArts_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.DarkKnightPassengerArts = DarkKnightPassengerArts.Checked;
         }
 
         private void DarkKnightAbyssalArts_CheckedChanged(object sender, EventArgs e)
@@ -1307,6 +1288,21 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MonkHowlingFist = MonkHowlingFist.Checked;
         }
 
+        private void MonkForbiddenChakra_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkForbiddenChakra = MonkForbiddenChakra.Checked;
+        }
+
+        private void MonkElixirField_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkElixirField = MonkElixirField.Checked;
+        }
+
+        private void MonkFireTackle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkFireTackle = MonkFireTackle.Checked;
+        }
+
         #endregion
 
         #region Buff
@@ -1319,6 +1315,16 @@ namespace ShinraCo.Settings.Forms
         private void MonkPerfectBalance_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MonkPerfectBalance = MonkPerfectBalance.Checked;
+        }
+
+        private void MonkRiddleOfFire_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkRiddleOfFire = MonkRiddleOfFire.Checked;
+        }
+
+        private void MonkBrotherhood_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkBrotherhood = MonkBrotherhood.Checked;
         }
 
         #endregion

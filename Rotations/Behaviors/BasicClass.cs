@@ -72,6 +72,7 @@ namespace ShinraCo.Rotations
             // Marauder
             if (await Berserk()) return true;
             // Pugilist
+            if (await FistsOfEarth()) return true;
             return await InternalRelease();
         }
 
@@ -100,7 +101,9 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             // Arcanist
             if (await SummonII()) return true;
-            return await Summon();
+            if (await Summon()) return true;
+            // Pugilist
+            return await FistsOfEarth();
         }
 
         #endregion

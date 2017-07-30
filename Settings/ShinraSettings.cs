@@ -331,15 +331,6 @@ namespace ShinraCo.Settings
         #region AoE
 
         [Setting, DefaultValue(true)]
-        public bool DarkKnightUnleash { get; set; }
-
-        [Setting, DefaultValue(true)]
-        public bool DarkKnightPassenger { get; set; }
-
-        [Setting, DefaultValue(true)]
-        public bool DarkKnightAbyssalDrain { get; set; }
-
-        [Setting, DefaultValue(true)]
         public bool DarkKnightQuietus { get; set; }
 
         #endregion
@@ -395,9 +386,6 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool DarkKnightSouleaterArts { get; set; }
-
-        [Setting, DefaultValue(true)]
-        public bool DarkKnightPassengerArts { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool DarkKnightAbyssalArts { get; set; }
@@ -537,6 +525,15 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MonkHowlingFist { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool MonkForbiddenChakra { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkElixirField { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkFireTackle { get; set; }
+
         #endregion
 
         #region Buff
@@ -546,6 +543,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool MonkPerfectBalance { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkRiddleOfFire { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkBrotherhood { get; set; }
 
         #endregion
 
