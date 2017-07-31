@@ -6,6 +6,7 @@ using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
+using Resource = ff14bot.Managers.ActionResourceManager.Samurai;
 
 namespace ShinraCo.Rotations
 {
@@ -130,7 +131,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HissatsuShinten()
         {
-            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Kenki >= 45 && !PoolKenki)
+            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Resource.Kenki >= 45 && !PoolKenki)
             {
                 return await MySpells.HissatsuShinten.Cast();
             }
@@ -139,7 +140,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HissatsuSeigan()
         {
-            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Kenki >= 45 && !PoolKenki)
+            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Resource.Kenki >= 45 && !PoolKenki)
             {
                 return await MySpells.HissatsuSeigan.Cast();
             }
@@ -219,7 +220,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode != Modes.Single)
             {
-                if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Kenki >= 45 && !PoolKenki)
+                if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Resource.Kenki >= 45 && !PoolKenki)
                 {
                     return await MySpells.HissatsuKyuten.Cast();
                 }
@@ -345,20 +346,15 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static int Kenki => ActionResourceManager.Samurai.Kenki;
-        private static bool GetsuActive => ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Getsu);
-        private static bool KaActive => ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Ka);
-        private static bool SetsuActive => ActionResourceManager.Samurai.Sen.HasFlag(ActionResourceManager.Samurai.Iaijutsu.Setsu);
+        private static bool GetsuActive => Resource.Sen.HasFlag(Resource.Iaijutsu.Getsu);
+        private static bool KaActive => Resource.Sen.HasFlag(Resource.Iaijutsu.Ka);
+        private static bool SetsuActive => Resource.Sen.HasFlag(Resource.Iaijutsu.Setsu);
         private static bool PoolKenki => Shinra.Settings.SamuraiGuren && ActionManager.HasSpell(7496) &&
                                          DataManager.GetSpellData(7496).Cooldown.TotalMilliseconds < 6000;
 
         private static int NumSen
         {
-            get
-            {
-                return Enum.GetValues(typeof(ActionResourceManager.Samurai.Iaijutsu)).Cast<Enum>()
-                           .Count(value => ActionResourceManager.Samurai.Sen.HasFlag(value));
-            }
+            get { return Enum.GetValues(typeof(Resource.Iaijutsu)).Cast<Enum>().Count(value => Resource.Sen.HasFlag(value)); }
         }
 
         #endregion

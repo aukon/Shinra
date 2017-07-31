@@ -257,9 +257,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Darkside()
         {
-            if (Shinra.Settings.DarkKnightDarkside && !Core.Player.HasAura(MySpells.Darkside.Name) && Core.Player.CurrentManaPercent > 50)
+            if (Shinra.Settings.DarkKnightDarkside && !Core.Player.HasAura(MySpells.Darkside.Name))
             {
-                return await MySpells.Darkside.Cast();
+                return await MySpells.Darkside.Cast(null, false);
             }
             return false;
         }

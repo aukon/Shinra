@@ -31,8 +31,8 @@ namespace ShinraCo
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());
-            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey),
-                                   Helpers.GetModkey(Settings.TankHotkey), hk => CycleRotation(true));
+            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey), Helpers.GetModkey(Settings.TankHotkey),
+                                   hk => CycleRotation(true));
         }
 
         public sealed override void Pulse()

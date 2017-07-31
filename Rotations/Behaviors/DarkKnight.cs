@@ -84,7 +84,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> PreCombatBuff()
         {
             if (await Shinra.SummonChocobo()) return true;
-            return await Grit();
+            if (await Grit()) return true;
+            return await Darkside();
         }
 
         #endregion

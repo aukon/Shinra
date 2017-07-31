@@ -88,6 +88,7 @@
             this.SummonerEnkindle = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerShadowFlare = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerAetherpact = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerSummonBahamut = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerDreadwyrmTrance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -427,7 +428,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SummonerAetherpact = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1343,6 +1343,21 @@
             this.SummonerBuffGroup.TabIndex = 3;
             this.SummonerBuffGroup.TabStop = false;
             this.SummonerBuffGroup.Text = "Buff";
+            // 
+            // SummonerAetherpact
+            // 
+            this.SummonerAetherpact.AutoSize = true;
+            this.SummonerAetherpact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerAetherpact.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerAetherpact.ForeColor = System.Drawing.Color.White;
+            this.SummonerAetherpact.Location = new System.Drawing.Point(6, 62);
+            this.SummonerAetherpact.Name = "SummonerAetherpact";
+            this.SummonerAetherpact.Size = new System.Drawing.Size(79, 17);
+            this.SummonerAetherpact.TabIndex = 2;
+            this.SummonerAetherpact.TabStop = false;
+            this.SummonerAetherpact.Text = "Aetherpact";
+            this.SummonerAetherpact.UseVisualStyleBackColor = true;
+            this.SummonerAetherpact.CheckedChanged += new System.EventHandler(this.SummonerAetherpact_CheckedChanged);
             // 
             // SummonerSummonBahamut
             // 
@@ -6135,21 +6150,6 @@
             this.WarriorRampart.Text = "Rampart";
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
-            // 
-            // SummonerAetherpact
-            // 
-            this.SummonerAetherpact.AutoSize = true;
-            this.SummonerAetherpact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SummonerAetherpact.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerAetherpact.ForeColor = System.Drawing.Color.White;
-            this.SummonerAetherpact.Location = new System.Drawing.Point(6, 62);
-            this.SummonerAetherpact.Name = "SummonerAetherpact";
-            this.SummonerAetherpact.Size = new System.Drawing.Size(79, 17);
-            this.SummonerAetherpact.TabIndex = 2;
-            this.SummonerAetherpact.TabStop = false;
-            this.SummonerAetherpact.Text = "Aetherpact";
-            this.SummonerAetherpact.UseVisualStyleBackColor = true;
-            this.SummonerAetherpact.CheckedChanged += new System.EventHandler(this.SummonerAetherpact_CheckedChanged);
             // 
             // ShinraForm
             // 
