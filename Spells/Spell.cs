@@ -389,6 +389,13 @@ namespace ShinraCo.Spells
                             return false;
                         }
                         break;
+                    case ClassJobType.Thaumaturge:
+                    case ClassJobType.BlackMage:
+                        if (DataManager.GetSpellData(142).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
                 }
             }
 

@@ -430,6 +430,54 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region Thaumaturge
+
+        private bool AstralFire => ActionResourceManager.BlackMage.AstralStacks > 0 &&
+                                   Shinra.LastSpell.Name != MySpells.Thaumaturge.Transpose.Name;
+
+        private async Task<bool> Blizzard()
+        {
+            return await MySpells.Thaumaturge.Blizzard.Cast();
+        }
+
+        private async Task<bool> Fire()
+        {
+            if (AstralFire || Core.Player.CurrentManaPercent > 80)
+            {
+                return await MySpells.Thaumaturge.Fire.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Transpose()
+        {
+            if (AstralFire && Core.Player.CurrentManaPercent < 20)
+            {
+                return await MySpells.Thaumaturge.Transpose.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Scathe()
+        {
+            if (MovementManager.IsMoving && Core.Player.CurrentManaPercent > 20)
+            {
+                return await MySpells.Thaumaturge.Scathe.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FireIII()
+        {
+            if (!AstralFire && Core.Player.CurrentManaPercent > 80 || AstralFire && Core.Player.HasAura(165))
+            {
+                return await MySpells.Thaumaturge.FireIII.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Role
 
         private async Task<bool> SecondWind()

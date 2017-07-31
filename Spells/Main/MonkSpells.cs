@@ -161,7 +161,7 @@ namespace ShinraCo.Spells.Main
 
         public Spell FistsOfFire { get; } = new Spell
         {
-            Name = "Fists Of Fire",
+            Name = "Fists of Fire",
             ID = 63,
             Level = 40,
             GCDType = GCDType.Off,

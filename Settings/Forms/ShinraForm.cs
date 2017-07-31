@@ -47,6 +47,18 @@ namespace ShinraCo.Settings.Forms
 
             #region Main Settings
 
+            #region Rotation
+
+            RotationOverlay.Checked = Shinra.Settings.RotationOverlay;
+            RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
+            TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
+
+            var kc = new KeysConverter();
+            RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
+            TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
+
+            #endregion
+
             #region Chocobo
 
             ChocoboSummon.Checked = Shinra.Settings.SummonChocobo;
@@ -63,15 +75,9 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
-            #region Rotation
+            #region Misc
 
-            RotationOverlay.Checked = Shinra.Settings.RotationOverlay;
-            RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
-            TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
-
-            var kc = new KeysConverter();
-            RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
-            TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
+            DefaultRoutine.Checked = Shinra.Settings.DefaultRoutine;
 
             #endregion
 
@@ -161,6 +167,21 @@ namespace ShinraCo.Settings.Forms
             BardRagingStrikes.Checked = Shinra.Settings.BardRagingStrikes;
             BardBarrage.Checked = Shinra.Settings.BardBarrage;
             BardBattleVoice.Checked = Shinra.Settings.BardBattleVoice;
+
+            #endregion
+
+            #endregion
+
+            #region Black Mage
+
+            #region Role
+
+            BlackMageDrain.Checked = Shinra.Settings.BlackMageDrain;
+            BlackMageLucidDreaming.Checked = Shinra.Settings.BlackMageLucidDreaming;
+            BlackMageSwiftcast.Checked = Shinra.Settings.BlackMageSwiftcast;
+
+            BlackMageDrainPct.Value = Shinra.Settings.BlackMageDrainPct;
+            BlackMageLucidDreamingPct.Value = Shinra.Settings.BlackMageLucidDreamingPct;
 
             #endregion
 
@@ -658,6 +679,38 @@ namespace ShinraCo.Settings.Forms
 
         #region Main Settings
 
+        #region Rotation
+
+        private void RotationOverlay_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RotationOverlay = RotationOverlay.Checked;
+        }
+
+        private void RotationMode_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (RotationMode.Text == @"Smart") Shinra.Settings.RotationMode = Modes.Smart;
+            if (RotationMode.Text == @"Single") Shinra.Settings.RotationMode = Modes.Single;
+            if (RotationMode.Text == @"Multi") Shinra.Settings.RotationMode = Modes.Multi;
+        }
+
+        private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
+        }
+
+        private void TankMode_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (TankMode.Text == @"DPS") Shinra.Settings.TankMode = TankModes.DPS;
+            if (TankMode.Text == @"Enmity") Shinra.Settings.TankMode = TankModes.Enmity;
+        }
+
+        private void TankHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.TankHotkey = TankHotkey.Hotkey;
+        }
+
+        #endregion
+
         #region Chocobo
 
         private void ChocoboSummon_CheckedChanged(object sender, EventArgs e)
@@ -699,34 +752,11 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
-        #region Rotation
+        #region Misc
 
-        private void RotationOverlay_CheckedChanged(object sender, EventArgs e)
+        private void DefaultRoutine_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.RotationOverlay = RotationOverlay.Checked;
-        }
-
-        private void RotationMode_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (RotationMode.Text == @"Smart") Shinra.Settings.RotationMode = Modes.Smart;
-            if (RotationMode.Text == @"Single") Shinra.Settings.RotationMode = Modes.Single;
-            if (RotationMode.Text == @"Multi") Shinra.Settings.RotationMode = Modes.Multi;
-        }
-
-        private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
-        {
-            Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
-        }
-
-        private void TankMode_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (TankMode.Text == @"DPS") Shinra.Settings.TankMode = TankModes.DPS;
-            if (TankMode.Text == @"Enmity") Shinra.Settings.TankMode = TankModes.Enmity;
-        }
-
-        private void TankHotkey_KeyDown(object sender, KeyEventArgs e)
-        {
-            Shinra.Settings.TankHotkey = TankHotkey.Hotkey;
+            Shinra.Settings.DefaultRoutine = DefaultRoutine.Checked;
         }
 
         #endregion
@@ -951,6 +981,39 @@ namespace ShinraCo.Settings.Forms
         private void BardBattleVoice_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardBattleVoice = BardBattleVoice.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Black Mage
+
+        #region Role
+
+        private void BlackMageDrain_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageDrain = BlackMageDrain.Checked;
+        }
+
+        private void BlackMageLucidDreaming_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageLucidDreaming = BlackMageLucidDreaming.Checked;
+        }
+
+        private void BlackMageSwiftcast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageSwiftcast = BlackMageSwiftcast.Checked;
+        }
+
+        private void BlackMageDrainPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageDrainPct = Convert.ToInt32(BlackMageDrainPct.Value);
+        }
+
+        private void BlackMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageLucidDreamingPct = Convert.ToInt32(BlackMageLucidDreamingPct.Value);
         }
 
         #endregion

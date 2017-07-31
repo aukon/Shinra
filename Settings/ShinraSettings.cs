@@ -85,6 +85,25 @@ namespace ShinraCo.Settings
 
         #region Main Settings
 
+        #region Rotation
+
+        [Setting, DefaultValue(true)]
+        public bool RotationOverlay { get; set; }
+
+        [Setting, DefaultValue(Modes.Smart)]
+        public Modes RotationMode { get; set; }
+
+        [Setting, DefaultValue(Keys.None)]
+        public Keys RotationHotkey { get; set; }
+
+        [Setting, DefaultValue(TankModes.DPS)]
+        public TankModes TankMode { get; set; }
+
+        [Setting, DefaultValue(Keys.None)]
+        public Keys TankHotkey { get; set; }
+
+        #endregion
+
         #region Chocobo
 
         [Setting, DefaultValue(true)]
@@ -111,22 +130,10 @@ namespace ShinraCo.Settings
 
         #endregion
 
-        #region Rotation
+        #region Misc
 
-        [Setting, DefaultValue(true)]
-        public bool RotationOverlay { get; set; }
-
-        [Setting, DefaultValue(Modes.Smart)]
-        public Modes RotationMode { get; set; }
-
-        [Setting, DefaultValue(Keys.None)]
-        public Keys RotationHotkey { get; set; }
-
-        [Setting, DefaultValue(TankModes.DPS)]
-        public TankModes TankMode { get; set; }
-
-        [Setting, DefaultValue(Keys.None)]
-        public Keys TankHotkey { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool DefaultRoutine { get; set; }
 
         #endregion
 
@@ -283,6 +290,29 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool BardBattleVoice { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region Black Mage
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageDrain { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageLucidDreaming { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageSwiftcast { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int BlackMageDrainPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int BlackMageLucidDreamingPct { get; set; }
 
         #endregion
 
