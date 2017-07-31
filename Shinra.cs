@@ -28,10 +28,6 @@ namespace ShinraCo
 
         public sealed override void Initialize()
         {
-            if (Settings.DefaultRoutine)
-            {
-                RoutineManager.PreferedRoutine = "Shinra";
-            }
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());

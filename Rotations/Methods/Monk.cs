@@ -193,7 +193,7 @@ namespace ShinraCo.Rotations
             {
                 if (!Core.Player.HasAura(MySpells.FistsOfEarth.Name))
                 {
-                    return await MySpells.FistsOfEarth.Cast();
+                    return await MySpells.FistsOfEarth.Cast(null, false);
                 }
             }
             return false;
@@ -203,7 +203,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MonkFist == MonkFists.Wind && !Core.Player.HasAura(MySpells.FistsOfWind.Name))
             {
-                return await MySpells.FistsOfWind.Cast();
+                return await MySpells.FistsOfWind.Cast(null, false);
             }
             return false;
         }
@@ -212,7 +212,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MonkFist == MonkFists.Fire && !Core.Player.HasAura(MySpells.FistsOfFire.Name))
             {
-                return await MySpells.FistsOfFire.Cast();
+                return await MySpells.FistsOfFire.Cast(null, false);
             }
             return false;
         }

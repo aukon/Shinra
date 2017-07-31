@@ -75,12 +75,6 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
-            #region Misc
-
-            DefaultRoutine.Checked = Shinra.Settings.DefaultRoutine;
-
-            #endregion
-
             #endregion
 
             #region Job Settings
@@ -748,15 +742,6 @@ namespace ShinraCo.Settings.Forms
         private void UsePotionPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.UsePotionPct = Convert.ToInt32(UsePotionPct.Value);
-        }
-
-        #endregion
-
-        #region Misc
-
-        private void DefaultRoutine_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.DefaultRoutine = DefaultRoutine.Checked;
         }
 
         #endregion

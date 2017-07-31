@@ -130,13 +130,6 @@ namespace ShinraCo.Settings
 
         #endregion
 
-        #region Misc
-
-        [Setting, DefaultValue(false)]
-        public bool DefaultRoutine { get; set; }
-
-        #endregion
-
         #endregion
 
         #region Job Settings
