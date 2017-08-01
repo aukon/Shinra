@@ -125,7 +125,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ElixirField()
         {
-            if (Shinra.Settings.MonkElixirField)
+            if (Shinra.Settings.MonkElixirField && Core.Player.TargetDistance(5, false))
             {
                 return await MySpells.ElixirField.Cast();
             }

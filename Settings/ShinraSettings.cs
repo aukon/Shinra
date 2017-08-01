@@ -323,6 +323,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool BlackMageEnochian { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool BlackMageTriplecast { get; set; }
+
         #endregion
 
         #endregion

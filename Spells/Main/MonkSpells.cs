@@ -226,7 +226,7 @@ namespace ShinraCo.Spells.Main
             Level = 56,
             GCDType = GCDType.Off,
             SpellType = SpellType.Cooldown,
-            CastType = CastType.Target
+            CastType = CastType.Self
         };
 
         public Spell Purification { get; } = new Spell

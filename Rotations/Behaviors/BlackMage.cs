@@ -22,6 +22,7 @@ namespace ShinraCo.Rotations
             if (await Transpose()) return true;
             if (await Sharpcast()) return true;
             if (await Drain()) return true;
+            if (await Foul()) return true;
             if (await ThunderIII()) return true;
             if (await Thunder()) return true;
             if (await BlizzardIV()) return true;
@@ -35,6 +36,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Multi()
         {
+            if (await Drain()) return true;
+            if (await Foul()) return true;
             if (await FireIIIMulti()) return true;
             if (await Flare()) return true;
             if (await FireII()) return true;

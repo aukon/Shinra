@@ -68,14 +68,33 @@ namespace ShinraCo.Rotations
         {
             if (Resource.StackTimer.TotalMilliseconds > 6000)
             {
-                if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.FireIV.Name, Core.Player.CurrentTarget))
+                if (ActionManager.CanCast(MySpells.FireIV.Name, Core.Player.CurrentTarget))
                 {
-                    if (await MySpells.Role.Swiftcast.Cast(null, false))
+                    if (Shinra.Settings.BlackMageTriplecast && ActionManager.LastSpell.Name == MySpells.FireIII.Name)
                     {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                        if (await MySpells.Triplecast.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Triplecast.Name));
+                        }
+                    }
+                    if (Shinra.Settings.BlackMageSwiftcast && !Core.Player.HasAura(MySpells.Triplecast.Name))
+                    {
+                        if (await MySpells.Role.Swiftcast.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                        }
                     }
                 }
                 return await MySpells.FireIV.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Foul()
+        {
+            if (UmbralIce)
+            {
+                return await MySpells.Foul.Cast();
             }
             return false;
         }
@@ -142,6 +161,16 @@ namespace ShinraCo.Rotations
         {
             if (AstralFire || Core.Player.ClassLevel < 34 && Core.Player.CurrentManaPercent > 80)
             {
+                if (ActionManager.CanCast(MySpells.FireII.Name, Core.Player.CurrentTarget))
+                {
+                    if (Shinra.Settings.BlackMageTriplecast && ActionManager.LastSpell.Name == MySpells.FireIII.Name)
+                    {
+                        if (await MySpells.Triplecast.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Triplecast.Name));
+                        }
+                    }
+                }
                 return await MySpells.FireII.Cast();
             }
             return false;
@@ -173,7 +202,8 @@ namespace ShinraCo.Rotations
                         await Coroutine.Wait(3000, () => ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget));
                     }
                 }
-                if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget))
+                if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget) &&
+                    !Core.Player.HasAura(MySpells.Triplecast.Name))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {

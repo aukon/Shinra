@@ -185,6 +185,7 @@ namespace ShinraCo.Settings.Forms
             BlackMageLeyLines.Checked = Shinra.Settings.BlackMageLeyLines;
             BlackMageSharpcast.Checked = Shinra.Settings.BlackMageSharpcast;
             BlackMageEnochian.Checked = Shinra.Settings.BlackMageEnochian;
+            BlackMageTriplecast.Checked = Shinra.Settings.BlackMageTriplecast;
 
             #endregion
 
@@ -1032,6 +1033,11 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageEnochian_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageEnochian = BlackMageEnochian.Checked;
+        }
+
+        private void BlackMageTriplecast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageTriplecast = BlackMageTriplecast.Checked;
         }
 
         #endregion

@@ -228,5 +228,45 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
+
+        public Spell BetweenTheLines { get; } = new Spell
+        {
+            Name = "Between The Lines",
+            ID = 7419,
+            Level = 62,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell ThunderIV { get; } = new Spell
+        {
+            Name = "Thunder IV",
+            ID = 7420,
+            Level = 64,
+            GCDType = GCDType.On,
+            SpellType = SpellType.DoT,
+            CastType = CastType.Target
+        };
+
+        public Spell Triplecast { get; } = new Spell
+        {
+            Name = "Triplecast",
+            ID = 7421,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Foul { get; } = new Spell
+        {
+            Name = "Foul",
+            ID = 7422,
+            Level = 70,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
     }
 }
