@@ -9,43 +9,38 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Smart &&
+                Helpers.EnemiesNearTarget(5) > 2)
             {
-                if (await Drain()) return true;
-                if (await ThunderII()) return true; 
-                if (await ThunderIII()) return true;
-                if (await Thunder()) return true;
-                if (await FireIII()) return true;
-                if (await Flare()) return true;
-                if (await FireII()) return true;
-                if (await Fire()) return true;
-                if (await Scathe()) return true;
-                if (await BlizzardIII()) return true;
-                return await Blizzard();
+                return await Multi();
             }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (await Drain()) return true;
-                if (await ThunderIII()) return true;
-                if (await Thunder()) return true;
-                if (await FireIII()) return true;
-                if (await Fire()) return true;
-                if (await Scathe()) return true;
-                if (await BlizzardIII()) return true;
-                return await Blizzard();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await Drain()) return true;
-                if (await ThunderII()) return true;
-                if (await FireIII()) return true;
-                if (await Flare()) return true;
-                if (await FireII()) return true;
-                if (await Scathe()) return true;
-                if (await BlizzardIII()) return true;
-                return await Blizzard();
-            }
-            return false;
+            return await Single();
+        }
+
+        private async Task<bool> Single()
+        {
+            if (await Transpose()) return true;
+            if (await Sharpcast()) return true;
+            if (await Drain()) return true;
+            if (await ThunderIII()) return true;
+            if (await Thunder()) return true;
+            if (await BlizzardIV()) return true;
+            if (await FireIV()) return true;
+            if (await FireIII()) return true;
+            if (await Fire()) return true;
+            if (await BlizzardIII()) return true;
+            if (await Blizzard()) return true;
+            return await Scathe();
+        }
+
+        private async Task<bool> Multi()
+        {
+            if (await FireIIIMulti()) return true;
+            if (await Flare()) return true;
+            if (await FireII()) return true;
+            if (await TransposeMulti()) return true;
+            if (await FireMulti()) return true;
+            return await BlizzardMulti();
         }
 
         #endregion
@@ -56,7 +51,9 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await Transpose()) return true;
+            if (await Convert()) return true;
+            if (await Enochian()) return true;
+            if (await LeyLines()) return true;
             return await LucidDreaming();
         }
 

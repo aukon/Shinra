@@ -224,14 +224,17 @@ namespace ShinraCo.Spells
                 {
                     case SpellRangeCheck.ErrorNotInLineOfSight:
                         await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                        //Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - LineOfSight >>> {Name}");
                         return false;
                     case SpellRangeCheck.ErrorNotInRange:
                         await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                        //Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - Range >>> {Name}");
                         return false;
                     case SpellRangeCheck.ErrorNotInFront:
                         if (!target.InLineOfSight())
                         {
                             await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                            //Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - Facing >>> {Name}");
                             return false;
                         }
                         target.Face();

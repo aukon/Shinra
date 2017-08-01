@@ -27,8 +27,7 @@ namespace ShinraCo
 
         public static bool TargetDistance(this LocalPlayer cp, float range, bool useMinRange = true)
         {
-            return useMinRange
-                ? cp.HasTarget && cp.Distance2D(cp.CurrentTarget) - cp.CombatReach - cp.CurrentTarget.CombatReach >= range
+            return useMinRange ? cp.HasTarget && cp.Distance2D(cp.CurrentTarget) - cp.CombatReach - cp.CurrentTarget.CombatReach >= range
                 : cp.HasTarget && cp.Distance2D(cp.CurrentTarget) - cp.CombatReach - cp.CurrentTarget.CombatReach <= range;
         }
 
@@ -44,8 +43,7 @@ namespace ShinraCo
 
         public static int EnemiesNearTarget(float radius)
         {
-            return Core.Player.CurrentTarget == null
-                ? 0
+            return Core.Player.CurrentTarget == null ? 0
                 : EnemyUnit.Count(eu => eu.Distance2D(Core.Player.CurrentTarget) - eu.CombatReach - Core.Player.CurrentTarget.CombatReach <=
                                         radius);
         }

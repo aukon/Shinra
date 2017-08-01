@@ -179,6 +179,15 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Buff
+
+            BlackMageConvert.Checked = Shinra.Settings.BlackMageConvert;
+            BlackMageLeyLines.Checked = Shinra.Settings.BlackMageLeyLines;
+            BlackMageSharpcast.Checked = Shinra.Settings.BlackMageSharpcast;
+            BlackMageEnochian.Checked = Shinra.Settings.BlackMageEnochian;
+
+            #endregion
+
             #endregion
 
             #region Dark Knight
@@ -999,6 +1008,30 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageLucidDreamingPct = Convert.ToInt32(BlackMageLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void BlackMageConvert_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageConvert = BlackMageConvert.Checked;
+        }
+
+        private void BlackMageLeyLines_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageLeyLines = BlackMageLeyLines.Checked;
+        }
+
+        private void BlackMageSharpcast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageSharpcast = BlackMageSharpcast.Checked;
+        }
+
+        private void BlackMageEnochian_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageEnochian = BlackMageEnochian.Checked;
         }
 
         #endregion

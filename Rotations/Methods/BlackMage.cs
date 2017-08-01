@@ -1,9 +1,9 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
-using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.BlackMage;
@@ -18,7 +18,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Blizzard()
         {
-            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name))
+            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) && !UmbralIce)
             {
                 return await MySpells.Blizzard.Cast();
             }
@@ -27,39 +27,62 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BlizzardIII()
         {
-            return await MySpells.BlizzardIII.Cast();
+            if (!UmbralIce)
+            {
+                return await MySpells.BlizzardIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BlizzardIV()
+        {
+            if (UmbralIce && Resource.UmbralHearts < 3)
+            {
+                return await MySpells.BlizzardIV.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> Fire()
         {
-            if (AstralFire && Core.Player.CurrentManaPercent > 20 || Core.Player.CurrentManaPercent > 80)
+            if (Core.Player.CurrentManaPercent > 10)
             {
-                return await MySpells.Fire.Cast();
+                if (AstralFire || Core.Player.ClassLevel < 34 && Core.Player.CurrentManaPercent > 80)
+                {
+                    return await MySpells.Fire.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> FireIII()
         {
-            if (AstralFire && Core.Player.HasAura(165) || !AstralFire &&
-                (Core.Player.CurrentManaPercent > 80 || Shinra.LastSpell.Name == ThunderIIDebuff))
+            if (!AstralFire && Core.Player.CurrentManaPercent > 80 || AstralFire && Core.Player.HasAura("Firestarter"))
             {
-                if (Shinra.Settings.BlackMageSwiftcast && !UmbralIce && !Core.Player.HasAura(165) &&
-                    ActionManager.CanCast(MySpells.FireIII.Name, Core.Player.CurrentTarget))
+                return await MySpells.FireIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FireIV()
+        {
+            if (Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.FireIV.Name, Core.Player.CurrentTarget))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
                         await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
                     }
                 }
-                return await MySpells.FireIII.Cast();
+                return await MySpells.FireIV.Cast();
             }
             return false;
         }
 
         private async Task<bool> Scathe()
         {
-            if (UmbralIce || MovementManager.IsMoving && Core.Player.CurrentManaPercent > 20)
+            if (MovementManager.IsMoving && Core.Player.CurrentManaPercent > 20)
             {
                 return await MySpells.Scathe.Cast();
             }
@@ -74,9 +97,8 @@ namespace ShinraCo.Rotations
         {
             if (!ActionManager.HasSpell(MySpells.ThunderIII.Name))
             {
-                if (!RecentThunder && UmbralIce && Core.Player.CurrentManaPercent < 80 &&
-                    !Core.Player.CurrentTarget.HasAura(MySpells.Thunder.Name, true, 6000) &&
-                    !Core.Player.CurrentTarget.HasAura(ThunderIIDebuff, true) || Thundercloud)
+                if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.Thunder.Name, true, 6000) ||
+                    Core.Player.HasAura("Thundercloud"))
                 {
                     return await MySpells.Thunder.Cast();
                 }
@@ -86,9 +108,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ThunderIII()
         {
-            if (!RecentThunder && UmbralIce && Core.Player.CurrentManaPercent < 80 &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ThunderIII.Name, true, 8000) &&
-                !Core.Player.CurrentTarget.HasAura(ThunderIIDebuff, true) || Thundercloud)
+            if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.ThunderIII.Name, true, 8000) ||
+                !Resource.Enochian && Core.Player.HasAura("Thundercloud"))
             {
                 return await MySpells.ThunderIII.Cast();
             }
@@ -99,23 +120,42 @@ namespace ShinraCo.Rotations
 
         #region AoE
 
+        private async Task<bool> BlizzardMulti()
+        {
+            if (!AstralFire && !UmbralIce || !ActionManager.HasSpell(MySpells.Flare.Name))
+            {
+                return await MySpells.Blizzard.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FireMulti()
+        {
+            if (Core.Player.ClassLevel < 18 && (AstralFire || Core.Player.CurrentManaPercent > 80))
+            {
+                return await MySpells.Fire.Cast();
+            }
+            return false;
+        }
+
         private async Task<bool> FireII()
         {
-            if (AstralFire || Core.Player.CurrentManaPercent > 80)
+            if (AstralFire || Core.Player.ClassLevel < 34 && Core.Player.CurrentManaPercent > 80)
             {
                 return await MySpells.FireII.Cast();
             }
             return false;
         }
 
-        private async Task<bool> ThunderII()
+        private async Task<bool> FireIIIMulti()
         {
-            if (UmbralIce && Core.Player.CurrentManaPercent < 80 &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ThunderII.Name, true, 4000) || Thundercloud)
+            if (!AstralFire && Core.Player.CurrentManaPercent > 25 &&
+                (ActionManager.HasSpell(MySpells.Flare.Name) || Core.Player.CurrentManaPercent > 80))
             {
-                if (Helpers.EnemiesNearTarget(5) > 2)
+                Spell.RecentSpell.RemoveAll(t => DateTime.UtcNow > t);
+                if (!RecentTranspose)
                 {
-                    return await MySpells.ThunderII.Cast();
+                    return await MySpells.FireIII.Cast();
                 }
             }
             return false;
@@ -123,9 +163,37 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Flare()
         {
-            if (AstralFire && Core.Player.CurrentManaPercent < 20)
+            if (AstralFire && Core.Player.CurrentManaPercent < 25)
             {
+                if (Shinra.Settings.BlackMageConvert && ActionManager.HasSpell(MySpells.Flare.Name) &&
+                    !ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.Convert.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget));
+                    }
+                }
+                if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.Role.Swiftcast.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                    }
+                }
                 return await MySpells.Flare.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> TransposeMulti()
+        {
+            if (AstralFire && Core.Player.CurrentManaPercent < 20 && !ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget))
+            {
+                if (await MySpells.Transpose.Cast(null, false))
+                {
+                    Spell.RecentSpell.Add(MySpells.Transpose.Name, DateTime.UtcNow + TimeSpan.FromSeconds(4));
+                    return true;
+                }
             }
             return false;
         }
@@ -136,10 +204,50 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Transpose()
         {
-            if (AstralFire && Core.Player.CurrentManaPercent <= 20 &&
+            if (AstralFire && Core.Player.CurrentManaPercent < 20 &&
                 (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) || Core.Player.CurrentMana < BlizzardIIICost))
             {
                 return await MySpells.Transpose.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Convert()
+        {
+            if (Shinra.Settings.BlackMageConvert && AstralFire && ActionManager.LastSpell.Name == MySpells.FireIII.Name)
+            {
+                return await MySpells.Convert.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> LeyLines()
+        {
+            if (Shinra.Settings.BlackMageLeyLines)
+            {
+                if (Core.Player.CurrentManaPercent > 80 || ActionManager.LastSpell.Name == MySpells.FireII.Name)
+                {
+                    return await MySpells.LeyLines.Cast(null, false);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Sharpcast()
+        {
+            if (Shinra.Settings.BlackMageSharpcast && AstralFire && Core.Player.CurrentManaPercent > 60)
+            {
+                return await MySpells.Sharpcast.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Enochian()
+        {
+            if (Shinra.Settings.BlackMageEnochian && Core.Player.ClassLevel >= 60 && !Resource.Enochian &&
+                Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                return await MySpells.Enochian.Cast(null, false);
             }
             return false;
         }
@@ -170,14 +278,12 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static string ThunderDebuff => Core.Player.ClassLevel > 44 ? "Thunder III" : "Thunder";
-        private static string ThunderIIDebuff => Core.Player.ClassLevel > 63 ? "Thunder IV" : "Thunder II";
         private static double ManaReduction => Resource.AstralStacks > 1 ? 0.25 : Resource.AstralStacks > 0 ? 0.5 : 1;
         private static double BlizzardIIICost => DataManager.GetSpellData("Blizzard III").Cost * ManaReduction;
-        private static bool RecentThunder { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Thunder")); } }
+
+        private static bool RecentTranspose { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Transpose")); } }
         private static bool AstralFire => Resource.AstralStacks > 0 && Shinra.LastSpell.Name != "Transpose";
         private static bool UmbralIce => Resource.UmbralStacks > 0;
-        private static bool Thundercloud => Core.Player.HasAura(164);
 
         #endregion
     }

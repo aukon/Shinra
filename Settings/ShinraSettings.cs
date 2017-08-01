@@ -309,6 +309,22 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageConvert { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageLeyLines { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageSharpcast { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageEnochian { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Dark Knight

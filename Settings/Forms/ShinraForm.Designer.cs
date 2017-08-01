@@ -440,6 +440,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BlackMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMageConvert = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BlackMageLeyLines = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BlackMageSharpcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BlackMageEnochian = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -527,6 +532,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.BlackMageBuffGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -897,6 +903,7 @@
             // pgeBlackMage
             // 
             this.pgeBlackMage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeBlackMage.Controls.Add(this.BlackMageBuffGroup);
             this.pgeBlackMage.Controls.Add(this.BlackMageRoleGroup);
             this.pgeBlackMage.Location = new System.Drawing.Point(104, 4);
             this.pgeBlackMage.Name = "pgeBlackMage";
@@ -6343,6 +6350,80 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // BlackMageBuffGroup
+            // 
+            this.BlackMageBuffGroup.Controls.Add(this.BlackMageEnochian);
+            this.BlackMageBuffGroup.Controls.Add(this.BlackMageSharpcast);
+            this.BlackMageBuffGroup.Controls.Add(this.BlackMageLeyLines);
+            this.BlackMageBuffGroup.Controls.Add(this.BlackMageConvert);
+            this.BlackMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageBuffGroup.Location = new System.Drawing.Point(229, 6);
+            this.BlackMageBuffGroup.Name = "BlackMageBuffGroup";
+            this.BlackMageBuffGroup.Size = new System.Drawing.Size(85, 112);
+            this.BlackMageBuffGroup.TabIndex = 1;
+            this.BlackMageBuffGroup.TabStop = false;
+            this.BlackMageBuffGroup.Text = "Buff";
+            // 
+            // BlackMageConvert
+            // 
+            this.BlackMageConvert.AutoSize = true;
+            this.BlackMageConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageConvert.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageConvert.ForeColor = System.Drawing.Color.White;
+            this.BlackMageConvert.Location = new System.Drawing.Point(6, 16);
+            this.BlackMageConvert.Name = "BlackMageConvert";
+            this.BlackMageConvert.Size = new System.Drawing.Size(63, 17);
+            this.BlackMageConvert.TabIndex = 0;
+            this.BlackMageConvert.TabStop = false;
+            this.BlackMageConvert.Text = "Convert";
+            this.BlackMageConvert.UseVisualStyleBackColor = true;
+            this.BlackMageConvert.CheckedChanged += new System.EventHandler(this.BlackMageConvert_CheckedChanged);
+            // 
+            // BlackMageLeyLines
+            // 
+            this.BlackMageLeyLines.AutoSize = true;
+            this.BlackMageLeyLines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageLeyLines.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageLeyLines.ForeColor = System.Drawing.Color.White;
+            this.BlackMageLeyLines.Location = new System.Drawing.Point(6, 39);
+            this.BlackMageLeyLines.Name = "BlackMageLeyLines";
+            this.BlackMageLeyLines.Size = new System.Drawing.Size(68, 17);
+            this.BlackMageLeyLines.TabIndex = 1;
+            this.BlackMageLeyLines.TabStop = false;
+            this.BlackMageLeyLines.Text = "Ley Lines";
+            this.BlackMageLeyLines.UseVisualStyleBackColor = true;
+            this.BlackMageLeyLines.CheckedChanged += new System.EventHandler(this.BlackMageLeyLines_CheckedChanged);
+            // 
+            // BlackMageSharpcast
+            // 
+            this.BlackMageSharpcast.AutoSize = true;
+            this.BlackMageSharpcast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageSharpcast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageSharpcast.ForeColor = System.Drawing.Color.White;
+            this.BlackMageSharpcast.Location = new System.Drawing.Point(6, 62);
+            this.BlackMageSharpcast.Name = "BlackMageSharpcast";
+            this.BlackMageSharpcast.Size = new System.Drawing.Size(73, 17);
+            this.BlackMageSharpcast.TabIndex = 2;
+            this.BlackMageSharpcast.TabStop = false;
+            this.BlackMageSharpcast.Text = "Sharpcast";
+            this.BlackMageSharpcast.UseVisualStyleBackColor = true;
+            this.BlackMageSharpcast.CheckedChanged += new System.EventHandler(this.BlackMageSharpcast_CheckedChanged);
+            // 
+            // BlackMageEnochian
+            // 
+            this.BlackMageEnochian.AutoSize = true;
+            this.BlackMageEnochian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageEnochian.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageEnochian.ForeColor = System.Drawing.Color.White;
+            this.BlackMageEnochian.Location = new System.Drawing.Point(6, 85);
+            this.BlackMageEnochian.Name = "BlackMageEnochian";
+            this.BlackMageEnochian.Size = new System.Drawing.Size(71, 17);
+            this.BlackMageEnochian.TabIndex = 3;
+            this.BlackMageEnochian.TabStop = false;
+            this.BlackMageEnochian.Text = "Enochian";
+            this.BlackMageEnochian.UseVisualStyleBackColor = true;
+            this.BlackMageEnochian.CheckedChanged += new System.EventHandler(this.BlackMageEnochian_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6499,6 +6580,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.BlackMageBuffGroup.ResumeLayout(false);
+            this.BlackMageBuffGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -6917,5 +7000,10 @@
         private Design.CustomCheck BlackMageDrain;
         private Design.CustomCheckDisabled BlackMageBreak;
         private Design.CustomCheckDisabled BlackMageAddle;
+        private Design.CustomGroup BlackMageBuffGroup;
+        private Design.CustomCheck BlackMageEnochian;
+        private Design.CustomCheck BlackMageSharpcast;
+        private Design.CustomCheck BlackMageLeyLines;
+        private Design.CustomCheck BlackMageConvert;
     }
 }

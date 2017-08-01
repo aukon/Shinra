@@ -62,7 +62,7 @@ namespace ShinraCo.Spells.Main
             ID = 146,
             Level = 12,
             GCDType = GCDType.On,
-            SpellType = SpellType.AoE,
+            SpellType = SpellType.Damage,
             CastType = CastType.Self
         };
 
@@ -82,7 +82,7 @@ namespace ShinraCo.Spells.Main
             ID = 147,
             Level = 18,
             GCDType = GCDType.On,
-            SpellType = SpellType.AoE,
+            SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
 
@@ -175,7 +175,57 @@ namespace ShinraCo.Spells.Main
             ID = 162,
             Level = 50,
             GCDType = GCDType.On,
-            SpellType = SpellType.AoE,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell LeyLines { get; } = new Spell
+        {
+            Name = "Ley Lines",
+            ID = 3573,
+            Level = 52,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Sharpcast { get; } = new Spell
+        {
+            Name = "Sharpcast",
+            ID = 3574,
+            Level = 54,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Enochian { get; } = new Spell
+        {
+            Name = "Enochian",
+            ID = 3575,
+            Level = 56,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell BlizzardIV { get; } = new Spell
+        {
+            Name = "Blizzard IV",
+            ID = 3576,
+            Level = 58,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell FireIV { get; } = new Spell
+        {
+            Name = "Fire IV",
+            ID = 3577,
+            Level = 60,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
     }
