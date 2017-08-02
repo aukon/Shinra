@@ -86,6 +86,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
+        public Spell Resurrection { get; } = new Spell
+        {
+            Name = "Resurrection",
+            ID = 173,
+            Level = 18,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Heal,
+            CastType = CastType.Target
+        };
+
         public Spell BioII { get; } = new Spell
         {
             Name = "Bio II",

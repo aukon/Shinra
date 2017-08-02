@@ -53,6 +53,13 @@ namespace ShinraCo.Settings
         Sword
     }
 
+    public enum ScholarPets
+    {
+        None,
+        Eos,
+        Selene
+    }
+
     public enum SummonerPets
     {
         None,
@@ -81,6 +88,9 @@ namespace ShinraCo.Settings
         [Setting]
         public Point WindowLocation { get; set; }
 
+        [Setting]
+        public Point OverlayLocation { get; set; }
+
         #endregion
 
         #region Main Settings
@@ -89,6 +99,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool RotationOverlay { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool RotationMessages { get; set; }
 
         [Setting, DefaultValue(Modes.Smart)]
         public Modes RotationMode { get; set; }
@@ -817,6 +830,118 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool SamuraiHagakure { get; set; }
+
+        #endregion
+
+        #endregion
+
+        #region Scholar
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarClericStance { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarProtect { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarEsuna { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarLucidDreaming { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarSwiftcast { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int ScholarLucidDreamingPct { get; set; }
+
+        #endregion
+
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarBane { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarShadowFlare { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarChainStrategem { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarRouse { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarEmergencyTactics { get; set; }
+
+        #endregion
+
+        #region Heal
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarPartyHeal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarPhysick { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarAdloquium { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarAetherpact { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarLustrate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarExcogitation { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarSuccor { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarIndomitability { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarResurrection { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int ScholarPhysickPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int ScholarAdloquiumPct { get; set; }
+
+        [Setting, DefaultValue(30)]
+        public int ScholarAetherpactPct { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int ScholarLustratePct { get; set; }
+
+        [Setting, DefaultValue(90)]
+        public int ScholarExcogitationPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int ScholarSuccorPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int ScholarIndomitabilityPct { get; set; }
+
+        #endregion
+
+        #region Pet
+
+        [Setting, DefaultValue(ScholarPets.Eos)]
+        public ScholarPets ScholarPet { get; set; }
 
         #endregion
 

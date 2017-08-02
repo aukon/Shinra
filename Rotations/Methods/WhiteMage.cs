@@ -326,7 +326,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.WhiteMageEsuna)
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.HasDispellable());
+                var target = Shinra.Settings.WhiteMagePartyHeal ? Helpers.HealManager.FirstOrDefault(hm => hm.HasDispellable())
+                    : Core.Player.HasDispellable() ? Core.Player : null;
 
                 if (target != null)
                 {

@@ -101,7 +101,6 @@ namespace ShinraCo.Spells
                 switch (Core.Player.CurrentJob)
                 {
                     case ClassJobType.Arcanist:
-                    case ClassJobType.Scholar:
                     case ClassJobType.Summoner:
                         if (enemyCount < 2)
                         {

@@ -50,6 +50,8 @@ namespace ShinraCo.Settings.Forms
             #region Rotation
 
             RotationOverlay.Checked = Shinra.Settings.RotationOverlay;
+            RotationMessages.Checked = Shinra.Settings.RotationMessages;
+
             RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
             TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
 
@@ -489,6 +491,70 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Scholar
+
+            #region Role
+
+            ScholarClericStance.Checked = Shinra.Settings.ScholarClericStance;
+            ScholarProtect.Checked = Shinra.Settings.ScholarProtect;
+            ScholarEsuna.Checked = Shinra.Settings.ScholarEsuna;
+            ScholarLucidDreaming.Checked = Shinra.Settings.ScholarLucidDreaming;
+            ScholarSwiftcast.Checked = Shinra.Settings.ScholarSwiftcast;
+
+            ScholarLucidDreamingPct.Value = Shinra.Settings.ScholarLucidDreamingPct;
+
+            #endregion
+
+            #region AoE
+
+            ScholarBane.Checked = Shinra.Settings.ScholarBane;
+
+            #endregion
+
+            #region Cooldown
+
+            ScholarShadowFlare.Checked = Shinra.Settings.ScholarShadowFlare;
+            ScholarChainStrategem.Checked = Shinra.Settings.ScholarChainStrategem;
+
+            #endregion
+
+            #region Buff
+
+            ScholarRouse.Checked = Shinra.Settings.ScholarRouse;
+            ScholarEmergencyTactics.Checked = Shinra.Settings.ScholarEmergencyTactics;
+
+            #endregion
+
+            #region Heal
+
+            ScholarPartyHeal.Checked = Shinra.Settings.ScholarPartyHeal;
+            ScholarPhysick.Checked = Shinra.Settings.ScholarPhysick;
+            ScholarAdloquium.Checked = Shinra.Settings.ScholarAdloquium;
+            ScholarAetherpact.Checked = Shinra.Settings.ScholarAetherpact;
+            ScholarLustrate.Checked = Shinra.Settings.ScholarLustrate;
+            ScholarExcogitation.Checked = Shinra.Settings.ScholarExcogitation;
+            ScholarSuccor.Checked = Shinra.Settings.ScholarSuccor;
+            ScholarIndomitability.Checked = Shinra.Settings.ScholarIndomitability;
+            ScholarResurrection.Checked = Shinra.Settings.ScholarResurrection;
+
+            ScholarPhysickPct.Value = Shinra.Settings.ScholarPhysickPct;
+            ScholarAdloquiumPct.Value = Shinra.Settings.ScholarAdloquiumPct;
+            ScholarAetherpactPct.Value = Shinra.Settings.ScholarAetherpactPct;
+            ScholarLustratePct.Value = Shinra.Settings.ScholarLustratePct;
+            ScholarExcogitationPct.Value = Shinra.Settings.ScholarExcogitationPct;
+            ScholarSuccorPct.Value = Shinra.Settings.ScholarSuccorPct;
+            ScholarIndomitabilityPct.Value = Shinra.Settings.ScholarIndomitabilityPct;
+
+            #endregion
+
+            #region Pet
+
+            ScholarPet.Text = Convert.ToString(Shinra.Settings.ScholarPet);
+
+            #endregion
+
+            #endregion
+
             #region Summoner
 
             #region Role
@@ -688,6 +754,12 @@ namespace ShinraCo.Settings.Forms
         private void RotationOverlay_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RotationOverlay = RotationOverlay.Checked;
+            Shinra.Overlay.Visible = RotationOverlay.Checked;
+        }
+
+        private void RotationMessages_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RotationMessages = RotationMessages.Checked;
         }
 
         private void RotationMode_SelectedValueChanged(object sender, EventArgs e)
@@ -695,6 +767,7 @@ namespace ShinraCo.Settings.Forms
             if (RotationMode.Text == @"Smart") Shinra.Settings.RotationMode = Modes.Smart;
             if (RotationMode.Text == @"Single") Shinra.Settings.RotationMode = Modes.Single;
             if (RotationMode.Text == @"Multi") Shinra.Settings.RotationMode = Modes.Multi;
+            Shinra.Overlay.UpdateText();
         }
 
         private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
@@ -706,6 +779,7 @@ namespace ShinraCo.Settings.Forms
         {
             if (TankMode.Text == @"DPS") Shinra.Settings.TankMode = TankModes.DPS;
             if (TankMode.Text == @"Enmity") Shinra.Settings.TankMode = TankModes.Enmity;
+            Shinra.Overlay.UpdateText();
         }
 
         private void TankHotkey_KeyDown(object sender, KeyEventArgs e)
@@ -1773,6 +1847,176 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Scholar
+
+        #region Role
+
+        private void ScholarClericStance_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarClericStance = ScholarClericStance.Checked;
+        }
+
+        private void ScholarProtect_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarProtect = ScholarProtect.Checked;
+        }
+
+        private void ScholarEsuna_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarEsuna = ScholarEsuna.Checked;
+        }
+
+        private void ScholarLucidDreaming_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLucidDreaming = ScholarLucidDreaming.Checked;
+        }
+
+        private void ScholarSwiftcast_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarSwiftcast = ScholarSwiftcast.Checked;
+        }
+
+        private void ScholarLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLucidDreamingPct = Convert.ToInt32(ScholarLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region AoE
+
+        private void ScholarBane_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarBane = ScholarBane.Checked;
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void ScholarShadowFlare_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarShadowFlare = ScholarShadowFlare.Checked;
+        }
+
+        private void ScholarChainStrategem_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarChainStrategem = ScholarChainStrategem.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void ScholarRouse_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarRouse = ScholarRouse.Checked;
+        }
+
+        private void ScholarEmergencyTactics_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarEmergencyTactics = ScholarEmergencyTactics.Checked;
+        }
+
+        #endregion
+
+        #region Heal
+
+        private void ScholarPartyHeal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarPartyHeal = ScholarPartyHeal.Checked;
+        }
+
+        private void ScholarPhysick_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarPhysick = ScholarPhysick.Checked;
+        }
+
+        private void ScholarAdloquium_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarAdloquium = ScholarAdloquium.Checked;
+        }
+
+        private void ScholarAetherpact_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarAetherpact = ScholarAetherpact.Checked;
+        }
+
+        private void ScholarLustrate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLustrate = ScholarLustrate.Checked;
+        }
+
+        private void ScholarExcogitation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarExcogitation = ScholarExcogitation.Checked;
+        }
+
+        private void ScholarSuccor_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarSuccor = ScholarSuccor.Checked;
+        }
+
+        private void ScholarIndomitability_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarIndomitability = ScholarIndomitability.Checked;
+        }
+
+        private void ScholarResurrection_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarResurrection = ScholarResurrection.Checked;
+        }
+
+        private void ScholarPhysickPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarPhysickPct = Convert.ToInt32(ScholarPhysickPct.Value);
+        }
+
+        private void ScholarAdloquiumPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarAdloquiumPct = Convert.ToInt32(ScholarAdloquiumPct.Value);
+        }
+
+        private void ScholarAetherpactPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarAetherpactPct = Convert.ToInt32(ScholarAetherpactPct.Value);
+        }
+
+        private void ScholarLustratePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLustratePct = Convert.ToInt32(ScholarLustratePct.Value);
+        }
+
+        private void ScholarExcogitationPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarExcogitationPct = Convert.ToInt32(ScholarExcogitationPct.Value);
+        }
+
+        private void ScholarSuccorPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarSuccorPct = Convert.ToInt32(ScholarSuccorPct.Value);
+        }
+
+        private void ScholarIndomitabilityPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarIndomitabilityPct = Convert.ToInt32(ScholarIndomitabilityPct.Value);
+        }
+
+        #endregion
+
+        #region Pet
+
+        private void ScholarPet_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (ScholarPet.Text == @"None") Shinra.Settings.ScholarPet = ScholarPets.None;
+            if (ScholarPet.Text == @"Eos") Shinra.Settings.ScholarPet = ScholarPets.Eos;
+            if (ScholarPet.Text == @"Selene") Shinra.Settings.ScholarPet = ScholarPets.Selene;
+        }
+
+        #endregion
+
+        #endregion
+
         #region Summoner
 
         #region Role
@@ -2234,6 +2478,7 @@ namespace ShinraCo.Settings.Forms
         {
             Shinra.Settings.WhiteMagePlenaryPct = Convert.ToInt32(WhiteMagePlenaryPct.Value);
         }
+
 
         #endregion
 

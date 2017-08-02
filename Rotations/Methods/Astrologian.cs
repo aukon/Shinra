@@ -402,7 +402,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianEsuna)
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.HasDispellable());
+                var target = Shinra.Settings.AstrologianPartyHeal ? Helpers.HealManager.FirstOrDefault(hm => hm.HasDispellable())
+                    : Core.Player.HasDispellable() ? Core.Player : null;
 
                 if (target != null)
                 {

@@ -36,6 +36,7 @@
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.RotationGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RotationOverlay = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.RotationMessages = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.TankHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.TankMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.RotationHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
@@ -57,6 +58,7 @@
             this.tabCasters = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBlackMage = new System.Windows.Forms.TabPage();
             this.BlackMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMageTriplecast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageEnochian = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageSharpcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageLeyLines = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -165,7 +167,45 @@
             this.AstrologianProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeScholar = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
+            this.ScholarBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarEmergencyTactics = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarChainStrategem = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarShadowFlare = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarPetGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarPet = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.ScholarAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarBane = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarIndomitabilityPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarSuccorPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarExcogitationPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarLustratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarAetherpactPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarAdloquiumPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarPhysickPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarAetherpact = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarResurrection = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarIndomitability = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarSuccor = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarExcogitation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarLustrate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarAdloquium = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarPhysick = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarPartyHeal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.ScholarSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.ScholarLargesse = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.ScholarEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.ScholarSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeWhiteMage = new System.Windows.Forms.TabPage();
             this.WhiteMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.WhiteMagePresenceOfMind = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -445,7 +485,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BlackMageTriplecast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -479,6 +518,12 @@
             this.AstrologianHealGroup.SuspendLayout();
             this.AstrologianRoleGroup.SuspendLayout();
             this.pgeScholar.SuspendLayout();
+            this.ScholarBuffGroup.SuspendLayout();
+            this.ScholarCooldownGroup.SuspendLayout();
+            this.ScholarPetGroup.SuspendLayout();
+            this.ScholarAoEGroup.SuspendLayout();
+            this.ScholarHealGroup.SuspendLayout();
+            this.ScholarRoleGroup.SuspendLayout();
             this.pgeWhiteMage.SuspendLayout();
             this.WhiteMageBuffGroup.SuspendLayout();
             this.WhiteMageHealGroup.SuspendLayout();
@@ -618,6 +663,7 @@
             // RotationGroup
             // 
             this.RotationGroup.Controls.Add(this.RotationOverlay);
+            this.RotationGroup.Controls.Add(this.RotationMessages);
             this.RotationGroup.Controls.Add(this.TankHotkey);
             this.RotationGroup.Controls.Add(this.TankMode);
             this.RotationGroup.Controls.Add(this.RotationHotkey);
@@ -629,7 +675,7 @@
             this.RotationGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RotationGroup.Location = new System.Drawing.Point(13, 6);
             this.RotationGroup.Name = "RotationGroup";
-            this.RotationGroup.Size = new System.Drawing.Size(216, 144);
+            this.RotationGroup.Size = new System.Drawing.Size(216, 167);
             this.RotationGroup.TabIndex = 2;
             this.RotationGroup.TabStop = false;
             this.RotationGroup.Text = "Rotation";
@@ -642,12 +688,27 @@
             this.RotationOverlay.ForeColor = System.Drawing.Color.White;
             this.RotationOverlay.Location = new System.Drawing.Point(6, 16);
             this.RotationOverlay.Name = "RotationOverlay";
-            this.RotationOverlay.Size = new System.Drawing.Size(146, 17);
-            this.RotationOverlay.TabIndex = 6;
+            this.RotationOverlay.Size = new System.Drawing.Size(93, 17);
+            this.RotationOverlay.TabIndex = 11;
             this.RotationOverlay.TabStop = false;
-            this.RotationOverlay.Text = "Show Overlay Messages";
+            this.RotationOverlay.Text = "Show Overlay";
             this.RotationOverlay.UseVisualStyleBackColor = true;
             this.RotationOverlay.CheckedChanged += new System.EventHandler(this.RotationOverlay_CheckedChanged);
+            // 
+            // RotationMessages
+            // 
+            this.RotationMessages.AutoSize = true;
+            this.RotationMessages.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotationMessages.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RotationMessages.ForeColor = System.Drawing.Color.White;
+            this.RotationMessages.Location = new System.Drawing.Point(6, 39);
+            this.RotationMessages.Name = "RotationMessages";
+            this.RotationMessages.Size = new System.Drawing.Size(105, 17);
+            this.RotationMessages.TabIndex = 6;
+            this.RotationMessages.TabStop = false;
+            this.RotationMessages.Text = "Show Messages";
+            this.RotationMessages.UseVisualStyleBackColor = true;
+            this.RotationMessages.CheckedChanged += new System.EventHandler(this.RotationMessages_CheckedChanged);
             // 
             // TankHotkey
             // 
@@ -655,7 +716,7 @@
             this.TankHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TankHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TankHotkey.ForeColor = System.Drawing.Color.White;
-            this.TankHotkey.Location = new System.Drawing.Point(120, 117);
+            this.TankHotkey.Location = new System.Drawing.Point(120, 140);
             this.TankHotkey.Name = "TankHotkey";
             this.TankHotkey.ReadOnly = true;
             this.TankHotkey.Size = new System.Drawing.Size(90, 21);
@@ -673,7 +734,7 @@
             this.TankMode.Items.AddRange(new object[] {
             "DPS",
             "Enmity"});
-            this.TankMode.Location = new System.Drawing.Point(6, 117);
+            this.TankMode.Location = new System.Drawing.Point(6, 140);
             this.TankMode.Name = "TankMode";
             this.TankMode.Size = new System.Drawing.Size(108, 21);
             this.TankMode.TabIndex = 7;
@@ -686,7 +747,7 @@
             this.RotationHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RotationHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RotationHotkey.ForeColor = System.Drawing.Color.White;
-            this.RotationHotkey.Location = new System.Drawing.Point(120, 73);
+            this.RotationHotkey.Location = new System.Drawing.Point(120, 96);
             this.RotationHotkey.Name = "RotationHotkey";
             this.RotationHotkey.ReadOnly = true;
             this.RotationHotkey.Size = new System.Drawing.Size(90, 21);
@@ -705,7 +766,7 @@
             "Smart",
             "Single",
             "Multi"});
-            this.RotationMode.Location = new System.Drawing.Point(6, 73);
+            this.RotationMode.Location = new System.Drawing.Point(6, 96);
             this.RotationMode.Name = "RotationMode";
             this.RotationMode.Size = new System.Drawing.Size(108, 21);
             this.RotationMode.TabIndex = 0;
@@ -716,7 +777,7 @@
             // 
             this.TankHotkeyLabel.AutoSize = true;
             this.TankHotkeyLabel.ForeColor = System.Drawing.Color.White;
-            this.TankHotkeyLabel.Location = new System.Drawing.Point(120, 100);
+            this.TankHotkeyLabel.Location = new System.Drawing.Point(120, 123);
             this.TankHotkeyLabel.Name = "TankHotkeyLabel";
             this.TankHotkeyLabel.Size = new System.Drawing.Size(43, 13);
             this.TankHotkeyLabel.TabIndex = 10;
@@ -726,7 +787,7 @@
             // 
             this.TankModeLabel.AutoSize = true;
             this.TankModeLabel.ForeColor = System.Drawing.Color.White;
-            this.TankModeLabel.Location = new System.Drawing.Point(6, 100);
+            this.TankModeLabel.Location = new System.Drawing.Point(6, 123);
             this.TankModeLabel.Name = "TankModeLabel";
             this.TankModeLabel.Size = new System.Drawing.Size(63, 13);
             this.TankModeLabel.TabIndex = 8;
@@ -736,7 +797,7 @@
             // 
             this.RotationKeyLabel.AutoSize = true;
             this.RotationKeyLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationKeyLabel.Location = new System.Drawing.Point(120, 56);
+            this.RotationKeyLabel.Location = new System.Drawing.Point(120, 79);
             this.RotationKeyLabel.Name = "RotationKeyLabel";
             this.RotationKeyLabel.Size = new System.Drawing.Size(43, 13);
             this.RotationKeyLabel.TabIndex = 4;
@@ -746,7 +807,7 @@
             // 
             this.RotationModeLabel.AutoSize = true;
             this.RotationModeLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationModeLabel.Location = new System.Drawing.Point(6, 56);
+            this.RotationModeLabel.Location = new System.Drawing.Point(6, 79);
             this.RotationModeLabel.Name = "RotationModeLabel";
             this.RotationModeLabel.Size = new System.Drawing.Size(85, 13);
             this.RotationModeLabel.TabIndex = 3;
@@ -928,6 +989,21 @@
             this.BlackMageBuffGroup.TabIndex = 1;
             this.BlackMageBuffGroup.TabStop = false;
             this.BlackMageBuffGroup.Text = "Buff";
+            // 
+            // BlackMageTriplecast
+            // 
+            this.BlackMageTriplecast.AutoSize = true;
+            this.BlackMageTriplecast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageTriplecast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageTriplecast.ForeColor = System.Drawing.Color.White;
+            this.BlackMageTriplecast.Location = new System.Drawing.Point(6, 108);
+            this.BlackMageTriplecast.Name = "BlackMageTriplecast";
+            this.BlackMageTriplecast.Size = new System.Drawing.Size(70, 17);
+            this.BlackMageTriplecast.TabIndex = 4;
+            this.BlackMageTriplecast.TabStop = false;
+            this.BlackMageTriplecast.Text = "Triplecast";
+            this.BlackMageTriplecast.UseVisualStyleBackColor = true;
+            this.BlackMageTriplecast.CheckedChanged += new System.EventHandler(this.BlackMageTriplecast_CheckedChanged);
             // 
             // BlackMageEnochian
             // 
@@ -2457,7 +2533,12 @@
             // pgeScholar
             // 
             this.pgeScholar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeScholar.Controls.Add(this.label3);
+            this.pgeScholar.Controls.Add(this.ScholarBuffGroup);
+            this.pgeScholar.Controls.Add(this.ScholarCooldownGroup);
+            this.pgeScholar.Controls.Add(this.ScholarPetGroup);
+            this.pgeScholar.Controls.Add(this.ScholarAoEGroup);
+            this.pgeScholar.Controls.Add(this.ScholarHealGroup);
+            this.pgeScholar.Controls.Add(this.ScholarRoleGroup);
             this.pgeScholar.Location = new System.Drawing.Point(104, 4);
             this.pgeScholar.Name = "pgeScholar";
             this.pgeScholar.Padding = new System.Windows.Forms.Padding(3);
@@ -2466,16 +2547,548 @@
             this.pgeScholar.Text = "Scholar";
             this.pgeScholar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
-            // label3
+            // ScholarBuffGroup
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(13, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 65);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "N/A";
+            this.ScholarBuffGroup.Controls.Add(this.ScholarEmergencyTactics);
+            this.ScholarBuffGroup.Controls.Add(this.ScholarRouse);
+            this.ScholarBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarBuffGroup.Location = new System.Drawing.Point(436, 127);
+            this.ScholarBuffGroup.Name = "ScholarBuffGroup";
+            this.ScholarBuffGroup.Size = new System.Drawing.Size(125, 66);
+            this.ScholarBuffGroup.TabIndex = 5;
+            this.ScholarBuffGroup.TabStop = false;
+            this.ScholarBuffGroup.Text = "Buff";
+            // 
+            // ScholarEmergencyTactics
+            // 
+            this.ScholarEmergencyTactics.AutoSize = true;
+            this.ScholarEmergencyTactics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEmergencyTactics.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEmergencyTactics.ForeColor = System.Drawing.Color.White;
+            this.ScholarEmergencyTactics.Location = new System.Drawing.Point(6, 39);
+            this.ScholarEmergencyTactics.Name = "ScholarEmergencyTactics";
+            this.ScholarEmergencyTactics.Size = new System.Drawing.Size(113, 17);
+            this.ScholarEmergencyTactics.TabIndex = 1;
+            this.ScholarEmergencyTactics.TabStop = false;
+            this.ScholarEmergencyTactics.Text = "Emergency Tactics";
+            this.ScholarEmergencyTactics.UseVisualStyleBackColor = true;
+            this.ScholarEmergencyTactics.CheckedChanged += new System.EventHandler(this.ScholarEmergencyTactics_CheckedChanged);
+            // 
+            // ScholarRouse
+            // 
+            this.ScholarRouse.AutoSize = true;
+            this.ScholarRouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarRouse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarRouse.ForeColor = System.Drawing.Color.White;
+            this.ScholarRouse.Location = new System.Drawing.Point(6, 16);
+            this.ScholarRouse.Name = "ScholarRouse";
+            this.ScholarRouse.Size = new System.Drawing.Size(55, 17);
+            this.ScholarRouse.TabIndex = 0;
+            this.ScholarRouse.TabStop = false;
+            this.ScholarRouse.Text = "Rouse";
+            this.ScholarRouse.UseVisualStyleBackColor = true;
+            this.ScholarRouse.CheckedChanged += new System.EventHandler(this.ScholarRouse_CheckedChanged);
+            // 
+            // ScholarCooldownGroup
+            // 
+            this.ScholarCooldownGroup.Controls.Add(this.ScholarChainStrategem);
+            this.ScholarCooldownGroup.Controls.Add(this.ScholarShadowFlare);
+            this.ScholarCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarCooldownGroup.Location = new System.Drawing.Point(436, 55);
+            this.ScholarCooldownGroup.Name = "ScholarCooldownGroup";
+            this.ScholarCooldownGroup.Size = new System.Drawing.Size(125, 66);
+            this.ScholarCooldownGroup.TabIndex = 4;
+            this.ScholarCooldownGroup.TabStop = false;
+            this.ScholarCooldownGroup.Text = "Cooldown";
+            // 
+            // ScholarChainStrategem
+            // 
+            this.ScholarChainStrategem.AutoSize = true;
+            this.ScholarChainStrategem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarChainStrategem.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarChainStrategem.ForeColor = System.Drawing.Color.White;
+            this.ScholarChainStrategem.Location = new System.Drawing.Point(6, 39);
+            this.ScholarChainStrategem.Name = "ScholarChainStrategem";
+            this.ScholarChainStrategem.Size = new System.Drawing.Size(108, 17);
+            this.ScholarChainStrategem.TabIndex = 1;
+            this.ScholarChainStrategem.TabStop = false;
+            this.ScholarChainStrategem.Text = "Chain Strategem";
+            this.ScholarChainStrategem.UseVisualStyleBackColor = true;
+            this.ScholarChainStrategem.CheckedChanged += new System.EventHandler(this.ScholarChainStrategem_CheckedChanged);
+            // 
+            // ScholarShadowFlare
+            // 
+            this.ScholarShadowFlare.AutoSize = true;
+            this.ScholarShadowFlare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarShadowFlare.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarShadowFlare.ForeColor = System.Drawing.Color.White;
+            this.ScholarShadowFlare.Location = new System.Drawing.Point(6, 16);
+            this.ScholarShadowFlare.Name = "ScholarShadowFlare";
+            this.ScholarShadowFlare.Size = new System.Drawing.Size(93, 17);
+            this.ScholarShadowFlare.TabIndex = 0;
+            this.ScholarShadowFlare.TabStop = false;
+            this.ScholarShadowFlare.Text = "Shadow Flare";
+            this.ScholarShadowFlare.UseVisualStyleBackColor = true;
+            this.ScholarShadowFlare.CheckedChanged += new System.EventHandler(this.ScholarShadowFlare_CheckedChanged);
+            // 
+            // ScholarPetGroup
+            // 
+            this.ScholarPetGroup.Controls.Add(this.ScholarPet);
+            this.ScholarPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarPetGroup.Location = new System.Drawing.Point(436, 199);
+            this.ScholarPetGroup.Name = "ScholarPetGroup";
+            this.ScholarPetGroup.Size = new System.Drawing.Size(102, 43);
+            this.ScholarPetGroup.TabIndex = 3;
+            this.ScholarPetGroup.TabStop = false;
+            this.ScholarPetGroup.Text = "Pet";
+            // 
+            // ScholarPet
+            // 
+            this.ScholarPet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarPet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarPet.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarPet.ForeColor = System.Drawing.Color.White;
+            this.ScholarPet.FormattingEnabled = true;
+            this.ScholarPet.Items.AddRange(new object[] {
+            "None",
+            "Eos",
+            "Selene"});
+            this.ScholarPet.Location = new System.Drawing.Point(6, 16);
+            this.ScholarPet.Name = "ScholarPet";
+            this.ScholarPet.Size = new System.Drawing.Size(90, 21);
+            this.ScholarPet.TabIndex = 0;
+            this.ScholarPet.TabStop = false;
+            this.ScholarPet.SelectedValueChanged += new System.EventHandler(this.ScholarPet_SelectedValueChanged);
+            // 
+            // ScholarAoEGroup
+            // 
+            this.ScholarAoEGroup.Controls.Add(this.ScholarBane);
+            this.ScholarAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarAoEGroup.Location = new System.Drawing.Point(436, 6);
+            this.ScholarAoEGroup.Name = "ScholarAoEGroup";
+            this.ScholarAoEGroup.Size = new System.Drawing.Size(125, 43);
+            this.ScholarAoEGroup.TabIndex = 2;
+            this.ScholarAoEGroup.TabStop = false;
+            this.ScholarAoEGroup.Text = "AoE";
+            // 
+            // ScholarBane
+            // 
+            this.ScholarBane.AutoSize = true;
+            this.ScholarBane.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarBane.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarBane.ForeColor = System.Drawing.Color.White;
+            this.ScholarBane.Location = new System.Drawing.Point(6, 16);
+            this.ScholarBane.Name = "ScholarBane";
+            this.ScholarBane.Size = new System.Drawing.Size(49, 17);
+            this.ScholarBane.TabIndex = 0;
+            this.ScholarBane.TabStop = false;
+            this.ScholarBane.Text = "Bane";
+            this.ScholarBane.UseVisualStyleBackColor = true;
+            this.ScholarBane.CheckedChanged += new System.EventHandler(this.ScholarBane_CheckedChanged);
+            // 
+            // ScholarHealGroup
+            // 
+            this.ScholarHealGroup.Controls.Add(this.ScholarIndomitabilityPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarSuccorPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarExcogitationPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarLustratePct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarAetherpactPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarAdloquiumPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarPhysickPct);
+            this.ScholarHealGroup.Controls.Add(this.ScholarAetherpact);
+            this.ScholarHealGroup.Controls.Add(this.ScholarResurrection);
+            this.ScholarHealGroup.Controls.Add(this.ScholarIndomitability);
+            this.ScholarHealGroup.Controls.Add(this.ScholarSuccor);
+            this.ScholarHealGroup.Controls.Add(this.ScholarExcogitation);
+            this.ScholarHealGroup.Controls.Add(this.ScholarLustrate);
+            this.ScholarHealGroup.Controls.Add(this.ScholarAdloquium);
+            this.ScholarHealGroup.Controls.Add(this.ScholarPhysick);
+            this.ScholarHealGroup.Controls.Add(this.ScholarPartyHeal);
+            this.ScholarHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.ScholarHealGroup.Name = "ScholarHealGroup";
+            this.ScholarHealGroup.Size = new System.Drawing.Size(201, 227);
+            this.ScholarHealGroup.TabIndex = 1;
+            this.ScholarHealGroup.TabStop = false;
+            this.ScholarHealGroup.Text = "Heal";
+            // 
+            // ScholarIndomitabilityPct
+            // 
+            this.ScholarIndomitabilityPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarIndomitabilityPct.Location = new System.Drawing.Point(106, 177);
+            this.ScholarIndomitabilityPct.Name = "ScholarIndomitabilityPct";
+            this.ScholarIndomitabilityPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarIndomitabilityPct.TabIndex = 14;
+            this.ScholarIndomitabilityPct.ValueChanged += new System.EventHandler(this.ScholarIndomitabilityPct_ValueChanged);
+            // 
+            // ScholarSuccorPct
+            // 
+            this.ScholarSuccorPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarSuccorPct.Location = new System.Drawing.Point(106, 154);
+            this.ScholarSuccorPct.Name = "ScholarSuccorPct";
+            this.ScholarSuccorPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarSuccorPct.TabIndex = 13;
+            this.ScholarSuccorPct.ValueChanged += new System.EventHandler(this.ScholarSuccorPct_ValueChanged);
+            // 
+            // ScholarExcogitationPct
+            // 
+            this.ScholarExcogitationPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarExcogitationPct.Location = new System.Drawing.Point(106, 131);
+            this.ScholarExcogitationPct.Name = "ScholarExcogitationPct";
+            this.ScholarExcogitationPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarExcogitationPct.TabIndex = 12;
+            this.ScholarExcogitationPct.ValueChanged += new System.EventHandler(this.ScholarExcogitationPct_ValueChanged);
+            // 
+            // ScholarLustratePct
+            // 
+            this.ScholarLustratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarLustratePct.Location = new System.Drawing.Point(106, 108);
+            this.ScholarLustratePct.Name = "ScholarLustratePct";
+            this.ScholarLustratePct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarLustratePct.TabIndex = 11;
+            this.ScholarLustratePct.ValueChanged += new System.EventHandler(this.ScholarLustratePct_ValueChanged);
+            // 
+            // ScholarAetherpactPct
+            // 
+            this.ScholarAetherpactPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarAetherpactPct.Location = new System.Drawing.Point(106, 85);
+            this.ScholarAetherpactPct.Name = "ScholarAetherpactPct";
+            this.ScholarAetherpactPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarAetherpactPct.TabIndex = 10;
+            this.ScholarAetherpactPct.ValueChanged += new System.EventHandler(this.ScholarAetherpactPct_ValueChanged);
+            // 
+            // ScholarAdloquiumPct
+            // 
+            this.ScholarAdloquiumPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarAdloquiumPct.Location = new System.Drawing.Point(106, 62);
+            this.ScholarAdloquiumPct.Name = "ScholarAdloquiumPct";
+            this.ScholarAdloquiumPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarAdloquiumPct.TabIndex = 10;
+            this.ScholarAdloquiumPct.ValueChanged += new System.EventHandler(this.ScholarAdloquiumPct_ValueChanged);
+            // 
+            // ScholarPhysickPct
+            // 
+            this.ScholarPhysickPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarPhysickPct.Location = new System.Drawing.Point(106, 39);
+            this.ScholarPhysickPct.Name = "ScholarPhysickPct";
+            this.ScholarPhysickPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarPhysickPct.TabIndex = 9;
+            this.ScholarPhysickPct.ValueChanged += new System.EventHandler(this.ScholarPhysickPct_ValueChanged);
+            // 
+            // ScholarAetherpact
+            // 
+            this.ScholarAetherpact.AutoSize = true;
+            this.ScholarAetherpact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarAetherpact.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarAetherpact.ForeColor = System.Drawing.Color.White;
+            this.ScholarAetherpact.Location = new System.Drawing.Point(6, 85);
+            this.ScholarAetherpact.Name = "ScholarAetherpact";
+            this.ScholarAetherpact.Size = new System.Drawing.Size(79, 17);
+            this.ScholarAetherpact.TabIndex = 8;
+            this.ScholarAetherpact.TabStop = false;
+            this.ScholarAetherpact.Text = "Aetherpact";
+            this.ScholarAetherpact.UseVisualStyleBackColor = true;
+            this.ScholarAetherpact.CheckedChanged += new System.EventHandler(this.ScholarAetherpact_CheckedChanged);
+            // 
+            // ScholarResurrection
+            // 
+            this.ScholarResurrection.AutoSize = true;
+            this.ScholarResurrection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarResurrection.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarResurrection.ForeColor = System.Drawing.Color.White;
+            this.ScholarResurrection.Location = new System.Drawing.Point(6, 200);
+            this.ScholarResurrection.Name = "ScholarResurrection";
+            this.ScholarResurrection.Size = new System.Drawing.Size(88, 17);
+            this.ScholarResurrection.TabIndex = 7;
+            this.ScholarResurrection.TabStop = false;
+            this.ScholarResurrection.Text = "Resurrection";
+            this.ScholarResurrection.UseVisualStyleBackColor = true;
+            this.ScholarResurrection.CheckedChanged += new System.EventHandler(this.ScholarResurrection_CheckedChanged);
+            // 
+            // ScholarIndomitability
+            // 
+            this.ScholarIndomitability.AutoSize = true;
+            this.ScholarIndomitability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarIndomitability.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarIndomitability.ForeColor = System.Drawing.Color.White;
+            this.ScholarIndomitability.Location = new System.Drawing.Point(6, 177);
+            this.ScholarIndomitability.Name = "ScholarIndomitability";
+            this.ScholarIndomitability.Size = new System.Drawing.Size(94, 17);
+            this.ScholarIndomitability.TabIndex = 6;
+            this.ScholarIndomitability.TabStop = false;
+            this.ScholarIndomitability.Text = "Indomitability";
+            this.ScholarIndomitability.UseVisualStyleBackColor = true;
+            this.ScholarIndomitability.CheckedChanged += new System.EventHandler(this.ScholarIndomitability_CheckedChanged);
+            // 
+            // ScholarSuccor
+            // 
+            this.ScholarSuccor.AutoSize = true;
+            this.ScholarSuccor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarSuccor.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarSuccor.ForeColor = System.Drawing.Color.White;
+            this.ScholarSuccor.Location = new System.Drawing.Point(6, 154);
+            this.ScholarSuccor.Name = "ScholarSuccor";
+            this.ScholarSuccor.Size = new System.Drawing.Size(57, 17);
+            this.ScholarSuccor.TabIndex = 5;
+            this.ScholarSuccor.TabStop = false;
+            this.ScholarSuccor.Text = "Succor";
+            this.ScholarSuccor.UseVisualStyleBackColor = true;
+            this.ScholarSuccor.CheckedChanged += new System.EventHandler(this.ScholarSuccor_CheckedChanged);
+            // 
+            // ScholarExcogitation
+            // 
+            this.ScholarExcogitation.AutoSize = true;
+            this.ScholarExcogitation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarExcogitation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarExcogitation.ForeColor = System.Drawing.Color.White;
+            this.ScholarExcogitation.Location = new System.Drawing.Point(6, 131);
+            this.ScholarExcogitation.Name = "ScholarExcogitation";
+            this.ScholarExcogitation.Size = new System.Drawing.Size(87, 17);
+            this.ScholarExcogitation.TabIndex = 4;
+            this.ScholarExcogitation.TabStop = false;
+            this.ScholarExcogitation.Text = "Excogitation";
+            this.ScholarExcogitation.UseVisualStyleBackColor = true;
+            this.ScholarExcogitation.CheckedChanged += new System.EventHandler(this.ScholarExcogitation_CheckedChanged);
+            // 
+            // ScholarLustrate
+            // 
+            this.ScholarLustrate.AutoSize = true;
+            this.ScholarLustrate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarLustrate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarLustrate.ForeColor = System.Drawing.Color.White;
+            this.ScholarLustrate.Location = new System.Drawing.Point(6, 108);
+            this.ScholarLustrate.Name = "ScholarLustrate";
+            this.ScholarLustrate.Size = new System.Drawing.Size(64, 17);
+            this.ScholarLustrate.TabIndex = 3;
+            this.ScholarLustrate.TabStop = false;
+            this.ScholarLustrate.Text = "Lustrate";
+            this.ScholarLustrate.UseVisualStyleBackColor = true;
+            this.ScholarLustrate.CheckedChanged += new System.EventHandler(this.ScholarLustrate_CheckedChanged);
+            // 
+            // ScholarAdloquium
+            // 
+            this.ScholarAdloquium.AutoSize = true;
+            this.ScholarAdloquium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarAdloquium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarAdloquium.ForeColor = System.Drawing.Color.White;
+            this.ScholarAdloquium.Location = new System.Drawing.Point(6, 62);
+            this.ScholarAdloquium.Name = "ScholarAdloquium";
+            this.ScholarAdloquium.Size = new System.Drawing.Size(80, 17);
+            this.ScholarAdloquium.TabIndex = 2;
+            this.ScholarAdloquium.TabStop = false;
+            this.ScholarAdloquium.Text = "Adloquium";
+            this.ScholarAdloquium.UseVisualStyleBackColor = true;
+            this.ScholarAdloquium.CheckedChanged += new System.EventHandler(this.ScholarAdloquium_CheckedChanged);
+            // 
+            // ScholarPhysick
+            // 
+            this.ScholarPhysick.AutoSize = true;
+            this.ScholarPhysick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarPhysick.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarPhysick.ForeColor = System.Drawing.Color.White;
+            this.ScholarPhysick.Location = new System.Drawing.Point(6, 39);
+            this.ScholarPhysick.Name = "ScholarPhysick";
+            this.ScholarPhysick.Size = new System.Drawing.Size(60, 17);
+            this.ScholarPhysick.TabIndex = 1;
+            this.ScholarPhysick.TabStop = false;
+            this.ScholarPhysick.Text = "Physick";
+            this.ScholarPhysick.UseVisualStyleBackColor = true;
+            this.ScholarPhysick.CheckedChanged += new System.EventHandler(this.ScholarPhysick_CheckedChanged);
+            // 
+            // ScholarPartyHeal
+            // 
+            this.ScholarPartyHeal.AutoSize = true;
+            this.ScholarPartyHeal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarPartyHeal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarPartyHeal.ForeColor = System.Drawing.Color.White;
+            this.ScholarPartyHeal.Location = new System.Drawing.Point(6, 16);
+            this.ScholarPartyHeal.Name = "ScholarPartyHeal";
+            this.ScholarPartyHeal.Size = new System.Drawing.Size(91, 17);
+            this.ScholarPartyHeal.TabIndex = 0;
+            this.ScholarPartyHeal.TabStop = false;
+            this.ScholarPartyHeal.Text = "Party Healing";
+            this.ScholarPartyHeal.UseVisualStyleBackColor = true;
+            this.ScholarPartyHeal.CheckedChanged += new System.EventHandler(this.ScholarPartyHeal_CheckedChanged);
+            // 
+            // ScholarRoleGroup
+            // 
+            this.ScholarRoleGroup.Controls.Add(this.ScholarEsuna);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarClericStance);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLucidDreamingPct);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarRescue);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarSurecast);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLargesse);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarEyeForAnEye);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarSwiftcast);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLucidDreaming);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarProtect);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarBreak);
+            this.ScholarRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.ScholarRoleGroup.Name = "ScholarRoleGroup";
+            this.ScholarRoleGroup.Size = new System.Drawing.Size(210, 250);
+            this.ScholarRoleGroup.TabIndex = 0;
+            this.ScholarRoleGroup.TabStop = false;
+            this.ScholarRoleGroup.Text = "Role";
+            // 
+            // ScholarEsuna
+            // 
+            this.ScholarEsuna.AutoSize = true;
+            this.ScholarEsuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEsuna.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEsuna.ForeColor = System.Drawing.Color.White;
+            this.ScholarEsuna.Location = new System.Drawing.Point(6, 85);
+            this.ScholarEsuna.Name = "ScholarEsuna";
+            this.ScholarEsuna.Size = new System.Drawing.Size(54, 17);
+            this.ScholarEsuna.TabIndex = 23;
+            this.ScholarEsuna.TabStop = false;
+            this.ScholarEsuna.Text = "Esuna";
+            this.ScholarEsuna.UseVisualStyleBackColor = true;
+            this.ScholarEsuna.CheckedChanged += new System.EventHandler(this.ScholarEsuna_CheckedChanged);
+            // 
+            // ScholarClericStance
+            // 
+            this.ScholarClericStance.AutoSize = true;
+            this.ScholarClericStance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarClericStance.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarClericStance.ForeColor = System.Drawing.Color.White;
+            this.ScholarClericStance.Location = new System.Drawing.Point(6, 16);
+            this.ScholarClericStance.Name = "ScholarClericStance";
+            this.ScholarClericStance.Size = new System.Drawing.Size(88, 17);
+            this.ScholarClericStance.TabIndex = 22;
+            this.ScholarClericStance.TabStop = false;
+            this.ScholarClericStance.Text = "Cleric Stance";
+            this.ScholarClericStance.UseVisualStyleBackColor = true;
+            this.ScholarClericStance.CheckedChanged += new System.EventHandler(this.ScholarClericStance_CheckedChanged);
+            // 
+            // ScholarLucidDreamingPct
+            // 
+            this.ScholarLucidDreamingPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarLucidDreamingPct.Location = new System.Drawing.Point(115, 108);
+            this.ScholarLucidDreamingPct.Name = "ScholarLucidDreamingPct";
+            this.ScholarLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarLucidDreamingPct.TabIndex = 21;
+            this.ScholarLucidDreamingPct.ValueChanged += new System.EventHandler(this.ScholarLucidDreamingPct_ValueChanged);
+            // 
+            // ScholarRescue
+            // 
+            this.ScholarRescue.AutoCheck = false;
+            this.ScholarRescue.AutoSize = true;
+            this.ScholarRescue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarRescue.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarRescue.ForeColor = System.Drawing.Color.DimGray;
+            this.ScholarRescue.Location = new System.Drawing.Point(6, 223);
+            this.ScholarRescue.Name = "ScholarRescue";
+            this.ScholarRescue.Size = new System.Drawing.Size(59, 17);
+            this.ScholarRescue.TabIndex = 20;
+            this.ScholarRescue.TabStop = false;
+            this.ScholarRescue.Text = "Rescue";
+            this.ScholarRescue.UseVisualStyleBackColor = true;
+            // 
+            // ScholarSurecast
+            // 
+            this.ScholarSurecast.AutoCheck = false;
+            this.ScholarSurecast.AutoSize = true;
+            this.ScholarSurecast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarSurecast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarSurecast.ForeColor = System.Drawing.Color.DimGray;
+            this.ScholarSurecast.Location = new System.Drawing.Point(6, 200);
+            this.ScholarSurecast.Name = "ScholarSurecast";
+            this.ScholarSurecast.Size = new System.Drawing.Size(66, 17);
+            this.ScholarSurecast.TabIndex = 19;
+            this.ScholarSurecast.TabStop = false;
+            this.ScholarSurecast.Text = "Surecast";
+            this.ScholarSurecast.UseVisualStyleBackColor = true;
+            // 
+            // ScholarLargesse
+            // 
+            this.ScholarLargesse.AutoCheck = false;
+            this.ScholarLargesse.AutoSize = true;
+            this.ScholarLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarLargesse.ForeColor = System.Drawing.Color.DimGray;
+            this.ScholarLargesse.Location = new System.Drawing.Point(6, 177);
+            this.ScholarLargesse.Name = "ScholarLargesse";
+            this.ScholarLargesse.Size = new System.Drawing.Size(67, 17);
+            this.ScholarLargesse.TabIndex = 18;
+            this.ScholarLargesse.TabStop = false;
+            this.ScholarLargesse.Text = "Largesse";
+            this.ScholarLargesse.UseVisualStyleBackColor = true;
+            // 
+            // ScholarEyeForAnEye
+            // 
+            this.ScholarEyeForAnEye.AutoCheck = false;
+            this.ScholarEyeForAnEye.AutoSize = true;
+            this.ScholarEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEyeForAnEye.ForeColor = System.Drawing.Color.DimGray;
+            this.ScholarEyeForAnEye.Location = new System.Drawing.Point(6, 154);
+            this.ScholarEyeForAnEye.Name = "ScholarEyeForAnEye";
+            this.ScholarEyeForAnEye.Size = new System.Drawing.Size(94, 17);
+            this.ScholarEyeForAnEye.TabIndex = 17;
+            this.ScholarEyeForAnEye.TabStop = false;
+            this.ScholarEyeForAnEye.Text = "Eye for an Eye";
+            this.ScholarEyeForAnEye.UseVisualStyleBackColor = true;
+            // 
+            // ScholarSwiftcast
+            // 
+            this.ScholarSwiftcast.AutoSize = true;
+            this.ScholarSwiftcast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarSwiftcast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarSwiftcast.ForeColor = System.Drawing.Color.White;
+            this.ScholarSwiftcast.Location = new System.Drawing.Point(6, 131);
+            this.ScholarSwiftcast.Name = "ScholarSwiftcast";
+            this.ScholarSwiftcast.Size = new System.Drawing.Size(69, 17);
+            this.ScholarSwiftcast.TabIndex = 16;
+            this.ScholarSwiftcast.TabStop = false;
+            this.ScholarSwiftcast.Text = "Swiftcast";
+            this.ScholarSwiftcast.UseVisualStyleBackColor = true;
+            this.ScholarSwiftcast.CheckedChanged += new System.EventHandler(this.ScholarSwiftcast_CheckedChanged);
+            // 
+            // ScholarLucidDreaming
+            // 
+            this.ScholarLucidDreaming.AutoSize = true;
+            this.ScholarLucidDreaming.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarLucidDreaming.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarLucidDreaming.ForeColor = System.Drawing.Color.White;
+            this.ScholarLucidDreaming.Location = new System.Drawing.Point(6, 108);
+            this.ScholarLucidDreaming.Name = "ScholarLucidDreaming";
+            this.ScholarLucidDreaming.Size = new System.Drawing.Size(103, 17);
+            this.ScholarLucidDreaming.TabIndex = 15;
+            this.ScholarLucidDreaming.TabStop = false;
+            this.ScholarLucidDreaming.Text = "Lucid Dreaming";
+            this.ScholarLucidDreaming.UseVisualStyleBackColor = true;
+            this.ScholarLucidDreaming.CheckedChanged += new System.EventHandler(this.ScholarLucidDreaming_CheckedChanged);
+            // 
+            // ScholarProtect
+            // 
+            this.ScholarProtect.AutoSize = true;
+            this.ScholarProtect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarProtect.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarProtect.ForeColor = System.Drawing.Color.White;
+            this.ScholarProtect.Location = new System.Drawing.Point(6, 62);
+            this.ScholarProtect.Name = "ScholarProtect";
+            this.ScholarProtect.Size = new System.Drawing.Size(59, 17);
+            this.ScholarProtect.TabIndex = 14;
+            this.ScholarProtect.TabStop = false;
+            this.ScholarProtect.Text = "Protect";
+            this.ScholarProtect.UseVisualStyleBackColor = true;
+            this.ScholarProtect.CheckedChanged += new System.EventHandler(this.ScholarProtect_CheckedChanged);
+            // 
+            // ScholarBreak
+            // 
+            this.ScholarBreak.AutoCheck = false;
+            this.ScholarBreak.AutoSize = true;
+            this.ScholarBreak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarBreak.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarBreak.ForeColor = System.Drawing.Color.DimGray;
+            this.ScholarBreak.Location = new System.Drawing.Point(6, 39);
+            this.ScholarBreak.Name = "ScholarBreak";
+            this.ScholarBreak.Size = new System.Drawing.Size(52, 17);
+            this.ScholarBreak.TabIndex = 13;
+            this.ScholarBreak.TabStop = false;
+            this.ScholarBreak.Text = "Break";
+            this.ScholarBreak.UseVisualStyleBackColor = true;
             // 
             // pgeWhiteMage
             // 
@@ -6426,21 +7039,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BlackMageTriplecast
-            // 
-            this.BlackMageTriplecast.AutoSize = true;
-            this.BlackMageTriplecast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BlackMageTriplecast.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageTriplecast.ForeColor = System.Drawing.Color.White;
-            this.BlackMageTriplecast.Location = new System.Drawing.Point(6, 108);
-            this.BlackMageTriplecast.Name = "BlackMageTriplecast";
-            this.BlackMageTriplecast.Size = new System.Drawing.Size(70, 17);
-            this.BlackMageTriplecast.TabIndex = 4;
-            this.BlackMageTriplecast.TabStop = false;
-            this.BlackMageTriplecast.Text = "Triplecast";
-            this.BlackMageTriplecast.UseVisualStyleBackColor = true;
-            this.BlackMageTriplecast.CheckedChanged += new System.EventHandler(this.BlackMageTriplecast_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6450,6 +7048,7 @@
             this.Controls.Add(this.ShinraContainer);
             this.Controls.Add(this.ShinraBorder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(904, 504);
             this.Name = "ShinraForm";
             this.Text = "ShinraForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShinraForm_FormClosing);
@@ -6505,7 +7104,17 @@
             this.AstrologianRoleGroup.ResumeLayout(false);
             this.AstrologianRoleGroup.PerformLayout();
             this.pgeScholar.ResumeLayout(false);
-            this.pgeScholar.PerformLayout();
+            this.ScholarBuffGroup.ResumeLayout(false);
+            this.ScholarBuffGroup.PerformLayout();
+            this.ScholarCooldownGroup.ResumeLayout(false);
+            this.ScholarCooldownGroup.PerformLayout();
+            this.ScholarPetGroup.ResumeLayout(false);
+            this.ScholarAoEGroup.ResumeLayout(false);
+            this.ScholarAoEGroup.PerformLayout();
+            this.ScholarHealGroup.ResumeLayout(false);
+            this.ScholarHealGroup.PerformLayout();
+            this.ScholarRoleGroup.ResumeLayout(false);
+            this.ScholarRoleGroup.PerformLayout();
             this.pgeWhiteMage.ResumeLayout(false);
             this.WhiteMageBuffGroup.ResumeLayout(false);
             this.WhiteMageBuffGroup.PerformLayout();
@@ -6684,14 +7293,13 @@
         private Design.CustomCheck RedMageManafication;
         private Design.CustomCheck RedMageEmbolden;
         private Design.CustomCheck RedMageCorpsACorps;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private Design.CustomGroup RotationGroup;
         private Design.CustomCombo RotationMode;
         private System.Windows.Forms.Label RotationKeyLabel;
         private System.Windows.Forms.Label RotationModeLabel;
-        private Design.CustomCheck RotationOverlay;
+        private Design.CustomCheck RotationMessages;
         private Design.CustomGroup SamuraiRoleGroup;
         private Design.CustomCheck SamuraiTrueNorth;
         private Design.CustomCheckDisabled SamuraiCrutch;
@@ -7023,5 +7631,45 @@
         private Design.CustomCheck BlackMageLeyLines;
         private Design.CustomCheck BlackMageConvert;
         private Design.CustomCheck BlackMageTriplecast;
+        private Design.CustomGroup ScholarRoleGroup;
+        private Design.CustomCheck ScholarEsuna;
+        private Design.CustomCheck ScholarClericStance;
+        private Design.UserNumeric ScholarLucidDreamingPct;
+        private Design.CustomCheckDisabled ScholarRescue;
+        private Design.CustomCheckDisabled ScholarSurecast;
+        private Design.CustomCheckDisabled ScholarLargesse;
+        private Design.CustomCheckDisabled ScholarEyeForAnEye;
+        private Design.CustomCheck ScholarSwiftcast;
+        private Design.CustomCheck ScholarLucidDreaming;
+        private Design.CustomCheck ScholarProtect;
+        private Design.CustomCheckDisabled ScholarBreak;
+        private Design.CustomGroup ScholarHealGroup;
+        private Design.CustomGroup ScholarAoEGroup;
+        private Design.CustomCheck ScholarBane;
+        private Design.CustomCheck ScholarPartyHeal;
+        private Design.CustomGroup ScholarPetGroup;
+        private Design.CustomCombo ScholarPet;
+        private Design.CustomGroup ScholarBuffGroup;
+        private Design.CustomCheck ScholarRouse;
+        private Design.CustomGroup ScholarCooldownGroup;
+        private Design.CustomCheck ScholarShadowFlare;
+        private Design.CustomCheck ScholarResurrection;
+        private Design.CustomCheck ScholarIndomitability;
+        private Design.CustomCheck ScholarSuccor;
+        private Design.CustomCheck ScholarExcogitation;
+        private Design.CustomCheck ScholarLustrate;
+        private Design.CustomCheck ScholarAdloquium;
+        private Design.CustomCheck ScholarPhysick;
+        private Design.CustomCheck ScholarAetherpact;
+        private Design.UserNumeric ScholarPhysickPct;
+        private Design.UserNumeric ScholarIndomitabilityPct;
+        private Design.UserNumeric ScholarSuccorPct;
+        private Design.UserNumeric ScholarExcogitationPct;
+        private Design.UserNumeric ScholarLustratePct;
+        private Design.UserNumeric ScholarAetherpactPct;
+        private Design.UserNumeric ScholarAdloquiumPct;
+        private Design.CustomCheck ScholarEmergencyTactics;
+        private Design.CustomCheck ScholarChainStrategem;
+        private Design.CustomCheck RotationOverlay;
     }
 }
