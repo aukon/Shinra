@@ -45,6 +45,10 @@ namespace ShinraCo.Rotations
             if (await TwinSnakes()) return true;
             if (await TrueStrike()) return true;
             if (await Bootshine()) return true;
+            // Rogue
+            if (await AeolianEdge()) return true;
+            if (await GustSlash()) return true;
+            if (await SpinningEdge()) return true;
             // Thaumaturge
             if (await FireIII()) return true;
             if (await Fire()) return true;
@@ -79,6 +83,10 @@ namespace ShinraCo.Rotations
             // Pugilist
             if (await FistsOfEarth()) return true;
             if (await InternalRelease()) return true;
+            // Rogue
+            if (await ShadeShift()) return true;
+            if (await Assassinate()) return true;
+            if (await Mug()) return true;
             // Thaumaturge
             return await Transpose();
         }

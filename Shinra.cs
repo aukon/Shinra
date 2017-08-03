@@ -164,6 +164,7 @@ namespace ShinraCo
                 case ClassJobType.Lancer:
                 case ClassJobType.Marauder:
                 case ClassJobType.Pugilist:
+                case ClassJobType.Rogue:
                 case ClassJobType.Thaumaturge:
                     return new BasicClass();
                 case ClassJobType.Astrologian:

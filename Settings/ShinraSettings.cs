@@ -616,6 +616,31 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Ninja
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaSecondWind { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaInvigorate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaBloodbath { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaTrueNorth { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int NinjaSecondWindPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int NinjaInvigoratePct { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int NinjaBloodbathPct { get; set; }
+
+        #endregion
+
         #region Paladin
 
         #region Role

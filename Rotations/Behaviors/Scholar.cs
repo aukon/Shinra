@@ -9,8 +9,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Combat()
         {
             if (await MiasmaII()) return true;
-            if (await Miasma()) return true;
             if (await BioII()) return true;
+            if (await Miasma()) return true;
             if (await Bio()) return true;
             if (await BroilII()) return true;
             if (await Broil()) return true;

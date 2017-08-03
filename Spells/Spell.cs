@@ -191,6 +191,107 @@ namespace ShinraCo.Spells
 
             #endregion
 
+            #region Ninjutsu
+
+            if (SpellType == SpellType.Ninjutsu || SpellType == SpellType.Mudra)
+            {
+                #region Movement
+
+                if (BotManager.Current.IsAutonomous)
+                {
+                    switch (ActionManager.InSpellInRangeLOS(2247, target))
+                    {
+                        case SpellRangeCheck.ErrorNotInLineOfSight:
+                            await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                            return false;
+                        case SpellRangeCheck.ErrorNotInRange:
+                            await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                            return false;
+                        case SpellRangeCheck.ErrorNotInFront:
+                            if (!target.InLineOfSight())
+                            {
+                                await CommonTasks.MoveAndStop(new MoveToParameters(target.Location), 0f);
+                                return false;
+                            }
+                            target.Face();
+                            return false;
+                        case SpellRangeCheck.Success:
+                            if (MovementManager.IsMoving)
+                            {
+                                Navigator.PlayerMover.MoveStop();
+                            }
+                            break;
+                    }
+                }
+
+                #endregion
+
+                #region IsMounted
+
+                if (Core.Player.IsMounted)
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region CanCast
+
+                if (!ActionManager.CanCast(ID, target))
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region Wait
+
+                if (Shinra.LastSpell.ID != 0 && Shinra.LastSpell.SpellType != SpellType.Ninjutsu &&
+                    Shinra.LastSpell.SpellType != SpellType.Mudra)
+                {
+                    var lastSpellData = DataManager.GetSpellData(Shinra.LastSpell.ID);
+                    var cooldown = lastSpellData.Cooldown.TotalMilliseconds;
+                    var adjustedCooldown = lastSpellData.AdjustedCooldown.TotalMilliseconds;
+
+                    await Coroutine.Wait(1000, () => cooldown <= adjustedCooldown - 1000);
+                }
+
+                #endregion
+
+                #region DoAction
+
+                if (!await Coroutine.Wait(1000, () => ActionManager.DoAction(ID, target)))
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region Wait
+
+                await Coroutine.Wait(2000, () => !ActionManager.CanCast(ID, target));
+
+                #endregion
+
+                Shinra.LastSpell = this;
+
+                #region AddRecent
+
+                if (SpellType == SpellType.Mudra)
+                {
+                    var key = target.ObjectId.ToString("X") + "-" + Name;
+                    var val = DateTime.UtcNow + TimeSpan.FromSeconds(1);
+                    RecentSpell.Add(key, val);
+                }
+
+                #endregion
+
+                Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
+                return true;
+            }
+
+            #endregion
+
             #region CanAttack
 
             if (!target.CanAttack && CastType != CastType.Self)
@@ -286,7 +387,6 @@ namespace ShinraCo.Spells
                     {
                         return false;
                     }
-
                     break;
             }
 
@@ -381,6 +481,13 @@ namespace ShinraCo.Spells
                         break;
                     case ClassJobType.RedMage:
                         if (DataManager.GetSpellData(7504).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
+                    case ClassJobType.Rogue:
+                    case ClassJobType.Ninja:
+                        if (DataManager.GetSpellData(2240).Cooldown.TotalMilliseconds < 1000)
                         {
                             return false;
                         }

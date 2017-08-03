@@ -9,6 +9,7 @@
         public LancerSpells Lancer { get; } = new LancerSpells();
         public MarauderSpells Marauder { get; } = new MarauderSpells();
         public PugilistSpells Pugilist { get; } = new PugilistSpells();
+        public RogueSpells Rogue { get; } = new RogueSpells();
         public ThaumaturgeSpells Thaumaturge { get; } = new ThaumaturgeSpells();
     }
 }

@@ -430,6 +430,52 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region Rogue
+
+        private async Task<bool> SpinningEdge()
+        {
+            return await MySpells.Rogue.SpinningEdge.Cast();
+        }
+
+        private async Task<bool> ShadeShift()
+        {
+            if (Core.Player.CurrentHealthPercent < 50)
+            {
+                return await MySpells.Rogue.ShadeShift.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> GustSlash()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Rogue.SpinningEdge.Name)
+            {
+                return await MySpells.Rogue.GustSlash.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Assassinate()
+        {
+            return await MySpells.Rogue.Assassinate.Cast();
+        }
+
+        private async Task<bool> Mug()
+        {
+            return await MySpells.Rogue.Mug.Cast();
+        }
+
+        private async Task<bool> AeolianEdge()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.Rogue.GustSlash.Name)
+            {
+                return await MySpells.Rogue.AeolianEdge.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Thaumaturge
 
         private bool AstralFire => ActionResourceManager.BlackMage.AstralStacks > 0 &&
