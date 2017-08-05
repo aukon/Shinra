@@ -11,6 +11,10 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (await Huton()) return true;
+                if (await Doton()) return true;
+                if (await Katon()) return true;
+                if (await Suiton()) return true;
                 if (await Raiton()) return true;
                 if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
@@ -21,6 +25,9 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (await Huton()) return true;
+                if (await Suiton()) return true;
+                if (await Raiton()) return true;
                 if (await FumaShuriken()) return true;
                 if (await ShadowFang()) return true;
                 if (await AeolianEdge()) return true;
@@ -29,6 +36,10 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
             {
+                if (await Huton()) return true;
+                if (await Doton()) return true;
+                if (await Katon()) return true;
+                if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
                 if (await ShadowFang()) return true;
                 if (await AeolianEdge()) return true;
@@ -46,10 +57,13 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await TrueNorth()) return true;
+            if (await ShadeShift()) return true;
+            if (await Kassatsu()) return true;
+            if (await TrickAttack()) return true;
             if (await Assassinate()) return true;
             if (await Mug()) return true;
             if (await Jugulate()) return true;
+            if (await TrueNorth()) return true;
             return await Invigorate();
         }
 

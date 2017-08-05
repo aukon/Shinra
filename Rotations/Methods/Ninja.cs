@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Ninja;
 
@@ -42,8 +44,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ShadowFang()
         {
-            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ShadowFang.Name, true, 5000) && Core.Player.CurrentTarget.IsBoss())
+            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name && Core.Player.CurrentTarget.IsBoss() &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.ShadowFang.Name, true, 5000))
             {
                 return await MySpells.ShadowFang.Cast();
             }
@@ -85,6 +87,11 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> TrickAttack()
+        {
+            return await MySpells.TrickAttack.Cast();
+        }
+
         private async Task<bool> Jugulate()
         {
             return await MySpells.Jugulate.Cast();
@@ -103,6 +110,16 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Kassatsu()
+        {
+            if (Core.Player.CurrentTarget.HasAura("Vulnerability Up") || Shinra.Settings.RotationMode == Modes.Multi ||
+                Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2)
+            {
+                return await MySpells.Kassatsu.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Ninjutsu
@@ -113,6 +130,72 @@ namespace ShinraCo.Rotations
                    (targetSelf || Core.Player.CurrentTarget.CanAttack && Core.Player.TargetDistance(range, false) &&
                     Core.Player.CurrentTarget.InLineOfSight());
         }
+
+        #region Fuma
+
+        private async Task<bool> FumaShuriken()
+        {
+            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null))
+            {
+                if (!CanNinjutsu)
+                {
+                    if (await MySpells.Ten.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (CanNinjutsu && LastTen)
+                {
+                    if (await MySpells.FumaShuriken.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !Core.Player.HasAura("Mudra"));
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Katon
+
+        private async Task<bool> Katon()
+        {
+            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
+            {
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    if (!CanNinjutsu)
+                    {
+                        if (await MySpells.Chi.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
+                    }
+                    if (LastChi)
+                    {
+                        if (await MySpells.Ten.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
+                    }
+                    if (LastTen)
+                    {
+                        if (await MySpells.Katon.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Raiton
 
         private async Task<bool> Raiton()
         {
@@ -144,9 +227,99 @@ namespace ShinraCo.Rotations
             return false;
         }
 
-        private async Task<bool> FumaShuriken()
+        #endregion
+
+        #region Huton
+
+        private async Task<bool> Huton()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null))
+            if (UseNinjutsu(true) && ActionManager.CanCast(MySpells.Jin.ID, null) && Resource.HutonTimer.TotalMilliseconds < 20000)
+            {
+                if (!CanNinjutsu)
+                {
+                    if (await MySpells.Jin.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastJin)
+                {
+                    if (await MySpells.Chi.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastChi)
+                {
+                    if (await MySpells.Ten.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastTen)
+                {
+                    if (await MySpells.Huton.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Doton
+
+        private async Task<bool> Doton()
+        {
+            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null))
+            {
+                if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Multi &&
+                    Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    if (!CanNinjutsu)
+                    {
+                        if (await MySpells.Ten.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
+                    }
+                    if (LastTen)
+                    {
+                        if (await MySpells.Jin.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
+                    }
+                    if (LastJin)
+                    {
+                        if (await MySpells.Chi.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
+                    }
+                    if (LastChi)
+                    {
+                        if (await MySpells.Doton.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Suiton
+
+        private async Task<bool> Suiton()
+        {
+            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null) && TrickCooldown == TimeSpan.FromMilliseconds(0))
             {
                 if (!CanNinjutsu)
                 {
@@ -155,17 +328,33 @@ namespace ShinraCo.Rotations
                         await Coroutine.Wait(2000, () => CanNinjutsu);
                     }
                 }
-                if (CanNinjutsu && LastTen)
+                if (LastTen)
                 {
-                    if (await MySpells.FumaShuriken.Cast())
+                    if (await MySpells.Chi.Cast())
                     {
-                        await Coroutine.Wait(2000, () => !Core.Player.HasAura("Mudra"));
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastChi)
+                {
+                    if (await MySpells.Jin.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastJin)
+                {
+                    if (await MySpells.Suiton.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
                         return true;
                     }
                 }
             }
             return false;
         }
+
+        #endregion
 
         #endregion
 
@@ -210,6 +399,8 @@ namespace ShinraCo.Rotations
         #endregion
 
         #region Custom
+
+        private static TimeSpan TrickCooldown => DataManager.GetSpellData(2258).Cooldown;
 
         private bool CanNinjutsu => ActionManager.CanCast(MySpells.Ninjutsu.ID, null);
         private bool LastTen => Shinra.LastSpell.ID == MySpells.Ten.ID;

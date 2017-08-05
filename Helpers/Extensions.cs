@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using ff14bot;
 using ff14bot.Enums;
-using ff14bot.Objects;
 
 namespace ShinraCo
 {
@@ -17,19 +16,6 @@ namespace ShinraCo
             var keys = dic.Keys.Where(k => predicate(dic[k])).ToList();
             foreach (var key in keys)
                 dic.Remove(key);
-        }
-
-        private static readonly HashSet<uint> BossIds = new HashSet<uint>
-        {
-            //Kugane Castle
-            6085, //Zuiko-maru
-            6087, //Dojun-maru
-            6089 //Yojimbo
-        };
-
-        public static bool IsBoss(this GameObject unit)
-        {
-            return BossIds.Contains(unit.NpcId);
         }
 
         private static readonly HashSet<ClassJobType> ManaJobs = new HashSet<ClassJobType>

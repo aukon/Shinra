@@ -60,7 +60,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Demolish()
         {
-            if (Shinra.Settings.MonkDemolish && Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MonkDemolishHP)
+            if (Shinra.Settings.MonkDemolish && (Core.Player.CurrentTarget.IsBoss() ||
+                                                 Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MonkDemolishHP))
             {
                 if ((CoeurlForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(MySpells.Demolish.Name, true, 5000))
                 {

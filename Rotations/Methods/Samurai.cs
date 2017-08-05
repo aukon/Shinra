@@ -154,17 +154,19 @@ namespace ShinraCo.Rotations
         private async Task<bool> Higanbana()
         {
             if (Shinra.Settings.SamuraiHiganbana && NumSen == 1 && !MovementManager.IsMoving &&
-                Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.SamuraiHiganbanaHP &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.Higanbana.Name, true, 5000))
             {
-                if (ActionManager.CanCast(MySpells.Higanbana.Name, Core.Player.CurrentTarget))
+                if (Core.Player.CurrentTarget.IsBoss() || Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.SamuraiHiganbanaHP)
                 {
-                    if (await MySpells.HissatsuKaiten.Cast(null, false))
+                    if (ActionManager.CanCast(MySpells.Higanbana.Name, Core.Player.CurrentTarget))
                     {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(1229));
+                        if (await MySpells.HissatsuKaiten.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(1229));
+                        }
                     }
+                    return await MySpells.Higanbana.Cast();
                 }
-                return await MySpells.Higanbana.Cast();
             }
             return false;
         }
