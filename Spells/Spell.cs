@@ -249,11 +249,8 @@ namespace ShinraCo.Spells
                 if (Shinra.LastSpell.ID != 0 && Shinra.LastSpell.SpellType != SpellType.Ninjutsu &&
                     Shinra.LastSpell.SpellType != SpellType.Mudra)
                 {
-                    var lastSpellData = DataManager.GetSpellData(Shinra.LastSpell.ID);
-                    var cooldown = lastSpellData.Cooldown.TotalMilliseconds;
-                    var adjustedCooldown = lastSpellData.AdjustedCooldown.TotalMilliseconds;
-
-                    await Coroutine.Wait(1000, () => cooldown <= adjustedCooldown - 1000);
+                    await Coroutine.Wait(1000, () => DataManager.GetSpellData(Shinra.LastSpell.ID).Cooldown.TotalMilliseconds <=
+                                                     DataManager.GetSpellData(Shinra.LastSpell.ID).AdjustedCooldown.TotalMilliseconds - 1000);
                 }
 
                 #endregion

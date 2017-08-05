@@ -618,6 +618,8 @@ namespace ShinraCo.Settings
 
         #region Ninja
 
+        #region Role
+
         [Setting, DefaultValue(true)]
         public bool NinjaSecondWind { get; set; }
 
@@ -638,6 +640,28 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int NinjaBloodbathPct { get; set; }
+
+        #endregion
+
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaAssassinate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaMug { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaShadeShift { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int NinjaShadeShiftPct { get; set; }
+
+        #endregion
 
         #endregion
 

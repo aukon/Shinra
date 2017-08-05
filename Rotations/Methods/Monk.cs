@@ -91,7 +91,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MonkShoulderTackle && Core.Player.TargetDistance(10))
             {
-                return await MySpells.ShoulderTackle.Cast();
+                return await MySpells.ShoulderTackle.Cast(null, false);
             }
             return false;
         }
@@ -136,7 +136,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MonkFireTackle && Core.Player.TargetDistance(10))
             {
-                return await MySpells.FireTackle.Cast();
+                return await MySpells.FireTackle.Cast(null, false);
             }
             return false;
         }

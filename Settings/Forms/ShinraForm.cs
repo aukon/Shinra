@@ -351,6 +351,37 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Ninja
+
+            #region Role
+
+            NinjaSecondWind.Checked = Shinra.Settings.NinjaSecondWind;
+            NinjaInvigorate.Checked = Shinra.Settings.NinjaInvigorate;
+            NinjaBloodbath.Checked = Shinra.Settings.NinjaBloodbath;
+            NinjaTrueNorth.Checked = Shinra.Settings.NinjaTrueNorth;
+
+            NinjaSecondWindPct.Value = Shinra.Settings.NinjaSecondWindPct;
+            NinjaInvigoratePct.Value = Shinra.Settings.NinjaInvigoratePct;
+            NinjaBloodbathPct.Value = Shinra.Settings.NinjaBloodbathPct;
+
+            #endregion
+
+            #region Cooldown
+
+            NinjaAssassinate.Checked = Shinra.Settings.NinjaAssassinate;
+            NinjaMug.Checked = Shinra.Settings.NinjaMug;
+
+            #endregion
+
+            #region Buff
+
+            NinjaShadeShift.Checked = Shinra.Settings.NinjaShadeShift;
+            NinjaShadeShiftPct.Value = Shinra.Settings.NinjaShadeShiftPct;
+
+            #endregion
+
+            #endregion
+
             #region Paladin
 
             #region Role
@@ -1522,6 +1553,77 @@ namespace ShinraCo.Settings.Forms
             if (MonkFist.Text == @"Earth") Shinra.Settings.MonkFist = MonkFists.Earth;
             if (MonkFist.Text == @"Wind") Shinra.Settings.MonkFist = MonkFists.Wind;
             if (MonkFist.Text == @"Fire") Shinra.Settings.MonkFist = MonkFists.Fire;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Ninja
+
+        #region Role
+
+        private void NinjaSecondWind_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaSecondWind = NinjaSecondWind.Checked;
+        }
+
+        private void NinjaInvigorate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaInvigorate = NinjaInvigorate.Checked;
+        }
+
+        private void NinjaBloodbath_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaBloodbath = NinjaBloodbath.Checked;
+        }
+
+        private void NinjaTrueNorth_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaTrueNorth = NinjaTrueNorth.Checked;
+        }
+
+        private void NinjaSecondWindPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaSecondWindPct = Convert.ToInt32(NinjaSecondWindPct.Value);
+        }
+
+        private void NinjaInvigoratePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaInvigoratePct = Convert.ToInt32(NinjaInvigoratePct.Value);
+        }
+
+        private void NinjaBloodbathPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaBloodbathPct = Convert.ToInt32(NinjaBloodbathPct.Value);
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void NinjaAssassinate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaAssassinate = NinjaAssassinate.Checked;
+        }
+
+        private void NinjaMug_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaMug = NinjaMug.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void NinjaShadeShift_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaShadeShift = NinjaShadeShift.Checked;
+        }
+
+        private void NinjaShadeShiftPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaShadeShiftPct = Convert.ToInt32(NinjaShadeShiftPct.Value);
         }
 
         #endregion

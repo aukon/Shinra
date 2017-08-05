@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ShinraCo.Settings;
 
 namespace ShinraCo.Rotations
 {
@@ -8,9 +9,33 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (await AeolianEdge()) return true;
-            if (await GustSlash()) return true;
-            return await SpinningEdge();
+            if (Shinra.Settings.RotationMode == Modes.Smart)
+            {
+                if (await Raiton()) return true;
+                if (await FumaShuriken()) return true;
+                if (await DeathBlossom()) return true;
+                if (await ShadowFang()) return true;
+                if (await AeolianEdge()) return true;
+                if (await GustSlash()) return true;
+                return await SpinningEdge();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Single)
+            {
+                if (await FumaShuriken()) return true;
+                if (await ShadowFang()) return true;
+                if (await AeolianEdge()) return true;
+                if (await GustSlash()) return true;
+                return await SpinningEdge();
+            }
+            if (Shinra.Settings.RotationMode == Modes.Multi)
+            {
+                if (await DeathBlossom()) return true;
+                if (await ShadowFang()) return true;
+                if (await AeolianEdge()) return true;
+                if (await GustSlash()) return true;
+                return await SpinningEdge();
+            }
+            return false;
         }
 
         #endregion
@@ -21,8 +46,10 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (await TrueNorth()) return true;
             if (await Assassinate()) return true;
             if (await Mug()) return true;
+            if (await Jugulate()) return true;
             return await Invigorate();
         }
 

@@ -144,7 +144,7 @@ namespace ShinraCo.Rotations
             {
                 if (!MovementManager.IsMoving && WhiteMana >= 80 && BlackMana >= 80 && Core.Player.TargetDistance(5))
                 {
-                    return await MySpells.CorpsACorps.Cast();
+                    return await MySpells.CorpsACorps.Cast(null, false);
                 }
             }
             return false;
