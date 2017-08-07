@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ff14bot;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Dragoon;
@@ -92,9 +93,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DoomSpike()
         {
-            if (Core.Player.CurrentTPPercent > 30 && Core.Player.HasAura(MySpells.HeavyThrust.Name) && Helpers.EnemiesNearTarget(5) > 2)
+            if (Core.Player.CurrentTPPercent > 30 && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                return await MySpells.DoomSpike.Cast();
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    return await MySpells.DoomSpike.Cast();
+                }
             }
             return false;
         }
@@ -102,9 +106,12 @@ namespace ShinraCo.Rotations
         private async Task<bool> SonicThrust()
         {
             if (ActionManager.LastSpell.Name == MySpells.DoomSpike.Name && Core.Player.CurrentTPPercent > 30 &&
-                Core.Player.HasAura(MySpells.HeavyThrust.Name) && Helpers.EnemiesNearTarget(5) > 2)
+                Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                return await MySpells.SonicThrust.Cast();
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    return await MySpells.SonicThrust.Cast();
+                }
             }
             return false;
         }

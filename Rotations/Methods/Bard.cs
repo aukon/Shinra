@@ -127,16 +127,21 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickNock()
         {
-            if (Shinra.Settings.RotationMode != Modes.Single && Core.Player.CurrentTPPercent > 40 && Helpers.EnemiesNearTarget(5) > 2)
+            if (Core.Player.CurrentTPPercent > 40)
             {
-                return await MySpells.QuickNock.Cast();
+                if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Smart &&
+                    Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    return await MySpells.QuickNock.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> RainOfDeath()
         {
-            if (Shinra.Settings.RotationMode != Modes.Single && Helpers.EnemiesNearTarget(5) > 1)
+            if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Smart &&
+                Helpers.EnemiesNearTarget(5) > 1)
             {
                 return await MySpells.RainOfDeath.Cast();
             }

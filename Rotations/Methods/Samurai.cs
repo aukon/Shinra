@@ -204,7 +204,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TenkaGoken()
         {
-            if (NumSen == 2 && !MovementManager.IsMoving && Helpers.EnemiesNearTarget(5) > 2)
+            if (NumSen == 2 && !MovementManager.IsMoving &&
+                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2))
             {
                 if (ActionManager.CanCast(MySpells.TenkaGoken.Name, Core.Player.CurrentTarget))
                 {
@@ -283,7 +284,8 @@ namespace ShinraCo.Rotations
                 {
                     return await MySpells.Hagakure.Cast();
                 }
-                if (NumSen == 3 && (Helpers.EnemiesNearPlayer(5) > 2 || MovementManager.IsMoving))
+                if (NumSen == 3 && (MovementManager.IsMoving || Shinra.Settings.RotationMode == Modes.Multi ||
+                                    Helpers.EnemiesNearPlayer(5) > 2))
                 {
                     return await MySpells.Hagakure.Cast();
                 }

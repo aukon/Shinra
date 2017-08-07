@@ -76,9 +76,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> EarthlyStar()
         {
-            if (Shinra.Settings.AstrologianEarthlyStar && Helpers.EnemiesNearTarget(8) > 2)
+            if (Shinra.Settings.AstrologianEarthlyStar)
             {
-                return await MySpells.EarthlyStar.Cast();
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(8) > 2)
+                {
+                    return await MySpells.EarthlyStar.Cast();
+                }
             }
             return false;
         }

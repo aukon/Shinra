@@ -138,7 +138,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.WarriorUpheaval && Core.Player.CurrentHealthPercent > 70 && (DefianceStance || UseSpenders))
             {
-                if (Shinra.Settings.RotationMode == Modes.Single || Helpers.EnemiesNearTarget(5) <= 2)
+                if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
+                    Helpers.EnemiesNearTarget(5) <= 2)
                 {
                     return await MySpells.Upheaval.Cast();
                 }

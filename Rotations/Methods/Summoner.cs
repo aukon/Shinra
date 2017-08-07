@@ -358,16 +358,19 @@ namespace ShinraCo.Rotations
                                   DataManager.GetSpellData(166).Cooldown.TotalMilliseconds > 8000;
 
         private bool UseBane => Shinra.Settings.RotationMode != Modes.Single && Shinra.Settings.SummonerBane &&
-                                ActionManager.CanCast(MySpells.Bane.Name, Core.Player.CurrentTarget) && Helpers.EnemiesNearTarget(5) > 1 &&
+                                ActionManager.CanCast(MySpells.Bane.Name, Core.Player.CurrentTarget) &&
+                                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 1) &&
                                 Core.Player.CurrentTarget.HasAura(BioDebuff, true, 20000) &&
                                 Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 14000);
 
-        private bool UseFester => (Shinra.Settings.RotationMode == Modes.Single || Helpers.EnemiesNearTarget(5) <= 1) &&
+        private bool UseFester => (Shinra.Settings.RotationMode == Modes.Single ||
+                                   Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) <= 1) &&
                                   ActionManager.CanCast(MySpells.Fester.Name, Core.Player.CurrentTarget) && !AetherLow &&
                                   Core.Player.CurrentTarget.HasAura(BioDebuff, true) &&
                                   Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true);
 
-        private bool UsePainflare => Shinra.Settings.RotationMode != Modes.Single && Helpers.EnemiesNearTarget(5) > 1 &&
+        private bool UsePainflare => Shinra.Settings.RotationMode != Modes.Single &&
+                                     (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 1) &&
                                      ActionManager.CanCast(MySpells.Painflare.Name, Core.Player.CurrentTarget) && !AetherLow;
 
         private bool UsePet => PetExists && (Shinra.Settings.SummonerRouse && ActionManager.CanCast(MySpells.Rouse.Name, Core.Player) ||
