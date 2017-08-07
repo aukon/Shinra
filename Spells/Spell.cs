@@ -12,6 +12,7 @@ using ff14bot.Managers;
 using ff14bot.Navigation;
 using ff14bot.Objects;
 using ff14bot.Pathing;
+using ShinraCo.Settings;
 
 namespace ShinraCo.Spells
 {
@@ -93,7 +94,7 @@ namespace ShinraCo.Spells
 
             #region AoE
 
-            if (SpellType == SpellType.AoE)
+            if (SpellType == SpellType.AoE && Shinra.Settings.RotationMode != Modes.Multi)
             {
                 var enemyCount = Helpers.EnemyUnit.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
                                                                DataManager.GetSpellData(ID).Radius);
@@ -240,17 +241,6 @@ namespace ShinraCo.Spells
                 if (!ActionManager.CanCast(ID, target))
                 {
                     return false;
-                }
-
-                #endregion
-
-                #region Wait
-
-                if (Shinra.LastSpell.ID != 0 && Shinra.LastSpell.SpellType != SpellType.Ninjutsu &&
-                    Shinra.LastSpell.SpellType != SpellType.Mudra)
-                {
-                    await Coroutine.Wait(1000, () => DataManager.GetSpellData(Shinra.LastSpell.ID).Cooldown.TotalMilliseconds <=
-                                                     DataManager.GetSpellData(Shinra.LastSpell.ID).AdjustedCooldown.TotalMilliseconds - 1000);
                 }
 
                 #endregion

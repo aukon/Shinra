@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
@@ -33,7 +32,24 @@ namespace ShinraCo.Rotations
         {
             if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name)
             {
+                if (Shinra.Settings.NinjaDuality && ActionManager.CanCast(MySpells.AeolianEdge.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.Duality.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Duality.Name));
+                    }
+                }
                 return await MySpells.AeolianEdge.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> ArmorCrush()
+        {
+            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name && Resource.HutonTimer.TotalMilliseconds > 0 &&
+                Resource.HutonTimer.TotalMilliseconds < 40000)
+            {
+                return await MySpells.ArmorCrush.Cast();
             }
             return false;
         }
@@ -44,10 +60,14 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ShadowFang()
         {
-            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name && Core.Player.CurrentTarget.IsBoss() &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ShadowFang.Name, true, 5000))
+            if (Shinra.Settings.NinjaShadowFang && (Core.Player.CurrentTarget.IsBoss() ||
+                                                    Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.NinjaShadowFangHP))
             {
-                return await MySpells.ShadowFang.Cast();
+                if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name &&
+                    !Core.Player.CurrentTarget.HasAura(MySpells.ShadowFang.Name, true, 6000))
+                {
+                    return await MySpells.ShadowFang.Cast();
+                }
             }
             return false;
         }
@@ -71,7 +91,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Assassinate()
         {
-            if (Shinra.Settings.NinjaAssassinate)
+            if (Shinra.Settings.NinjaAssassinate && UseOffGCD)
             {
                 return await MySpells.Assassinate.Cast();
             }
@@ -80,7 +100,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Mug()
         {
-            if (Shinra.Settings.NinjaMug)
+            if (Shinra.Settings.NinjaMug && UseOffGCD)
             {
                 return await MySpells.Mug.Cast();
             }
@@ -89,12 +109,30 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TrickAttack()
         {
-            return await MySpells.TrickAttack.Cast();
+            if (Shinra.Settings.NinjaTrickAttack && UseOffGCD && !Core.Player.CurrentTarget.HasAura(638, false, 3000) &&
+                (Core.Player.CurrentTarget.IsBehind || BotManager.Current.IsAutonomous))
+            {
+                return await MySpells.TrickAttack.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> Jugulate()
         {
-            return await MySpells.Jugulate.Cast();
+            if (Shinra.Settings.NinjaJugulate && UseOffGCD)
+            {
+                return await MySpells.Jugulate.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> DreamWithinADream()
+        {
+            if (Shinra.Settings.NinjaDreamWithin && UseOffGCD)
+            {
+                return await MySpells.DreamWithinADream.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -112,10 +150,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Kassatsu()
         {
-            if (Core.Player.CurrentTarget.HasAura("Vulnerability Up") || Shinra.Settings.RotationMode == Modes.Multi ||
-                Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2)
+            if (Shinra.Settings.NinjaKassatsu && UseOffGCD)
             {
-                return await MySpells.Kassatsu.Cast();
+                if (Core.Player.CurrentTarget.HasAura(638) || Shinra.Settings.RotationMode == Modes.Multi || TrickCooldown > 30000 ||
+                    Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2)
+                {
+                    return await MySpells.Kassatsu.Cast();
+                }
             }
             return false;
         }
@@ -126,7 +167,8 @@ namespace ShinraCo.Rotations
 
         private static bool UseNinjutsu(bool targetSelf = false, int range = 15)
         {
-            return Core.Player.HasAura(496) || DataManager.GetSpellData(2240).Cooldown.TotalMilliseconds < 1500 &&
+            return Core.Player.HasAura(496) ||
+                   (NinjutsuGcd > 1000 || NinjutsuGcd == 0 && !ActionManager.CanCast(2240, Core.Player.CurrentTarget)) &&
                    (targetSelf || Core.Player.CurrentTarget.CanAttack && Core.Player.TargetDistance(range, false) &&
                     Core.Player.CurrentTarget.InLineOfSight());
         }
@@ -135,7 +177,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FumaShuriken()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null))
+            if (Shinra.Settings.NinjaFuma && UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null))
             {
                 if (!CanNinjutsu)
                 {
@@ -162,7 +204,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Katon()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
+            if (Shinra.Settings.NinjaKaton && UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
             {
                 if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
                 {
@@ -199,7 +241,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Raiton()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
+            if (Shinra.Settings.NinjaRaiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
             {
                 if (!CanNinjutsu)
                 {
@@ -233,35 +275,39 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Huton()
         {
-            if (UseNinjutsu(true) && ActionManager.CanCast(MySpells.Jin.ID, null) && Resource.HutonTimer.TotalMilliseconds < 20000)
+            if (Shinra.Settings.NinjaHuton && UseNinjutsu(true) && ActionManager.CanCast(MySpells.Jin.ID, null) &&
+                Resource.HutonTimer.TotalMilliseconds < 20000)
             {
-                if (!CanNinjutsu)
+                if (Core.Player.InCombat || Core.Player.HasTarget && Core.Player.CurrentTarget.CanAttack)
                 {
-                    if (await MySpells.Jin.Cast())
+                    if (!CanNinjutsu)
                     {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                        if (await MySpells.Jin.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
                     }
-                }
-                if (LastJin)
-                {
-                    if (await MySpells.Chi.Cast())
+                    if (LastJin)
                     {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                        if (await MySpells.Chi.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
                     }
-                }
-                if (LastChi)
-                {
-                    if (await MySpells.Ten.Cast())
+                    if (LastChi)
                     {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                        if (await MySpells.Ten.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => CanNinjutsu);
+                        }
                     }
-                }
-                if (LastTen)
-                {
-                    if (await MySpells.Huton.Cast())
+                    if (LastTen)
                     {
-                        await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
-                        return true;
+                        if (await MySpells.Huton.Cast())
+                        {
+                            await Coroutine.Wait(2000, () => !Core.Player.HasAura(496));
+                            return true;
+                        }
                     }
                 }
             }
@@ -274,10 +320,10 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Doton()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null))
+            if (Shinra.Settings.NinjaDoton && UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null) && !MovementManager.IsMoving &&
+                !Core.Player.HasAura(MySpells.Doton.Name, true, 5000))
             {
-                if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Multi &&
-                    Helpers.EnemiesNearTarget(5) > 2)
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
                 {
                     if (!CanNinjutsu)
                     {
@@ -319,7 +365,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Suiton()
         {
-            if (UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null) && TrickCooldown == TimeSpan.FromMilliseconds(0))
+            if (Shinra.Settings.NinjaSuiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null) &&
+                !Core.Player.HasAura(MySpells.Suiton.Name) && TrickCooldown < 5000)
             {
                 if (!CanNinjutsu)
                 {
@@ -400,7 +447,10 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static TimeSpan TrickCooldown => DataManager.GetSpellData(2258).Cooldown;
+        private static bool UseOffGCD => DataManager.GetSpellData(2260).Cooldown.TotalMilliseconds > 1000;
+
+        private static double TrickCooldown => DataManager.GetSpellData(2258).Cooldown.TotalMilliseconds;
+        private static double NinjutsuGcd => DataManager.GetSpellData(2240).Cooldown.TotalMilliseconds;
 
         private bool CanNinjutsu => ActionManager.CanCast(MySpells.Ninjutsu.ID, null);
         private bool LastTen => Shinra.LastSpell.ID == MySpells.Ten.ID;

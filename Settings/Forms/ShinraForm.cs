@@ -366,17 +366,41 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region DoT
+
+            NinjaShadowFang.Checked = Shinra.Settings.NinjaShadowFang;
+            NinjaShadowFangHP.Value = Shinra.Settings.NinjaShadowFangHP;
+
+            #endregion
+
             #region Cooldown
 
             NinjaAssassinate.Checked = Shinra.Settings.NinjaAssassinate;
             NinjaMug.Checked = Shinra.Settings.NinjaMug;
+            NinjaTrickAttack.Checked = Shinra.Settings.NinjaTrickAttack;
+            NinjaJugulate.Checked = Shinra.Settings.NinjaJugulate;
+            NinjaDreamWithin.Checked = Shinra.Settings.NinjaDreamWithin;
 
             #endregion
 
             #region Buff
 
             NinjaShadeShift.Checked = Shinra.Settings.NinjaShadeShift;
+            NinjaKassatsu.Checked = Shinra.Settings.NinjaKassatsu;
+            NinjaDuality.Checked = Shinra.Settings.NinjaDuality;
+
             NinjaShadeShiftPct.Value = Shinra.Settings.NinjaShadeShiftPct;
+
+            #endregion
+
+            #region Ninjutsu
+
+            NinjaFuma.Checked = Shinra.Settings.NinjaFuma;
+            NinjaKaton.Checked = Shinra.Settings.NinjaKaton;
+            NinjaRaiton.Checked = Shinra.Settings.NinjaRaiton;
+            NinjaHuton.Checked = Shinra.Settings.NinjaHuton;
+            NinjaDoton.Checked = Shinra.Settings.NinjaDoton;
+            NinjaSuiton.Checked = Shinra.Settings.NinjaSuiton;
 
             #endregion
 
@@ -1600,6 +1624,20 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region DoT
+
+        private void NinjaShadowFang_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaShadowFang = NinjaShadowFang.Checked;
+        }
+
+        private void NinjaShadowFangHP_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaShadowFangHP = Convert.ToInt32(NinjaShadowFangHP.Value);
+        }
+
+        #endregion
+
         #region Cooldown
 
         private void NinjaAssassinate_CheckedChanged(object sender, EventArgs e)
@@ -1612,6 +1650,21 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.NinjaMug = NinjaMug.Checked;
         }
 
+        private void NinjaTrickAttack_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaTrickAttack = NinjaTrickAttack.Checked;
+        }
+
+        private void NinjaJugulate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaJugulate = NinjaJugulate.Checked;
+        }
+
+        private void NinjaDreamWithin_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaDreamWithin = NinjaDreamWithin.Checked;
+        }
+
         #endregion
 
         #region Buff
@@ -1621,9 +1674,53 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.NinjaShadeShift = NinjaShadeShift.Checked;
         }
 
+        private void NinjaKassatsu_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaKassatsu = NinjaKassatsu.Checked;
+        }
+
+        private void NinjaDuality_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaDuality = NinjaDuality.Checked;
+        }
+
         private void NinjaShadeShiftPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaShadeShiftPct = Convert.ToInt32(NinjaShadeShiftPct.Value);
+        }
+
+        #endregion
+
+        #region Ninjutsu
+
+        private void NinjaFuma_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaFuma = NinjaFuma.Checked;
+        }
+
+        private void NinjaKaton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaKaton = NinjaKaton.Checked;
+        }
+
+        private void NinjaRaiton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaRaiton = NinjaRaiton.Checked;
+        }
+
+        private void NinjaHuton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaHuton = NinjaHuton.Checked;
+        }
+
+        private void NinjaDoton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaDoton = NinjaDoton.Checked;
+        }
+
+        private void NinjaSuiton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaSuiton = NinjaSuiton.Checked;
         }
 
         #endregion

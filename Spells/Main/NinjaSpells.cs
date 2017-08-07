@@ -236,7 +236,7 @@ namespace ShinraCo.Spells.Main
             Level = 45,
             GCDType = GCDType.On,
             SpellType = SpellType.Ninjutsu,
-            CastType = CastType.TargetLocation
+            CastType = CastType.SelfLocation
         };
 
         public Spell Suiton { get; } = new Spell
@@ -257,6 +257,56 @@ namespace ShinraCo.Spells.Main
             GCDType = GCDType.Off,
             SpellType = SpellType.Buff,
             CastType = CastType.Self
+        };
+
+        public Spell SmokeScreen { get; } = new Spell
+        {
+            Name = "Smoke Screen",
+            ID = 3565,
+            Level = 52,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Target
+        };
+
+        public Spell ArmorCrush { get; } = new Spell
+        {
+            Name = "Armor Crush",
+            ID = 3563,
+            Level = 54,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell Shadewalker { get; } = new Spell
+        {
+            Name = "Shadewalker",
+            ID = 3564,
+            Level = 56,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Target
+        };
+
+        public Spell Duality { get; } = new Spell
+        {
+            Name = "Duality",
+            ID = 3567,
+            Level = 58,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell DreamWithinADream { get; } = new Spell
+        {
+            Name = "Dream Within a Dream",
+            ID = 3566,
+            Level = 60,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
         };
     }
 }

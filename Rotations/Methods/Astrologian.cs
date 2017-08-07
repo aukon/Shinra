@@ -251,7 +251,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Undraw()
         {
-            if (!ActionManager.HasSpell(MySpells.MinorArcana.Name) && (CardEwer || CardSpire))
+            if (Shinra.Settings.AstrologianDraw && !ActionManager.HasSpell(MySpells.MinorArcana.Name) && (CardEwer || CardSpire))
             {
                 return await MySpells.Undraw.Cast();
             }
@@ -260,7 +260,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RoyalRoad()
         {
-            if (!HasBuff && CardBole)
+            if (Shinra.Settings.AstrologianDraw && !HasBuff && CardBole)
             {
                 return await MySpells.RoyalRoad.Cast();
             }
@@ -269,7 +269,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Spread()
         {
-            if (HasSpread && HasBuff)
+            if (Shinra.Settings.AstrologianDraw && HasSpread && HasBuff)
             {
                 var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
 
@@ -279,7 +279,7 @@ namespace ShinraCo.Rotations
                 }
                 return await MySpells.Spread.Cast();
             }
-            if (!HasSpread && !HasBuff && (CardBalance || CardArrow || CardSpear))
+            if (Shinra.Settings.AstrologianDraw && !HasSpread && !HasBuff && (CardBalance || CardArrow || CardSpear))
             {
                 return await MySpells.Spread.Cast();
             }
@@ -288,7 +288,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Redraw()
         {
-            if (!CardBalance && !CardArrow && !CardSpear)
+            if (Shinra.Settings.AstrologianDraw && !CardBalance && !CardArrow && !CardSpear)
             {
                 return await MySpells.Redraw.Cast();
             }
@@ -297,7 +297,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MinorArcana()
         {
-            if (!HasArcana && !CardBalance && !CardArrow && !CardSpear)
+            if (Shinra.Settings.AstrologianDraw && !HasArcana && !CardBalance && !CardArrow && !CardSpear)
             {
                 return await MySpells.MinorArcana.Cast();
             }
@@ -306,7 +306,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> LordOfCrowns()
         {
-            if (CardLord)
+            if (Shinra.Settings.AstrologianDraw && CardLord)
             {
                 return await MySpells.LordOfCrowns.Cast();
             }
@@ -315,7 +315,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> LadyOfCrowns()
         {
-            if (CardLady)
+            if (Shinra.Settings.AstrologianDraw && CardLady)
             {
                 var target = Core.Player;
 

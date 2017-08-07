@@ -564,7 +564,7 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MonkDemolish { get; set; }
 
-        [Setting, DefaultValue(500000)]
+        [Setting, DefaultValue(100000)]
         public int MonkDemolishHP { get; set; }
 
         #endregion
@@ -643,6 +643,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region DoT
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaShadowFang { get; set; }
+
+        [Setting, DefaultValue(100000)]
+        public int NinjaShadowFangHP { get; set; }
+
+        #endregion
+
         #region Cooldown
 
         [Setting, DefaultValue(true)]
@@ -651,6 +661,15 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool NinjaMug { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool NinjaTrickAttack { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaJugulate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaDreamWithin { get; set; }
+
         #endregion
 
         #region Buff
@@ -658,8 +677,36 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool NinjaShadeShift { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool NinjaKassatsu { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaDuality { get; set; }
+
         [Setting, DefaultValue(50)]
         public int NinjaShadeShiftPct { get; set; }
+
+        #endregion
+
+        #region Ninjutsu
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaFuma { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaKaton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaRaiton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaHuton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaDoton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaSuiton { get; set; }
 
         #endregion
 

@@ -80,9 +80,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FellCleave()
         {
-            if (Shinra.Settings.WarriorFellCleave && DeliveranceStance && BeastValue >= 50 && UseSpenders)
+            if (Shinra.Settings.WarriorFellCleave && DeliveranceStance && UseSpenders)
             {
-                return await MySpells.FellCleave.Cast();
+                if (BeastValue >= 90 || Core.Player.CurrentTarget.HasAura(819) && Core.Player.HasAura(MySpells.StormsEye.Name))
+                {
+                    return await MySpells.FellCleave.Cast();
+                }
             }
             return false;
         }

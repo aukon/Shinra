@@ -19,6 +19,7 @@ namespace ShinraCo.Rotations
                 if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
                 if (await ShadowFang()) return true;
+                if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
                 if (await GustSlash()) return true;
                 return await SpinningEdge();
@@ -30,6 +31,7 @@ namespace ShinraCo.Rotations
                 if (await Raiton()) return true;
                 if (await FumaShuriken()) return true;
                 if (await ShadowFang()) return true;
+                if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
                 if (await GustSlash()) return true;
                 return await SpinningEdge();
@@ -42,6 +44,7 @@ namespace ShinraCo.Rotations
                 if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
                 if (await ShadowFang()) return true;
+                if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
                 if (await GustSlash()) return true;
                 return await SpinningEdge();
@@ -58,11 +61,12 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await ShadeShift()) return true;
-            if (await Kassatsu()) return true;
-            if (await TrickAttack()) return true;
             if (await Assassinate()) return true;
             if (await Mug()) return true;
             if (await Jugulate()) return true;
+            if (await Kassatsu()) return true;
+            if (await TrickAttack()) return true;
+            if (await DreamWithinADream()) return true;
             if (await TrueNorth()) return true;
             return await Invigorate();
         }
@@ -84,7 +88,8 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> PreCombatBuff()
         {
-            return await Shinra.SummonChocobo();
+            if (await Shinra.SummonChocobo()) return true;
+            return await Huton();
         }
 
         #endregion
