@@ -109,10 +109,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TrickAttack()
         {
-            if (Shinra.Settings.NinjaTrickAttack && UseOffGCD && !Core.Player.CurrentTarget.HasAura(638, false, 3000) &&
-                (Core.Player.CurrentTarget.IsBehind || BotManager.Current.IsAutonomous))
+            if (Shinra.Settings.NinjaTrickAttack && UseOffGCD && !Core.Player.CurrentTarget.HasAura(638, false, 3000))
             {
-                return await MySpells.TrickAttack.Cast();
+                if (Core.Player.CurrentTarget.IsBehind || BotManager.Current.IsAutonomous ||
+                    Core.Player.HasAura(MySpells.Role.TrueNorth.Name))
+                {
+                    return await MySpells.TrickAttack.Cast();
+                }
             }
             return false;
         }
@@ -131,6 +134,32 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.NinjaDreamWithin && UseOffGCD)
             {
                 return await MySpells.DreamWithinADream.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> HellfrogMedium()
+        {
+            if (Shinra.Settings.NinjaHellfrogMedium && UseOffGCD)
+            {
+                if (Shinra.Settings.RotationMode == Modes.Multi || !ActionManager.HasSpell(MySpells.Bhavacakra.Name) || UseHellfrog ||
+                    Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(6) > 1)
+                {
+                    return await MySpells.HellfrogMedium.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Bhavacakra()
+        {
+            if (Shinra.Settings.NinjaBhavacakra && UseOffGCD)
+            {
+                if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
+                    Helpers.EnemiesNearTarget(6) < 2)
+                {
+                    return await MySpells.Bhavacakra.Cast();
+                }
             }
             return false;
         }
@@ -157,6 +186,15 @@ namespace ShinraCo.Rotations
                 {
                     return await MySpells.Kassatsu.Cast();
                 }
+            }
+            return false;
+        }
+
+        private async Task<bool> TenChiJin()
+        {
+            if (Shinra.Settings.NinjaTenChiJin && UseOffGCD && !MovementManager.IsMoving)
+            {
+                return await MySpells.TenChiJin.Cast();
             }
             return false;
         }
@@ -403,6 +441,73 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        private async Task<bool> TenChiJinBuff()
+        {
+            if (Core.Player.HasAura(MySpells.TenChiJin.Name))
+            {
+                #region Fuma
+
+                if (!Core.Player.HasAura("Mudra"))
+                {
+                    if (await MySpells.Ten.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastTen)
+                {
+                    if (await MySpells.FumaShuriken.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !CanNinjutsu);
+                    }
+                }
+
+                #endregion
+
+                #region Raiton
+
+                if (Shinra.LastSpell.ID == MySpells.FumaShuriken.ID)
+                {
+                    if (await MySpells.Chi.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastChi)
+                {
+                    if (await MySpells.Raiton.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !CanNinjutsu);
+                    }
+                }
+
+                #endregion
+
+                #region Suiton
+
+                if (Shinra.LastSpell.ID == MySpells.Raiton.ID)
+                {
+                    if (await MySpells.Jin.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => CanNinjutsu);
+                    }
+                }
+                if (LastJin)
+                {
+                    if (await MySpells.Suiton.Cast())
+                    {
+                        await Coroutine.Wait(2000, () => !CanNinjutsu);
+                        return true;
+                    }
+                }
+
+                #endregion
+
+                return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Role
@@ -448,9 +553,14 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static bool UseOffGCD => DataManager.GetSpellData(2260).Cooldown.TotalMilliseconds > 1000;
+        private static bool UseHellfrog => Resource.NinkiGauge == 100 && BhavacakraCooldown > 10000 && TenChiJinCooldown > 10000;
 
         private static double TrickCooldown => DataManager.GetSpellData(2258).Cooldown.TotalMilliseconds;
         private static double NinjutsuGcd => DataManager.GetSpellData(2240).Cooldown.TotalMilliseconds;
+        private static double BhavacakraCooldown => ActionManager.HasSpell(7402) ? DataManager.GetSpellData(7402).Cooldown.TotalMilliseconds
+            : 50000;
+        private static double TenChiJinCooldown => ActionManager.HasSpell(7403) ? DataManager.GetSpellData(7403).Cooldown.TotalMilliseconds
+            : 100000;
 
         private bool CanNinjutsu => ActionManager.CanCast(MySpells.Ninjutsu.ID, null);
         private bool LastTen => Shinra.LastSpell.ID == MySpells.Ten.ID;

@@ -532,6 +532,41 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Machinist
+
+        #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistSecondWind { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistFootGraze { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistLegGraze { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistPeloton { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistInvigorate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistTactician { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int MachinistSecondWindPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int MachinistInvigoratePct { get; set; }
+
+        [Setting, DefaultValue(30)]
+        public int MachinistTacticianPct { get; set; }
+
+        #endregion
+
+        #endregion
+
         #region Monk
 
         #region Role
@@ -670,6 +705,12 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool NinjaDreamWithin { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool NinjaHellfrogMedium { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaBhavacakra { get; set; }
+
         #endregion
 
         #region Buff
@@ -682,6 +723,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool NinjaDuality { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaTenChiJin { get; set; }
 
         [Setting, DefaultValue(50)]
         public int NinjaShadeShiftPct { get; set; }

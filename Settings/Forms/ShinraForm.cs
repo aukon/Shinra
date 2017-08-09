@@ -380,6 +380,8 @@ namespace ShinraCo.Settings.Forms
             NinjaTrickAttack.Checked = Shinra.Settings.NinjaTrickAttack;
             NinjaJugulate.Checked = Shinra.Settings.NinjaJugulate;
             NinjaDreamWithin.Checked = Shinra.Settings.NinjaDreamWithin;
+            NinjaHellfrogMedium.Checked = Shinra.Settings.NinjaHellfrogMedium;
+            NinjaBhavacakra.Checked = Shinra.Settings.NinjaBhavacakra;
 
             #endregion
 
@@ -388,6 +390,7 @@ namespace ShinraCo.Settings.Forms
             NinjaShadeShift.Checked = Shinra.Settings.NinjaShadeShift;
             NinjaKassatsu.Checked = Shinra.Settings.NinjaKassatsu;
             NinjaDuality.Checked = Shinra.Settings.NinjaDuality;
+            NinjaTenChiJin.Checked = Shinra.Settings.NinjaTenChiJin;
 
             NinjaShadeShiftPct.Value = Shinra.Settings.NinjaShadeShiftPct;
 
@@ -1665,6 +1668,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.NinjaDreamWithin = NinjaDreamWithin.Checked;
         }
 
+        private void NinjaHellfrogMedium_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaHellfrogMedium = NinjaHellfrogMedium.Checked;
+        }
+
+        private void NinjaBhavacakra_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaBhavacakra = NinjaBhavacakra.Checked;
+        }
+
         #endregion
 
         #region Buff
@@ -1682,6 +1695,11 @@ namespace ShinraCo.Settings.Forms
         private void NinjaDuality_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaDuality = NinjaDuality.Checked;
+        }
+
+        private void NinjaTenChiJin_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaTenChiJin = NinjaTenChiJin.Checked;
         }
 
         private void NinjaShadeShiftPct_ValueChanged(object sender, EventArgs e)

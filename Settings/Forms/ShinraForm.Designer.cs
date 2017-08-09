@@ -315,10 +315,15 @@
             this.NinjaShadowFangHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.NinjaShadowFang = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaTenChiJin = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.NinjaDuality = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaKassatsu = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaShadeShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.NinjaShadeShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaBhavacakra = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.NinjaHellfrogMedium = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.NinjaDreamWithin = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaJugulate = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaTrickAttack = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaMug = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -517,8 +522,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaDreamWithin = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaDuality = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -4550,9 +4553,9 @@
             this.NinjaNinjutsuGroup.Controls.Add(this.NinjaKaton);
             this.NinjaNinjutsuGroup.Controls.Add(this.NinjaFuma);
             this.NinjaNinjutsuGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaNinjutsuGroup.Location = new System.Drawing.Point(218, 151);
+            this.NinjaNinjutsuGroup.Location = new System.Drawing.Point(356, 56);
             this.NinjaNinjutsuGroup.Name = "NinjaNinjutsuGroup";
-            this.NinjaNinjutsuGroup.Size = new System.Drawing.Size(69, 158);
+            this.NinjaNinjutsuGroup.Size = new System.Drawing.Size(79, 158);
             this.NinjaNinjutsuGroup.TabIndex = 4;
             this.NinjaNinjutsuGroup.TabStop = false;
             this.NinjaNinjutsuGroup.Text = "Ninjutsu";
@@ -4696,17 +4699,48 @@
             // 
             // NinjaBuffGroup
             // 
+            this.NinjaBuffGroup.Controls.Add(this.NinjaTenChiJin);
             this.NinjaBuffGroup.Controls.Add(this.NinjaDuality);
             this.NinjaBuffGroup.Controls.Add(this.NinjaKassatsu);
             this.NinjaBuffGroup.Controls.Add(this.NinjaShadeShiftPct);
             this.NinjaBuffGroup.Controls.Add(this.NinjaShadeShift);
             this.NinjaBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaBuffGroup.Location = new System.Drawing.Point(218, 56);
+            this.NinjaBuffGroup.Location = new System.Drawing.Point(441, 6);
             this.NinjaBuffGroup.Name = "NinjaBuffGroup";
-            this.NinjaBuffGroup.Size = new System.Drawing.Size(189, 89);
+            this.NinjaBuffGroup.Size = new System.Drawing.Size(189, 112);
             this.NinjaBuffGroup.TabIndex = 2;
             this.NinjaBuffGroup.TabStop = false;
             this.NinjaBuffGroup.Text = "Buff";
+            // 
+            // NinjaTenChiJin
+            // 
+            this.NinjaTenChiJin.AutoSize = true;
+            this.NinjaTenChiJin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaTenChiJin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaTenChiJin.ForeColor = System.Drawing.Color.White;
+            this.NinjaTenChiJin.Location = new System.Drawing.Point(6, 85);
+            this.NinjaTenChiJin.Name = "NinjaTenChiJin";
+            this.NinjaTenChiJin.Size = new System.Drawing.Size(77, 17);
+            this.NinjaTenChiJin.TabIndex = 4;
+            this.NinjaTenChiJin.TabStop = false;
+            this.NinjaTenChiJin.Text = "Ten Chi Jin";
+            this.NinjaTenChiJin.UseVisualStyleBackColor = true;
+            this.NinjaTenChiJin.CheckedChanged += new System.EventHandler(this.NinjaTenChiJin_CheckedChanged);
+            // 
+            // NinjaDuality
+            // 
+            this.NinjaDuality.AutoSize = true;
+            this.NinjaDuality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaDuality.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaDuality.ForeColor = System.Drawing.Color.White;
+            this.NinjaDuality.Location = new System.Drawing.Point(6, 62);
+            this.NinjaDuality.Name = "NinjaDuality";
+            this.NinjaDuality.Size = new System.Drawing.Size(59, 17);
+            this.NinjaDuality.TabIndex = 3;
+            this.NinjaDuality.TabStop = false;
+            this.NinjaDuality.Text = "Duality";
+            this.NinjaDuality.UseVisualStyleBackColor = true;
+            this.NinjaDuality.CheckedChanged += new System.EventHandler(this.NinjaDuality_CheckedChanged);
             // 
             // NinjaKassatsu
             // 
@@ -4749,18 +4783,65 @@
             // 
             // NinjaCooldownGroup
             // 
+            this.NinjaCooldownGroup.Controls.Add(this.NinjaBhavacakra);
+            this.NinjaCooldownGroup.Controls.Add(this.NinjaHellfrogMedium);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaDreamWithin);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaJugulate);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaTrickAttack);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaMug);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaAssassinate);
             this.NinjaCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaCooldownGroup.Location = new System.Drawing.Point(293, 151);
+            this.NinjaCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.NinjaCooldownGroup.Name = "NinjaCooldownGroup";
-            this.NinjaCooldownGroup.Size = new System.Drawing.Size(106, 135);
+            this.NinjaCooldownGroup.Size = new System.Drawing.Size(132, 181);
             this.NinjaCooldownGroup.TabIndex = 1;
             this.NinjaCooldownGroup.TabStop = false;
             this.NinjaCooldownGroup.Text = "Cooldown";
+            // 
+            // NinjaBhavacakra
+            // 
+            this.NinjaBhavacakra.AutoSize = true;
+            this.NinjaBhavacakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaBhavacakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaBhavacakra.ForeColor = System.Drawing.Color.White;
+            this.NinjaBhavacakra.Location = new System.Drawing.Point(6, 154);
+            this.NinjaBhavacakra.Name = "NinjaBhavacakra";
+            this.NinjaBhavacakra.Size = new System.Drawing.Size(81, 17);
+            this.NinjaBhavacakra.TabIndex = 6;
+            this.NinjaBhavacakra.TabStop = false;
+            this.NinjaBhavacakra.Text = "Bhavacakra";
+            this.NinjaBhavacakra.UseVisualStyleBackColor = true;
+            this.NinjaBhavacakra.CheckedChanged += new System.EventHandler(this.NinjaBhavacakra_CheckedChanged);
+            // 
+            // NinjaHellfrogMedium
+            // 
+            this.NinjaHellfrogMedium.AutoSize = true;
+            this.NinjaHellfrogMedium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaHellfrogMedium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaHellfrogMedium.ForeColor = System.Drawing.Color.White;
+            this.NinjaHellfrogMedium.Location = new System.Drawing.Point(6, 131);
+            this.NinjaHellfrogMedium.Name = "NinjaHellfrogMedium";
+            this.NinjaHellfrogMedium.Size = new System.Drawing.Size(110, 17);
+            this.NinjaHellfrogMedium.TabIndex = 5;
+            this.NinjaHellfrogMedium.TabStop = false;
+            this.NinjaHellfrogMedium.Text = "Hellfrog Medium";
+            this.NinjaHellfrogMedium.UseVisualStyleBackColor = true;
+            this.NinjaHellfrogMedium.CheckedChanged += new System.EventHandler(this.NinjaHellfrogMedium_CheckedChanged);
+            // 
+            // NinjaDreamWithin
+            // 
+            this.NinjaDreamWithin.AutoSize = true;
+            this.NinjaDreamWithin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaDreamWithin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaDreamWithin.ForeColor = System.Drawing.Color.White;
+            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 108);
+            this.NinjaDreamWithin.Name = "NinjaDreamWithin";
+            this.NinjaDreamWithin.Size = new System.Drawing.Size(94, 17);
+            this.NinjaDreamWithin.TabIndex = 4;
+            this.NinjaDreamWithin.TabStop = false;
+            this.NinjaDreamWithin.Text = "Dream Within";
+            this.NinjaDreamWithin.UseVisualStyleBackColor = true;
+            this.NinjaDreamWithin.CheckedChanged += new System.EventHandler(this.NinjaDreamWithin_CheckedChanged);
             // 
             // NinjaJugulate
             // 
@@ -7554,36 +7635,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // NinjaDreamWithin
-            // 
-            this.NinjaDreamWithin.AutoSize = true;
-            this.NinjaDreamWithin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaDreamWithin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaDreamWithin.ForeColor = System.Drawing.Color.White;
-            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 108);
-            this.NinjaDreamWithin.Name = "NinjaDreamWithin";
-            this.NinjaDreamWithin.Size = new System.Drawing.Size(94, 17);
-            this.NinjaDreamWithin.TabIndex = 4;
-            this.NinjaDreamWithin.TabStop = false;
-            this.NinjaDreamWithin.Text = "Dream Within";
-            this.NinjaDreamWithin.UseVisualStyleBackColor = true;
-            this.NinjaDreamWithin.CheckedChanged += new System.EventHandler(this.NinjaDreamWithin_CheckedChanged);
-            // 
-            // NinjaDuality
-            // 
-            this.NinjaDuality.AutoSize = true;
-            this.NinjaDuality.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaDuality.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaDuality.ForeColor = System.Drawing.Color.White;
-            this.NinjaDuality.Location = new System.Drawing.Point(6, 62);
-            this.NinjaDuality.Name = "NinjaDuality";
-            this.NinjaDuality.Size = new System.Drawing.Size(59, 17);
-            this.NinjaDuality.TabIndex = 3;
-            this.NinjaDuality.TabStop = false;
-            this.NinjaDuality.Text = "Duality";
-            this.NinjaDuality.UseVisualStyleBackColor = true;
-            this.NinjaDuality.CheckedChanged += new System.EventHandler(this.NinjaDuality_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8259,5 +8310,8 @@
         private Design.CustomCheck NinjaFuma;
         private Design.CustomCheck NinjaDuality;
         private Design.CustomCheck NinjaDreamWithin;
+        private Design.CustomCheck NinjaBhavacakra;
+        private Design.CustomCheck NinjaHellfrogMedium;
+        private Design.CustomCheck NinjaTenChiJin;
     }
 }

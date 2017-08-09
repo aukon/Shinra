@@ -452,6 +452,12 @@ namespace ShinraCo.Spells
                             return false;
                         }
                         break;
+                    case ClassJobType.Machinist:
+                        if (DataManager.GetSpellData(2866).Cooldown.TotalMilliseconds < 1000)
+                        {
+                            return false;
+                        }
+                        break;
                     case ClassJobType.Marauder:
                     case ClassJobType.Warrior:
                         if (DataManager.GetSpellData(31).Cooldown.TotalMilliseconds < 1000)

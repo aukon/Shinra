@@ -253,7 +253,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.BardPeloton && !Core.Player.HasAura(MySpells.Role.Peloton.Name) && !Core.Player.HasTarget &&
                 MovementManager.IsMoving)
             {
-                return await MySpells.Role.Peloton.Cast();
+                return await MySpells.Role.Peloton.Cast(null, false);
             }
             return false;
         }

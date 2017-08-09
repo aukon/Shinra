@@ -177,6 +177,8 @@ namespace ShinraCo
                     return new DarkKnight();
                 case ClassJobType.Dragoon:
                     return new Dragoon();
+                case ClassJobType.Machinist:
+                    return new Machinist();
                 case ClassJobType.Monk:
                     return new Monk();
                 case ClassJobType.Ninja:

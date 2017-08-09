@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (await TenChiJinBuff()) return true;
                 if (await Huton()) return true;
                 if (await Doton()) return true;
                 if (await Katon()) return true;
@@ -26,6 +27,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (await TenChiJinBuff()) return true;
                 if (await Huton()) return true;
                 if (await Suiton()) return true;
                 if (await Raiton()) return true;
@@ -38,6 +40,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
             {
+                if (await TenChiJinBuff()) return true;
                 if (await Huton()) return true;
                 if (await Doton()) return true;
                 if (await Katon()) return true;
@@ -67,6 +70,9 @@ namespace ShinraCo.Rotations
             if (await Kassatsu()) return true;
             if (await TrickAttack()) return true;
             if (await DreamWithinADream()) return true;
+            if (await HellfrogMedium()) return true;
+            if (await Bhavacakra()) return true;
+            if (await TenChiJin()) return true;
             if (await TrueNorth()) return true;
             return await Invigorate();
         }

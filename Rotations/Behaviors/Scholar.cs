@@ -62,6 +62,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> PreCombatBuff()
         {
             if (await Shinra.SummonChocobo()) return true;
+            if (await Aetherflow()) return true;
             if (await SummonII()) return true;
             if (await Summon()) return true;
             return await Protect();
@@ -73,7 +74,8 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
-            return await Combat();
+            if (await BioII()) return true;
+            return await Bio();
         }
 
         #endregion

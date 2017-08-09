@@ -308,5 +308,35 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
+
+        public Spell HellfrogMedium { get; } = new Spell
+        {
+            Name = "Hellfrog Medium",
+            ID = 7401,
+            Level = 62,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell Bhavacakra { get; } = new Spell
+        {
+            Name = "Bhavacakra",
+            ID = 7402,
+            Level = 68,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell TenChiJin { get; } = new Spell
+        {
+            Name = "Ten Chi Jin",
+            ID = 7403,
+            Level = 70,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
     }
 }
