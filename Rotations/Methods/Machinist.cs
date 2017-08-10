@@ -73,7 +73,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Wildfire()
         {
-            return await MySpells.Wildfire.Cast();
+            if (Shinra.Settings.MachinistWildfire && (Core.Player.CurrentTarget.IsBoss() ||
+                                                      Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MachinistWildfireHP))
+            {
+                return await MySpells.Wildfire.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> GaussRound()
@@ -83,7 +88,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Ricochet()
         {
-            return await MySpells.Ricochet.Cast();
+            if (Shinra.Settings.MachinistRicochet)
+            {
+                return await MySpells.Ricochet.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -92,19 +101,26 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Reload()
         {
-            if (Resource.Ammo == 0 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
+            if (Shinra.Settings.MachinistReload)
             {
-                return await MySpells.Reload.Cast();
+                if (Resource.Ammo == 0 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
+                    Core.Player.HasAura(MySpells.HotShot.Name, true, 10000))
+                {
+                    return await MySpells.Reload.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> Reassemble()
         {
-            if (Core.Player.HasAura("Cleaner Shot") || !ActionManager.HasSpell(MySpells.CleanShot.Name) &&
-                Core.Player.HasAura("Enhanced Slug Shot"))
+            if (Shinra.Settings.MachinistReassemble)
             {
-                return await MySpells.Reassemble.Cast();
+                if (Core.Player.HasAura("Cleaner Shot") || !ActionManager.HasSpell(MySpells.CleanShot.Name) &&
+                    Core.Player.HasAura("Enhanced Slug Shot"))
+                {
+                    return await MySpells.Reassemble.Cast();
+                }
             }
             return false;
         }
@@ -120,12 +136,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RapidFire()
         {
-            return await MySpells.RapidFire.Cast();
+            if (Shinra.Settings.MachinistRapidFire)
+            {
+                return await MySpells.RapidFire.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> GaussBarrel()
         {
-            if (!Resource.GaussBarrel)
+            if (Shinra.Settings.MachinistGaussBarrel && !Resource.GaussBarrel)
             {
                 return await MySpells.GaussBarrel.Cast(null, false);
             }
@@ -134,7 +154,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Hypercharge()
         {
-            if (TurretExists)
+            if (Shinra.Settings.MachinistHypercharge && TurretExists)
             {
                 return await MySpells.Hypercharge.Cast();
             }

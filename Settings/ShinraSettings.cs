@@ -578,6 +578,38 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Cooldown
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistWildfire { get; set; }
+
+        [Setting, DefaultValue(100000)]
+        public int MachinistWildfireHP { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistRicochet { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistReload { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistReassemble { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistRapidFire { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistGaussBarrel { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistHypercharge { get; set; }
+
+        #endregion
+
         #region Turret
 
         [Setting, DefaultValue(MachinistTurrets.Rook)]

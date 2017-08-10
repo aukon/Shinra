@@ -303,6 +303,48 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Machinist
+
+            #region Role
+
+            MachinistSecondWind.Checked = Shinra.Settings.MachinistSecondWind;
+            MachinistPeloton.Checked = Shinra.Settings.MachinistPeloton;
+            MachinistInvigorate.Checked = Shinra.Settings.MachinistInvigorate;
+            MachinistTactician.Checked = Shinra.Settings.MachinistTactician;
+
+            MachinistSecondWindPct.Value = Shinra.Settings.MachinistSecondWindPct;
+            MachinistInvigoratePct.Value = Shinra.Settings.MachinistInvigoratePct;
+            MachinistTacticianPct.Value = Shinra.Settings.MachinistTacticianPct;
+
+            #endregion
+
+            #region Cooldown
+
+            MachinistWildfire.Checked = Shinra.Settings.MachinistWildfire;
+            MachinistRicochet.Checked = Shinra.Settings.MachinistRicochet;
+
+            MachinistWildfireHP.Value = Shinra.Settings.MachinistWildfireHP;
+
+            #endregion
+
+            #region Buff
+
+            MachinistReload.Checked = Shinra.Settings.MachinistReload;
+            MachinistReassemble.Checked = Shinra.Settings.MachinistReassemble;
+            MachinistRapidFire.Checked = Shinra.Settings.MachinistRapidFire;
+            MachinistGaussBarrel.Checked = Shinra.Settings.MachinistGaussBarrel;
+            MachinistHypercharge.Checked = Shinra.Settings.MachinistHypercharge;
+
+            #endregion
+
+            #region Turret
+
+            MachinistTurret.Text = Convert.ToString(Shinra.Settings.MachinistTurret);
+
+            #endregion
+
+            #endregion
+
             #region Monk
 
             #region Role
@@ -1469,6 +1511,108 @@ namespace ShinraCo.Settings.Forms
         private void DragoonBloodOfTheDragon_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonBloodOfTheDragon = DragoonBloodOfTheDragon.Checked;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Machinist
+
+        #region Role
+
+        private void MachinistSecondWind_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistSecondWind = MachinistSecondWind.Checked;
+        }
+
+        private void MachinistPeloton_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistPeloton = MachinistPeloton.Checked;
+        }
+
+        private void MachinistInvigorate_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistInvigorate = MachinistInvigorate.Checked;
+        }
+
+        private void MachinistTactician_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistTactician = MachinistTactician.Checked;
+        }
+
+        private void MachinistSecondWindPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistSecondWindPct = Convert.ToInt32(MachinistSecondWindPct.Value);
+        }
+
+        private void MachinistInvigoratePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistInvigoratePct = Convert.ToInt32(MachinistInvigoratePct.Value);
+        }
+
+        private void MachinistTacticianPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistTacticianPct = Convert.ToInt32(MachinistTacticianPct.Value);
+        }
+
+        #endregion
+
+        #region Cooldown
+
+        private void MachinistWildfire_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistWildfire = MachinistWildfire.Checked;
+        }
+
+        private void MachinistRicochet_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistRicochet = MachinistRicochet.Checked;
+        }
+
+        private void MachinistWildfireHP_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistWildfireHP = Convert.ToInt32(MachinistWildfireHP.Value);
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void MachinistReload_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistReload = MachinistReload.Checked;
+        }
+
+        private void MachinistReassemble_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistReassemble = MachinistReassemble.Checked;
+        }
+
+        private void MachinistRapidFire_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistRapidFire = MachinistRapidFire.Checked;
+        }
+
+        private void MachinistGaussBarrel_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistGaussBarrel = MachinistGaussBarrel.Checked;
+        }
+
+        private void MachinistHypercharge_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistHypercharge = MachinistHypercharge.Checked;
+        }
+
+        #endregion
+
+        #region Turret
+
+        private void MachinistTurret_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (MachinistTurret.Text == @"None") Shinra.Settings.MachinistTurret = MachinistTurrets.None;
+            if (MachinistTurret.Text == @"Rook") Shinra.Settings.MachinistTurret = MachinistTurrets.Rook;
+            if (MachinistTurret.Text == @"Bishop") Shinra.Settings.MachinistTurret = MachinistTurrets.Bishop;
         }
 
         #endregion

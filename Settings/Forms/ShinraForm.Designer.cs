@@ -140,6 +140,8 @@
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianAscend = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianAspHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianHeliosPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -213,6 +215,8 @@
             this.WhiteMagePresenceOfMind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageThinAir = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WhiteMageInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageCurePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMageCureIIPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMageTetragrammatonPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -392,7 +396,31 @@
             this.BardFootGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BardSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMachinist = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistHypercharge = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistGaussBarrel = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistRapidFire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistReassemble = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistReload = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistRicochet = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistTacticianPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MachinistInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MachinistSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MachinistPalisade = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistArmGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistHeadGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistRefresh = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistTactician = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistInvigorate = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistPeloton = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistLegGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistFootGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.MachinistSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeTanks = new System.Windows.Forms.TabPage();
             this.tabTanks = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDarkKnight = new System.Windows.Forms.TabPage();
@@ -524,10 +552,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMageInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMageInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistWildfireHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -601,6 +626,10 @@
             this.BardBuffGroup.SuspendLayout();
             this.BardRoleGroup.SuspendLayout();
             this.pgeMachinist.SuspendLayout();
+            this.MachinistTurretGroup.SuspendLayout();
+            this.MachinistBuffGroup.SuspendLayout();
+            this.MachinistCooldownGroup.SuspendLayout();
+            this.MachinistRoleGroup.SuspendLayout();
             this.pgeTanks.SuspendLayout();
             this.tabTanks.SuspendLayout();
             this.pgeDarkKnight.SuspendLayout();
@@ -2228,6 +2257,36 @@
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
             // 
+            // AstrologianInterruptOverheal
+            // 
+            this.AstrologianInterruptOverheal.AutoSize = true;
+            this.AstrologianInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianInterruptOverheal.ForeColor = System.Drawing.Color.White;
+            this.AstrologianInterruptOverheal.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianInterruptOverheal.Name = "AstrologianInterruptOverheal";
+            this.AstrologianInterruptOverheal.Size = new System.Drawing.Size(118, 17);
+            this.AstrologianInterruptOverheal.TabIndex = 15;
+            this.AstrologianInterruptOverheal.TabStop = false;
+            this.AstrologianInterruptOverheal.Text = "Interrupt Overheal";
+            this.AstrologianInterruptOverheal.UseVisualStyleBackColor = true;
+            this.AstrologianInterruptOverheal.CheckedChanged += new System.EventHandler(this.AstrologianInterruptOverheal_CheckedChanged);
+            // 
+            // AstrologianInterruptDamage
+            // 
+            this.AstrologianInterruptDamage.AutoSize = true;
+            this.AstrologianInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianInterruptDamage.ForeColor = System.Drawing.Color.White;
+            this.AstrologianInterruptDamage.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianInterruptDamage.Name = "AstrologianInterruptDamage";
+            this.AstrologianInterruptDamage.Size = new System.Drawing.Size(114, 17);
+            this.AstrologianInterruptDamage.TabIndex = 14;
+            this.AstrologianInterruptDamage.TabStop = false;
+            this.AstrologianInterruptDamage.Text = "Interrupt Damage";
+            this.AstrologianInterruptDamage.UseVisualStyleBackColor = true;
+            this.AstrologianInterruptDamage.CheckedChanged += new System.EventHandler(this.AstrologianInterruptDamage_CheckedChanged);
+            // 
             // AstrologianAscend
             // 
             this.AstrologianAscend.AutoSize = true;
@@ -3261,6 +3320,36 @@
             this.WhiteMageHealGroup.TabIndex = 1;
             this.WhiteMageHealGroup.TabStop = false;
             this.WhiteMageHealGroup.Text = "Heal";
+            // 
+            // WhiteMageInterruptOverheal
+            // 
+            this.WhiteMageInterruptOverheal.AutoSize = true;
+            this.WhiteMageInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageInterruptOverheal.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageInterruptOverheal.Location = new System.Drawing.Point(6, 62);
+            this.WhiteMageInterruptOverheal.Name = "WhiteMageInterruptOverheal";
+            this.WhiteMageInterruptOverheal.Size = new System.Drawing.Size(118, 17);
+            this.WhiteMageInterruptOverheal.TabIndex = 21;
+            this.WhiteMageInterruptOverheal.TabStop = false;
+            this.WhiteMageInterruptOverheal.Text = "Interrupt Overheal";
+            this.WhiteMageInterruptOverheal.UseVisualStyleBackColor = true;
+            this.WhiteMageInterruptOverheal.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptOverheal_CheckedChanged);
+            // 
+            // WhiteMageInterruptDamage
+            // 
+            this.WhiteMageInterruptDamage.AutoSize = true;
+            this.WhiteMageInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageInterruptDamage.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageInterruptDamage.Location = new System.Drawing.Point(6, 39);
+            this.WhiteMageInterruptDamage.Name = "WhiteMageInterruptDamage";
+            this.WhiteMageInterruptDamage.Size = new System.Drawing.Size(114, 17);
+            this.WhiteMageInterruptDamage.TabIndex = 20;
+            this.WhiteMageInterruptDamage.TabStop = false;
+            this.WhiteMageInterruptDamage.Text = "Interrupt Damage";
+            this.WhiteMageInterruptDamage.UseVisualStyleBackColor = true;
+            this.WhiteMageInterruptDamage.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptDamage_CheckedChanged);
             // 
             // WhiteMageCurePct
             // 
@@ -5821,7 +5910,10 @@
             // pgeMachinist
             // 
             this.pgeMachinist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.pgeMachinist.Controls.Add(this.label8);
+            this.pgeMachinist.Controls.Add(this.MachinistTurretGroup);
+            this.pgeMachinist.Controls.Add(this.MachinistBuffGroup);
+            this.pgeMachinist.Controls.Add(this.MachinistCooldownGroup);
+            this.pgeMachinist.Controls.Add(this.MachinistRoleGroup);
             this.pgeMachinist.Location = new System.Drawing.Point(104, 4);
             this.pgeMachinist.Name = "pgeMachinist";
             this.pgeMachinist.Padding = new System.Windows.Forms.Padding(3);
@@ -5830,16 +5922,367 @@
             this.pgeMachinist.Text = "Machinist";
             this.pgeMachinist.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
-            // label8
+            // MachinistTurretGroup
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 36F);
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(13, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 65);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "N/A";
+            this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
+            this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretGroup.Location = new System.Drawing.Point(218, 219);
+            this.MachinistTurretGroup.Name = "MachinistTurretGroup";
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 43);
+            this.MachinistTurretGroup.TabIndex = 3;
+            this.MachinistTurretGroup.TabStop = false;
+            this.MachinistTurretGroup.Text = "Turret";
+            // 
+            // MachinistTurret
+            // 
+            this.MachinistTurret.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurret.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistTurret.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurret.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurret.FormattingEnabled = true;
+            this.MachinistTurret.Items.AddRange(new object[] {
+            "None",
+            "Rook",
+            "Bishop"});
+            this.MachinistTurret.Location = new System.Drawing.Point(6, 16);
+            this.MachinistTurret.Name = "MachinistTurret";
+            this.MachinistTurret.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurret.TabIndex = 0;
+            this.MachinistTurret.TabStop = false;
+            this.MachinistTurret.SelectedValueChanged += new System.EventHandler(this.MachinistTurret_SelectedValueChanged);
+            // 
+            // MachinistBuffGroup
+            // 
+            this.MachinistBuffGroup.Controls.Add(this.MachinistHypercharge);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistGaussBarrel);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistRapidFire);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistReassemble);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistReload);
+            this.MachinistBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistBuffGroup.Location = new System.Drawing.Point(218, 78);
+            this.MachinistBuffGroup.Name = "MachinistBuffGroup";
+            this.MachinistBuffGroup.Size = new System.Drawing.Size(102, 135);
+            this.MachinistBuffGroup.TabIndex = 2;
+            this.MachinistBuffGroup.TabStop = false;
+            this.MachinistBuffGroup.Text = "Buff";
+            // 
+            // MachinistHypercharge
+            // 
+            this.MachinistHypercharge.AutoSize = true;
+            this.MachinistHypercharge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistHypercharge.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistHypercharge.ForeColor = System.Drawing.Color.White;
+            this.MachinistHypercharge.Location = new System.Drawing.Point(6, 108);
+            this.MachinistHypercharge.Name = "MachinistHypercharge";
+            this.MachinistHypercharge.Size = new System.Drawing.Size(88, 17);
+            this.MachinistHypercharge.TabIndex = 4;
+            this.MachinistHypercharge.TabStop = false;
+            this.MachinistHypercharge.Text = "Hypercharge";
+            this.MachinistHypercharge.UseVisualStyleBackColor = true;
+            this.MachinistHypercharge.CheckedChanged += new System.EventHandler(this.MachinistHypercharge_CheckedChanged);
+            // 
+            // MachinistGaussBarrel
+            // 
+            this.MachinistGaussBarrel.AutoSize = true;
+            this.MachinistGaussBarrel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistGaussBarrel.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistGaussBarrel.ForeColor = System.Drawing.Color.White;
+            this.MachinistGaussBarrel.Location = new System.Drawing.Point(6, 85);
+            this.MachinistGaussBarrel.Name = "MachinistGaussBarrel";
+            this.MachinistGaussBarrel.Size = new System.Drawing.Size(87, 17);
+            this.MachinistGaussBarrel.TabIndex = 3;
+            this.MachinistGaussBarrel.TabStop = false;
+            this.MachinistGaussBarrel.Text = "Gauss Barrel";
+            this.MachinistGaussBarrel.UseVisualStyleBackColor = true;
+            this.MachinistGaussBarrel.CheckedChanged += new System.EventHandler(this.MachinistGaussBarrel_CheckedChanged);
+            // 
+            // MachinistRapidFire
+            // 
+            this.MachinistRapidFire.AutoSize = true;
+            this.MachinistRapidFire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistRapidFire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRapidFire.ForeColor = System.Drawing.Color.White;
+            this.MachinistRapidFire.Location = new System.Drawing.Point(6, 62);
+            this.MachinistRapidFire.Name = "MachinistRapidFire";
+            this.MachinistRapidFire.Size = new System.Drawing.Size(75, 17);
+            this.MachinistRapidFire.TabIndex = 2;
+            this.MachinistRapidFire.TabStop = false;
+            this.MachinistRapidFire.Text = "Rapid Fire";
+            this.MachinistRapidFire.UseVisualStyleBackColor = true;
+            this.MachinistRapidFire.CheckedChanged += new System.EventHandler(this.MachinistRapidFire_CheckedChanged);
+            // 
+            // MachinistReassemble
+            // 
+            this.MachinistReassemble.AutoSize = true;
+            this.MachinistReassemble.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistReassemble.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistReassemble.ForeColor = System.Drawing.Color.White;
+            this.MachinistReassemble.Location = new System.Drawing.Point(6, 39);
+            this.MachinistReassemble.Name = "MachinistReassemble";
+            this.MachinistReassemble.Size = new System.Drawing.Size(83, 17);
+            this.MachinistReassemble.TabIndex = 1;
+            this.MachinistReassemble.TabStop = false;
+            this.MachinistReassemble.Text = "Reassemble";
+            this.MachinistReassemble.UseVisualStyleBackColor = true;
+            this.MachinistReassemble.CheckedChanged += new System.EventHandler(this.MachinistReassemble_CheckedChanged);
+            // 
+            // MachinistReload
+            // 
+            this.MachinistReload.AutoSize = true;
+            this.MachinistReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistReload.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistReload.ForeColor = System.Drawing.Color.White;
+            this.MachinistReload.Location = new System.Drawing.Point(6, 16);
+            this.MachinistReload.Name = "MachinistReload";
+            this.MachinistReload.Size = new System.Drawing.Size(59, 17);
+            this.MachinistReload.TabIndex = 0;
+            this.MachinistReload.TabStop = false;
+            this.MachinistReload.Text = "Reload";
+            this.MachinistReload.UseVisualStyleBackColor = true;
+            this.MachinistReload.CheckedChanged += new System.EventHandler(this.MachinistReload_CheckedChanged);
+            // 
+            // MachinistCooldownGroup
+            // 
+            this.MachinistCooldownGroup.Controls.Add(this.MachinistWildfireHP);
+            this.MachinistCooldownGroup.Controls.Add(this.MachinistRicochet);
+            this.MachinistCooldownGroup.Controls.Add(this.MachinistWildfire);
+            this.MachinistCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistCooldownGroup.Location = new System.Drawing.Point(218, 6);
+            this.MachinistCooldownGroup.Name = "MachinistCooldownGroup";
+            this.MachinistCooldownGroup.Size = new System.Drawing.Size(187, 66);
+            this.MachinistCooldownGroup.TabIndex = 1;
+            this.MachinistCooldownGroup.TabStop = false;
+            this.MachinistCooldownGroup.Text = "Cooldown";
+            // 
+            // MachinistRicochet
+            // 
+            this.MachinistRicochet.AutoSize = true;
+            this.MachinistRicochet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistRicochet.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRicochet.ForeColor = System.Drawing.Color.White;
+            this.MachinistRicochet.Location = new System.Drawing.Point(6, 39);
+            this.MachinistRicochet.Name = "MachinistRicochet";
+            this.MachinistRicochet.Size = new System.Drawing.Size(67, 17);
+            this.MachinistRicochet.TabIndex = 1;
+            this.MachinistRicochet.TabStop = false;
+            this.MachinistRicochet.Text = "Ricochet";
+            this.MachinistRicochet.UseVisualStyleBackColor = true;
+            this.MachinistRicochet.CheckedChanged += new System.EventHandler(this.MachinistRicochet_CheckedChanged);
+            // 
+            // MachinistWildfire
+            // 
+            this.MachinistWildfire.AutoSize = true;
+            this.MachinistWildfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistWildfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistWildfire.ForeColor = System.Drawing.Color.White;
+            this.MachinistWildfire.Location = new System.Drawing.Point(6, 16);
+            this.MachinistWildfire.Name = "MachinistWildfire";
+            this.MachinistWildfire.Size = new System.Drawing.Size(64, 17);
+            this.MachinistWildfire.TabIndex = 0;
+            this.MachinistWildfire.TabStop = false;
+            this.MachinistWildfire.Text = "Wildfire";
+            this.MachinistWildfire.UseVisualStyleBackColor = true;
+            this.MachinistWildfire.CheckedChanged += new System.EventHandler(this.MachinistWildfire_CheckedChanged);
+            // 
+            // MachinistRoleGroup
+            // 
+            this.MachinistRoleGroup.Controls.Add(this.MachinistTacticianPct);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistInvigoratePct);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistSecondWindPct);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistPalisade);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistArmGraze);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistHeadGraze);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistRefresh);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistTactician);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistInvigorate);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistPeloton);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistLegGraze);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistFootGraze);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistSecondWind);
+            this.MachinistRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRoleGroup.Location = new System.Drawing.Point(13, 6);
+            this.MachinistRoleGroup.Name = "MachinistRoleGroup";
+            this.MachinistRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.MachinistRoleGroup.TabIndex = 0;
+            this.MachinistRoleGroup.TabStop = false;
+            this.MachinistRoleGroup.Text = "Role";
+            // 
+            // MachinistTacticianPct
+            // 
+            this.MachinistTacticianPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTacticianPct.Location = new System.Drawing.Point(104, 131);
+            this.MachinistTacticianPct.Name = "MachinistTacticianPct";
+            this.MachinistTacticianPct.Size = new System.Drawing.Size(89, 22);
+            this.MachinistTacticianPct.TabIndex = 25;
+            this.MachinistTacticianPct.ValueChanged += new System.EventHandler(this.MachinistTacticianPct_ValueChanged);
+            // 
+            // MachinistInvigoratePct
+            // 
+            this.MachinistInvigoratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistInvigoratePct.Location = new System.Drawing.Point(104, 108);
+            this.MachinistInvigoratePct.Name = "MachinistInvigoratePct";
+            this.MachinistInvigoratePct.Size = new System.Drawing.Size(89, 22);
+            this.MachinistInvigoratePct.TabIndex = 24;
+            this.MachinistInvigoratePct.ValueChanged += new System.EventHandler(this.MachinistInvigoratePct_ValueChanged);
+            // 
+            // MachinistSecondWindPct
+            // 
+            this.MachinistSecondWindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistSecondWindPct.Location = new System.Drawing.Point(104, 16);
+            this.MachinistSecondWindPct.Name = "MachinistSecondWindPct";
+            this.MachinistSecondWindPct.Size = new System.Drawing.Size(89, 22);
+            this.MachinistSecondWindPct.TabIndex = 23;
+            this.MachinistSecondWindPct.ValueChanged += new System.EventHandler(this.MachinistSecondWindPct_ValueChanged);
+            // 
+            // MachinistPalisade
+            // 
+            this.MachinistPalisade.AutoCheck = false;
+            this.MachinistPalisade.AutoSize = true;
+            this.MachinistPalisade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistPalisade.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistPalisade.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistPalisade.Location = new System.Drawing.Point(6, 223);
+            this.MachinistPalisade.Name = "MachinistPalisade";
+            this.MachinistPalisade.Size = new System.Drawing.Size(65, 17);
+            this.MachinistPalisade.TabIndex = 22;
+            this.MachinistPalisade.TabStop = false;
+            this.MachinistPalisade.Text = "Palisade";
+            this.MachinistPalisade.UseVisualStyleBackColor = true;
+            // 
+            // MachinistArmGraze
+            // 
+            this.MachinistArmGraze.AutoCheck = false;
+            this.MachinistArmGraze.AutoSize = true;
+            this.MachinistArmGraze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistArmGraze.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistArmGraze.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistArmGraze.Location = new System.Drawing.Point(6, 200);
+            this.MachinistArmGraze.Name = "MachinistArmGraze";
+            this.MachinistArmGraze.Size = new System.Drawing.Size(75, 17);
+            this.MachinistArmGraze.TabIndex = 21;
+            this.MachinistArmGraze.TabStop = false;
+            this.MachinistArmGraze.Text = "Arm Graze";
+            this.MachinistArmGraze.UseVisualStyleBackColor = true;
+            // 
+            // MachinistHeadGraze
+            // 
+            this.MachinistHeadGraze.AutoCheck = false;
+            this.MachinistHeadGraze.AutoSize = true;
+            this.MachinistHeadGraze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistHeadGraze.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistHeadGraze.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistHeadGraze.Location = new System.Drawing.Point(6, 177);
+            this.MachinistHeadGraze.Name = "MachinistHeadGraze";
+            this.MachinistHeadGraze.Size = new System.Drawing.Size(82, 17);
+            this.MachinistHeadGraze.TabIndex = 20;
+            this.MachinistHeadGraze.TabStop = false;
+            this.MachinistHeadGraze.Text = "Head Graze";
+            this.MachinistHeadGraze.UseVisualStyleBackColor = true;
+            // 
+            // MachinistRefresh
+            // 
+            this.MachinistRefresh.AutoCheck = false;
+            this.MachinistRefresh.AutoSize = true;
+            this.MachinistRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistRefresh.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRefresh.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistRefresh.Location = new System.Drawing.Point(6, 154);
+            this.MachinistRefresh.Name = "MachinistRefresh";
+            this.MachinistRefresh.Size = new System.Drawing.Size(62, 17);
+            this.MachinistRefresh.TabIndex = 19;
+            this.MachinistRefresh.TabStop = false;
+            this.MachinistRefresh.Text = "Refresh";
+            this.MachinistRefresh.UseVisualStyleBackColor = true;
+            // 
+            // MachinistTactician
+            // 
+            this.MachinistTactician.AutoSize = true;
+            this.MachinistTactician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistTactician.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTactician.ForeColor = System.Drawing.Color.White;
+            this.MachinistTactician.Location = new System.Drawing.Point(6, 131);
+            this.MachinistTactician.Name = "MachinistTactician";
+            this.MachinistTactician.Size = new System.Drawing.Size(66, 17);
+            this.MachinistTactician.TabIndex = 18;
+            this.MachinistTactician.TabStop = false;
+            this.MachinistTactician.Text = "Tactician";
+            this.MachinistTactician.UseVisualStyleBackColor = true;
+            this.MachinistTactician.CheckedChanged += new System.EventHandler(this.MachinistTactician_CheckedChanged);
+            // 
+            // MachinistInvigorate
+            // 
+            this.MachinistInvigorate.AutoSize = true;
+            this.MachinistInvigorate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistInvigorate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistInvigorate.ForeColor = System.Drawing.Color.White;
+            this.MachinistInvigorate.Location = new System.Drawing.Point(6, 108);
+            this.MachinistInvigorate.Name = "MachinistInvigorate";
+            this.MachinistInvigorate.Size = new System.Drawing.Size(75, 17);
+            this.MachinistInvigorate.TabIndex = 17;
+            this.MachinistInvigorate.TabStop = false;
+            this.MachinistInvigorate.Text = "Invigorate";
+            this.MachinistInvigorate.UseVisualStyleBackColor = true;
+            this.MachinistInvigorate.CheckedChanged += new System.EventHandler(this.MachinistInvigorate_CheckedChanged);
+            // 
+            // MachinistPeloton
+            // 
+            this.MachinistPeloton.AutoSize = true;
+            this.MachinistPeloton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistPeloton.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistPeloton.ForeColor = System.Drawing.Color.White;
+            this.MachinistPeloton.Location = new System.Drawing.Point(6, 85);
+            this.MachinistPeloton.Name = "MachinistPeloton";
+            this.MachinistPeloton.Size = new System.Drawing.Size(63, 17);
+            this.MachinistPeloton.TabIndex = 16;
+            this.MachinistPeloton.TabStop = false;
+            this.MachinistPeloton.Text = "Peloton";
+            this.MachinistPeloton.UseVisualStyleBackColor = true;
+            this.MachinistPeloton.CheckedChanged += new System.EventHandler(this.MachinistPeloton_CheckedChanged);
+            // 
+            // MachinistLegGraze
+            // 
+            this.MachinistLegGraze.AutoCheck = false;
+            this.MachinistLegGraze.AutoSize = true;
+            this.MachinistLegGraze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistLegGraze.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistLegGraze.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistLegGraze.Location = new System.Drawing.Point(6, 62);
+            this.MachinistLegGraze.Name = "MachinistLegGraze";
+            this.MachinistLegGraze.Size = new System.Drawing.Size(73, 17);
+            this.MachinistLegGraze.TabIndex = 15;
+            this.MachinistLegGraze.TabStop = false;
+            this.MachinistLegGraze.Text = "Leg Graze";
+            this.MachinistLegGraze.UseVisualStyleBackColor = true;
+            // 
+            // MachinistFootGraze
+            // 
+            this.MachinistFootGraze.AutoCheck = false;
+            this.MachinistFootGraze.AutoSize = true;
+            this.MachinistFootGraze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistFootGraze.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistFootGraze.ForeColor = System.Drawing.Color.DimGray;
+            this.MachinistFootGraze.Location = new System.Drawing.Point(6, 39);
+            this.MachinistFootGraze.Name = "MachinistFootGraze";
+            this.MachinistFootGraze.Size = new System.Drawing.Size(79, 17);
+            this.MachinistFootGraze.TabIndex = 14;
+            this.MachinistFootGraze.TabStop = false;
+            this.MachinistFootGraze.Text = "Foot Graze";
+            this.MachinistFootGraze.UseVisualStyleBackColor = true;
+            // 
+            // MachinistSecondWind
+            // 
+            this.MachinistSecondWind.AutoSize = true;
+            this.MachinistSecondWind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistSecondWind.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistSecondWind.ForeColor = System.Drawing.Color.White;
+            this.MachinistSecondWind.Location = new System.Drawing.Point(6, 16);
+            this.MachinistSecondWind.Name = "MachinistSecondWind";
+            this.MachinistSecondWind.Size = new System.Drawing.Size(92, 17);
+            this.MachinistSecondWind.TabIndex = 13;
+            this.MachinistSecondWind.TabStop = false;
+            this.MachinistSecondWind.Text = "Second Wind";
+            this.MachinistSecondWind.UseVisualStyleBackColor = true;
+            this.MachinistSecondWind.CheckedChanged += new System.EventHandler(this.MachinistSecondWind_CheckedChanged);
             // 
             // pgeTanks
             // 
@@ -7677,65 +8120,25 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // WhiteMageInterruptDamage
+            // MachinistWildfireHP
             // 
-            this.WhiteMageInterruptDamage.AutoSize = true;
-            this.WhiteMageInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageInterruptDamage.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageInterruptDamage.Location = new System.Drawing.Point(6, 39);
-            this.WhiteMageInterruptDamage.Name = "WhiteMageInterruptDamage";
-            this.WhiteMageInterruptDamage.Size = new System.Drawing.Size(114, 17);
-            this.WhiteMageInterruptDamage.TabIndex = 20;
-            this.WhiteMageInterruptDamage.TabStop = false;
-            this.WhiteMageInterruptDamage.Text = "Interrupt Damage";
-            this.WhiteMageInterruptDamage.UseVisualStyleBackColor = true;
-            this.WhiteMageInterruptDamage.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptDamage_CheckedChanged);
-            // 
-            // WhiteMageInterruptOverheal
-            // 
-            this.WhiteMageInterruptOverheal.AutoSize = true;
-            this.WhiteMageInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageInterruptOverheal.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageInterruptOverheal.Location = new System.Drawing.Point(6, 62);
-            this.WhiteMageInterruptOverheal.Name = "WhiteMageInterruptOverheal";
-            this.WhiteMageInterruptOverheal.Size = new System.Drawing.Size(118, 17);
-            this.WhiteMageInterruptOverheal.TabIndex = 21;
-            this.WhiteMageInterruptOverheal.TabStop = false;
-            this.WhiteMageInterruptOverheal.Text = "Interrupt Overheal";
-            this.WhiteMageInterruptOverheal.UseVisualStyleBackColor = true;
-            this.WhiteMageInterruptOverheal.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptOverheal_CheckedChanged);
-            // 
-            // AstrologianInterruptDamage
-            // 
-            this.AstrologianInterruptDamage.AutoSize = true;
-            this.AstrologianInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianInterruptDamage.ForeColor = System.Drawing.Color.White;
-            this.AstrologianInterruptDamage.Location = new System.Drawing.Point(6, 39);
-            this.AstrologianInterruptDamage.Name = "AstrologianInterruptDamage";
-            this.AstrologianInterruptDamage.Size = new System.Drawing.Size(114, 17);
-            this.AstrologianInterruptDamage.TabIndex = 14;
-            this.AstrologianInterruptDamage.TabStop = false;
-            this.AstrologianInterruptDamage.Text = "Interrupt Damage";
-            this.AstrologianInterruptDamage.UseVisualStyleBackColor = true;
-            this.AstrologianInterruptDamage.CheckedChanged += new System.EventHandler(this.AstrologianInterruptDamage_CheckedChanged);
-            // 
-            // AstrologianInterruptOverheal
-            // 
-            this.AstrologianInterruptOverheal.AutoSize = true;
-            this.AstrologianInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianInterruptOverheal.ForeColor = System.Drawing.Color.White;
-            this.AstrologianInterruptOverheal.Location = new System.Drawing.Point(6, 62);
-            this.AstrologianInterruptOverheal.Name = "AstrologianInterruptOverheal";
-            this.AstrologianInterruptOverheal.Size = new System.Drawing.Size(118, 17);
-            this.AstrologianInterruptOverheal.TabIndex = 15;
-            this.AstrologianInterruptOverheal.TabStop = false;
-            this.AstrologianInterruptOverheal.Text = "Interrupt Overheal";
-            this.AstrologianInterruptOverheal.UseVisualStyleBackColor = true;
-            this.AstrologianInterruptOverheal.CheckedChanged += new System.EventHandler(this.AstrologianInterruptOverheal_CheckedChanged);
+            this.MachinistWildfireHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistWildfireHP.Increment = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.MachinistWildfireHP.Location = new System.Drawing.Point(76, 16);
+            this.MachinistWildfireHP.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.MachinistWildfireHP.Name = "MachinistWildfireHP";
+            this.MachinistWildfireHP.ShowSymbol = false;
+            this.MachinistWildfireHP.Size = new System.Drawing.Size(105, 22);
+            this.MachinistWildfireHP.TabIndex = 2;
+            this.MachinistWildfireHP.ValueChanged += new System.EventHandler(this.MachinistWildfireHP_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -7869,7 +8272,13 @@
             this.BardRoleGroup.ResumeLayout(false);
             this.BardRoleGroup.PerformLayout();
             this.pgeMachinist.ResumeLayout(false);
-            this.pgeMachinist.PerformLayout();
+            this.MachinistTurretGroup.ResumeLayout(false);
+            this.MachinistBuffGroup.ResumeLayout(false);
+            this.MachinistBuffGroup.PerformLayout();
+            this.MachinistCooldownGroup.ResumeLayout(false);
+            this.MachinistCooldownGroup.PerformLayout();
+            this.MachinistRoleGroup.ResumeLayout(false);
+            this.MachinistRoleGroup.PerformLayout();
             this.pgeTanks.ResumeLayout(false);
             this.tabTanks.ResumeLayout(false);
             this.pgeDarkKnight.ResumeLayout(false);
@@ -8000,7 +8409,6 @@
         private Design.CustomCheck RedMageManafication;
         private Design.CustomCheck RedMageEmbolden;
         private Design.CustomCheck RedMageCorpsACorps;
-        private System.Windows.Forms.Label label8;
         private Design.CustomGroup RotationGroup;
         private Design.CustomCombo RotationMode;
         private System.Windows.Forms.Label RotationKeyLabel;
@@ -8421,5 +8829,31 @@
         private Design.CustomCheck WhiteMageInterruptDamage;
         private Design.CustomCheck AstrologianInterruptOverheal;
         private Design.CustomCheck AstrologianInterruptDamage;
+        private Design.CustomGroup MachinistRoleGroup;
+        private Design.UserNumeric MachinistTacticianPct;
+        private Design.UserNumeric MachinistInvigoratePct;
+        private Design.UserNumeric MachinistSecondWindPct;
+        private Design.CustomCheckDisabled MachinistPalisade;
+        private Design.CustomCheckDisabled MachinistArmGraze;
+        private Design.CustomCheckDisabled MachinistHeadGraze;
+        private Design.CustomCheckDisabled MachinistRefresh;
+        private Design.CustomCheck MachinistTactician;
+        private Design.CustomCheck MachinistInvigorate;
+        private Design.CustomCheck MachinistPeloton;
+        private Design.CustomCheckDisabled MachinistLegGraze;
+        private Design.CustomCheckDisabled MachinistFootGraze;
+        private Design.CustomCheck MachinistSecondWind;
+        private Design.CustomGroup MachinistTurretGroup;
+        private Design.CustomGroup MachinistBuffGroup;
+        private Design.CustomGroup MachinistCooldownGroup;
+        private Design.CustomCheck MachinistRicochet;
+        private Design.CustomCheck MachinistWildfire;
+        private Design.CustomCheck MachinistHypercharge;
+        private Design.CustomCheck MachinistGaussBarrel;
+        private Design.CustomCheck MachinistRapidFire;
+        private Design.CustomCheck MachinistReassemble;
+        private Design.CustomCheck MachinistReload;
+        private Design.CustomCombo MachinistTurret;
+        private Design.UserNumeric MachinistWildfireHP;
     }
 }
