@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Enums;
+using ff14bot.Helpers;
 using ff14bot.Managers;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.WhiteMage;
@@ -114,6 +116,26 @@ namespace ShinraCo.Rotations
         #endregion
 
         #region Heal
+
+        private async Task<bool> StopCasting()
+        {
+            if (Shinra.Settings.WhiteMageInterruptOverheal && Core.Player.IsCasting)
+            {
+                var target = GameObjectManager.GetObjectByObjectId(Core.Player.SpellCastInfo.TargetId);
+                var spellName = Core.Player.SpellCastInfo.Name;
+
+                if (target != null)
+                {
+                    if (spellName == MySpells.Cure.Name && target.CurrentHealthPercent > Shinra.Settings.WhiteMageCurePct ||
+                        spellName == MySpells.CureII.Name && target.CurrentHealthPercent > Shinra.Settings.WhiteMageCureIIPct)
+                    {
+                        Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {spellName}");
+                        ActionManager.StopCasting();
+                    }
+                }
+            }
+            return false;
+        }
 
         private async Task<bool> Cure()
         {
@@ -268,8 +290,8 @@ namespace ShinraCo.Rotations
                 (Shinra.Settings.WhiteMageSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player) ||
                  !Helpers.HealManager.Any(hm => hm.CurrentHealthPercent < Shinra.Settings.WhiteMageCurePct)))
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDead && hm.Type == GameObjectType.Pc &&
-                                                                      !hm.HasAura(MySpells.Raise.Name));
+                var target = Helpers.PartyMembers.FirstOrDefault(pm => pm.IsDead && pm.Type == GameObjectType.Pc &&
+                                                                       !pm.HasAura("Raise"));
 
                 if (target != null)
                 {

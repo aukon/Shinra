@@ -31,6 +31,12 @@ namespace ShinraCo
                 : cp.HasTarget && cp.Distance2D(cp.CurrentTarget) - cp.CombatReach - cp.CurrentTarget.CombatReach <= range;
         }
 
+        public static bool UnitDistance(this LocalPlayer cp, GameObject unit, float range, bool useMinRange = true)
+        {
+            return useMinRange ? cp.Distance2D(unit) - cp.CombatReach - unit.CombatReach >= range
+                : cp.Distance2D(unit) - cp.CombatReach - unit.CombatReach <= range;
+        }
+
         private static bool IsEnemy(this BattleCharacter ie)
         {
             return GameObjectManager.Attackers.Contains(ie) && ie.IsAlive && ie.CanAttack && ie.IsTargetable;

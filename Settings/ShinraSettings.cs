@@ -38,6 +38,13 @@ namespace ShinraCo.Settings
         Nocturnal
     }
 
+    public enum MachinistTurrets
+    {
+        None,
+        Rook,
+        Bishop
+    }
+
     public enum MonkFists
     {
         None,
@@ -182,6 +189,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool AstrologianPartyHeal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianInterruptDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianInterruptOverheal { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool AstrologianBenefic { get; set; }
@@ -1032,6 +1045,12 @@ namespace ShinraCo.Settings
         public bool ScholarPartyHeal { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool ScholarInterruptDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarInterruptOverheal { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool ScholarPhysick { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -1332,6 +1351,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool WhiteMagePartyHeal { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageInterruptDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageInterruptOverheal { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool WhiteMageCure { get; set; }

@@ -44,6 +44,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Heal()
         {
             if (await Shinra.UsePotion()) return true;
+            if (await StopCasting()) return true;
             if (await Lustrate()) return true;
             if (await Aetherpact()) return true;
             if (await Indomitability()) return true;

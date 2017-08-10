@@ -358,6 +358,35 @@ namespace ShinraCo.Spells
 
             #endregion
 
+            #region StopCasting
+
+            if (SpellType == SpellType.Heal)
+            {
+                if (Core.Player.IsCasting && !Helpers.HealingSpells.Contains(Core.Player.SpellCastInfo.Name))
+                {
+                    var stopCasting = false;
+                    switch (Core.Player.CurrentJob)
+                    {
+                        case ClassJobType.Astrologian:
+                            stopCasting = Shinra.Settings.AstrologianInterruptDamage;
+                            break;
+                        case ClassJobType.Scholar:
+                            stopCasting = Shinra.Settings.ScholarInterruptDamage;
+                            break;
+                        case ClassJobType.WhiteMage:
+                            stopCasting = Shinra.Settings.WhiteMageInterruptDamage;
+                            break;
+                    }
+                    if (stopCasting)
+                    {
+                        Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {Core.Player.SpellCastInfo.Name}");
+                        ActionManager.StopCasting();
+                    }
+                }
+            }
+
+            #endregion
+
             #region CanCast
 
             switch (CastType)

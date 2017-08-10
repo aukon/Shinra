@@ -178,6 +178,8 @@
             this.ScholarAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.ScholarBane = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarIndomitabilityPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ScholarSuccorPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ScholarExcogitationPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -522,6 +524,10 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianInterruptDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianInterruptOverheal = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -2198,6 +2204,8 @@
             // 
             // AstrologianHealGroup
             // 
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianInterruptOverheal);
+            this.AstrologianHealGroup.Controls.Add(this.AstrologianInterruptDamage);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianAscend);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianAspHeliosPct);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianHeliosPct);
@@ -2215,7 +2223,7 @@
             this.AstrologianHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 6);
             this.AstrologianHealGroup.Name = "AstrologianHealGroup";
-            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 204);
+            this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 250);
             this.AstrologianHealGroup.TabIndex = 1;
             this.AstrologianHealGroup.TabStop = false;
             this.AstrologianHealGroup.Text = "Heal";
@@ -2226,7 +2234,7 @@
             this.AstrologianAscend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianAscend.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianAscend.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAscend.Location = new System.Drawing.Point(6, 177);
+            this.AstrologianAscend.Location = new System.Drawing.Point(6, 223);
             this.AstrologianAscend.Name = "AstrologianAscend";
             this.AstrologianAscend.Size = new System.Drawing.Size(60, 17);
             this.AstrologianAscend.TabIndex = 13;
@@ -2238,7 +2246,7 @@
             // AstrologianAspHeliosPct
             // 
             this.AstrologianAspHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianAspHeliosPct.Location = new System.Drawing.Point(123, 154);
+            this.AstrologianAspHeliosPct.Location = new System.Drawing.Point(123, 200);
             this.AstrologianAspHeliosPct.Name = "AstrologianAspHeliosPct";
             this.AstrologianAspHeliosPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianAspHeliosPct.TabIndex = 12;
@@ -2247,7 +2255,7 @@
             // AstrologianHeliosPct
             // 
             this.AstrologianHeliosPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianHeliosPct.Location = new System.Drawing.Point(123, 131);
+            this.AstrologianHeliosPct.Location = new System.Drawing.Point(123, 177);
             this.AstrologianHeliosPct.Name = "AstrologianHeliosPct";
             this.AstrologianHeliosPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianHeliosPct.TabIndex = 11;
@@ -2259,7 +2267,7 @@
             this.AstrologianAspHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianAspHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianAspHelios.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAspHelios.Location = new System.Drawing.Point(6, 154);
+            this.AstrologianAspHelios.Location = new System.Drawing.Point(6, 200);
             this.AstrologianAspHelios.Name = "AstrologianAspHelios";
             this.AstrologianAspHelios.Size = new System.Drawing.Size(105, 17);
             this.AstrologianAspHelios.TabIndex = 10;
@@ -2274,7 +2282,7 @@
             this.AstrologianHelios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianHelios.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianHelios.ForeColor = System.Drawing.Color.White;
-            this.AstrologianHelios.Location = new System.Drawing.Point(6, 131);
+            this.AstrologianHelios.Location = new System.Drawing.Point(6, 177);
             this.AstrologianHelios.Name = "AstrologianHelios";
             this.AstrologianHelios.Size = new System.Drawing.Size(55, 17);
             this.AstrologianHelios.TabIndex = 9;
@@ -2301,7 +2309,7 @@
             // AstrologianAspBeneficPct
             // 
             this.AstrologianAspBeneficPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianAspBeneficPct.Location = new System.Drawing.Point(123, 108);
+            this.AstrologianAspBeneficPct.Location = new System.Drawing.Point(123, 154);
             this.AstrologianAspBeneficPct.Name = "AstrologianAspBeneficPct";
             this.AstrologianAspBeneficPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianAspBeneficPct.TabIndex = 7;
@@ -2310,7 +2318,7 @@
             // AstrologianEssDignityPct
             // 
             this.AstrologianEssDignityPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianEssDignityPct.Location = new System.Drawing.Point(123, 85);
+            this.AstrologianEssDignityPct.Location = new System.Drawing.Point(123, 131);
             this.AstrologianEssDignityPct.Name = "AstrologianEssDignityPct";
             this.AstrologianEssDignityPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianEssDignityPct.TabIndex = 6;
@@ -2319,7 +2327,7 @@
             // AstrologianBeneficIIPct
             // 
             this.AstrologianBeneficIIPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianBeneficIIPct.Location = new System.Drawing.Point(123, 62);
+            this.AstrologianBeneficIIPct.Location = new System.Drawing.Point(123, 108);
             this.AstrologianBeneficIIPct.Name = "AstrologianBeneficIIPct";
             this.AstrologianBeneficIIPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficIIPct.TabIndex = 5;
@@ -2328,7 +2336,7 @@
             // AstrologianBeneficPct
             // 
             this.AstrologianBeneficPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianBeneficPct.Location = new System.Drawing.Point(123, 39);
+            this.AstrologianBeneficPct.Location = new System.Drawing.Point(123, 85);
             this.AstrologianBeneficPct.Name = "AstrologianBeneficPct";
             this.AstrologianBeneficPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianBeneficPct.TabIndex = 4;
@@ -2340,7 +2348,7 @@
             this.AstrologianAspBenefic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianAspBenefic.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianAspBenefic.ForeColor = System.Drawing.Color.White;
-            this.AstrologianAspBenefic.Location = new System.Drawing.Point(6, 108);
+            this.AstrologianAspBenefic.Location = new System.Drawing.Point(6, 154);
             this.AstrologianAspBenefic.Name = "AstrologianAspBenefic";
             this.AstrologianAspBenefic.Size = new System.Drawing.Size(111, 17);
             this.AstrologianAspBenefic.TabIndex = 3;
@@ -2355,7 +2363,7 @@
             this.AstrologianEssDignity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianEssDignity.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianEssDignity.ForeColor = System.Drawing.Color.White;
-            this.AstrologianEssDignity.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianEssDignity.Location = new System.Drawing.Point(6, 131);
             this.AstrologianEssDignity.Name = "AstrologianEssDignity";
             this.AstrologianEssDignity.Size = new System.Drawing.Size(108, 17);
             this.AstrologianEssDignity.TabIndex = 2;
@@ -2370,7 +2378,7 @@
             this.AstrologianBeneficII.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianBeneficII.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianBeneficII.ForeColor = System.Drawing.Color.White;
-            this.AstrologianBeneficII.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianBeneficII.Location = new System.Drawing.Point(6, 108);
             this.AstrologianBeneficII.Name = "AstrologianBeneficII";
             this.AstrologianBeneficII.Size = new System.Drawing.Size(70, 17);
             this.AstrologianBeneficII.TabIndex = 1;
@@ -2385,7 +2393,7 @@
             this.AstrologianBenefic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AstrologianBenefic.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianBenefic.ForeColor = System.Drawing.Color.White;
-            this.AstrologianBenefic.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianBenefic.Location = new System.Drawing.Point(6, 85);
             this.AstrologianBenefic.Name = "AstrologianBenefic";
             this.AstrologianBenefic.Size = new System.Drawing.Size(61, 17);
             this.AstrologianBenefic.TabIndex = 0;
@@ -2732,6 +2740,8 @@
             // 
             // ScholarHealGroup
             // 
+            this.ScholarHealGroup.Controls.Add(this.ScholarInterruptOverheal);
+            this.ScholarHealGroup.Controls.Add(this.ScholarInterruptDamage);
             this.ScholarHealGroup.Controls.Add(this.ScholarIndomitabilityPct);
             this.ScholarHealGroup.Controls.Add(this.ScholarSuccorPct);
             this.ScholarHealGroup.Controls.Add(this.ScholarExcogitationPct);
@@ -2751,15 +2761,45 @@
             this.ScholarHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarHealGroup.Location = new System.Drawing.Point(229, 6);
             this.ScholarHealGroup.Name = "ScholarHealGroup";
-            this.ScholarHealGroup.Size = new System.Drawing.Size(201, 227);
+            this.ScholarHealGroup.Size = new System.Drawing.Size(201, 273);
             this.ScholarHealGroup.TabIndex = 1;
             this.ScholarHealGroup.TabStop = false;
             this.ScholarHealGroup.Text = "Heal";
             // 
+            // ScholarInterruptOverheal
+            // 
+            this.ScholarInterruptOverheal.AutoSize = true;
+            this.ScholarInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarInterruptOverheal.ForeColor = System.Drawing.Color.White;
+            this.ScholarInterruptOverheal.Location = new System.Drawing.Point(6, 62);
+            this.ScholarInterruptOverheal.Name = "ScholarInterruptOverheal";
+            this.ScholarInterruptOverheal.Size = new System.Drawing.Size(118, 17);
+            this.ScholarInterruptOverheal.TabIndex = 16;
+            this.ScholarInterruptOverheal.TabStop = false;
+            this.ScholarInterruptOverheal.Text = "Interrupt Overheal";
+            this.ScholarInterruptOverheal.UseVisualStyleBackColor = true;
+            this.ScholarInterruptOverheal.CheckedChanged += new System.EventHandler(this.ScholarInterruptOverheal_CheckedChanged);
+            // 
+            // ScholarInterruptDamage
+            // 
+            this.ScholarInterruptDamage.AutoSize = true;
+            this.ScholarInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarInterruptDamage.ForeColor = System.Drawing.Color.White;
+            this.ScholarInterruptDamage.Location = new System.Drawing.Point(6, 39);
+            this.ScholarInterruptDamage.Name = "ScholarInterruptDamage";
+            this.ScholarInterruptDamage.Size = new System.Drawing.Size(114, 17);
+            this.ScholarInterruptDamage.TabIndex = 15;
+            this.ScholarInterruptDamage.TabStop = false;
+            this.ScholarInterruptDamage.Text = "Interrupt Damage";
+            this.ScholarInterruptDamage.UseVisualStyleBackColor = true;
+            this.ScholarInterruptDamage.CheckedChanged += new System.EventHandler(this.ScholarInterruptDamage_CheckedChanged);
+            // 
             // ScholarIndomitabilityPct
             // 
             this.ScholarIndomitabilityPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarIndomitabilityPct.Location = new System.Drawing.Point(106, 177);
+            this.ScholarIndomitabilityPct.Location = new System.Drawing.Point(106, 223);
             this.ScholarIndomitabilityPct.Name = "ScholarIndomitabilityPct";
             this.ScholarIndomitabilityPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarIndomitabilityPct.TabIndex = 14;
@@ -2768,7 +2808,7 @@
             // ScholarSuccorPct
             // 
             this.ScholarSuccorPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarSuccorPct.Location = new System.Drawing.Point(106, 154);
+            this.ScholarSuccorPct.Location = new System.Drawing.Point(106, 200);
             this.ScholarSuccorPct.Name = "ScholarSuccorPct";
             this.ScholarSuccorPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarSuccorPct.TabIndex = 13;
@@ -2777,7 +2817,7 @@
             // ScholarExcogitationPct
             // 
             this.ScholarExcogitationPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarExcogitationPct.Location = new System.Drawing.Point(106, 131);
+            this.ScholarExcogitationPct.Location = new System.Drawing.Point(106, 177);
             this.ScholarExcogitationPct.Name = "ScholarExcogitationPct";
             this.ScholarExcogitationPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarExcogitationPct.TabIndex = 12;
@@ -2786,7 +2826,7 @@
             // ScholarLustratePct
             // 
             this.ScholarLustratePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarLustratePct.Location = new System.Drawing.Point(106, 108);
+            this.ScholarLustratePct.Location = new System.Drawing.Point(106, 154);
             this.ScholarLustratePct.Name = "ScholarLustratePct";
             this.ScholarLustratePct.Size = new System.Drawing.Size(89, 22);
             this.ScholarLustratePct.TabIndex = 11;
@@ -2795,7 +2835,7 @@
             // ScholarAetherpactPct
             // 
             this.ScholarAetherpactPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarAetherpactPct.Location = new System.Drawing.Point(106, 85);
+            this.ScholarAetherpactPct.Location = new System.Drawing.Point(106, 131);
             this.ScholarAetherpactPct.Name = "ScholarAetherpactPct";
             this.ScholarAetherpactPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarAetherpactPct.TabIndex = 10;
@@ -2804,7 +2844,7 @@
             // ScholarAdloquiumPct
             // 
             this.ScholarAdloquiumPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarAdloquiumPct.Location = new System.Drawing.Point(106, 62);
+            this.ScholarAdloquiumPct.Location = new System.Drawing.Point(106, 108);
             this.ScholarAdloquiumPct.Name = "ScholarAdloquiumPct";
             this.ScholarAdloquiumPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarAdloquiumPct.TabIndex = 10;
@@ -2813,7 +2853,7 @@
             // ScholarPhysickPct
             // 
             this.ScholarPhysickPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarPhysickPct.Location = new System.Drawing.Point(106, 39);
+            this.ScholarPhysickPct.Location = new System.Drawing.Point(106, 85);
             this.ScholarPhysickPct.Name = "ScholarPhysickPct";
             this.ScholarPhysickPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarPhysickPct.TabIndex = 9;
@@ -2825,7 +2865,7 @@
             this.ScholarAetherpact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarAetherpact.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarAetherpact.ForeColor = System.Drawing.Color.White;
-            this.ScholarAetherpact.Location = new System.Drawing.Point(6, 85);
+            this.ScholarAetherpact.Location = new System.Drawing.Point(6, 131);
             this.ScholarAetherpact.Name = "ScholarAetherpact";
             this.ScholarAetherpact.Size = new System.Drawing.Size(79, 17);
             this.ScholarAetherpact.TabIndex = 8;
@@ -2840,7 +2880,7 @@
             this.ScholarResurrection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarResurrection.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarResurrection.ForeColor = System.Drawing.Color.White;
-            this.ScholarResurrection.Location = new System.Drawing.Point(6, 200);
+            this.ScholarResurrection.Location = new System.Drawing.Point(6, 246);
             this.ScholarResurrection.Name = "ScholarResurrection";
             this.ScholarResurrection.Size = new System.Drawing.Size(88, 17);
             this.ScholarResurrection.TabIndex = 7;
@@ -2855,7 +2895,7 @@
             this.ScholarIndomitability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarIndomitability.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarIndomitability.ForeColor = System.Drawing.Color.White;
-            this.ScholarIndomitability.Location = new System.Drawing.Point(6, 177);
+            this.ScholarIndomitability.Location = new System.Drawing.Point(6, 223);
             this.ScholarIndomitability.Name = "ScholarIndomitability";
             this.ScholarIndomitability.Size = new System.Drawing.Size(94, 17);
             this.ScholarIndomitability.TabIndex = 6;
@@ -2870,7 +2910,7 @@
             this.ScholarSuccor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarSuccor.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarSuccor.ForeColor = System.Drawing.Color.White;
-            this.ScholarSuccor.Location = new System.Drawing.Point(6, 154);
+            this.ScholarSuccor.Location = new System.Drawing.Point(6, 200);
             this.ScholarSuccor.Name = "ScholarSuccor";
             this.ScholarSuccor.Size = new System.Drawing.Size(57, 17);
             this.ScholarSuccor.TabIndex = 5;
@@ -2885,7 +2925,7 @@
             this.ScholarExcogitation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarExcogitation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarExcogitation.ForeColor = System.Drawing.Color.White;
-            this.ScholarExcogitation.Location = new System.Drawing.Point(6, 131);
+            this.ScholarExcogitation.Location = new System.Drawing.Point(6, 177);
             this.ScholarExcogitation.Name = "ScholarExcogitation";
             this.ScholarExcogitation.Size = new System.Drawing.Size(87, 17);
             this.ScholarExcogitation.TabIndex = 4;
@@ -2900,7 +2940,7 @@
             this.ScholarLustrate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarLustrate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarLustrate.ForeColor = System.Drawing.Color.White;
-            this.ScholarLustrate.Location = new System.Drawing.Point(6, 108);
+            this.ScholarLustrate.Location = new System.Drawing.Point(6, 154);
             this.ScholarLustrate.Name = "ScholarLustrate";
             this.ScholarLustrate.Size = new System.Drawing.Size(64, 17);
             this.ScholarLustrate.TabIndex = 3;
@@ -2915,7 +2955,7 @@
             this.ScholarAdloquium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarAdloquium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarAdloquium.ForeColor = System.Drawing.Color.White;
-            this.ScholarAdloquium.Location = new System.Drawing.Point(6, 62);
+            this.ScholarAdloquium.Location = new System.Drawing.Point(6, 108);
             this.ScholarAdloquium.Name = "ScholarAdloquium";
             this.ScholarAdloquium.Size = new System.Drawing.Size(80, 17);
             this.ScholarAdloquium.TabIndex = 2;
@@ -2930,7 +2970,7 @@
             this.ScholarPhysick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarPhysick.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarPhysick.ForeColor = System.Drawing.Color.White;
-            this.ScholarPhysick.Location = new System.Drawing.Point(6, 39);
+            this.ScholarPhysick.Location = new System.Drawing.Point(6, 85);
             this.ScholarPhysick.Name = "ScholarPhysick";
             this.ScholarPhysick.Size = new System.Drawing.Size(60, 17);
             this.ScholarPhysick.TabIndex = 1;
@@ -3192,6 +3232,8 @@
             // 
             // WhiteMageHealGroup
             // 
+            this.WhiteMageHealGroup.Controls.Add(this.WhiteMageInterruptOverheal);
+            this.WhiteMageHealGroup.Controls.Add(this.WhiteMageInterruptDamage);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageCurePct);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageCureIIPct);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageTetragrammatonPct);
@@ -3215,7 +3257,7 @@
             this.WhiteMageHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageHealGroup.Location = new System.Drawing.Point(229, 6);
             this.WhiteMageHealGroup.Name = "WhiteMageHealGroup";
-            this.WhiteMageHealGroup.Size = new System.Drawing.Size(228, 273);
+            this.WhiteMageHealGroup.Size = new System.Drawing.Size(228, 319);
             this.WhiteMageHealGroup.TabIndex = 1;
             this.WhiteMageHealGroup.TabStop = false;
             this.WhiteMageHealGroup.Text = "Heal";
@@ -3223,7 +3265,7 @@
             // WhiteMageCurePct
             // 
             this.WhiteMageCurePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageCurePct.Location = new System.Drawing.Point(133, 39);
+            this.WhiteMageCurePct.Location = new System.Drawing.Point(133, 85);
             this.WhiteMageCurePct.Name = "WhiteMageCurePct";
             this.WhiteMageCurePct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageCurePct.TabIndex = 19;
@@ -3232,7 +3274,7 @@
             // WhiteMageCureIIPct
             // 
             this.WhiteMageCureIIPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageCureIIPct.Location = new System.Drawing.Point(133, 62);
+            this.WhiteMageCureIIPct.Location = new System.Drawing.Point(133, 108);
             this.WhiteMageCureIIPct.Name = "WhiteMageCureIIPct";
             this.WhiteMageCureIIPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageCureIIPct.TabIndex = 18;
@@ -3241,7 +3283,7 @@
             // WhiteMageTetragrammatonPct
             // 
             this.WhiteMageTetragrammatonPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageTetragrammatonPct.Location = new System.Drawing.Point(133, 85);
+            this.WhiteMageTetragrammatonPct.Location = new System.Drawing.Point(133, 131);
             this.WhiteMageTetragrammatonPct.Name = "WhiteMageTetragrammatonPct";
             this.WhiteMageTetragrammatonPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageTetragrammatonPct.TabIndex = 17;
@@ -3250,7 +3292,7 @@
             // WhiteMageBenedictionPct
             // 
             this.WhiteMageBenedictionPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageBenedictionPct.Location = new System.Drawing.Point(133, 108);
+            this.WhiteMageBenedictionPct.Location = new System.Drawing.Point(133, 154);
             this.WhiteMageBenedictionPct.Name = "WhiteMageBenedictionPct";
             this.WhiteMageBenedictionPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageBenedictionPct.TabIndex = 16;
@@ -3259,7 +3301,7 @@
             // WhiteMageRegenPct
             // 
             this.WhiteMageRegenPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageRegenPct.Location = new System.Drawing.Point(133, 131);
+            this.WhiteMageRegenPct.Location = new System.Drawing.Point(133, 177);
             this.WhiteMageRegenPct.Name = "WhiteMageRegenPct";
             this.WhiteMageRegenPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageRegenPct.TabIndex = 15;
@@ -3268,7 +3310,7 @@
             // WhiteMageMedicaPct
             // 
             this.WhiteMageMedicaPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageMedicaPct.Location = new System.Drawing.Point(133, 154);
+            this.WhiteMageMedicaPct.Location = new System.Drawing.Point(133, 200);
             this.WhiteMageMedicaPct.Name = "WhiteMageMedicaPct";
             this.WhiteMageMedicaPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageMedicaPct.TabIndex = 14;
@@ -3277,7 +3319,7 @@
             // WhiteMageMedicaIIPct
             // 
             this.WhiteMageMedicaIIPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageMedicaIIPct.Location = new System.Drawing.Point(133, 177);
+            this.WhiteMageMedicaIIPct.Location = new System.Drawing.Point(133, 223);
             this.WhiteMageMedicaIIPct.Name = "WhiteMageMedicaIIPct";
             this.WhiteMageMedicaIIPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageMedicaIIPct.TabIndex = 13;
@@ -3286,7 +3328,7 @@
             // WhiteMageAssizePct
             // 
             this.WhiteMageAssizePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageAssizePct.Location = new System.Drawing.Point(133, 200);
+            this.WhiteMageAssizePct.Location = new System.Drawing.Point(133, 246);
             this.WhiteMageAssizePct.Name = "WhiteMageAssizePct";
             this.WhiteMageAssizePct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageAssizePct.TabIndex = 12;
@@ -3295,7 +3337,7 @@
             // WhiteMagePlenaryPct
             // 
             this.WhiteMagePlenaryPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMagePlenaryPct.Location = new System.Drawing.Point(133, 223);
+            this.WhiteMagePlenaryPct.Location = new System.Drawing.Point(133, 269);
             this.WhiteMagePlenaryPct.Name = "WhiteMagePlenaryPct";
             this.WhiteMagePlenaryPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMagePlenaryPct.TabIndex = 11;
@@ -3307,7 +3349,7 @@
             this.WhiteMageRaise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageRaise.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageRaise.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageRaise.Location = new System.Drawing.Point(6, 246);
+            this.WhiteMageRaise.Location = new System.Drawing.Point(6, 292);
             this.WhiteMageRaise.Name = "WhiteMageRaise";
             this.WhiteMageRaise.Size = new System.Drawing.Size(50, 17);
             this.WhiteMageRaise.TabIndex = 10;
@@ -3322,7 +3364,7 @@
             this.WhiteMagePlenary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMagePlenary.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMagePlenary.ForeColor = System.Drawing.Color.White;
-            this.WhiteMagePlenary.Location = new System.Drawing.Point(6, 223);
+            this.WhiteMagePlenary.Location = new System.Drawing.Point(6, 269);
             this.WhiteMagePlenary.Name = "WhiteMagePlenary";
             this.WhiteMagePlenary.Size = new System.Drawing.Size(121, 17);
             this.WhiteMagePlenary.TabIndex = 9;
@@ -3337,7 +3379,7 @@
             this.WhiteMageAssize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageAssize.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageAssize.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageAssize.Location = new System.Drawing.Point(6, 200);
+            this.WhiteMageAssize.Location = new System.Drawing.Point(6, 246);
             this.WhiteMageAssize.Name = "WhiteMageAssize";
             this.WhiteMageAssize.Size = new System.Drawing.Size(54, 17);
             this.WhiteMageAssize.TabIndex = 8;
@@ -3352,7 +3394,7 @@
             this.WhiteMageMedicaII.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageMedicaII.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageMedicaII.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageMedicaII.Location = new System.Drawing.Point(6, 177);
+            this.WhiteMageMedicaII.Location = new System.Drawing.Point(6, 223);
             this.WhiteMageMedicaII.Name = "WhiteMageMedicaII";
             this.WhiteMageMedicaII.Size = new System.Drawing.Size(69, 17);
             this.WhiteMageMedicaII.TabIndex = 7;
@@ -3367,7 +3409,7 @@
             this.WhiteMageMedica.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageMedica.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageMedica.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageMedica.Location = new System.Drawing.Point(6, 154);
+            this.WhiteMageMedica.Location = new System.Drawing.Point(6, 200);
             this.WhiteMageMedica.Name = "WhiteMageMedica";
             this.WhiteMageMedica.Size = new System.Drawing.Size(60, 17);
             this.WhiteMageMedica.TabIndex = 6;
@@ -3382,7 +3424,7 @@
             this.WhiteMageRegen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageRegen.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageRegen.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageRegen.Location = new System.Drawing.Point(6, 131);
+            this.WhiteMageRegen.Location = new System.Drawing.Point(6, 177);
             this.WhiteMageRegen.Name = "WhiteMageRegen";
             this.WhiteMageRegen.Size = new System.Drawing.Size(56, 17);
             this.WhiteMageRegen.TabIndex = 5;
@@ -3397,7 +3439,7 @@
             this.WhiteMageBenediction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageBenediction.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageBenediction.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageBenediction.Location = new System.Drawing.Point(6, 108);
+            this.WhiteMageBenediction.Location = new System.Drawing.Point(6, 154);
             this.WhiteMageBenediction.Name = "WhiteMageBenediction";
             this.WhiteMageBenediction.Size = new System.Drawing.Size(85, 17);
             this.WhiteMageBenediction.TabIndex = 4;
@@ -3412,7 +3454,7 @@
             this.WhiteMageTetragrammaton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageTetragrammaton.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageTetragrammaton.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageTetragrammaton.Location = new System.Drawing.Point(6, 85);
+            this.WhiteMageTetragrammaton.Location = new System.Drawing.Point(6, 131);
             this.WhiteMageTetragrammaton.Name = "WhiteMageTetragrammaton";
             this.WhiteMageTetragrammaton.Size = new System.Drawing.Size(106, 17);
             this.WhiteMageTetragrammaton.TabIndex = 3;
@@ -3427,7 +3469,7 @@
             this.WhiteMageCureII.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageCureII.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageCureII.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageCureII.Location = new System.Drawing.Point(6, 62);
+            this.WhiteMageCureII.Location = new System.Drawing.Point(6, 108);
             this.WhiteMageCureII.Name = "WhiteMageCureII";
             this.WhiteMageCureII.Size = new System.Drawing.Size(56, 17);
             this.WhiteMageCureII.TabIndex = 2;
@@ -3442,7 +3484,7 @@
             this.WhiteMageCure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteMageCure.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageCure.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageCure.Location = new System.Drawing.Point(6, 39);
+            this.WhiteMageCure.Location = new System.Drawing.Point(6, 85);
             this.WhiteMageCure.Name = "WhiteMageCure";
             this.WhiteMageCure.Size = new System.Drawing.Size(47, 17);
             this.WhiteMageCure.TabIndex = 1;
@@ -7635,6 +7677,66 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // WhiteMageInterruptDamage
+            // 
+            this.WhiteMageInterruptDamage.AutoSize = true;
+            this.WhiteMageInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageInterruptDamage.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageInterruptDamage.Location = new System.Drawing.Point(6, 39);
+            this.WhiteMageInterruptDamage.Name = "WhiteMageInterruptDamage";
+            this.WhiteMageInterruptDamage.Size = new System.Drawing.Size(114, 17);
+            this.WhiteMageInterruptDamage.TabIndex = 20;
+            this.WhiteMageInterruptDamage.TabStop = false;
+            this.WhiteMageInterruptDamage.Text = "Interrupt Damage";
+            this.WhiteMageInterruptDamage.UseVisualStyleBackColor = true;
+            this.WhiteMageInterruptDamage.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptDamage_CheckedChanged);
+            // 
+            // WhiteMageInterruptOverheal
+            // 
+            this.WhiteMageInterruptOverheal.AutoSize = true;
+            this.WhiteMageInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageInterruptOverheal.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageInterruptOverheal.Location = new System.Drawing.Point(6, 62);
+            this.WhiteMageInterruptOverheal.Name = "WhiteMageInterruptOverheal";
+            this.WhiteMageInterruptOverheal.Size = new System.Drawing.Size(118, 17);
+            this.WhiteMageInterruptOverheal.TabIndex = 21;
+            this.WhiteMageInterruptOverheal.TabStop = false;
+            this.WhiteMageInterruptOverheal.Text = "Interrupt Overheal";
+            this.WhiteMageInterruptOverheal.UseVisualStyleBackColor = true;
+            this.WhiteMageInterruptOverheal.CheckedChanged += new System.EventHandler(this.WhiteMageInterruptOverheal_CheckedChanged);
+            // 
+            // AstrologianInterruptDamage
+            // 
+            this.AstrologianInterruptDamage.AutoSize = true;
+            this.AstrologianInterruptDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianInterruptDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianInterruptDamage.ForeColor = System.Drawing.Color.White;
+            this.AstrologianInterruptDamage.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianInterruptDamage.Name = "AstrologianInterruptDamage";
+            this.AstrologianInterruptDamage.Size = new System.Drawing.Size(114, 17);
+            this.AstrologianInterruptDamage.TabIndex = 14;
+            this.AstrologianInterruptDamage.TabStop = false;
+            this.AstrologianInterruptDamage.Text = "Interrupt Damage";
+            this.AstrologianInterruptDamage.UseVisualStyleBackColor = true;
+            this.AstrologianInterruptDamage.CheckedChanged += new System.EventHandler(this.AstrologianInterruptDamage_CheckedChanged);
+            // 
+            // AstrologianInterruptOverheal
+            // 
+            this.AstrologianInterruptOverheal.AutoSize = true;
+            this.AstrologianInterruptOverheal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianInterruptOverheal.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianInterruptOverheal.ForeColor = System.Drawing.Color.White;
+            this.AstrologianInterruptOverheal.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianInterruptOverheal.Name = "AstrologianInterruptOverheal";
+            this.AstrologianInterruptOverheal.Size = new System.Drawing.Size(118, 17);
+            this.AstrologianInterruptOverheal.TabIndex = 15;
+            this.AstrologianInterruptOverheal.TabStop = false;
+            this.AstrologianInterruptOverheal.Text = "Interrupt Overheal";
+            this.AstrologianInterruptOverheal.UseVisualStyleBackColor = true;
+            this.AstrologianInterruptOverheal.CheckedChanged += new System.EventHandler(this.AstrologianInterruptOverheal_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8313,5 +8415,11 @@
         private Design.CustomCheck NinjaBhavacakra;
         private Design.CustomCheck NinjaHellfrogMedium;
         private Design.CustomCheck NinjaTenChiJin;
+        private Design.CustomCheck ScholarInterruptOverheal;
+        private Design.CustomCheck ScholarInterruptDamage;
+        private Design.CustomCheck WhiteMageInterruptOverheal;
+        private Design.CustomCheck WhiteMageInterruptDamage;
+        private Design.CustomCheck AstrologianInterruptOverheal;
+        private Design.CustomCheck AstrologianInterruptDamage;
     }
 }

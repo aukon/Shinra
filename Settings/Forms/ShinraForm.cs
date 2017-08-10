@@ -104,6 +104,8 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             AstrologianPartyHeal.Checked = Shinra.Settings.AstrologianPartyHeal;
+            AstrologianInterruptDamage.Checked = Shinra.Settings.AstrologianInterruptDamage;
+            AstrologianInterruptOverheal.Checked = Shinra.Settings.AstrologianInterruptOverheal;
             AstrologianBenefic.Checked = Shinra.Settings.AstrologianBenefic;
             AstrologianBeneficII.Checked = Shinra.Settings.AstrologianBeneficII;
             AstrologianEssDignity.Checked = Shinra.Settings.AstrologianEssDignity;
@@ -586,6 +588,8 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             ScholarPartyHeal.Checked = Shinra.Settings.ScholarPartyHeal;
+            ScholarInterruptDamage.Checked = Shinra.Settings.ScholarInterruptDamage;
+            ScholarInterruptOverheal.Checked = Shinra.Settings.ScholarInterruptOverheal;
             ScholarPhysick.Checked = Shinra.Settings.ScholarPhysick;
             ScholarAdloquium.Checked = Shinra.Settings.ScholarAdloquium;
             ScholarAetherpact.Checked = Shinra.Settings.ScholarAetherpact;
@@ -762,6 +766,8 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             WhiteMagePartyHeal.Checked = Shinra.Settings.WhiteMagePartyHeal;
+            WhiteMageInterruptDamage.Checked = Shinra.Settings.WhiteMageInterruptDamage;
+            WhiteMageInterruptOverheal.Checked = Shinra.Settings.WhiteMageInterruptOverheal;
             WhiteMageCure.Checked = Shinra.Settings.WhiteMageCure;
             WhiteMageCureII.Checked = Shinra.Settings.WhiteMageCureII;
             WhiteMageTetragrammaton.Checked = Shinra.Settings.WhiteMageTetragrammaton;
@@ -942,6 +948,16 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianPartyHeal_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianPartyHeal = AstrologianPartyHeal.Checked;
+        }
+
+        private void AstrologianInterruptDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianInterruptDamage = AstrologianInterruptDamage.Checked;
+        }
+
+        private void AstrologianInterruptOverheal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianInterruptOverheal = AstrologianInterruptOverheal.Checked;
         }
 
         private void AstrologianBenefic_CheckedChanged(object sender, EventArgs e)
@@ -2144,6 +2160,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.ScholarPartyHeal = ScholarPartyHeal.Checked;
         }
 
+        private void ScholarInterruptDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarInterruptDamage = ScholarInterruptDamage.Checked;
+        }
+
+        private void ScholarInterruptOverheal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarInterruptOverheal = ScholarInterruptOverheal.Checked;
+        }
+
         private void ScholarPhysick_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.ScholarPhysick = ScholarPhysick.Checked;
@@ -2599,6 +2625,16 @@ namespace ShinraCo.Settings.Forms
         private void WhiteMagePartyHeal_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WhiteMagePartyHeal = WhiteMagePartyHeal.Checked;
+        }
+
+        private void WhiteMageInterruptDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageInterruptDamage = WhiteMageInterruptDamage.Checked;
+        }
+
+        private void WhiteMageInterruptOverheal_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageInterruptOverheal = WhiteMageInterruptOverheal.Checked;
         }
 
         private void WhiteMageCure_CheckedChanged(object sender, EventArgs e)

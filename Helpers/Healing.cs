@@ -9,14 +9,20 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
+        public static readonly HashSet<string> HealingSpells = new HashSet<string>
+        {
+            "Benefic", "Benefic II", "Helios", "Aspected Helios", "Ascend",
+            "Cure", "Cure II", "Medica", "Medica II", "Raise",
+            "Physick", "Adloquium", "Succor", "Resurrection"
+        };
+
         public static IEnumerable<BattleCharacter> PartyMembers
         {
             get
             {
-                return
-                    PartyManager.VisibleMembers
-                                .Select(pm => pm.GameObject as BattleCharacter)
-                                .Where(pm => pm.IsTargetable);
+                return PartyManager.VisibleMembers.Select(pm => pm.GameObject as BattleCharacter)
+                                   .Where(pm => pm != null && pm.IsTargetable && pm.InLineOfSight() &&
+                                                Core.Player.UnitDistance(pm, 25, false));
             }
         }
 
@@ -24,10 +30,9 @@ namespace ShinraCo
         {
             get
             {
-                return
-                    GameObjectManager.GetObjectsOfType<BattleCharacter>(true, true)
-                                     .Where(hm => hm.IsAlive && (PartyMembers.Contains(hm) || hm == Core.Player || hm == ChocoboManager.Object))
-                                     .OrderBy(HPScore);
+                return GameObjectManager.GetObjectsOfType<BattleCharacter>(true, true)
+                                        .Where(hm => hm.IsAlive && (PartyMembers.Contains(hm) || hm == Core.Player ||
+                                                                    hm == ChocoboManager.Object)).OrderBy(HPScore);
             }
         }
 
