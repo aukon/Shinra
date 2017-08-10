@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -572,7 +573,7 @@ namespace ShinraCo.Spells
 
             #region AddRecent
 
-            if (SpellType != SpellType.Damage && SpellType != SpellType.AoE)
+            if (SpellType != SpellType.Damage && SpellType != SpellType.AoE && SpellType != SpellType.Heal && await CastComplete(this))
             {
                 var key = target.ObjectId.ToString("X") + "-" + Name;
                 var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
@@ -583,6 +584,29 @@ namespace ShinraCo.Spells
             #endregion
 
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
+            return true;
+        }
+
+        private static async Task<bool> CastComplete(Spell spell)
+        {
+            if (spell.SpellType == SpellType.DoT)
+            {
+                var castTime = DataManager.GetSpellData(spell.ID).AdjustedCastTime;
+                if (castTime.TotalMilliseconds > 0)
+                {
+                    var timer = new Stopwatch();
+                    timer.Start();
+                    await Coroutine.Wait(castTime, () => Core.Player.IsCasting);
+                    while (timer.ElapsedMilliseconds < castTime.TotalMilliseconds - 100)
+                    {
+                        if (!Core.Player.IsCasting)
+                        {
+                            return false;
+                        }
+                        await Coroutine.Yield();
+                    }
+                }
+            }
             return true;
         }
     }

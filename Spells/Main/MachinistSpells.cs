@@ -122,8 +122,8 @@ namespace ShinraCo.Spells.Main
             ID = 2878,
             Level = 38,
             GCDType = GCDType.Off,
-            SpellType = SpellType.Buff,
-            CastType = CastType.Self
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
         };
 
         public Spell RookAutoturret { get; } = new Spell
@@ -154,6 +154,66 @@ namespace ShinraCo.Spells.Main
             GCDType = GCDType.Off,
             SpellType = SpellType.Cooldown,
             CastType = CastType.TargetLocation
+        };
+
+        public Spell GaussBarrel { get; } = new Spell
+        {
+            Name = "Gauss Barrel",
+            ID = 2880,
+            Level = 52,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell RemoveBarrel { get; } = new Spell
+        {
+            Name = "Remove Barrel",
+            ID = 9015,
+            Level = 52,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell GaussRound { get; } = new Spell
+        {
+            Name = "Gauss Round",
+            ID = 2874,
+            Level = 54,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell Dismantle { get; } = new Spell
+        {
+            Name = "Dismantle",
+            ID = 2887,
+            Level = 56,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell Hypercharge { get; } = new Spell
+        {
+            Name = "Hypercharge",
+            ID = 2885,
+            Level = 58,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Ricochet { get; } = new Spell
+        {
+            Name = "Ricochet",
+            ID = 2890,
+            Level = 60,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
         };
     }
 }

@@ -578,6 +578,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Turret
+
+        [Setting, DefaultValue(MachinistTurrets.Rook)]
+        public MachinistTurrets MachinistTurret { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Monk

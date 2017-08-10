@@ -71,6 +71,21 @@ namespace ShinraCo.Rotations
             return await MySpells.Heartbreak.Cast();
         }
 
+        private async Task<bool> Wildfire()
+        {
+            return await MySpells.Wildfire.Cast();
+        }
+
+        private async Task<bool> GaussRound()
+        {
+            return await MySpells.GaussRound.Cast();
+        }
+
+        private async Task<bool> Ricochet()
+        {
+            return await MySpells.Ricochet.Cast();
+        }
+
         #endregion
 
         #region Buff
@@ -96,12 +111,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickReload()
         {
-            if (Resource.Ammo < 3)
+            if (Resource.Ammo < 2)
             {
-                if (!Core.Player.InCombat || !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
-                {
-                    return await MySpells.QuickReload.Cast();
-                }
+                return await MySpells.QuickReload.Cast();
             }
             return false;
         }
@@ -111,24 +123,49 @@ namespace ShinraCo.Rotations
             return await MySpells.RapidFire.Cast();
         }
 
+        private async Task<bool> GaussBarrel()
+        {
+            if (!Resource.GaussBarrel)
+            {
+                return await MySpells.GaussBarrel.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Hypercharge()
+        {
+            if (TurretExists)
+            {
+                return await MySpells.Hypercharge.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Turret
 
         private async Task<bool> RookAutoturret()
         {
-            if (!TurretExists || PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+            if (Shinra.Settings.MachinistTurret == MachinistTurrets.Rook || Shinra.Settings.MachinistTurret == MachinistTurrets.Bishop &&
+                !ActionManager.HasSpell(MySpells.BishopAutoturret.Name))
             {
-                return await MySpells.RookAutoturret.Cast();
+                if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+                {
+                    return await MySpells.RookAutoturret.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> BishopAutoturret()
         {
-            if (!TurretExists || PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 20)
+            if (Shinra.Settings.MachinistTurret == MachinistTurrets.Bishop)
             {
-                return await MySpells.BishopAutoturret.Cast();
+                if (PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 20)
+                {
+                    return await MySpells.BishopAutoturret.Cast();
+                }
             }
             return false;
         }
