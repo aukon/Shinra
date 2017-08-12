@@ -587,6 +587,8 @@ namespace ShinraCo.Spells
             return true;
         }
 
+        #region CastComplete
+
         private static async Task<bool> CastComplete(Spell spell)
         {
             if (spell.SpellType == SpellType.DoT)
@@ -609,5 +611,7 @@ namespace ShinraCo.Spells
             }
             return true;
         }
+
+        #endregion
     }
 }

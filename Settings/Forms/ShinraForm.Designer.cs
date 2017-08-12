@@ -34,6 +34,12 @@
             this.ShinraClose = new ShinraCo.Settings.Forms.Design.NoSelectButton();
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
+            this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RestEnergyPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.RestHealthPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.RestEnergy = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.RestHealth = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ShinraDonate = new System.Windows.Forms.PictureBox();
             this.RotationGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RotationOverlay = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RotationMessages = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -405,6 +411,7 @@
             this.MachinistReassemble = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistReload = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistWildfireHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MachinistRicochet = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -552,11 +559,12 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistWildfireHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.pgeMain.SuspendLayout();
+            this.RestGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).BeginInit();
             this.RotationGroup.SuspendLayout();
             this.ItemGroup.SuspendLayout();
             this.ChocoboGroup.SuspendLayout();
@@ -726,6 +734,8 @@
             // pgeMain
             // 
             this.pgeMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMain.Controls.Add(this.RestGroup);
+            this.pgeMain.Controls.Add(this.ShinraDonate);
             this.pgeMain.Controls.Add(this.RotationGroup);
             this.pgeMain.Controls.Add(this.ItemGroup);
             this.pgeMain.Controls.Add(this.ChocoboGroup);
@@ -736,6 +746,77 @@
             this.pgeMain.TabIndex = 0;
             this.pgeMain.Text = "Main";
             this.pgeMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // RestGroup
+            // 
+            this.RestGroup.Controls.Add(this.RestEnergyPct);
+            this.RestGroup.Controls.Add(this.RestHealthPct);
+            this.RestGroup.Controls.Add(this.RestEnergy);
+            this.RestGroup.Controls.Add(this.RestHealth);
+            this.RestGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RestGroup.Location = new System.Drawing.Point(440, 56);
+            this.RestGroup.Name = "RestGroup";
+            this.RestGroup.Size = new System.Drawing.Size(191, 67);
+            this.RestGroup.TabIndex = 3;
+            this.RestGroup.TabStop = false;
+            this.RestGroup.Text = "Rest";
+            // 
+            // RestEnergyPct
+            // 
+            this.RestEnergyPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.RestEnergyPct.Location = new System.Drawing.Point(96, 39);
+            this.RestEnergyPct.Name = "RestEnergyPct";
+            this.RestEnergyPct.Size = new System.Drawing.Size(89, 22);
+            this.RestEnergyPct.TabIndex = 3;
+            this.RestEnergyPct.ValueChanged += new System.EventHandler(this.RestEnergyPct_ValueChanged);
+            // 
+            // RestHealthPct
+            // 
+            this.RestHealthPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.RestHealthPct.Location = new System.Drawing.Point(96, 16);
+            this.RestHealthPct.Name = "RestHealthPct";
+            this.RestHealthPct.Size = new System.Drawing.Size(89, 22);
+            this.RestHealthPct.TabIndex = 2;
+            this.RestHealthPct.ValueChanged += new System.EventHandler(this.RestHealthPct_ValueChanged);
+            // 
+            // RestEnergy
+            // 
+            this.RestEnergy.AutoSize = true;
+            this.RestEnergy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestEnergy.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RestEnergy.ForeColor = System.Drawing.Color.White;
+            this.RestEnergy.Location = new System.Drawing.Point(6, 39);
+            this.RestEnergy.Name = "RestEnergy";
+            this.RestEnergy.Size = new System.Drawing.Size(67, 17);
+            this.RestEnergy.TabIndex = 1;
+            this.RestEnergy.TabStop = false;
+            this.RestEnergy.Text = "Mana/TP";
+            this.RestEnergy.UseVisualStyleBackColor = true;
+            this.RestEnergy.CheckedChanged += new System.EventHandler(this.RestEnergy_CheckedChanged);
+            // 
+            // RestHealth
+            // 
+            this.RestHealth.AutoSize = true;
+            this.RestHealth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestHealth.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RestHealth.ForeColor = System.Drawing.Color.White;
+            this.RestHealth.Location = new System.Drawing.Point(6, 16);
+            this.RestHealth.Name = "RestHealth";
+            this.RestHealth.Size = new System.Drawing.Size(57, 17);
+            this.RestHealth.TabIndex = 0;
+            this.RestHealth.TabStop = false;
+            this.RestHealth.Text = "Health";
+            this.RestHealth.UseVisualStyleBackColor = true;
+            this.RestHealth.CheckedChanged += new System.EventHandler(this.RestHealth_CheckedChanged);
+            // 
+            // ShinraDonate
+            // 
+            this.ShinraDonate.Location = new System.Drawing.Point(13, 330);
+            this.ShinraDonate.Name = "ShinraDonate";
+            this.ShinraDonate.Size = new System.Drawing.Size(170, 60);
+            this.ShinraDonate.TabIndex = 2;
+            this.ShinraDonate.TabStop = false;
+            this.ShinraDonate.Click += new System.EventHandler(this.ShinraDonate_Click);
             // 
             // RotationGroup
             // 
@@ -6054,6 +6135,26 @@
             this.MachinistCooldownGroup.TabStop = false;
             this.MachinistCooldownGroup.Text = "Cooldown";
             // 
+            // MachinistWildfireHP
+            // 
+            this.MachinistWildfireHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistWildfireHP.Increment = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.MachinistWildfireHP.Location = new System.Drawing.Point(76, 16);
+            this.MachinistWildfireHP.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.MachinistWildfireHP.Name = "MachinistWildfireHP";
+            this.MachinistWildfireHP.ShowSymbol = false;
+            this.MachinistWildfireHP.Size = new System.Drawing.Size(105, 22);
+            this.MachinistWildfireHP.TabIndex = 2;
+            this.MachinistWildfireHP.ValueChanged += new System.EventHandler(this.MachinistWildfireHP_ValueChanged);
+            // 
             // MachinistRicochet
             // 
             this.MachinistRicochet.AutoSize = true;
@@ -8120,26 +8221,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MachinistWildfireHP
-            // 
-            this.MachinistWildfireHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.MachinistWildfireHP.Increment = new decimal(new int[] {
-            5000,
-            0,
-            0,
-            0});
-            this.MachinistWildfireHP.Location = new System.Drawing.Point(76, 16);
-            this.MachinistWildfireHP.Maximum = new decimal(new int[] {
-            5000000,
-            0,
-            0,
-            0});
-            this.MachinistWildfireHP.Name = "MachinistWildfireHP";
-            this.MachinistWildfireHP.ShowSymbol = false;
-            this.MachinistWildfireHP.Size = new System.Drawing.Size(105, 22);
-            this.MachinistWildfireHP.TabIndex = 2;
-            this.MachinistWildfireHP.ValueChanged += new System.EventHandler(this.MachinistWildfireHP_ValueChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8158,6 +8239,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.pgeMain.ResumeLayout(false);
+            this.RestGroup.ResumeLayout(false);
+            this.RestGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).EndInit();
             this.RotationGroup.ResumeLayout(false);
             this.RotationGroup.PerformLayout();
             this.ItemGroup.ResumeLayout(false);
@@ -8855,5 +8939,11 @@
         private Design.CustomCheck MachinistReload;
         private Design.CustomCombo MachinistTurret;
         private Design.UserNumeric MachinistWildfireHP;
+        private System.Windows.Forms.PictureBox ShinraDonate;
+        private Design.CustomGroup RestGroup;
+        private Design.UserNumeric RestEnergyPct;
+        private Design.UserNumeric RestHealthPct;
+        private Design.CustomCheck RestEnergy;
+        private Design.CustomCheck RestHealth;
     }
 }

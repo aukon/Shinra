@@ -150,6 +150,22 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Rest
+
+        [Setting, DefaultValue(true)]
+        public bool RestHealth { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool RestEnergy { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int RestHealthPct { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int RestEnergyPct { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Job Settings

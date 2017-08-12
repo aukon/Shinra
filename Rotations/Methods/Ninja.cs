@@ -497,7 +497,6 @@ namespace ShinraCo.Rotations
                     if (await MySpells.Suiton.Cast())
                     {
                         await Coroutine.Wait(2000, () => !CanNinjutsu);
-                        return true;
                     }
                 }
 

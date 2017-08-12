@@ -221,7 +221,8 @@ namespace ShinraCo
         public async Task<bool> Rest()
         {
             if (WorldManager.InSanctuary || Core.Player.HasAura("Sprint") ||
-                Core.Player.CurrentHealthPercent > 70 && Helpers.CurrentEnergyPct > 50)
+                (!Settings.RestHealth || Core.Player.CurrentHealthPercent > Settings.RestHealthPct) &&
+                (!Settings.RestEnergy || Helpers.CurrentEnergyPct > Settings.RestEnergyPct))
             {
                 return false;
             }

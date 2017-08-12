@@ -270,7 +270,7 @@ namespace ShinraCo.Settings.Forms.Design
             }
             catch (Exception) {}
             g.Clear(BackgroundColor);
-            g.DrawLine(new Pen(Color.YellowGreen), new Point(ItemSize.Height + 3, 4), new Point(ItemSize.Height + 3, 999));
+            g.DrawLine(new Pen(Color.GreenYellow), new Point(ItemSize.Height + 3, 4), new Point(ItemSize.Height + 3, 999));
             for (var i = 0; i < TabCount; i++)
             {
                 var x2 = new Rectangle(new Point(GetTabRect(i).Location.X - 2, GetTabRect(i).Location.Y + 2),

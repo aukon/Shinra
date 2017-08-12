@@ -4,12 +4,14 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using ff14bot.Managers;
 using ShinraCo.Properties;
+using System.Diagnostics;
 
 namespace ShinraCo.Settings.Forms
 {
     public partial class ShinraForm : Form
     {
         private readonly Image _shinraBanner = Resources.ShinraBanner;
+        private readonly Image _shinraDonate = Resources.ShinraDonate;
 
         public ShinraForm()
         {
@@ -41,6 +43,7 @@ namespace ShinraCo.Settings.Forms
         private void ShinraForm_Load(object sender, EventArgs e)
         {
             ShinraBanner.Image = _shinraBanner;
+            ShinraDonate.Image = _shinraDonate;
             HotkeyManager.Unregister("Shinra Rotation");
             HotkeyManager.Unregister("Shinra Tank");
             Location = Shinra.Settings.WindowLocation;
@@ -74,6 +77,16 @@ namespace ShinraCo.Settings.Forms
 
             UsePotion.Checked = Shinra.Settings.UsePotion;
             UsePotionPct.Value = Shinra.Settings.UsePotionPct;
+
+            #endregion
+
+            #region Rest
+
+            RestHealth.Checked = Shinra.Settings.RestHealth;
+            RestEnergy.Checked = Shinra.Settings.RestEnergy;
+
+            RestHealthPct.Value = Shinra.Settings.RestHealthPct;
+            RestEnergyPct.Value = Shinra.Settings.RestEnergyPct;
 
             #endregion
 
@@ -838,6 +851,11 @@ namespace ShinraCo.Settings.Forms
             #endregion
         }
 
+        private void ShinraDonate_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ECDZMK27NSFWA");
+        }
+
         private void ShinraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Shinra.Settings.RotationHotkey),
@@ -932,6 +950,30 @@ namespace ShinraCo.Settings.Forms
         private void UsePotionPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.UsePotionPct = Convert.ToInt32(UsePotionPct.Value);
+        }
+
+        #endregion
+
+        #region Rest
+
+        private void RestHealth_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RestHealth = RestHealth.Checked;
+        }
+
+        private void RestEnergy_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RestEnergy = RestEnergy.Checked;
+        }
+
+        private void RestHealthPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RestHealthPct = Convert.ToInt32(RestHealthPct.Value);
+        }
+
+        private void RestEnergyPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RestEnergyPct = Convert.ToInt32(RestEnergyPct.Value);
         }
 
         #endregion

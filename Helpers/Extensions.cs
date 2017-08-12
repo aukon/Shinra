@@ -22,12 +22,10 @@ namespace ShinraCo
         {
             ClassJobType.Arcanist,
             ClassJobType.Astrologian,
-            ClassJobType.BlackMage,
             ClassJobType.Conjurer,
             ClassJobType.RedMage,
             ClassJobType.Scholar,
             ClassJobType.Summoner,
-            ClassJobType.Thaumaturge,
             ClassJobType.WhiteMage
         };
 

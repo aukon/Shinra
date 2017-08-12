@@ -13,15 +13,40 @@ namespace ShinraCo
         private static readonly HashSet<uint> BossIds = new HashSet<uint>
         {
             541, // Striking Dummy
+
+            #region PotD
+
+            4986, // Palace Deathgaze (Floor 10)
+            4999, // Spurge (Floor 20)
+            5012, // Ningishzida (Floor 30)
+            5025, // Ixtab (Floor 40)
+            5038, // Edda Blackbosom (Floor 50)
+            5309, // The Black Rider (Floor 60)
+            5321, // Yaquaru (Floor 70)
+            5333, // Gudanna (Floor 80)
+            5345, // The Godmother (Floor 90)
+            5356, // Nybeth Obdilord (Floor 100)
+
+            #endregion
+
+            #region Dungeons
+
             #region Ala Mhigo
+
             6037, // Magitek Scorpion
             6038, // Aulus Mal Asina
             6039, // Zenos Yae Galvus
+
             #endregion
+
             #region Kugane Castle
+
             6085, // Zuiko-maru
             6087, // Dojun-maru
             6089 // Yojimbo
+
+            #endregion
+
             #endregion
         };
 
