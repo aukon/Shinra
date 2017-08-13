@@ -110,6 +110,15 @@ namespace ShinraCo.Rotations
 
         #region Heal
 
+        private async Task<bool> UpdateHealing()
+        {
+            if (Shinra.Settings.AstrologianPartyHeal && !await Helpers.UpdateHealManager())
+            {
+                return true;
+            }
+            return false;
+        }
+
         private async Task<bool> StopCasting()
         {
             if (Shinra.Settings.AstrologianInterruptOverheal && Core.Player.IsCasting)
@@ -198,11 +207,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Helios()
         {
-            if (Shinra.Settings.AstrologianHelios && Shinra.Settings.AstrologianPartyHeal &&
-                Shinra.LastSpell.Name != MySpells.AspectedHelios.Name)
+            if (Shinra.Settings.AstrologianHelios && Shinra.Settings.AstrologianPartyHeal && UseAoEHeals)
             {
-                var count = Helpers.HealManager.Count(hm => hm.Distance2D(Core.Player) - hm.CombatReach - Core.Player.CombatReach < 15 &&
-                                                            hm.CurrentHealthPercent < Shinra.Settings.AstrologianHeliosPct);
+                var count = Helpers.FriendsNearPlayer(Shinra.Settings.AstrologianHeliosPct);
 
                 if (count > 2)
                 {
@@ -214,11 +221,10 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AspectedHelios()
         {
-            if (Shinra.Settings.AstrologianAspHelios && Shinra.Settings.AstrologianPartyHeal &&
-                Shinra.LastSpell.Name != MySpells.Helios.Name && !Core.Player.HasAura(MySpells.AspectedHelios.Name, true))
+            if (Shinra.Settings.AstrologianAspHelios && Shinra.Settings.AstrologianPartyHeal && UseAoEHeals &&
+                !Core.Player.HasAura(MySpells.AspectedHelios.Name, true))
             {
-                var count = Helpers.HealManager.Count(hm => hm.Distance2D(Core.Player) - hm.CombatReach - Core.Player.CombatReach < 15 &&
-                                                            hm.CurrentHealthPercent < Shinra.Settings.AstrologianAspHeliosPct);
+                var count = Helpers.FriendsNearPlayer(Shinra.Settings.AstrologianAspHeliosPct);
 
                 if (count > 2)
                 {
@@ -234,8 +240,7 @@ namespace ShinraCo.Rotations
                 (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player) ||
                  !Helpers.HealManager.Any(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianBeneficPct)))
             {
-                var target = Helpers.PartyMembers.FirstOrDefault(pm => pm.IsDead && pm.Type == GameObjectType.Pc &&
-                                                                       !pm.HasAura("Raise"));
+                var target = Helpers.RessManager.FirstOrDefault(pm => !pm.HasAura("Raise"));
 
                 if (target != null)
                 {
@@ -405,7 +410,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.AstrologianProtect)
             {
                 var target = Shinra.Settings.AstrologianPartyHeal
-                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm != ChocoboManager.Object)
+                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm.Type == GameObjectType.Pc)
                     : !Core.Player.HasAura(MySpells.Role.Protect.Name) ? Core.Player : null;
 
                 if (target != null)
@@ -482,6 +487,8 @@ namespace ShinraCo.Rotations
         private static bool CardSpire => Resource.Cards[0] == Resource.AstrologianCard.Spire;
         private static bool CardLord => Resource.Arcana == Resource.AstrologianCard.LordofCrowns;
         private static bool CardLady => Resource.Arcana == Resource.AstrologianCard.LadyofCrowns;
+
+        private bool UseAoEHeals => Shinra.LastSpell.Name != MySpells.Helios.Name && Shinra.LastSpell.Name != MySpells.AspectedHelios.Name;
 
         #endregion
     }

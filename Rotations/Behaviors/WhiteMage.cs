@@ -48,7 +48,6 @@ namespace ShinraCo.Rotations
             if (await Shinra.ChocoboStance()) return true;
             if (await LucidDreaming()) return true;
             if (await PresenceOfMind()) return true;
-            if (await Protect()) return true;
             return await ClericStance();
         }
 
@@ -59,6 +58,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Heal()
         {
             if (await Shinra.UsePotion()) return true;
+            if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await Benediction()) return true;
             if (await Tetragrammaton()) return true;
@@ -70,7 +70,8 @@ namespace ShinraCo.Rotations
             if (await Cure()) return true;
             if (await Regen()) return true;
             if (await Raise()) return true;
-            return await Esuna();
+            if (await Esuna()) return true;
+            return await Protect();
         }
 
         #endregion
@@ -79,8 +80,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> PreCombatBuff()
         {
-            if (await Shinra.SummonChocobo()) return true;
-            return await Protect();
+            return await Shinra.SummonChocobo();
         }
 
         #endregion

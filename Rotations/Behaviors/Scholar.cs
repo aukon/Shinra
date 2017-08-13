@@ -30,7 +30,6 @@ namespace ShinraCo.Rotations
             if (await Aetherflow()) return true;
             if (await LucidDreaming()) return true;
             if (await Rouse()) return true;
-            if (await Protect()) return true;
             if (await ChainStrategem()) return true;
             if (await ClericStance()) return true;
             if (await Bane()) return true;
@@ -44,6 +43,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Heal()
         {
             if (await Shinra.UsePotion()) return true;
+            if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await Lustrate()) return true;
             if (await Aetherpact()) return true;
@@ -53,7 +53,8 @@ namespace ShinraCo.Rotations
             if (await Excogitation()) return true;
             if (await Physick()) return true;
             if (await Resurrection()) return true;
-            return await Esuna();
+            if (await Esuna()) return true;
+            return await Protect();
         }
 
         #endregion
@@ -65,8 +66,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Aetherflow()) return true;
             if (await SummonII()) return true;
-            if (await Summon()) return true;
-            return await Protect();
+            return await Summon();
         }
 
         #endregion

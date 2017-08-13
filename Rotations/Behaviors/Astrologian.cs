@@ -57,7 +57,6 @@ namespace ShinraCo.Rotations
             if (await MinorArcana()) return true;
             if (await Undraw()) return true;
             if (await Draw()) return true;
-            if (await Protect()) return true;
             return await ClericStance();
         }
 
@@ -68,6 +67,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Heal()
         {
             if (await Shinra.UsePotion()) return true;
+            if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await EssentialDignity()) return true;
             if (await AspectedHelios()) return true;
@@ -76,7 +76,8 @@ namespace ShinraCo.Rotations
             if (await Benefic()) return true;
             if (await AspectedBenefic()) return true;
             if (await Ascend()) return true;
-            return await Esuna();
+            if (await Esuna()) return true;
+            return await Protect();
         }
 
         #endregion
@@ -87,8 +88,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await NocturnalSect()) return true;
-            if (await DiurnalSect()) return true;
-            return await Protect();
+            return await DiurnalSect();
         }
 
         #endregion

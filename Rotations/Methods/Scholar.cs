@@ -145,6 +145,15 @@ namespace ShinraCo.Rotations
 
         #region Heal
 
+        private async Task<bool> UpdateHealing()
+        {
+            if (Shinra.Settings.ScholarPartyHeal && !await Helpers.UpdateHealManager())
+            {
+                return true;
+            }
+            return false;
+        }
+
         private async Task<bool> StopCasting()
         {
             if (Shinra.Settings.ScholarInterruptOverheal && Core.Player.IsCasting)
@@ -252,15 +261,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Succor()
         {
-            if (Shinra.Settings.ScholarSuccor && Shinra.Settings.ScholarPartyHeal && Shinra.LastSpell.Name != MySpells.Indomitability.Name)
+            if (Shinra.Settings.ScholarSuccor && Shinra.Settings.ScholarPartyHeal && UseAoEHeals)
             {
+                var count = Helpers.FriendsNearPlayer(Shinra.Settings.ScholarSuccorPct);
                 var emergencyTactics = Shinra.Settings.ScholarEmergencyTactics &&
                                        ActionManager.CanCast(MySpells.EmergencyTactics.Name, Core.Player);
-                var count = Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.ScholarSuccorPct &&
-                                                            hm.Distance2D(Core.Player) - hm.CombatReach - Core.Player.CombatReach < 15 &&
-                                                            (emergencyTactics || !hm.HasAura("Galvanize")));
 
-                if (count > 2)
+                if (count > 2 && (emergencyTactics || !Core.Player.HasAura("Galvanize")))
                 {
                     if (Shinra.Settings.ScholarEmergencyTactics && ActionManager.CanCast(MySpells.Succor.Name, Core.Player))
                     {
@@ -277,10 +284,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Indomitability()
         {
-            if (Shinra.Settings.ScholarIndomitability && Shinra.Settings.ScholarPartyHeal && Shinra.LastSpell.Name != MySpells.Succor.Name)
+            if (Shinra.Settings.ScholarIndomitability && Shinra.Settings.ScholarPartyHeal && UseAoEHeals)
             {
-                var count = Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.ScholarIndomitabilityPct &&
-                                                            hm.Distance2D(Core.Player) - hm.CombatReach - Core.Player.CombatReach < 15);
+                var count = Helpers.FriendsNearPlayer(Shinra.Settings.ScholarIndomitabilityPct);
 
                 if (count > 2)
                 {
@@ -296,8 +302,7 @@ namespace ShinraCo.Rotations
                 (Shinra.Settings.ScholarSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player) ||
                  !Helpers.HealManager.Any(hm => hm.CurrentHealthPercent < Shinra.Settings.ScholarPhysickPct)))
             {
-                var target = Helpers.PartyMembers.FirstOrDefault(pm => pm.IsDead && pm.Type == GameObjectType.Pc &&
-                                                                       !pm.HasAura("Raise"));
+                var target = Helpers.RessManager.FirstOrDefault(pm => !pm.HasAura("Raise"));
 
                 if (target != null)
                 {
@@ -374,12 +379,12 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.ScholarProtect)
             {
                 var target = Shinra.Settings.ScholarPartyHeal
-                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm != ChocoboManager.Object)
+                    ? Helpers.HealManager.FirstOrDefault(hm => !hm.HasAura(MySpells.Role.Protect.Name) && hm.Type == GameObjectType.Pc)
                     : !Core.Player.HasAura(MySpells.Role.Protect.Name) ? Core.Player : null;
 
                 if (target != null)
                 {
-                    if (Shinra.Settings.ScholarSwiftcast && ActionManager.CanCast(MySpells.Role.Protect.Name, target))
+                    if (Shinra.Settings.ScholarSwiftcast && ActionManager.CanCast(MySpells.Role.Protect.Name, target) && PetExists)
                     {
                         if (await MySpells.Role.Swiftcast.Cast(null, false))
                         {
@@ -421,6 +426,9 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static string BioDebuff => Core.Player.ClassLevel >= 26 ? "Bio II" : "Bio";
+        private static bool PetExists => Core.Player.Pet != null;
+
+        private bool UseAoEHeals => Shinra.LastSpell.Name != MySpells.Succor.Name && Shinra.LastSpell.Name != MySpells.Indomitability.Name;
 
         #endregion
     }
