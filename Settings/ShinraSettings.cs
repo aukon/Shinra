@@ -1027,6 +1027,9 @@ namespace ShinraCo.Settings
         #region Cooldown
 
         [Setting, DefaultValue(true)]
+        public bool SamuraiGyoten { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool SamuraiGuren { get; set; }
 
         #endregion

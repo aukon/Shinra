@@ -559,6 +559,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiGyoten = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -5335,9 +5336,9 @@
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiMeikyo);
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiHagakure);
             this.SamuraiBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 105);
+            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 128);
             this.SamuraiBuffGroup.Name = "SamuraiBuffGroup";
-            this.SamuraiBuffGroup.Size = new System.Drawing.Size(116, 66);
+            this.SamuraiBuffGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiBuffGroup.TabIndex = 3;
             this.SamuraiBuffGroup.TabStop = false;
             this.SamuraiBuffGroup.Text = "Buff";
@@ -5374,11 +5375,12 @@
             // 
             // SamuraiCooldownGroup
             // 
+            this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGyoten);
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGuren);
             this.SamuraiCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.SamuraiCooldownGroup.Name = "SamuraiCooldownGroup";
-            this.SamuraiCooldownGroup.Size = new System.Drawing.Size(116, 43);
+            this.SamuraiCooldownGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiCooldownGroup.TabIndex = 2;
             this.SamuraiCooldownGroup.TabStop = false;
             this.SamuraiCooldownGroup.Text = "Cooldown";
@@ -5389,7 +5391,7 @@
             this.SamuraiGuren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SamuraiGuren.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SamuraiGuren.ForeColor = System.Drawing.Color.White;
-            this.SamuraiGuren.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiGuren.Location = new System.Drawing.Point(6, 39);
             this.SamuraiGuren.Name = "SamuraiGuren";
             this.SamuraiGuren.Size = new System.Drawing.Size(104, 17);
             this.SamuraiGuren.TabIndex = 1;
@@ -8221,6 +8223,21 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // SamuraiGyoten
+            // 
+            this.SamuraiGyoten.AutoSize = true;
+            this.SamuraiGyoten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiGyoten.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiGyoten.ForeColor = System.Drawing.Color.White;
+            this.SamuraiGyoten.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiGyoten.Name = "SamuraiGyoten";
+            this.SamuraiGyoten.Size = new System.Drawing.Size(109, 17);
+            this.SamuraiGyoten.TabIndex = 2;
+            this.SamuraiGyoten.TabStop = false;
+            this.SamuraiGyoten.Text = "Hissatsu: Gyoten";
+            this.SamuraiGyoten.UseVisualStyleBackColor = true;
+            this.SamuraiGyoten.CheckedChanged += new System.EventHandler(this.SamuraiGyoten_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8945,5 +8962,6 @@
         private Design.UserNumeric RestHealthPct;
         private Design.CustomCheck RestEnergy;
         private Design.CustomCheck RestHealth;
+        private Design.CustomCheck SamuraiGyoten;
     }
 }

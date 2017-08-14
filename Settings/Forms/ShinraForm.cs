@@ -593,6 +593,7 @@ namespace ShinraCo.Settings.Forms
 
             #region Cooldown
 
+            SamuraiGyoten.Checked = Shinra.Settings.SamuraiGyoten;
             SamuraiGuren.Checked = Shinra.Settings.SamuraiGuren;
 
             #endregion
@@ -2242,6 +2243,11 @@ namespace ShinraCo.Settings.Forms
         #endregion
 
         #region Cooldown
+
+        private void SamuraiGyoten_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiGyoten = SamuraiGyoten.Checked;
+        }
 
         private void SamuraiGuren_CheckedChanged(object sender, EventArgs e)
         {

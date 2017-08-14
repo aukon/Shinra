@@ -164,7 +164,8 @@ namespace ShinraCo.Rotations
                 if (target != null)
                 {
                     if (spellName == MySpells.Physick.Name && target.CurrentHealthPercent > Shinra.Settings.ScholarPhysickPct ||
-                        spellName == MySpells.Adloquium.Name && target.CurrentHealthPercent > Shinra.Settings.ScholarAdloquiumPct)
+                        spellName == MySpells.Adloquium.Name && (target.CurrentHealthPercent > Shinra.Settings.ScholarAdloquiumPct ||
+                                                                 target.HasAura("Galvanize")))
                     {
                         Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {spellName}");
                         ActionManager.StopCasting();

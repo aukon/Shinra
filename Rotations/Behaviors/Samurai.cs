@@ -69,6 +69,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await Meditate()) return true;
+            if (await HissatsuGyoten()) return true;
             if (await TrueNorth()) return true;
             if (await MeikyoShisui()) return true;
             if (await HissatsuGuren()) return true;

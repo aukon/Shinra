@@ -240,6 +240,15 @@ namespace ShinraCo.Rotations
             return await MySpells.Ageha.Cast();
         }
 
+        private async Task<bool> HissatsuGyoten()
+        {
+            if (Shinra.Settings.SamuraiGyoten && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.HissatsuGyoten.Cast(null, false);
+            }
+            return false;
+        }
+
         private async Task<bool> HissatsuGuren()
         {
             if (Shinra.Settings.SamuraiGuren)

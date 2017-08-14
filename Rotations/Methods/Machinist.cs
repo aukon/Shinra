@@ -104,7 +104,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.MachinistReload)
             {
                 if (Resource.Ammo == 0 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
-                    Core.Player.HasAura(MySpells.HotShot.Name, true, 10000))
+                    (Core.Player.HasAura(MySpells.HotShot.Name, true, 10000) || !ActionManager.HasSpell(MySpells.HotShot.Name)))
                 {
                     return await MySpells.Reload.Cast();
                 }
