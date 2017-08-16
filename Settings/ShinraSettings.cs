@@ -166,6 +166,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool DebugLogging { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Job Settings
@@ -348,6 +355,13 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(60)]
         public int BlackMageLucidDreamingPct { get; set; }
+
+        #endregion
+
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageScathe { get; set; }
 
         #endregion
 
@@ -1167,6 +1181,9 @@ namespace ShinraCo.Settings
         #region Summoner
 
         #region Role
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerAddle { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool SummonerDrain { get; set; }

@@ -44,6 +44,7 @@ namespace ShinraCo.Rotations
             if (await Enkindle()) return true;
             if (await ShadowFlare()) return true;
             if (await Aetherpact()) return true;
+            if (await Addle()) return true;
             return await LucidDreaming();
         }
 

@@ -163,12 +163,16 @@ namespace ShinraCo.Rotations
 
                 if (target != null)
                 {
-                    if (spellName == MySpells.Physick.Name && target.CurrentHealthPercent > Shinra.Settings.ScholarPhysickPct ||
-                        spellName == MySpells.Adloquium.Name && (target.CurrentHealthPercent > Shinra.Settings.ScholarAdloquiumPct ||
-                                                                 target.HasAura("Galvanize")))
+                    if (spellName == MySpells.Physick.Name && target.CurrentHealthPercent >= Shinra.Settings.ScholarPhysickPct + 10 ||
+                        spellName == MySpells.Adloquium.Name && target.CurrentHealthPercent >= Shinra.Settings.ScholarAdloquiumPct + 10)
                     {
+                        var debugSetting = spellName == MySpells.Physick.Name ? Shinra.Settings.ScholarPhysickPct
+                            : Shinra.Settings.ScholarAdloquiumPct;
+                        Helpers.Debug($@"Target HP: {target.CurrentHealthPercent}, Setting: {debugSetting}, Adjusted: {debugSetting + 10}");
+
                         Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {spellName}");
                         ActionManager.StopCasting();
+                        await Coroutine.Wait(500, () => !Core.Player.IsCasting);
                     }
                 }
             }

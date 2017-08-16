@@ -132,14 +132,20 @@ namespace ShinraCo.Rotations
             {
                 var target = GameObjectManager.GetObjectByObjectId(Core.Player.SpellCastInfo.TargetId);
                 var spellName = Core.Player.SpellCastInfo.Name;
+                var freeCure = Core.Player.HasAura(155) ? Shinra.Settings.WhiteMageCurePct : Shinra.Settings.WhiteMageCureIIPct;
 
                 if (target != null)
                 {
-                    if (spellName == MySpells.Cure.Name && target.CurrentHealthPercent > Shinra.Settings.WhiteMageCurePct ||
-                        spellName == MySpells.CureII.Name && target.CurrentHealthPercent > Shinra.Settings.WhiteMageCureIIPct)
+                    if (spellName == MySpells.Cure.Name && target.CurrentHealthPercent >= Shinra.Settings.WhiteMageCurePct + 10 ||
+                        spellName == MySpells.CureII.Name && target.CurrentHealthPercent >= freeCure + 10)
                     {
+                        var debugSetting = spellName == MySpells.Cure.Name ? Shinra.Settings.WhiteMageCurePct
+                            : Shinra.Settings.WhiteMageCureIIPct;
+                        Helpers.Debug($@"Target HP: {target.CurrentHealthPercent}, Setting: {debugSetting}, Adjusted: {debugSetting + 10}");
+
                         Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {spellName}");
                         ActionManager.StopCasting();
+                        await Coroutine.Wait(500, () => !Core.Player.IsCasting);
                     }
                 }
             }

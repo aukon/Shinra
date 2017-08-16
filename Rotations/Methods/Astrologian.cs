@@ -128,11 +128,16 @@ namespace ShinraCo.Rotations
 
                 if (target != null)
                 {
-                    if (spellName == MySpells.Benefic.Name && target.CurrentHealthPercent > Shinra.Settings.AstrologianBeneficPct ||
-                        spellName == MySpells.BeneficII.Name && target.CurrentHealthPercent > Shinra.Settings.AstrologianBeneficIIPct)
+                    if (spellName == MySpells.Benefic.Name && target.CurrentHealthPercent >= Shinra.Settings.AstrologianBeneficPct + 10 ||
+                        spellName == MySpells.BeneficII.Name && target.CurrentHealthPercent >= Shinra.Settings.AstrologianBeneficIIPct + 10)
                     {
+                        var debugSetting = spellName == MySpells.Benefic.Name ? Shinra.Settings.AstrologianBeneficPct
+                            : Shinra.Settings.AstrologianBeneficIIPct;
+                        Helpers.Debug($@"Target HP: {target.CurrentHealthPercent}, Setting: {debugSetting}, Adjusted: {debugSetting + 10}");
+
                         Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {spellName}");
                         ActionManager.StopCasting();
+                        await Coroutine.Wait(500, () => !Core.Player.IsCasting);
                     }
                 }
             }

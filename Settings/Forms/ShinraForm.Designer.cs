@@ -34,6 +34,8 @@
             this.ShinraClose = new ShinraCo.Settings.Forms.Design.NoSelectButton();
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
+            this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RestEnergyPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RestHealthPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -63,6 +65,8 @@
             this.pgeCasters = new System.Windows.Forms.TabPage();
             this.tabCasters = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBlackMage = new System.Windows.Forms.TabPage();
+            this.BlackMageDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMageScathe = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BlackMageTriplecast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageEnochian = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -123,6 +127,7 @@
             this.SummonerPetGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SummonerPet = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.SummonerRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerAddle = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SummonerDrainPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SummonerErase = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -134,7 +139,6 @@
             this.SummonerDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.SummonerDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.SummonerAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeHealers = new System.Windows.Forms.TabPage();
             this.tabHealers = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeAstrologian = new System.Windows.Forms.TabPage();
@@ -359,6 +363,7 @@
             this.SamuraiMeikyo = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiHagakure = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiGyoten = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiGuren = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SamuraiHiganbanaHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -559,11 +564,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SamuraiGyoten = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.pgeMain.SuspendLayout();
+            this.MiscGroup.SuspendLayout();
             this.RestGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).BeginInit();
             this.RotationGroup.SuspendLayout();
@@ -572,6 +577,7 @@
             this.pgeCasters.SuspendLayout();
             this.tabCasters.SuspendLayout();
             this.pgeBlackMage.SuspendLayout();
+            this.BlackMageDamageGroup.SuspendLayout();
             this.BlackMageBuffGroup.SuspendLayout();
             this.BlackMageRoleGroup.SuspendLayout();
             this.pgeRedMage.SuspendLayout();
@@ -735,6 +741,7 @@
             // pgeMain
             // 
             this.pgeMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMain.Controls.Add(this.MiscGroup);
             this.pgeMain.Controls.Add(this.RestGroup);
             this.pgeMain.Controls.Add(this.ShinraDonate);
             this.pgeMain.Controls.Add(this.RotationGroup);
@@ -747,6 +754,32 @@
             this.pgeMain.TabIndex = 0;
             this.pgeMain.Text = "Main";
             this.pgeMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // MiscGroup
+            // 
+            this.MiscGroup.Controls.Add(this.DebugLogging);
+            this.MiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MiscGroup.Location = new System.Drawing.Point(637, 6);
+            this.MiscGroup.Name = "MiscGroup";
+            this.MiscGroup.Size = new System.Drawing.Size(70, 44);
+            this.MiscGroup.TabIndex = 4;
+            this.MiscGroup.TabStop = false;
+            this.MiscGroup.Text = "Misc.";
+            // 
+            // DebugLogging
+            // 
+            this.DebugLogging.AutoSize = true;
+            this.DebugLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DebugLogging.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DebugLogging.ForeColor = System.Drawing.Color.White;
+            this.DebugLogging.Location = new System.Drawing.Point(6, 16);
+            this.DebugLogging.Name = "DebugLogging";
+            this.DebugLogging.Size = new System.Drawing.Size(58, 17);
+            this.DebugLogging.TabIndex = 0;
+            this.DebugLogging.TabStop = false;
+            this.DebugLogging.Text = "Debug";
+            this.DebugLogging.UseVisualStyleBackColor = true;
+            this.DebugLogging.CheckedChanged += new System.EventHandler(this.DebugLogging_CheckedChanged);
             // 
             // RestGroup
             // 
@@ -1124,6 +1157,7 @@
             // pgeBlackMage
             // 
             this.pgeBlackMage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeBlackMage.Controls.Add(this.BlackMageDamageGroup);
             this.pgeBlackMage.Controls.Add(this.BlackMageBuffGroup);
             this.pgeBlackMage.Controls.Add(this.BlackMageRoleGroup);
             this.pgeBlackMage.Location = new System.Drawing.Point(104, 4);
@@ -1134,6 +1168,32 @@
             this.pgeBlackMage.Text = "Black Mage";
             this.pgeBlackMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // BlackMageDamageGroup
+            // 
+            this.BlackMageDamageGroup.Controls.Add(this.BlackMageScathe);
+            this.BlackMageDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageDamageGroup.Location = new System.Drawing.Point(229, 6);
+            this.BlackMageDamageGroup.Name = "BlackMageDamageGroup";
+            this.BlackMageDamageGroup.Size = new System.Drawing.Size(85, 43);
+            this.BlackMageDamageGroup.TabIndex = 2;
+            this.BlackMageDamageGroup.TabStop = false;
+            this.BlackMageDamageGroup.Text = "Damage";
+            // 
+            // BlackMageScathe
+            // 
+            this.BlackMageScathe.AutoSize = true;
+            this.BlackMageScathe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageScathe.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageScathe.ForeColor = System.Drawing.Color.White;
+            this.BlackMageScathe.Location = new System.Drawing.Point(6, 16);
+            this.BlackMageScathe.Name = "BlackMageScathe";
+            this.BlackMageScathe.Size = new System.Drawing.Size(57, 17);
+            this.BlackMageScathe.TabIndex = 0;
+            this.BlackMageScathe.TabStop = false;
+            this.BlackMageScathe.Text = "Scathe";
+            this.BlackMageScathe.UseVisualStyleBackColor = true;
+            this.BlackMageScathe.CheckedChanged += new System.EventHandler(this.BlackMageScathe_CheckedChanged);
+            // 
             // BlackMageBuffGroup
             // 
             this.BlackMageBuffGroup.Controls.Add(this.BlackMageTriplecast);
@@ -1142,7 +1202,7 @@
             this.BlackMageBuffGroup.Controls.Add(this.BlackMageLeyLines);
             this.BlackMageBuffGroup.Controls.Add(this.BlackMageConvert);
             this.BlackMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageBuffGroup.Location = new System.Drawing.Point(229, 6);
+            this.BlackMageBuffGroup.Location = new System.Drawing.Point(229, 55);
             this.BlackMageBuffGroup.Name = "BlackMageBuffGroup";
             this.BlackMageBuffGroup.Size = new System.Drawing.Size(85, 135);
             this.BlackMageBuffGroup.TabIndex = 1;
@@ -1982,6 +2042,7 @@
             // 
             // SummonerRoleGroup
             // 
+            this.SummonerRoleGroup.Controls.Add(this.SummonerAddle);
             this.SummonerRoleGroup.Controls.Add(this.SummonerLucidDreamingPct);
             this.SummonerRoleGroup.Controls.Add(this.SummonerDrainPct);
             this.SummonerRoleGroup.Controls.Add(this.SummonerErase);
@@ -1993,7 +2054,6 @@
             this.SummonerRoleGroup.Controls.Add(this.SummonerDiversion);
             this.SummonerRoleGroup.Controls.Add(this.SummonerDrain);
             this.SummonerRoleGroup.Controls.Add(this.SummonerBreak);
-            this.SummonerRoleGroup.Controls.Add(this.SummonerAddle);
             this.SummonerRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SummonerRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.SummonerRoleGroup.Name = "SummonerRoleGroup";
@@ -2001,6 +2061,21 @@
             this.SummonerRoleGroup.TabIndex = 0;
             this.SummonerRoleGroup.TabStop = false;
             this.SummonerRoleGroup.Text = "Role";
+            // 
+            // SummonerAddle
+            // 
+            this.SummonerAddle.AutoSize = true;
+            this.SummonerAddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerAddle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerAddle.ForeColor = System.Drawing.Color.White;
+            this.SummonerAddle.Location = new System.Drawing.Point(6, 16);
+            this.SummonerAddle.Name = "SummonerAddle";
+            this.SummonerAddle.Size = new System.Drawing.Size(53, 17);
+            this.SummonerAddle.TabIndex = 22;
+            this.SummonerAddle.TabStop = false;
+            this.SummonerAddle.Text = "Addle";
+            this.SummonerAddle.UseVisualStyleBackColor = true;
+            this.SummonerAddle.CheckedChanged += new System.EventHandler(this.SummonerAddle_CheckedChanged);
             // 
             // SummonerLucidDreamingPct
             // 
@@ -2154,21 +2229,6 @@
             this.SummonerBreak.TabStop = false;
             this.SummonerBreak.Text = "Break";
             this.SummonerBreak.UseVisualStyleBackColor = true;
-            // 
-            // SummonerAddle
-            // 
-            this.SummonerAddle.AutoCheck = false;
-            this.SummonerAddle.AutoSize = true;
-            this.SummonerAddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SummonerAddle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerAddle.ForeColor = System.Drawing.Color.DimGray;
-            this.SummonerAddle.Location = new System.Drawing.Point(6, 16);
-            this.SummonerAddle.Name = "SummonerAddle";
-            this.SummonerAddle.Size = new System.Drawing.Size(53, 17);
-            this.SummonerAddle.TabIndex = 10;
-            this.SummonerAddle.TabStop = false;
-            this.SummonerAddle.Text = "Addle";
-            this.SummonerAddle.UseVisualStyleBackColor = true;
             // 
             // pgeHealers
             // 
@@ -5385,6 +5445,21 @@
             this.SamuraiCooldownGroup.TabStop = false;
             this.SamuraiCooldownGroup.Text = "Cooldown";
             // 
+            // SamuraiGyoten
+            // 
+            this.SamuraiGyoten.AutoSize = true;
+            this.SamuraiGyoten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiGyoten.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiGyoten.ForeColor = System.Drawing.Color.White;
+            this.SamuraiGyoten.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiGyoten.Name = "SamuraiGyoten";
+            this.SamuraiGyoten.Size = new System.Drawing.Size(109, 17);
+            this.SamuraiGyoten.TabIndex = 2;
+            this.SamuraiGyoten.TabStop = false;
+            this.SamuraiGyoten.Text = "Hissatsu: Gyoten";
+            this.SamuraiGyoten.UseVisualStyleBackColor = true;
+            this.SamuraiGyoten.CheckedChanged += new System.EventHandler(this.SamuraiGyoten_CheckedChanged);
+            // 
             // SamuraiGuren
             // 
             this.SamuraiGuren.AutoSize = true;
@@ -8223,21 +8298,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SamuraiGyoten
-            // 
-            this.SamuraiGyoten.AutoSize = true;
-            this.SamuraiGyoten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SamuraiGyoten.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiGyoten.ForeColor = System.Drawing.Color.White;
-            this.SamuraiGyoten.Location = new System.Drawing.Point(6, 16);
-            this.SamuraiGyoten.Name = "SamuraiGyoten";
-            this.SamuraiGyoten.Size = new System.Drawing.Size(109, 17);
-            this.SamuraiGyoten.TabIndex = 2;
-            this.SamuraiGyoten.TabStop = false;
-            this.SamuraiGyoten.Text = "Hissatsu: Gyoten";
-            this.SamuraiGyoten.UseVisualStyleBackColor = true;
-            this.SamuraiGyoten.CheckedChanged += new System.EventHandler(this.SamuraiGyoten_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8256,6 +8316,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.pgeMain.ResumeLayout(false);
+            this.MiscGroup.ResumeLayout(false);
+            this.MiscGroup.PerformLayout();
             this.RestGroup.ResumeLayout(false);
             this.RestGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).EndInit();
@@ -8268,6 +8330,8 @@
             this.pgeCasters.ResumeLayout(false);
             this.tabCasters.ResumeLayout(false);
             this.pgeBlackMage.ResumeLayout(false);
+            this.BlackMageDamageGroup.ResumeLayout(false);
+            this.BlackMageDamageGroup.PerformLayout();
             this.BlackMageBuffGroup.ResumeLayout(false);
             this.BlackMageBuffGroup.PerformLayout();
             this.BlackMageRoleGroup.ResumeLayout(false);
@@ -8546,7 +8610,6 @@
         private Design.CustomCheckDisabled SummonerDiversion;
         private Design.CustomCheck SummonerDrain;
         private Design.CustomCheckDisabled SummonerBreak;
-        private Design.CustomCheckDisabled SummonerAddle;
         private Design.CustomGroup SummonerHealGroup;
         private Design.UserNumeric SummonerPhysickPct;
         private Design.CustomCheck SummonerPhysick;
@@ -8963,5 +9026,10 @@
         private Design.CustomCheck RestEnergy;
         private Design.CustomCheck RestHealth;
         private Design.CustomCheck SamuraiGyoten;
+        private Design.CustomGroup MiscGroup;
+        private Design.CustomCheck DebugLogging;
+        private Design.CustomCheck SummonerAddle;
+        private Design.CustomGroup BlackMageDamageGroup;
+        private Design.CustomCheck BlackMageScathe;
     }
 }

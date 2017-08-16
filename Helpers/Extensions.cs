@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media;
 using ff14bot;
 using ff14bot.Enums;
+using ff14bot.Helpers;
 
 namespace ShinraCo
 {
@@ -54,6 +56,14 @@ namespace ShinraCo
         {
             var key = (Keys)((int)number & 0xFFFF0000);
             return (ModifierKeys)Enum.Parse(typeof(ModifierKeys), key.ToString());
+        }
+
+        public static void Debug(string msg)
+        {
+            if (Shinra.Settings.DebugLogging)
+            {
+                Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - {msg}");
+            }
         }
     }
 }

@@ -380,8 +380,10 @@ namespace ShinraCo.Spells
                     }
                     if (stopCasting)
                     {
+                        Helpers.Debug($@"Trying to cast {Name}");
                         Logging.Write(Colors.Yellow, $@"[Shinra] Interrupting >>> {Core.Player.SpellCastInfo.Name}");
                         ActionManager.StopCasting();
+                        await Coroutine.Wait(500, () => !Core.Player.IsCasting);
                     }
                 }
             }

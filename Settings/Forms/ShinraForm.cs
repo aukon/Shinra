@@ -90,6 +90,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            DebugLogging.Checked = Shinra.Settings.DebugLogging;
+
+            #endregion
+
             #endregion
 
             #region Job Settings
@@ -193,6 +199,12 @@ namespace ShinraCo.Settings.Forms
 
             BlackMageDrainPct.Value = Shinra.Settings.BlackMageDrainPct;
             BlackMageLucidDreamingPct.Value = Shinra.Settings.BlackMageLucidDreamingPct;
+
+            #endregion
+
+            #region Damage
+
+            BlackMageScathe.Checked = Shinra.Settings.BlackMageScathe;
 
             #endregion
 
@@ -677,6 +689,7 @@ namespace ShinraCo.Settings.Forms
 
             #region Role
 
+            SummonerAddle.Checked = Shinra.Settings.SummonerAddle;
             SummonerDrain.Checked = Shinra.Settings.SummonerDrain;
             SummonerLucidDreaming.Checked = Shinra.Settings.SummonerLucidDreaming;
             SummonerSwiftcast.Checked = Shinra.Settings.SummonerSwiftcast;
@@ -979,6 +992,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Misc
+
+        private void DebugLogging_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DebugLogging = DebugLogging.Checked;
+        }
+
+        #endregion
+
         #endregion
 
         #region Job Settings
@@ -1242,6 +1264,15 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageLucidDreamingPct = Convert.ToInt32(BlackMageLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region Damage
+
+        private void BlackMageScathe_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageScathe = BlackMageScathe.Checked;
         }
 
         #endregion
@@ -2455,6 +2486,11 @@ namespace ShinraCo.Settings.Forms
         #region Summoner
 
         #region Role
+
+        private void SummonerAddle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerAddle = SummonerAddle.Checked;
+        }
 
         private void SummonerDrain_CheckedChanged(object sender, EventArgs e)
         {

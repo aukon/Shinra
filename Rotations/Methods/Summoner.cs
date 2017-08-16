@@ -25,7 +25,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || !Resource.DreadwyrmTrance && (UsePet || UseShadowFlare))
+            if (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle ||
+                !Resource.DreadwyrmTrance && (UsePet || UseShadowFlare) ||
+                Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 3500)
             {
                 return await MySpells.RuinII.Cast();
             }
@@ -170,7 +172,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Deathflare()
         {
-            if (Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 3000)
+            if (Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 2000)
             {
                 return await MySpells.Deathflare.Cast(null, false);
             }
@@ -326,6 +328,15 @@ namespace ShinraCo.Rotations
 
         #region Role
 
+        private async Task<bool> Addle()
+        {
+            if (UseAddle)
+            {
+                return await MySpells.Role.Addle.Cast();
+            }
+            return false;
+        }
+
         private async Task<bool> Drain()
         {
             if (Shinra.Settings.SummonerDrain && Core.Player.CurrentHealthPercent < Shinra.Settings.SummonerDrainPct)
@@ -379,6 +390,9 @@ namespace ShinraCo.Rotations
 
         private bool UseShadowFlare => Shinra.Settings.SummonerShadowFlare && !MovementManager.IsMoving &&
                                        ActionManager.CanCastLocation(MySpells.ShadowFlare.Name, Core.Player.CurrentTarget.Location);
+
+        private bool UseAddle => Shinra.Settings.SummonerAddle && RecentBahamut &&
+                                 ActionManager.CanCast(MySpells.Role.Addle.Name, Core.Player.CurrentTarget);
 
         #endregion
     }

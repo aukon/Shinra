@@ -101,9 +101,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Scathe()
         {
-            if (MovementManager.IsMoving && Core.Player.CurrentManaPercent > 20)
+            if (Shinra.Settings.BlackMageScathe && MovementManager.IsMoving && Core.Player.CurrentManaPercent > 20)
             {
-                return await MySpells.Scathe.Cast();
+                if (Resource.StackTimer.TotalMilliseconds > 8000 || Resource.StackTimer.TotalMilliseconds == 0)
+                {
+                    return await MySpells.Scathe.Cast();
+                }
             }
             return false;
         }
@@ -253,7 +256,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> LeyLines()
         {
-            if (Shinra.Settings.BlackMageLeyLines)
+            if (Shinra.Settings.BlackMageLeyLines && !MovementManager.IsMoving)
             {
                 if (Core.Player.CurrentManaPercent > 80 || ActionManager.LastSpell.Name == MySpells.FireII.Name)
                 {
