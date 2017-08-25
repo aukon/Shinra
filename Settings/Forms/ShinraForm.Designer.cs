@@ -564,6 +564,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.RedMageDisplacement = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1494,7 +1495,7 @@
             this.RedMageBuffGroup.Controls.Add(this.RedMageManafication);
             this.RedMageBuffGroup.Controls.Add(this.RedMageEmbolden);
             this.RedMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMageBuffGroup.Location = new System.Drawing.Point(229, 56);
+            this.RedMageBuffGroup.Location = new System.Drawing.Point(229, 78);
             this.RedMageBuffGroup.Name = "RedMageBuffGroup";
             this.RedMageBuffGroup.Size = new System.Drawing.Size(107, 66);
             this.RedMageBuffGroup.TabIndex = 3;
@@ -1533,11 +1534,12 @@
             // 
             // RedMageCooldownGroup
             // 
+            this.RedMageCooldownGroup.Controls.Add(this.RedMageDisplacement);
             this.RedMageCooldownGroup.Controls.Add(this.RedMageCorpsACorps);
             this.RedMageCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RedMageCooldownGroup.Location = new System.Drawing.Point(229, 6);
             this.RedMageCooldownGroup.Name = "RedMageCooldownGroup";
-            this.RedMageCooldownGroup.Size = new System.Drawing.Size(107, 44);
+            this.RedMageCooldownGroup.Size = new System.Drawing.Size(107, 66);
             this.RedMageCooldownGroup.TabIndex = 2;
             this.RedMageCooldownGroup.TabStop = false;
             this.RedMageCooldownGroup.Text = "Cooldown";
@@ -8298,6 +8300,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // RedMageDisplacement
+            // 
+            this.RedMageDisplacement.AutoSize = true;
+            this.RedMageDisplacement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RedMageDisplacement.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMageDisplacement.ForeColor = System.Drawing.Color.White;
+            this.RedMageDisplacement.Location = new System.Drawing.Point(6, 39);
+            this.RedMageDisplacement.Name = "RedMageDisplacement";
+            this.RedMageDisplacement.Size = new System.Drawing.Size(92, 17);
+            this.RedMageDisplacement.TabIndex = 1;
+            this.RedMageDisplacement.TabStop = false;
+            this.RedMageDisplacement.Text = "Displacement";
+            this.RedMageDisplacement.UseVisualStyleBackColor = true;
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9031,5 +9047,6 @@
         private Design.CustomCheck SummonerAddle;
         private Design.CustomGroup BlackMageDamageGroup;
         private Design.CustomCheck BlackMageScathe;
+        private Design.CustomCheck RedMageDisplacement;
     }
 }

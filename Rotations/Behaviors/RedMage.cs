@@ -65,6 +65,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.ChocoboStance()) return true;
             if (await Embolden()) return true;
             if (await CorpsACorps()) return true;
+            if (await Displacement()) return true;
             if (await Manafication()) return true;
             if (await Fleche()) return true;
             if (await ContreSixte()) return true;

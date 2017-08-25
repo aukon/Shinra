@@ -977,6 +977,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool RedMageCorpsACorps { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool RedMageDisplacement { get; set; }
+
         #endregion
 
         #region Buff

@@ -150,6 +150,18 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Displacement()
+        {
+            if (Shinra.Settings.RedMageDisplacement)
+            {
+                if (ActionManager.LastSpell.Name == MySpells.Redoublement.Name)
+                {
+                    return await MySpells.Displacement.Cast(null, false);
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> Fleche()
         {
             if (UseOffGCD)
