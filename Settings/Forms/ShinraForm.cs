@@ -208,6 +208,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region AoE
+
+            BlackMageThunder.Checked = Shinra.Settings.BlackMageThunder;
+
+            #endregion
+
             #region Buff
 
             BlackMageConvert.Checked = Shinra.Settings.BlackMageConvert;
@@ -562,6 +568,7 @@ namespace ShinraCo.Settings.Forms
             #region Cooldown
 
             RedMageCorpsACorps.Checked = Shinra.Settings.RedMageCorpsACorps;
+            RedMageDisplacement.Checked = Shinra.Settings.RedMageDisplacement;
 
             #endregion
 
@@ -1273,6 +1280,15 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageScathe_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageScathe = BlackMageScathe.Checked;
+        }
+
+        #endregion
+
+        #region AoE
+
+        private void BlackMageThunder_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageThunder = BlackMageThunder.Checked;
         }
 
         #endregion
@@ -2184,6 +2200,11 @@ namespace ShinraCo.Settings.Forms
         private void RedMageCorpsACorps_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageCorpsACorps = RedMageCorpsACorps.Checked;
+        }
+
+        private void RedMageDisplacement_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageDisplacement = RedMageDisplacement.Checked;
         }
 
         #endregion

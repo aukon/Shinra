@@ -365,6 +365,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region AoE
+
+        [Setting, DefaultValue(true)]
+        public bool BlackMageThunder { get; set; }
+
+        #endregion
+
         #region Buff
 
         [Setting, DefaultValue(true)]

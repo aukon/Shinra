@@ -154,7 +154,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RedMageDisplacement)
             {
-                if (ActionManager.LastSpell.Name == MySpells.Redoublement.Name)
+                if (ActionManager.LastSpell.Name == MySpells.EnchantedRedoublement.Name)
                 {
                     return await MySpells.Displacement.Cast(null, false);
                 }

@@ -195,7 +195,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Flare()
         {
-            if (AstralFire && Core.Player.CurrentManaPercent < 25)
+            if (AstralFire && (Core.Player.CurrentManaPercent < 25 || Core.Player.ClassLevel > 67 && Resource.UmbralHearts > 0))
             {
                 if (Shinra.Settings.BlackMageConvert && ActionManager.HasSpell(MySpells.Flare.Name) &&
                     !ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget))
@@ -226,6 +226,30 @@ namespace ShinraCo.Rotations
                 {
                     Spell.RecentSpell.Add(MySpells.Transpose.Name, DateTime.UtcNow + TimeSpan.FromSeconds(4));
                     return true;
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> ThunderII()
+        {
+            if (Shinra.Settings.BlackMageThunder && !ActionManager.HasSpell(MySpells.ThunderIV.Name))
+            {
+                if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.ThunderII.Name, true, 4000) || Core.Player.HasAura("Thundercloud"))
+                {
+                    return await MySpells.ThunderII.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> ThunderIV()
+        {
+            if (Shinra.Settings.BlackMageThunder)
+            {
+                if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.ThunderIV.Name, true, 4000) || Core.Player.HasAura("Thundercloud"))
+                {
+                    return await MySpells.ThunderIV.Cast();
                 }
             }
             return false;
