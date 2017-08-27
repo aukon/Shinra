@@ -215,5 +215,55 @@ namespace ShinraCo.Spells.Main
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
+
+        public Spell Cooldown { get; } = new Spell
+        {
+            Name = "Cooldown",
+            ID = 7410,
+            Level = 62,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
+        };
+
+        public Spell BarrelStabilizer { get; } = new Spell
+        {
+            Name = "Barrel Stabilizer",
+            ID = 7414,
+            Level = 66,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell RookOverdrive { get; } = new Spell
+        {
+            Name = "Rook Overdrive",
+            ID = 7415,
+            Level = 68,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell BishopOverdrive { get; } = new Spell
+        {
+            Name = "Bishop Overdrive",
+            ID = 9372,
+            Level = 68,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Buff,
+            CastType = CastType.Self
+        };
+
+        public Spell Flamethrower { get; } = new Spell
+        {
+            Name = "Flamethrower",
+            ID = 7418,
+            Level = 70,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Self
+        };
     }
 }

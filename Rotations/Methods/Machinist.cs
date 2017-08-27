@@ -95,6 +95,33 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Cooldown()
+        {
+            if (Shinra.Settings.MachinistCooldown && Resource.Heat == 100)
+            {
+                return await MySpells.Cooldown.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Flamethrower()
+        {
+            if (Shinra.Settings.MachinistFlamethrower && UseFlamethrower)
+            {
+                return await MySpells.Flamethrower.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FlamethrowerBuff()
+        {
+            if (Core.Player.HasAura(MySpells.Flamethrower.Name) && (!Shinra.Settings.MachinistFlamethrower || UseFlamethrower))
+            {
+                return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Buff
@@ -157,6 +184,18 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.MachinistHypercharge && TurretExists)
             {
                 return await MySpells.Hypercharge.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BarrelStabilizer()
+        {
+            if (Shinra.Settings.MachinistBarrelStabilizer)
+            {
+                if (Resource.Heat < 40 && (!ActionManager.HasSpell(MySpells.Flamethrower.Name) || FlamethrowerCooldown > 3000))
+                {
+                    return await MySpells.BarrelStabilizer.Cast();
+                }
             }
             return false;
         }
@@ -234,6 +273,10 @@ namespace ShinraCo.Rotations
         #endregion
 
         #region Custom
+
+        private static double FlamethrowerCooldown => DataManager.GetSpellData(7418).Cooldown.TotalMilliseconds;
+        private static bool UseFlamethrower => Resource.Heat < 100 || Shinra.Settings.RotationMode == Modes.Multi ||
+                                               Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2;
 
         private static bool TurretExists => Core.Player.Pet != null;
         private static float TurretDistance => TurretExists && Core.Player.HasTarget && Core.Player.CurrentTarget.CanAttack

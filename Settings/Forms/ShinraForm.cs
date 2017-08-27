@@ -353,6 +353,8 @@ namespace ShinraCo.Settings.Forms
 
             MachinistWildfire.Checked = Shinra.Settings.MachinistWildfire;
             MachinistRicochet.Checked = Shinra.Settings.MachinistRicochet;
+            MachinistCooldown.Checked = Shinra.Settings.MachinistCooldown;
+            MachinistFlamethrower.Checked = Shinra.Settings.MachinistFlamethrower;
 
             MachinistWildfireHP.Value = Shinra.Settings.MachinistWildfireHP;
 
@@ -365,6 +367,7 @@ namespace ShinraCo.Settings.Forms
             MachinistRapidFire.Checked = Shinra.Settings.MachinistRapidFire;
             MachinistGaussBarrel.Checked = Shinra.Settings.MachinistGaussBarrel;
             MachinistHypercharge.Checked = Shinra.Settings.MachinistHypercharge;
+            MachinistBarrelStabilizer.Checked = Shinra.Settings.MachinistBarrelStabilizer;
 
             #endregion
 
@@ -1660,6 +1663,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MachinistRicochet = MachinistRicochet.Checked;
         }
 
+        private void MachinistCooldown_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistCooldown = MachinistCooldown.Checked;
+        }
+
+        private void MachinistFlamethrower_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistFlamethrower = MachinistFlamethrower.Checked;
+        }
+
         private void MachinistWildfireHP_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MachinistWildfireHP = Convert.ToInt32(MachinistWildfireHP.Value);
@@ -1692,6 +1705,11 @@ namespace ShinraCo.Settings.Forms
         private void MachinistHypercharge_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MachinistHypercharge = MachinistHypercharge.Checked;
+        }
+
+        private void MachinistBarrelStabilizer_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistBarrelStabilizer = MachinistBarrelStabilizer.Checked;
         }
 
         #endregion

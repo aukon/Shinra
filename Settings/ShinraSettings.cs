@@ -626,6 +626,12 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MachinistRicochet { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool MachinistCooldown { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistFlamethrower { get; set; }
+
         #endregion
 
         #region Buff
@@ -644,6 +650,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool MachinistHypercharge { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistBarrelStabilizer { get; set; }
 
         #endregion
 

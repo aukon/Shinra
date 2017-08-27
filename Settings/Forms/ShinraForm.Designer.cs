@@ -65,6 +65,8 @@
             this.pgeCasters = new System.Windows.Forms.TabPage();
             this.tabCasters = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBlackMage = new System.Windows.Forms.TabPage();
+            this.BlackMageAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMageThunder = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BlackMageScathe = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -565,8 +567,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BlackMageAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.BlackMageThunder = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistCooldown = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistFlamethrower = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistBarrelStabilizer = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -580,6 +583,7 @@
             this.pgeCasters.SuspendLayout();
             this.tabCasters.SuspendLayout();
             this.pgeBlackMage.SuspendLayout();
+            this.BlackMageAoEGroup.SuspendLayout();
             this.BlackMageDamageGroup.SuspendLayout();
             this.BlackMageBuffGroup.SuspendLayout();
             this.BlackMageRoleGroup.SuspendLayout();
@@ -674,7 +678,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.BlackMageAoEGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -1172,6 +1175,32 @@
             this.pgeBlackMage.TabIndex = 0;
             this.pgeBlackMage.Text = "Black Mage";
             this.pgeBlackMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // BlackMageAoEGroup
+            // 
+            this.BlackMageAoEGroup.Controls.Add(this.BlackMageThunder);
+            this.BlackMageAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageAoEGroup.Location = new System.Drawing.Point(229, 55);
+            this.BlackMageAoEGroup.Name = "BlackMageAoEGroup";
+            this.BlackMageAoEGroup.Size = new System.Drawing.Size(85, 43);
+            this.BlackMageAoEGroup.TabIndex = 3;
+            this.BlackMageAoEGroup.TabStop = false;
+            this.BlackMageAoEGroup.Text = "AoE";
+            // 
+            // BlackMageThunder
+            // 
+            this.BlackMageThunder.AutoSize = true;
+            this.BlackMageThunder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMageThunder.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMageThunder.ForeColor = System.Drawing.Color.White;
+            this.BlackMageThunder.Location = new System.Drawing.Point(6, 16);
+            this.BlackMageThunder.Name = "BlackMageThunder";
+            this.BlackMageThunder.Size = new System.Drawing.Size(66, 17);
+            this.BlackMageThunder.TabIndex = 0;
+            this.BlackMageThunder.TabStop = false;
+            this.BlackMageThunder.Text = "Thunder";
+            this.BlackMageThunder.UseVisualStyleBackColor = true;
+            this.BlackMageThunder.CheckedChanged += new System.EventHandler(this.BlackMageThunder_CheckedChanged);
             // 
             // BlackMageDamageGroup
             // 
@@ -6105,7 +6134,7 @@
             // 
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretGroup.Location = new System.Drawing.Point(218, 219);
+            this.MachinistTurretGroup.Location = new System.Drawing.Point(411, 6);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
             this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 43);
             this.MachinistTurretGroup.TabIndex = 3;
@@ -6132,15 +6161,16 @@
             // 
             // MachinistBuffGroup
             // 
+            this.MachinistBuffGroup.Controls.Add(this.MachinistBarrelStabilizer);
             this.MachinistBuffGroup.Controls.Add(this.MachinistHypercharge);
             this.MachinistBuffGroup.Controls.Add(this.MachinistGaussBarrel);
             this.MachinistBuffGroup.Controls.Add(this.MachinistRapidFire);
             this.MachinistBuffGroup.Controls.Add(this.MachinistReassemble);
             this.MachinistBuffGroup.Controls.Add(this.MachinistReload);
             this.MachinistBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistBuffGroup.Location = new System.Drawing.Point(218, 78);
+            this.MachinistBuffGroup.Location = new System.Drawing.Point(218, 124);
             this.MachinistBuffGroup.Name = "MachinistBuffGroup";
-            this.MachinistBuffGroup.Size = new System.Drawing.Size(102, 135);
+            this.MachinistBuffGroup.Size = new System.Drawing.Size(115, 158);
             this.MachinistBuffGroup.TabIndex = 2;
             this.MachinistBuffGroup.TabStop = false;
             this.MachinistBuffGroup.Text = "Buff";
@@ -6222,13 +6252,15 @@
             // 
             // MachinistCooldownGroup
             // 
+            this.MachinistCooldownGroup.Controls.Add(this.MachinistFlamethrower);
+            this.MachinistCooldownGroup.Controls.Add(this.MachinistCooldown);
             this.MachinistCooldownGroup.Controls.Add(this.MachinistWildfireHP);
             this.MachinistCooldownGroup.Controls.Add(this.MachinistRicochet);
             this.MachinistCooldownGroup.Controls.Add(this.MachinistWildfire);
             this.MachinistCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistCooldownGroup.Location = new System.Drawing.Point(218, 6);
             this.MachinistCooldownGroup.Name = "MachinistCooldownGroup";
-            this.MachinistCooldownGroup.Size = new System.Drawing.Size(187, 66);
+            this.MachinistCooldownGroup.Size = new System.Drawing.Size(187, 112);
             this.MachinistCooldownGroup.TabIndex = 1;
             this.MachinistCooldownGroup.TabStop = false;
             this.MachinistCooldownGroup.Text = "Cooldown";
@@ -8319,31 +8351,50 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BlackMageAoEGroup
+            // MachinistCooldown
             // 
-            this.BlackMageAoEGroup.Controls.Add(this.BlackMageThunder);
-            this.BlackMageAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageAoEGroup.Location = new System.Drawing.Point(229, 55);
-            this.BlackMageAoEGroup.Name = "BlackMageAoEGroup";
-            this.BlackMageAoEGroup.Size = new System.Drawing.Size(85, 43);
-            this.BlackMageAoEGroup.TabIndex = 3;
-            this.BlackMageAoEGroup.TabStop = false;
-            this.BlackMageAoEGroup.Text = "AoE";
+            this.MachinistCooldown.AutoSize = true;
+            this.MachinistCooldown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistCooldown.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistCooldown.ForeColor = System.Drawing.Color.White;
+            this.MachinistCooldown.Location = new System.Drawing.Point(6, 62);
+            this.MachinistCooldown.Name = "MachinistCooldown";
+            this.MachinistCooldown.Size = new System.Drawing.Size(77, 17);
+            this.MachinistCooldown.TabIndex = 3;
+            this.MachinistCooldown.TabStop = false;
+            this.MachinistCooldown.Text = "Cooldown";
+            this.MachinistCooldown.UseVisualStyleBackColor = true;
+            this.MachinistCooldown.CheckedChanged += new System.EventHandler(this.MachinistCooldown_CheckedChanged);
             // 
-            // BlackMageThunder
+            // MachinistFlamethrower
             // 
-            this.BlackMageThunder.AutoSize = true;
-            this.BlackMageThunder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BlackMageThunder.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageThunder.ForeColor = System.Drawing.Color.White;
-            this.BlackMageThunder.Location = new System.Drawing.Point(6, 16);
-            this.BlackMageThunder.Name = "BlackMageThunder";
-            this.BlackMageThunder.Size = new System.Drawing.Size(66, 17);
-            this.BlackMageThunder.TabIndex = 0;
-            this.BlackMageThunder.TabStop = false;
-            this.BlackMageThunder.Text = "Thunder";
-            this.BlackMageThunder.UseVisualStyleBackColor = true;
-            this.BlackMageThunder.CheckedChanged += new System.EventHandler(this.BlackMageThunder_CheckedChanged);
+            this.MachinistFlamethrower.AutoSize = true;
+            this.MachinistFlamethrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistFlamethrower.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistFlamethrower.ForeColor = System.Drawing.Color.White;
+            this.MachinistFlamethrower.Location = new System.Drawing.Point(6, 85);
+            this.MachinistFlamethrower.Name = "MachinistFlamethrower";
+            this.MachinistFlamethrower.Size = new System.Drawing.Size(94, 17);
+            this.MachinistFlamethrower.TabIndex = 4;
+            this.MachinistFlamethrower.TabStop = false;
+            this.MachinistFlamethrower.Text = "Flamethrower";
+            this.MachinistFlamethrower.UseVisualStyleBackColor = true;
+            this.MachinistFlamethrower.CheckedChanged += new System.EventHandler(this.MachinistFlamethrower_CheckedChanged);
+            // 
+            // MachinistBarrelStabilizer
+            // 
+            this.MachinistBarrelStabilizer.AutoSize = true;
+            this.MachinistBarrelStabilizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistBarrelStabilizer.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistBarrelStabilizer.ForeColor = System.Drawing.Color.White;
+            this.MachinistBarrelStabilizer.Location = new System.Drawing.Point(6, 131);
+            this.MachinistBarrelStabilizer.Name = "MachinistBarrelStabilizer";
+            this.MachinistBarrelStabilizer.Size = new System.Drawing.Size(103, 17);
+            this.MachinistBarrelStabilizer.TabIndex = 5;
+            this.MachinistBarrelStabilizer.TabStop = false;
+            this.MachinistBarrelStabilizer.Text = "Barrel Stabilizer";
+            this.MachinistBarrelStabilizer.UseVisualStyleBackColor = true;
+            this.MachinistBarrelStabilizer.CheckedChanged += new System.EventHandler(this.MachinistBarrelStabilizer_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -8377,6 +8428,8 @@
             this.pgeCasters.ResumeLayout(false);
             this.tabCasters.ResumeLayout(false);
             this.pgeBlackMage.ResumeLayout(false);
+            this.BlackMageAoEGroup.ResumeLayout(false);
+            this.BlackMageAoEGroup.PerformLayout();
             this.BlackMageDamageGroup.ResumeLayout(false);
             this.BlackMageDamageGroup.PerformLayout();
             this.BlackMageBuffGroup.ResumeLayout(false);
@@ -8536,8 +8589,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.BlackMageAoEGroup.ResumeLayout(false);
-            this.BlackMageAoEGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9083,5 +9134,8 @@
         private Design.CustomCheck RedMageDisplacement;
         private Design.CustomGroup BlackMageAoEGroup;
         private Design.CustomCheck BlackMageThunder;
+        private Design.CustomCheck MachinistFlamethrower;
+        private Design.CustomCheck MachinistCooldown;
+        private Design.CustomCheck MachinistBarrelStabilizer;
     }
 }
