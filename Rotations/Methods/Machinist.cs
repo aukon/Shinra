@@ -1,7 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
+using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Machinist;
 
@@ -108,7 +111,10 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistFlamethrower && UseFlamethrower)
             {
-                return await MySpells.Flamethrower.Cast();
+                if (await MySpells.Flamethrower.Cast())
+                {
+                    return await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
+                }
             }
             return false;
         }
@@ -154,7 +160,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickReload()
         {
-            if (Resource.Ammo < 2)
+            if (Resource.Ammo < 3)
             {
                 return await MySpells.QuickReload.Cast();
             }

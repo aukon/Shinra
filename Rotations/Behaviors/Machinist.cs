@@ -35,6 +35,7 @@ namespace ShinraCo.Rotations
             if (await Reload()) return true;
             if (await Wildfire()) return true;
             if (await Reassemble()) return true;
+            if (await QuickReload()) return true;
             if (await RapidFire()) return true;
             if (await Ricochet()) return true;
             if (await Cooldown()) return true;

@@ -551,7 +551,7 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static bool UseOffGCD => DataManager.GetSpellData(2260).Cooldown.TotalMilliseconds > 1000;
+        private static bool UseOffGCD => DataManager.GetSpellData(2260).Cooldown.TotalMilliseconds > 1000 || Core.Player.ClassLevel < 30;
         private static bool UseHellfrog => Resource.NinkiGauge == 100 && BhavacakraCooldown > 10000 && TenChiJinCooldown > 10000;
 
         private static double TrickCooldown => DataManager.GetSpellData(2258).Cooldown.TotalMilliseconds;
