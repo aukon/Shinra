@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
-using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Machinist;
 
@@ -109,7 +107,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Flamethrower()
         {
-            if (Shinra.Settings.MachinistFlamethrower && UseFlamethrower)
+            if (Shinra.Settings.MachinistFlamethrower && UseFlamethrower && !MovementManager.IsMoving)
             {
                 if (await MySpells.Flamethrower.Cast())
                 {

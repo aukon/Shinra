@@ -207,8 +207,8 @@ namespace ShinraCo.Rotations
         {
             return Core.Player.HasAura(496) ||
                    (NinjutsuGcd > 1000 || NinjutsuGcd == 0 && !ActionManager.CanCast(2240, Core.Player.CurrentTarget)) &&
-                   (targetSelf || Core.Player.CurrentTarget.CanAttack && Core.Player.TargetDistance(range, false) &&
-                    Core.Player.CurrentTarget.InLineOfSight());
+                   (targetSelf || Core.Player.HasTarget && Core.Player.CurrentTarget.CanAttack &&
+                    Core.Player.TargetDistance(range, false) && Core.Player.CurrentTarget.InLineOfSight());
         }
 
         #region Fuma

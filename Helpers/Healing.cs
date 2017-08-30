@@ -53,7 +53,7 @@ namespace ShinraCo
             {
                 healList.Add(Core.Player);
             }
-            if (Core.Player.Pet != null)
+            if (Core.Player.Pet != null && (int)PetManager.ActivePetType < 10)
             {
                 healList.Add(Core.Player.Pet);
             }

@@ -150,6 +150,8 @@
             this.AstrologianSectGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianSect = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.AstrologianCardGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianStyle = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.AstrologianStyleLabel = new System.Windows.Forms.Label();
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -413,12 +415,15 @@
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistBarrelStabilizer = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistHypercharge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistGaussBarrel = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistRapidFire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistReassemble = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistReload = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistFlamethrower = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistCooldown = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistWildfireHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MachinistRicochet = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -567,9 +572,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistCooldown = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistFlamethrower = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistBarrelStabilizer = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -2356,7 +2358,7 @@
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(453, 127);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(453, 184);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
             this.AstrologianSectGroup.Size = new System.Drawing.Size(112, 43);
             this.AstrologianSectGroup.TabIndex = 3;
@@ -2383,15 +2385,44 @@
             // 
             // AstrologianCardGroup
             // 
+            this.AstrologianCardGroup.Controls.Add(this.AstrologianStyle);
+            this.AstrologianCardGroup.Controls.Add(this.AstrologianStyleLabel);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianCardGroup.Location = new System.Drawing.Point(453, 55);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
-            this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 66);
+            this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 123);
             this.AstrologianCardGroup.TabIndex = 2;
             this.AstrologianCardGroup.TabStop = false;
             this.AstrologianCardGroup.Text = "Card";
+            // 
+            // AstrologianStyle
+            // 
+            this.AstrologianStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianStyle.ForeColor = System.Drawing.Color.White;
+            this.AstrologianStyle.FormattingEnabled = true;
+            this.AstrologianStyle.Items.AddRange(new object[] {
+            "Solo",
+            "Party"});
+            this.AstrologianStyle.Location = new System.Drawing.Point(6, 96);
+            this.AstrologianStyle.Name = "AstrologianStyle";
+            this.AstrologianStyle.Size = new System.Drawing.Size(100, 21);
+            this.AstrologianStyle.TabIndex = 3;
+            this.AstrologianStyle.TabStop = false;
+            this.AstrologianStyle.SelectedValueChanged += new System.EventHandler(this.AstrologianStyle_SelectedValueChanged);
+            // 
+            // AstrologianStyleLabel
+            // 
+            this.AstrologianStyleLabel.AutoSize = true;
+            this.AstrologianStyleLabel.ForeColor = System.Drawing.Color.White;
+            this.AstrologianStyleLabel.Location = new System.Drawing.Point(6, 79);
+            this.AstrologianStyleLabel.Name = "AstrologianStyleLabel";
+            this.AstrologianStyleLabel.Size = new System.Drawing.Size(56, 13);
+            this.AstrologianStyleLabel.TabIndex = 2;
+            this.AstrologianStyleLabel.Text = "Buff Style";
             // 
             // AstrologianSleeveDraw
             // 
@@ -6175,6 +6206,21 @@
             this.MachinistBuffGroup.TabStop = false;
             this.MachinistBuffGroup.Text = "Buff";
             // 
+            // MachinistBarrelStabilizer
+            // 
+            this.MachinistBarrelStabilizer.AutoSize = true;
+            this.MachinistBarrelStabilizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistBarrelStabilizer.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistBarrelStabilizer.ForeColor = System.Drawing.Color.White;
+            this.MachinistBarrelStabilizer.Location = new System.Drawing.Point(6, 131);
+            this.MachinistBarrelStabilizer.Name = "MachinistBarrelStabilizer";
+            this.MachinistBarrelStabilizer.Size = new System.Drawing.Size(103, 17);
+            this.MachinistBarrelStabilizer.TabIndex = 5;
+            this.MachinistBarrelStabilizer.TabStop = false;
+            this.MachinistBarrelStabilizer.Text = "Barrel Stabilizer";
+            this.MachinistBarrelStabilizer.UseVisualStyleBackColor = true;
+            this.MachinistBarrelStabilizer.CheckedChanged += new System.EventHandler(this.MachinistBarrelStabilizer_CheckedChanged);
+            // 
             // MachinistHypercharge
             // 
             this.MachinistHypercharge.AutoSize = true;
@@ -6264,6 +6310,36 @@
             this.MachinistCooldownGroup.TabIndex = 1;
             this.MachinistCooldownGroup.TabStop = false;
             this.MachinistCooldownGroup.Text = "Cooldown";
+            // 
+            // MachinistFlamethrower
+            // 
+            this.MachinistFlamethrower.AutoSize = true;
+            this.MachinistFlamethrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistFlamethrower.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistFlamethrower.ForeColor = System.Drawing.Color.White;
+            this.MachinistFlamethrower.Location = new System.Drawing.Point(6, 85);
+            this.MachinistFlamethrower.Name = "MachinistFlamethrower";
+            this.MachinistFlamethrower.Size = new System.Drawing.Size(94, 17);
+            this.MachinistFlamethrower.TabIndex = 4;
+            this.MachinistFlamethrower.TabStop = false;
+            this.MachinistFlamethrower.Text = "Flamethrower";
+            this.MachinistFlamethrower.UseVisualStyleBackColor = true;
+            this.MachinistFlamethrower.CheckedChanged += new System.EventHandler(this.MachinistFlamethrower_CheckedChanged);
+            // 
+            // MachinistCooldown
+            // 
+            this.MachinistCooldown.AutoSize = true;
+            this.MachinistCooldown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistCooldown.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistCooldown.ForeColor = System.Drawing.Color.White;
+            this.MachinistCooldown.Location = new System.Drawing.Point(6, 62);
+            this.MachinistCooldown.Name = "MachinistCooldown";
+            this.MachinistCooldown.Size = new System.Drawing.Size(77, 17);
+            this.MachinistCooldown.TabIndex = 3;
+            this.MachinistCooldown.TabStop = false;
+            this.MachinistCooldown.Text = "Cooldown";
+            this.MachinistCooldown.UseVisualStyleBackColor = true;
+            this.MachinistCooldown.CheckedChanged += new System.EventHandler(this.MachinistCooldown_CheckedChanged);
             // 
             // MachinistWildfireHP
             // 
@@ -8351,51 +8427,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MachinistCooldown
-            // 
-            this.MachinistCooldown.AutoSize = true;
-            this.MachinistCooldown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistCooldown.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistCooldown.ForeColor = System.Drawing.Color.White;
-            this.MachinistCooldown.Location = new System.Drawing.Point(6, 62);
-            this.MachinistCooldown.Name = "MachinistCooldown";
-            this.MachinistCooldown.Size = new System.Drawing.Size(77, 17);
-            this.MachinistCooldown.TabIndex = 3;
-            this.MachinistCooldown.TabStop = false;
-            this.MachinistCooldown.Text = "Cooldown";
-            this.MachinistCooldown.UseVisualStyleBackColor = true;
-            this.MachinistCooldown.CheckedChanged += new System.EventHandler(this.MachinistCooldown_CheckedChanged);
-            // 
-            // MachinistFlamethrower
-            // 
-            this.MachinistFlamethrower.AutoSize = true;
-            this.MachinistFlamethrower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistFlamethrower.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistFlamethrower.ForeColor = System.Drawing.Color.White;
-            this.MachinistFlamethrower.Location = new System.Drawing.Point(6, 85);
-            this.MachinistFlamethrower.Name = "MachinistFlamethrower";
-            this.MachinistFlamethrower.Size = new System.Drawing.Size(94, 17);
-            this.MachinistFlamethrower.TabIndex = 4;
-            this.MachinistFlamethrower.TabStop = false;
-            this.MachinistFlamethrower.Text = "Flamethrower";
-            this.MachinistFlamethrower.UseVisualStyleBackColor = true;
-            this.MachinistFlamethrower.CheckedChanged += new System.EventHandler(this.MachinistFlamethrower_CheckedChanged);
-            // 
-            // MachinistBarrelStabilizer
-            // 
-            this.MachinistBarrelStabilizer.AutoSize = true;
-            this.MachinistBarrelStabilizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistBarrelStabilizer.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistBarrelStabilizer.ForeColor = System.Drawing.Color.White;
-            this.MachinistBarrelStabilizer.Location = new System.Drawing.Point(6, 131);
-            this.MachinistBarrelStabilizer.Name = "MachinistBarrelStabilizer";
-            this.MachinistBarrelStabilizer.Size = new System.Drawing.Size(103, 17);
-            this.MachinistBarrelStabilizer.TabIndex = 5;
-            this.MachinistBarrelStabilizer.TabStop = false;
-            this.MachinistBarrelStabilizer.Text = "Barrel Stabilizer";
-            this.MachinistBarrelStabilizer.UseVisualStyleBackColor = true;
-            this.MachinistBarrelStabilizer.CheckedChanged += new System.EventHandler(this.MachinistBarrelStabilizer_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9137,5 +9168,7 @@
         private Design.CustomCheck MachinistFlamethrower;
         private Design.CustomCheck MachinistCooldown;
         private Design.CustomCheck MachinistBarrelStabilizer;
+        private Design.CustomCombo AstrologianStyle;
+        private System.Windows.Forms.Label AstrologianStyleLabel;
     }
 }

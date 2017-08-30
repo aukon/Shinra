@@ -220,7 +220,7 @@ namespace ShinraCo
 
         public async Task<bool> Rest()
         {
-            if (WorldManager.InSanctuary || Core.Player.HasAura("Sprint") ||
+            if (!BotManager.Current.IsAutonomous || WorldManager.InSanctuary || Core.Player.HasAura("Sprint") ||
                 (!Settings.RestHealth || Core.Player.CurrentHealthPercent > Settings.RestHealthPct) &&
                 (!Settings.RestEnergy || Helpers.CurrentEnergyPct > Settings.RestEnergyPct))
             {

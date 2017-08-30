@@ -38,6 +38,12 @@ namespace ShinraCo.Settings
         Nocturnal
     }
 
+    public enum AstrologianStyles
+    {
+        Solo,
+        Party
+    }
+
     public enum MachinistTurrets
     {
         None,
@@ -267,6 +273,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool AstrologianSleeveDraw { get; set; }
+
+        [Setting, DefaultValue(AstrologianStyles.Solo)]
+        public AstrologianStyles AstrologianStyle { get; set; }
 
         #endregion
 

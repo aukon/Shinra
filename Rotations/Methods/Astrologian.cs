@@ -112,9 +112,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> UpdateHealing()
         {
-            if (Shinra.Settings.AstrologianPartyHeal && !await Helpers.UpdateHealManager())
+            if (Shinra.Settings.AstrologianPartyHeal || Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
             {
-                return true;
+                if (!await Helpers.UpdateHealManager())
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -194,7 +197,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AspectedBenefic()
         {
-            if (Shinra.Settings.AstrologianAspBenefic)
+            if (Shinra.Settings.AstrologianAspBenefic && SectActive)
             {
                 var target = Shinra.Settings.AstrologianPartyHeal
                     ? Helpers.HealManager.FirstOrDefault(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianAspBeneficPct &&
@@ -226,7 +229,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AspectedHelios()
         {
-            if (Shinra.Settings.AstrologianAspHelios && Shinra.Settings.AstrologianPartyHeal && UseAoEHeals &&
+            if (Shinra.Settings.AstrologianAspHelios && Shinra.Settings.AstrologianPartyHeal && SectActive && UseAoEHeals &&
                 !Core.Player.HasAura(MySpells.AspectedHelios.Name, true))
             {
                 var count = Helpers.FriendsNearPlayer(Shinra.Settings.AstrologianAspHeliosPct);
@@ -272,7 +275,8 @@ namespace ShinraCo.Rotations
             {
                 if (CardBalance || CardArrow || CardSpear)
                 {
-                    var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
+                    var target = Shinra.Settings.AstrologianStyle == AstrologianStyles.Party
+                        ? Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) : Core.Player;
 
                     if (target != null)
                     {
@@ -286,18 +290,44 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Undraw()
         {
-            if (Shinra.Settings.AstrologianDraw && !ActionManager.HasSpell(MySpells.MinorArcana.Name) && (CardEwer || CardSpire))
+            if (Shinra.Settings.AstrologianDraw && !ActionManager.HasSpell(MySpells.MinorArcana.Name))
             {
-                return await MySpells.Undraw.Cast();
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Solo)
+                {
+                    if (CardEwer || CardSpire)
+                    {
+                        return await MySpells.Undraw.Cast();
+                    }
+                }
+                else
+                {
+                    if (CardBole)
+                    {
+                        return await MySpells.Undraw.Cast();
+                    }
+                }
             }
             return false;
         }
 
         private async Task<bool> RoyalRoad()
         {
-            if (Shinra.Settings.AstrologianDraw && !HasBuff && CardBole)
+            if (Shinra.Settings.AstrologianDraw && !HasBuff)
             {
-                return await MySpells.RoyalRoad.Cast();
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Solo)
+                {
+                    if (CardBole)
+                    {
+                        return await MySpells.RoyalRoad.Cast();
+                    }
+                }
+                else
+                {
+                    if (CardEwer || CardSpire)
+                    {
+                        return await MySpells.RoyalRoad.Cast();
+                    }
+                }
             }
             return false;
         }
@@ -306,7 +336,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianDraw && HasSpread && HasBuff)
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
+                var target = Shinra.Settings.AstrologianStyle == AstrologianStyles.Party
+                    ? Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) : Core.Player;
 
                 if (target != null)
                 {
@@ -352,7 +383,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianDraw && CardLady)
             {
-                var target = Core.Player;
+                var target = Shinra.Settings.AstrologianPartyHeal ? Helpers.HealManager.FirstOrDefault(hm => hm.CurrentHealthPercent < 80)
+                    : Core.Player.CurrentHealthPercent < 80 ? Core.Player : null;
 
                 if (target != null)
                 {
@@ -494,6 +526,7 @@ namespace ShinraCo.Rotations
         private static bool CardLady => Resource.Arcana == Resource.AstrologianCard.LadyofCrowns;
 
         private bool UseAoEHeals => Shinra.LastSpell.Name != MySpells.Helios.Name && Shinra.LastSpell.Name != MySpells.AspectedHelios.Name;
+        private bool SectActive => Core.Player.HasAura(MySpells.DiurnalSect.Name) || Core.Player.HasAura(MySpells.NocturnalSect.Name);
 
         #endregion
     }
