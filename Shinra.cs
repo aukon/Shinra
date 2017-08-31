@@ -198,7 +198,7 @@ namespace ShinraCo
                 case ClassJobType.WhiteMage:
                     return new WhiteMage();
                 default:
-                    Logging.Write(Colors.OrangeRed, $@"[Shinra] {classJob} is not supported.");
+                    //Logging.Write(Colors.OrangeRed, $@"[Shinra] {classJob} is not supported.");
                     return new Default();
             }
         }
