@@ -221,7 +221,7 @@ namespace ShinraCo.Spells.Main
             Name = "Cooldown",
             ID = 7410,
             Level = 62,
-            GCDType = GCDType.Off,
+            GCDType = GCDType.On,
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };

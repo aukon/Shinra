@@ -74,8 +74,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Wildfire()
         {
-            if (Shinra.Settings.MachinistWildfire && (Core.Player.CurrentTarget.IsBoss() ||
-                                                      Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MachinistWildfireHP))
+            if (UseWildfire)
             {
                 return await MySpells.Wildfire.Cast();
             }
@@ -98,9 +97,17 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Cooldown()
         {
-            if (Shinra.Settings.MachinistCooldown && Resource.Heat == 100)
+            if (Shinra.Settings.MachinistCooldown)
             {
-                return await MySpells.Cooldown.Cast();
+                if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
+                {
+                    return await MySpells.Cooldown.Cast();
+                }
+                if (!Overheated && Resource.Heat >= 90 && (!ActionManager.CanCast(MySpells.BarrelStabilizer.Name, Core.Player) ||
+                                                           !UseWildfire || WildfireCooldown > 3000))
+                {
+                    return await MySpells.Cooldown.Cast();
+                }
             }
             return false;
         }
@@ -160,7 +167,7 @@ namespace ShinraCo.Rotations
         {
             if (Resource.Ammo < 3)
             {
-                return await MySpells.QuickReload.Cast();
+                return await MySpells.QuickReload.Cast(null, Core.Player.InCombat);
             }
             return false;
         }
@@ -196,7 +203,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistBarrelStabilizer)
             {
-                if (Resource.Heat < 40 && (!ActionManager.HasSpell(MySpells.Flamethrower.Name) || FlamethrowerCooldown > 3000))
+                if (Resource.Heat < 30 && (!Shinra.Settings.MachinistFlamethrower || !ActionManager.HasSpell(MySpells.Flamethrower.Name) ||
+                                           FlamethrowerCooldown > 3000))
                 {
                     return await MySpells.BarrelStabilizer.Cast();
                 }
@@ -279,8 +287,14 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static double FlamethrowerCooldown => DataManager.GetSpellData(7418).Cooldown.TotalMilliseconds;
+        private static double WildfireCooldown => DataManager.GetSpellData(2878).Cooldown.TotalMilliseconds;
+        private static bool Overheated => Resource.Heat == 100 && Resource.Timer.TotalMilliseconds > 0;
         private static bool UseFlamethrower => Resource.Heat < 100 || Shinra.Settings.RotationMode == Modes.Multi ||
                                                Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2;
+
+        private static bool UseWildfire => Shinra.Settings.MachinistWildfire && Core.Player.HasTarget &&
+                                           (Core.Player.CurrentTarget.IsBoss() ||
+                                            Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MachinistWildfireHP);
 
         private static bool TurretExists => Core.Player.Pet != null;
         private static float TurretDistance => TurretExists && Core.Player.HasTarget && Core.Player.CurrentTarget.CanAttack
