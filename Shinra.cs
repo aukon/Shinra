@@ -207,11 +207,23 @@ namespace ShinraCo
 
         #region Behaviors
 
-        public override Composite CombatBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.Combat()); } }
-        public override Composite CombatBuffBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.CombatBuff()); } }
+        public override Composite CombatBehavior
+        {
+            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Combat()))); }
+        }
+
+        public override Composite CombatBuffBehavior
+        {
+            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.CombatBuff()))); }
+        }
+
+        public override Composite PullBehavior
+        {
+            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Pull()))); }
+        }
+
         public override Composite HealBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.Heal()); } }
         public override Composite PreCombatBuffBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.PreCombatBuff()); } }
-        public override Composite PullBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.Pull()); } }
         public override Composite RestBehavior { get { return new ActionRunCoroutine(ctx => Rest()); } }
 
         #endregion

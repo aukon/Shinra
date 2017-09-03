@@ -99,7 +99,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistCooldown)
             {
-                if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
+                if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") && Resource.Ammo < 2)
                 {
                     return await MySpells.Cooldown.Cast();
                 }
@@ -114,11 +114,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Flamethrower()
         {
-            if (Shinra.Settings.MachinistFlamethrower && UseFlamethrower && !MovementManager.IsMoving)
+            if (Shinra.Settings.MachinistFlamethrower && Resource.Heat < 100 && !MovementManager.IsMoving)
             {
-                if (await MySpells.Flamethrower.Cast())
+                if (ActionManager.CanCast(MySpells.BarrelStabilizer.Name, Core.Player) && UseWildfire && WildfireCooldown < 3000 ||
+                    UseFlamethrower)
                 {
-                    return await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
+                    if (await MySpells.Flamethrower.Cast())
+                    {
+                        return await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
+                    }
                 }
             }
             return false;
@@ -126,7 +130,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FlamethrowerBuff()
         {
-            if (Core.Player.HasAura(MySpells.Flamethrower.Name) && (!Shinra.Settings.MachinistFlamethrower || UseFlamethrower))
+            if (Core.Player.HasAura(MySpells.Flamethrower.Name) &&
+                (!Shinra.Settings.MachinistFlamethrower || Resource.Heat < 100 || UseFlamethrower))
             {
                 return true;
             }
@@ -289,10 +294,10 @@ namespace ShinraCo.Rotations
         private static double FlamethrowerCooldown => DataManager.GetSpellData(7418).Cooldown.TotalMilliseconds;
         private static double WildfireCooldown => DataManager.GetSpellData(2878).Cooldown.TotalMilliseconds;
         private static bool Overheated => Resource.Heat == 100 && Resource.Timer.TotalMilliseconds > 0;
-        private static bool UseFlamethrower => Resource.Heat < 100 || Shinra.Settings.RotationMode == Modes.Multi ||
+        private static bool UseFlamethrower => Shinra.Settings.RotationMode == Modes.Multi ||
                                                Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2;
 
-        private static bool UseWildfire => Shinra.Settings.MachinistWildfire && Core.Player.HasTarget &&
+        private static bool UseWildfire => Shinra.Settings.MachinistWildfire &&
                                            (Core.Player.CurrentTarget.IsBoss() ||
                                             Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MachinistWildfireHP);
 
