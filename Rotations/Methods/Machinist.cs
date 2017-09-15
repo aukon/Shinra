@@ -1,9 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
+using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
+using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.Machinist;
 
 namespace ShinraCo.Rotations
@@ -11,6 +15,7 @@ namespace ShinraCo.Rotations
     public sealed partial class Machinist
     {
         private MachinistSpells MySpells { get; } = new MachinistSpells();
+        private MachinistOpener MyOpener { get; } = new MachinistOpener();
 
         #region Damage
 
@@ -172,7 +177,16 @@ namespace ShinraCo.Rotations
         {
             if (Resource.Ammo < 3)
             {
-                return await MySpells.QuickReload.Cast(null, Core.Player.InCombat);
+                return await MySpells.QuickReload.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> QuickReloadPre()
+        {
+            if (Resource.Ammo < 2 && Shinra.LastSpell.Name != MySpells.HotShot.Name && Shinra.LastSpell.Name != MySpells.GaussRound.Name)
+            {
+                return await MySpells.QuickReload.Cast(null, false);
             }
             return false;
         }
@@ -244,6 +258,50 @@ namespace ShinraCo.Rotations
                 }
             }
             return false;
+        }
+
+        #endregion
+
+        #region Opener
+
+        private static int OpenerStep;
+        private static bool OpenerFinished;
+
+        private async Task<bool> Opener([CallerMemberName] string caller = null)
+        {
+            if (caller == "Pull" && (OpenerFinished || OpenerStep > 4))
+            {
+                OpenerStep = 0;
+                OpenerFinished = false;
+            }
+
+            if (OpenerFinished || Core.Player.ClassLevel < 70)
+            {
+                return false;
+            }
+
+            if (Core.Player.HasAura(MySpells.Flamethrower.Name) && !Overheated)
+            {
+                return true;
+            }
+
+            var spell = MyOpener.Spells.ElementAt(OpenerStep);
+            Helpers.Debug($"Executing opener step {OpenerStep} >>> {spell.Name}");
+            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0)
+            {
+                OpenerStep++;
+                if (spell.Name == MySpells.Flamethrower.Name)
+                {
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
+                }
+            }
+
+            if (OpenerStep >= MyOpener.Spells.Count)
+            {
+                Helpers.Debug("Opener finished.");
+                OpenerFinished = true;
+            }
+            return true;
         }
 
         #endregion

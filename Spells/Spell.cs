@@ -615,5 +615,11 @@ namespace ShinraCo.Spells
         }
 
         #endregion
+
+        public double Cooldown(bool adjusted = false)
+        {
+            return adjusted ? DataManager.GetSpellData(ID).AdjustedCooldown.TotalMilliseconds
+                : DataManager.GetSpellData(ID).Cooldown.TotalMilliseconds;
+        }
     }
 }
