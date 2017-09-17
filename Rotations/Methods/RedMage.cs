@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using ff14bot;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 
 namespace ShinraCo.Rotations
@@ -188,7 +189,11 @@ namespace ShinraCo.Rotations
         {
             if (UseOffGCD)
             {
-                return await MySpells.Acceleration.Cast();
+                if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
+                    Helpers.EnemiesNearTarget(5) < 3)
+                {
+                    return await MySpells.Acceleration.Cast();
+                }
             }
             return false;
         }
