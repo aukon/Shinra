@@ -379,6 +379,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            MachinistOpener.Checked = Shinra.Settings.MachinistOpener;
+            MachinistSync.Checked = Shinra.Settings.MachinistSync;
+
+            #endregion
+
             #endregion
 
             #region Monk
@@ -1729,6 +1736,20 @@ namespace ShinraCo.Settings.Forms
             if (MachinistTurret.Text == @"None") Shinra.Settings.MachinistTurret = MachinistTurrets.None;
             if (MachinistTurret.Text == @"Rook") Shinra.Settings.MachinistTurret = MachinistTurrets.Rook;
             if (MachinistTurret.Text == @"Bishop") Shinra.Settings.MachinistTurret = MachinistTurrets.Bishop;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void MachinistOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistOpener = MachinistOpener.Checked;
+        }
+
+        private void MachinistSync_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistSync = MachinistSync.Checked;
         }
 
         #endregion

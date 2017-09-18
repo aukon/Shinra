@@ -672,6 +672,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistSync { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Monk

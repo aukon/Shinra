@@ -572,6 +572,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistSync = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -680,6 +683,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.MachinistMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -773,7 +777,7 @@
             this.MiscGroup.Size = new System.Drawing.Size(70, 44);
             this.MiscGroup.TabIndex = 4;
             this.MiscGroup.TabStop = false;
-            this.MiscGroup.Text = "Misc.";
+            this.MiscGroup.Text = "Misc";
             // 
             // DebugLogging
             // 
@@ -6149,6 +6153,7 @@
             // pgeMachinist
             // 
             this.pgeMachinist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMachinist.Controls.Add(this.MachinistMiscGroup);
             this.pgeMachinist.Controls.Add(this.MachinistTurretGroup);
             this.pgeMachinist.Controls.Add(this.MachinistBuffGroup);
             this.pgeMachinist.Controls.Add(this.MachinistCooldownGroup);
@@ -6165,7 +6170,7 @@
             // 
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretGroup.Location = new System.Drawing.Point(411, 6);
+            this.MachinistTurretGroup.Location = new System.Drawing.Point(218, 288);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
             this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 43);
             this.MachinistTurretGroup.TabIndex = 3;
@@ -8427,6 +8432,48 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // MachinistMiscGroup
+            // 
+            this.MachinistMiscGroup.Controls.Add(this.MachinistSync);
+            this.MachinistMiscGroup.Controls.Add(this.MachinistOpener);
+            this.MachinistMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistMiscGroup.Location = new System.Drawing.Point(411, 6);
+            this.MachinistMiscGroup.Name = "MachinistMiscGroup";
+            this.MachinistMiscGroup.Size = new System.Drawing.Size(188, 66);
+            this.MachinistMiscGroup.TabIndex = 4;
+            this.MachinistMiscGroup.TabStop = false;
+            this.MachinistMiscGroup.Text = "Misc";
+            // 
+            // MachinistOpener
+            // 
+            this.MachinistOpener.AutoSize = true;
+            this.MachinistOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistOpener.ForeColor = System.Drawing.Color.White;
+            this.MachinistOpener.Location = new System.Drawing.Point(6, 16);
+            this.MachinistOpener.Name = "MachinistOpener";
+            this.MachinistOpener.Size = new System.Drawing.Size(82, 17);
+            this.MachinistOpener.TabIndex = 0;
+            this.MachinistOpener.TabStop = false;
+            this.MachinistOpener.Text = "Use opener";
+            this.MachinistOpener.UseVisualStyleBackColor = true;
+            this.MachinistOpener.CheckedChanged += new System.EventHandler(this.MachinistOpener_CheckedChanged);
+            // 
+            // MachinistSync
+            // 
+            this.MachinistSync.AutoSize = true;
+            this.MachinistSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistSync.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistSync.ForeColor = System.Drawing.Color.White;
+            this.MachinistSync.Location = new System.Drawing.Point(6, 39);
+            this.MachinistSync.Name = "MachinistSync";
+            this.MachinistSync.Size = new System.Drawing.Size(176, 17);
+            this.MachinistSync.TabIndex = 1;
+            this.MachinistSync.TabStop = false;
+            this.MachinistSync.Text = "Sync cooldowns with Wildfire";
+            this.MachinistSync.UseVisualStyleBackColor = true;
+            this.MachinistSync.CheckedChanged += new System.EventHandler(this.MachinistSync_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8620,6 +8667,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.MachinistMiscGroup.ResumeLayout(false);
+            this.MachinistMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9170,5 +9219,8 @@
         private Design.CustomCheck MachinistBarrelStabilizer;
         private Design.CustomCombo AstrologianStyle;
         private System.Windows.Forms.Label AstrologianStyleLabel;
+        private Design.CustomGroup MachinistMiscGroup;
+        private Design.CustomCheck MachinistSync;
+        private Design.CustomCheck MachinistOpener;
     }
 }
