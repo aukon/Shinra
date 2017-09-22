@@ -579,8 +579,13 @@ namespace ShinraCo.Spells
             {
                 var key = target.ObjectId.ToString("X") + "-" + Name;
                 var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
-                //Logging.Write(Colors.OrangeRed, $@"[Shinra] Blacklisting >>> {Name}");
                 RecentSpell.Add(key, val);
+            }
+
+            if (Shinra.OpenerStep == 0 && !RecentSpell.ContainsKey("Opener"))
+            {
+                var val = DateTime.UtcNow + TimeSpan.FromSeconds(3);
+                RecentSpell.Add("Opener", val);
             }
 
             #endregion

@@ -9,8 +9,6 @@ namespace ShinraCo.Spells.Opener
 
         public List<Spell> Spells = new List<Spell>
         {
-            MySpells.RookAutoturret,
-            MySpells.Hypercharge,
             MySpells.HotShot,
             MySpells.GaussRound,
             MySpells.SplitShot,

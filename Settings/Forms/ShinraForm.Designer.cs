@@ -364,6 +364,9 @@
             this.NinjaArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.NinjaSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeSamurai = new System.Windows.Forms.TabPage();
+            this.SamuraiDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiMidareHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.SamuraiMidare = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SamuraiMeikyo = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiHagakure = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -412,6 +415,10 @@
             this.BardFootGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BardSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMachinist = new System.Windows.Forms.TabPage();
+            this.MachinistMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistSyncOverheat = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -488,6 +495,8 @@
             this.DarkKnightLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.DarkKnightRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgePaladin = new System.Windows.Forms.TabPage();
+            this.PaladinMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.PaladinOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinOathGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.PaladinOath = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.PaladinHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -572,9 +581,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistSync = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -642,6 +648,7 @@
             this.NinjaCooldownGroup.SuspendLayout();
             this.NinjaRoleGroup.SuspendLayout();
             this.pgeSamurai.SuspendLayout();
+            this.SamuraiDamageGroup.SuspendLayout();
             this.SamuraiBuffGroup.SuspendLayout();
             this.SamuraiCooldownGroup.SuspendLayout();
             this.SamuraiDoTGroup.SuspendLayout();
@@ -653,6 +660,7 @@
             this.BardBuffGroup.SuspendLayout();
             this.BardRoleGroup.SuspendLayout();
             this.pgeMachinist.SuspendLayout();
+            this.MachinistMiscGroup.SuspendLayout();
             this.MachinistTurretGroup.SuspendLayout();
             this.MachinistBuffGroup.SuspendLayout();
             this.MachinistCooldownGroup.SuspendLayout();
@@ -668,6 +676,7 @@
             this.DarkKnightAuraGroup.SuspendLayout();
             this.DarkKnightRoleGroup.SuspendLayout();
             this.pgePaladin.SuspendLayout();
+            this.PaladinMiscGroup.SuspendLayout();
             this.PaladinOathGroup.SuspendLayout();
             this.PaladinHealGroup.SuspendLayout();
             this.PaladinBuffGroup.SuspendLayout();
@@ -683,7 +692,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.MachinistMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -5464,6 +5472,7 @@
             // pgeSamurai
             // 
             this.pgeSamurai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSamurai.Controls.Add(this.SamuraiDamageGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiBuffGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiCooldownGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiDoTGroup);
@@ -5476,12 +5485,59 @@
             this.pgeSamurai.Text = "Samurai";
             this.pgeSamurai.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // SamuraiDamageGroup
+            // 
+            this.SamuraiDamageGroup.Controls.Add(this.SamuraiMidareHP);
+            this.SamuraiDamageGroup.Controls.Add(this.SamuraiMidare);
+            this.SamuraiDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiDamageGroup.Location = new System.Drawing.Point(218, 6);
+            this.SamuraiDamageGroup.Name = "SamuraiDamageGroup";
+            this.SamuraiDamageGroup.Size = new System.Drawing.Size(244, 44);
+            this.SamuraiDamageGroup.TabIndex = 4;
+            this.SamuraiDamageGroup.TabStop = false;
+            this.SamuraiDamageGroup.Text = "Damage";
+            // 
+            // SamuraiMidareHP
+            // 
+            this.SamuraiMidareHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SamuraiMidareHP.Increment = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.SamuraiMidareHP.Location = new System.Drawing.Point(133, 16);
+            this.SamuraiMidareHP.Maximum = new decimal(new int[] {
+            5000000,
+            0,
+            0,
+            0});
+            this.SamuraiMidareHP.Name = "SamuraiMidareHP";
+            this.SamuraiMidareHP.ShowSymbol = false;
+            this.SamuraiMidareHP.Size = new System.Drawing.Size(105, 22);
+            this.SamuraiMidareHP.TabIndex = 1;
+            this.SamuraiMidareHP.ValueChanged += new System.EventHandler(this.SamuraiMidareHP_ValueChanged);
+            // 
+            // SamuraiMidare
+            // 
+            this.SamuraiMidare.AutoSize = true;
+            this.SamuraiMidare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiMidare.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiMidare.ForeColor = System.Drawing.Color.White;
+            this.SamuraiMidare.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiMidare.Name = "SamuraiMidare";
+            this.SamuraiMidare.Size = new System.Drawing.Size(121, 17);
+            this.SamuraiMidare.TabIndex = 0;
+            this.SamuraiMidare.TabStop = false;
+            this.SamuraiMidare.Text = "Midare Setsugekka";
+            this.SamuraiMidare.UseVisualStyleBackColor = true;
+            this.SamuraiMidare.CheckedChanged += new System.EventHandler(this.SamuraiMidare_CheckedChanged);
+            // 
             // SamuraiBuffGroup
             // 
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiMeikyo);
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiHagakure);
             this.SamuraiBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 128);
+            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 178);
             this.SamuraiBuffGroup.Name = "SamuraiBuffGroup";
             this.SamuraiBuffGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiBuffGroup.TabIndex = 3;
@@ -5523,7 +5579,7 @@
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGyoten);
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGuren);
             this.SamuraiCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 56);
+            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 106);
             this.SamuraiCooldownGroup.Name = "SamuraiCooldownGroup";
             this.SamuraiCooldownGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiCooldownGroup.TabIndex = 2;
@@ -5565,7 +5621,7 @@
             this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbanaHP);
             this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbana);
             this.SamuraiDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiDoTGroup.Location = new System.Drawing.Point(218, 6);
+            this.SamuraiDoTGroup.Location = new System.Drawing.Point(218, 56);
             this.SamuraiDoTGroup.Name = "SamuraiDoTGroup";
             this.SamuraiDoTGroup.Size = new System.Drawing.Size(203, 44);
             this.SamuraiDoTGroup.TabIndex = 1;
@@ -6165,6 +6221,64 @@
             this.pgeMachinist.TabIndex = 1;
             this.pgeMachinist.Text = "Machinist";
             this.pgeMachinist.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // MachinistMiscGroup
+            // 
+            this.MachinistMiscGroup.Controls.Add(this.MachinistSyncOverheat);
+            this.MachinistMiscGroup.Controls.Add(this.MachinistSyncWildfire);
+            this.MachinistMiscGroup.Controls.Add(this.MachinistOpener);
+            this.MachinistMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistMiscGroup.Location = new System.Drawing.Point(411, 6);
+            this.MachinistMiscGroup.Name = "MachinistMiscGroup";
+            this.MachinistMiscGroup.Size = new System.Drawing.Size(188, 89);
+            this.MachinistMiscGroup.TabIndex = 4;
+            this.MachinistMiscGroup.TabStop = false;
+            this.MachinistMiscGroup.Text = "Misc";
+            // 
+            // MachinistSyncOverheat
+            // 
+            this.MachinistSyncOverheat.AutoSize = true;
+            this.MachinistSyncOverheat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistSyncOverheat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistSyncOverheat.ForeColor = System.Drawing.Color.White;
+            this.MachinistSyncOverheat.Location = new System.Drawing.Point(6, 62);
+            this.MachinistSyncOverheat.Name = "MachinistSyncOverheat";
+            this.MachinistSyncOverheat.Size = new System.Drawing.Size(164, 17);
+            this.MachinistSyncOverheat.TabIndex = 2;
+            this.MachinistSyncOverheat.TabStop = false;
+            this.MachinistSyncOverheat.Text = "Sync Wildfire with overheat";
+            this.MachinistSyncOverheat.UseVisualStyleBackColor = true;
+            this.MachinistSyncOverheat.CheckedChanged += new System.EventHandler(this.MachinistSyncOverheat_CheckedChanged);
+            // 
+            // MachinistSyncWildfire
+            // 
+            this.MachinistSyncWildfire.AutoSize = true;
+            this.MachinistSyncWildfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistSyncWildfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistSyncWildfire.ForeColor = System.Drawing.Color.White;
+            this.MachinistSyncWildfire.Location = new System.Drawing.Point(6, 39);
+            this.MachinistSyncWildfire.Name = "MachinistSyncWildfire";
+            this.MachinistSyncWildfire.Size = new System.Drawing.Size(176, 17);
+            this.MachinistSyncWildfire.TabIndex = 1;
+            this.MachinistSyncWildfire.TabStop = false;
+            this.MachinistSyncWildfire.Text = "Sync cooldowns with Wildfire";
+            this.MachinistSyncWildfire.UseVisualStyleBackColor = true;
+            this.MachinistSyncWildfire.CheckedChanged += new System.EventHandler(this.MachinistSyncWildfire_CheckedChanged);
+            // 
+            // MachinistOpener
+            // 
+            this.MachinistOpener.AutoSize = true;
+            this.MachinistOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistOpener.ForeColor = System.Drawing.Color.White;
+            this.MachinistOpener.Location = new System.Drawing.Point(6, 16);
+            this.MachinistOpener.Name = "MachinistOpener";
+            this.MachinistOpener.Size = new System.Drawing.Size(82, 17);
+            this.MachinistOpener.TabIndex = 0;
+            this.MachinistOpener.TabStop = false;
+            this.MachinistOpener.Text = "Use opener";
+            this.MachinistOpener.UseVisualStyleBackColor = true;
+            this.MachinistOpener.CheckedChanged += new System.EventHandler(this.MachinistOpener_CheckedChanged);
             // 
             // MachinistTurretGroup
             // 
@@ -7245,6 +7359,7 @@
             // pgePaladin
             // 
             this.pgePaladin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgePaladin.Controls.Add(this.PaladinMiscGroup);
             this.pgePaladin.Controls.Add(this.PaladinOathGroup);
             this.pgePaladin.Controls.Add(this.PaladinHealGroup);
             this.pgePaladin.Controls.Add(this.PaladinBuffGroup);
@@ -7260,11 +7375,37 @@
             this.pgePaladin.Text = "Paladin";
             this.pgePaladin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // PaladinMiscGroup
+            // 
+            this.PaladinMiscGroup.Controls.Add(this.PaladinOpener);
+            this.PaladinMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinMiscGroup.Location = new System.Drawing.Point(344, 197);
+            this.PaladinMiscGroup.Name = "PaladinMiscGroup";
+            this.PaladinMiscGroup.Size = new System.Drawing.Size(94, 43);
+            this.PaladinMiscGroup.TabIndex = 7;
+            this.PaladinMiscGroup.TabStop = false;
+            this.PaladinMiscGroup.Text = "Misc";
+            // 
+            // PaladinOpener
+            // 
+            this.PaladinOpener.AutoSize = true;
+            this.PaladinOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaladinOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinOpener.ForeColor = System.Drawing.Color.White;
+            this.PaladinOpener.Location = new System.Drawing.Point(6, 16);
+            this.PaladinOpener.Name = "PaladinOpener";
+            this.PaladinOpener.Size = new System.Drawing.Size(82, 17);
+            this.PaladinOpener.TabIndex = 0;
+            this.PaladinOpener.TabStop = false;
+            this.PaladinOpener.Text = "Use opener";
+            this.PaladinOpener.UseVisualStyleBackColor = true;
+            this.PaladinOpener.CheckedChanged += new System.EventHandler(this.PaladinOpener_CheckedChanged);
+            // 
             // PaladinOathGroup
             // 
             this.PaladinOathGroup.Controls.Add(this.PaladinOath);
             this.PaladinOathGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinOathGroup.Location = new System.Drawing.Point(224, 245);
+            this.PaladinOathGroup.Location = new System.Drawing.Point(224, 246);
             this.PaladinOathGroup.Name = "PaladinOathGroup";
             this.PaladinOathGroup.Size = new System.Drawing.Size(102, 43);
             this.PaladinOathGroup.TabIndex = 6;
@@ -7496,7 +7637,7 @@
             this.PaladinCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinCooldownGroup.Location = new System.Drawing.Point(224, 127);
             this.PaladinCooldownGroup.Name = "PaladinCooldownGroup";
-            this.PaladinCooldownGroup.Size = new System.Drawing.Size(114, 112);
+            this.PaladinCooldownGroup.Size = new System.Drawing.Size(114, 113);
             this.PaladinCooldownGroup.TabIndex = 2;
             this.PaladinCooldownGroup.TabStop = false;
             this.PaladinCooldownGroup.Text = "Cooldown";
@@ -8432,48 +8573,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MachinistMiscGroup
-            // 
-            this.MachinistMiscGroup.Controls.Add(this.MachinistSync);
-            this.MachinistMiscGroup.Controls.Add(this.MachinistOpener);
-            this.MachinistMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistMiscGroup.Location = new System.Drawing.Point(411, 6);
-            this.MachinistMiscGroup.Name = "MachinistMiscGroup";
-            this.MachinistMiscGroup.Size = new System.Drawing.Size(188, 66);
-            this.MachinistMiscGroup.TabIndex = 4;
-            this.MachinistMiscGroup.TabStop = false;
-            this.MachinistMiscGroup.Text = "Misc";
-            // 
-            // MachinistOpener
-            // 
-            this.MachinistOpener.AutoSize = true;
-            this.MachinistOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistOpener.ForeColor = System.Drawing.Color.White;
-            this.MachinistOpener.Location = new System.Drawing.Point(6, 16);
-            this.MachinistOpener.Name = "MachinistOpener";
-            this.MachinistOpener.Size = new System.Drawing.Size(82, 17);
-            this.MachinistOpener.TabIndex = 0;
-            this.MachinistOpener.TabStop = false;
-            this.MachinistOpener.Text = "Use opener";
-            this.MachinistOpener.UseVisualStyleBackColor = true;
-            this.MachinistOpener.CheckedChanged += new System.EventHandler(this.MachinistOpener_CheckedChanged);
-            // 
-            // MachinistSync
-            // 
-            this.MachinistSync.AutoSize = true;
-            this.MachinistSync.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistSync.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistSync.ForeColor = System.Drawing.Color.White;
-            this.MachinistSync.Location = new System.Drawing.Point(6, 39);
-            this.MachinistSync.Name = "MachinistSync";
-            this.MachinistSync.Size = new System.Drawing.Size(176, 17);
-            this.MachinistSync.TabIndex = 1;
-            this.MachinistSync.TabStop = false;
-            this.MachinistSync.Text = "Sync cooldowns with Wildfire";
-            this.MachinistSync.UseVisualStyleBackColor = true;
-            this.MachinistSync.CheckedChanged += new System.EventHandler(this.MachinistSync_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8597,6 +8696,8 @@
             this.NinjaRoleGroup.ResumeLayout(false);
             this.NinjaRoleGroup.PerformLayout();
             this.pgeSamurai.ResumeLayout(false);
+            this.SamuraiDamageGroup.ResumeLayout(false);
+            this.SamuraiDamageGroup.PerformLayout();
             this.SamuraiBuffGroup.ResumeLayout(false);
             this.SamuraiBuffGroup.PerformLayout();
             this.SamuraiCooldownGroup.ResumeLayout(false);
@@ -8615,6 +8716,8 @@
             this.BardRoleGroup.ResumeLayout(false);
             this.BardRoleGroup.PerformLayout();
             this.pgeMachinist.ResumeLayout(false);
+            this.MachinistMiscGroup.ResumeLayout(false);
+            this.MachinistMiscGroup.PerformLayout();
             this.MachinistTurretGroup.ResumeLayout(false);
             this.MachinistBuffGroup.ResumeLayout(false);
             this.MachinistBuffGroup.PerformLayout();
@@ -8640,6 +8743,8 @@
             this.DarkKnightRoleGroup.ResumeLayout(false);
             this.DarkKnightRoleGroup.PerformLayout();
             this.pgePaladin.ResumeLayout(false);
+            this.PaladinMiscGroup.ResumeLayout(false);
+            this.PaladinMiscGroup.PerformLayout();
             this.PaladinOathGroup.ResumeLayout(false);
             this.PaladinHealGroup.ResumeLayout(false);
             this.PaladinHealGroup.PerformLayout();
@@ -8667,8 +8772,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.MachinistMiscGroup.ResumeLayout(false);
-            this.MachinistMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9220,7 +9323,13 @@
         private Design.CustomCombo AstrologianStyle;
         private System.Windows.Forms.Label AstrologianStyleLabel;
         private Design.CustomGroup MachinistMiscGroup;
-        private Design.CustomCheck MachinistSync;
+        private Design.CustomCheck MachinistSyncWildfire;
         private Design.CustomCheck MachinistOpener;
+        private Design.CustomGroup PaladinMiscGroup;
+        private Design.CustomCheck PaladinOpener;
+        private Design.CustomCheck MachinistSyncOverheat;
+        private Design.CustomGroup SamuraiDamageGroup;
+        private Design.UserNumeric SamuraiMidareHP;
+        private Design.CustomCheck SamuraiMidare;
     }
 }

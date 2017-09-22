@@ -115,16 +115,20 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MidareSetsugekka()
         {
-            if (NumSen == 3 && !MovementManager.IsMoving && Core.Player.CurrentTarget.CurrentHealth > Core.Player.MaxHealth / 2)
+            if (Shinra.Settings.SamuraiMidare && (Core.Player.CurrentTarget.IsBoss() ||
+                                                  Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.SamuraiMidareHP))
             {
-                if (ActionManager.CanCast(MySpells.MidareSetsugekka.Name, Core.Player.CurrentTarget))
+                if (NumSen == 3 && !MovementManager.IsMoving)
                 {
-                    if (await MySpells.HissatsuKaiten.Cast(null, false))
+                    if (ActionManager.CanCast(MySpells.MidareSetsugekka.Name, Core.Player.CurrentTarget))
                     {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(1229));
+                        if (await MySpells.HissatsuKaiten.Cast(null, false))
+                        {
+                            await Coroutine.Wait(3000, () => Core.Player.HasAura(1229));
+                        }
                     }
+                    return await MySpells.MidareSetsugekka.Cast();
                 }
-                return await MySpells.MidareSetsugekka.Cast();
             }
             return false;
         }

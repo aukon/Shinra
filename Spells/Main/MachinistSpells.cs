@@ -242,8 +242,8 @@ namespace ShinraCo.Spells.Main
             ID = 7415,
             Level = 68,
             GCDType = GCDType.Off,
-            SpellType = SpellType.Buff,
-            CastType = CastType.Self
+            SpellType = SpellType.Cooldown,
+            CastType = CastType.Target
         };
 
         public Spell BishopOverdrive { get; } = new Spell
@@ -252,7 +252,7 @@ namespace ShinraCo.Spells.Main
             ID = 9372,
             Level = 68,
             GCDType = GCDType.Off,
-            SpellType = SpellType.Buff,
+            SpellType = SpellType.Cooldown,
             CastType = CastType.Self
         };
 

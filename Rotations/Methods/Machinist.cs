@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
@@ -78,7 +77,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Wildfire()
         {
-            if (UseWildfire)
+            if (UseWildfire && (!Shinra.Settings.MachinistSyncOverheat || Overheated))
             {
                 return await MySpells.Wildfire.Cast();
             }
@@ -94,7 +93,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistRicochet)
             {
-                if (!Shinra.Settings.MachinistSync || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
+                if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
                 {
                     return await MySpells.Ricochet.Cast();
                 }
@@ -123,7 +122,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistFlamethrower && Resource.Heat < 100 && !MovementManager.IsMoving)
             {
-                if (BarrelCooldown < 20000 && UseWildfire && WildfireCooldown < 3000 || UseFlamethrower)
+                if (BarrelCooldown < 30000 && UseWildfire && WildfireCooldown < 3000 || UseFlamethrower)
                 {
                     if (await MySpells.Flamethrower.Cast())
                     {
@@ -152,7 +151,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistReload)
             {
-                if (!Shinra.Settings.MachinistSync || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
+                if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
                     WildfireCooldown > 25000)
                 {
                     if (Resource.Ammo == 0 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
@@ -169,7 +168,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistReassemble)
             {
-                if (!Shinra.Settings.MachinistSync || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
+                if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
                 {
                     if (Core.Player.HasAura("Cleaner Shot") || !ActionManager.HasSpell(MySpells.CleanShot.Name) &&
                         Core.Player.HasAura("Enhanced Slug Shot"))
@@ -183,7 +182,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickReload()
         {
-            if (!Shinra.Settings.MachinistSync || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
+            if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
                 WildfireCooldown > 10000)
             {
                 if (Resource.Ammo < 3 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
@@ -207,7 +206,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistRapidFire)
             {
-                if (!Shinra.Settings.MachinistSync || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
+                if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
                 {
                     return await MySpells.RapidFire.Cast();
                 }
@@ -279,18 +278,9 @@ namespace ShinraCo.Rotations
 
         #region Opener
 
-        private static int OpenerStep;
-        private static bool OpenerFinished;
-
-        private async Task<bool> Opener([CallerMemberName] string caller = null)
+        private async Task<bool> Opener()
         {
-            if (caller == "Pull" && (OpenerFinished || OpenerStep > 4))
-            {
-                OpenerStep = 0;
-                OpenerFinished = false;
-            }
-
-            if (!Shinra.Settings.MachinistOpener || OpenerFinished || Core.Player.ClassLevel < 70)
+            if (!Shinra.Settings.MachinistOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
             {
                 return false;
             }
@@ -300,21 +290,37 @@ namespace ShinraCo.Rotations
                 return true;
             }
 
-            var spell = MyOpener.Spells.ElementAt(OpenerStep);
-            Helpers.Debug($"Executing opener step {OpenerStep} >>> {spell.Name}");
+            if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+            {
+                if (await MySpells.RookAutoturret.Cast(null, false))
+                {
+                    return true;
+                }
+            }
+
+            if (TurretExists)
+            {
+                if (await MySpells.Hypercharge.Cast(null, false))
+                {
+                    return true;
+                }
+            }
+
+            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
+            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
             if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0)
             {
-                OpenerStep++;
+                Shinra.OpenerStep++;
                 if (spell.Name == MySpells.Flamethrower.Name)
                 {
                     await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
                 }
             }
 
-            if (OpenerStep >= MyOpener.Spells.Count)
+            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
             {
                 Helpers.Debug("Opener finished.");
-                OpenerFinished = true;
+                Shinra.OpenerFinished = true;
             }
             return true;
         }

@@ -678,7 +678,10 @@ namespace ShinraCo.Settings
         public bool MachinistOpener { get; set; }
 
         [Setting, DefaultValue(false)]
-        public bool MachinistSync { get; set; }
+        public bool MachinistSyncWildfire { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistSyncOverheat { get; set; }
 
         #endregion
 
@@ -984,6 +987,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool PaladinOpener { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Red Mage
@@ -1063,6 +1073,16 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int SamuraiBloodbathPct { get; set; }
+
+        #endregion
+
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool SamuraiMidare { get; set; }
+
+        [Setting, DefaultValue(100000)]
+        public int SamuraiMidareHP { get; set; }
 
         #endregion
 

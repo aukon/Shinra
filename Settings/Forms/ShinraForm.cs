@@ -382,7 +382,8 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             MachinistOpener.Checked = Shinra.Settings.MachinistOpener;
-            MachinistSync.Checked = Shinra.Settings.MachinistSync;
+            MachinistSyncWildfire.Checked = Shinra.Settings.MachinistSyncWildfire;
+            MachinistSyncOverheat.Checked = Shinra.Settings.MachinistSyncOverheat;
 
             #endregion
 
@@ -562,6 +563,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            PaladinOpener.Checked = Shinra.Settings.PaladinOpener;
+
+            #endregion
+
             #endregion
 
             #region Red Mage
@@ -612,6 +619,13 @@ namespace ShinraCo.Settings.Forms
             SamuraiSecondWindPct.Value = Shinra.Settings.SamuraiSecondWindPct;
             SamuraiInvigoratePct.Value = Shinra.Settings.SamuraiInvigoratePct;
             SamuraiBloodbathPct.Value = Shinra.Settings.SamuraiBloodbathPct;
+
+            #endregion
+
+            #region Damage
+
+            SamuraiMidare.Checked = Shinra.Settings.SamuraiMidare;
+            SamuraiMidareHP.Value = Shinra.Settings.SamuraiMidareHP;
 
             #endregion
 
@@ -1747,9 +1761,14 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MachinistOpener = MachinistOpener.Checked;
         }
 
-        private void MachinistSync_CheckedChanged(object sender, EventArgs e)
+        private void MachinistSyncWildfire_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.MachinistSync = MachinistSync.Checked;
+            Shinra.Settings.MachinistSyncWildfire = MachinistSyncWildfire.Checked;
+        }
+
+        private void MachinistSyncOverheat_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistSyncOverheat = MachinistSyncOverheat.Checked;
         }
 
         #endregion
@@ -2209,6 +2228,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Misc
+
+        private void PaladinOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinOpener = PaladinOpener.Checked;
+        }
+
+        #endregion
+
         #endregion
 
         #region Red Mage
@@ -2323,6 +2351,20 @@ namespace ShinraCo.Settings.Forms
         private void SamuraiBloodbathPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiBloodbathPct = Convert.ToInt32(SamuraiBloodbathPct.Value);
+        }
+
+        #endregion
+
+        #region Damage
+
+        private void SamuraiMidare_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiMidare = SamuraiMidare.Checked;
+        }
+
+        private void SamuraiMidareHP_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiMidareHP = Convert.ToInt32(SamuraiMidareHP.Value);
         }
 
         #endregion
