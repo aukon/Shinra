@@ -709,9 +709,9 @@
             // ShinraContainer
             // 
             this.ShinraContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ShinraContainer.Controls.Add(this.ShinraBanner);
             this.ShinraContainer.Controls.Add(this.ShinraClose);
             this.ShinraContainer.Controls.Add(this.tabSettings);
-            this.ShinraContainer.Controls.Add(this.ShinraBanner);
             this.ShinraContainer.Location = new System.Drawing.Point(2, 2);
             this.ShinraContainer.Name = "ShinraContainer";
             this.ShinraContainer.Size = new System.Drawing.Size(900, 500);
