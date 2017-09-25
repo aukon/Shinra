@@ -65,6 +65,20 @@ namespace ShinraCo
             return true;
         }
 
+        public static async Task UpdateParty()
+        {
+            var partyList = new List<BattleCharacter>();
+            if (PartyManager.IsInParty)
+            {
+                partyList.AddRange(PartyMembers.Where(pm => pm.IsAlive));
+            }
+            else
+            {
+                partyList.Add(Core.Player);
+            }
+            HealManager = partyList.OrderBy(HPScore).ToList();
+        }
+
         private static float HPScore(BattleCharacter c)
         {
             var score = c.CurrentHealthPercent;

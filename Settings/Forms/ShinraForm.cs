@@ -167,10 +167,12 @@ namespace ShinraCo.Settings.Forms
             BardPeloton.Checked = Shinra.Settings.BardPeloton;
             BardInvigorate.Checked = Shinra.Settings.BardInvigorate;
             BardTactician.Checked = Shinra.Settings.BardTactician;
+            BardRefresh.Checked = Shinra.Settings.BardRefresh;
 
             BardSecondWindPct.Value = Shinra.Settings.BardSecondWindPct;
             BardInvigoratePct.Value = Shinra.Settings.BardInvigoratePct;
             BardTacticianPct.Value = Shinra.Settings.BardTacticianPct;
+            BardRefreshPct.Value = Shinra.Settings.BardRefreshPct;
 
             #endregion
 
@@ -351,10 +353,12 @@ namespace ShinraCo.Settings.Forms
             MachinistPeloton.Checked = Shinra.Settings.MachinistPeloton;
             MachinistInvigorate.Checked = Shinra.Settings.MachinistInvigorate;
             MachinistTactician.Checked = Shinra.Settings.MachinistTactician;
+            MachinistRefresh.Checked = Shinra.Settings.MachinistRefresh;
 
             MachinistSecondWindPct.Value = Shinra.Settings.MachinistSecondWindPct;
             MachinistInvigoratePct.Value = Shinra.Settings.MachinistInvigoratePct;
             MachinistTacticianPct.Value = Shinra.Settings.MachinistTacticianPct;
+            MachinistRefreshPct.Value = Shinra.Settings.MachinistRefreshPct;
 
             #endregion
 
@@ -1231,6 +1235,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.BardTactician = BardTactician.Checked;
         }
 
+        private void BardRefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardRefresh = BardRefresh.Checked;
+        }
+
         private void BardSecondWindPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardSecondWindPct = Convert.ToInt32(BardSecondWindPct.Value);
@@ -1244,6 +1253,11 @@ namespace ShinraCo.Settings.Forms
         private void BardTacticianPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardTacticianPct = Convert.ToInt32(BardTacticianPct.Value);
+        }
+
+        private void BardRefreshPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardRefreshPct = Convert.ToInt32(BardRefreshPct.Value);
         }
 
         #endregion
@@ -1684,6 +1698,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MachinistTactician = MachinistTactician.Checked;
         }
 
+        private void MachinistRefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistRefresh = MachinistRefresh.Checked;
+        }
+
         private void MachinistSecondWindPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MachinistSecondWindPct = Convert.ToInt32(MachinistSecondWindPct.Value);
@@ -1697,6 +1716,11 @@ namespace ShinraCo.Settings.Forms
         private void MachinistTacticianPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MachinistTacticianPct = Convert.ToInt32(MachinistTacticianPct.Value);
+        }
+
+        private void MachinistRefreshPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistRefreshPct = Convert.ToInt32(MachinistRefreshPct.Value);
         }
 
         #endregion

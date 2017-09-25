@@ -41,6 +41,9 @@ namespace ShinraCo.Rotations
             if (await QuickReload()) return true;
             if (await RapidFire()) return true;
             if (await Ricochet()) return true;
+            // Role
+            await Helpers.UpdateParty();
+            if (await Refresh()) return true;
             if (await Invigorate()) return true;
             return await Tactician();
         }

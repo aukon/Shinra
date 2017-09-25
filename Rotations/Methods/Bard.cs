@@ -279,6 +279,21 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Refresh()
+        {
+            if (Shinra.Settings.BardRefresh)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.CurrentManaPercent < Shinra.Settings.BardRefreshPct &&
+                                                                      hm.IsHealer());
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Refresh.Cast();
+                }
+            }
+            return false;
+        }
+
         #endregion
 
         #region Custom
