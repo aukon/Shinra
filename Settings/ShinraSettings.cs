@@ -321,6 +321,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool BardPitchPerfect { get; set; }
+
+        [Setting, DefaultValue(3)]
+        public int BardRepertoireCount { get; set; }
+
+        #endregion
+
         #region Cooldown
 
         [Setting, DefaultValue(true)]

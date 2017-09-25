@@ -174,6 +174,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Damage
+
+            BardPitchPerfect.Checked = Shinra.Settings.BardPitchPerfect;
+            BardRepertoireCount.Value = Shinra.Settings.BardRepertoireCount;
+
+            #endregion
+
             #region Cooldown
 
             BardSongs.Checked = Shinra.Settings.BardSongs;
@@ -1237,6 +1244,20 @@ namespace ShinraCo.Settings.Forms
         private void BardTacticianPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardTacticianPct = Convert.ToInt32(BardTacticianPct.Value);
+        }
+
+        #endregion
+
+        #region Damage
+
+        private void BardPitchPerfect_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardPitchPerfect = BardPitchPerfect.Checked;
+        }
+
+        private void BardRepertoireCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardRepertoireCount = Convert.ToInt32(BardRepertoireCount.Value);
         }
 
         #endregion

@@ -581,6 +581,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardRepertoireCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.BardPitchPerfect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -692,6 +695,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.BardDamageGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -705,9 +709,9 @@
             // ShinraContainer
             // 
             this.ShinraContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ShinraContainer.Controls.Add(this.ShinraBanner);
             this.ShinraContainer.Controls.Add(this.ShinraClose);
             this.ShinraContainer.Controls.Add(this.tabSettings);
+            this.ShinraContainer.Controls.Add(this.ShinraBanner);
             this.ShinraContainer.Location = new System.Drawing.Point(2, 2);
             this.ShinraContainer.Name = "ShinraContainer";
             this.ShinraContainer.Size = new System.Drawing.Size(900, 500);
@@ -5895,6 +5899,7 @@
             // pgeBard
             // 
             this.pgeBard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeBard.Controls.Add(this.BardDamageGroup);
             this.pgeBard.Controls.Add(this.BardCooldownGroup);
             this.pgeBard.Controls.Add(this.BardBuffGroup);
             this.pgeBard.Controls.Add(this.BardRoleGroup);
@@ -5911,7 +5916,7 @@
             this.BardCooldownGroup.Controls.Add(this.BardSidewinder);
             this.BardCooldownGroup.Controls.Add(this.BardSongs);
             this.BardCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 6);
+            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.BardCooldownGroup.Name = "BardCooldownGroup";
             this.BardCooldownGroup.Size = new System.Drawing.Size(109, 66);
             this.BardCooldownGroup.TabIndex = 2;
@@ -5954,7 +5959,7 @@
             this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardBuffGroup.Location = new System.Drawing.Point(218, 78);
+            this.BardBuffGroup.Location = new System.Drawing.Point(218, 128);
             this.BardBuffGroup.Name = "BardBuffGroup";
             this.BardBuffGroup.Size = new System.Drawing.Size(109, 89);
             this.BardBuffGroup.TabIndex = 1;
@@ -8573,6 +8578,58 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // BardDamageGroup
+            // 
+            this.BardDamageGroup.Controls.Add(this.BardPitchPerfect);
+            this.BardDamageGroup.Controls.Add(this.BardRepertoireCount);
+            this.BardDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardDamageGroup.Location = new System.Drawing.Point(218, 6);
+            this.BardDamageGroup.Name = "BardDamageGroup";
+            this.BardDamageGroup.Size = new System.Drawing.Size(184, 44);
+            this.BardDamageGroup.TabIndex = 3;
+            this.BardDamageGroup.TabStop = false;
+            this.BardDamageGroup.Text = "Damage";
+            // 
+            // BardRepertoireCount
+            // 
+            this.BardRepertoireCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.BardRepertoireCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.BardRepertoireCount.Location = new System.Drawing.Point(98, 16);
+            this.BardRepertoireCount.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.BardRepertoireCount.Name = "BardRepertoireCount";
+            this.BardRepertoireCount.ShowSymbol = false;
+            this.BardRepertoireCount.Size = new System.Drawing.Size(80, 22);
+            this.BardRepertoireCount.TabIndex = 1;
+            this.BardRepertoireCount.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.BardRepertoireCount.ValueChanged += new System.EventHandler(this.BardRepertoireCount_ValueChanged);
+            // 
+            // BardPitchPerfect
+            // 
+            this.BardPitchPerfect.AutoSize = true;
+            this.BardPitchPerfect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardPitchPerfect.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardPitchPerfect.ForeColor = System.Drawing.Color.White;
+            this.BardPitchPerfect.Location = new System.Drawing.Point(6, 16);
+            this.BardPitchPerfect.Name = "BardPitchPerfect";
+            this.BardPitchPerfect.Size = new System.Drawing.Size(86, 17);
+            this.BardPitchPerfect.TabIndex = 2;
+            this.BardPitchPerfect.TabStop = false;
+            this.BardPitchPerfect.Text = "Pitch Perfect";
+            this.BardPitchPerfect.UseVisualStyleBackColor = true;
+            this.BardPitchPerfect.CheckedChanged += new System.EventHandler(this.BardPitchPerfect_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8772,6 +8829,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.BardDamageGroup.ResumeLayout(false);
+            this.BardDamageGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9331,5 +9390,8 @@
         private Design.CustomGroup SamuraiDamageGroup;
         private Design.UserNumeric SamuraiMidareHP;
         private Design.CustomCheck SamuraiMidare;
+        private Design.CustomGroup BardDamageGroup;
+        private Design.CustomCheck BardPitchPerfect;
+        private Design.UserNumeric BardRepertoireCount;
     }
 }

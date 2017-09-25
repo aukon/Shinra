@@ -65,9 +65,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> PitchPerfect()
         {
-            if (NumRepertoire == 3 || MinuetActive && SongTimer < 3000)
+            if (Shinra.Settings.BardPitchPerfect)
             {
-                return await MySpells.PitchPerfect.Cast();
+                if (NumRepertoire == Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000)
+                {
+                    return await MySpells.PitchPerfect.Cast();
+                }
             }
             return false;
         }
