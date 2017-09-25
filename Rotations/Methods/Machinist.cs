@@ -254,9 +254,12 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.MachinistTurret == MachinistTurrets.Rook || Shinra.Settings.MachinistTurret == MachinistTurrets.Bishop &&
                 !ActionManager.HasSpell(MySpells.BishopAutoturret.Name))
             {
-                if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+                if (!Core.Player.HasAura("Turret Reset"))
                 {
-                    return await MySpells.RookAutoturret.Cast();
+                    if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+                    {
+                        return await MySpells.RookAutoturret.Cast();
+                    }
                 }
             }
             return false;
@@ -266,9 +269,12 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MachinistTurret == MachinistTurrets.Bishop)
             {
-                if (PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 20)
+                if (!Core.Player.HasAura("Turret Reset"))
                 {
-                    return await MySpells.BishopAutoturret.Cast();
+                    if (PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 20)
+                    {
+                        return await MySpells.BishopAutoturret.Cast();
+                    }
                 }
             }
             return false;
