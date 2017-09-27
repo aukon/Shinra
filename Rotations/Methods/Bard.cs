@@ -254,7 +254,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> Peloton()
         {
             if (Shinra.Settings.BardPeloton && !Core.Player.HasAura(MySpells.Role.Peloton.Name) && !Core.Player.HasTarget &&
-                MovementManager.IsMoving)
+                (MovementManager.IsMoving || BotManager.Current.EnglishName == "DeepDive"))
             {
                 return await MySpells.Role.Peloton.Cast(null, false);
             }

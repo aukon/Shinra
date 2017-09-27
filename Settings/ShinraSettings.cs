@@ -557,6 +557,9 @@ namespace ShinraCo.Settings
         public bool DragoonBloodbath { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool DragoonGoad { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool DragoonTrueNorth { get; set; }
 
         [Setting, DefaultValue(50)]
@@ -567,6 +570,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int DragoonBloodbathPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int DragoonGoadPct { get; set; }
 
         #endregion
 
@@ -723,6 +729,9 @@ namespace ShinraCo.Settings
         public bool MonkBloodbath { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool MonkGoad { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool MonkTrueNorth { get; set; }
 
         [Setting, DefaultValue(50)]
@@ -733,6 +742,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int MonkBloodbathPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int MonkGoadPct { get; set; }
 
         #endregion
 
@@ -807,6 +819,9 @@ namespace ShinraCo.Settings
         public bool NinjaBloodbath { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool NinjaGoad { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool NinjaTrueNorth { get; set; }
 
         [Setting, DefaultValue(50)]
@@ -817,6 +832,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int NinjaBloodbathPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int NinjaGoadPct { get; set; }
 
         #endregion
 
@@ -1085,6 +1103,9 @@ namespace ShinraCo.Settings
         public bool SamuraiBloodbath { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool SamuraiGoad { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool SamuraiTrueNorth { get; set; }
 
         [Setting, DefaultValue(50)]
@@ -1095,6 +1116,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(70)]
         public int SamuraiBloodbathPct { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int SamuraiGoadPct { get; set; }
 
         #endregion
 

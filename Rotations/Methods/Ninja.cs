@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
@@ -534,6 +535,20 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.NinjaBloodbath && Core.Player.CurrentHealthPercent < Shinra.Settings.NinjaBloodbathPct)
             {
                 return await MySpells.Role.Bloodbath.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Goad()
+        {
+            if (Shinra.Settings.NinjaGoad)
+            {
+                var target = Helpers.GoadManager.FirstOrDefault(gm => gm.CurrentTPPercent < Shinra.Settings.NinjaGoadPct);
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Goad.Cast(target);
+                }
             }
             return false;
         }

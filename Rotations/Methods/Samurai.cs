@@ -350,6 +350,20 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Goad()
+        {
+            if (Shinra.Settings.SamuraiGoad)
+            {
+                var target = Helpers.GoadManager.FirstOrDefault(gm => gm.CurrentTPPercent < Shinra.Settings.SamuraiGoadPct);
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Goad.Cast(target);
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> TrueNorth()
         {
             if (Shinra.Settings.SamuraiTrueNorth && Core.Player.TargetDistance(5, false))

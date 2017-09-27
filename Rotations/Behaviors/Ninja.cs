@@ -74,7 +74,9 @@ namespace ShinraCo.Rotations
             if (await Bhavacakra()) return true;
             if (await TenChiJin()) return true;
             if (await TrueNorth()) return true;
-            return await Invigorate();
+            if (await Invigorate()) return true;
+            await Helpers.UpdateParty();
+            return await Goad();
         }
 
         #endregion

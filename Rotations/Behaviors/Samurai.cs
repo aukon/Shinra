@@ -77,8 +77,10 @@ namespace ShinraCo.Rotations
             if (await HissatsuSeigan()) return true;
             if (await HissatsuShinten()) return true;
             if (await Hagakure()) return true;
+            if (await Ageha()) return true;
             if (await Invigorate()) return true;
-            return await Ageha();
+            await Helpers.UpdateParty();
+            return await Goad();
         }
 
         #endregion

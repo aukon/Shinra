@@ -12,6 +12,7 @@ namespace ShinraCo
     {
         public static List<BattleCharacter> HealManager = new List<BattleCharacter>();
         public static List<BattleCharacter> RessManager = new List<BattleCharacter>();
+        public static List<BattleCharacter> GoadManager = new List<BattleCharacter>();
 
         public static readonly HashSet<string> HealingSpells = new HashSet<string>
         {
@@ -68,15 +69,19 @@ namespace ShinraCo
         public static async Task UpdateParty()
         {
             var partyList = new List<BattleCharacter>();
+            var goadList = new List<BattleCharacter>();
             if (PartyManager.IsInParty)
             {
-                partyList.AddRange(PartyMembers.Where(pm => pm.IsAlive));
+                partyList.AddRange(PartyMembers.Where(pm => pm.IsAlive && pm.InCombat));
+                goadList.AddRange(PartyMembers.Where(pm => pm.IsAlive && pm.InCombat && pm != Core.Player &&
+                                                           !ManaJobs.Contains(pm.CurrentJob)));
             }
             else
             {
                 partyList.Add(Core.Player);
             }
             HealManager = partyList.OrderBy(HPScore).ToList();
+            GoadManager = goadList.OrderBy(TPScore).ToList();
         }
 
         private static float HPScore(BattleCharacter c)
@@ -90,6 +95,17 @@ namespace ShinraCo
             if (c.IsHealer())
             {
                 score -= 3f;
+            }
+            return score;
+        }
+
+        private static float TPScore(BattleCharacter c)
+        {
+            var score = c.CurrentTPPercent;
+
+            if (c.IsDPS())
+            {
+                score -= 10;
             }
             return score;
         }

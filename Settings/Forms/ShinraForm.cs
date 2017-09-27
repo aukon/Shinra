@@ -316,11 +316,13 @@ namespace ShinraCo.Settings.Forms
             DragoonSecondWind.Checked = Shinra.Settings.DragoonSecondWind;
             DragoonInvigorate.Checked = Shinra.Settings.DragoonInvigorate;
             DragoonBloodbath.Checked = Shinra.Settings.DragoonBloodbath;
+            DragoonGoad.Checked = Shinra.Settings.DragoonGoad;
             DragoonTrueNorth.Checked = Shinra.Settings.DragoonTrueNorth;
 
             DragoonSecondWindPct.Value = Shinra.Settings.DragoonSecondWindPct;
             DragoonInvigoratePct.Value = Shinra.Settings.DragoonInvigoratePct;
             DragoonBloodbathPct.Value = Shinra.Settings.DragoonBloodbathPct;
+            DragoonGoadPct.Value = Shinra.Settings.DragoonGoadPct;
 
             #endregion
 
@@ -407,11 +409,13 @@ namespace ShinraCo.Settings.Forms
             MonkSecondWind.Checked = Shinra.Settings.MonkSecondWind;
             MonkInvigorate.Checked = Shinra.Settings.MonkInvigorate;
             MonkBloodbath.Checked = Shinra.Settings.MonkBloodbath;
+            MonkGoad.Checked = Shinra.Settings.MonkGoad;
             MonkTrueNorth.Checked = Shinra.Settings.MonkTrueNorth;
 
             MonkSecondWindPct.Value = Shinra.Settings.MonkSecondWindPct;
             MonkInvigoratePct.Value = Shinra.Settings.MonkInvigoratePct;
             MonkBloodbathPct.Value = Shinra.Settings.MonkBloodbathPct;
+            MonkGoadPct.Value = Shinra.Settings.MonkGoadPct;
 
             #endregion
 
@@ -457,11 +461,13 @@ namespace ShinraCo.Settings.Forms
             NinjaSecondWind.Checked = Shinra.Settings.NinjaSecondWind;
             NinjaInvigorate.Checked = Shinra.Settings.NinjaInvigorate;
             NinjaBloodbath.Checked = Shinra.Settings.NinjaBloodbath;
+            NinjaGoad.Checked = Shinra.Settings.NinjaGoad;
             NinjaTrueNorth.Checked = Shinra.Settings.NinjaTrueNorth;
 
             NinjaSecondWindPct.Value = Shinra.Settings.NinjaSecondWindPct;
             NinjaInvigoratePct.Value = Shinra.Settings.NinjaInvigoratePct;
             NinjaBloodbathPct.Value = Shinra.Settings.NinjaBloodbathPct;
+            NinjaGoadPct.Value = Shinra.Settings.NinjaGoadPct;
 
             #endregion
 
@@ -625,11 +631,13 @@ namespace ShinraCo.Settings.Forms
             SamuraiSecondWind.Checked = Shinra.Settings.SamuraiSecondWind;
             SamuraiInvigorate.Checked = Shinra.Settings.SamuraiInvigorate;
             SamuraiBloodbath.Checked = Shinra.Settings.SamuraiBloodbath;
+            SamuraiGoad.Checked = Shinra.Settings.SamuraiGoad;
             SamuraiTrueNorth.Checked = Shinra.Settings.SamuraiTrueNorth;
 
             SamuraiSecondWindPct.Value = Shinra.Settings.SamuraiSecondWindPct;
             SamuraiInvigoratePct.Value = Shinra.Settings.SamuraiInvigoratePct;
             SamuraiBloodbathPct.Value = Shinra.Settings.SamuraiBloodbathPct;
+            SamuraiGoadPct.Value = Shinra.Settings.SamuraiGoadPct;
 
             #endregion
 
@@ -1597,6 +1605,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.DragoonBloodbath = DragoonBloodbath.Checked;
         }
 
+        private void DragoonGoad_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonGoad = DragoonGoad.Checked;
+        }
+
         private void DragoonTrueNorth_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonTrueNorth = DragoonTrueNorth.Checked;
@@ -1615,6 +1628,11 @@ namespace ShinraCo.Settings.Forms
         private void DragoonBloodbathPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonBloodbathPct = Convert.ToInt32(DragoonBloodbathPct.Value);
+        }
+
+        private void DragoonGoadPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonGoadPct = Convert.ToInt32(DragoonGoadPct.Value);
         }
 
         #endregion
@@ -1839,6 +1857,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MonkBloodbath = MonkBloodbath.Checked;
         }
 
+        private void MonkGoad_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkGoad = MonkGoad.Checked;
+        }
+
         private void MonkTrueNorth_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MonkTrueNorth = MonkTrueNorth.Checked;
@@ -1857,6 +1880,11 @@ namespace ShinraCo.Settings.Forms
         private void MonkBloodbathPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MonkBloodbathPct = Convert.ToInt32(MonkBloodbathPct.Value);
+        }
+
+        private void MonkGoadPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkGoadPct = Convert.ToInt32(MonkGoadPct.Value);
         }
 
         #endregion
@@ -1966,6 +1994,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.NinjaBloodbath = NinjaBloodbath.Checked;
         }
 
+        private void NinjaGoad_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaGoad = NinjaGoad.Checked;
+        }
+
         private void NinjaTrueNorth_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaTrueNorth = NinjaTrueNorth.Checked;
@@ -1984,6 +2017,11 @@ namespace ShinraCo.Settings.Forms
         private void NinjaBloodbathPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaBloodbathPct = Convert.ToInt32(NinjaBloodbathPct.Value);
+        }
+
+        private void NinjaGoadPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaGoadPct = Convert.ToInt32(NinjaGoadPct.Value);
         }
 
         #endregion
@@ -2378,6 +2416,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.SamuraiBloodbath = SamuraiBloodbath.Checked;
         }
 
+        private void SamuraiGoad_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiGoad = SamuraiGoad.Checked;
+        }
+
         private void SamuraiTrueNorth_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiTrueNorth = SamuraiTrueNorth.Checked;
@@ -2396,6 +2439,11 @@ namespace ShinraCo.Settings.Forms
         private void SamuraiBloodbathPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiBloodbathPct = Convert.ToInt32(SamuraiBloodbathPct.Value);
+        }
+
+        private void SamuraiGoadPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiGoadPct = Convert.ToInt32(SamuraiGoadPct.Value);
         }
 
         #endregion

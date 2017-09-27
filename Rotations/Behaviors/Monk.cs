@@ -61,7 +61,9 @@ namespace ShinraCo.Rotations
             if (await ElixirField()) return true;
             if (await HowlingFist()) return true;
             if (await SteelPeak()) return true;
-            return await Invigorate();
+            if (await Invigorate()) return true;
+            await Helpers.UpdateParty();
+            return await Goad();
         }
 
         #endregion

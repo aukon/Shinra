@@ -253,6 +253,20 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Goad()
+        {
+            if (Shinra.Settings.DragoonGoad)
+            {
+                var target = Helpers.GoadManager.FirstOrDefault(gm => gm.CurrentTPPercent < Shinra.Settings.DragoonGoadPct);
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Goad.Cast(target);
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> TrueNorth()
         {
             if (Shinra.Settings.DragoonTrueNorth)
