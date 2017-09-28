@@ -313,6 +313,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool BardRefresh { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool BardPalisade { get; set; }
+
         [Setting, DefaultValue(60)]
         public int BardSecondWindPct { get; set; }
 
@@ -324,6 +327,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int BardRefreshPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int BardPalisadePct { get; set; }
 
         #endregion
 
@@ -638,6 +644,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MachinistRefresh { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool MachinistPalisade { get; set; }
+
         [Setting, DefaultValue(60)]
         public int MachinistSecondWindPct { get; set; }
 
@@ -649,6 +658,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int MachinistRefreshPct { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int MachinistPalisadePct { get; set; }
 
         #endregion
 

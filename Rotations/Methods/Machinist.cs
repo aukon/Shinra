@@ -365,9 +365,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Tactician()
         {
-            if (Shinra.Settings.MachinistTactician && Core.Player.CurrentTPPercent < Shinra.Settings.MachinistTacticianPct)
+            if (Shinra.Settings.MachinistTactician)
             {
-                return await MySpells.Role.Tactician.Cast();
+                var target = Core.Player.CurrentTPPercent < Shinra.Settings.MachinistTacticianPct ? Core.Player
+                    : Helpers.GoadManager.FirstOrDefault(gm => gm.CurrentTPPercent < Shinra.Settings.MachinistTacticianPct);
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Tactician.Cast();
+                }
             }
             return false;
         }
@@ -382,6 +388,21 @@ namespace ShinraCo.Rotations
                 if (target != null)
                 {
                     return await MySpells.Role.Refresh.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Palisade()
+        {
+            if (Shinra.Settings.MachinistPalisade)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.CurrentHealthPercent < Shinra.Settings.MachinistPalisadePct &&
+                                                                      hm.IsTank());
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Palisade.Cast(target);
                 }
             }
             return false;

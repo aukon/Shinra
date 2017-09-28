@@ -43,9 +43,10 @@ namespace ShinraCo.Rotations
             if (await Sidewinder()) return true;
             // Role
             await Helpers.UpdateParty();
+            if (await Palisade()) return true;
             if (await Refresh()) return true;
-            if (await Invigorate()) return true;
-            return await Tactician();
+            if (await Tactician()) return true;
+            return await Invigorate();
         }
 
         #endregion

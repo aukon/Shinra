@@ -279,6 +279,8 @@
             this.DragoonSpineshatter = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonJump = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.DragoonGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.DragoonInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.DragoonSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -310,6 +312,8 @@
             this.MonkPerfectBalance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkInternalRelease = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MonkGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MonkBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MonkInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MonkSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -348,6 +352,8 @@
             this.NinjaMug = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaAssassinate = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.NinjaGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.NinjaInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.NinjaSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -374,6 +380,8 @@
             this.SamuraiHiganbanaHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiHiganbana = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.SamuraiGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SamuraiBloodbathPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -405,7 +413,6 @@
             this.BardTacticianPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.BardInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.BardSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.BardPalisade = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BardArmGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BardHeadGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BardTactician = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -440,7 +447,6 @@
             this.MachinistTacticianPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MachinistInvigoratePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.MachinistSecondWindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.MachinistPalisade = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MachinistArmGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MachinistHeadGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MachinistTactician = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -582,14 +588,10 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SamuraiGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SamuraiGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.NinjaGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.MonkGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MonkGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.DragoonGoad = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonGoadPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.BardPalisade = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardPalisadePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.MachinistPalisade = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistPalisadePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -4255,6 +4257,30 @@
             this.DragoonRoleGroup.TabStop = false;
             this.DragoonRoleGroup.Text = "Role";
             // 
+            // DragoonGoadPct
+            // 
+            this.DragoonGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.DragoonGoadPct.Location = new System.Drawing.Point(104, 154);
+            this.DragoonGoadPct.Name = "DragoonGoadPct";
+            this.DragoonGoadPct.Size = new System.Drawing.Size(89, 22);
+            this.DragoonGoadPct.TabIndex = 24;
+            this.DragoonGoadPct.ValueChanged += new System.EventHandler(this.DragoonGoadPct_ValueChanged);
+            // 
+            // DragoonGoad
+            // 
+            this.DragoonGoad.AutoSize = true;
+            this.DragoonGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonGoad.ForeColor = System.Drawing.Color.White;
+            this.DragoonGoad.Location = new System.Drawing.Point(6, 154);
+            this.DragoonGoad.Name = "DragoonGoad";
+            this.DragoonGoad.Size = new System.Drawing.Size(51, 17);
+            this.DragoonGoad.TabIndex = 23;
+            this.DragoonGoad.TabStop = false;
+            this.DragoonGoad.Text = "Goad";
+            this.DragoonGoad.UseVisualStyleBackColor = true;
+            this.DragoonGoad.CheckedChanged += new System.EventHandler(this.DragoonGoad_CheckedChanged);
+            // 
             // DragoonBloodbathPct
             // 
             this.DragoonBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -4713,6 +4739,30 @@
             this.MonkRoleGroup.TabIndex = 0;
             this.MonkRoleGroup.TabStop = false;
             this.MonkRoleGroup.Text = "Role";
+            // 
+            // MonkGoadPct
+            // 
+            this.MonkGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MonkGoadPct.Location = new System.Drawing.Point(104, 154);
+            this.MonkGoadPct.Name = "MonkGoadPct";
+            this.MonkGoadPct.Size = new System.Drawing.Size(89, 22);
+            this.MonkGoadPct.TabIndex = 37;
+            this.MonkGoadPct.ValueChanged += new System.EventHandler(this.MonkGoadPct_ValueChanged);
+            // 
+            // MonkGoad
+            // 
+            this.MonkGoad.AutoSize = true;
+            this.MonkGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkGoad.ForeColor = System.Drawing.Color.White;
+            this.MonkGoad.Location = new System.Drawing.Point(6, 154);
+            this.MonkGoad.Name = "MonkGoad";
+            this.MonkGoad.Size = new System.Drawing.Size(51, 17);
+            this.MonkGoad.TabIndex = 36;
+            this.MonkGoad.TabStop = false;
+            this.MonkGoad.Text = "Goad";
+            this.MonkGoad.UseVisualStyleBackColor = true;
+            this.MonkGoad.CheckedChanged += new System.EventHandler(this.MonkGoad_CheckedChanged);
             // 
             // MonkBloodbathPct
             // 
@@ -5275,6 +5325,30 @@
             this.NinjaRoleGroup.TabStop = false;
             this.NinjaRoleGroup.Text = "Role";
             // 
+            // NinjaGoadPct
+            // 
+            this.NinjaGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.NinjaGoadPct.Location = new System.Drawing.Point(104, 154);
+            this.NinjaGoadPct.Name = "NinjaGoadPct";
+            this.NinjaGoadPct.Size = new System.Drawing.Size(89, 22);
+            this.NinjaGoadPct.TabIndex = 50;
+            this.NinjaGoadPct.ValueChanged += new System.EventHandler(this.NinjaGoadPct_ValueChanged);
+            // 
+            // NinjaGoad
+            // 
+            this.NinjaGoad.AutoSize = true;
+            this.NinjaGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaGoad.ForeColor = System.Drawing.Color.White;
+            this.NinjaGoad.Location = new System.Drawing.Point(6, 154);
+            this.NinjaGoad.Name = "NinjaGoad";
+            this.NinjaGoad.Size = new System.Drawing.Size(51, 17);
+            this.NinjaGoad.TabIndex = 49;
+            this.NinjaGoad.TabStop = false;
+            this.NinjaGoad.Text = "Goad";
+            this.NinjaGoad.UseVisualStyleBackColor = true;
+            this.NinjaGoad.CheckedChanged += new System.EventHandler(this.NinjaGoad_CheckedChanged);
+            // 
             // NinjaBloodbathPct
             // 
             this.NinjaBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -5655,6 +5729,30 @@
             this.SamuraiRoleGroup.TabStop = false;
             this.SamuraiRoleGroup.Text = "Role";
             // 
+            // SamuraiGoadPct
+            // 
+            this.SamuraiGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SamuraiGoadPct.Location = new System.Drawing.Point(104, 154);
+            this.SamuraiGoadPct.Name = "SamuraiGoadPct";
+            this.SamuraiGoadPct.Size = new System.Drawing.Size(89, 22);
+            this.SamuraiGoadPct.TabIndex = 14;
+            this.SamuraiGoadPct.ValueChanged += new System.EventHandler(this.SamuraiGoadPct_ValueChanged);
+            // 
+            // SamuraiGoad
+            // 
+            this.SamuraiGoad.AutoSize = true;
+            this.SamuraiGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiGoad.ForeColor = System.Drawing.Color.White;
+            this.SamuraiGoad.Location = new System.Drawing.Point(6, 154);
+            this.SamuraiGoad.Name = "SamuraiGoad";
+            this.SamuraiGoad.Size = new System.Drawing.Size(51, 17);
+            this.SamuraiGoad.TabIndex = 13;
+            this.SamuraiGoad.TabStop = false;
+            this.SamuraiGoad.Text = "Goad";
+            this.SamuraiGoad.UseVisualStyleBackColor = true;
+            this.SamuraiGoad.CheckedChanged += new System.EventHandler(this.SamuraiGoad_CheckedChanged);
+            // 
             // SamuraiBloodbathPct
             // 
             this.SamuraiBloodbathPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -6015,12 +6113,13 @@
             // 
             // BardRoleGroup
             // 
+            this.BardRoleGroup.Controls.Add(this.BardPalisadePct);
+            this.BardRoleGroup.Controls.Add(this.BardPalisade);
             this.BardRoleGroup.Controls.Add(this.BardRefreshPct);
             this.BardRoleGroup.Controls.Add(this.BardRefresh);
             this.BardRoleGroup.Controls.Add(this.BardTacticianPct);
             this.BardRoleGroup.Controls.Add(this.BardInvigoratePct);
             this.BardRoleGroup.Controls.Add(this.BardSecondWindPct);
-            this.BardRoleGroup.Controls.Add(this.BardPalisade);
             this.BardRoleGroup.Controls.Add(this.BardArmGraze);
             this.BardRoleGroup.Controls.Add(this.BardHeadGraze);
             this.BardRoleGroup.Controls.Add(this.BardTactician);
@@ -6032,7 +6131,7 @@
             this.BardRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.BardRoleGroup.Name = "BardRoleGroup";
-            this.BardRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.BardRoleGroup.Size = new System.Drawing.Size(199, 251);
             this.BardRoleGroup.TabIndex = 0;
             this.BardRoleGroup.TabStop = false;
             this.BardRoleGroup.Text = "Role";
@@ -6087,21 +6186,6 @@
             this.BardSecondWindPct.Size = new System.Drawing.Size(89, 22);
             this.BardSecondWindPct.TabIndex = 10;
             this.BardSecondWindPct.ValueChanged += new System.EventHandler(this.BardSecondWindPct_ValueChanged);
-            // 
-            // BardPalisade
-            // 
-            this.BardPalisade.AutoCheck = false;
-            this.BardPalisade.AutoSize = true;
-            this.BardPalisade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardPalisade.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardPalisade.ForeColor = System.Drawing.Color.DimGray;
-            this.BardPalisade.Location = new System.Drawing.Point(6, 223);
-            this.BardPalisade.Name = "BardPalisade";
-            this.BardPalisade.Size = new System.Drawing.Size(65, 17);
-            this.BardPalisade.TabIndex = 9;
-            this.BardPalisade.TabStop = false;
-            this.BardPalisade.Text = "Palisade";
-            this.BardPalisade.UseVisualStyleBackColor = true;
             // 
             // BardArmGraze
             // 
@@ -6529,12 +6613,13 @@
             // 
             // MachinistRoleGroup
             // 
+            this.MachinistRoleGroup.Controls.Add(this.MachinistPalisadePct);
+            this.MachinistRoleGroup.Controls.Add(this.MachinistPalisade);
             this.MachinistRoleGroup.Controls.Add(this.MachinistRefreshPct);
             this.MachinistRoleGroup.Controls.Add(this.MachinistRefresh);
             this.MachinistRoleGroup.Controls.Add(this.MachinistTacticianPct);
             this.MachinistRoleGroup.Controls.Add(this.MachinistInvigoratePct);
             this.MachinistRoleGroup.Controls.Add(this.MachinistSecondWindPct);
-            this.MachinistRoleGroup.Controls.Add(this.MachinistPalisade);
             this.MachinistRoleGroup.Controls.Add(this.MachinistArmGraze);
             this.MachinistRoleGroup.Controls.Add(this.MachinistHeadGraze);
             this.MachinistRoleGroup.Controls.Add(this.MachinistTactician);
@@ -6546,7 +6631,7 @@
             this.MachinistRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.MachinistRoleGroup.Name = "MachinistRoleGroup";
-            this.MachinistRoleGroup.Size = new System.Drawing.Size(199, 250);
+            this.MachinistRoleGroup.Size = new System.Drawing.Size(199, 251);
             this.MachinistRoleGroup.TabIndex = 0;
             this.MachinistRoleGroup.TabStop = false;
             this.MachinistRoleGroup.Text = "Role";
@@ -6601,21 +6686,6 @@
             this.MachinistSecondWindPct.Size = new System.Drawing.Size(89, 22);
             this.MachinistSecondWindPct.TabIndex = 23;
             this.MachinistSecondWindPct.ValueChanged += new System.EventHandler(this.MachinistSecondWindPct_ValueChanged);
-            // 
-            // MachinistPalisade
-            // 
-            this.MachinistPalisade.AutoCheck = false;
-            this.MachinistPalisade.AutoSize = true;
-            this.MachinistPalisade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistPalisade.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistPalisade.ForeColor = System.Drawing.Color.DimGray;
-            this.MachinistPalisade.Location = new System.Drawing.Point(6, 223);
-            this.MachinistPalisade.Name = "MachinistPalisade";
-            this.MachinistPalisade.Size = new System.Drawing.Size(65, 17);
-            this.MachinistPalisade.TabIndex = 22;
-            this.MachinistPalisade.TabStop = false;
-            this.MachinistPalisade.Text = "Palisade";
-            this.MachinistPalisade.UseVisualStyleBackColor = true;
             // 
             // MachinistArmGraze
             // 
@@ -8600,101 +8670,53 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SamuraiGoad
+            // BardPalisade
             // 
-            this.SamuraiGoad.AutoSize = true;
-            this.SamuraiGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SamuraiGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiGoad.ForeColor = System.Drawing.Color.White;
-            this.SamuraiGoad.Location = new System.Drawing.Point(6, 154);
-            this.SamuraiGoad.Name = "SamuraiGoad";
-            this.SamuraiGoad.Size = new System.Drawing.Size(51, 17);
-            this.SamuraiGoad.TabIndex = 13;
-            this.SamuraiGoad.TabStop = false;
-            this.SamuraiGoad.Text = "Goad";
-            this.SamuraiGoad.UseVisualStyleBackColor = true;
-            this.SamuraiGoad.CheckedChanged += new System.EventHandler(this.SamuraiGoad_CheckedChanged);
+            this.BardPalisade.AutoSize = true;
+            this.BardPalisade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardPalisade.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardPalisade.ForeColor = System.Drawing.Color.White;
+            this.BardPalisade.Location = new System.Drawing.Point(6, 223);
+            this.BardPalisade.Name = "BardPalisade";
+            this.BardPalisade.Size = new System.Drawing.Size(65, 17);
+            this.BardPalisade.TabIndex = 15;
+            this.BardPalisade.TabStop = false;
+            this.BardPalisade.Text = "Palisade";
+            this.BardPalisade.UseVisualStyleBackColor = true;
+            this.BardPalisade.CheckedChanged += new System.EventHandler(this.BardPalisade_CheckedChanged);
             // 
-            // SamuraiGoadPct
+            // BardPalisadePct
             // 
-            this.SamuraiGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.SamuraiGoadPct.Location = new System.Drawing.Point(104, 154);
-            this.SamuraiGoadPct.Name = "SamuraiGoadPct";
-            this.SamuraiGoadPct.Size = new System.Drawing.Size(89, 22);
-            this.SamuraiGoadPct.TabIndex = 14;
-            this.SamuraiGoadPct.ValueChanged += new System.EventHandler(this.SamuraiGoadPct_ValueChanged);
+            this.BardPalisadePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.BardPalisadePct.Location = new System.Drawing.Point(104, 223);
+            this.BardPalisadePct.Name = "BardPalisadePct";
+            this.BardPalisadePct.Size = new System.Drawing.Size(89, 22);
+            this.BardPalisadePct.TabIndex = 16;
+            this.BardPalisadePct.ValueChanged += new System.EventHandler(this.BardPalisadePct_ValueChanged);
             // 
-            // NinjaGoad
+            // MachinistPalisade
             // 
-            this.NinjaGoad.AutoSize = true;
-            this.NinjaGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaGoad.ForeColor = System.Drawing.Color.White;
-            this.NinjaGoad.Location = new System.Drawing.Point(6, 154);
-            this.NinjaGoad.Name = "NinjaGoad";
-            this.NinjaGoad.Size = new System.Drawing.Size(51, 17);
-            this.NinjaGoad.TabIndex = 49;
-            this.NinjaGoad.TabStop = false;
-            this.NinjaGoad.Text = "Goad";
-            this.NinjaGoad.UseVisualStyleBackColor = true;
-            this.NinjaGoad.CheckedChanged += new System.EventHandler(this.NinjaGoad_CheckedChanged);
+            this.MachinistPalisade.AutoSize = true;
+            this.MachinistPalisade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistPalisade.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistPalisade.ForeColor = System.Drawing.Color.White;
+            this.MachinistPalisade.Location = new System.Drawing.Point(6, 223);
+            this.MachinistPalisade.Name = "MachinistPalisade";
+            this.MachinistPalisade.Size = new System.Drawing.Size(65, 17);
+            this.MachinistPalisade.TabIndex = 28;
+            this.MachinistPalisade.TabStop = false;
+            this.MachinistPalisade.Text = "Palisade";
+            this.MachinistPalisade.UseVisualStyleBackColor = true;
+            this.MachinistPalisade.CheckedChanged += new System.EventHandler(this.MachinistPalisade_CheckedChanged);
             // 
-            // NinjaGoadPct
+            // MachinistPalisadePct
             // 
-            this.NinjaGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.NinjaGoadPct.Location = new System.Drawing.Point(104, 154);
-            this.NinjaGoadPct.Name = "NinjaGoadPct";
-            this.NinjaGoadPct.Size = new System.Drawing.Size(89, 22);
-            this.NinjaGoadPct.TabIndex = 50;
-            this.NinjaGoadPct.ValueChanged += new System.EventHandler(this.NinjaGoadPct_ValueChanged);
-            // 
-            // MonkGoad
-            // 
-            this.MonkGoad.AutoSize = true;
-            this.MonkGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MonkGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkGoad.ForeColor = System.Drawing.Color.White;
-            this.MonkGoad.Location = new System.Drawing.Point(6, 154);
-            this.MonkGoad.Name = "MonkGoad";
-            this.MonkGoad.Size = new System.Drawing.Size(51, 17);
-            this.MonkGoad.TabIndex = 36;
-            this.MonkGoad.TabStop = false;
-            this.MonkGoad.Text = "Goad";
-            this.MonkGoad.UseVisualStyleBackColor = true;
-            this.MonkGoad.CheckedChanged += new System.EventHandler(this.MonkGoad_CheckedChanged);
-            // 
-            // MonkGoadPct
-            // 
-            this.MonkGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.MonkGoadPct.Location = new System.Drawing.Point(104, 154);
-            this.MonkGoadPct.Name = "MonkGoadPct";
-            this.MonkGoadPct.Size = new System.Drawing.Size(89, 22);
-            this.MonkGoadPct.TabIndex = 37;
-            this.MonkGoadPct.ValueChanged += new System.EventHandler(this.MonkGoadPct_ValueChanged);
-            // 
-            // DragoonGoad
-            // 
-            this.DragoonGoad.AutoSize = true;
-            this.DragoonGoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonGoad.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonGoad.ForeColor = System.Drawing.Color.White;
-            this.DragoonGoad.Location = new System.Drawing.Point(6, 154);
-            this.DragoonGoad.Name = "DragoonGoad";
-            this.DragoonGoad.Size = new System.Drawing.Size(51, 17);
-            this.DragoonGoad.TabIndex = 23;
-            this.DragoonGoad.TabStop = false;
-            this.DragoonGoad.Text = "Goad";
-            this.DragoonGoad.UseVisualStyleBackColor = true;
-            this.DragoonGoad.CheckedChanged += new System.EventHandler(this.DragoonGoad_CheckedChanged);
-            // 
-            // DragoonGoadPct
-            // 
-            this.DragoonGoadPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.DragoonGoadPct.Location = new System.Drawing.Point(104, 154);
-            this.DragoonGoadPct.Name = "DragoonGoadPct";
-            this.DragoonGoadPct.Size = new System.Drawing.Size(89, 22);
-            this.DragoonGoadPct.TabIndex = 24;
-            this.DragoonGoadPct.ValueChanged += new System.EventHandler(this.DragoonGoadPct_ValueChanged);
+            this.MachinistPalisadePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistPalisadePct.Location = new System.Drawing.Point(104, 223);
+            this.MachinistPalisadePct.Name = "MachinistPalisadePct";
+            this.MachinistPalisadePct.Size = new System.Drawing.Size(89, 22);
+            this.MachinistPalisadePct.TabIndex = 29;
+            this.MachinistPalisadePct.ValueChanged += new System.EventHandler(this.MachinistPalisadePct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -8939,7 +8961,6 @@
         private Design.UserNumeric BardTacticianPct;
         private Design.UserNumeric BardInvigoratePct;
         private Design.UserNumeric BardSecondWindPct;
-        private Design.CustomCheckDisabled BardPalisade;
         private Design.CustomCheckDisabled BardArmGraze;
         private Design.CustomCheckDisabled BardHeadGraze;
         private Design.CustomCheck BardTactician;
@@ -9400,7 +9421,6 @@
         private Design.UserNumeric MachinistTacticianPct;
         private Design.UserNumeric MachinistInvigoratePct;
         private Design.UserNumeric MachinistSecondWindPct;
-        private Design.CustomCheckDisabled MachinistPalisade;
         private Design.CustomCheckDisabled MachinistArmGraze;
         private Design.CustomCheckDisabled MachinistHeadGraze;
         private Design.CustomCheck MachinistTactician;
@@ -9465,5 +9485,9 @@
         private Design.CustomCheck MonkGoad;
         private Design.UserNumeric DragoonGoadPct;
         private Design.CustomCheck DragoonGoad;
+        private Design.UserNumeric BardPalisadePct;
+        private Design.CustomCheck BardPalisade;
+        private Design.UserNumeric MachinistPalisadePct;
+        private Design.CustomCheck MachinistPalisade;
     }
 }

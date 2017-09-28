@@ -272,9 +272,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Tactician()
         {
-            if (Shinra.Settings.BardTactician && Core.Player.CurrentTPPercent < Shinra.Settings.BardTacticianPct)
+            if (Shinra.Settings.BardTactician)
             {
-                return await MySpells.Role.Tactician.Cast();
+                var target = Core.Player.CurrentTPPercent < Shinra.Settings.BardTacticianPct ? Core.Player
+                    : Helpers.GoadManager.FirstOrDefault(gm => gm.CurrentTPPercent < Shinra.Settings.BardTacticianPct);
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Tactician.Cast();
+                }
             }
             return false;
         }
@@ -289,6 +295,21 @@ namespace ShinraCo.Rotations
                 if (target != null)
                 {
                     return await MySpells.Role.Refresh.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Palisade()
+        {
+            if (Shinra.Settings.BardPalisade)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.CurrentHealthPercent < Shinra.Settings.BardPalisadePct &&
+                                                                      hm.IsTank());
+
+                if (target != null)
+                {
+                    return await MySpells.Role.Palisade.Cast(target);
                 }
             }
             return false;
