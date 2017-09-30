@@ -67,7 +67,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardPitchPerfect)
             {
-                if (NumRepertoire == Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000)
+                if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000)
                 {
                     return await MySpells.PitchPerfect.Cast();
                 }
