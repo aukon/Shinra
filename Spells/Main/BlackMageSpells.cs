@@ -169,6 +169,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Target
         };
 
+        public Spell Thundercloud { get; } = new Spell
+        {
+            Name = "Thundercloud",
+            ID = 153,
+            Level = 45,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
         public Spell Flare { get; } = new Spell
         {
             Name = "Flare",

@@ -144,7 +144,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HissatsuSeigan()
         {
-            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Resource.Kenki >= 45 && !PoolKenki)
+            if (Shinra.LastSpell.Name != MySpells.HissatsuKaiten.Name && Resource.Kenki >= 35 && !PoolKenki)
             {
                 return await MySpells.HissatsuSeigan.Cast();
             }
@@ -292,13 +292,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.SamuraiHagakure)
             {
-                if (ActionManager.LastSpell.Name == MySpells.Jinpu.Name && GetsuActive ||
-                    ActionManager.LastSpell.Name == MySpells.Shifu.Name && KaActive)
-                {
-                    return await MySpells.Hagakure.Cast();
-                }
-                if (NumSen == 3 && (MovementManager.IsMoving || Shinra.Settings.RotationMode == Modes.Multi ||
-                                    Helpers.EnemiesNearPlayer(5) > 2))
+                if (NumSen == 3 && Resource.Kenki <= 40)
                 {
                     return await MySpells.Hagakure.Cast();
                 }

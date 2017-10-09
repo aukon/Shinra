@@ -366,6 +366,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool BardOpener { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Black Mage
@@ -419,6 +426,13 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool BlackMageTriplecast { get; set; }
+
+        #endregion
+
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool BlackMageOpener { get; set; }
 
         #endregion
 
@@ -1096,6 +1110,13 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int RedMageVercurePct { get; set; }
+
+        #endregion
+
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool RedMageOpener { get; set; }
 
         #endregion
 

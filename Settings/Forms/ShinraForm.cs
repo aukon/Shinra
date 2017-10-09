@@ -200,6 +200,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            BardOpener.Checked = Shinra.Settings.BardOpener;
+
+            #endregion
+
             #endregion
 
             #region Black Mage
@@ -234,6 +240,12 @@ namespace ShinraCo.Settings.Forms
             BlackMageSharpcast.Checked = Shinra.Settings.BlackMageSharpcast;
             BlackMageEnochian.Checked = Shinra.Settings.BlackMageEnochian;
             BlackMageTriplecast.Checked = Shinra.Settings.BlackMageTriplecast;
+
+            #endregion
+
+            #region Misc
+
+            BlackMageOpener.Checked = Shinra.Settings.BlackMageOpener;
 
             #endregion
 
@@ -623,6 +635,12 @@ namespace ShinraCo.Settings.Forms
 
             RedMageVercure.Checked = Shinra.Settings.RedMageVercure;
             RedMageVercurePct.Value = Shinra.Settings.RedMageVercurePct;
+
+            #endregion
+
+            #region Misc
+
+            RedMageOpener.Checked = Shinra.Settings.RedMageOpener;
 
             #endregion
 
@@ -1331,6 +1349,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Misc
+
+        private void BardOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardOpener = BardOpener.Checked;
+        }
+
+        #endregion
+
         #endregion
 
         #region Black Mage
@@ -1407,6 +1434,15 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageTriplecast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageTriplecast = BlackMageTriplecast.Checked;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void BlackMageOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageOpener = BlackMageOpener.Checked;
         }
 
         #endregion
@@ -2415,6 +2451,15 @@ namespace ShinraCo.Settings.Forms
         private void RedMageVercurePct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageVercurePct = Convert.ToInt32(RedMageVercurePct.Value);
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void RedMageOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageOpener = RedMageOpener.Checked;
         }
 
         #endregion

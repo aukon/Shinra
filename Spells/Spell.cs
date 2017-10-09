@@ -582,10 +582,13 @@ namespace ShinraCo.Spells
                 RecentSpell.Add(key, val);
             }
 
-            if (Shinra.OpenerStep == 0 && !RecentSpell.ContainsKey("Opener"))
+            if (SpellType == SpellType.Damage || SpellType == SpellType.DoT)
             {
-                var val = DateTime.UtcNow + TimeSpan.FromSeconds(3);
-                RecentSpell.Add("Opener", val);
+                if (!Shinra.OpenerFinished && !RecentSpell.ContainsKey("Opener") && await CastComplete(this, true))
+                {
+                    var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
+                    RecentSpell.Add("Opener", val);
+                }
             }
 
             #endregion
@@ -596,9 +599,9 @@ namespace ShinraCo.Spells
 
         #region CastComplete
 
-        private static async Task<bool> CastComplete(Spell spell)
+        private static async Task<bool> CastComplete(Spell spell, bool opener = false)
         {
-            if (spell.SpellType == SpellType.DoT)
+            if (spell.SpellType == SpellType.DoT || opener)
             {
                 var castTime = DataManager.GetSpellData(spell.ID).AdjustedCastTime;
                 if (castTime.TotalMilliseconds > 0)
