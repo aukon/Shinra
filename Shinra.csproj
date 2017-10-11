@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C1AA283-791A-4269-94B9-28086D4BA6EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShinraCo</RootNamespace>
+    <AssemblyName>Shinra</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>CS8012;CS1998</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GreyMagic, Version=1.0.41.0, Culture=neutral, PublicKeyToken=260525fa2b0e778a, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.165.0\GreyMagic.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RebornBuddy, Version=1.0.162.0, Culture=neutral, PublicKeyToken=48d7174f8a943034, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.165.0\RebornBuddy.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Aura.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Helpers\Boss.cs" />
+    <Compile Include="Helpers\Extensions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Helpers\Healing.cs" />
+    <Compile Include="Helpers\Unit.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Rotations\Behaviors\Astrologian.cs" />
+    <Compile Include="Rotations\Behaviors\BlackMage.cs" />
+    <Compile Include="Rotations\Behaviors\DarkKnight.cs" />
+    <Compile Include="Rotations\Behaviors\Dragoon.cs" />
+    <Compile Include="Rotations\Behaviors\Machinist.cs" />
+    <Compile Include="Rotations\Behaviors\Monk.cs" />
+    <Compile Include="Rotations\Behaviors\Ninja.cs" />
+    <Compile Include="Rotations\Behaviors\Scholar.cs" />
+    <Compile Include="Rotations\Behaviors\Summoner.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Rotations\Behaviors\Paladin.cs" />
+    <Compile Include="Rotations\Behaviors\RedMage.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Rotations\Behaviors\BasicClass.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Rotations\Behaviors\Bard.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Rotations\Behaviors\Default.cs" />
+    <Compile Include="Rotations\Behaviors\Samurai.cs" />
+    <Compile Include="Rotations\Behaviors\Warrior.cs" />
+    <Compile Include="Rotations\Behaviors\WhiteMage.cs" />
+    <Compile Include="Rotations\Methods\Astrologian.cs" />
+    <Compile Include="Rotations\Methods\Bard.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Rotations\Methods\BlackMage.cs" />
+    <Compile Include="Rotations\Methods\DarkKnight.cs" />
+    <Compile Include="Rotations\Methods\Dragoon.cs" />
+    <Compile Include="Rotations\Methods\Machinist.cs" />
+    <Compile Include="Rotations\Methods\Monk.cs" />
+    <Compile Include="Rotations\Methods\Ninja.cs" />
+    <Compile Include="Rotations\Methods\Scholar.cs" />
+    <Compile Include="Rotations\Methods\Summoner.cs" />
+    <Compile Include="Rotations\Methods\BasicClass.cs" />
+    <Compile Include="Rotations\Methods\Default.cs" />
+    <Compile Include="Rotations\Methods\Paladin.cs" />
+    <Compile Include="Rotations\Methods\RedMage.cs" />
+    <Compile Include="Rotations\Methods\Samurai.cs" />
+    <Compile Include="Rotations\Methods\Warrior.cs" />
+    <Compile Include="Rotations\Methods\WhiteMage.cs" />
+    <Compile Include="Rotations\Rotation.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Settings\Forms\Design\CustomControls.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Settings\Forms\Design\UserNumeric.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\Forms\Design\UserNumeric.Designer.cs">
+      <DependentUpon>UserNumeric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Forms\ShinraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Forms\ShinraForm.Designer.cs">
+      <DependentUpon>ShinraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Forms\ShinraOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\Forms\ShinraOverlay.Designer.cs">
+      <DependentUpon>ShinraOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ShinraSettings.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Shinra.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Main\AstrologianSpells.cs" />
+    <Compile Include="Spells\Main\BasicClassSpells.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Main\BardSpells.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Main\BlackMageSpells.cs" />
+    <Compile Include="Spells\Main\DarkKnightSpells.cs" />
+    <Compile Include="Spells\Main\DragoonSpells.cs" />
+    <Compile Include="Spells\Main\MachinistSpells.cs" />
+    <Compile Include="Spells\Main\MonkSpells.cs" />
+    <Compile Include="Spells\Main\NinjaSpells.cs" />
+    <Compile Include="Spells\Main\PaladinSpells.cs" />
+    <Compile Include="Spells\Main\SamuraiSpells.cs" />
+    <Compile Include="Spells\Main\RedMageSpells.cs" />
+    <Compile Include="Spells\Main\ScholarSpells.cs" />
+    <Compile Include="Spells\Main\SummonerSpells.cs" />
+    <Compile Include="Spells\Main\WarriorSpells.cs" />
+    <Compile Include="Spells\Main\WhiteMageSpells.cs" />
+    <Compile Include="Spells\Opener\BlackMageOpener.cs" />
+    <Compile Include="Spells\Opener\RedMageOpener.cs" />
+    <Compile Include="Spells\Opener\BardOpener.cs" />
+    <Compile Include="Spells\Opener\PaladinOpener.cs" />
+    <Compile Include="Spells\Opener\MachinistOpener.cs" />
+    <Compile Include="Spells\Role\HealerSpells.cs" />
+    <Compile Include="Spells\Role\MeleeSpells.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Role\CasterSpells.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Role\RangedSpells.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Spells\Role\TankSpells.cs" />
+    <Compile Include="Spells\Spell.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Forms\Design\UserNumeric.resx">
+      <DependentUpon>UserNumeric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Forms\ShinraForm.resx">
+      <DependentUpon>ShinraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\Forms\ShinraOverlay.resx">
+      <DependentUpon>ShinraOverlay.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Version.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
