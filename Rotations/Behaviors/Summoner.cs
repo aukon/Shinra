@@ -77,6 +77,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
+            if (await TriDisaster()) return true;
             return await Combat();
         }
 

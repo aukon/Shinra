@@ -282,7 +282,7 @@ namespace ShinraCo.Spells
 
             #region CanAttack
 
-            if (!target.CanAttack && CastType != CastType.Self)
+            if (!target.CanAttack && CastType != CastType.Self && CastType != CastType.SelfLocation)
             {
                 switch (SpellType)
                 {
