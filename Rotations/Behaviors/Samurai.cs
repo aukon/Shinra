@@ -26,6 +26,7 @@ namespace ShinraCo.Rotations
                 if (await Shifu()) return true;
                 if (await Jinpu()) return true;
                 if (await Yukikaze()) return true;
+                if (await Enpi()) return true;
                 return await Hakaze();
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
@@ -41,6 +42,7 @@ namespace ShinraCo.Rotations
                 if (await Shifu()) return true;
                 if (await Jinpu()) return true;
                 if (await Yukikaze()) return true;
+                if (await Enpi()) return true;
                 return await Hakaze();
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
@@ -55,6 +57,7 @@ namespace ShinraCo.Rotations
                 if (await Mangetsu()) return true;
                 if (await Oka()) return true;
                 if (await Fuga()) return true;
+                if (await Enpi()) return true;
                 return await Hakaze();
             }
             return false;
@@ -110,6 +113,8 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
+            if (await HissatsuGyoten()) return true;
+            if (await Enpi()) return true;
             return await Combat();
         }
 
