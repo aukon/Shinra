@@ -5,6 +5,7 @@ using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 using ShinraCo.Spells.Opener;
+using Resource = ff14bot.Managers.ActionResourceManager.RedMage;
 
 namespace ShinraCo.Rotations
 {
@@ -260,6 +261,13 @@ namespace ShinraCo.Rotations
             }
 
             var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
+            if (spell.Name == MySpells.EnchantedRiposte.Name && (WhiteMana < 80 || BlackMana < 80))
+            {
+                Helpers.Debug("Aborted opener due to mana levels.");
+                Shinra.OpenerFinished = true;
+                return true;
+            }
+
             Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
             if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
             {
@@ -310,8 +318,8 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static int WhiteMana => ActionResourceManager.RedMage.WhiteMana;
-        private static int BlackMana => ActionResourceManager.RedMage.BlackMana;
+        private static int WhiteMana => Resource.WhiteMana;
+        private static int BlackMana => Resource.BlackMana;
 
         private static bool UseOffGCD => ActionManager.LastSpell.Name == "Veraero" || ActionManager.LastSpell.Name == "Verthunder" ||
                                          ActionManager.LastSpell.Name == "Scatter";
