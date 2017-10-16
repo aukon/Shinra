@@ -29,7 +29,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (Core.Player.HasAura("Further Ruin") || !Resource.DreadwyrmTrance &&
+            if (Core.Player.HasAura("Further Ruin") || (!Resource.DreadwyrmTrance || RecentBahamut) &&
                 (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
             {
                 return await MySpells.RuinII.Cast();
@@ -221,12 +221,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.SummonerAetherpact && PetExists)
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS());
-
-                if (target != null)
-                {
-                    return await MySpells.Aetherpact.Cast();
-                }
+                return await MySpells.Aetherpact.Cast();
             }
             return false;
         }
