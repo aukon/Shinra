@@ -304,6 +304,14 @@ namespace ShinraCo.Rotations
                 }
             }
 
+            if (Shinra.Settings.MachinistPotion && Shinra.OpenerStep == 0)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Dex))
+                {
+                    return true;
+                }
+            }
+
             if (TurretExists)
             {
                 if (await MySpells.Hypercharge.Cast(null, false))

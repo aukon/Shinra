@@ -73,13 +73,6 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
-            #region Item
-
-            UsePotion.Checked = Shinra.Settings.UsePotion;
-            UsePotionPct.Value = Shinra.Settings.UsePotionPct;
-
-            #endregion
-
             #region Rest
 
             RestHealth.Checked = Shinra.Settings.RestHealth;
@@ -203,6 +196,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             BardOpener.Checked = Shinra.Settings.BardOpener;
+            BardPotion.Checked = Shinra.Settings.BardPotion;
 
             #endregion
 
@@ -246,6 +240,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             BlackMageOpener.Checked = Shinra.Settings.BlackMageOpener;
+            BlackMagePotion.Checked = Shinra.Settings.BlackMagePotion;
 
             #endregion
 
@@ -411,6 +406,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             MachinistOpener.Checked = Shinra.Settings.MachinistOpener;
+            MachinistPotion.Checked = Shinra.Settings.MachinistPotion;
             MachinistSyncWildfire.Checked = Shinra.Settings.MachinistSyncWildfire;
             MachinistSyncOverheat.Checked = Shinra.Settings.MachinistSyncOverheat;
 
@@ -599,6 +595,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             PaladinOpener.Checked = Shinra.Settings.PaladinOpener;
+            PaladinPotion.Checked = Shinra.Settings.PaladinPotion;
 
             #endregion
 
@@ -641,6 +638,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             RedMageOpener.Checked = Shinra.Settings.RedMageOpener;
+            RedMagePotion.Checked = Shinra.Settings.RedMagePotion;
 
             #endregion
 
@@ -1028,20 +1026,6 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
-        #region Item
-
-        private void UsePotion_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.UsePotion = UsePotion.Checked;
-        }
-
-        private void UsePotionPct_ValueChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.UsePotionPct = Convert.ToInt32(UsePotionPct.Value);
-        }
-
-        #endregion
-
         #region Rest
 
         private void RestHealth_CheckedChanged(object sender, EventArgs e)
@@ -1356,6 +1340,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.BardOpener = BardOpener.Checked;
         }
 
+        private void BardPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardPotion = BardPotion.Checked;
+        }
+
         #endregion
 
         #endregion
@@ -1443,6 +1432,11 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageOpener_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageOpener = BlackMageOpener.Checked;
+        }
+
+        private void BlackMagePotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMagePotion = BlackMagePotion.Checked;
         }
 
         #endregion
@@ -1882,6 +1876,11 @@ namespace ShinraCo.Settings.Forms
         private void MachinistOpener_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MachinistOpener = MachinistOpener.Checked;
+        }
+
+        private void MachinistPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistPotion = MachinistPotion.Checked;
         }
 
         private void MachinistSyncWildfire_CheckedChanged(object sender, EventArgs e)
@@ -2378,6 +2377,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.PaladinOpener = PaladinOpener.Checked;
         }
 
+        private void PaladinPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinPotion = PaladinPotion.Checked;
+        }
+
         #endregion
 
         #endregion
@@ -2460,6 +2464,11 @@ namespace ShinraCo.Settings.Forms
         private void RedMageOpener_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageOpener = RedMageOpener.Checked;
+        }
+
+        private void RedMagePotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMagePotion = RedMagePotion.Checked;
         }
 
         #endregion

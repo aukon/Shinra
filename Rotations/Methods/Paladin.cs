@@ -1,7 +1,5 @@
 ﻿using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
@@ -288,6 +286,14 @@ namespace ShinraCo.Rotations
             if (!Shinra.Settings.PaladinOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
             {
                 return false;
+            }
+
+            if (Shinra.Settings.PaladinPotion && Shinra.OpenerStep == 8)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Str))
+                {
+                    return true;
+                }
             }
 
             var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);

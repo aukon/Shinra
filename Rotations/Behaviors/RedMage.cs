@@ -83,7 +83,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            if (await Shinra.UsePotion()) return true;
             return await Vercure();
         }
 

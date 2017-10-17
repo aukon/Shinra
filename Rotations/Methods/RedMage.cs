@@ -260,6 +260,14 @@ namespace ShinraCo.Rotations
                 }
             }
 
+            if (Shinra.Settings.RedMagePotion && Shinra.OpenerStep == 3)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
+                {
+                    return true;
+                }
+            }
+
             var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
             if (spell.Name == MySpells.EnchantedRiposte.Name && (WhiteMana < 80 || BlackMana < 80))
             {

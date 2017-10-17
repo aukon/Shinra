@@ -251,6 +251,14 @@ namespace ShinraCo.Rotations
                 return false;
             }
 
+            if (Shinra.Settings.BardPotion && Shinra.OpenerStep == 0)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Dex))
+                {
+                    return true;
+                }
+            }
+
             if (Resource.Repertoire == 3)
             {
                 if (await MySpells.PitchPerfect.Cast(null, false))

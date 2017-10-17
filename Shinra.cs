@@ -361,30 +361,6 @@ namespace ShinraCo
 
         #endregion
 
-        #region Potion
-
-        public static async Task<bool> UsePotion()
-        {
-            if (!Settings.UsePotion || Core.Player.ClassLevel > 30 || Core.Player.CurrentHealthPercent > Settings.UsePotionPct)
-            {
-                return false;
-            }
-
-            var item = InventoryManager.FilledSlots.FirstOrDefault(s => s.Name == "Potion");
-
-            if (item == null || !item.CanUse())
-            {
-                return false;
-            }
-
-            item.UseItem();
-            await Coroutine.Wait(1000, () => !item.CanUse());
-            Logging.Write(Colors.Yellow, @"[Shinra] Using >>> Potion");
-            return true;
-        }
-
-        #endregion
-
         #region LastSpell
 
         private static Spell _lastSpell;

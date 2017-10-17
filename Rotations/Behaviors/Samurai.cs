@@ -92,7 +92,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            if (await Shinra.UsePotion()) return true;
             if (await SecondWind()) return true;
             if (await MercifulEyes()) return true;
             return await Bloodbath();

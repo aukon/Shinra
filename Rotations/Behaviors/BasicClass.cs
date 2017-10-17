@@ -97,7 +97,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            if (await Shinra.UsePotion()) return true;
             // Arcanist
             if (await Physick()) return true;
             // Conjurer

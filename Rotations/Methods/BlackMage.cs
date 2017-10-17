@@ -330,6 +330,14 @@ namespace ShinraCo.Rotations
                 }
             }
 
+            if (Shinra.Settings.BlackMagePotion && Shinra.OpenerStep == 9)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
+                {
+                    return true;
+                }
+            }
+
             var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
             Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
             if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
