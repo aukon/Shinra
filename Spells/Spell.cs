@@ -142,6 +142,71 @@ namespace ShinraCo.Spells
 
             #endregion
 
+            #region Pet
+
+            if (SpellType == SpellType.Pet)
+            {
+                #region PetExists
+
+                if (Core.Player.Pet == null)
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region PetMode
+
+                if (PetManager.PetMode != PetMode.Obey)
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region IsMounted
+
+                if (Core.Player.IsMounted)
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region CanCast
+
+                if (!PetManager.CanCast(Name, target))
+                {
+                    return false;
+                }
+
+                #endregion
+
+                #region DoAction
+
+                if (!await Coroutine.Wait(5000, () => PetManager.DoAction(Name, target)))
+                {
+                    return false;
+                }
+
+                #endregion
+
+                Shinra.LastSpell = this;
+
+                #region AddRecent
+
+                var key = target.ObjectId.ToString("X") + "-" + Name;
+                var val = DateTime.UtcNow + TimeSpan.FromSeconds(3);
+                RecentSpell.Add(key, val);
+
+                #endregion
+
+                Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
+                return true;
+            }
+
+            #endregion
+
             #region Card
 
             if (SpellType == SpellType.Card)
@@ -572,6 +637,7 @@ namespace ShinraCo.Spells
             #endregion
 
             Shinra.LastSpell = this;
+            Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
 
             #region AddRecent
 
@@ -593,7 +659,6 @@ namespace ShinraCo.Spells
 
             #endregion
 
-            Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
             return true;
         }
 

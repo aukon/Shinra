@@ -147,17 +147,21 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> CarveAndSpit()
         {
-            if (Shinra.Settings.DarkKnightCarveAndSpit && (Shinra.Settings.DarkKnightCarveArts || Core.Player.CurrentManaPercent < 70))
+            if (Shinra.Settings.DarkKnightCarveAndSpit)
             {
-                if (Shinra.Settings.DarkKnightCarveArts && Core.Player.CurrentManaPercent > 40 &&
-                    ActionManager.CanCast(MySpells.CarveAndSpit.Name, Core.Player.CurrentTarget))
+                if (Shinra.Settings.DarkKnightCarveArts && ActionManager.CanCast(MySpells.CarveAndSpit.Name, Core.Player.CurrentTarget))
                 {
                     if (await MySpells.DarkArts.Cast())
                     {
                         await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
                     }
                 }
-                return await MySpells.CarveAndSpit.Cast(null, !Core.Player.HasAura(MySpells.DarkArts.Name));
+
+                if (Core.Player.HasAura(MySpells.DarkArts.Name) || Core.Player.CurrentManaPercent < 30 ||
+                    !Shinra.Settings.DarkKnightCarveArts && Core.Player.CurrentManaPercent < 70)
+                {
+                    return await MySpells.CarveAndSpit.Cast(null, !Core.Player.HasAura(MySpells.DarkArts.Name));
+                }
             }
             return false;
         }

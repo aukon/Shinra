@@ -8,6 +8,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
+            if (await Opener()) return true;
             if (await Drain()) return true;
             if (await MiasmaIII()) return true;
             if (await Miasma()) return true;
@@ -27,6 +28,8 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (await Opener()) return true;
+            if (await Sic()) return true;
             if (await SummonIII()) return true;
             if (await SummonII()) return true;
             if (await Summon()) return true;
@@ -67,7 +70,8 @@ namespace ShinraCo.Rotations
             if (await Aetherflow()) return true;
             if (await SummonIII()) return true;
             if (await SummonII()) return true;
-            return await Summon();
+            if (await Summon()) return true;
+            return await Obey();
         }
 
         #endregion
@@ -76,6 +80,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
+            if (await Opener()) return true;
             if (await TriDisaster()) return true;
             return await Combat();
         }

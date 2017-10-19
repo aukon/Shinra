@@ -179,6 +179,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Target
         };
 
+        public Spell Contagion { get; } = new Spell
+        {
+            Name = "Contagion",
+            ID = 795,
+            Level = 40,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Pet,
+            CastType = CastType.Target
+        };
+
         public Spell Enkindle { get; } = new Spell
         {
             Name = "Enkindle",

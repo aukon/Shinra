@@ -42,7 +42,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> ImpulseDrive()
         {
             if (ActionManager.HasSpell(MySpells.ChaosThrust.Name) &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 6000) ||
+                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 12000) ||
                 ActionManager.HasSpell(MySpells.Disembowel.Name) && !Core.Player.CurrentTarget.HasAura(820))
             {
                 return await MySpells.ImpulseDrive.Cast();

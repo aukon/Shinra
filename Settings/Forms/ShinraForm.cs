@@ -808,6 +808,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            SummonerOpener.Checked = Shinra.Settings.SummonerOpener;
+            SummonerPotion.Checked = Shinra.Settings.SummonerPotion;
+
+            #endregion
+
             #endregion
 
             #region Warrior
@@ -2879,6 +2886,20 @@ namespace ShinraCo.Settings.Forms
             if (SummonerPet.Text == @"Garuda") Shinra.Settings.SummonerPet = SummonerPets.Garuda;
             if (SummonerPet.Text == @"Titan") Shinra.Settings.SummonerPet = SummonerPets.Titan;
             if (SummonerPet.Text == @"Ifrit") Shinra.Settings.SummonerPet = SummonerPets.Ifrit;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void SummonerOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerOpener = SummonerOpener.Checked;
+        }
+
+        private void SummonerPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerPotion = SummonerPotion.Checked;
         }
 
         #endregion

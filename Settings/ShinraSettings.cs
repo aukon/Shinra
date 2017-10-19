@@ -1400,6 +1400,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool SummonerOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool SummonerPotion { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Warrior

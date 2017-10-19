@@ -63,6 +63,7 @@
             this.tabCasters = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBlackMage = new System.Windows.Forms.TabPage();
             this.BlackMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BlackMageThunder = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -89,6 +90,7 @@
             this.BlackMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeRedMage = new System.Windows.Forms.TabPage();
             this.RedMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RedMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RedMageManafication = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -399,6 +401,7 @@
             this.tabRanged = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBard = new System.Windows.Forms.TabPage();
             this.BardMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BardPitchPerfect = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -428,6 +431,7 @@
             this.BardSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMachinist = new System.Windows.Forms.TabPage();
             this.MachinistMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistSyncOverheat = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -596,10 +600,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BlackMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.RedMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -714,6 +717,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.SummonerMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -1188,6 +1192,21 @@
             this.BlackMageMiscGroup.TabStop = false;
             this.BlackMageMiscGroup.Text = "Misc";
             // 
+            // BlackMagePotion
+            // 
+            this.BlackMagePotion.AutoSize = true;
+            this.BlackMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMagePotion.ForeColor = System.Drawing.Color.White;
+            this.BlackMagePotion.Location = new System.Drawing.Point(6, 39);
+            this.BlackMagePotion.Name = "BlackMagePotion";
+            this.BlackMagePotion.Size = new System.Drawing.Size(80, 17);
+            this.BlackMagePotion.TabIndex = 1;
+            this.BlackMagePotion.TabStop = false;
+            this.BlackMagePotion.Text = "Use potion";
+            this.BlackMagePotion.UseVisualStyleBackColor = true;
+            this.BlackMagePotion.CheckedChanged += new System.EventHandler(this.BlackMagePotion_CheckedChanged);
+            // 
             // BlackMageOpener
             // 
             this.BlackMageOpener.AutoSize = true;
@@ -1563,6 +1582,21 @@
             this.RedMageMiscGroup.TabStop = false;
             this.RedMageMiscGroup.Text = "Misc";
             // 
+            // RedMagePotion
+            // 
+            this.RedMagePotion.AutoSize = true;
+            this.RedMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RedMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMagePotion.ForeColor = System.Drawing.Color.White;
+            this.RedMagePotion.Location = new System.Drawing.Point(6, 39);
+            this.RedMagePotion.Name = "RedMagePotion";
+            this.RedMagePotion.Size = new System.Drawing.Size(80, 17);
+            this.RedMagePotion.TabIndex = 1;
+            this.RedMagePotion.TabStop = false;
+            this.RedMagePotion.Text = "Use potion";
+            this.RedMagePotion.UseVisualStyleBackColor = true;
+            this.RedMagePotion.CheckedChanged += new System.EventHandler(this.RedMagePotion_CheckedChanged);
+            // 
             // RedMageOpener
             // 
             this.RedMageOpener.AutoSize = true;
@@ -1891,6 +1925,7 @@
             // pgeSummoner
             // 
             this.pgeSummoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSummoner.Controls.Add(this.SummonerMiscGroup);
             this.pgeSummoner.Controls.Add(this.SummonerAoEGroup);
             this.pgeSummoner.Controls.Add(this.SummonerCooldownGroup);
             this.pgeSummoner.Controls.Add(this.SummonerBuffGroup);
@@ -6001,6 +6036,21 @@
             this.BardMiscGroup.TabStop = false;
             this.BardMiscGroup.Text = "Misc";
             // 
+            // BardPotion
+            // 
+            this.BardPotion.AutoSize = true;
+            this.BardPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardPotion.ForeColor = System.Drawing.Color.White;
+            this.BardPotion.Location = new System.Drawing.Point(6, 39);
+            this.BardPotion.Name = "BardPotion";
+            this.BardPotion.Size = new System.Drawing.Size(80, 17);
+            this.BardPotion.TabIndex = 1;
+            this.BardPotion.TabStop = false;
+            this.BardPotion.Text = "Use potion";
+            this.BardPotion.UseVisualStyleBackColor = true;
+            this.BardPotion.CheckedChanged += new System.EventHandler(this.BardPotion_CheckedChanged);
+            // 
             // BardOpener
             // 
             this.BardOpener.AutoSize = true;
@@ -6417,6 +6467,21 @@
             this.MachinistMiscGroup.TabIndex = 4;
             this.MachinistMiscGroup.TabStop = false;
             this.MachinistMiscGroup.Text = "Misc";
+            // 
+            // MachinistPotion
+            // 
+            this.MachinistPotion.AutoSize = true;
+            this.MachinistPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistPotion.ForeColor = System.Drawing.Color.White;
+            this.MachinistPotion.Location = new System.Drawing.Point(6, 39);
+            this.MachinistPotion.Name = "MachinistPotion";
+            this.MachinistPotion.Size = new System.Drawing.Size(80, 17);
+            this.MachinistPotion.TabIndex = 3;
+            this.MachinistPotion.TabStop = false;
+            this.MachinistPotion.Text = "Use potion";
+            this.MachinistPotion.UseVisualStyleBackColor = true;
+            this.MachinistPotion.CheckedChanged += new System.EventHandler(this.MachinistPotion_CheckedChanged);
             // 
             // MachinistSyncOverheat
             // 
@@ -8792,65 +8857,47 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BlackMagePotion
+            // SummonerMiscGroup
             // 
-            this.BlackMagePotion.AutoSize = true;
-            this.BlackMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BlackMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMagePotion.ForeColor = System.Drawing.Color.White;
-            this.BlackMagePotion.Location = new System.Drawing.Point(6, 39);
-            this.BlackMagePotion.Name = "BlackMagePotion";
-            this.BlackMagePotion.Size = new System.Drawing.Size(80, 17);
-            this.BlackMagePotion.TabIndex = 1;
-            this.BlackMagePotion.TabStop = false;
-            this.BlackMagePotion.Text = "Use potion";
-            this.BlackMagePotion.UseVisualStyleBackColor = true;
-            this.BlackMagePotion.CheckedChanged += new System.EventHandler(this.BlackMagePotion_CheckedChanged);
+            this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
+            this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
+            this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerMiscGroup.Location = new System.Drawing.Point(229, 292);
+            this.SummonerMiscGroup.Name = "SummonerMiscGroup";
+            this.SummonerMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.SummonerMiscGroup.TabIndex = 6;
+            this.SummonerMiscGroup.TabStop = false;
+            this.SummonerMiscGroup.Text = "Misc";
             // 
-            // BardPotion
+            // SummonerOpener
             // 
-            this.BardPotion.AutoSize = true;
-            this.BardPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardPotion.ForeColor = System.Drawing.Color.White;
-            this.BardPotion.Location = new System.Drawing.Point(6, 39);
-            this.BardPotion.Name = "BardPotion";
-            this.BardPotion.Size = new System.Drawing.Size(80, 17);
-            this.BardPotion.TabIndex = 1;
-            this.BardPotion.TabStop = false;
-            this.BardPotion.Text = "Use potion";
-            this.BardPotion.UseVisualStyleBackColor = true;
-            this.BardPotion.CheckedChanged += new System.EventHandler(this.BardPotion_CheckedChanged);
+            this.SummonerOpener.AutoSize = true;
+            this.SummonerOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerOpener.ForeColor = System.Drawing.Color.White;
+            this.SummonerOpener.Location = new System.Drawing.Point(6, 16);
+            this.SummonerOpener.Name = "SummonerOpener";
+            this.SummonerOpener.Size = new System.Drawing.Size(82, 17);
+            this.SummonerOpener.TabIndex = 0;
+            this.SummonerOpener.TabStop = false;
+            this.SummonerOpener.Text = "Use opener";
+            this.SummonerOpener.UseVisualStyleBackColor = true;
+            this.SummonerOpener.CheckedChanged += new System.EventHandler(this.SummonerOpener_CheckedChanged);
             // 
-            // MachinistPotion
+            // SummonerPotion
             // 
-            this.MachinistPotion.AutoSize = true;
-            this.MachinistPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistPotion.ForeColor = System.Drawing.Color.White;
-            this.MachinistPotion.Location = new System.Drawing.Point(6, 39);
-            this.MachinistPotion.Name = "MachinistPotion";
-            this.MachinistPotion.Size = new System.Drawing.Size(80, 17);
-            this.MachinistPotion.TabIndex = 3;
-            this.MachinistPotion.TabStop = false;
-            this.MachinistPotion.Text = "Use potion";
-            this.MachinistPotion.UseVisualStyleBackColor = true;
-            this.MachinistPotion.CheckedChanged += new System.EventHandler(this.MachinistPotion_CheckedChanged);
-            // 
-            // RedMagePotion
-            // 
-            this.RedMagePotion.AutoSize = true;
-            this.RedMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RedMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMagePotion.ForeColor = System.Drawing.Color.White;
-            this.RedMagePotion.Location = new System.Drawing.Point(6, 39);
-            this.RedMagePotion.Name = "RedMagePotion";
-            this.RedMagePotion.Size = new System.Drawing.Size(80, 17);
-            this.RedMagePotion.TabIndex = 1;
-            this.RedMagePotion.TabStop = false;
-            this.RedMagePotion.Text = "Use potion";
-            this.RedMagePotion.UseVisualStyleBackColor = true;
-            this.RedMagePotion.CheckedChanged += new System.EventHandler(this.RedMagePotion_CheckedChanged);
+            this.SummonerPotion.AutoSize = true;
+            this.SummonerPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerPotion.ForeColor = System.Drawing.Color.White;
+            this.SummonerPotion.Location = new System.Drawing.Point(6, 39);
+            this.SummonerPotion.Name = "SummonerPotion";
+            this.SummonerPotion.Size = new System.Drawing.Size(80, 17);
+            this.SummonerPotion.TabIndex = 1;
+            this.SummonerPotion.TabStop = false;
+            this.SummonerPotion.Text = "Use potion";
+            this.SummonerPotion.UseVisualStyleBackColor = true;
+            this.SummonerPotion.CheckedChanged += new System.EventHandler(this.SummonerPotion_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -9057,6 +9104,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.SummonerMiscGroup.ResumeLayout(false);
+            this.SummonerMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9635,5 +9684,8 @@
         private Design.CustomCheck BardPotion;
         private Design.CustomCheck MachinistPotion;
         private Design.CustomCheck RedMagePotion;
+        private Design.CustomGroup SummonerMiscGroup;
+        private Design.CustomCheck SummonerPotion;
+        private Design.CustomCheck SummonerOpener;
     }
 }

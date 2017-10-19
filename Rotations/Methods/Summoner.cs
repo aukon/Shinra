@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using Buddy.Coroutines;
 using ff14bot;
+using ff14bot.Helpers;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
+using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.Summoner;
 using ResourceArcanist = ff14bot.Managers.ActionResourceManager.Arcanist;
 
@@ -15,6 +18,7 @@ namespace ShinraCo.Rotations
     public sealed partial class Summoner
     {
         private SummonerSpells MySpells { get; } = new SummonerSpells();
+        private SummonerOpener MyOpener { get; } = new SummonerOpener();
 
         #region Damage
 
@@ -192,7 +196,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Aetherflow()
         {
-            if (ResourceArcanist.Aetherflow == 0)
+            if (ResourceArcanist.Aetherflow == 0 || Shinra.Settings.SummonerOpener && !Core.Player.InCombat &&
+                ResourceArcanist.Aetherflow < 3)
             {
                 return await MySpells.Aetherflow.Cast(null, false);
             }
@@ -228,7 +233,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonBahamut()
         {
-            if (Shinra.Settings.SummonerSummonBahamut)
+            if (Shinra.Settings.SummonerSummonBahamut && (ResourceArcanist.Aetherflow == 3 || MySpells.Aetherflow.Cooldown() == 0))
             {
                 if (await MySpells.SummonBahamut.Cast(null, false))
                 {
@@ -263,16 +268,20 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Summon()
         {
-            if (Shinra.Settings.SummonerPet == SummonerPets.None ||
-                Shinra.Settings.SummonerPet == SummonerPets.Titan && ActionManager.HasSpell(MySpells.SummonII.Name) ||
-                Shinra.Settings.SummonerPet == SummonerPets.Ifrit && ActionManager.HasSpell(MySpells.SummonIII.Name))
+            if (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished)
             {
-                return false;
+                if (Shinra.Settings.SummonerPet == SummonerPets.None ||
+                    Shinra.Settings.SummonerPet == SummonerPets.Titan && ActionManager.HasSpell(MySpells.SummonII.Name) ||
+                    Shinra.Settings.SummonerPet == SummonerPets.Ifrit && ActionManager.HasSpell(MySpells.SummonIII.Name))
+                {
+                    return false;
+                }
             }
 
             if (PetManager.ActivePetType != PetType.Emerald_Carbuncle && PetManager.ActivePetType != PetType.Garuda_Egi && !RecentBahamut)
             {
-                if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.Summon.Name, Core.Player))
+                if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.Summon.Name, Core.Player) &&
+                    (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -286,6 +295,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonII()
         {
+            if (Shinra.Settings.SummonerOpener && !Shinra.OpenerFinished)
+            {
+                return false;
+            }
+
             if (Shinra.Settings.SummonerPet == SummonerPets.Titan && PetManager.ActivePetType != PetType.Topaz_Carbuncle &&
                 PetManager.ActivePetType != PetType.Titan_Egi && !RecentBahamut)
             {
@@ -303,6 +317,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonIII()
         {
+            if (Shinra.Settings.SummonerOpener && !Shinra.OpenerFinished)
+            {
+                return false;
+            }
+
             if (Shinra.Settings.SummonerPet == SummonerPets.Ifrit && PetManager.ActivePetType != PetType.Ifrit_Egi && !RecentBahamut)
             {
                 if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.SummonIII.Name, Core.Player))
@@ -315,6 +334,122 @@ namespace ShinraCo.Rotations
                 return await MySpells.SummonIII.Cast();
             }
             return false;
+        }
+
+        private async Task<bool> Sic()
+        {
+            if (PetManager.ActivePetType == PetType.Ifrit_Egi && PetManager.PetMode != PetMode.Sic)
+            {
+                if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Core.Player)))
+                {
+                    Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Sic");
+                    return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Sic);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Obey()
+        {
+            if (PetManager.ActivePetType == PetType.Garuda_Egi && PetManager.PetMode != PetMode.Obey)
+            {
+                if (await Coroutine.Wait(1000, () => PetManager.DoAction("Obey", Core.Player)))
+                {
+                    Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Obey");
+                    return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Obey);
+                }
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region Opener
+
+        private async Task<bool> Opener()
+        {
+            if (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
+            {
+                return false;
+            }
+
+            #region Custom Logic
+
+            if (PetManager.ActivePetType == PetType.Ifrit_Egi && PetManager.PetMode != PetMode.Sic)
+            {
+                if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Core.Player)))
+                {
+                    Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Sic");
+                    return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Sic);
+                }
+            }
+
+            if (Shinra.OpenerStep == 1)
+            {
+                if (PetManager.ActivePetType == PetType.Garuda_Egi && PetManager.PetMode == PetMode.Obey)
+                {
+                    if (await MySpells.Contagion.Cast())
+                    {
+                        return true;
+                    }
+                }
+                if (ResourceArcanist.Aetherflow < 3 || MySpells.Aetherflow.Cooldown() > 15000)
+                {
+                    Helpers.Debug("Aborting opener due to Aetherflow charges.");
+                    Shinra.OpenerFinished = true;
+                    return true;
+                }
+            }
+
+            #endregion
+
+            if (Shinra.Settings.SummonerPotion && Shinra.OpenerStep == 2)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
+                {
+                    return true;
+                }
+            }
+
+            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
+
+            #region Custom Logic
+
+            if (spell.Name == MySpells.SummonIII.Name)
+            {
+                if (PetManager.ActivePetType == PetType.Ifrit_Egi || !Core.Player.HasAura(MySpells.Role.Swiftcast.Name))
+                {
+                    Shinra.OpenerStep++;
+                    return true;
+                }
+            }
+
+            if (spell.Name == MySpells.Fester.Name && ResourceArcanist.Aetherflow > 0)
+            {
+                if (spell.Cooldown() > 0)
+                {
+                    return true;
+                }
+            }
+
+            #endregion
+
+            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
+            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
+            {
+                Shinra.OpenerStep++;
+                if (spell.Name == MySpells.Role.Swiftcast.Name)
+                {
+                    await Coroutine.Wait(1000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                }
+            }
+
+            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
+            {
+                Helpers.Debug("Opener finished.");
+                Shinra.OpenerFinished = true;
+            }
+            return true;
         }
 
         #endregion
