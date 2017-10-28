@@ -115,6 +115,9 @@
             this.RedMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeSummoner = new System.Windows.Forms.TabPage();
+            this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SummonerBane = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -600,9 +603,8 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.SummonerOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SummonerPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -627,6 +629,7 @@
             this.RedMageHealGroup.SuspendLayout();
             this.RedMageRoleGroup.SuspendLayout();
             this.pgeSummoner.SuspendLayout();
+            this.SummonerMiscGroup.SuspendLayout();
             this.SummonerAoEGroup.SuspendLayout();
             this.SummonerCooldownGroup.SuspendLayout();
             this.SummonerBuffGroup.SuspendLayout();
@@ -717,7 +720,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.SummonerMiscGroup.SuspendLayout();
+            this.SpellGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -788,6 +791,7 @@
             // pgeMain
             // 
             this.pgeMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMain.Controls.Add(this.SpellGroup);
             this.pgeMain.Controls.Add(this.MiscGroup);
             this.pgeMain.Controls.Add(this.RestGroup);
             this.pgeMain.Controls.Add(this.ShinraDonate);
@@ -1939,6 +1943,48 @@
             this.pgeSummoner.TabIndex = 2;
             this.pgeSummoner.Text = "Summoner";
             this.pgeSummoner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // SummonerMiscGroup
+            // 
+            this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
+            this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
+            this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerMiscGroup.Location = new System.Drawing.Point(229, 292);
+            this.SummonerMiscGroup.Name = "SummonerMiscGroup";
+            this.SummonerMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.SummonerMiscGroup.TabIndex = 6;
+            this.SummonerMiscGroup.TabStop = false;
+            this.SummonerMiscGroup.Text = "Misc";
+            // 
+            // SummonerPotion
+            // 
+            this.SummonerPotion.AutoSize = true;
+            this.SummonerPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerPotion.ForeColor = System.Drawing.Color.White;
+            this.SummonerPotion.Location = new System.Drawing.Point(6, 39);
+            this.SummonerPotion.Name = "SummonerPotion";
+            this.SummonerPotion.Size = new System.Drawing.Size(80, 17);
+            this.SummonerPotion.TabIndex = 1;
+            this.SummonerPotion.TabStop = false;
+            this.SummonerPotion.Text = "Use potion";
+            this.SummonerPotion.UseVisualStyleBackColor = true;
+            this.SummonerPotion.CheckedChanged += new System.EventHandler(this.SummonerPotion_CheckedChanged);
+            // 
+            // SummonerOpener
+            // 
+            this.SummonerOpener.AutoSize = true;
+            this.SummonerOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerOpener.ForeColor = System.Drawing.Color.White;
+            this.SummonerOpener.Location = new System.Drawing.Point(6, 16);
+            this.SummonerOpener.Name = "SummonerOpener";
+            this.SummonerOpener.Size = new System.Drawing.Size(82, 17);
+            this.SummonerOpener.TabIndex = 0;
+            this.SummonerOpener.TabStop = false;
+            this.SummonerOpener.Text = "Use opener";
+            this.SummonerOpener.UseVisualStyleBackColor = true;
+            this.SummonerOpener.CheckedChanged += new System.EventHandler(this.SummonerOpener_CheckedChanged);
             // 
             // SummonerAoEGroup
             // 
@@ -8857,52 +8903,35 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SummonerMiscGroup
+            // SpellGroup
             // 
-            this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
-            this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
-            this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerMiscGroup.Location = new System.Drawing.Point(229, 292);
-            this.SummonerMiscGroup.Name = "SummonerMiscGroup";
-            this.SummonerMiscGroup.Size = new System.Drawing.Size(94, 66);
-            this.SummonerMiscGroup.TabIndex = 6;
-            this.SummonerMiscGroup.TabStop = false;
-            this.SummonerMiscGroup.Text = "Misc";
+            this.SpellGroup.Controls.Add(this.RandomCastLocations);
+            this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SpellGroup.Location = new System.Drawing.Point(440, 79);
+            this.SpellGroup.Name = "SpellGroup";
+            this.SpellGroup.Size = new System.Drawing.Size(165, 43);
+            this.SpellGroup.TabIndex = 5;
+            this.SpellGroup.TabStop = false;
+            this.SpellGroup.Text = "Spell";
             // 
-            // SummonerOpener
+            // RandomCastLocations
             // 
-            this.SummonerOpener.AutoSize = true;
-            this.SummonerOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SummonerOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerOpener.ForeColor = System.Drawing.Color.White;
-            this.SummonerOpener.Location = new System.Drawing.Point(6, 16);
-            this.SummonerOpener.Name = "SummonerOpener";
-            this.SummonerOpener.Size = new System.Drawing.Size(82, 17);
-            this.SummonerOpener.TabIndex = 0;
-            this.SummonerOpener.TabStop = false;
-            this.SummonerOpener.Text = "Use opener";
-            this.SummonerOpener.UseVisualStyleBackColor = true;
-            this.SummonerOpener.CheckedChanged += new System.EventHandler(this.SummonerOpener_CheckedChanged);
-            // 
-            // SummonerPotion
-            // 
-            this.SummonerPotion.AutoSize = true;
-            this.SummonerPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SummonerPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerPotion.ForeColor = System.Drawing.Color.White;
-            this.SummonerPotion.Location = new System.Drawing.Point(6, 39);
-            this.SummonerPotion.Name = "SummonerPotion";
-            this.SummonerPotion.Size = new System.Drawing.Size(80, 17);
-            this.SummonerPotion.TabIndex = 1;
-            this.SummonerPotion.TabStop = false;
-            this.SummonerPotion.Text = "Use potion";
-            this.SummonerPotion.UseVisualStyleBackColor = true;
-            this.SummonerPotion.CheckedChanged += new System.EventHandler(this.SummonerPotion_CheckedChanged);
+            this.RandomCastLocations.AutoSize = true;
+            this.RandomCastLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RandomCastLocations.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RandomCastLocations.ForeColor = System.Drawing.Color.White;
+            this.RandomCastLocations.Location = new System.Drawing.Point(6, 16);
+            this.RandomCastLocations.Name = "RandomCastLocations";
+            this.RandomCastLocations.Size = new System.Drawing.Size(153, 17);
+            this.RandomCastLocations.TabIndex = 0;
+            this.RandomCastLocations.TabStop = false;
+            this.RandomCastLocations.Text = "Randomise cast locations";
+            this.RandomCastLocations.UseVisualStyleBackColor = true;
+            this.RandomCastLocations.CheckedChanged += new System.EventHandler(this.RandomCastLocations_CheckedChanged);
             // 
             // ShinraForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(904, 504);
             this.Controls.Add(this.ShinraContainer);
@@ -8951,6 +8980,8 @@
             this.RedMageRoleGroup.ResumeLayout(false);
             this.RedMageRoleGroup.PerformLayout();
             this.pgeSummoner.ResumeLayout(false);
+            this.SummonerMiscGroup.ResumeLayout(false);
+            this.SummonerMiscGroup.PerformLayout();
             this.SummonerAoEGroup.ResumeLayout(false);
             this.SummonerAoEGroup.PerformLayout();
             this.SummonerCooldownGroup.ResumeLayout(false);
@@ -9104,8 +9135,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.SummonerMiscGroup.ResumeLayout(false);
-            this.SummonerMiscGroup.PerformLayout();
+            this.SpellGroup.ResumeLayout(false);
+            this.SpellGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9687,5 +9718,7 @@
         private Design.CustomGroup SummonerMiscGroup;
         private Design.CustomCheck SummonerPotion;
         private Design.CustomCheck SummonerOpener;
+        private Design.CustomGroup SpellGroup;
+        private Design.CustomCheck RandomCastLocations;
     }
 }

@@ -20,7 +20,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Blizzard()
         {
-            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) && !UmbralIce)
+            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) && (!UmbralIce || !ActionManager.HasSpell(MySpells.Fire.Name)))
             {
                 return await MySpells.Blizzard.Cast();
             }

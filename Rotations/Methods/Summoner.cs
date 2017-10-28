@@ -33,7 +33,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (Core.Player.HasAura("Further Ruin") || (!Resource.DreadwyrmTrance || RecentBahamut) &&
+            if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
                 (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
             {
                 return await MySpells.RuinII.Cast();
@@ -185,7 +185,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.SummonerEnkindleBahamut)
             {
-                return await MySpells.EnkindleBahamut.Cast(null, false);
+                return await MySpells.EnkindleBahamut.Cast();
             }
             return false;
         }
@@ -233,11 +233,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonBahamut()
         {
-            if (Shinra.Settings.SummonerSummonBahamut && (ResourceArcanist.Aetherflow == 3 || MySpells.Aetherflow.Cooldown() == 0))
+            if (Shinra.Settings.SummonerSummonBahamut && ResourceArcanist.Aetherflow == 3)
             {
                 if (await MySpells.SummonBahamut.Cast(null, false))
                 {
-                    Spell.RecentSpell.Add("Summon Bahamut", DateTime.UtcNow + TimeSpan.FromMilliseconds(25000));
+                    Spell.RecentSpell.Add("Summon Bahamut", DateTime.UtcNow + TimeSpan.FromMilliseconds(22000));
                     return true;
                 }
             }
@@ -490,7 +490,7 @@ namespace ShinraCo.Rotations
         private static string BioDebuff => Core.Player.ClassLevel >= 66 ? "Bio III" : Core.Player.ClassLevel >= 26 ? "Bio II" : "Bio";
         private static string MiasmaDebuff => Core.Player.ClassLevel >= 66 ? "Miasma III" : "Miasma";
         private static bool RecentDoT { get { return Spell.RecentSpell.Keys.Any(key => key.Contains("Tri-disaster")); } }
-        private static bool RecentBahamut => Spell.RecentSpell.ContainsKey("Summon Bahamut");
+        private static bool RecentBahamut => Spell.RecentSpell.ContainsKey("Summon Bahamut") || (int)PetManager.ActivePetType == 10;
         private static bool PetExists => Core.Player.Pet != null;
 
         private bool AetherLow => !ActionManager.HasSpell(MySpells.DreadwyrmTrance.Name) && ResourceArcanist.Aetherflow == 1 &&

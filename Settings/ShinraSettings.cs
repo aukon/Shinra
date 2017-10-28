@@ -162,6 +162,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Spell
+
+        [Setting, DefaultValue(true)]
+        public bool RandomCastLocations { get; set; }
+
+        #endregion
+
         #region Misc
 
         [Setting, DefaultValue(false)]

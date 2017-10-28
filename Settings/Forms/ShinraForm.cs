@@ -83,6 +83,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Spell
+
+            RandomCastLocations.Checked = Shinra.Settings.RandomCastLocations;
+
+            #endregion
+
             #region Misc
 
             DebugLogging.Checked = Shinra.Settings.DebugLogging;
@@ -1053,6 +1059,15 @@ namespace ShinraCo.Settings.Forms
         private void RestEnergyPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RestEnergyPct = Convert.ToInt32(RestEnergyPct.Value);
+        }
+
+        #endregion
+
+        #region Spell
+
+        private void RandomCastLocations_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RandomCastLocations = RandomCastLocations.Checked;
         }
 
         #endregion
