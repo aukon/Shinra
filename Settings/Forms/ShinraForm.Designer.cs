@@ -34,6 +34,8 @@
             this.ShinraClose = new ShinraCo.Settings.Forms.Design.NoSelectButton();
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
+            this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -603,12 +605,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.pgeMain.SuspendLayout();
+            this.SpellGroup.SuspendLayout();
             this.MiscGroup.SuspendLayout();
             this.RestGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).BeginInit();
@@ -720,7 +721,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.SpellGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -748,6 +748,7 @@
             this.ShinraBanner.Location = new System.Drawing.Point(0, 0);
             this.ShinraBanner.Name = "ShinraBanner";
             this.ShinraBanner.Size = new System.Drawing.Size(900, 100);
+            this.ShinraBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShinraBanner.TabIndex = 0;
             this.ShinraBanner.TabStop = false;
             this.ShinraBanner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -804,6 +805,32 @@
             this.pgeMain.TabIndex = 0;
             this.pgeMain.Text = "Main";
             this.pgeMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // SpellGroup
+            // 
+            this.SpellGroup.Controls.Add(this.RandomCastLocations);
+            this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SpellGroup.Location = new System.Drawing.Point(440, 79);
+            this.SpellGroup.Name = "SpellGroup";
+            this.SpellGroup.Size = new System.Drawing.Size(165, 43);
+            this.SpellGroup.TabIndex = 5;
+            this.SpellGroup.TabStop = false;
+            this.SpellGroup.Text = "Spell";
+            // 
+            // RandomCastLocations
+            // 
+            this.RandomCastLocations.AutoSize = true;
+            this.RandomCastLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RandomCastLocations.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RandomCastLocations.ForeColor = System.Drawing.Color.White;
+            this.RandomCastLocations.Location = new System.Drawing.Point(6, 16);
+            this.RandomCastLocations.Name = "RandomCastLocations";
+            this.RandomCastLocations.Size = new System.Drawing.Size(153, 17);
+            this.RandomCastLocations.TabIndex = 0;
+            this.RandomCastLocations.TabStop = false;
+            this.RandomCastLocations.Text = "Randomise cast locations";
+            this.RandomCastLocations.UseVisualStyleBackColor = true;
+            this.RandomCastLocations.CheckedChanged += new System.EventHandler(this.RandomCastLocations_CheckedChanged);
             // 
             // MiscGroup
             // 
@@ -8903,35 +8930,10 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SpellGroup
-            // 
-            this.SpellGroup.Controls.Add(this.RandomCastLocations);
-            this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SpellGroup.Location = new System.Drawing.Point(440, 79);
-            this.SpellGroup.Name = "SpellGroup";
-            this.SpellGroup.Size = new System.Drawing.Size(165, 43);
-            this.SpellGroup.TabIndex = 5;
-            this.SpellGroup.TabStop = false;
-            this.SpellGroup.Text = "Spell";
-            // 
-            // RandomCastLocations
-            // 
-            this.RandomCastLocations.AutoSize = true;
-            this.RandomCastLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RandomCastLocations.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RandomCastLocations.ForeColor = System.Drawing.Color.White;
-            this.RandomCastLocations.Location = new System.Drawing.Point(6, 16);
-            this.RandomCastLocations.Name = "RandomCastLocations";
-            this.RandomCastLocations.Size = new System.Drawing.Size(153, 17);
-            this.RandomCastLocations.TabIndex = 0;
-            this.RandomCastLocations.TabStop = false;
-            this.RandomCastLocations.Text = "Randomise cast locations";
-            this.RandomCastLocations.UseVisualStyleBackColor = true;
-            this.RandomCastLocations.CheckedChanged += new System.EventHandler(this.RandomCastLocations_CheckedChanged);
-            // 
             // ShinraForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(904, 504);
             this.Controls.Add(this.ShinraContainer);
@@ -8946,6 +8948,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.pgeMain.ResumeLayout(false);
+            this.SpellGroup.ResumeLayout(false);
+            this.SpellGroup.PerformLayout();
             this.MiscGroup.ResumeLayout(false);
             this.MiscGroup.PerformLayout();
             this.RestGroup.ResumeLayout(false);
@@ -9135,8 +9139,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.SpellGroup.ResumeLayout(false);
-            this.SpellGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
