@@ -64,6 +64,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await ShadeShift()) return true;
+            if (await Shukuchi()) return true;
             if (await Assassinate()) return true;
             if (await Mug()) return true;
             if (await Jugulate()) return true;

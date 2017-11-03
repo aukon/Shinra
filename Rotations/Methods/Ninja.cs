@@ -103,7 +103,10 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.NinjaMug && UseOffGCD)
             {
-                return await MySpells.Mug.Cast();
+                if (Resource.NinkiGauge <= 70 || Core.Player.ClassLevel < 66)
+                {
+                    return await MySpells.Mug.Cast();
+                }
             }
             return false;
         }
@@ -113,7 +116,8 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.NinjaTrickAttack && UseOffGCD && !Core.Player.CurrentTarget.HasAura(638, false, 3000))
             {
                 if (Core.Player.CurrentTarget.IsBehind || BotManager.Current.IsAutonomous ||
-                    Core.Player.HasAura(MySpells.Role.TrueNorth.Name))
+                    Core.Player.HasAura(MySpells.Role.TrueNorth.Name) || Core.Player.HasAura(MySpells.Suiton.Name, false, 100) &&
+                    !Core.Player.HasAura(MySpells.Suiton.Name, false, 4000))
                 {
                     return await MySpells.TrickAttack.Cast();
                 }
@@ -126,6 +130,15 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.NinjaJugulate && UseOffGCD)
             {
                 return await MySpells.Jugulate.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Shukuchi()
+        {
+            if (Shinra.Settings.NinjaShukuchi && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.Shukuchi.Cast(null, false);
             }
             return false;
         }

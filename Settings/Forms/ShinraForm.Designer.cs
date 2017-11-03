@@ -441,6 +441,7 @@
             this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MachinistBishopOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -607,7 +608,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.NinjaShukuchi = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -5321,6 +5322,7 @@
             // 
             // NinjaCooldownGroup
             // 
+            this.NinjaCooldownGroup.Controls.Add(this.NinjaShukuchi);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaBhavacakra);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaHellfrogMedium);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaDreamWithin);
@@ -5331,7 +5333,7 @@
             this.NinjaCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.NinjaCooldownGroup.Name = "NinjaCooldownGroup";
-            this.NinjaCooldownGroup.Size = new System.Drawing.Size(132, 181);
+            this.NinjaCooldownGroup.Size = new System.Drawing.Size(132, 204);
             this.NinjaCooldownGroup.TabIndex = 1;
             this.NinjaCooldownGroup.TabStop = false;
             this.NinjaCooldownGroup.Text = "Cooldown";
@@ -5342,7 +5344,7 @@
             this.NinjaBhavacakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaBhavacakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaBhavacakra.ForeColor = System.Drawing.Color.White;
-            this.NinjaBhavacakra.Location = new System.Drawing.Point(6, 154);
+            this.NinjaBhavacakra.Location = new System.Drawing.Point(6, 177);
             this.NinjaBhavacakra.Name = "NinjaBhavacakra";
             this.NinjaBhavacakra.Size = new System.Drawing.Size(81, 17);
             this.NinjaBhavacakra.TabIndex = 6;
@@ -5357,7 +5359,7 @@
             this.NinjaHellfrogMedium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaHellfrogMedium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaHellfrogMedium.ForeColor = System.Drawing.Color.White;
-            this.NinjaHellfrogMedium.Location = new System.Drawing.Point(6, 131);
+            this.NinjaHellfrogMedium.Location = new System.Drawing.Point(6, 154);
             this.NinjaHellfrogMedium.Name = "NinjaHellfrogMedium";
             this.NinjaHellfrogMedium.Size = new System.Drawing.Size(110, 17);
             this.NinjaHellfrogMedium.TabIndex = 5;
@@ -5372,7 +5374,7 @@
             this.NinjaDreamWithin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaDreamWithin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaDreamWithin.ForeColor = System.Drawing.Color.White;
-            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 108);
+            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 131);
             this.NinjaDreamWithin.Name = "NinjaDreamWithin";
             this.NinjaDreamWithin.Size = new System.Drawing.Size(94, 17);
             this.NinjaDreamWithin.TabIndex = 4;
@@ -6615,6 +6617,23 @@
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
+            // 
+            // MachinistTurretLocation
+            // 
+            this.MachinistTurretLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurretLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistTurretLocation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretLocation.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretLocation.FormattingEnabled = true;
+            this.MachinistTurretLocation.Items.AddRange(new object[] {
+            "Self",
+            "Target"});
+            this.MachinistTurretLocation.Location = new System.Drawing.Point(6, 39);
+            this.MachinistTurretLocation.Name = "MachinistTurretLocation";
+            this.MachinistTurretLocation.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurretLocation.TabIndex = 1;
+            this.MachinistTurretLocation.TabStop = false;
+            this.MachinistTurretLocation.SelectedValueChanged += new System.EventHandler(this.MachinistTurretLocation_SelectedValueChanged);
             // 
             // MachinistTurret
             // 
@@ -8966,22 +8985,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MachinistTurretLocation
+            // NinjaShukuchi
             // 
-            this.MachinistTurretLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.MachinistTurretLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MachinistTurretLocation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretLocation.ForeColor = System.Drawing.Color.White;
-            this.MachinistTurretLocation.FormattingEnabled = true;
-            this.MachinistTurretLocation.Items.AddRange(new object[] {
-            "Self",
-            "Target"});
-            this.MachinistTurretLocation.Location = new System.Drawing.Point(6, 39);
-            this.MachinistTurretLocation.Name = "MachinistTurretLocation";
-            this.MachinistTurretLocation.Size = new System.Drawing.Size(90, 21);
-            this.MachinistTurretLocation.TabIndex = 1;
-            this.MachinistTurretLocation.TabStop = false;
-            this.MachinistTurretLocation.SelectedValueChanged += new System.EventHandler(this.MachinistTurretLocation_SelectedValueChanged);
+            this.NinjaShukuchi.AutoSize = true;
+            this.NinjaShukuchi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaShukuchi.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaShukuchi.ForeColor = System.Drawing.Color.White;
+            this.NinjaShukuchi.Location = new System.Drawing.Point(6, 108);
+            this.NinjaShukuchi.Name = "NinjaShukuchi";
+            this.NinjaShukuchi.Size = new System.Drawing.Size(71, 17);
+            this.NinjaShukuchi.TabIndex = 7;
+            this.NinjaShukuchi.TabStop = false;
+            this.NinjaShukuchi.Text = "Shukuchi";
+            this.NinjaShukuchi.UseVisualStyleBackColor = true;
+            this.NinjaShukuchi.CheckedChanged += new System.EventHandler(this.NinjaShukuchi_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -9778,5 +9795,6 @@
         private Design.CustomCheck MachinistBishopOverdrive;
         private Design.CustomCheck MachinistRookOverdrive;
         private Design.CustomCombo MachinistTurretLocation;
+        private Design.CustomCheck NinjaShukuchi;
     }
 }

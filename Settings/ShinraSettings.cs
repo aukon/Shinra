@@ -910,6 +910,9 @@ namespace ShinraCo.Settings
         public bool NinjaJugulate { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool NinjaShukuchi { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool NinjaDreamWithin { get; set; }
 
         [Setting, DefaultValue(true)]

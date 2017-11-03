@@ -505,6 +505,7 @@ namespace ShinraCo.Settings.Forms
             NinjaMug.Checked = Shinra.Settings.NinjaMug;
             NinjaTrickAttack.Checked = Shinra.Settings.NinjaTrickAttack;
             NinjaJugulate.Checked = Shinra.Settings.NinjaJugulate;
+            NinjaShukuchi.Checked = Shinra.Settings.NinjaShukuchi;
             NinjaDreamWithin.Checked = Shinra.Settings.NinjaDreamWithin;
             NinjaHellfrogMedium.Checked = Shinra.Settings.NinjaHellfrogMedium;
             NinjaBhavacakra.Checked = Shinra.Settings.NinjaBhavacakra;
@@ -2160,6 +2161,11 @@ namespace ShinraCo.Settings.Forms
         private void NinjaJugulate_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaJugulate = NinjaJugulate.Checked;
+        }
+
+        private void NinjaShukuchi_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaShukuchi = NinjaShukuchi.Checked;
         }
 
         private void NinjaDreamWithin_CheckedChanged(object sender, EventArgs e)
