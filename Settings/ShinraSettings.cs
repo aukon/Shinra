@@ -10,6 +10,12 @@ namespace ShinraCo.Settings
 {
     #region Enums
 
+    public enum CastLocations
+    {
+        Self,
+        Target
+    }
+
     public enum Modes
     {
         Smart,
@@ -720,12 +726,21 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MachinistBarrelStabilizer { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool MachinistRookOverdrive { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistBishopOverdrive { get; set; }
+
         #endregion
 
         #region Turret
 
         [Setting, DefaultValue(MachinistTurrets.Rook)]
         public MachinistTurrets MachinistTurret { get; set; }
+
+        [Setting, DefaultValue(CastLocations.Target)]
+        public CastLocations MachinistTurretLocation { get; set; }
 
         #endregion
 

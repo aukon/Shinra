@@ -400,12 +400,15 @@ namespace ShinraCo.Settings.Forms
             MachinistGaussBarrel.Checked = Shinra.Settings.MachinistGaussBarrel;
             MachinistHypercharge.Checked = Shinra.Settings.MachinistHypercharge;
             MachinistBarrelStabilizer.Checked = Shinra.Settings.MachinistBarrelStabilizer;
+            MachinistRookOverdrive.Checked = Shinra.Settings.MachinistRookOverdrive;
+            MachinistBishopOverdrive.Checked = Shinra.Settings.MachinistBishopOverdrive;
 
             #endregion
 
             #region Turret
 
             MachinistTurret.Text = Convert.ToString(Shinra.Settings.MachinistTurret);
+            MachinistTurretLocation.Text = Convert.ToString(Shinra.Settings.MachinistTurretLocation);
 
             #endregion
 
@@ -1880,6 +1883,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MachinistBarrelStabilizer = MachinistBarrelStabilizer.Checked;
         }
 
+        private void MachinistRookOverdrive_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistRookOverdrive = MachinistRookOverdrive.Checked;
+        }
+
+        private void MachinistBishopOverdrive_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MachinistBishopOverdrive = MachinistBishopOverdrive.Checked;
+        }
+
         #endregion
 
         #region Turret
@@ -1889,6 +1902,12 @@ namespace ShinraCo.Settings.Forms
             if (MachinistTurret.Text == @"None") Shinra.Settings.MachinistTurret = MachinistTurrets.None;
             if (MachinistTurret.Text == @"Rook") Shinra.Settings.MachinistTurret = MachinistTurrets.Rook;
             if (MachinistTurret.Text == @"Bishop") Shinra.Settings.MachinistTurret = MachinistTurrets.Bishop;
+        }
+
+        private void MachinistTurretLocation_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (MachinistTurretLocation.Text == @"Self") Shinra.Settings.MachinistTurretLocation = CastLocations.Self;
+            if (MachinistTurretLocation.Text == @"Target") Shinra.Settings.MachinistTurretLocation = CastLocations.Target;
         }
 
         #endregion

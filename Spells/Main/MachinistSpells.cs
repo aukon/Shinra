@@ -132,7 +132,7 @@ namespace ShinraCo.Spells.Main
             ID = 2864,
             Level = 40,
             GCDType = GCDType.Off,
-            SpellType = SpellType.Cooldown,
+            SpellType = SpellType.Buff,
             CastType = CastType.TargetLocation
         };
 
@@ -152,7 +152,7 @@ namespace ShinraCo.Spells.Main
             ID = 2865,
             Level = 50,
             GCDType = GCDType.Off,
-            SpellType = SpellType.Cooldown,
+            SpellType = SpellType.Buff,
             CastType = CastType.TargetLocation
         };
 

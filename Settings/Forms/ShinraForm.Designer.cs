@@ -443,6 +443,8 @@
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistBishopOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistRookOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistBarrelStabilizer = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistHypercharge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistGaussBarrel = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -605,6 +607,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -6603,11 +6606,12 @@
             // 
             // MachinistTurretGroup
             // 
+            this.MachinistTurretGroup.Controls.Add(this.MachinistTurretLocation);
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretGroup.Location = new System.Drawing.Point(218, 288);
+            this.MachinistTurretGroup.Location = new System.Drawing.Point(347, 124);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
-            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 43);
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 66);
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
@@ -6632,6 +6636,8 @@
             // 
             // MachinistBuffGroup
             // 
+            this.MachinistBuffGroup.Controls.Add(this.MachinistBishopOverdrive);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistRookOverdrive);
             this.MachinistBuffGroup.Controls.Add(this.MachinistBarrelStabilizer);
             this.MachinistBuffGroup.Controls.Add(this.MachinistHypercharge);
             this.MachinistBuffGroup.Controls.Add(this.MachinistGaussBarrel);
@@ -6641,10 +6647,40 @@
             this.MachinistBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistBuffGroup.Location = new System.Drawing.Point(218, 124);
             this.MachinistBuffGroup.Name = "MachinistBuffGroup";
-            this.MachinistBuffGroup.Size = new System.Drawing.Size(115, 158);
+            this.MachinistBuffGroup.Size = new System.Drawing.Size(123, 204);
             this.MachinistBuffGroup.TabIndex = 2;
             this.MachinistBuffGroup.TabStop = false;
             this.MachinistBuffGroup.Text = "Buff";
+            // 
+            // MachinistBishopOverdrive
+            // 
+            this.MachinistBishopOverdrive.AutoSize = true;
+            this.MachinistBishopOverdrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistBishopOverdrive.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistBishopOverdrive.ForeColor = System.Drawing.Color.White;
+            this.MachinistBishopOverdrive.Location = new System.Drawing.Point(6, 177);
+            this.MachinistBishopOverdrive.Name = "MachinistBishopOverdrive";
+            this.MachinistBishopOverdrive.Size = new System.Drawing.Size(111, 17);
+            this.MachinistBishopOverdrive.TabIndex = 7;
+            this.MachinistBishopOverdrive.TabStop = false;
+            this.MachinistBishopOverdrive.Text = "Bishop Overdrive";
+            this.MachinistBishopOverdrive.UseVisualStyleBackColor = true;
+            this.MachinistBishopOverdrive.CheckedChanged += new System.EventHandler(this.MachinistBishopOverdrive_CheckedChanged);
+            // 
+            // MachinistRookOverdrive
+            // 
+            this.MachinistRookOverdrive.AutoSize = true;
+            this.MachinistRookOverdrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistRookOverdrive.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRookOverdrive.ForeColor = System.Drawing.Color.White;
+            this.MachinistRookOverdrive.Location = new System.Drawing.Point(6, 154);
+            this.MachinistRookOverdrive.Name = "MachinistRookOverdrive";
+            this.MachinistRookOverdrive.Size = new System.Drawing.Size(102, 17);
+            this.MachinistRookOverdrive.TabIndex = 6;
+            this.MachinistRookOverdrive.TabStop = false;
+            this.MachinistRookOverdrive.Text = "Rook Overdrive";
+            this.MachinistRookOverdrive.UseVisualStyleBackColor = true;
+            this.MachinistRookOverdrive.CheckedChanged += new System.EventHandler(this.MachinistRookOverdrive_CheckedChanged);
             // 
             // MachinistBarrelStabilizer
             // 
@@ -8930,6 +8966,23 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // MachinistTurretLocation
+            // 
+            this.MachinistTurretLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurretLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistTurretLocation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretLocation.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretLocation.FormattingEnabled = true;
+            this.MachinistTurretLocation.Items.AddRange(new object[] {
+            "Self",
+            "Target"});
+            this.MachinistTurretLocation.Location = new System.Drawing.Point(6, 39);
+            this.MachinistTurretLocation.Name = "MachinistTurretLocation";
+            this.MachinistTurretLocation.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurretLocation.TabIndex = 1;
+            this.MachinistTurretLocation.TabStop = false;
+            this.MachinistTurretLocation.SelectedValueChanged += new System.EventHandler(this.MachinistTurretLocation_SelectedValueChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9722,5 +9775,8 @@
         private Design.CustomCheck SummonerOpener;
         private Design.CustomGroup SpellGroup;
         private Design.CustomCheck RandomCastLocations;
+        private Design.CustomCheck MachinistBishopOverdrive;
+        private Design.CustomCheck MachinistRookOverdrive;
+        private Design.CustomCombo MachinistTurretLocation;
     }
 }
