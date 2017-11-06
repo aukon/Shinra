@@ -22,7 +22,7 @@ namespace ShinraCo
         #region Overrides
 
         public sealed override string Name => "Shinra";
-        public sealed override float PullRange => 15f;
+        public sealed override float PullRange => 25;
         public sealed override bool WantButton => true;
 
         public sealed override void Initialize()
