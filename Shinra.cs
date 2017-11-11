@@ -84,8 +84,8 @@ namespace ShinraCo
              Settings.MachinistTurretLocation = CastLocations.Self;
              break;
         }
-        Helpers.DisplayToast($@"Shinra Cooldown >>> {Settings.MachinistTurretLocation}");
-        Logging.Write(Colors.Yellow, $@"[Shinra] Cooldown >>> {Settings.MachinistTurretLocation}");
+        Helpers.DisplayToast($@"Shinra Turret Location >>> {Settings.MachinistTurretLocation}");
+        Logging.Write(Colors.Yellow, $@"[Shinra] Turret Location >>> {Settings.MachinistTurretLocation}");
         }
 
         public static void CycleRotation(bool cooldown = false, bool tank = false)
