@@ -248,6 +248,18 @@ namespace ShinraCo.Rotations
 
         #region Heal
 
+        private async Task<bool> UpdateHealing()
+        {
+            if (Shinra.Settings.SummonerResurrection && Shinra.Settings.SummonerSwiftcast)
+            {
+                if (!await Helpers.UpdateHealManager())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> Physick()
         {
             if (Shinra.Settings.SummonerPhysick && Core.Player.CurrentHealthPercent < Shinra.Settings.SummonerPhysickPct)
@@ -257,6 +269,25 @@ namespace ShinraCo.Rotations
                 if (target != null)
                 {
                     return await MySpells.Physick.Cast(target);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Resurrection()
+        {
+            if (Shinra.Settings.SummonerResurrection && Shinra.Settings.SummonerSwiftcast && Core.Player.CurrentManaPercent > 50 &&
+                ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player))
+            {
+                var target = Helpers.RessManager.FirstOrDefault(pm => !pm.HasAura("Raise"));
+
+                if (target != null)
+                {
+                    if (await MySpells.Role.Swiftcast.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                    }
+                    return await MySpells.Resurrection.Cast(target);
                 }
             }
             return false;
@@ -280,8 +311,8 @@ namespace ShinraCo.Rotations
 
             if (PetManager.ActivePetType != PetType.Emerald_Carbuncle && PetManager.ActivePetType != PetType.Garuda_Egi && !RecentBahamut)
             {
-                if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.Summon.Name, Core.Player) &&
-                    (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished))
+                if (Shinra.Settings.SummonerSwiftcast && !Shinra.Settings.SummonerResurrection &&
+                    ActionManager.CanCast(MySpells.Summon.Name, Core.Player) && (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -303,7 +334,8 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.SummonerPet == SummonerPets.Titan && PetManager.ActivePetType != PetType.Topaz_Carbuncle &&
                 PetManager.ActivePetType != PetType.Titan_Egi && !RecentBahamut)
             {
-                if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.SummonII.Name, Core.Player))
+                if (Shinra.Settings.SummonerSwiftcast && !Shinra.Settings.SummonerResurrection &&
+                    ActionManager.CanCast(MySpells.SummonII.Name, Core.Player))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -324,7 +356,8 @@ namespace ShinraCo.Rotations
 
             if (Shinra.Settings.SummonerPet == SummonerPets.Ifrit && PetManager.ActivePetType != PetType.Ifrit_Egi && !RecentBahamut)
             {
-                if (Shinra.Settings.SummonerSwiftcast && ActionManager.CanCast(MySpells.SummonIII.Name, Core.Player))
+                if (Shinra.Settings.SummonerSwiftcast && !Shinra.Settings.SummonerResurrection &&
+                    ActionManager.CanCast(MySpells.SummonIII.Name, Core.Player))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {

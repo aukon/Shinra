@@ -229,6 +229,18 @@ namespace ShinraCo.Rotations
 
         #region Heal
 
+        private async Task<bool> UpdateHealing()
+        {
+            if (Shinra.Settings.RedMageVerraise)
+            {
+                if (!await Helpers.UpdateHealManager())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> Vercure()
         {
             if (Shinra.Settings.RedMageVercure && Core.Player.CurrentHealthPercent < Shinra.Settings.RedMageVercurePct)
@@ -238,6 +250,23 @@ namespace ShinraCo.Rotations
                 if (target != null)
                 {
                     return await MySpells.Vercure.Cast(target);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Verraise()
+        {
+            if (Shinra.Settings.RedMageVerraise && Core.Player.CurrentManaPercent > 50)
+            {
+                if (Core.Player.HasAura("Dualcast") || Core.Player.HasAura("Swiftcast"))
+                {
+                    var target = Helpers.RessManager.FirstOrDefault(pm => !pm.HasAura("Raise"));
+
+                    if (target != null)
+                    {
+                        return await MySpells.Verraise.Cast(target);
+                    }
                 }
             }
             return false;

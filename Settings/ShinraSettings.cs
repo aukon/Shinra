@@ -1153,6 +1153,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool RedMageVercure { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool RedMageVerraise { get; set; }
+
         [Setting, DefaultValue(50)]
         public int RedMageVercurePct { get; set; }
 
@@ -1430,6 +1433,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool SummonerPhysick { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool SummonerResurrection { get; set; }
 
         [Setting, DefaultValue(50)]
         public int SummonerPhysickPct { get; set; }

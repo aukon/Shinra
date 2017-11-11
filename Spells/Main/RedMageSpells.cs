@@ -236,6 +236,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Target
         };
 
+        public Spell Verraise { get; } = new Spell
+        {
+            Name = "Verraise",
+            ID = 7523,
+            Level = 64,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Heal,
+            CastType = CastType.Target
+        };
+
         public Spell Impact { get; } = new Spell
         {
             Name = "Impact",

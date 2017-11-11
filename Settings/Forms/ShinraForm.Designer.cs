@@ -107,6 +107,7 @@
             this.RedMageDisplacement = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageCorpsACorps = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RedMageVerraise = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageVercurePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RedMageVercure = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -139,6 +140,7 @@
             this.SummonerDreadwyrmTrance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerResurrection = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerPhysickPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SummonerPhysick = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerPetGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -1836,20 +1838,36 @@
             // 
             // RedMageHealGroup
             // 
+            this.RedMageHealGroup.Controls.Add(this.RedMageVerraise);
             this.RedMageHealGroup.Controls.Add(this.RedMageVercurePct);
             this.RedMageHealGroup.Controls.Add(this.RedMageVercure);
             this.RedMageHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RedMageHealGroup.Location = new System.Drawing.Point(344, 6);
             this.RedMageHealGroup.Name = "RedMageHealGroup";
-            this.RedMageHealGroup.Size = new System.Drawing.Size(168, 44);
+            this.RedMageHealGroup.Size = new System.Drawing.Size(170, 66);
             this.RedMageHealGroup.TabIndex = 1;
             this.RedMageHealGroup.TabStop = false;
             this.RedMageHealGroup.Text = "Heal";
             // 
+            // RedMageVerraise
+            // 
+            this.RedMageVerraise.AutoSize = true;
+            this.RedMageVerraise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RedMageVerraise.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMageVerraise.ForeColor = System.Drawing.Color.White;
+            this.RedMageVerraise.Location = new System.Drawing.Point(6, 39);
+            this.RedMageVerraise.Name = "RedMageVerraise";
+            this.RedMageVerraise.Size = new System.Drawing.Size(63, 17);
+            this.RedMageVerraise.TabIndex = 2;
+            this.RedMageVerraise.TabStop = false;
+            this.RedMageVerraise.Text = "Verraise";
+            this.RedMageVerraise.UseVisualStyleBackColor = true;
+            this.RedMageVerraise.CheckedChanged += new System.EventHandler(this.RedMageVerraise_CheckedChanged);
+            // 
             // RedMageVercurePct
             // 
             this.RedMageVercurePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RedMageVercurePct.Location = new System.Drawing.Point(73, 16);
+            this.RedMageVercurePct.Location = new System.Drawing.Point(75, 16);
             this.RedMageVercurePct.Name = "RedMageVercurePct";
             this.RedMageVercurePct.Size = new System.Drawing.Size(89, 22);
             this.RedMageVercurePct.TabIndex = 1;
@@ -2296,20 +2314,36 @@
             // 
             // SummonerHealGroup
             // 
+            this.SummonerHealGroup.Controls.Add(this.SummonerResurrection);
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysickPct);
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysick);
             this.SummonerHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SummonerHealGroup.Location = new System.Drawing.Point(364, 6);
             this.SummonerHealGroup.Name = "SummonerHealGroup";
-            this.SummonerHealGroup.Size = new System.Drawing.Size(167, 44);
+            this.SummonerHealGroup.Size = new System.Drawing.Size(195, 66);
             this.SummonerHealGroup.TabIndex = 2;
             this.SummonerHealGroup.TabStop = false;
             this.SummonerHealGroup.Text = "Heal";
             // 
+            // SummonerResurrection
+            // 
+            this.SummonerResurrection.AutoSize = true;
+            this.SummonerResurrection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerResurrection.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerResurrection.ForeColor = System.Drawing.Color.White;
+            this.SummonerResurrection.Location = new System.Drawing.Point(6, 39);
+            this.SummonerResurrection.Name = "SummonerResurrection";
+            this.SummonerResurrection.Size = new System.Drawing.Size(88, 17);
+            this.SummonerResurrection.TabIndex = 2;
+            this.SummonerResurrection.TabStop = false;
+            this.SummonerResurrection.Text = "Resurrection";
+            this.SummonerResurrection.UseVisualStyleBackColor = true;
+            this.SummonerResurrection.CheckedChanged += new System.EventHandler(this.SummonerResurrection_CheckedChanged);
+            // 
             // SummonerPhysickPct
             // 
             this.SummonerPhysickPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.SummonerPhysickPct.Location = new System.Drawing.Point(72, 16);
+            this.SummonerPhysickPct.Location = new System.Drawing.Point(100, 16);
             this.SummonerPhysickPct.Name = "SummonerPhysickPct";
             this.SummonerPhysickPct.Size = new System.Drawing.Size(89, 22);
             this.SummonerPhysickPct.TabIndex = 1;
@@ -2334,7 +2368,7 @@
             // 
             this.SummonerPetGroup.Controls.Add(this.SummonerPet);
             this.SummonerPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 56);
+            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 78);
             this.SummonerPetGroup.Name = "SummonerPetGroup";
             this.SummonerPetGroup.Size = new System.Drawing.Size(112, 43);
             this.SummonerPetGroup.TabIndex = 1;
@@ -9905,5 +9939,7 @@
         private System.Windows.Forms.Label CooldownModeLabel;
         private Design.UserNumeric CustomAoECount;
         private Design.CustomCheck CustomAoE;
+        private Design.CustomCheck RedMageVerraise;
+        private Design.CustomCheck SummonerResurrection;
     }
 }

@@ -647,6 +647,8 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             RedMageVercure.Checked = Shinra.Settings.RedMageVercure;
+            RedMageVerraise.Checked = Shinra.Settings.RedMageVerraise;
+
             RedMageVercurePct.Value = Shinra.Settings.RedMageVercurePct;
 
             #endregion
@@ -814,6 +816,8 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             SummonerPhysick.Checked = Shinra.Settings.SummonerPhysick;
+            SummonerResurrection.Checked = Shinra.Settings.SummonerResurrection;
+
             SummonerPhysickPct.Value = Shinra.Settings.SummonerPhysickPct;
 
             #endregion
@@ -2529,6 +2533,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.RedMageVercure = RedMageVercure.Checked;
         }
 
+        private void RedMageVerraise_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageVerraise = RedMageVerraise.Checked;
+        }
+
         private void RedMageVercurePct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageVercurePct = Convert.ToInt32(RedMageVercurePct.Value);
@@ -2939,6 +2948,11 @@ namespace ShinraCo.Settings.Forms
         private void SummonerPhysick_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerPhysick = SummonerPhysick.Checked;
+        }
+
+        private void SummonerResurrection_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerResurrection = SummonerResurrection.Checked;
         }
 
         private void SummonerPhysickPct_ValueChanged(object sender, EventArgs e)

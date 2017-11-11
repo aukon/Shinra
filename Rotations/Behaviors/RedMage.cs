@@ -83,6 +83,8 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
+            if (await UpdateHealing()) return true;
+            if (await Verraise()) return true;
             return await Vercure();
         }
 
