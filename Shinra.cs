@@ -32,8 +32,10 @@ namespace ShinraCo
             Overlay.UpdateText();
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());
+            HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Settings.CooldownHotkey),
+                                   Helpers.GetModkey(Settings.CooldownHotkey), hk => CycleRotation(true));
             HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey), Helpers.GetModkey(Settings.TankHotkey),
-                                   hk => CycleRotation(true));
+                                   hk => CycleRotation(false, true));
         }
 
         public sealed override void Pulse()
@@ -67,64 +69,53 @@ namespace ShinraCo
             _configForm.ShowDialog();
         }
 
-        public static void CycleRotation(bool isTank = false)
+        public static void CycleRotation(bool cooldown = false, bool tank = false)
         {
-            var textColor = Colors.GreenYellow;
-            var shadowColor = Color.FromRgb(0, 0, 0);
-
-            if (isTank)
+            if (cooldown)
+            {
+                switch (Settings.CooldownMode)
+                {
+                    case CooldownModes.Enabled:
+                        Settings.CooldownMode = CooldownModes.Disabled;
+                        break;
+                    case CooldownModes.Disabled:
+                        Settings.CooldownMode = CooldownModes.Enabled;
+                        break;
+                }
+                Helpers.DisplayToast($@"Shinra Cooldown >>> {Settings.CooldownMode}");
+                Logging.Write(Colors.Yellow, $@"[Shinra] Cooldown >>> {Settings.CooldownMode}");
+            }
+            else if (tank)
             {
                 switch (Settings.TankMode)
                 {
                     case TankModes.DPS:
                         Settings.TankMode = TankModes.Enmity;
-                        if (Settings.RotationMessages)
-                        {
-                            Core.OverlayManager.AddToast(() => @"Shinra Tank >>> Enmity", TimeSpan.FromMilliseconds(1000), textColor,
-                                                         shadowColor, new FontFamily("Agency FB"));
-                        }
                         break;
                     case TankModes.Enmity:
                         Settings.TankMode = TankModes.DPS;
-                        if (Settings.RotationMessages)
-                        {
-                            Core.OverlayManager.AddToast(() => @"Shinra Tank >>> DPS", TimeSpan.FromMilliseconds(1000), textColor,
-                                                         shadowColor, new FontFamily("Agency FB"));
-                        }
                         break;
                 }
+                Helpers.DisplayToast($@"Shinra Tank >>> {Settings.TankMode}");
                 Logging.Write(Colors.Yellow, $@"[Shinra] Tank >>> {Settings.TankMode}");
-                Overlay.UpdateText();
-                return;
             }
-            switch (Settings.RotationMode)
+            else
             {
-                case Modes.Smart:
-                    Settings.RotationMode = Modes.Single;
-                    if (Settings.RotationMessages)
-                    {
-                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Single", TimeSpan.FromMilliseconds(1000), textColor,
-                                                     shadowColor, new FontFamily("Agency FB"));
-                    }
-                    break;
-                case Modes.Single:
-                    Settings.RotationMode = Modes.Multi;
-                    if (Settings.RotationMessages)
-                    {
-                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Multi", TimeSpan.FromMilliseconds(1000), textColor,
-                                                     shadowColor, new FontFamily("Agency FB"));
-                    }
-                    break;
-                case Modes.Multi:
-                    Settings.RotationMode = Modes.Smart;
-                    if (Settings.RotationMessages)
-                    {
-                        Core.OverlayManager.AddToast(() => @"Shinra Rotation >>> Smart", TimeSpan.FromMilliseconds(1000), textColor,
-                                                     shadowColor, new FontFamily("Agency FB"));
-                    }
-                    break;
+                switch (Settings.RotationMode)
+                {
+                    case Modes.Smart:
+                        Settings.RotationMode = Modes.Single;
+                        break;
+                    case Modes.Single:
+                        Settings.RotationMode = Modes.Multi;
+                        break;
+                    case Modes.Multi:
+                        Settings.RotationMode = Modes.Smart;
+                        break;
+                }
+                Helpers.DisplayToast($@"Shinra Rotation >>> {Settings.RotationMode}");
+                Logging.Write(Colors.Yellow, $@"[Shinra] Rotation >>> {Settings.RotationMode}");
             }
-            Logging.Write(Colors.Yellow, $@"[Shinra] Rotation >>> {Settings.RotationMode}");
             Overlay.UpdateText();
         }
 

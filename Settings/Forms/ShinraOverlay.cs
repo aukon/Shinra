@@ -72,6 +72,7 @@ namespace ShinraCo.Settings.Forms
         public void UpdateText()
         {
             RotationModeLabel.Text = $@"[Rotation] {Convert.ToString(Shinra.Settings.RotationMode)}";
+            CooldownModeLabel.Text = $@"[Cooldown] {Convert.ToString(Shinra.Settings.CooldownMode)}";
             TankModeLabel.Text = $@"[Tank] {Convert.ToString(Shinra.Settings.TankMode)}";
         }
     }

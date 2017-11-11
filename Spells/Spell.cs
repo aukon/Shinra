@@ -97,6 +97,18 @@ namespace ShinraCo.Spells
 
             #endregion
 
+            #region Cooldown
+
+            if (Shinra.Settings.CooldownMode == CooldownModes.Disabled)
+            {
+                if ((SpellType == SpellType.Buff || SpellType == SpellType.Cooldown) && Cooldown(true) > 2500)
+                {
+                    return false;
+                }
+            }
+
+            #endregion
+
             #region AoE
 
             if (SpellType == SpellType.AoE && Shinra.Settings.RotationMode != Modes.Multi)

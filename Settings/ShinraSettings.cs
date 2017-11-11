@@ -23,6 +23,12 @@ namespace ShinraCo.Settings
         Multi
     }
 
+    public enum CooldownModes
+    {
+        Enabled,
+        Disabled
+    }
+
     public enum TankModes
     {
         DPS,
@@ -127,6 +133,12 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(Keys.None)]
         public Keys RotationHotkey { get; set; }
+
+        [Setting, DefaultValue(CooldownModes.Enabled)]
+        public CooldownModes CooldownMode { get; set; }
+
+        [Setting, DefaultValue(Keys.None)]
+        public Keys CooldownHotkey { get; set; }
 
         [Setting, DefaultValue(TankModes.DPS)]
         public TankModes TankMode { get; set; }

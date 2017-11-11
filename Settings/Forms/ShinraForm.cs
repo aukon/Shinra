@@ -45,6 +45,7 @@ namespace ShinraCo.Settings.Forms
             ShinraBanner.Image = _shinraBanner;
             ShinraDonate.Image = _shinraDonate;
             HotkeyManager.Unregister("Shinra Rotation");
+            HotkeyManager.Unregister("Shinra Cooldown");
             HotkeyManager.Unregister("Shinra Tank");
             Location = Shinra.Settings.WindowLocation;
 
@@ -56,10 +57,12 @@ namespace ShinraCo.Settings.Forms
             RotationMessages.Checked = Shinra.Settings.RotationMessages;
 
             RotationMode.Text = Convert.ToString(Shinra.Settings.RotationMode);
+            CooldownMode.Text = Convert.ToString(Shinra.Settings.CooldownMode);
             TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
 
             var kc = new KeysConverter();
             RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
+            CooldownHotkey.Text = kc.ConvertToString(Shinra.Settings.CooldownHotkey);
             TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
 
             #endregion
@@ -963,8 +966,10 @@ namespace ShinraCo.Settings.Forms
         {
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Shinra.Settings.RotationHotkey),
                                    Helpers.GetModkey(Shinra.Settings.RotationHotkey), hk => Shinra.CycleRotation());
+            HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Shinra.Settings.CooldownHotkey),
+                                   Helpers.GetModkey(Shinra.Settings.CooldownHotkey), hk => Shinra.CycleRotation(true));
             HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Shinra.Settings.TankHotkey),
-                                   Helpers.GetModkey(Shinra.Settings.TankHotkey), hk => Shinra.CycleRotation(true));
+                                   Helpers.GetModkey(Shinra.Settings.TankHotkey), hk => Shinra.CycleRotation(false, true));
             Shinra.Settings.WindowLocation = Location;
             Shinra.Settings.Save();
         }
@@ -1000,6 +1005,18 @@ namespace ShinraCo.Settings.Forms
         private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
         {
             Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
+        }
+
+        private void CooldownMode_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (CooldownMode.Text == @"Enabled") Shinra.Settings.CooldownMode = CooldownModes.Enabled;
+            if (CooldownMode.Text == @"Disabled") Shinra.Settings.CooldownMode = CooldownModes.Disabled;
+            Shinra.Overlay.UpdateText();
+        }
+
+        private void CooldownHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.CooldownHotkey = CooldownHotkey.Hotkey;
         }
 
         private void TankMode_SelectedValueChanged(object sender, EventArgs e)

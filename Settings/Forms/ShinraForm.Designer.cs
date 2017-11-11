@@ -53,7 +53,7 @@
             this.RotationMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.TankHotkeyLabel = new System.Windows.Forms.Label();
             this.TankModeLabel = new System.Windows.Forms.Label();
-            this.RotationKeyLabel = new System.Windows.Forms.Label();
+            this.RotationHotkeyLabel = new System.Windows.Forms.Label();
             this.RotationModeLabel = new System.Windows.Forms.Label();
             this.ChocoboGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.ChocoboStanceDancePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -352,6 +352,7 @@
             this.NinjaShadeShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.NinjaShadeShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaShukuchi = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaBhavacakra = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaHellfrogMedium = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaDreamWithin = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -608,7 +609,10 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaShukuchi = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.CooldownModeLabel = new System.Windows.Forms.Label();
+            this.CooldownHotkeyLabel = new System.Windows.Forms.Label();
+            this.CooldownMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.CooldownHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -935,6 +939,10 @@
             // 
             // RotationGroup
             // 
+            this.RotationGroup.Controls.Add(this.CooldownHotkey);
+            this.RotationGroup.Controls.Add(this.CooldownMode);
+            this.RotationGroup.Controls.Add(this.CooldownHotkeyLabel);
+            this.RotationGroup.Controls.Add(this.CooldownModeLabel);
             this.RotationGroup.Controls.Add(this.RotationOverlay);
             this.RotationGroup.Controls.Add(this.RotationMessages);
             this.RotationGroup.Controls.Add(this.TankHotkey);
@@ -943,12 +951,12 @@
             this.RotationGroup.Controls.Add(this.RotationMode);
             this.RotationGroup.Controls.Add(this.TankHotkeyLabel);
             this.RotationGroup.Controls.Add(this.TankModeLabel);
-            this.RotationGroup.Controls.Add(this.RotationKeyLabel);
+            this.RotationGroup.Controls.Add(this.RotationHotkeyLabel);
             this.RotationGroup.Controls.Add(this.RotationModeLabel);
             this.RotationGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.RotationGroup.Location = new System.Drawing.Point(13, 6);
             this.RotationGroup.Name = "RotationGroup";
-            this.RotationGroup.Size = new System.Drawing.Size(216, 167);
+            this.RotationGroup.Size = new System.Drawing.Size(216, 211);
             this.RotationGroup.TabIndex = 2;
             this.RotationGroup.TabStop = false;
             this.RotationGroup.Text = "Rotation";
@@ -989,7 +997,7 @@
             this.TankHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TankHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.TankHotkey.ForeColor = System.Drawing.Color.White;
-            this.TankHotkey.Location = new System.Drawing.Point(120, 140);
+            this.TankHotkey.Location = new System.Drawing.Point(120, 184);
             this.TankHotkey.Name = "TankHotkey";
             this.TankHotkey.ReadOnly = true;
             this.TankHotkey.Size = new System.Drawing.Size(90, 21);
@@ -1007,7 +1015,7 @@
             this.TankMode.Items.AddRange(new object[] {
             "DPS",
             "Enmity"});
-            this.TankMode.Location = new System.Drawing.Point(6, 140);
+            this.TankMode.Location = new System.Drawing.Point(6, 184);
             this.TankMode.Name = "TankMode";
             this.TankMode.Size = new System.Drawing.Size(108, 21);
             this.TankMode.TabIndex = 7;
@@ -1050,7 +1058,7 @@
             // 
             this.TankHotkeyLabel.AutoSize = true;
             this.TankHotkeyLabel.ForeColor = System.Drawing.Color.White;
-            this.TankHotkeyLabel.Location = new System.Drawing.Point(120, 123);
+            this.TankHotkeyLabel.Location = new System.Drawing.Point(120, 167);
             this.TankHotkeyLabel.Name = "TankHotkeyLabel";
             this.TankHotkeyLabel.Size = new System.Drawing.Size(43, 13);
             this.TankHotkeyLabel.TabIndex = 10;
@@ -1060,21 +1068,21 @@
             // 
             this.TankModeLabel.AutoSize = true;
             this.TankModeLabel.ForeColor = System.Drawing.Color.White;
-            this.TankModeLabel.Location = new System.Drawing.Point(6, 123);
+            this.TankModeLabel.Location = new System.Drawing.Point(6, 167);
             this.TankModeLabel.Name = "TankModeLabel";
             this.TankModeLabel.Size = new System.Drawing.Size(63, 13);
             this.TankModeLabel.TabIndex = 8;
             this.TankModeLabel.Text = "Tank Mode";
             // 
-            // RotationKeyLabel
+            // RotationHotkeyLabel
             // 
-            this.RotationKeyLabel.AutoSize = true;
-            this.RotationKeyLabel.ForeColor = System.Drawing.Color.White;
-            this.RotationKeyLabel.Location = new System.Drawing.Point(120, 79);
-            this.RotationKeyLabel.Name = "RotationKeyLabel";
-            this.RotationKeyLabel.Size = new System.Drawing.Size(43, 13);
-            this.RotationKeyLabel.TabIndex = 4;
-            this.RotationKeyLabel.Text = "Hotkey";
+            this.RotationHotkeyLabel.AutoSize = true;
+            this.RotationHotkeyLabel.ForeColor = System.Drawing.Color.White;
+            this.RotationHotkeyLabel.Location = new System.Drawing.Point(120, 79);
+            this.RotationHotkeyLabel.Name = "RotationHotkeyLabel";
+            this.RotationHotkeyLabel.Size = new System.Drawing.Size(43, 13);
+            this.RotationHotkeyLabel.TabIndex = 4;
+            this.RotationHotkeyLabel.Text = "Hotkey";
             // 
             // RotationModeLabel
             // 
@@ -5338,6 +5346,21 @@
             this.NinjaCooldownGroup.TabStop = false;
             this.NinjaCooldownGroup.Text = "Cooldown";
             // 
+            // NinjaShukuchi
+            // 
+            this.NinjaShukuchi.AutoSize = true;
+            this.NinjaShukuchi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaShukuchi.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaShukuchi.ForeColor = System.Drawing.Color.White;
+            this.NinjaShukuchi.Location = new System.Drawing.Point(6, 108);
+            this.NinjaShukuchi.Name = "NinjaShukuchi";
+            this.NinjaShukuchi.Size = new System.Drawing.Size(71, 17);
+            this.NinjaShukuchi.TabIndex = 7;
+            this.NinjaShukuchi.TabStop = false;
+            this.NinjaShukuchi.Text = "Shukuchi";
+            this.NinjaShukuchi.UseVisualStyleBackColor = true;
+            this.NinjaShukuchi.CheckedChanged += new System.EventHandler(this.NinjaShukuchi_CheckedChanged);
+            // 
             // NinjaBhavacakra
             // 
             this.NinjaBhavacakra.AutoSize = true;
@@ -8985,20 +9008,56 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // NinjaShukuchi
+            // CooldownModeLabel
             // 
-            this.NinjaShukuchi.AutoSize = true;
-            this.NinjaShukuchi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaShukuchi.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaShukuchi.ForeColor = System.Drawing.Color.White;
-            this.NinjaShukuchi.Location = new System.Drawing.Point(6, 108);
-            this.NinjaShukuchi.Name = "NinjaShukuchi";
-            this.NinjaShukuchi.Size = new System.Drawing.Size(71, 17);
-            this.NinjaShukuchi.TabIndex = 7;
-            this.NinjaShukuchi.TabStop = false;
-            this.NinjaShukuchi.Text = "Shukuchi";
-            this.NinjaShukuchi.UseVisualStyleBackColor = true;
-            this.NinjaShukuchi.CheckedChanged += new System.EventHandler(this.NinjaShukuchi_CheckedChanged);
+            this.CooldownModeLabel.AutoSize = true;
+            this.CooldownModeLabel.ForeColor = System.Drawing.Color.White;
+            this.CooldownModeLabel.Location = new System.Drawing.Point(6, 123);
+            this.CooldownModeLabel.Name = "CooldownModeLabel";
+            this.CooldownModeLabel.Size = new System.Drawing.Size(94, 13);
+            this.CooldownModeLabel.TabIndex = 12;
+            this.CooldownModeLabel.Text = "Cooldown Mode";
+            // 
+            // CooldownHotkeyLabel
+            // 
+            this.CooldownHotkeyLabel.AutoSize = true;
+            this.CooldownHotkeyLabel.ForeColor = System.Drawing.Color.White;
+            this.CooldownHotkeyLabel.Location = new System.Drawing.Point(120, 123);
+            this.CooldownHotkeyLabel.Name = "CooldownHotkeyLabel";
+            this.CooldownHotkeyLabel.Size = new System.Drawing.Size(43, 13);
+            this.CooldownHotkeyLabel.TabIndex = 13;
+            this.CooldownHotkeyLabel.Text = "Hotkey";
+            // 
+            // CooldownMode
+            // 
+            this.CooldownMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.CooldownMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CooldownMode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CooldownMode.ForeColor = System.Drawing.Color.White;
+            this.CooldownMode.FormattingEnabled = true;
+            this.CooldownMode.Items.AddRange(new object[] {
+            "Enabled",
+            "Disabled"});
+            this.CooldownMode.Location = new System.Drawing.Point(6, 140);
+            this.CooldownMode.Name = "CooldownMode";
+            this.CooldownMode.Size = new System.Drawing.Size(108, 21);
+            this.CooldownMode.TabIndex = 14;
+            this.CooldownMode.TabStop = false;
+            this.CooldownMode.SelectedValueChanged += new System.EventHandler(this.CooldownMode_SelectedValueChanged);
+            // 
+            // CooldownHotkey
+            // 
+            this.CooldownHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.CooldownHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CooldownHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CooldownHotkey.ForeColor = System.Drawing.Color.White;
+            this.CooldownHotkey.Location = new System.Drawing.Point(120, 140);
+            this.CooldownHotkey.Name = "CooldownHotkey";
+            this.CooldownHotkey.ReadOnly = true;
+            this.CooldownHotkey.Size = new System.Drawing.Size(90, 21);
+            this.CooldownHotkey.TabIndex = 15;
+            this.CooldownHotkey.TabStop = false;
+            this.CooldownHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CooldownHotkey_KeyDown);
             // 
             // ShinraForm
             // 
@@ -9291,7 +9350,7 @@
         private Design.CustomCheck RedMageCorpsACorps;
         private Design.CustomGroup RotationGroup;
         private Design.CustomCombo RotationMode;
-        private System.Windows.Forms.Label RotationKeyLabel;
+        private System.Windows.Forms.Label RotationHotkeyLabel;
         private System.Windows.Forms.Label RotationModeLabel;
         private Design.CustomCheck RotationMessages;
         private Design.CustomGroup SamuraiRoleGroup;
@@ -9796,5 +9855,9 @@
         private Design.CustomCheck MachinistRookOverdrive;
         private Design.CustomCombo MachinistTurretLocation;
         private Design.CustomCheck NinjaShukuchi;
+        private Design.HotkeyBox CooldownHotkey;
+        private Design.CustomCombo CooldownMode;
+        private System.Windows.Forms.Label CooldownHotkeyLabel;
+        private System.Windows.Forms.Label CooldownModeLabel;
     }
 }
