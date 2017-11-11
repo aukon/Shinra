@@ -42,7 +42,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> ImpulseDrive()
         {
             if (ActionManager.HasSpell(MySpells.ChaosThrust.Name) &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 6000) ||
+                !Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 12000) ||
                 ActionManager.HasSpell(MySpells.Disembowel.Name) && !Core.Player.CurrentTarget.HasAura(820))
             {
                 return await MySpells.ImpulseDrive.Cast();
@@ -154,7 +154,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (NumEyes == 4 || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
+                if (Resource.DragonGaze == 3 || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
                     Core.Player.ClassLevel < 70)
                 {
                     return await MySpells.Geirskogul.Cast();
@@ -284,8 +284,6 @@ namespace ShinraCo.Rotations
         private static bool BloodActive => Resource.Timer != TimeSpan.Zero;
         private static double JumpCooldown => DataManager.GetSpellData(92).Cooldown.TotalSeconds;
         private static double SpineCooldown => DataManager.GetSpellData(95).Cooldown.TotalSeconds;
-        private static int NumEyes => Resource.DragonGaze;
-
         private bool UseJump => BloodActive || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
 
         #endregion

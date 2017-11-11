@@ -245,6 +245,32 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> RookOverdrive()
+        {
+            if (Shinra.Settings.MachinistRookOverdrive && TurretExists && PetManager.ActivePetType == PetType.Rook_Autoturret)
+            {
+                if (Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) &&
+                    !Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true, 4000))
+                {
+                    return await MySpells.RookOverdrive.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> BishopOverdrive()
+        {
+            if (Shinra.Settings.MachinistBishopOverdrive && TurretExists && PetManager.ActivePetType == PetType.Bishop_Autoturret)
+            {
+                if (Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) &&
+                    !Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true, 4000))
+                {
+                    return await MySpells.BishopOverdrive.Cast();
+                }
+            }
+            return false;
+        }
+
         #endregion
 
         #region Turret
@@ -256,9 +282,12 @@ namespace ShinraCo.Rotations
             {
                 if (!Core.Player.HasAura("Turret Reset"))
                 {
-                    if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+                    if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 23)
                     {
-                        return await MySpells.RookAutoturret.Cast();
+                        var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
+                            : Core.Player.CurrentTarget;
+
+                        return await MySpells.RookAutoturret.Cast(castLocation);
                     }
                 }
             }
@@ -271,9 +300,12 @@ namespace ShinraCo.Rotations
             {
                 if (!Core.Player.HasAura("Turret Reset"))
                 {
-                    if (PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 20)
+                    if (PetManager.ActivePetType != PetType.Bishop_Autoturret || TurretDistance > 23)
                     {
-                        return await MySpells.BishopAutoturret.Cast();
+                        var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
+                            : Core.Player.CurrentTarget;
+
+                        return await MySpells.BishopAutoturret.Cast(castLocation);
                     }
                 }
             }
@@ -296,9 +328,20 @@ namespace ShinraCo.Rotations
                 return true;
             }
 
-            if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 20)
+            if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 23)
             {
-                if (await MySpells.RookAutoturret.Cast(null, false))
+                var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
+                            : Core.Player.CurrentTarget;
+
+                if (await MySpells.RookAutoturret.Cast(castLocation, false))
+                {
+                    return true;
+                }
+            }
+
+            if (Shinra.Settings.MachinistPotion && Shinra.OpenerStep == 0)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Dex))
                 {
                     return true;
                 }

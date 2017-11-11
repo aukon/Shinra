@@ -34,6 +34,8 @@
             this.ShinraClose = new ShinraCo.Settings.Forms.Design.NoSelectButton();
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
+            this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -53,9 +55,6 @@
             this.TankModeLabel = new System.Windows.Forms.Label();
             this.RotationKeyLabel = new System.Windows.Forms.Label();
             this.RotationModeLabel = new System.Windows.Forms.Label();
-            this.ItemGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.UsePotionPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.UsePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ChocoboGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.ChocoboStanceDancePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ChocoboStance = new ShinraCo.Settings.Forms.Design.CustomCombo();
@@ -66,6 +65,7 @@
             this.tabCasters = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBlackMage = new System.Windows.Forms.TabPage();
             this.BlackMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BlackMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BlackMageThunder = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -91,6 +91,9 @@
             this.BlackMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeRedMage = new System.Windows.Forms.TabPage();
+            this.RedMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.RedMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.RedMageOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RedMageManafication = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageEmbolden = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -114,6 +117,9 @@
             this.RedMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeSummoner = new System.Windows.Forms.TabPage();
+            this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SummonerBane = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -400,6 +406,7 @@
             this.tabRanged = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBard = new System.Windows.Forms.TabPage();
             this.BardMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BardPitchPerfect = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -429,12 +436,16 @@
             this.BardSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeMachinist = new System.Windows.Forms.TabPage();
             this.MachinistMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistSyncOverheat = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistBishopOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistRookOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistBarrelStabilizer = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistHypercharge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistGaussBarrel = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -511,6 +522,7 @@
             this.DarkKnightRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgePaladin = new System.Windows.Forms.TabPage();
             this.PaladinMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.PaladinPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinOathGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.PaladinOath = new ShinraCo.Settings.Forms.Design.CustomCombo();
@@ -596,17 +608,16 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.RedMageOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.RedMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaShukuchi = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
             this.pgeMain.SuspendLayout();
+            this.SpellGroup.SuspendLayout();
             this.MiscGroup.SuspendLayout();
             this.RestGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).BeginInit();
             this.RotationGroup.SuspendLayout();
-            this.ItemGroup.SuspendLayout();
             this.ChocoboGroup.SuspendLayout();
             this.pgeCasters.SuspendLayout();
             this.tabCasters.SuspendLayout();
@@ -617,11 +628,13 @@
             this.BlackMageBuffGroup.SuspendLayout();
             this.BlackMageRoleGroup.SuspendLayout();
             this.pgeRedMage.SuspendLayout();
+            this.RedMageMiscGroup.SuspendLayout();
             this.RedMageBuffGroup.SuspendLayout();
             this.RedMageCooldownGroup.SuspendLayout();
             this.RedMageHealGroup.SuspendLayout();
             this.RedMageRoleGroup.SuspendLayout();
             this.pgeSummoner.SuspendLayout();
+            this.SummonerMiscGroup.SuspendLayout();
             this.SummonerAoEGroup.SuspendLayout();
             this.SummonerCooldownGroup.SuspendLayout();
             this.SummonerBuffGroup.SuspendLayout();
@@ -712,7 +725,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.RedMageMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -740,6 +752,7 @@
             this.ShinraBanner.Location = new System.Drawing.Point(0, 0);
             this.ShinraBanner.Name = "ShinraBanner";
             this.ShinraBanner.Size = new System.Drawing.Size(900, 100);
+            this.ShinraBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShinraBanner.TabIndex = 0;
             this.ShinraBanner.TabStop = false;
             this.ShinraBanner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -783,11 +796,11 @@
             // pgeMain
             // 
             this.pgeMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMain.Controls.Add(this.SpellGroup);
             this.pgeMain.Controls.Add(this.MiscGroup);
             this.pgeMain.Controls.Add(this.RestGroup);
             this.pgeMain.Controls.Add(this.ShinraDonate);
             this.pgeMain.Controls.Add(this.RotationGroup);
-            this.pgeMain.Controls.Add(this.ItemGroup);
             this.pgeMain.Controls.Add(this.ChocoboGroup);
             this.pgeMain.Location = new System.Drawing.Point(104, 4);
             this.pgeMain.Name = "pgeMain";
@@ -796,6 +809,32 @@
             this.pgeMain.TabIndex = 0;
             this.pgeMain.Text = "Main";
             this.pgeMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // SpellGroup
+            // 
+            this.SpellGroup.Controls.Add(this.RandomCastLocations);
+            this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SpellGroup.Location = new System.Drawing.Point(440, 79);
+            this.SpellGroup.Name = "SpellGroup";
+            this.SpellGroup.Size = new System.Drawing.Size(165, 43);
+            this.SpellGroup.TabIndex = 5;
+            this.SpellGroup.TabStop = false;
+            this.SpellGroup.Text = "Spell";
+            // 
+            // RandomCastLocations
+            // 
+            this.RandomCastLocations.AutoSize = true;
+            this.RandomCastLocations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RandomCastLocations.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RandomCastLocations.ForeColor = System.Drawing.Color.White;
+            this.RandomCastLocations.Location = new System.Drawing.Point(6, 16);
+            this.RandomCastLocations.Name = "RandomCastLocations";
+            this.RandomCastLocations.Size = new System.Drawing.Size(153, 17);
+            this.RandomCastLocations.TabIndex = 0;
+            this.RandomCastLocations.TabStop = false;
+            this.RandomCastLocations.Text = "Randomise cast locations";
+            this.RandomCastLocations.UseVisualStyleBackColor = true;
+            this.RandomCastLocations.CheckedChanged += new System.EventHandler(this.RandomCastLocations_CheckedChanged);
             // 
             // MiscGroup
             // 
@@ -830,7 +869,7 @@
             this.RestGroup.Controls.Add(this.RestEnergy);
             this.RestGroup.Controls.Add(this.RestHealth);
             this.RestGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RestGroup.Location = new System.Drawing.Point(440, 56);
+            this.RestGroup.Location = new System.Drawing.Point(440, 6);
             this.RestGroup.Name = "RestGroup";
             this.RestGroup.Size = new System.Drawing.Size(191, 67);
             this.RestGroup.TabIndex = 3;
@@ -1047,42 +1086,6 @@
             this.RotationModeLabel.TabIndex = 3;
             this.RotationModeLabel.Text = "Rotation Mode";
             // 
-            // ItemGroup
-            // 
-            this.ItemGroup.Controls.Add(this.UsePotionPct);
-            this.ItemGroup.Controls.Add(this.UsePotion);
-            this.ItemGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ItemGroup.Location = new System.Drawing.Point(440, 6);
-            this.ItemGroup.Name = "ItemGroup";
-            this.ItemGroup.Size = new System.Drawing.Size(191, 44);
-            this.ItemGroup.TabIndex = 1;
-            this.ItemGroup.TabStop = false;
-            this.ItemGroup.Text = "Item";
-            // 
-            // UsePotionPct
-            // 
-            this.UsePotionPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.UsePotionPct.Location = new System.Drawing.Point(96, 16);
-            this.UsePotionPct.Name = "UsePotionPct";
-            this.UsePotionPct.Size = new System.Drawing.Size(89, 22);
-            this.UsePotionPct.TabIndex = 1;
-            this.UsePotionPct.ValueChanged += new System.EventHandler(this.UsePotionPct_ValueChanged);
-            // 
-            // UsePotion
-            // 
-            this.UsePotion.AutoSize = true;
-            this.UsePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UsePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.UsePotion.ForeColor = System.Drawing.Color.White;
-            this.UsePotion.Location = new System.Drawing.Point(6, 16);
-            this.UsePotion.Name = "UsePotion";
-            this.UsePotion.Size = new System.Drawing.Size(84, 17);
-            this.UsePotion.TabIndex = 0;
-            this.UsePotion.TabStop = false;
-            this.UsePotion.Text = "Use Potions";
-            this.UsePotion.UseVisualStyleBackColor = true;
-            this.UsePotion.CheckedChanged += new System.EventHandler(this.UsePotion_CheckedChanged);
-            // 
             // ChocoboGroup
             // 
             this.ChocoboGroup.Controls.Add(this.ChocoboStanceDancePct);
@@ -1214,14 +1217,30 @@
             // 
             // BlackMageMiscGroup
             // 
+            this.BlackMageMiscGroup.Controls.Add(this.BlackMagePotion);
             this.BlackMageMiscGroup.Controls.Add(this.BlackMageOpener);
             this.BlackMageMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BlackMageMiscGroup.Location = new System.Drawing.Point(320, 6);
             this.BlackMageMiscGroup.Name = "BlackMageMiscGroup";
-            this.BlackMageMiscGroup.Size = new System.Drawing.Size(109, 43);
+            this.BlackMageMiscGroup.Size = new System.Drawing.Size(109, 66);
             this.BlackMageMiscGroup.TabIndex = 5;
             this.BlackMageMiscGroup.TabStop = false;
             this.BlackMageMiscGroup.Text = "Misc";
+            // 
+            // BlackMagePotion
+            // 
+            this.BlackMagePotion.AutoSize = true;
+            this.BlackMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BlackMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BlackMagePotion.ForeColor = System.Drawing.Color.White;
+            this.BlackMagePotion.Location = new System.Drawing.Point(6, 39);
+            this.BlackMagePotion.Name = "BlackMagePotion";
+            this.BlackMagePotion.Size = new System.Drawing.Size(80, 17);
+            this.BlackMagePotion.TabIndex = 1;
+            this.BlackMagePotion.TabStop = false;
+            this.BlackMagePotion.Text = "Use potion";
+            this.BlackMagePotion.UseVisualStyleBackColor = true;
+            this.BlackMagePotion.CheckedChanged += new System.EventHandler(this.BlackMagePotion_CheckedChanged);
             // 
             // BlackMageOpener
             // 
@@ -1586,6 +1605,48 @@
             this.pgeRedMage.Text = "Red Mage";
             this.pgeRedMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // RedMageMiscGroup
+            // 
+            this.RedMageMiscGroup.Controls.Add(this.RedMagePotion);
+            this.RedMageMiscGroup.Controls.Add(this.RedMageOpener);
+            this.RedMageMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMageMiscGroup.Location = new System.Drawing.Point(229, 150);
+            this.RedMageMiscGroup.Name = "RedMageMiscGroup";
+            this.RedMageMiscGroup.Size = new System.Drawing.Size(109, 66);
+            this.RedMageMiscGroup.TabIndex = 6;
+            this.RedMageMiscGroup.TabStop = false;
+            this.RedMageMiscGroup.Text = "Misc";
+            // 
+            // RedMagePotion
+            // 
+            this.RedMagePotion.AutoSize = true;
+            this.RedMagePotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RedMagePotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMagePotion.ForeColor = System.Drawing.Color.White;
+            this.RedMagePotion.Location = new System.Drawing.Point(6, 39);
+            this.RedMagePotion.Name = "RedMagePotion";
+            this.RedMagePotion.Size = new System.Drawing.Size(80, 17);
+            this.RedMagePotion.TabIndex = 1;
+            this.RedMagePotion.TabStop = false;
+            this.RedMagePotion.Text = "Use potion";
+            this.RedMagePotion.UseVisualStyleBackColor = true;
+            this.RedMagePotion.CheckedChanged += new System.EventHandler(this.RedMagePotion_CheckedChanged);
+            // 
+            // RedMageOpener
+            // 
+            this.RedMageOpener.AutoSize = true;
+            this.RedMageOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RedMageOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.RedMageOpener.ForeColor = System.Drawing.Color.White;
+            this.RedMageOpener.Location = new System.Drawing.Point(6, 16);
+            this.RedMageOpener.Name = "RedMageOpener";
+            this.RedMageOpener.Size = new System.Drawing.Size(82, 17);
+            this.RedMageOpener.TabIndex = 0;
+            this.RedMageOpener.TabStop = false;
+            this.RedMageOpener.Text = "Use opener";
+            this.RedMageOpener.UseVisualStyleBackColor = true;
+            this.RedMageOpener.CheckedChanged += new System.EventHandler(this.RedMageOpener_CheckedChanged);
+            // 
             // RedMageBuffGroup
             // 
             this.RedMageBuffGroup.Controls.Add(this.RedMageManafication);
@@ -1899,6 +1960,7 @@
             // pgeSummoner
             // 
             this.pgeSummoner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSummoner.Controls.Add(this.SummonerMiscGroup);
             this.pgeSummoner.Controls.Add(this.SummonerAoEGroup);
             this.pgeSummoner.Controls.Add(this.SummonerCooldownGroup);
             this.pgeSummoner.Controls.Add(this.SummonerBuffGroup);
@@ -1912,6 +1974,48 @@
             this.pgeSummoner.TabIndex = 2;
             this.pgeSummoner.Text = "Summoner";
             this.pgeSummoner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // SummonerMiscGroup
+            // 
+            this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
+            this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
+            this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerMiscGroup.Location = new System.Drawing.Point(229, 292);
+            this.SummonerMiscGroup.Name = "SummonerMiscGroup";
+            this.SummonerMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.SummonerMiscGroup.TabIndex = 6;
+            this.SummonerMiscGroup.TabStop = false;
+            this.SummonerMiscGroup.Text = "Misc";
+            // 
+            // SummonerPotion
+            // 
+            this.SummonerPotion.AutoSize = true;
+            this.SummonerPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerPotion.ForeColor = System.Drawing.Color.White;
+            this.SummonerPotion.Location = new System.Drawing.Point(6, 39);
+            this.SummonerPotion.Name = "SummonerPotion";
+            this.SummonerPotion.Size = new System.Drawing.Size(80, 17);
+            this.SummonerPotion.TabIndex = 1;
+            this.SummonerPotion.TabStop = false;
+            this.SummonerPotion.Text = "Use potion";
+            this.SummonerPotion.UseVisualStyleBackColor = true;
+            this.SummonerPotion.CheckedChanged += new System.EventHandler(this.SummonerPotion_CheckedChanged);
+            // 
+            // SummonerOpener
+            // 
+            this.SummonerOpener.AutoSize = true;
+            this.SummonerOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerOpener.ForeColor = System.Drawing.Color.White;
+            this.SummonerOpener.Location = new System.Drawing.Point(6, 16);
+            this.SummonerOpener.Name = "SummonerOpener";
+            this.SummonerOpener.Size = new System.Drawing.Size(82, 17);
+            this.SummonerOpener.TabIndex = 0;
+            this.SummonerOpener.TabStop = false;
+            this.SummonerOpener.Text = "Use opener";
+            this.SummonerOpener.UseVisualStyleBackColor = true;
+            this.SummonerOpener.CheckedChanged += new System.EventHandler(this.SummonerOpener_CheckedChanged);
             // 
             // SummonerAoEGroup
             // 
@@ -5218,6 +5322,7 @@
             // 
             // NinjaCooldownGroup
             // 
+            this.NinjaCooldownGroup.Controls.Add(this.NinjaShukuchi);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaBhavacakra);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaHellfrogMedium);
             this.NinjaCooldownGroup.Controls.Add(this.NinjaDreamWithin);
@@ -5228,7 +5333,7 @@
             this.NinjaCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.NinjaCooldownGroup.Name = "NinjaCooldownGroup";
-            this.NinjaCooldownGroup.Size = new System.Drawing.Size(132, 181);
+            this.NinjaCooldownGroup.Size = new System.Drawing.Size(132, 204);
             this.NinjaCooldownGroup.TabIndex = 1;
             this.NinjaCooldownGroup.TabStop = false;
             this.NinjaCooldownGroup.Text = "Cooldown";
@@ -5239,7 +5344,7 @@
             this.NinjaBhavacakra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaBhavacakra.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaBhavacakra.ForeColor = System.Drawing.Color.White;
-            this.NinjaBhavacakra.Location = new System.Drawing.Point(6, 154);
+            this.NinjaBhavacakra.Location = new System.Drawing.Point(6, 177);
             this.NinjaBhavacakra.Name = "NinjaBhavacakra";
             this.NinjaBhavacakra.Size = new System.Drawing.Size(81, 17);
             this.NinjaBhavacakra.TabIndex = 6;
@@ -5254,7 +5359,7 @@
             this.NinjaHellfrogMedium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaHellfrogMedium.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaHellfrogMedium.ForeColor = System.Drawing.Color.White;
-            this.NinjaHellfrogMedium.Location = new System.Drawing.Point(6, 131);
+            this.NinjaHellfrogMedium.Location = new System.Drawing.Point(6, 154);
             this.NinjaHellfrogMedium.Name = "NinjaHellfrogMedium";
             this.NinjaHellfrogMedium.Size = new System.Drawing.Size(110, 17);
             this.NinjaHellfrogMedium.TabIndex = 5;
@@ -5269,7 +5374,7 @@
             this.NinjaDreamWithin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NinjaDreamWithin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NinjaDreamWithin.ForeColor = System.Drawing.Color.White;
-            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 108);
+            this.NinjaDreamWithin.Location = new System.Drawing.Point(6, 131);
             this.NinjaDreamWithin.Name = "NinjaDreamWithin";
             this.NinjaDreamWithin.Size = new System.Drawing.Size(94, 17);
             this.NinjaDreamWithin.TabIndex = 4;
@@ -5999,14 +6104,30 @@
             // 
             // BardMiscGroup
             // 
+            this.BardMiscGroup.Controls.Add(this.BardPotion);
             this.BardMiscGroup.Controls.Add(this.BardOpener);
             this.BardMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardMiscGroup.Location = new System.Drawing.Point(218, 223);
             this.BardMiscGroup.Name = "BardMiscGroup";
-            this.BardMiscGroup.Size = new System.Drawing.Size(109, 43);
+            this.BardMiscGroup.Size = new System.Drawing.Size(109, 66);
             this.BardMiscGroup.TabIndex = 4;
             this.BardMiscGroup.TabStop = false;
             this.BardMiscGroup.Text = "Misc";
+            // 
+            // BardPotion
+            // 
+            this.BardPotion.AutoSize = true;
+            this.BardPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardPotion.ForeColor = System.Drawing.Color.White;
+            this.BardPotion.Location = new System.Drawing.Point(6, 39);
+            this.BardPotion.Name = "BardPotion";
+            this.BardPotion.Size = new System.Drawing.Size(80, 17);
+            this.BardPotion.TabIndex = 1;
+            this.BardPotion.TabStop = false;
+            this.BardPotion.Text = "Use potion";
+            this.BardPotion.UseVisualStyleBackColor = true;
+            this.BardPotion.CheckedChanged += new System.EventHandler(this.BardPotion_CheckedChanged);
             // 
             // BardOpener
             // 
@@ -6413,16 +6534,32 @@
             // 
             // MachinistMiscGroup
             // 
+            this.MachinistMiscGroup.Controls.Add(this.MachinistPotion);
             this.MachinistMiscGroup.Controls.Add(this.MachinistSyncOverheat);
             this.MachinistMiscGroup.Controls.Add(this.MachinistSyncWildfire);
             this.MachinistMiscGroup.Controls.Add(this.MachinistOpener);
             this.MachinistMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistMiscGroup.Location = new System.Drawing.Point(411, 6);
             this.MachinistMiscGroup.Name = "MachinistMiscGroup";
-            this.MachinistMiscGroup.Size = new System.Drawing.Size(188, 89);
+            this.MachinistMiscGroup.Size = new System.Drawing.Size(188, 112);
             this.MachinistMiscGroup.TabIndex = 4;
             this.MachinistMiscGroup.TabStop = false;
             this.MachinistMiscGroup.Text = "Misc";
+            // 
+            // MachinistPotion
+            // 
+            this.MachinistPotion.AutoSize = true;
+            this.MachinistPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistPotion.ForeColor = System.Drawing.Color.White;
+            this.MachinistPotion.Location = new System.Drawing.Point(6, 39);
+            this.MachinistPotion.Name = "MachinistPotion";
+            this.MachinistPotion.Size = new System.Drawing.Size(80, 17);
+            this.MachinistPotion.TabIndex = 3;
+            this.MachinistPotion.TabStop = false;
+            this.MachinistPotion.Text = "Use potion";
+            this.MachinistPotion.UseVisualStyleBackColor = true;
+            this.MachinistPotion.CheckedChanged += new System.EventHandler(this.MachinistPotion_CheckedChanged);
             // 
             // MachinistSyncOverheat
             // 
@@ -6430,7 +6567,7 @@
             this.MachinistSyncOverheat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MachinistSyncOverheat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistSyncOverheat.ForeColor = System.Drawing.Color.White;
-            this.MachinistSyncOverheat.Location = new System.Drawing.Point(6, 62);
+            this.MachinistSyncOverheat.Location = new System.Drawing.Point(6, 85);
             this.MachinistSyncOverheat.Name = "MachinistSyncOverheat";
             this.MachinistSyncOverheat.Size = new System.Drawing.Size(164, 17);
             this.MachinistSyncOverheat.TabIndex = 2;
@@ -6445,7 +6582,7 @@
             this.MachinistSyncWildfire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MachinistSyncWildfire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistSyncWildfire.ForeColor = System.Drawing.Color.White;
-            this.MachinistSyncWildfire.Location = new System.Drawing.Point(6, 39);
+            this.MachinistSyncWildfire.Location = new System.Drawing.Point(6, 62);
             this.MachinistSyncWildfire.Name = "MachinistSyncWildfire";
             this.MachinistSyncWildfire.Size = new System.Drawing.Size(176, 17);
             this.MachinistSyncWildfire.TabIndex = 1;
@@ -6471,14 +6608,32 @@
             // 
             // MachinistTurretGroup
             // 
+            this.MachinistTurretGroup.Controls.Add(this.MachinistTurretLocation);
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretGroup.Location = new System.Drawing.Point(218, 288);
+            this.MachinistTurretGroup.Location = new System.Drawing.Point(347, 124);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
-            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 43);
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 66);
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
+            // 
+            // MachinistTurretLocation
+            // 
+            this.MachinistTurretLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurretLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistTurretLocation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretLocation.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretLocation.FormattingEnabled = true;
+            this.MachinistTurretLocation.Items.AddRange(new object[] {
+            "Self",
+            "Target"});
+            this.MachinistTurretLocation.Location = new System.Drawing.Point(6, 39);
+            this.MachinistTurretLocation.Name = "MachinistTurretLocation";
+            this.MachinistTurretLocation.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurretLocation.TabIndex = 1;
+            this.MachinistTurretLocation.TabStop = false;
+            this.MachinistTurretLocation.SelectedValueChanged += new System.EventHandler(this.MachinistTurretLocation_SelectedValueChanged);
             // 
             // MachinistTurret
             // 
@@ -6500,6 +6655,8 @@
             // 
             // MachinistBuffGroup
             // 
+            this.MachinistBuffGroup.Controls.Add(this.MachinistBishopOverdrive);
+            this.MachinistBuffGroup.Controls.Add(this.MachinistRookOverdrive);
             this.MachinistBuffGroup.Controls.Add(this.MachinistBarrelStabilizer);
             this.MachinistBuffGroup.Controls.Add(this.MachinistHypercharge);
             this.MachinistBuffGroup.Controls.Add(this.MachinistGaussBarrel);
@@ -6509,10 +6666,40 @@
             this.MachinistBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistBuffGroup.Location = new System.Drawing.Point(218, 124);
             this.MachinistBuffGroup.Name = "MachinistBuffGroup";
-            this.MachinistBuffGroup.Size = new System.Drawing.Size(115, 158);
+            this.MachinistBuffGroup.Size = new System.Drawing.Size(123, 204);
             this.MachinistBuffGroup.TabIndex = 2;
             this.MachinistBuffGroup.TabStop = false;
             this.MachinistBuffGroup.Text = "Buff";
+            // 
+            // MachinistBishopOverdrive
+            // 
+            this.MachinistBishopOverdrive.AutoSize = true;
+            this.MachinistBishopOverdrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistBishopOverdrive.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistBishopOverdrive.ForeColor = System.Drawing.Color.White;
+            this.MachinistBishopOverdrive.Location = new System.Drawing.Point(6, 177);
+            this.MachinistBishopOverdrive.Name = "MachinistBishopOverdrive";
+            this.MachinistBishopOverdrive.Size = new System.Drawing.Size(111, 17);
+            this.MachinistBishopOverdrive.TabIndex = 7;
+            this.MachinistBishopOverdrive.TabStop = false;
+            this.MachinistBishopOverdrive.Text = "Bishop Overdrive";
+            this.MachinistBishopOverdrive.UseVisualStyleBackColor = true;
+            this.MachinistBishopOverdrive.CheckedChanged += new System.EventHandler(this.MachinistBishopOverdrive_CheckedChanged);
+            // 
+            // MachinistRookOverdrive
+            // 
+            this.MachinistRookOverdrive.AutoSize = true;
+            this.MachinistRookOverdrive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MachinistRookOverdrive.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistRookOverdrive.ForeColor = System.Drawing.Color.White;
+            this.MachinistRookOverdrive.Location = new System.Drawing.Point(6, 154);
+            this.MachinistRookOverdrive.Name = "MachinistRookOverdrive";
+            this.MachinistRookOverdrive.Size = new System.Drawing.Size(102, 17);
+            this.MachinistRookOverdrive.TabIndex = 6;
+            this.MachinistRookOverdrive.TabStop = false;
+            this.MachinistRookOverdrive.Text = "Rook Overdrive";
+            this.MachinistRookOverdrive.UseVisualStyleBackColor = true;
+            this.MachinistRookOverdrive.CheckedChanged += new System.EventHandler(this.MachinistRookOverdrive_CheckedChanged);
             // 
             // MachinistBarrelStabilizer
             // 
@@ -7586,14 +7773,30 @@
             // 
             // PaladinMiscGroup
             // 
+            this.PaladinMiscGroup.Controls.Add(this.PaladinPotion);
             this.PaladinMiscGroup.Controls.Add(this.PaladinOpener);
             this.PaladinMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinMiscGroup.Location = new System.Drawing.Point(344, 197);
             this.PaladinMiscGroup.Name = "PaladinMiscGroup";
-            this.PaladinMiscGroup.Size = new System.Drawing.Size(94, 43);
+            this.PaladinMiscGroup.Size = new System.Drawing.Size(94, 66);
             this.PaladinMiscGroup.TabIndex = 7;
             this.PaladinMiscGroup.TabStop = false;
             this.PaladinMiscGroup.Text = "Misc";
+            // 
+            // PaladinPotion
+            // 
+            this.PaladinPotion.AutoSize = true;
+            this.PaladinPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaladinPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinPotion.ForeColor = System.Drawing.Color.White;
+            this.PaladinPotion.Location = new System.Drawing.Point(6, 39);
+            this.PaladinPotion.Name = "PaladinPotion";
+            this.PaladinPotion.Size = new System.Drawing.Size(80, 17);
+            this.PaladinPotion.TabIndex = 1;
+            this.PaladinPotion.TabStop = false;
+            this.PaladinPotion.Text = "Use potion";
+            this.PaladinPotion.UseVisualStyleBackColor = true;
+            this.PaladinPotion.CheckedChanged += new System.EventHandler(this.PaladinPotion_CheckedChanged);
             // 
             // PaladinOpener
             // 
@@ -8782,31 +8985,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // RedMageOpener
+            // NinjaShukuchi
             // 
-            this.RedMageOpener.AutoSize = true;
-            this.RedMageOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RedMageOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMageOpener.ForeColor = System.Drawing.Color.White;
-            this.RedMageOpener.Location = new System.Drawing.Point(6, 16);
-            this.RedMageOpener.Name = "RedMageOpener";
-            this.RedMageOpener.Size = new System.Drawing.Size(82, 17);
-            this.RedMageOpener.TabIndex = 0;
-            this.RedMageOpener.TabStop = false;
-            this.RedMageOpener.Text = "Use opener";
-            this.RedMageOpener.UseVisualStyleBackColor = true;
-            this.RedMageOpener.CheckedChanged += new System.EventHandler(this.RedMageOpener_CheckedChanged);
-            // 
-            // RedMageMiscGroup
-            // 
-            this.RedMageMiscGroup.Controls.Add(this.RedMageOpener);
-            this.RedMageMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMageMiscGroup.Location = new System.Drawing.Point(229, 150);
-            this.RedMageMiscGroup.Name = "RedMageMiscGroup";
-            this.RedMageMiscGroup.Size = new System.Drawing.Size(109, 43);
-            this.RedMageMiscGroup.TabIndex = 6;
-            this.RedMageMiscGroup.TabStop = false;
-            this.RedMageMiscGroup.Text = "Misc";
+            this.NinjaShukuchi.AutoSize = true;
+            this.NinjaShukuchi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaShukuchi.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaShukuchi.ForeColor = System.Drawing.Color.White;
+            this.NinjaShukuchi.Location = new System.Drawing.Point(6, 108);
+            this.NinjaShukuchi.Name = "NinjaShukuchi";
+            this.NinjaShukuchi.Size = new System.Drawing.Size(71, 17);
+            this.NinjaShukuchi.TabIndex = 7;
+            this.NinjaShukuchi.TabStop = false;
+            this.NinjaShukuchi.Text = "Shukuchi";
+            this.NinjaShukuchi.UseVisualStyleBackColor = true;
+            this.NinjaShukuchi.CheckedChanged += new System.EventHandler(this.NinjaShukuchi_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -8826,6 +9018,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).EndInit();
             this.tabSettings.ResumeLayout(false);
             this.pgeMain.ResumeLayout(false);
+            this.SpellGroup.ResumeLayout(false);
+            this.SpellGroup.PerformLayout();
             this.MiscGroup.ResumeLayout(false);
             this.MiscGroup.PerformLayout();
             this.RestGroup.ResumeLayout(false);
@@ -8833,8 +9027,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShinraDonate)).EndInit();
             this.RotationGroup.ResumeLayout(false);
             this.RotationGroup.PerformLayout();
-            this.ItemGroup.ResumeLayout(false);
-            this.ItemGroup.PerformLayout();
             this.ChocoboGroup.ResumeLayout(false);
             this.ChocoboGroup.PerformLayout();
             this.pgeCasters.ResumeLayout(false);
@@ -8851,6 +9043,8 @@
             this.BlackMageRoleGroup.ResumeLayout(false);
             this.BlackMageRoleGroup.PerformLayout();
             this.pgeRedMage.ResumeLayout(false);
+            this.RedMageMiscGroup.ResumeLayout(false);
+            this.RedMageMiscGroup.PerformLayout();
             this.RedMageBuffGroup.ResumeLayout(false);
             this.RedMageBuffGroup.PerformLayout();
             this.RedMageCooldownGroup.ResumeLayout(false);
@@ -8860,6 +9054,8 @@
             this.RedMageRoleGroup.ResumeLayout(false);
             this.RedMageRoleGroup.PerformLayout();
             this.pgeSummoner.ResumeLayout(false);
+            this.SummonerMiscGroup.ResumeLayout(false);
+            this.SummonerMiscGroup.PerformLayout();
             this.SummonerAoEGroup.ResumeLayout(false);
             this.SummonerAoEGroup.PerformLayout();
             this.SummonerCooldownGroup.ResumeLayout(false);
@@ -9013,8 +9209,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.RedMageMiscGroup.ResumeLayout(false);
-            this.RedMageMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9072,9 +9266,6 @@
         private Design.CustomCheck ChocoboSummon;
         private System.Windows.Forms.Label ChocoboStanceLabel;
         private Design.UserNumeric ChocoboStanceDancePct;
-        private Design.CustomGroup ItemGroup;
-        private Design.UserNumeric UsePotionPct;
-        private Design.CustomCheck UsePotion;
         private Design.CustomGroup SummonerPetGroup;
         private Design.CustomCombo SummonerPet;
         private Design.CustomGroup SummonerRoleGroup;
@@ -9591,5 +9782,19 @@
         private Design.CustomCheck BlackMageOpener;
         private Design.CustomGroup RedMageMiscGroup;
         private Design.CustomCheck RedMageOpener;
+        private Design.CustomCheck PaladinPotion;
+        private Design.CustomCheck BlackMagePotion;
+        private Design.CustomCheck BardPotion;
+        private Design.CustomCheck MachinistPotion;
+        private Design.CustomCheck RedMagePotion;
+        private Design.CustomGroup SummonerMiscGroup;
+        private Design.CustomCheck SummonerPotion;
+        private Design.CustomCheck SummonerOpener;
+        private Design.CustomGroup SpellGroup;
+        private Design.CustomCheck RandomCastLocations;
+        private Design.CustomCheck MachinistBishopOverdrive;
+        private Design.CustomCheck MachinistRookOverdrive;
+        private Design.CustomCombo MachinistTurretLocation;
+        private Design.CustomCheck NinjaShukuchi;
     }
 }

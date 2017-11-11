@@ -10,6 +10,12 @@ namespace ShinraCo.Settings
 {
     #region Enums
 
+    public enum CastLocations
+    {
+        Self,
+        Target
+    }
+
     public enum Modes
     {
         Smart,
@@ -146,16 +152,6 @@ namespace ShinraCo.Settings
 
         #endregion
 
-        #region Item
-
-        [Setting, DefaultValue(true)]
-        public bool UsePotion { get; set; }
-
-        [Setting, DefaultValue(70)]
-        public int UsePotionPct { get; set; }
-
-        #endregion
-
         #region Rest
 
         [Setting, DefaultValue(true)]
@@ -169,6 +165,13 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int RestEnergyPct { get; set; }
+
+        #endregion
+
+        #region Spell
+
+        [Setting, DefaultValue(true)]
+        public bool RandomCastLocations { get; set; }
 
         #endregion
 
@@ -371,6 +374,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool BardOpener { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool BardPotion { get; set; }
+
         #endregion
 
         #endregion
@@ -433,6 +439,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(false)]
         public bool BlackMageOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool BlackMagePotion { get; set; }
 
         #endregion
 
@@ -717,6 +726,12 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool MachinistBarrelStabilizer { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool MachinistRookOverdrive { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MachinistBishopOverdrive { get; set; }
+
         #endregion
 
         #region Turret
@@ -724,12 +739,18 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(MachinistTurrets.Rook)]
         public MachinistTurrets MachinistTurret { get; set; }
 
+        [Setting, DefaultValue(CastLocations.Target)]
+        public CastLocations MachinistTurretLocation { get; set; }
+
         #endregion
 
         #region Misc
 
         [Setting, DefaultValue(false)]
         public bool MachinistOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MachinistPotion { get; set; }
 
         [Setting, DefaultValue(false)]
         public bool MachinistSyncWildfire { get; set; }
@@ -887,6 +908,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool NinjaJugulate { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool NinjaShukuchi { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool NinjaDreamWithin { get; set; }
@@ -1058,6 +1082,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool PaladinOpener { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool PaladinPotion { get; set; }
+
         #endregion
 
         #endregion
@@ -1117,6 +1144,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(false)]
         public bool RedMageOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool RedMagePotion { get; set; }
 
         #endregion
 
@@ -1392,6 +1422,16 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(SummonerPets.Garuda)]
         public SummonerPets SummonerPet { get; set; }
+
+        #endregion
+
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool SummonerOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool SummonerPotion { get; set; }
 
         #endregion
 

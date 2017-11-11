@@ -64,6 +64,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await ShadeShift()) return true;
+            if (await Shukuchi()) return true;
             if (await Assassinate()) return true;
             if (await Mug()) return true;
             if (await Jugulate()) return true;
@@ -85,7 +86,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            if (await Shinra.UsePotion()) return true;
             if (await SecondWind()) return true;
             return await Bloodbath();
         }

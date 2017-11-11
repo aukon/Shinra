@@ -32,6 +32,8 @@ namespace ShinraCo.Rotations
             if (await GaussBarrel()) return true;
             if (await BishopAutoturret()) return true;
             if (await RookAutoturret()) return true;
+            if (await BishopOverdrive()) return true;
+            if (await RookOverdrive()) return true;
             if (await Hypercharge()) return true;
             if (await Heartbreak()) return true;
             if (await GaussRound()) return true;
@@ -55,7 +57,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            if (await Shinra.UsePotion()) return true;
             return await SecondWind();
         }
 

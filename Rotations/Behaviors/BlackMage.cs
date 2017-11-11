@@ -72,7 +72,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
-            return await Shinra.UsePotion();
+            return false;
         }
 
         #endregion

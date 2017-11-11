@@ -43,15 +43,13 @@
     <NoWarn>CS8012;CS1998</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GreyMagic, Version=1.0.41.0, Culture=neutral, PublicKeyToken=260525fa2b0e778a, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.165.0\GreyMagic.dll</HintPath>
+    <Reference Include="GreyMagic">
+      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.173.0\GreyMagic.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RebornBuddy, Version=1.0.162.0, Culture=neutral, PublicKeyToken=48d7174f8a943034, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.165.0\RebornBuddy.exe</HintPath>
+    <Reference Include="RebornBuddy">
+      <HintPath>..\..\..\..\..\Desktop\Rebornbuddy\Rebornbuddy64 1.0.173.0\RebornBuddy.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -73,6 +71,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Helpers\Healing.cs" />
+    <Compile Include="Helpers\Item.cs" />
     <Compile Include="Helpers\Unit.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -183,6 +182,7 @@
     <Compile Include="Spells\Opener\BardOpener.cs" />
     <Compile Include="Spells\Opener\PaladinOpener.cs" />
     <Compile Include="Spells\Opener\MachinistOpener.cs" />
+    <Compile Include="Spells\Opener\SummonerOpener.cs" />
     <Compile Include="Spells\Role\HealerSpells.cs" />
     <Compile Include="Spells\Role\MeleeSpells.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -208,6 +208,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\Forms\ShinraForm.resx">
       <DependentUpon>ShinraForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings\Forms\ShinraOverlay.resx">
       <DependentUpon>ShinraOverlay.cs</DependentUpon>

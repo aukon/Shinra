@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -23,7 +22,7 @@ namespace ShinraCo
         #region Overrides
 
         public sealed override string Name => "Shinra";
-        public sealed override float PullRange => 15f;
+        public sealed override float PullRange => 25;
         public sealed override bool WantButton => true;
 
         public sealed override void Initialize()
@@ -358,30 +357,6 @@ namespace ShinraCo
         }
 
         #endregion
-
-        #endregion
-
-        #region Potion
-
-        public static async Task<bool> UsePotion()
-        {
-            if (!Settings.UsePotion || Core.Player.ClassLevel > 30 || Core.Player.CurrentHealthPercent > Settings.UsePotionPct)
-            {
-                return false;
-            }
-
-            var item = InventoryManager.FilledSlots.FirstOrDefault(s => s.Name == "Potion");
-
-            if (item == null || !item.CanUse())
-            {
-                return false;
-            }
-
-            item.UseItem();
-            await Coroutine.Wait(1000, () => !item.CanUse());
-            Logging.Write(Colors.Yellow, @"[Shinra] Using >>> Potion");
-            return true;
-        }
 
         #endregion
 

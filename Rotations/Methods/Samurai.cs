@@ -151,6 +151,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Enpi()
+        {
+            if (Core.Player.HasAura("Enhanced Enpi") && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.Enpi.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region DoT

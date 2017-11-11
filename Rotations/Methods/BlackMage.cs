@@ -20,7 +20,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Blizzard()
         {
-            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) && !UmbralIce)
+            if (!ActionManager.HasSpell(MySpells.BlizzardIII.Name) && (!UmbralIce || !ActionManager.HasSpell(MySpells.Fire.Name)))
             {
                 return await MySpells.Blizzard.Cast();
             }
@@ -325,6 +325,14 @@ namespace ShinraCo.Rotations
             if (Shinra.OpenerStep == 0)
             {
                 if (await MySpells.Sharpcast.Cast(null, false))
+                {
+                    return true;
+                }
+            }
+
+            if (Shinra.Settings.BlackMagePotion && Shinra.OpenerStep == 9)
+            {
+                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
                 {
                     return true;
                 }
