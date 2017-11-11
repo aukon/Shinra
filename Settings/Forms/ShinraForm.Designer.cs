@@ -6767,7 +6767,7 @@
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistTurretGroup.Location = new System.Drawing.Point(347, 124);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
-            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 150);
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 66);
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
