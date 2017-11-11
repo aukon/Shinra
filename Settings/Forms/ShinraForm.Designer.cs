@@ -9891,6 +9891,8 @@
         private Design.CustomCheck MachinistReload;
         private Design.CustomCombo MachinistTurret;
         private Design.UserNumeric MachinistWildfireHP;
+        private System.Windows.Forms.Label MachinistToggleLabel;
+		private Design.HotkeyBox MachinistToggle;
         private System.Windows.Forms.PictureBox ShinraDonate;
         private Design.CustomGroup RestGroup;
         private Design.UserNumeric RestEnergyPct;
