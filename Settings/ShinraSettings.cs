@@ -146,6 +146,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(Keys.None)]
         public Keys TankHotkey { get; set; }
 
+        [Setting, DefaultValue(Keys.None)]
+		public Keys MachinistToggle {get; set;}
+
         #endregion
 
         #region Chocobo
