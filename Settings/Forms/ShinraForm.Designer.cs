@@ -6762,10 +6762,12 @@
             // 
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurretLocation);
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
+            this.MachinistTurretGroup.Controls.Add(this.MachinistToggle);
+			this.MachinistTurretGroup.Controls.Add(this.MachinistToggleLabel);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistTurretGroup.Location = new System.Drawing.Point(347, 124);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
-            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 66);
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 150);
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
@@ -6804,6 +6806,7 @@
             this.MachinistTurret.TabIndex = 0;
             this.MachinistTurret.TabStop = false;
             this.MachinistTurret.SelectedValueChanged += new System.EventHandler(this.MachinistTurret_SelectedValueChanged);
+            
             // 
             // MachinistBuffGroup
             // 

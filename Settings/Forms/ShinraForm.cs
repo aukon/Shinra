@@ -47,6 +47,7 @@ namespace ShinraCo.Settings.Forms
             HotkeyManager.Unregister("Shinra Rotation");
             HotkeyManager.Unregister("Shinra Cooldown");
             HotkeyManager.Unregister("Shinra Tank");
+            HotkeyManager.Unregister("Shinra Turret Toggle");
             Location = Shinra.Settings.WindowLocation;
 
             #region Main Settings
@@ -64,6 +65,7 @@ namespace ShinraCo.Settings.Forms
             RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
             CooldownHotkey.Text = kc.ConvertToString(Shinra.Settings.CooldownHotkey);
             TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
+            MachinistToggle.Text = kc.ConvertToString(Shinra.Settings.MachinistToggle);
 
             #endregion
 
@@ -977,6 +979,8 @@ namespace ShinraCo.Settings.Forms
                                    Helpers.GetModkey(Shinra.Settings.CooldownHotkey), hk => Shinra.CycleRotation(true));
             HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Shinra.Settings.TankHotkey),
                                    Helpers.GetModkey(Shinra.Settings.TankHotkey), hk => Shinra.CycleRotation(false, true));
+            HotkeyManager.Register("Shinra Turret Toggle", Helpers.GetHotkey(Shinra.Settings.MachinistToggle), 
+                                   Helpers.GetModkey(Shinra.Settings.MachinistToggle), hk => Shinra.TurretLocationChange());
             Shinra.Settings.WindowLocation = Location;
             Shinra.Settings.Save();
         }
@@ -1012,6 +1016,11 @@ namespace ShinraCo.Settings.Forms
         private void RotationHotkey_KeyDown(object sender, KeyEventArgs e)
         {
             Shinra.Settings.RotationHotkey = RotationHotkey.Hotkey;
+        }
+
+        private void TurretToggle_Pressed(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.MachinistToggle = MachinistToggle.Hotkey;
         }
 
         private void CooldownMode_SelectedValueChanged(object sender, EventArgs e)

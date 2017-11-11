@@ -36,6 +36,9 @@ namespace ShinraCo
                                    Helpers.GetModkey(Settings.CooldownHotkey), hk => CycleRotation(true));
             HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey), Helpers.GetModkey(Settings.TankHotkey),
                                    hk => CycleRotation(false, true));
+            HotkeyManager.Register("Shinra Turret Toggle", Helpers.GetHotkey(Settings.MachinistToggle), Helpers.GetModkey(Settings.MachinistToggle),
+                                   hk => TurretLocationChange());
+        
         }
 
         public sealed override void Pulse()
@@ -49,6 +52,7 @@ namespace ShinraCo
             Logging.Write(Colors.GreenYellow, @"[Shinra] Shutting down...");
             HotkeyManager.Unregister("Shinra Rotation");
             HotkeyManager.Unregister("Shinra Tank");
+            HotkeyManager.Unregister("Shinra Turret Toggle");
         }
 
         #endregion
@@ -67,6 +71,21 @@ namespace ShinraCo
                 _configForm = new ShinraForm();
             }
             _configForm.ShowDialog();
+        }
+
+        public static void TurretLocationChange()
+        {
+        switch(Settings.MachinistTurretLocation)
+        {
+            case CastLocations.Self:
+             Settings.MachinistTurretLocation = CastLocations.Target;
+             break;
+            case CastLocations.Target:
+             Settings.MachinistTurretLocation = CastLocations.Self;
+             break;
+        }
+        Helpers.DisplayToast($@"Shinra Turret Location >>> {Settings.MachinistTurretLocation}");
+        Logging.Write(Colors.Yellow, $@"[Shinra] Turret Location >>> {Settings.MachinistTurretLocation}");
         }
 
         public static void CycleRotation(bool cooldown = false, bool tank = false)
