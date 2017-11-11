@@ -483,8 +483,6 @@
             this.MachinistLegGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MachinistFootGraze = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MachinistSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistToggle = new ShinraCo.Settings.Forms.Design.HotkeyBox();
-			this.MachinistToggleLabel = new System.Windows.Forms.Label();
             this.pgeTanks = new System.Windows.Forms.TabPage();
             this.tabTanks = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDarkKnight = new System.Windows.Forms.TabPage();
@@ -6809,27 +6807,6 @@
             this.MachinistTurret.TabStop = false;
             this.MachinistTurret.SelectedValueChanged += new System.EventHandler(this.MachinistTurret_SelectedValueChanged);
             
-             // Machinist Toggle
-            this.MachinistToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.MachinistToggle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MachinistToggle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistToggle.ForeColor = System.Drawing.Color.White;
-            this.MachinistToggle.Location = new System.Drawing.Point(6, 90);
-            this.MachinistToggle.Name = "MachinistToggle";
-            this.MachinistToggle.ReadOnly = true;
-            this.MachinistToggle.Size = new System.Drawing.Size(90, 21);
-            this.MachinistToggle.TabIndex = 3;
-            this.MachinistToggle.TabStop = false;
-            this.MachinistToggle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TurretToggle_Pressed);
-			
-			this.MachinistToggleLabel.AutoSize = true;
-            this.MachinistToggleLabel.ForeColor = System.Drawing.Color.White;
-            this.MachinistToggleLabel.Location = new System.Drawing.Point(6, 70);
-            this.MachinistToggleLabel.Name = "MachinistToggleLabel";
-            this.MachinistToggleLabel.Size = new System.Drawing.Size(43, 13);
-            this.MachinistToggleLabel.TabIndex = 10;
-            this.MachinistToggleLabel.Text = "Turret Loc Toggle";
-            
             // 
             // MachinistBuffGroup
             // 
@@ -9891,8 +9868,6 @@
         private Design.CustomCheck MachinistReload;
         private Design.CustomCombo MachinistTurret;
         private Design.UserNumeric MachinistWildfireHP;
-        private System.Windows.Forms.Label MachinistToggleLabel;
-		private Design.HotkeyBox MachinistToggle;
         private System.Windows.Forms.PictureBox ShinraDonate;
         private Design.CustomGroup RestGroup;
         private Design.UserNumeric RestEnergyPct;
