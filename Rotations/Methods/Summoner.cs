@@ -487,6 +487,7 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static int AoECount => Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 2;
         private static string BioDebuff => Core.Player.ClassLevel >= 66 ? "Bio III" : Core.Player.ClassLevel >= 26 ? "Bio II" : "Bio";
         private static string MiasmaDebuff => Core.Player.ClassLevel >= 66 ? "Miasma III" : "Miasma";
         private static bool RecentDoT { get { return Spell.RecentSpell.Keys.Any(key => key.Contains("Tri-disaster")); } }
@@ -498,18 +499,18 @@ namespace ShinraCo.Rotations
 
         private bool UseBane => Shinra.Settings.RotationMode != Modes.Single && Shinra.Settings.SummonerBane &&
                                 ActionManager.CanCast(MySpells.Bane.Name, Core.Player.CurrentTarget) &&
-                                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 1) &&
+                                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) >= AoECount) &&
                                 Core.Player.CurrentTarget.HasAura(BioDebuff, true, 20000) &&
                                 Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 14000);
 
         private bool UseFester => (Shinra.Settings.RotationMode == Modes.Single ||
-                                   Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) <= 1) &&
+                                   Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) < AoECount) &&
                                   ActionManager.CanCast(MySpells.Fester.Name, Core.Player.CurrentTarget) && !AetherLow &&
                                   Core.Player.CurrentTarget.HasAura(BioDebuff, true) &&
                                   Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true);
 
         private bool UsePainflare => Shinra.Settings.RotationMode != Modes.Single &&
-                                     (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 1) &&
+                                     (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) >= AoECount) &&
                                      ActionManager.CanCast(MySpells.Painflare.Name, Core.Player.CurrentTarget) && !AetherLow;
 
         private bool UsePet => PetExists && (Shinra.Settings.SummonerRouse && ActionManager.CanCast(MySpells.Rouse.Name, Core.Player) ||

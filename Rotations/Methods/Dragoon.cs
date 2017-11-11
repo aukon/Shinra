@@ -95,7 +95,9 @@ namespace ShinraCo.Rotations
         {
             if (Core.Player.CurrentTPPercent > 30 && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) >= count)
                 {
                     return await MySpells.DoomSpike.Cast();
                 }
@@ -108,7 +110,9 @@ namespace ShinraCo.Rotations
             if (ActionManager.LastSpell.Name == MySpells.DoomSpike.Name && Core.Player.CurrentTPPercent > 30 &&
                 Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2)
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) >= count)
                 {
                     return await MySpells.SonicThrust.Cast();
                 }

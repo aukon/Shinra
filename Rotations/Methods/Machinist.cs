@@ -58,7 +58,7 @@ namespace ShinraCo.Rotations
             if (Core.Player.CurrentTPPercent > 40)
             {
                 if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Smart &&
-                    Helpers.EnemiesNearTarget(5) > 2)
+                    Helpers.EnemiesNearTarget(5) >= AoECount)
                 {
                     return await MySpells.SpreadShot.Cast();
                 }
@@ -455,12 +455,13 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static int AoECount => Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
         private static double FlamethrowerCooldown => DataManager.GetSpellData(7418).Cooldown.TotalMilliseconds;
         private static double WildfireCooldown => DataManager.GetSpellData(2878).Cooldown.TotalMilliseconds;
         private static double BarrelCooldown => DataManager.GetSpellData(7414).Cooldown.TotalMilliseconds;
         private static bool Overheated => Resource.Heat == 100 && Resource.Timer.TotalMilliseconds > 0;
         private static bool UseFlamethrower => Shinra.Settings.RotationMode == Modes.Multi ||
-                                               Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) > 2;
+                                               Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) >= AoECount;
 
         private static bool UseWildfire => Shinra.Settings.MachinistWildfire &&
                                            (Core.Player.CurrentTarget.IsBoss() ||

@@ -80,7 +80,9 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianEarthlyStar)
             {
-                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(8) > 2)
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
+                if (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(8) >= count)
                 {
                     return await MySpells.EarthlyStar.Cast();
                 }

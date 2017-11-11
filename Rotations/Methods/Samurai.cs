@@ -217,8 +217,10 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TenkaGoken()
         {
+            var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
             if (NumSen == 2 && !MovementManager.IsMoving &&
-                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) > 2))
+                (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearTarget(5) >= count))
             {
                 if (ActionManager.CanCast(MySpells.TenkaGoken.Name, Core.Player.CurrentTarget))
                 {

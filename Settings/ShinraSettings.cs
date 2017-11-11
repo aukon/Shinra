@@ -185,6 +185,12 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool RandomCastLocations { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool CustomAoE { get; set; }
+
+        [Setting, DefaultValue(3)]
+        public int CustomAoECount { get; set; }
+
         #endregion
 
         #region Misc

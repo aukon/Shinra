@@ -193,8 +193,10 @@ namespace ShinraCo.Rotations
         {
             if (UseOffGCD)
             {
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
                 if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
-                    Helpers.EnemiesNearTarget(5) < 3)
+                    Helpers.EnemiesNearTarget(5) < count)
                 {
                     return await MySpells.Acceleration.Cast();
                 }

@@ -93,8 +93,10 @@ namespace ShinraCo.Rotations
         {
             if (Core.Player.CurrentManaPercent > 30)
             {
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
                 if (Shinra.Settings.DarkKnightAbyssalArts && Core.Player.CurrentHealthPercent < 70 && Core.Player.CurrentManaPercent > 60 &&
-                    ActionManager.CanCast(MySpells.AbyssalDrain.Name, Core.Player.CurrentTarget) && Helpers.EnemiesNearTarget(5) > 2)
+                    ActionManager.CanCast(MySpells.AbyssalDrain.Name, Core.Player.CurrentTarget) && Helpers.EnemiesNearTarget(5) >= count)
                 {
                     if (await MySpells.DarkArts.Cast(null, false))
                     {
@@ -110,8 +112,10 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DarkKnightQuietus && Core.Player.CurrentManaPercent < 70 && BloodValue >= 50)
             {
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
                 if (Shinra.Settings.DarkKnightQuietusArts && Core.Player.CurrentManaPercent > 40 &&
-                    ActionManager.CanCast(MySpells.Quietus.Name, Core.Player) && Helpers.EnemiesNearPlayer(5) > 2)
+                    ActionManager.CanCast(MySpells.Quietus.Name, Core.Player) && Helpers.EnemiesNearPlayer(5) >= count)
                 {
                     if (await MySpells.DarkArts.Cast(null, false))
                     {

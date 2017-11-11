@@ -138,8 +138,10 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.WarriorUpheaval && Core.Player.CurrentHealthPercent > 70 && (DefianceStance || UseSpenders))
             {
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
                 if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
-                    Helpers.EnemiesNearTarget(5) <= 2)
+                    Helpers.EnemiesNearTarget(5) < count)
                 {
                     return await MySpells.Upheaval.Cast();
                 }

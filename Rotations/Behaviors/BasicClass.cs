@@ -8,6 +8,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
+            if (await Drain()) return true;
             // Arcanist
             if (await Miasma()) return true;
             if (await BioII()) return true;

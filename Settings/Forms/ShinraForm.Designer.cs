@@ -35,6 +35,8 @@
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.CustomAoE = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.CustomAoECount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -45,6 +47,10 @@
             this.RestHealth = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraDonate = new System.Windows.Forms.PictureBox();
             this.RotationGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.CooldownHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
+            this.CooldownMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.CooldownHotkeyLabel = new System.Windows.Forms.Label();
+            this.CooldownModeLabel = new System.Windows.Forms.Label();
             this.RotationOverlay = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RotationMessages = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.TankHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
@@ -609,10 +615,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.CooldownModeLabel = new System.Windows.Forms.Label();
-            this.CooldownHotkeyLabel = new System.Windows.Forms.Label();
-            this.CooldownMode = new ShinraCo.Settings.Forms.Design.CustomCombo();
-            this.CooldownHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -816,14 +818,56 @@
             // 
             // SpellGroup
             // 
+            this.SpellGroup.Controls.Add(this.CustomAoE);
+            this.SpellGroup.Controls.Add(this.CustomAoECount);
             this.SpellGroup.Controls.Add(this.RandomCastLocations);
             this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SpellGroup.Location = new System.Drawing.Point(440, 79);
+            this.SpellGroup.Location = new System.Drawing.Point(440, 6);
             this.SpellGroup.Name = "SpellGroup";
-            this.SpellGroup.Size = new System.Drawing.Size(165, 43);
+            this.SpellGroup.Size = new System.Drawing.Size(206, 67);
             this.SpellGroup.TabIndex = 5;
             this.SpellGroup.TabStop = false;
             this.SpellGroup.Text = "Spell";
+            // 
+            // CustomAoE
+            // 
+            this.CustomAoE.AutoSize = true;
+            this.CustomAoE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CustomAoE.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CustomAoE.ForeColor = System.Drawing.Color.White;
+            this.CustomAoE.Location = new System.Drawing.Point(6, 39);
+            this.CustomAoE.Name = "CustomAoE";
+            this.CustomAoE.Size = new System.Drawing.Size(118, 17);
+            this.CustomAoE.TabIndex = 2;
+            this.CustomAoE.TabStop = false;
+            this.CustomAoE.Text = "Custom AoE count";
+            this.CustomAoE.UseVisualStyleBackColor = true;
+            this.CustomAoE.CheckedChanged += new System.EventHandler(this.CustomAoE_CheckedChanged);
+            // 
+            // CustomAoECount
+            // 
+            this.CustomAoECount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.CustomAoECount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CustomAoECount.Location = new System.Drawing.Point(130, 39);
+            this.CustomAoECount.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.CustomAoECount.Name = "CustomAoECount";
+            this.CustomAoECount.ShowSymbol = false;
+            this.CustomAoECount.Size = new System.Drawing.Size(70, 22);
+            this.CustomAoECount.TabIndex = 1;
+            this.CustomAoECount.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.CustomAoECount.ValueChanged += new System.EventHandler(this.CustomAoECount_ValueChanged);
             // 
             // RandomCastLocations
             // 
@@ -844,7 +888,7 @@
             // 
             this.MiscGroup.Controls.Add(this.DebugLogging);
             this.MiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MiscGroup.Location = new System.Drawing.Point(637, 6);
+            this.MiscGroup.Location = new System.Drawing.Point(652, 6);
             this.MiscGroup.Name = "MiscGroup";
             this.MiscGroup.Size = new System.Drawing.Size(70, 44);
             this.MiscGroup.TabIndex = 4;
@@ -873,9 +917,9 @@
             this.RestGroup.Controls.Add(this.RestEnergy);
             this.RestGroup.Controls.Add(this.RestHealth);
             this.RestGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RestGroup.Location = new System.Drawing.Point(440, 6);
+            this.RestGroup.Location = new System.Drawing.Point(235, 135);
             this.RestGroup.Name = "RestGroup";
-            this.RestGroup.Size = new System.Drawing.Size(191, 67);
+            this.RestGroup.Size = new System.Drawing.Size(199, 67);
             this.RestGroup.TabIndex = 3;
             this.RestGroup.TabStop = false;
             this.RestGroup.Text = "Rest";
@@ -883,7 +927,7 @@
             // RestEnergyPct
             // 
             this.RestEnergyPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RestEnergyPct.Location = new System.Drawing.Point(96, 39);
+            this.RestEnergyPct.Location = new System.Drawing.Point(104, 39);
             this.RestEnergyPct.Name = "RestEnergyPct";
             this.RestEnergyPct.Size = new System.Drawing.Size(89, 22);
             this.RestEnergyPct.TabIndex = 3;
@@ -892,7 +936,7 @@
             // RestHealthPct
             // 
             this.RestHealthPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.RestHealthPct.Location = new System.Drawing.Point(96, 16);
+            this.RestHealthPct.Location = new System.Drawing.Point(104, 16);
             this.RestHealthPct.Name = "RestHealthPct";
             this.RestHealthPct.Size = new System.Drawing.Size(89, 22);
             this.RestHealthPct.TabIndex = 2;
@@ -960,6 +1004,57 @@
             this.RotationGroup.TabIndex = 2;
             this.RotationGroup.TabStop = false;
             this.RotationGroup.Text = "Rotation";
+            // 
+            // CooldownHotkey
+            // 
+            this.CooldownHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.CooldownHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CooldownHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CooldownHotkey.ForeColor = System.Drawing.Color.White;
+            this.CooldownHotkey.Location = new System.Drawing.Point(120, 140);
+            this.CooldownHotkey.Name = "CooldownHotkey";
+            this.CooldownHotkey.ReadOnly = true;
+            this.CooldownHotkey.Size = new System.Drawing.Size(90, 21);
+            this.CooldownHotkey.TabIndex = 15;
+            this.CooldownHotkey.TabStop = false;
+            this.CooldownHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CooldownHotkey_KeyDown);
+            // 
+            // CooldownMode
+            // 
+            this.CooldownMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.CooldownMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CooldownMode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CooldownMode.ForeColor = System.Drawing.Color.White;
+            this.CooldownMode.FormattingEnabled = true;
+            this.CooldownMode.Items.AddRange(new object[] {
+            "Enabled",
+            "Disabled"});
+            this.CooldownMode.Location = new System.Drawing.Point(6, 140);
+            this.CooldownMode.Name = "CooldownMode";
+            this.CooldownMode.Size = new System.Drawing.Size(108, 21);
+            this.CooldownMode.TabIndex = 14;
+            this.CooldownMode.TabStop = false;
+            this.CooldownMode.SelectedValueChanged += new System.EventHandler(this.CooldownMode_SelectedValueChanged);
+            // 
+            // CooldownHotkeyLabel
+            // 
+            this.CooldownHotkeyLabel.AutoSize = true;
+            this.CooldownHotkeyLabel.ForeColor = System.Drawing.Color.White;
+            this.CooldownHotkeyLabel.Location = new System.Drawing.Point(120, 123);
+            this.CooldownHotkeyLabel.Name = "CooldownHotkeyLabel";
+            this.CooldownHotkeyLabel.Size = new System.Drawing.Size(43, 13);
+            this.CooldownHotkeyLabel.TabIndex = 13;
+            this.CooldownHotkeyLabel.Text = "Hotkey";
+            // 
+            // CooldownModeLabel
+            // 
+            this.CooldownModeLabel.AutoSize = true;
+            this.CooldownModeLabel.ForeColor = System.Drawing.Color.White;
+            this.CooldownModeLabel.Location = new System.Drawing.Point(6, 123);
+            this.CooldownModeLabel.Name = "CooldownModeLabel";
+            this.CooldownModeLabel.Size = new System.Drawing.Size(94, 13);
+            this.CooldownModeLabel.TabIndex = 12;
+            this.CooldownModeLabel.Text = "Cooldown Mode";
             // 
             // RotationOverlay
             // 
@@ -9008,57 +9103,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // CooldownModeLabel
-            // 
-            this.CooldownModeLabel.AutoSize = true;
-            this.CooldownModeLabel.ForeColor = System.Drawing.Color.White;
-            this.CooldownModeLabel.Location = new System.Drawing.Point(6, 123);
-            this.CooldownModeLabel.Name = "CooldownModeLabel";
-            this.CooldownModeLabel.Size = new System.Drawing.Size(94, 13);
-            this.CooldownModeLabel.TabIndex = 12;
-            this.CooldownModeLabel.Text = "Cooldown Mode";
-            // 
-            // CooldownHotkeyLabel
-            // 
-            this.CooldownHotkeyLabel.AutoSize = true;
-            this.CooldownHotkeyLabel.ForeColor = System.Drawing.Color.White;
-            this.CooldownHotkeyLabel.Location = new System.Drawing.Point(120, 123);
-            this.CooldownHotkeyLabel.Name = "CooldownHotkeyLabel";
-            this.CooldownHotkeyLabel.Size = new System.Drawing.Size(43, 13);
-            this.CooldownHotkeyLabel.TabIndex = 13;
-            this.CooldownHotkeyLabel.Text = "Hotkey";
-            // 
-            // CooldownMode
-            // 
-            this.CooldownMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.CooldownMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CooldownMode.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.CooldownMode.ForeColor = System.Drawing.Color.White;
-            this.CooldownMode.FormattingEnabled = true;
-            this.CooldownMode.Items.AddRange(new object[] {
-            "Enabled",
-            "Disabled"});
-            this.CooldownMode.Location = new System.Drawing.Point(6, 140);
-            this.CooldownMode.Name = "CooldownMode";
-            this.CooldownMode.Size = new System.Drawing.Size(108, 21);
-            this.CooldownMode.TabIndex = 14;
-            this.CooldownMode.TabStop = false;
-            this.CooldownMode.SelectedValueChanged += new System.EventHandler(this.CooldownMode_SelectedValueChanged);
-            // 
-            // CooldownHotkey
-            // 
-            this.CooldownHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.CooldownHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CooldownHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.CooldownHotkey.ForeColor = System.Drawing.Color.White;
-            this.CooldownHotkey.Location = new System.Drawing.Point(120, 140);
-            this.CooldownHotkey.Name = "CooldownHotkey";
-            this.CooldownHotkey.ReadOnly = true;
-            this.CooldownHotkey.Size = new System.Drawing.Size(90, 21);
-            this.CooldownHotkey.TabIndex = 15;
-            this.CooldownHotkey.TabStop = false;
-            this.CooldownHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CooldownHotkey_KeyDown);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9859,5 +9903,7 @@
         private Design.CustomCombo CooldownMode;
         private System.Windows.Forms.Label CooldownHotkeyLabel;
         private System.Windows.Forms.Label CooldownModeLabel;
+        private Design.UserNumeric CustomAoECount;
+        private Design.CustomCheck CustomAoE;
     }
 }

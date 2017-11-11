@@ -116,21 +116,31 @@ namespace ShinraCo.Spells
                 var enemyCount = Helpers.EnemyUnit.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
                                                                DataManager.GetSpellData(ID).Radius);
 
-                switch (Core.Player.CurrentJob)
+                if (Shinra.Settings.CustomAoE)
                 {
-                    case ClassJobType.Arcanist:
-                    case ClassJobType.Summoner:
-                        if (enemyCount < 2)
-                        {
-                            return false;
-                        }
-                        break;
-                    default:
-                        if (enemyCount < 3)
-                        {
-                            return false;
-                        }
-                        break;
+                    if (enemyCount < Shinra.Settings.CustomAoECount)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    switch (Core.Player.CurrentJob)
+                    {
+                        case ClassJobType.Arcanist:
+                        case ClassJobType.Summoner:
+                            if (enemyCount < 2)
+                            {
+                                return false;
+                            }
+                            break;
+                        default:
+                            if (enemyCount < 3)
+                            {
+                                return false;
+                            }
+                            break;
+                    }
                 }
             }
 

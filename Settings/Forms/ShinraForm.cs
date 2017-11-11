@@ -89,6 +89,9 @@ namespace ShinraCo.Settings.Forms
             #region Spell
 
             RandomCastLocations.Checked = Shinra.Settings.RandomCastLocations;
+            CustomAoE.Checked = Shinra.Settings.CustomAoE;
+
+            CustomAoECount.Value = Shinra.Settings.CustomAoECount;
 
             #endregion
 
@@ -1089,6 +1092,16 @@ namespace ShinraCo.Settings.Forms
         private void RandomCastLocations_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RandomCastLocations = RandomCastLocations.Checked;
+        }
+
+        private void CustomAoE_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.CustomAoE = CustomAoE.Checked;
+        }
+
+        private void CustomAoECount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.CustomAoECount = Convert.ToInt32(CustomAoECount.Value);
         }
 
         #endregion

@@ -535,6 +535,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Drain()
+        {
+            if (Core.Player.CurrentHealthPercent < 50 || Core.Player.CurrentHealthPercent < Shinra.Settings.BlackMageDrainPct)
+            {
+                return await MySpells.Thaumaturge.Role.Drain.Cast();
+            }
+            return false;
+        }
+
         #endregion
 
         #region Custom

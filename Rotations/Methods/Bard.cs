@@ -134,8 +134,10 @@ namespace ShinraCo.Rotations
         {
             if (Core.Player.CurrentTPPercent > 40)
             {
+                var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
                 if (Shinra.Settings.RotationMode == Modes.Multi || Shinra.Settings.RotationMode == Modes.Smart &&
-                    Helpers.EnemiesNearTarget(5) > 2)
+                    Helpers.EnemiesNearTarget(5) >= count)
                 {
                     return await MySpells.QuickNock.Cast();
                 }
