@@ -75,11 +75,11 @@ namespace ShinraCo
             }
         }
 
-        public static T Cycle<T>(this T src, string name)
+        public static T Cycle<T>(this T src, string name, bool skip = false)
         {
             var arr = (T[])Enum.GetValues(src.GetType());
             var i = Array.IndexOf(arr, src) + 1;
-            var next = arr.Length == i ? arr[0] : arr[i];
+            var next = arr.Length == i ? (skip ? arr[1] : arr[0]) : arr[i];
 
             DisplayToast($@"Shinra {name} >>> {next}");
             Logging.Write(Colors.Yellow, $@"[Shinra] {name} >>> {next}");

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 using System.Windows.Media;
 using Buddy.Coroutines;
 using ff14bot;
@@ -73,7 +72,7 @@ namespace ShinraCo
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk =>
                                    {
-                                       Settings.RotationMode = Settings.RotationMode.Cycle("Rotation");
+                                       Settings.RotationMode = Settings.RotationMode.Cycle("Rotation", true);
                                        Overlay.UpdateText();
                                    });
             HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Settings.CooldownHotkey),
@@ -98,7 +97,7 @@ namespace ShinraCo
                 case ClassJobType.Machinist:
                     HotkeyManager.Register("Shinra Job", Helpers.GetHotkey(Settings.MachinistTurretHotkey),
                                            Helpers.GetModkey(Settings.MachinistTurretHotkey),
-                                           hk => Settings.MachinistTurret = Settings.MachinistTurret.Cycle("Turret"));
+                                           hk => Settings.MachinistTurret = Settings.MachinistTurret.Cycle("Turret", true));
                     break;
             }
         }
