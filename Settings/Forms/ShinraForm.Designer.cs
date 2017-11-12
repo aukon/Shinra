@@ -617,6 +617,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MachinistTurretHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -6760,12 +6761,13 @@
             // 
             // MachinistTurretGroup
             // 
+            this.MachinistTurretGroup.Controls.Add(this.MachinistTurretHotkey);
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurretLocation);
             this.MachinistTurretGroup.Controls.Add(this.MachinistTurret);
             this.MachinistTurretGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MachinistTurretGroup.Location = new System.Drawing.Point(347, 124);
             this.MachinistTurretGroup.Name = "MachinistTurretGroup";
-            this.MachinistTurretGroup.Size = new System.Drawing.Size(102, 66);
+            this.MachinistTurretGroup.Size = new System.Drawing.Size(198, 66);
             this.MachinistTurretGroup.TabIndex = 3;
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
@@ -9137,6 +9139,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // MachinistTurretHotkey
+            // 
+            this.MachinistTurretHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurretHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MachinistTurretHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretHotkey.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretHotkey.Location = new System.Drawing.Point(102, 16);
+            this.MachinistTurretHotkey.Name = "MachinistTurretHotkey";
+            this.MachinistTurretHotkey.ReadOnly = true;
+            this.MachinistTurretHotkey.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurretHotkey.TabIndex = 2;
+            this.MachinistTurretHotkey.TabStop = false;
+            this.MachinistTurretHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MachinistTurretHotkey_KeyDown);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9941,5 +9957,6 @@
         private Design.CustomCheck CustomAoE;
         private Design.CustomCheck RedMageVerraise;
         private Design.CustomCheck SummonerResurrection;
+        private Design.HotkeyBox MachinistTurretHotkey;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using Buddy.Coroutines;
 using ff14bot;
@@ -30,12 +31,7 @@ namespace ShinraCo
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
             Overlay.Visible = Settings.RotationOverlay;
             Overlay.UpdateText();
-            HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
-                                   Helpers.GetModkey(Settings.RotationHotkey), hk => CycleRotation());
-            HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Settings.CooldownHotkey),
-                                   Helpers.GetModkey(Settings.CooldownHotkey), hk => CycleRotation(true));
-            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey), Helpers.GetModkey(Settings.TankHotkey),
-                                   hk => CycleRotation(false, true));
+            RegisterHotkeys();
         }
 
         public sealed override void Pulse()
@@ -47,8 +43,7 @@ namespace ShinraCo
         public sealed override void ShutDown()
         {
             Logging.Write(Colors.GreenYellow, @"[Shinra] Shutting down...");
-            HotkeyManager.Unregister("Shinra Rotation");
-            HotkeyManager.Unregister("Shinra Tank");
+            UnregisterHotkeys();
         }
 
         #endregion
@@ -69,54 +64,51 @@ namespace ShinraCo
             _configForm.ShowDialog();
         }
 
-        public static void CycleRotation(bool cooldown = false, bool tank = false)
+        #endregion
+
+        #region Hotkeys
+
+        public static void RegisterHotkeys()
         {
-            if (cooldown)
+            HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
+                                   Helpers.GetModkey(Settings.RotationHotkey), hk =>
+                                   {
+                                       Settings.RotationMode = Settings.RotationMode.Cycle("Rotation");
+                                       Overlay.UpdateText();
+                                   });
+            HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Settings.CooldownHotkey),
+                                   Helpers.GetModkey(Settings.CooldownHotkey), hk =>
+                                   {
+                                       Settings.CooldownMode = Settings.CooldownMode.Cycle("Cooldown");
+                                       Overlay.UpdateText();
+                                   });
+            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Settings.TankHotkey),
+                                   Helpers.GetModkey(Settings.TankHotkey), hk =>
+                                   {
+                                       Settings.TankMode = Settings.TankMode.Cycle("Tank");
+                                       Overlay.UpdateText();
+                                   });
+        }
+
+        public static void RegisterClassHotkeys()
+        {
+            HotkeyManager.Unregister("Shinra Job");
+            switch (Core.Player.CurrentJob)
             {
-                switch (Settings.CooldownMode)
-                {
-                    case CooldownModes.Enabled:
-                        Settings.CooldownMode = CooldownModes.Disabled;
-                        break;
-                    case CooldownModes.Disabled:
-                        Settings.CooldownMode = CooldownModes.Enabled;
-                        break;
-                }
-                Helpers.DisplayToast($@"Shinra Cooldown >>> {Settings.CooldownMode}");
-                Logging.Write(Colors.Yellow, $@"[Shinra] Cooldown >>> {Settings.CooldownMode}");
+                case ClassJobType.Machinist:
+                    HotkeyManager.Register("Shinra Job", Helpers.GetHotkey(Settings.MachinistTurretHotkey),
+                                           Helpers.GetModkey(Settings.MachinistTurretHotkey),
+                                           hk => Settings.MachinistTurret = Settings.MachinistTurret.Cycle("Turret"));
+                    break;
             }
-            else if (tank)
-            {
-                switch (Settings.TankMode)
-                {
-                    case TankModes.DPS:
-                        Settings.TankMode = TankModes.Enmity;
-                        break;
-                    case TankModes.Enmity:
-                        Settings.TankMode = TankModes.DPS;
-                        break;
-                }
-                Helpers.DisplayToast($@"Shinra Tank >>> {Settings.TankMode}");
-                Logging.Write(Colors.Yellow, $@"[Shinra] Tank >>> {Settings.TankMode}");
-            }
-            else
-            {
-                switch (Settings.RotationMode)
-                {
-                    case Modes.Smart:
-                        Settings.RotationMode = Modes.Single;
-                        break;
-                    case Modes.Single:
-                        Settings.RotationMode = Modes.Multi;
-                        break;
-                    case Modes.Multi:
-                        Settings.RotationMode = Modes.Smart;
-                        break;
-                }
-                Helpers.DisplayToast($@"Shinra Rotation >>> {Settings.RotationMode}");
-                Logging.Write(Colors.Yellow, $@"[Shinra] Rotation >>> {Settings.RotationMode}");
-            }
-            Overlay.UpdateText();
+        }
+
+        public static void UnregisterHotkeys()
+        {
+            HotkeyManager.Unregister("Shinra Rotation");
+            HotkeyManager.Unregister("Shinra Cooldown");
+            HotkeyManager.Unregister("Shinra Tank");
+            HotkeyManager.Unregister("Shinra Job");
         }
 
         #endregion
@@ -138,6 +130,7 @@ namespace ShinraCo
                 _currentClass = Core.Player.CurrentJob;
                 _myRotation = GetRotation(_currentClass);
                 Logging.Write(Colors.Yellow, $@"[Shinra] Loading {_currentClass}...");
+                RegisterClassHotkeys();
                 return _currentClass;
             }
         }

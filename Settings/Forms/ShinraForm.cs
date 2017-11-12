@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ff14bot.Managers;
 using ShinraCo.Properties;
 using System.Diagnostics;
 
@@ -44,10 +43,9 @@ namespace ShinraCo.Settings.Forms
         {
             ShinraBanner.Image = _shinraBanner;
             ShinraDonate.Image = _shinraDonate;
-            HotkeyManager.Unregister("Shinra Rotation");
-            HotkeyManager.Unregister("Shinra Cooldown");
-            HotkeyManager.Unregister("Shinra Tank");
+            Shinra.UnregisterHotkeys();
             Location = Shinra.Settings.WindowLocation;
+            var kc = new KeysConverter();
 
             #region Main Settings
 
@@ -60,7 +58,6 @@ namespace ShinraCo.Settings.Forms
             CooldownMode.Text = Convert.ToString(Shinra.Settings.CooldownMode);
             TankMode.Text = Convert.ToString(Shinra.Settings.TankMode);
 
-            var kc = new KeysConverter();
             RotationHotkey.Text = kc.ConvertToString(Shinra.Settings.RotationHotkey);
             CooldownHotkey.Text = kc.ConvertToString(Shinra.Settings.CooldownHotkey);
             TankHotkey.Text = kc.ConvertToString(Shinra.Settings.TankHotkey);
@@ -414,6 +411,7 @@ namespace ShinraCo.Settings.Forms
             #region Turret
 
             MachinistTurret.Text = Convert.ToString(Shinra.Settings.MachinistTurret);
+            MachinistTurretHotkey.Text = kc.ConvertToString(Shinra.Settings.MachinistTurretHotkey);
             MachinistTurretLocation.Text = Convert.ToString(Shinra.Settings.MachinistTurretLocation);
 
             #endregion
@@ -971,12 +969,8 @@ namespace ShinraCo.Settings.Forms
 
         private void ShinraForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Shinra.Settings.RotationHotkey),
-                                   Helpers.GetModkey(Shinra.Settings.RotationHotkey), hk => Shinra.CycleRotation());
-            HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Shinra.Settings.CooldownHotkey),
-                                   Helpers.GetModkey(Shinra.Settings.CooldownHotkey), hk => Shinra.CycleRotation(true));
-            HotkeyManager.Register("Shinra Tank", Helpers.GetHotkey(Shinra.Settings.TankHotkey),
-                                   Helpers.GetModkey(Shinra.Settings.TankHotkey), hk => Shinra.CycleRotation(false, true));
+            Shinra.RegisterHotkeys();
+            Shinra.RegisterClassHotkeys();
             Shinra.Settings.WindowLocation = Location;
             Shinra.Settings.Save();
         }
@@ -1937,6 +1931,11 @@ namespace ShinraCo.Settings.Forms
             if (MachinistTurret.Text == @"None") Shinra.Settings.MachinistTurret = MachinistTurrets.None;
             if (MachinistTurret.Text == @"Rook") Shinra.Settings.MachinistTurret = MachinistTurrets.Rook;
             if (MachinistTurret.Text == @"Bishop") Shinra.Settings.MachinistTurret = MachinistTurrets.Bishop;
+        }
+
+        private void MachinistTurretHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            Shinra.Settings.MachinistTurretHotkey = MachinistTurretHotkey.Hotkey;
         }
 
         private void MachinistTurretLocation_SelectedValueChanged(object sender, EventArgs e)

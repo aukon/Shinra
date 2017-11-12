@@ -757,6 +757,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(MachinistTurrets.Rook)]
         public MachinistTurrets MachinistTurret { get; set; }
 
+        [Setting, DefaultValue(Keys.None)]
+        public Keys MachinistTurretHotkey { get; set; }
+
         [Setting, DefaultValue(CastLocations.Target)]
         public CastLocations MachinistTurretLocation { get; set; }
 
