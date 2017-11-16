@@ -13,7 +13,8 @@ namespace ShinraCo.Rotations
     public sealed partial class Dragoon
     {
         private DragoonSpells MySpells { get; } = new DragoonSpells();
-
+        private static readonly int NumRequiredEye = Helpers.IsCNVer ? 4 : 3;
+        
         #region Damage
 
         private async Task<bool> TrueThrust()
@@ -158,7 +159,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (Resource.DragonGaze == 3 || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
+                if (Resource.DragonGaze == NumRequiredEye || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
                     Core.Player.ClassLevel < 70)
                 {
                     return await MySpells.Geirskogul.Cast();

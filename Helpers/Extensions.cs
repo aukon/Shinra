@@ -8,6 +8,7 @@ using System.Windows.Media;
 using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
+using ff14bot.Managers;
 
 namespace ShinraCo
 {
@@ -34,6 +35,17 @@ namespace ShinraCo
         public static float CurrentEnergyPct => ManaJobs.Contains(Core.Player.CurrentJob)
             ? Core.Player.CurrentManaPercent
             : Core.Player.CurrentTPPercent;
+
+        private static bool IsCnVersion()
+        {
+            try
+            {
+                return DataManager.GetSpellData(1).LocalizedName == "任务道具";
+            }
+            catch { return false; }
+        }
+        
+        public static readonly bool IsCNVer = IsCnVersion();
 
         private static readonly string VersionPath = Path.Combine(Environment.CurrentDirectory, @"Routines\Shinra\Properties\Version.txt");
 

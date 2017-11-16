@@ -24,6 +24,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Ruin()
         {
+            if (Helpers.IsCNVer) return await MySpells.Ruin.Cast();
             if (!ActionManager.HasSpell(MySpells.RuinIII.Name))
             {
                 return await MySpells.Ruin.Cast();
@@ -33,17 +34,36 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
-                (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
+            if (Helpers.IsCNVer)
             {
-                return await MySpells.RuinII.Cast();
+                if (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle ||
+                    !Resource.DreadwyrmTrance && (UsePet || UseShadowFlare) ||
+                    Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 3500)
+                {
+                    return await MySpells.RuinII.Cast();
+                }
             }
+            else
+            {
+                if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
+                    (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
+                {
+                    return await MySpells.RuinII.Cast();
+                }
+            }
+
             return false;
         }
 
         private async Task<bool> RuinIII()
         {
-            return await MySpells.RuinIII.Cast();
+            if (!Helpers.IsCNVer) return await MySpells.RuinIII.Cast();
+            if (Resource.DreadwyrmTrance || Core.Player.CurrentManaPercent > 80 || Core.Player.CurrentTarget.HasAura(1291, true, 3000) &&
+                Core.Player.CurrentManaPercent > 40)
+            {
+                return await MySpells.RuinIII.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -276,6 +296,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Resurrection()
         {
+            if (Helpers.IsCNVer) return false;
             if (Shinra.Settings.SummonerResurrection && Shinra.Settings.SummonerSwiftcast && Core.Player.CurrentManaPercent > 50 &&
                 ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player))
             {
