@@ -303,6 +303,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Resurrection()
         {
+            if (Helpers.IsCNVer) return false;
             if (Shinra.Settings.ScholarResurrection &&
                 (Shinra.Settings.ScholarSwiftcast && ActionManager.CanCast(MySpells.Role.Swiftcast.Name, Core.Player) ||
                  !Helpers.HealManager.Any(hm => hm.CurrentHealthPercent < Shinra.Settings.ScholarPhysickPct)))
