@@ -450,6 +450,7 @@
             this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MachinistTurretHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -617,7 +618,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.MachinistTurretHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
+            this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -889,11 +890,12 @@
             // 
             // MiscGroup
             // 
+            this.MiscGroup.Controls.Add(this.IgnoreSmart);
             this.MiscGroup.Controls.Add(this.DebugLogging);
             this.MiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MiscGroup.Location = new System.Drawing.Point(652, 6);
+            this.MiscGroup.Location = new System.Drawing.Point(13, 223);
             this.MiscGroup.Name = "MiscGroup";
-            this.MiscGroup.Size = new System.Drawing.Size(70, 44);
+            this.MiscGroup.Size = new System.Drawing.Size(132, 66);
             this.MiscGroup.TabIndex = 4;
             this.MiscGroup.TabStop = false;
             this.MiscGroup.Text = "Misc";
@@ -904,7 +906,7 @@
             this.DebugLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DebugLogging.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DebugLogging.ForeColor = System.Drawing.Color.White;
-            this.DebugLogging.Location = new System.Drawing.Point(6, 16);
+            this.DebugLogging.Location = new System.Drawing.Point(6, 39);
             this.DebugLogging.Name = "DebugLogging";
             this.DebugLogging.Size = new System.Drawing.Size(58, 17);
             this.DebugLogging.TabIndex = 0;
@@ -6772,6 +6774,20 @@
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
             // 
+            // MachinistTurretHotkey
+            // 
+            this.MachinistTurretHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.MachinistTurretHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MachinistTurretHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MachinistTurretHotkey.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretHotkey.Location = new System.Drawing.Point(102, 16);
+            this.MachinistTurretHotkey.Name = "MachinistTurretHotkey";
+            this.MachinistTurretHotkey.ReadOnly = true;
+            this.MachinistTurretHotkey.Size = new System.Drawing.Size(90, 21);
+            this.MachinistTurretHotkey.TabIndex = 2;
+            this.MachinistTurretHotkey.TabStop = false;
+            this.MachinistTurretHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MachinistTurretHotkey_KeyDown);
+            // 
             // MachinistTurretLocation
             // 
             this.MachinistTurretLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -9139,19 +9155,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // MachinistTurretHotkey
+            // IgnoreSmart
             // 
-            this.MachinistTurretHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.MachinistTurretHotkey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MachinistTurretHotkey.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MachinistTurretHotkey.ForeColor = System.Drawing.Color.White;
-            this.MachinistTurretHotkey.Location = new System.Drawing.Point(102, 16);
-            this.MachinistTurretHotkey.Name = "MachinistTurretHotkey";
-            this.MachinistTurretHotkey.ReadOnly = true;
-            this.MachinistTurretHotkey.Size = new System.Drawing.Size(90, 21);
-            this.MachinistTurretHotkey.TabIndex = 2;
-            this.MachinistTurretHotkey.TabStop = false;
-            this.MachinistTurretHotkey.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MachinistTurretHotkey_KeyDown);
+            this.IgnoreSmart.AutoSize = true;
+            this.IgnoreSmart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IgnoreSmart.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.IgnoreSmart.ForeColor = System.Drawing.Color.White;
+            this.IgnoreSmart.Location = new System.Drawing.Point(6, 16);
+            this.IgnoreSmart.Name = "IgnoreSmart";
+            this.IgnoreSmart.Size = new System.Drawing.Size(120, 17);
+            this.IgnoreSmart.TabIndex = 1;
+            this.IgnoreSmart.TabStop = false;
+            this.IgnoreSmart.Text = "Ignore smart mode";
+            this.IgnoreSmart.UseVisualStyleBackColor = true;
+            this.IgnoreSmart.CheckedChanged += new System.EventHandler(this.IgnoreSmart_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -9958,5 +9975,6 @@
         private Design.CustomCheck RedMageVerraise;
         private Design.CustomCheck SummonerResurrection;
         private Design.HotkeyBox MachinistTurretHotkey;
+        private Design.CustomCheck IgnoreSmart;
     }
 }

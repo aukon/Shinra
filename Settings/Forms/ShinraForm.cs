@@ -94,6 +94,7 @@ namespace ShinraCo.Settings.Forms
 
             #region Misc
 
+            IgnoreSmart.Checked = Shinra.Settings.IgnoreSmart;
             DebugLogging.Checked = Shinra.Settings.DebugLogging;
 
             #endregion
@@ -1105,6 +1106,11 @@ namespace ShinraCo.Settings.Forms
         #endregion
 
         #region Misc
+
+        private void IgnoreSmart_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.IgnoreSmart = IgnoreSmart.Checked;
+        }
 
         private void DebugLogging_CheckedChanged(object sender, EventArgs e)
         {

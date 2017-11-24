@@ -196,6 +196,9 @@ namespace ShinraCo.Settings
         #region Misc
 
         [Setting, DefaultValue(false)]
+        public bool IgnoreSmart { get; set; }
+
+        [Setting, DefaultValue(false)]
         public bool DebugLogging { get; set; }
 
         #endregion

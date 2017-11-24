@@ -72,7 +72,7 @@ namespace ShinraCo
             HotkeyManager.Register("Shinra Rotation", Helpers.GetHotkey(Settings.RotationHotkey),
                                    Helpers.GetModkey(Settings.RotationHotkey), hk =>
                                    {
-                                       Settings.RotationMode = Settings.RotationMode.Cycle("Rotation", true);
+                                       Settings.RotationMode = Settings.RotationMode.Cycle("Rotation", Settings.IgnoreSmart);
                                        Overlay.UpdateText();
                                    });
             HotkeyManager.Register("Shinra Cooldown", Helpers.GetHotkey(Settings.CooldownHotkey),
