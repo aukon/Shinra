@@ -192,17 +192,22 @@ namespace ShinraCo
 
         public override Composite CombatBehavior
         {
-            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Combat()))); }
+            get
+            {
+                return new Decorator(r => Core.Player.HasTarget,
+                                     new PrioritySelector(new Decorator(r => WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.CombatPVP())),
+                                                          new ActionRunCoroutine(ctx => MyRotation.Combat())));
+            }
         }
 
         public override Composite CombatBuffBehavior
         {
-            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.CombatBuff()))); }
+            get { return new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.CombatBuff())); }
         }
 
         public override Composite PullBehavior
         {
-            get { return new PrioritySelector(new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Pull()))); }
+            get { return new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Pull())); }
         }
 
         public override Composite HealBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.Heal()); } }

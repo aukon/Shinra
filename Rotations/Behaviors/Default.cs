@@ -28,5 +28,10 @@ namespace ShinraCo.Rotations
         {
             return false;
         }
+
+        public override async Task<bool> CombatPVP()
+        {
+            return false;
+        }
     }
 }

@@ -45,7 +45,8 @@ namespace ShinraCo.Spells
         Pet,
         Ninjutsu,
         Mudra,
-        Card
+        Card,
+        PVP
     }
 
     #endregion
@@ -673,9 +674,19 @@ namespace ShinraCo.Spells
                     }
                     break;
                 default:
-                    if (!await Coroutine.Wait(1000, () => ActionManager.DoAction(ID, target)))
+                    if (SpellType == SpellType.PVP)
                     {
-                        return false;
+                        if (!await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(ID, target)))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!await Coroutine.Wait(1000, () => ActionManager.DoAction(ID, target)))
+                        {
+                            return false;
+                        }
                     }
                     break;
             }

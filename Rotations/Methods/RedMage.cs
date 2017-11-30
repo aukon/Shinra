@@ -355,6 +355,19 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> JoltIIPVP()
+        {
+            if (!Core.Player.HasAura("Dualcast"))
+            {
+                return await MySpells.PVP.JoltII.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static int WhiteMana => Resource.WhiteMana;

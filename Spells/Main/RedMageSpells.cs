@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class RedMageSpells
     {
+        public RedMagePVP PVP { get; } = new RedMagePVP();
         public CasterSpells Role { get; } = new CasterSpells();
 
         public Spell Riposte { get; } = new Spell

@@ -97,5 +97,14 @@ namespace ShinraCo.Rotations
         }
 
         #endregion
+
+        #region CombatPVP
+
+        public override async Task<bool> CombatPVP()
+        {
+            return false;
+        }
+
+        #endregion
     }
 }

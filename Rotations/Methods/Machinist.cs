@@ -170,8 +170,9 @@ namespace ShinraCo.Rotations
             {
                 if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
                 {
-                    if (Core.Player.HasAura("Cleaner Shot") || !ActionManager.HasSpell(MySpells.CleanShot.Name) &&
-                        Core.Player.HasAura("Enhanced Slug Shot"))
+                    if (Core.Player.HasAura("Cleaner Shot") && Shinra.LastSpell.Name != MySpells.CleanShot.Name ||
+                        !ActionManager.HasSpell(MySpells.CleanShot.Name) && Core.Player.HasAura("Enhanced Slug Shot") &&
+                        Shinra.LastSpell.Name != MySpells.SlugShot.Name)
                     {
                         return await MySpells.Reassemble.Cast();
                     }

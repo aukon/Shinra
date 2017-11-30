@@ -9,6 +9,7 @@ namespace ShinraCo.Rotations
         Task<bool> Heal();
         Task<bool> PreCombatBuff();
         Task<bool> Pull();
+        Task<bool> CombatPVP();
     }
 
     public abstract class Rotation : IRotation
@@ -18,5 +19,6 @@ namespace ShinraCo.Rotations
         public abstract Task<bool> Heal();
         public abstract Task<bool> PreCombatBuff();
         public abstract Task<bool> Pull();
+        public abstract Task<bool> CombatPVP();
     }
 }
