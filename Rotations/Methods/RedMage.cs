@@ -359,11 +359,84 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> JoltIIPVP()
         {
-            if (!Core.Player.HasAura("Dualcast"))
+            if (!Core.Player.HasAura("Dualcast") && Core.Player.CurrentManaPercent > 30)
             {
                 return await MySpells.PVP.JoltII.Cast();
             }
             return false;
+        }
+
+        private async Task<bool> ImpactPVP()
+        {
+            if (Core.Player.CurrentManaPercent > 30)
+            {
+                return await MySpells.PVP.Impact.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> VerstonePVP()
+        {
+            if (!Core.Player.HasAura("Dualcast") && WhiteMana < BlackMana)
+            {
+                return await MySpells.PVP.Verstone.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> VeraeroPVP()
+        {
+            if (WhiteMana < BlackMana)
+            {
+                return await MySpells.PVP.Veraero.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> VerfirePVP()
+        {
+            if (!Core.Player.HasAura("Dualcast"))
+            {
+                return await MySpells.PVP.Verfire.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> VerthunderPVP()
+        {
+            return await MySpells.PVP.Verthunder.Cast();
+        }
+
+        private async Task<bool> EnchantedRipostePVP()
+        {
+            if (WhiteMana >= 75 && BlackMana >= 75 && Core.Player.TargetDistance(5, false))
+            {
+                return await MySpells.PVP.EnchantedRiposte.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> EnchantedZwerchhauPVP()
+        {
+            if (Core.Player.TargetDistance(5, false))
+            {
+                return await MySpells.PVP.EnchantedZwerchhau.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> EnchantedRedoublementPVP()
+        {
+            if (Core.Player.TargetDistance(5, false))
+            {
+                return await MySpells.PVP.EnchantedRedoublement.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> VerholyPVP()
+        {
+            return await MySpells.PVP.Verholy.Cast();
         }
 
         #endregion

@@ -112,7 +112,16 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
-            return await JoltIIPVP();
+            if (await VerholyPVP()) return true;
+            if (await EnchantedRedoublementPVP()) return true;
+            if (await EnchantedZwerchhauPVP()) return true;
+            if (await EnchantedRipostePVP()) return true;
+            if (await ImpactPVP()) return true;
+            if (await VeraeroPVP()) return true;
+            if (await VerthunderPVP()) return true;
+            if (await JoltIIPVP()) return true;
+            if (await VerstonePVP()) return true;
+            return await VerfirePVP();
         }
 
         #endregion

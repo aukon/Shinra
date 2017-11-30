@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class GladiatorSpells
     {
+        public PaladinPVP PVP { get; } = new PaladinPVP();
         public TankSpells Role { get; } = new TankSpells();
 
         public Spell FastBlade { get; } = new Spell

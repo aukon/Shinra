@@ -39,6 +39,10 @@
             this.CustomAoECount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EnablePVP = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RestEnergyPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -618,7 +622,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -890,15 +893,68 @@
             // 
             // MiscGroup
             // 
+            this.MiscGroup.Controls.Add(this.label2);
+            this.MiscGroup.Controls.Add(this.label1);
+            this.MiscGroup.Controls.Add(this.EnablePVP);
             this.MiscGroup.Controls.Add(this.IgnoreSmart);
             this.MiscGroup.Controls.Add(this.DebugLogging);
             this.MiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MiscGroup.Location = new System.Drawing.Point(13, 223);
+            this.MiscGroup.Location = new System.Drawing.Point(440, 79);
             this.MiscGroup.Name = "MiscGroup";
-            this.MiscGroup.Size = new System.Drawing.Size(132, 66);
+            this.MiscGroup.Size = new System.Drawing.Size(146, 114);
             this.MiscGroup.TabIndex = 4;
             this.MiscGroup.TabStop = false;
             this.MiscGroup.Text = "Misc";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(6, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "RebornbuddyBETA";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(6, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "* PVP requires the use of";
+            // 
+            // EnablePVP
+            // 
+            this.EnablePVP.AutoSize = true;
+            this.EnablePVP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EnablePVP.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.EnablePVP.ForeColor = System.Drawing.Color.White;
+            this.EnablePVP.Location = new System.Drawing.Point(6, 62);
+            this.EnablePVP.Name = "EnablePVP";
+            this.EnablePVP.Size = new System.Drawing.Size(80, 17);
+            this.EnablePVP.TabIndex = 2;
+            this.EnablePVP.TabStop = false;
+            this.EnablePVP.Text = "Enable PVP";
+            this.EnablePVP.UseVisualStyleBackColor = true;
+            this.EnablePVP.CheckedChanged += new System.EventHandler(this.EnablePVP_CheckedChanged);
+            // 
+            // IgnoreSmart
+            // 
+            this.IgnoreSmart.AutoSize = true;
+            this.IgnoreSmart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IgnoreSmart.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.IgnoreSmart.ForeColor = System.Drawing.Color.White;
+            this.IgnoreSmart.Location = new System.Drawing.Point(6, 16);
+            this.IgnoreSmart.Name = "IgnoreSmart";
+            this.IgnoreSmart.Size = new System.Drawing.Size(120, 17);
+            this.IgnoreSmart.TabIndex = 1;
+            this.IgnoreSmart.TabStop = false;
+            this.IgnoreSmart.Text = "Ignore smart mode";
+            this.IgnoreSmart.UseVisualStyleBackColor = true;
+            this.IgnoreSmart.CheckedChanged += new System.EventHandler(this.IgnoreSmart_CheckedChanged);
             // 
             // DebugLogging
             // 
@@ -9155,21 +9211,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // IgnoreSmart
-            // 
-            this.IgnoreSmart.AutoSize = true;
-            this.IgnoreSmart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IgnoreSmart.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.IgnoreSmart.ForeColor = System.Drawing.Color.White;
-            this.IgnoreSmart.Location = new System.Drawing.Point(6, 16);
-            this.IgnoreSmart.Name = "IgnoreSmart";
-            this.IgnoreSmart.Size = new System.Drawing.Size(120, 17);
-            this.IgnoreSmart.TabIndex = 1;
-            this.IgnoreSmart.TabStop = false;
-            this.IgnoreSmart.Text = "Ignore smart mode";
-            this.IgnoreSmart.UseVisualStyleBackColor = true;
-            this.IgnoreSmart.CheckedChanged += new System.EventHandler(this.IgnoreSmart_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9976,5 +10017,8 @@
         private Design.CustomCheck SummonerResurrection;
         private Design.HotkeyBox MachinistTurretHotkey;
         private Design.CustomCheck IgnoreSmart;
+        private Design.CustomCheck EnablePVP;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

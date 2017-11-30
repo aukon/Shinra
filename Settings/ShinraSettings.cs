@@ -201,6 +201,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool DebugLogging { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool EnablePVP { get; set; }
+
         #endregion
 
         #endregion

@@ -362,6 +362,43 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> RageOfHalonePVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.RageOfHalone.Name, false, 8000) &&
+                ActionManager.GetComboCurrentActionId(2) != MySpells.PVP.RoyalAuthority.ID)
+            {
+                return await MySpells.PVP.RageOfHalone.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> RoyalAuthorityPVP()
+        {
+            return await MySpells.PVP.RoyalAuthority.Cast();
+        }
+
+        private async Task<bool> HolySpiritPVP()
+        {
+            if (!MovementManager.IsMoving && Core.Player.HasAura(MySpells.Requiescat.Name))
+            {
+                return await MySpells.PVP.HolySpirit.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> RequiescatPVP()
+        {
+            if (!MovementManager.IsMoving)
+            {
+                return await MySpells.PVP.Requiescat.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static int OathValue => Resource.Oath;

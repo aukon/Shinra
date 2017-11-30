@@ -676,7 +676,8 @@ namespace ShinraCo.Spells
                 default:
                     if (SpellType == SpellType.PVP)
                     {
-                        if (!await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(ID, target)))
+                        var comboId = Helpers.PVPCombos.FirstOrDefault(c => c.Key == Name).Value;
+                        if (comboId == 0 || !await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(comboId, target)))
                         {
                             return false;
                         }
@@ -713,7 +714,8 @@ namespace ShinraCo.Spells
 
             #region AddRecent
 
-            if (SpellType != SpellType.Damage && SpellType != SpellType.AoE && SpellType != SpellType.Heal && await CastComplete(this))
+            if (SpellType != SpellType.Damage && SpellType != SpellType.AoE && SpellType != SpellType.Heal && SpellType != SpellType.PVP &&
+                await CastComplete(this))
             {
                 var key = target.ObjectId.ToString("X") + "-" + Name;
                 var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
