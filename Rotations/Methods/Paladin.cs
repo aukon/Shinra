@@ -366,11 +366,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RageOfHalonePVP()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.RageOfHalone.Name, false, 8000) &&
+            /*if (!Core.Player.CurrentTarget.HasAura(MySpells.RageOfHalone.Name, false, 8000) &&
                 ActionManager.GetComboCurrentActionId(2) != MySpells.PVP.RoyalAuthority.ID)
             {
                 return await MySpells.PVP.RageOfHalone.Cast();
-            }
+            }*/
             return false;
         }
 

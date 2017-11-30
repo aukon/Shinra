@@ -676,11 +676,11 @@ namespace ShinraCo.Spells
                 default:
                     if (SpellType == SpellType.PVP)
                     {
-                        var comboId = Helpers.PVPCombos.FirstOrDefault(c => c.Key == Name).Value;
-                        if (comboId == 0 || !await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(comboId, target)))
-                        {
+                        //var comboId = Helpers.PVPCombos.FirstOrDefault(c => c.Key == Name).Value;
+                        //if (comboId == 0 || !await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(comboId, target)))
+                        //{
                             return false;
-                        }
+                        //}
                     }
                     else
                     {
