@@ -47,6 +47,12 @@ namespace ShinraCo
             catch { return null; }
         }
 
+#if RB_CN
+        public static readonly bool CNVersion = true;
+#else
+        public static readonly bool CNVersion = false;
+#endif
+
         public static Keys GetHotkey(Keys number)
         {
             return (Keys)((int)number & 0x0000FFFF);

@@ -39,9 +39,6 @@
             this.CustomAoECount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.EnablePVP = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -454,12 +451,12 @@
             this.MachinistSyncWildfire = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistTurretGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.MachinistTurretLocationLabel = new System.Windows.Forms.Label();
-            this.MachinistTurretHotkeyLabel = new System.Windows.Forms.Label();
-            this.MachinistTurretLabel = new System.Windows.Forms.Label();
             this.MachinistTurretHotkey = new ShinraCo.Settings.Forms.Design.HotkeyBox();
             this.MachinistTurretLocation = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.MachinistTurret = new ShinraCo.Settings.Forms.Design.CustomCombo();
+            this.MachinistTurretLabel = new System.Windows.Forms.Label();
+            this.MachinistTurretHotkeyLabel = new System.Windows.Forms.Label();
+            this.MachinistTurretLocationLabel = new System.Windows.Forms.Label();
             this.MachinistBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.MachinistBishopOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.MachinistRookOverdrive = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -896,53 +893,15 @@
             // 
             // MiscGroup
             // 
-            this.MiscGroup.Controls.Add(this.label2);
-            this.MiscGroup.Controls.Add(this.label1);
-            this.MiscGroup.Controls.Add(this.EnablePVP);
             this.MiscGroup.Controls.Add(this.IgnoreSmart);
             this.MiscGroup.Controls.Add(this.DebugLogging);
             this.MiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MiscGroup.Location = new System.Drawing.Point(440, 79);
+            this.MiscGroup.Location = new System.Drawing.Point(13, 223);
             this.MiscGroup.Name = "MiscGroup";
-            this.MiscGroup.Size = new System.Drawing.Size(146, 123);
+            this.MiscGroup.Size = new System.Drawing.Size(132, 66);
             this.MiscGroup.TabIndex = 4;
             this.MiscGroup.TabStop = false;
             this.MiscGroup.Text = "Misc";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(6, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "RebornbuddyBETA";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(6, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "* PVP requires the use of";
-            // 
-            // EnablePVP
-            // 
-            this.EnablePVP.AutoSize = true;
-            this.EnablePVP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EnablePVP.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.EnablePVP.ForeColor = System.Drawing.Color.White;
-            this.EnablePVP.Location = new System.Drawing.Point(6, 62);
-            this.EnablePVP.Name = "EnablePVP";
-            this.EnablePVP.Size = new System.Drawing.Size(80, 17);
-            this.EnablePVP.TabIndex = 2;
-            this.EnablePVP.TabStop = false;
-            this.EnablePVP.Text = "Enable PVP";
-            this.EnablePVP.UseVisualStyleBackColor = true;
-            this.EnablePVP.CheckedChanged += new System.EventHandler(this.EnablePVP_CheckedChanged);
             // 
             // IgnoreSmart
             // 
@@ -6836,36 +6795,6 @@
             this.MachinistTurretGroup.TabStop = false;
             this.MachinistTurretGroup.Text = "Turret";
             // 
-            // MachinistTurretLocationLabel
-            // 
-            this.MachinistTurretLocationLabel.AutoSize = true;
-            this.MachinistTurretLocationLabel.ForeColor = System.Drawing.Color.White;
-            this.MachinistTurretLocationLabel.Location = new System.Drawing.Point(6, 60);
-            this.MachinistTurretLocationLabel.Name = "MachinistTurretLocationLabel";
-            this.MachinistTurretLocationLabel.Size = new System.Drawing.Size(51, 13);
-            this.MachinistTurretLocationLabel.TabIndex = 5;
-            this.MachinistTurretLocationLabel.Text = "Location";
-            // 
-            // MachinistTurretHotkeyLabel
-            // 
-            this.MachinistTurretHotkeyLabel.AutoSize = true;
-            this.MachinistTurretHotkeyLabel.ForeColor = System.Drawing.Color.White;
-            this.MachinistTurretHotkeyLabel.Location = new System.Drawing.Point(102, 16);
-            this.MachinistTurretHotkeyLabel.Name = "MachinistTurretHotkeyLabel";
-            this.MachinistTurretHotkeyLabel.Size = new System.Drawing.Size(43, 13);
-            this.MachinistTurretHotkeyLabel.TabIndex = 4;
-            this.MachinistTurretHotkeyLabel.Text = "Hotkey";
-            // 
-            // MachinistTurretLabel
-            // 
-            this.MachinistTurretLabel.AutoSize = true;
-            this.MachinistTurretLabel.ForeColor = System.Drawing.Color.White;
-            this.MachinistTurretLabel.Location = new System.Drawing.Point(6, 16);
-            this.MachinistTurretLabel.Name = "MachinistTurretLabel";
-            this.MachinistTurretLabel.Size = new System.Drawing.Size(29, 13);
-            this.MachinistTurretLabel.TabIndex = 3;
-            this.MachinistTurretLabel.Text = "Type";
-            // 
             // MachinistTurretHotkey
             // 
             this.MachinistTurretHotkey.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -6914,6 +6843,36 @@
             this.MachinistTurret.TabIndex = 0;
             this.MachinistTurret.TabStop = false;
             this.MachinistTurret.SelectedValueChanged += new System.EventHandler(this.MachinistTurret_SelectedValueChanged);
+            // 
+            // MachinistTurretLabel
+            // 
+            this.MachinistTurretLabel.AutoSize = true;
+            this.MachinistTurretLabel.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretLabel.Location = new System.Drawing.Point(6, 16);
+            this.MachinistTurretLabel.Name = "MachinistTurretLabel";
+            this.MachinistTurretLabel.Size = new System.Drawing.Size(29, 13);
+            this.MachinistTurretLabel.TabIndex = 3;
+            this.MachinistTurretLabel.Text = "Type";
+            // 
+            // MachinistTurretHotkeyLabel
+            // 
+            this.MachinistTurretHotkeyLabel.AutoSize = true;
+            this.MachinistTurretHotkeyLabel.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretHotkeyLabel.Location = new System.Drawing.Point(102, 16);
+            this.MachinistTurretHotkeyLabel.Name = "MachinistTurretHotkeyLabel";
+            this.MachinistTurretHotkeyLabel.Size = new System.Drawing.Size(43, 13);
+            this.MachinistTurretHotkeyLabel.TabIndex = 4;
+            this.MachinistTurretHotkeyLabel.Text = "Hotkey";
+            // 
+            // MachinistTurretLocationLabel
+            // 
+            this.MachinistTurretLocationLabel.AutoSize = true;
+            this.MachinistTurretLocationLabel.ForeColor = System.Drawing.Color.White;
+            this.MachinistTurretLocationLabel.Location = new System.Drawing.Point(6, 60);
+            this.MachinistTurretLocationLabel.Name = "MachinistTurretLocationLabel";
+            this.MachinistTurretLocationLabel.Size = new System.Drawing.Size(51, 13);
+            this.MachinistTurretLocationLabel.TabIndex = 5;
+            this.MachinistTurretLocationLabel.Text = "Location";
             // 
             // MachinistBuffGroup
             // 
@@ -10054,9 +10013,6 @@
         private Design.CustomCheck SummonerResurrection;
         private Design.HotkeyBox MachinistTurretHotkey;
         private Design.CustomCheck IgnoreSmart;
-        private Design.CustomCheck EnablePVP;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label MachinistTurretLocationLabel;
         private System.Windows.Forms.Label MachinistTurretHotkeyLabel;
         private System.Windows.Forms.Label MachinistTurretLabel;

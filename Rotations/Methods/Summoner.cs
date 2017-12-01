@@ -24,7 +24,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Ruin()
         {
-            if (!ActionManager.HasSpell(MySpells.RuinIII.Name))
+            if (!ActionManager.HasSpell(MySpells.RuinIII.Name) || Helpers.CNVersion)
             {
                 return await MySpells.Ruin.Cast();
             }
@@ -33,17 +33,33 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
-                (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
+            if (Helpers.CNVersion)
             {
-                return await MySpells.RuinII.Cast();
+                if (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle ||
+                    !Resource.DreadwyrmTrance && (UsePet || UseShadowFlare) || Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 3500)
+                {
+                    return await MySpells.RuinII.Cast();
+                }
+            }
+            else
+            {
+                if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
+                    (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
+                {
+                    return await MySpells.RuinII.Cast();
+                }
             }
             return false;
         }
 
         private async Task<bool> RuinIII()
         {
-            return await MySpells.RuinIII.Cast();
+            if (!Helpers.CNVersion || Resource.DreadwyrmTrance || Core.Player.CurrentManaPercent > 80 ||
+                Core.Player.CurrentTarget.HasAura(1291, true, 3000) && Core.Player.CurrentManaPercent > 40)
+            {
+                return await MySpells.RuinIII.Cast();
+            }
+            return false;
         }
 
         #endregion

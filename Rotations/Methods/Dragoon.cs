@@ -158,7 +158,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.DragoonGeirskogul && Core.Player.HasAura(MySpells.HeavyThrust.Name))
             {
-                if (Resource.DragonGaze == 3 || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
+                if (Resource.DragonGaze == GazeMax || !RecentJump && !Core.Player.HasAura(1243) && JumpCooldown > 25 && SpineCooldown > 25 ||
                     Core.Player.ClassLevel < 70)
                 {
                     return await MySpells.Geirskogul.Cast();
@@ -284,6 +284,7 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static readonly int GazeMax = Helpers.CNVersion ? 4 : 3;
         private static bool RecentJump { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Dive") || rs.Contains("Jump")); } }
         private static bool BloodActive => Resource.Timer != TimeSpan.Zero;
         private static double JumpCooldown => DataManager.GetSpellData(92).Cooldown.TotalSeconds;

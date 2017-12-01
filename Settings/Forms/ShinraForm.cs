@@ -96,7 +96,6 @@ namespace ShinraCo.Settings.Forms
 
             IgnoreSmart.Checked = Shinra.Settings.IgnoreSmart;
             DebugLogging.Checked = Shinra.Settings.DebugLogging;
-            EnablePVP.Checked = Shinra.Settings.EnablePVP;
 
             #endregion
 
@@ -1116,11 +1115,6 @@ namespace ShinraCo.Settings.Forms
         private void DebugLogging_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DebugLogging = DebugLogging.Checked;
-        }
-
-        private void EnablePVP_CheckedChanged(object sender, EventArgs e)
-        {
-            Shinra.Settings.EnablePVP = EnablePVP.Checked;
         }
 
         #endregion
