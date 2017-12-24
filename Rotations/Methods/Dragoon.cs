@@ -282,6 +282,88 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> FullThrustPVP()
+        {
+            return await MySpells.PVP.FullThrust.Cast();
+        }
+
+        private async Task<bool> ChaosThrustPVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 10000) &&
+                ActionManager.GetComboCurrentActionId(MySpells.PVP.FangAndClaw.Combo) == MySpells.PVP.TrueThrust.ID)
+            {
+                return await MySpells.PVP.ChaosThrust.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> WheelingThrustPVP()
+        {
+            if (ActionManager.GetComboCurrentActionId(MySpells.PVP.WheelingThrust.Combo) == MySpells.PVP.WheelingThrust.ID)
+            {
+                return await MySpells.PVP.WheelingThrust.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> SkewerPVP()
+        {
+            if (!RecentJump)
+            {
+                return await MySpells.PVP.Skewer.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> JumpPVP()
+        {
+            if (!MovementManager.IsMoving && !RecentJump && Resource.DragonGaze < 2)
+            {
+                return await MySpells.PVP.Jump.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> SpineshatterDivePVP()
+        {
+            if (!MovementManager.IsMoving && !RecentJump && Resource.DragonGaze < 2)
+            {
+                return await MySpells.PVP.SpineshatterDive.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BloodOfTheDragonPVP()
+        {
+            if (!RecentJump)
+            {
+                return await MySpells.PVP.BloodOfTheDragon.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> GeirskogulPVP()
+        {
+            if (!RecentJump)
+            {
+                return await MySpells.PVP.Geirskogul.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> NastrondPVP()
+        {
+            if (!RecentJump)
+            {
+                return await MySpells.PVP.Nastrond.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static readonly int GazeMax = Helpers.CNVersion ? 4 : 3;

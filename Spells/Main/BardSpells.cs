@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class ArcherSpells
     {
+        public BardPVP PVP { get; } = new BardPVP();
         public RangedSpells Role { get; } = new RangedSpells();
 
         public Spell HeavyShot { get; } = new Spell

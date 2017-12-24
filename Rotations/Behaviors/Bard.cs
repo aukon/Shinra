@@ -85,7 +85,15 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
-            return false;
+            if (await TroubadourPVP()) return true;
+            if (await BarragePVP()) return true;
+            if (await BloodletterPVP()) return true;
+            if (await WanderersMinuetPVP()) return true;
+            if (await ArmysPaeonPVP()) return true;
+            if (await EmpyrealArrowPVP()) return true;
+            if (await SidewinderPVP()) return true;
+            if (await StormbitePVP()) return true;
+            return await StraightShotPVP();
         }
 
         #endregion

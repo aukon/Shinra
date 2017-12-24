@@ -56,6 +56,7 @@ namespace ShinraCo.Spells
         public static readonly Dictionary<string, DateTime> RecentSpell = new Dictionary<string, DateTime>();
         public string Name { get; set; }
         public uint ID { get; set; }
+        public uint Combo { get; set; }
         public byte Level { get; set; }
         public GCDType GCDType { private get; set; }
         public SpellType SpellType { private get; set; }
@@ -98,6 +99,15 @@ namespace ShinraCo.Spells
 
             #endregion
 
+            #region CapabilityManager
+
+            if (RoutineManager.IsAnyDisallowed(CapabilityFlags.Movement | CapabilityFlags.Facing))
+            {
+                return false;
+            }
+
+            #endregion
+
             #region Cooldown
 
             if (Shinra.Settings.CooldownMode == CooldownModes.Disabled)
@@ -114,8 +124,14 @@ namespace ShinraCo.Spells
 
             if (SpellType == SpellType.AoE && Shinra.Settings.RotationMode != Modes.Multi)
             {
-                var enemyCount = Helpers.EnemyUnit.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
-                                                               DataManager.GetSpellData(ID).Radius);
+                if (RoutineManager.IsAnyDisallowed(CapabilityFlags.Aoe))
+                {
+                    return false;
+                }
+
+                var enemyCount =
+                    Helpers.EnemyUnit.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
+                                                  DataManager.GetSpellData(ID).Radius);
 
                 if (Shinra.Settings.CustomAoE)
                 {
@@ -571,7 +587,14 @@ namespace ShinraCo.Spells
                         break;
                     case ClassJobType.Lancer:
                     case ClassJobType.Dragoon:
-                        if (DataManager.GetSpellData(75).Cooldown.TotalMilliseconds < 1000)
+                        if (ID == 8801 || ID == 8802)
+                        {
+                            if (DataManager.GetSpellData(75).Cooldown.TotalMilliseconds < 1500)
+                            {
+                                return false;
+                            }
+                        }
+                        else if (DataManager.GetSpellData(75).Cooldown.TotalMilliseconds < 1000)
                         {
                             return false;
                         }
@@ -676,11 +699,10 @@ namespace ShinraCo.Spells
                 default:
                     if (SpellType == SpellType.PVP)
                     {
-                        //var comboId = Helpers.PVPCombos.FirstOrDefault(c => c.Key == Name).Value;
-                        //if (comboId == 0 || !await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(comboId, target)))
-                        //{
+                        if (!await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(Combo, target)))
+                        {
                             return false;
-                        //}
+                        }
                     }
                     else
                     {

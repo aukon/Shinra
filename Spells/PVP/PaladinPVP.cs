@@ -6,7 +6,7 @@
         {
             Name = "Rage of Halone",
             ID = 8748,
-            Level = 0,
+            Combo = 1,
             GCDType = GCDType.On,
             SpellType = SpellType.PVP,
             CastType = CastType.Target
@@ -16,7 +16,7 @@
         {
             Name = "Royal Authority",
             ID = 8750,
-            Level = 0,
+            Combo = 2,
             GCDType = GCDType.On,
             SpellType = SpellType.PVP,
             CastType = CastType.Target
@@ -26,7 +26,6 @@
         {
             Name = "Holy Spirit",
             ID = 8752,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -36,7 +35,6 @@
         {
             Name = "Requiescat",
             ID = 8754,
-            Level = 0,
             GCDType = GCDType.Off,
             SpellType = SpellType.Cooldown,
             CastType = CastType.Target

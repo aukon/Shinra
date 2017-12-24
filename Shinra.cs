@@ -24,6 +24,7 @@ namespace ShinraCo
         public sealed override string Name => "Shinra";
         public sealed override float PullRange => 25;
         public sealed override bool WantButton => true;
+        public sealed override CapabilityFlags SupportedCapabilities => CapabilityFlags.All;
 
         public sealed override void Initialize()
         {
@@ -192,17 +193,27 @@ namespace ShinraCo
 
         public override Composite CombatBehavior
         {
-            get { return new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Combat())); }
+            get
+            {
+                return new Decorator(r => Core.Player.HasTarget,
+                                     new PrioritySelector(new Decorator(r => WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.CombatPVP())),
+                                                          new Decorator(r => !WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.Combat()))));
+            }
         }
 
         public override Composite CombatBuffBehavior
         {
-            get { return new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.CombatBuff())); }
+            get { return new Decorator(r => Core.Player.HasTarget && !WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.CombatBuff())); }
         }
 
         public override Composite PullBehavior
         {
-            get { return new Decorator(r => Core.Player.HasTarget, new ActionRunCoroutine(ctx => MyRotation.Pull())); }
+            get
+            {
+                return new Decorator(r => Core.Player.HasTarget,
+                                     new PrioritySelector(new Decorator(r => WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.CombatPVP())),
+                                                          new Decorator(r => !WorldManager.InPvP, new ActionRunCoroutine(ctx => MyRotation.Pull()))));
+            }
         }
 
         public override Composite HealBehavior { get { return new ActionRunCoroutine(ctx => MyRotation.Heal()); } }

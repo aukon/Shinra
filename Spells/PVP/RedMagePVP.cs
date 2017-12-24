@@ -6,7 +6,6 @@
         {
             Name = "Jolt II",
             ID = 9444,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -16,7 +15,6 @@
         {
             Name = "Impact",
             ID = 8886,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -26,7 +24,6 @@
         {
             Name = "Verstone",
             ID = 8883,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -36,7 +33,6 @@
         {
             Name = "Veraero",
             ID = 8882,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -46,7 +42,6 @@
         {
             Name = "Verfire",
             ID = 8885,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -56,9 +51,17 @@
         {
             Name = "Verthunder",
             ID = 8884,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
+            CastType = CastType.Target
+        };
+
+        public Spell CorpsACorps { get; } = new Spell
+        {
+            Name = "Corps-a-corps",
+            ID = 8890,
+            GCDType = GCDType.Off,
+            SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
 
@@ -66,7 +69,7 @@
         {
             Name = "Enchanted Riposte",
             ID = 8887,
-            Level = 0,
+            Combo = 19,
             GCDType = GCDType.On,
             SpellType = SpellType.PVP,
             CastType = CastType.Target
@@ -76,7 +79,7 @@
         {
             Name = "Enchanted Zwerchhau",
             ID = 8888,
-            Level = 0,
+            Combo = 19,
             GCDType = GCDType.On,
             SpellType = SpellType.PVP,
             CastType = CastType.Target
@@ -86,7 +89,7 @@
         {
             Name = "Enchanted Redoublement",
             ID = 8889,
-            Level = 0,
+            Combo = 19,
             GCDType = GCDType.On,
             SpellType = SpellType.PVP,
             CastType = CastType.Target
@@ -96,7 +99,6 @@
         {
             Name = "Verholy",
             ID = 9433,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target
@@ -106,7 +108,6 @@
         {
             Name = "Verflare",
             ID = 9434,
-            Level = 0,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
             CastType = CastType.Target

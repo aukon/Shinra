@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class LancerSpells
     {
+        public DragoonPVP PVP { get; } = new DragoonPVP();
         public MeleeSpells Role { get; } = new MeleeSpells();
 
         public Spell TrueThrust { get; } = new Spell

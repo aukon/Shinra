@@ -91,14 +91,5 @@ namespace ShinraCo
             Logging.Write(Colors.Yellow, $@"[Shinra] {name} >>> {next}");
             return next;
         }
-
-        public static readonly Dictionary<string, uint> PVPCombos = new Dictionary<string, uint>
-        {
-            {"Rage of Halone", 1},
-            {"Royal Authority", 2},
-            {"Enchanted Riposte", 19},
-            {"Enchanted Zwerchhau", 19},
-            {"Enchanted Redoublement", 19}
-        };
     }
 }

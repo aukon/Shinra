@@ -407,6 +407,15 @@ namespace ShinraCo.Rotations
             return await MySpells.PVP.Verthunder.Cast();
         }
 
+        private async Task<bool> CorpsACorpsPVP()
+        {
+            if (!MovementManager.IsMoving && WhiteMana >= 75 && BlackMana >= 75 && Core.Player.TargetDistance(5))
+            {
+                return await MySpells.PVP.CorpsACorps.Cast(null, false);
+            }
+            return false;
+        }
+
         private async Task<bool> EnchantedRipostePVP()
         {
             if (WhiteMana >= 75 && BlackMana >= 75 && Core.Player.TargetDistance(5, false))

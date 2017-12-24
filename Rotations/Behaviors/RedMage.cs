@@ -112,6 +112,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
+            if (await CorpsACorpsPVP()) return true;
             if (await VerholyPVP()) return true;
             if (await EnchantedRedoublementPVP()) return true;
             if (await EnchantedZwerchhauPVP()) return true;
