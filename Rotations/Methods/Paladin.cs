@@ -367,7 +367,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> RageOfHalonePVP()
         {
             if (!Core.Player.CurrentTarget.HasAura(MySpells.RageOfHalone.Name, false, 8000) &&
-                ActionManager.GetComboCurrentActionId(MySpells.PVP.RoyalAuthority.Combo) != MySpells.PVP.RoyalAuthority.ID)
+                ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.RoyalAuthority.Combo) != MySpells.PVP.RoyalAuthority.ID)
             {
                 return await MySpells.PVP.RageOfHalone.Cast();
             }

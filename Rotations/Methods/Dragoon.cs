@@ -292,7 +292,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> ChaosThrustPVP()
         {
             if (!Core.Player.CurrentTarget.HasAura(MySpells.ChaosThrust.Name, true, 10000) &&
-                ActionManager.GetComboCurrentActionId(MySpells.PVP.FangAndClaw.Combo) == MySpells.PVP.TrueThrust.ID)
+                ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.FangAndClaw.Combo) == MySpells.PVP.TrueThrust.ID)
             {
                 return await MySpells.PVP.ChaosThrust.Cast();
             }
@@ -301,7 +301,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> WheelingThrustPVP()
         {
-            if (ActionManager.GetComboCurrentActionId(MySpells.PVP.WheelingThrust.Combo) == MySpells.PVP.WheelingThrust.ID)
+            if (ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.WheelingThrust.Combo) == MySpells.PVP.WheelingThrust.ID)
             {
                 return await MySpells.PVP.WheelingThrust.Cast();
             }

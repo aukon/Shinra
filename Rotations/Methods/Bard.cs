@@ -423,7 +423,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> BarragePVP()
         {
             if (Shinra.LastSpell.Name != MySpells.PVP.StraightShot.Name &&
-                ActionManager.GetComboCurrentActionId(MySpells.PVP.StraightShot.Combo) == MySpells.PVP.StraightShot.ID)
+                ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.StraightShot.Combo) == MySpells.PVP.StraightShot.ID)
             {
                 return await MySpells.PVP.Barrage.Cast();
             }
