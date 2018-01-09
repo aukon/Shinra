@@ -87,6 +87,7 @@ namespace ShinraCo.Settings.Forms
 
             RandomCastLocations.Checked = Shinra.Settings.RandomCastLocations;
             CustomAoE.Checked = Shinra.Settings.CustomAoE;
+            QueueSpells.Checked = Shinra.Settings.QueueSpells;
 
             CustomAoECount.Value = Shinra.Settings.CustomAoECount;
 
@@ -831,6 +832,7 @@ namespace ShinraCo.Settings.Forms
 
             SummonerOpener.Checked = Shinra.Settings.SummonerOpener;
             SummonerPotion.Checked = Shinra.Settings.SummonerPotion;
+            SummonerOpenerGaruda.Checked = Shinra.Settings.SummonerOpenerGaruda;
 
             #endregion
 
@@ -1101,6 +1103,11 @@ namespace ShinraCo.Settings.Forms
         private void CustomAoECount_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.CustomAoECount = Convert.ToInt32(CustomAoECount.Value);
+        }
+
+        private void QueueSpells_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.QueueSpells = QueueSpells.Checked;
         }
 
         #endregion
@@ -2989,6 +2996,11 @@ namespace ShinraCo.Settings.Forms
         private void SummonerPotion_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerPotion = SummonerPotion.Checked;
+        }
+
+        private void SummonerOpenerGaruda_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerOpenerGaruda = SummonerOpenerGaruda.Checked;
         }
 
         #endregion

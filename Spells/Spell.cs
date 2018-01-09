@@ -347,7 +347,8 @@ namespace ShinraCo.Spells
 
                 #region CanCast
 
-                if (!ActionManager.CanCast(ID, target))
+                if (Shinra.Settings.QueueSpells && !ActionManager.CanCastOrQueue(DataManager.GetSpellData(ID), target) ||
+                    !ActionManager.CanCast(ID, target))
                 {
                     return false;
                 }
@@ -510,7 +511,8 @@ namespace ShinraCo.Spells
                     }
                     break;
                 default:
-                    if (!ActionManager.CanCast(ID, target))
+                    if (Shinra.Settings.QueueSpells && !ActionManager.CanCastOrQueue(DataManager.GetSpellData(ID), target) ||
+                        !ActionManager.CanCast(ID, target))
                     {
                         return false;
                     }

@@ -35,6 +35,8 @@
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.QueueSpellsLabel = new System.Windows.Forms.Label();
+            this.QueueSpells = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.CustomAoE = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.CustomAoECount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -622,6 +624,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerOpenerGaruda = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -825,16 +828,43 @@
             // 
             // SpellGroup
             // 
+            this.SpellGroup.Controls.Add(this.QueueSpellsLabel);
+            this.SpellGroup.Controls.Add(this.QueueSpells);
             this.SpellGroup.Controls.Add(this.CustomAoE);
             this.SpellGroup.Controls.Add(this.CustomAoECount);
             this.SpellGroup.Controls.Add(this.RandomCastLocations);
             this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SpellGroup.Location = new System.Drawing.Point(440, 6);
             this.SpellGroup.Name = "SpellGroup";
-            this.SpellGroup.Size = new System.Drawing.Size(206, 67);
+            this.SpellGroup.Size = new System.Drawing.Size(228, 101);
             this.SpellGroup.TabIndex = 5;
             this.SpellGroup.TabStop = false;
             this.SpellGroup.Text = "Spell";
+            // 
+            // QueueSpellsLabel
+            // 
+            this.QueueSpellsLabel.AutoSize = true;
+            this.QueueSpellsLabel.ForeColor = System.Drawing.Color.Red;
+            this.QueueSpellsLabel.Location = new System.Drawing.Point(3, 82);
+            this.QueueSpellsLabel.Name = "QueueSpellsLabel";
+            this.QueueSpellsLabel.Size = new System.Drawing.Size(219, 13);
+            this.QueueSpellsLabel.TabIndex = 4;
+            this.QueueSpellsLabel.Text = "*Warning: prevents manual spell-casting.";
+            // 
+            // QueueSpells
+            // 
+            this.QueueSpells.AutoSize = true;
+            this.QueueSpells.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QueueSpells.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.QueueSpells.ForeColor = System.Drawing.Color.White;
+            this.QueueSpells.Location = new System.Drawing.Point(6, 62);
+            this.QueueSpells.Name = "QueueSpells";
+            this.QueueSpells.Size = new System.Drawing.Size(89, 17);
+            this.QueueSpells.TabIndex = 3;
+            this.QueueSpells.TabStop = false;
+            this.QueueSpells.Text = "Queue spells";
+            this.QueueSpells.UseVisualStyleBackColor = true;
+            this.QueueSpells.CheckedChanged += new System.EventHandler(this.QueueSpells_CheckedChanged);
             // 
             // CustomAoE
             // 
@@ -2119,12 +2149,13 @@
             // 
             // SummonerMiscGroup
             // 
+            this.SummonerMiscGroup.Controls.Add(this.SummonerOpenerGaruda);
             this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
             this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
             this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerMiscGroup.Location = new System.Drawing.Point(229, 292);
+            this.SummonerMiscGroup.Location = new System.Drawing.Point(364, 78);
             this.SummonerMiscGroup.Name = "SummonerMiscGroup";
-            this.SummonerMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.SummonerMiscGroup.Size = new System.Drawing.Size(195, 89);
             this.SummonerMiscGroup.TabIndex = 6;
             this.SummonerMiscGroup.TabStop = false;
             this.SummonerMiscGroup.Text = "Misc";
@@ -2165,7 +2196,7 @@
             this.SummonerAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SummonerAoEGroup.Location = new System.Drawing.Point(229, 6);
             this.SummonerAoEGroup.Name = "SummonerAoEGroup";
-            this.SummonerAoEGroup.Size = new System.Drawing.Size(129, 44);
+            this.SummonerAoEGroup.Size = new System.Drawing.Size(129, 43);
             this.SummonerAoEGroup.TabIndex = 5;
             this.SummonerAoEGroup.TabStop = false;
             this.SummonerAoEGroup.Text = "AoE";
@@ -2192,7 +2223,7 @@
             this.SummonerCooldownGroup.Controls.Add(this.SummonerEnkindle);
             this.SummonerCooldownGroup.Controls.Add(this.SummonerShadowFlare);
             this.SummonerCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerCooldownGroup.Location = new System.Drawing.Point(229, 56);
+            this.SummonerCooldownGroup.Location = new System.Drawing.Point(229, 55);
             this.SummonerCooldownGroup.Name = "SummonerCooldownGroup";
             this.SummonerCooldownGroup.Size = new System.Drawing.Size(129, 112);
             this.SummonerCooldownGroup.TabIndex = 4;
@@ -2266,7 +2297,7 @@
             this.SummonerBuffGroup.Controls.Add(this.SummonerDreadwyrmTrance);
             this.SummonerBuffGroup.Controls.Add(this.SummonerRouse);
             this.SummonerBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerBuffGroup.Location = new System.Drawing.Point(229, 174);
+            this.SummonerBuffGroup.Location = new System.Drawing.Point(229, 173);
             this.SummonerBuffGroup.Name = "SummonerBuffGroup";
             this.SummonerBuffGroup.Size = new System.Drawing.Size(129, 112);
             this.SummonerBuffGroup.TabIndex = 3;
@@ -2389,7 +2420,7 @@
             // 
             this.SummonerPetGroup.Controls.Add(this.SummonerPet);
             this.SummonerPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 78);
+            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 173);
             this.SummonerPetGroup.Name = "SummonerPetGroup";
             this.SummonerPetGroup.Size = new System.Drawing.Size(112, 43);
             this.SummonerPetGroup.TabIndex = 1;
@@ -9206,6 +9237,21 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // SummonerOpenerGaruda
+            // 
+            this.SummonerOpenerGaruda.AutoSize = true;
+            this.SummonerOpenerGaruda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerOpenerGaruda.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerOpenerGaruda.ForeColor = System.Drawing.Color.White;
+            this.SummonerOpenerGaruda.Location = new System.Drawing.Point(6, 62);
+            this.SummonerOpenerGaruda.Name = "SummonerOpenerGaruda";
+            this.SummonerOpenerGaruda.Size = new System.Drawing.Size(167, 17);
+            this.SummonerOpenerGaruda.TabIndex = 2;
+            this.SummonerOpenerGaruda.TabStop = false;
+            this.SummonerOpenerGaruda.Text = "Summon Garuda for opener";
+            this.SummonerOpenerGaruda.UseVisualStyleBackColor = true;
+            this.SummonerOpenerGaruda.CheckedChanged += new System.EventHandler(this.SummonerOpenerGaruda_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10016,5 +10062,8 @@
         private System.Windows.Forms.Label MachinistTurretLocationLabel;
         private System.Windows.Forms.Label MachinistTurretHotkeyLabel;
         private System.Windows.Forms.Label MachinistTurretLabel;
+        private System.Windows.Forms.Label QueueSpellsLabel;
+        private Design.CustomCheck QueueSpells;
+        private Design.CustomCheck SummonerOpenerGaruda;
     }
 }

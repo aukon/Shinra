@@ -191,6 +191,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(3)]
         public int CustomAoECount { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool QueueSpells { get; set; }
+
         #endregion
 
         #region Misc
@@ -1462,6 +1465,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(false)]
         public bool SummonerPotion { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool SummonerOpenerGaruda { get; set; }
 
         #endregion
 

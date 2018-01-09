@@ -315,7 +315,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Summon()
         {
-            if (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished)
+            if (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Shinra.OpenerFinished)
             {
                 if (Shinra.Settings.SummonerPet == SummonerPets.None ||
                     Shinra.Settings.SummonerPet == SummonerPets.Titan && ActionManager.HasSpell(MySpells.SummonII.Name) ||
@@ -328,7 +328,8 @@ namespace ShinraCo.Rotations
             if (PetManager.ActivePetType != PetType.Emerald_Carbuncle && PetManager.ActivePetType != PetType.Garuda_Egi && !RecentBahamut)
             {
                 if (Shinra.Settings.SummonerSwiftcast && !Shinra.Settings.SummonerResurrection &&
-                    ActionManager.CanCast(MySpells.Summon.Name, Core.Player) && (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished))
+                    ActionManager.CanCast(MySpells.Summon.Name, Core.Player) &&
+                    (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Shinra.OpenerFinished))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -342,7 +343,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonII()
         {
-            if (Shinra.Settings.SummonerOpener && !Shinra.OpenerFinished)
+            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Shinra.OpenerFinished)
             {
                 return false;
             }
@@ -365,7 +366,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonIII()
         {
-            if (Shinra.Settings.SummonerOpener && !Shinra.OpenerFinished)
+            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Shinra.OpenerFinished)
             {
                 return false;
             }
@@ -466,7 +467,8 @@ namespace ShinraCo.Rotations
 
             if (spell.Name == MySpells.SummonIII.Name)
             {
-                if (PetManager.ActivePetType == PetType.Ifrit_Egi || !Core.Player.HasAura(MySpells.Role.Swiftcast.Name))
+                if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
+                    !Core.Player.HasAura(MySpells.Role.Swiftcast.Name))
                 {
                     Shinra.OpenerStep++;
                     return true;
