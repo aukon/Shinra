@@ -1444,10 +1444,16 @@ namespace ShinraCo.Settings
         public bool SummonerPhysick { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool SummonerSustain { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool SummonerResurrection { get; set; }
 
         [Setting, DefaultValue(50)]
         public int SummonerPhysickPct { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int SummonerSustainPct { get; set; }
 
         #endregion
 

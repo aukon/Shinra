@@ -511,10 +511,19 @@ namespace ShinraCo.Spells
                     }
                     break;
                 default:
-                    if (Shinra.Settings.QueueSpells && !ActionManager.CanCastOrQueue(DataManager.GetSpellData(ID), target) ||
-                        !ActionManager.CanCast(ID, target))
+                    if (Shinra.Settings.QueueSpells && GCDType == GCDType.On)
                     {
-                        return false;
+                        if (!ActionManager.CanCastOrQueue(DataManager.GetSpellData(ID), target))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!ActionManager.CanCast(ID, target))
+                        {
+                            return false;
+                        }
                     }
                     break;
             }

@@ -274,6 +274,19 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Sustain()
+        {
+            if (Shinra.Settings.SummonerSustain && PetExists)
+            {
+                if (Core.Player.Pet.CurrentHealthPercent < Shinra.Settings.SummonerSustainPct &&
+                    !Core.Player.Pet.HasAura(MySpells.Sustain.Name))
+                {
+                    return await MySpells.Sustain.Cast();
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> Resurrection()
         {
             if (Shinra.Settings.SummonerResurrection && Shinra.Settings.SummonerSwiftcast && Core.Player.CurrentManaPercent > 50 &&

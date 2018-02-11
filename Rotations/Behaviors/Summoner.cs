@@ -59,6 +59,7 @@ namespace ShinraCo.Rotations
         {
             if (await UpdateHealing()) return true;
             if (await Resurrection()) return true;
+            if (await Sustain()) return true;
             return await Physick();
         }
 

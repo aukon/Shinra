@@ -86,6 +86,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
+        public Spell Sustain { get; } = new Spell
+        {
+            Name = "Sustain",
+            ID = 171,
+            Level = 18,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Heal,
+            CastType = CastType.Self
+        };
+
         public Spell Resurrection { get; } = new Spell
         {
             Name = "Resurrection",

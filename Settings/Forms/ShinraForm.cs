@@ -816,9 +816,11 @@ namespace ShinraCo.Settings.Forms
             #region Heal
 
             SummonerPhysick.Checked = Shinra.Settings.SummonerPhysick;
+            SummonerSustain.Checked = Shinra.Settings.SummonerSustain;
             SummonerResurrection.Checked = Shinra.Settings.SummonerResurrection;
 
             SummonerPhysickPct.Value = Shinra.Settings.SummonerPhysickPct;
+            SummonerSustainPct.Value = Shinra.Settings.SummonerSustainPct;
 
             #endregion
 
@@ -2962,6 +2964,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.SummonerPhysick = SummonerPhysick.Checked;
         }
 
+        private void SummonerSustain_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerSustain = SummonerSustain.Checked;
+        }
+
         private void SummonerResurrection_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerResurrection = SummonerResurrection.Checked;
@@ -2970,6 +2977,11 @@ namespace ShinraCo.Settings.Forms
         private void SummonerPhysickPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerPhysickPct = Convert.ToInt32(SummonerPhysickPct.Value);
+        }
+
+        private void SummonerSustainPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerSustainPct = Convert.ToInt32(SummonerSustainPct.Value);
         }
 
         #endregion

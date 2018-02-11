@@ -35,11 +35,11 @@
             this.tabSettings = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeMain = new System.Windows.Forms.TabPage();
             this.SpellGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.QueueSpellsLabel = new System.Windows.Forms.Label();
             this.QueueSpells = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.CustomAoE = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.CustomAoECount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.QueueSpellsLabel = new System.Windows.Forms.Label();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DebugLogging = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -128,6 +128,7 @@
             this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeSummoner = new System.Windows.Forms.TabPage();
             this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerOpenerGaruda = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -143,6 +144,8 @@
             this.SummonerDreadwyrmTrance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SummonerSustainPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.SummonerSustain = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerResurrection = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerPhysickPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SummonerPhysick = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -624,7 +627,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SummonerOpenerGaruda = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -828,28 +830,18 @@
             // 
             // SpellGroup
             // 
-            this.SpellGroup.Controls.Add(this.QueueSpellsLabel);
             this.SpellGroup.Controls.Add(this.QueueSpells);
             this.SpellGroup.Controls.Add(this.CustomAoE);
             this.SpellGroup.Controls.Add(this.CustomAoECount);
             this.SpellGroup.Controls.Add(this.RandomCastLocations);
+            this.SpellGroup.Controls.Add(this.QueueSpellsLabel);
             this.SpellGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SpellGroup.Location = new System.Drawing.Point(440, 6);
             this.SpellGroup.Name = "SpellGroup";
-            this.SpellGroup.Size = new System.Drawing.Size(228, 101);
+            this.SpellGroup.Size = new System.Drawing.Size(228, 105);
             this.SpellGroup.TabIndex = 5;
             this.SpellGroup.TabStop = false;
             this.SpellGroup.Text = "Spell";
-            // 
-            // QueueSpellsLabel
-            // 
-            this.QueueSpellsLabel.AutoSize = true;
-            this.QueueSpellsLabel.ForeColor = System.Drawing.Color.Red;
-            this.QueueSpellsLabel.Location = new System.Drawing.Point(3, 82);
-            this.QueueSpellsLabel.Name = "QueueSpellsLabel";
-            this.QueueSpellsLabel.Size = new System.Drawing.Size(219, 13);
-            this.QueueSpellsLabel.TabIndex = 4;
-            this.QueueSpellsLabel.Text = "*Warning: prevents manual spell-casting.";
             // 
             // QueueSpells
             // 
@@ -920,6 +912,16 @@
             this.RandomCastLocations.Text = "Randomise cast locations";
             this.RandomCastLocations.UseVisualStyleBackColor = true;
             this.RandomCastLocations.CheckedChanged += new System.EventHandler(this.RandomCastLocations_CheckedChanged);
+            // 
+            // QueueSpellsLabel
+            // 
+            this.QueueSpellsLabel.AutoSize = true;
+            this.QueueSpellsLabel.ForeColor = System.Drawing.Color.Red;
+            this.QueueSpellsLabel.Location = new System.Drawing.Point(3, 82);
+            this.QueueSpellsLabel.Name = "QueueSpellsLabel";
+            this.QueueSpellsLabel.Size = new System.Drawing.Size(219, 13);
+            this.QueueSpellsLabel.TabIndex = 4;
+            this.QueueSpellsLabel.Text = "*Warning: prevents manual spell-casting.";
             // 
             // MiscGroup
             // 
@@ -2153,12 +2155,27 @@
             this.SummonerMiscGroup.Controls.Add(this.SummonerPotion);
             this.SummonerMiscGroup.Controls.Add(this.SummonerOpener);
             this.SummonerMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerMiscGroup.Location = new System.Drawing.Point(364, 78);
+            this.SummonerMiscGroup.Location = new System.Drawing.Point(364, 101);
             this.SummonerMiscGroup.Name = "SummonerMiscGroup";
             this.SummonerMiscGroup.Size = new System.Drawing.Size(195, 89);
             this.SummonerMiscGroup.TabIndex = 6;
             this.SummonerMiscGroup.TabStop = false;
             this.SummonerMiscGroup.Text = "Misc";
+            // 
+            // SummonerOpenerGaruda
+            // 
+            this.SummonerOpenerGaruda.AutoSize = true;
+            this.SummonerOpenerGaruda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerOpenerGaruda.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerOpenerGaruda.ForeColor = System.Drawing.Color.White;
+            this.SummonerOpenerGaruda.Location = new System.Drawing.Point(6, 62);
+            this.SummonerOpenerGaruda.Name = "SummonerOpenerGaruda";
+            this.SummonerOpenerGaruda.Size = new System.Drawing.Size(167, 17);
+            this.SummonerOpenerGaruda.TabIndex = 2;
+            this.SummonerOpenerGaruda.TabStop = false;
+            this.SummonerOpenerGaruda.Text = "Summon Garuda for opener";
+            this.SummonerOpenerGaruda.UseVisualStyleBackColor = true;
+            this.SummonerOpenerGaruda.CheckedChanged += new System.EventHandler(this.SummonerOpenerGaruda_CheckedChanged);
             // 
             // SummonerPotion
             // 
@@ -2366,16 +2383,42 @@
             // 
             // SummonerHealGroup
             // 
+            this.SummonerHealGroup.Controls.Add(this.SummonerSustainPct);
+            this.SummonerHealGroup.Controls.Add(this.SummonerSustain);
             this.SummonerHealGroup.Controls.Add(this.SummonerResurrection);
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysickPct);
             this.SummonerHealGroup.Controls.Add(this.SummonerPhysick);
             this.SummonerHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SummonerHealGroup.Location = new System.Drawing.Point(364, 6);
             this.SummonerHealGroup.Name = "SummonerHealGroup";
-            this.SummonerHealGroup.Size = new System.Drawing.Size(195, 66);
+            this.SummonerHealGroup.Size = new System.Drawing.Size(195, 89);
             this.SummonerHealGroup.TabIndex = 2;
             this.SummonerHealGroup.TabStop = false;
             this.SummonerHealGroup.Text = "Heal";
+            // 
+            // SummonerSustainPct
+            // 
+            this.SummonerSustainPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SummonerSustainPct.Location = new System.Drawing.Point(100, 39);
+            this.SummonerSustainPct.Name = "SummonerSustainPct";
+            this.SummonerSustainPct.Size = new System.Drawing.Size(89, 22);
+            this.SummonerSustainPct.TabIndex = 4;
+            this.SummonerSustainPct.ValueChanged += new System.EventHandler(this.SummonerSustainPct_ValueChanged);
+            // 
+            // SummonerSustain
+            // 
+            this.SummonerSustain.AutoSize = true;
+            this.SummonerSustain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SummonerSustain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SummonerSustain.ForeColor = System.Drawing.Color.White;
+            this.SummonerSustain.Location = new System.Drawing.Point(6, 39);
+            this.SummonerSustain.Name = "SummonerSustain";
+            this.SummonerSustain.Size = new System.Drawing.Size(61, 17);
+            this.SummonerSustain.TabIndex = 3;
+            this.SummonerSustain.TabStop = false;
+            this.SummonerSustain.Text = "Sustain";
+            this.SummonerSustain.UseVisualStyleBackColor = true;
+            this.SummonerSustain.CheckedChanged += new System.EventHandler(this.SummonerSustain_CheckedChanged);
             // 
             // SummonerResurrection
             // 
@@ -2383,7 +2426,7 @@
             this.SummonerResurrection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SummonerResurrection.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.SummonerResurrection.ForeColor = System.Drawing.Color.White;
-            this.SummonerResurrection.Location = new System.Drawing.Point(6, 39);
+            this.SummonerResurrection.Location = new System.Drawing.Point(6, 62);
             this.SummonerResurrection.Name = "SummonerResurrection";
             this.SummonerResurrection.Size = new System.Drawing.Size(88, 17);
             this.SummonerResurrection.TabIndex = 2;
@@ -2420,7 +2463,7 @@
             // 
             this.SummonerPetGroup.Controls.Add(this.SummonerPet);
             this.SummonerPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 173);
+            this.SummonerPetGroup.Location = new System.Drawing.Point(364, 196);
             this.SummonerPetGroup.Name = "SummonerPetGroup";
             this.SummonerPetGroup.Size = new System.Drawing.Size(112, 43);
             this.SummonerPetGroup.TabIndex = 1;
@@ -9237,21 +9280,6 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SummonerOpenerGaruda
-            // 
-            this.SummonerOpenerGaruda.AutoSize = true;
-            this.SummonerOpenerGaruda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SummonerOpenerGaruda.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerOpenerGaruda.ForeColor = System.Drawing.Color.White;
-            this.SummonerOpenerGaruda.Location = new System.Drawing.Point(6, 62);
-            this.SummonerOpenerGaruda.Name = "SummonerOpenerGaruda";
-            this.SummonerOpenerGaruda.Size = new System.Drawing.Size(167, 17);
-            this.SummonerOpenerGaruda.TabIndex = 2;
-            this.SummonerOpenerGaruda.TabStop = false;
-            this.SummonerOpenerGaruda.Text = "Summon Garuda for opener";
-            this.SummonerOpenerGaruda.UseVisualStyleBackColor = true;
-            this.SummonerOpenerGaruda.CheckedChanged += new System.EventHandler(this.SummonerOpenerGaruda_CheckedChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10065,5 +10093,7 @@
         private System.Windows.Forms.Label QueueSpellsLabel;
         private Design.CustomCheck QueueSpells;
         private Design.CustomCheck SummonerOpenerGaruda;
+        private Design.UserNumeric SummonerSustainPct;
+        private Design.CustomCheck SummonerSustain;
     }
 }
