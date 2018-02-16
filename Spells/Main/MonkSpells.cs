@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class PugilistSpells
     {
+        public MonkPVP PVP { get; } = new MonkPVP();
         public MeleeSpells Role { get; } = new MeleeSpells();
 
         public Spell Bootshine { get; } = new Spell

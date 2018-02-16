@@ -275,6 +275,74 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> SnapPunchPVP()
+        {
+            return await MySpells.PVP.SnapPunch.Cast();
+        }
+
+        private async Task<bool> DemolishPVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.Demolish.Name, true, 6000) &&
+                ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Bootshine.Combo) == MySpells.PVP.Bootshine.ID)
+            {
+                return await MySpells.PVP.Demolish.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> SomersaultPVP()
+        {
+            if (Core.Player.CurrentTP > 700 && Resource.FithChakra < 5)
+            {
+                return await MySpells.PVP.Somersault.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> TheForbiddenChakraPVP()
+        {
+            if (Resource.FithChakra == 5)
+            {
+                return await MySpells.PVP.TheForbiddenChakra.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FormShiftPVP()
+        {
+            if (Resource.GreasedLightning < 3 || Resource.Timer.TotalMilliseconds < 2000)
+            {
+                return await MySpells.PVP.FormShift.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> TornadoKickPVP()
+        {
+            if (Resource.GreasedLightning == 3 && Core.Player.CurrentTarget.CurrentHealthPercent < 20)
+            {
+                if (ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.SnapPunch.Combo) == MySpells.PVP.SnapPunch.ID ||
+                    ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Demolish.Combo) == MySpells.PVP.Demolish.ID)
+                {
+                    return await MySpells.PVP.TornadoKick.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> RiddleOfFirePVP()
+        {
+            if ((Resource.FithChakra >= 4 || Resource.GreasedLightning == 3) && Core.Player.TargetDistance(5, false))
+            {
+                return await MySpells.PVP.RiddleOfFire.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static bool OpoOpoForm => Core.Player.HasAura(107);

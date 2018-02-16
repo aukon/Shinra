@@ -80,7 +80,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FellCleave()
         {
-            if (Shinra.Settings.WarriorFellCleave && DeliveranceStance && UseSpenders)
+            if (Shinra.Settings.WarriorFellCleave && DeliveranceStance)
             {
                 if (BeastValue >= 90 || Core.Player.CurrentTarget.HasAura(819) && Core.Player.HasAura(MySpells.StormsEye.Name))
                 {
@@ -114,7 +114,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Decimate()
         {
-            if (Shinra.Settings.WarriorDecimate && DeliveranceStance && BeastValue >= 50 && UseSpenders)
+            if (Shinra.Settings.WarriorDecimate && DeliveranceStance && BeastValue >= 50)
             {
                 return await MySpells.Decimate.Cast();
             }
@@ -136,12 +136,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Upheaval()
         {
-            if (Shinra.Settings.WarriorUpheaval && Core.Player.CurrentHealthPercent > 70 && (DefianceStance || UseSpenders))
+            if (Shinra.Settings.WarriorUpheaval && Core.Player.CurrentHealthPercent > 70 &&
+                (Core.Player.HasAura(MySpells.InnerRelease.Name) || MySpells.InnerRelease.Cooldown() > 8000) || Core.Player.ClassLevel < 70)
             {
                 var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
 
-                if (Shinra.Settings.RotationMode == Modes.Single || Shinra.Settings.RotationMode == Modes.Smart &&
-                    Helpers.EnemiesNearTarget(5) < count)
+                if (Shinra.Settings.RotationMode == Modes.Single ||
+                    Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) < count)
                 {
                     return await MySpells.Upheaval.Cast();
                 }
@@ -155,7 +156,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Berserk()
         {
-            if (Shinra.Settings.WarriorBerserk)
+            if (Shinra.Settings.WarriorBerserk && Core.Player.ClassLevel < 70)
             {
                 return await MySpells.Berserk.Cast();
             }
@@ -219,7 +220,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> InnerRelease()
         {
-            if (Shinra.Settings.WarriorInnerRelease && DeliveranceStance && BeastValue > 80)
+            if (Shinra.Settings.WarriorInnerRelease && DeliveranceStance)
             {
                 return await MySpells.InnerRelease.Cast();
             }
@@ -322,13 +323,11 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static int BeastValue => Resource.BeastGauge;
-        private static int BeastDeficit => 100 - BeastValue;
+        private int BeastValue => Core.Player.HasAura(MySpells.InnerRelease.Name) ? 100 : Resource.BeastGauge;
+        private int BeastDeficit => 100 - BeastValue;
 
         private bool DefianceStance => Core.Player.HasAura(MySpells.Defiance.Name);
         private bool DeliveranceStance => Core.Player.HasAura(MySpells.Deliverance.Name);
-        private bool UseSpenders => !Shinra.Settings.WarriorInnerRelease || !ActionManager.HasSpell(MySpells.InnerRelease.Name) ||
-                                    DataManager.GetSpellData(7389).Cooldown.TotalMilliseconds > 5000;
 
         #endregion
     }
