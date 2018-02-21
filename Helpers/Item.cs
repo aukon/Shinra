@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
@@ -9,17 +10,36 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
-        public enum PotionIds
+        public class PotionIds
         {
-            Str = 19886,
-            Dex = 19887,
-            Int = 19889,
-            Mnd = 19890
+            public static readonly HashSet<uint> Str = new HashSet<uint>
+            {
+                19886, // Infusion of Strength
+                22447  // Grade 2 Infusion of Strength
+            };
+
+            public static readonly HashSet<uint> Dex = new HashSet<uint>
+            {
+                19887, // Infusion of Dexterity
+                22448  // Grade 2 Infusion of Dexterity
+            };
+
+            public static readonly HashSet<uint> Int = new HashSet<uint>
+            {
+                19889, // Infusion of Intelligence
+                22450  // Grade 2 Infusion of Intelligence
+            };
+
+            public static readonly HashSet<uint> Mnd = new HashSet<uint>
+            {
+                19890, // Infusion of Mind
+                22451  // Grade 2 Infusion of Mind
+            };
         }
 
-        public static async Task<bool> UsePotion(PotionIds itemId)
+        public static async Task<bool> UsePotion(HashSet<uint> potionType)
         {
-            var item = InventoryManager.FilledSlots.FirstOrDefault(s => s.RawItemId == (uint)itemId);
+            var item = InventoryManager.FilledSlots.FirstOrDefault(s => potionType.Contains(s.RawItemId));
 
             if (item == null || !item.CanUse())
             {
