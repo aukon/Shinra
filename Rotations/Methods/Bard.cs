@@ -69,7 +69,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardPitchPerfect)
             {
-                if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000)
+                if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000 ||
+                    CritBuff && NumRepertoire >= 2)
                 {
                     return await MySpells.PitchPerfect.Cast();
                 }
@@ -190,15 +191,19 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> EmpyrealArrow()
         {
-            if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.EmpyrealArrow.Name, Core.Player.CurrentTarget) &&
-                (!ActionManager.HasSpell(MySpells.RefulgentArrow.Name) || _heavyCount > 3))
+            if (Shinra.Settings.BardEmpyrealArrow)
             {
-                if (await MySpells.Barrage.Cast(null, false))
+                if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.EmpyrealArrow.Name, Core.Player.CurrentTarget) &&
+                    (!ActionManager.HasSpell(MySpells.RefulgentArrow.Name) || _heavyCount > 3))
                 {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                    if (await MySpells.Barrage.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                    }
                 }
+                return await MySpells.EmpyrealArrow.Cast(null, !Core.Player.HasAura(MySpells.Barrage.Name));
             }
-            return await MySpells.EmpyrealArrow.Cast(null, !Core.Player.HasAura(MySpells.Barrage.Name));
+            return false;
         }
 
         private async Task<bool> Sidewinder()
@@ -445,12 +450,14 @@ namespace ShinraCo.Rotations
 
         private static string VenomDebuff => Core.Player.ClassLevel < 64 ? "Venomous Bite" : "Caustic Bite";
         private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Storm Bite";
-        private static bool NoSong => Resource.ActiveSong == Resource.BardSong.None;
-        private static bool MinuetActive => Resource.ActiveSong == Resource.BardSong.WanderersMinuet;
-        private static bool PaeonActive => Resource.ActiveSong == Resource.BardSong.ArmysPaeon;
         private static double SongTimer => Resource.Timer.TotalMilliseconds;
         private static double BarrageCooldown => DataManager.GetSpellData(107).Cooldown.TotalMilliseconds;
         private static int NumRepertoire => Resource.Repertoire;
+
+        private static bool NoSong => Resource.ActiveSong == Resource.BardSong.None;
+        private static bool MinuetActive => Resource.ActiveSong == Resource.BardSong.WanderersMinuet;
+        private static bool PaeonActive => Resource.ActiveSong == Resource.BardSong.ArmysPaeon;
+        private static bool CritBuff => Core.Player.HasAura("Battle Litany") || Core.Player.HasTarget && Core.Player.CurrentTarget.HasAura("Chain Stratagem");
 
         private static bool RecentSong
         {

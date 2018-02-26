@@ -24,7 +24,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SlugShot()
         {
-            if (Core.Player.HasAura("Enhanced Slug Shot"))
+            if (Shinra.Settings.MachinistSyncWildfire && !Core.Player.HasAura("Cleaner Shot") && WildfireCooldown <= 8000)
+            {
+                return await MySpells.SlugShot.Cast();
+            }
+            if (Core.Player.HasAura("Enhanced Slug Shot") && (!Shinra.Settings.MachinistSyncWildfire ||
+                                                              Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
+                                                              WildfireCooldown > 8000))
             {
                 return await MySpells.SlugShot.Cast();
             }
@@ -33,7 +39,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> CleanShot()
         {
-            if (Core.Player.HasAura("Cleaner Shot"))
+            if (Core.Player.HasAura("Cleaner Shot") && (!Shinra.Settings.MachinistSyncWildfire ||
+                                                        Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
+                                                        WildfireCooldown > 8000))
             {
                 return await MySpells.CleanShot.Cast();
             }

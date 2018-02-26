@@ -167,6 +167,13 @@
             this.pgeHealers = new System.Windows.Forms.TabPage();
             this.tabHealers = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeAstrologian = new System.Windows.Forms.TabPage();
+            this.AstrologianMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianCardOnly = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianStopDotsPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianStopDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianStopDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianStopDamagePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianEarthlyStar = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianSectGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -206,6 +213,11 @@
             this.AstrologianProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeScholar = new System.Windows.Forms.TabPage();
+            this.ScholarDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarStopDotsPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarStopDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarStopDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarStopDamagePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ScholarBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.ScholarEmergencyTactics = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -248,6 +260,11 @@
             this.ScholarProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.pgeWhiteMage = new System.Windows.Forms.TabPage();
+            this.WhiteMageDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WhiteMageStopDotsPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageStopDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageStopDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageStopDamagePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.WhiteMagePresenceOfMind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageThinAir = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -627,6 +644,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardEmpyrealArrow = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -662,12 +680,15 @@
             this.pgeHealers.SuspendLayout();
             this.tabHealers.SuspendLayout();
             this.pgeAstrologian.SuspendLayout();
+            this.AstrologianMiscGroup.SuspendLayout();
+            this.AstrologianDamageGroup.SuspendLayout();
             this.AstrologianAoEGroup.SuspendLayout();
             this.AstrologianSectGroup.SuspendLayout();
             this.AstrologianCardGroup.SuspendLayout();
             this.AstrologianHealGroup.SuspendLayout();
             this.AstrologianRoleGroup.SuspendLayout();
             this.pgeScholar.SuspendLayout();
+            this.ScholarDamageGroup.SuspendLayout();
             this.ScholarBuffGroup.SuspendLayout();
             this.ScholarCooldownGroup.SuspendLayout();
             this.ScholarPetGroup.SuspendLayout();
@@ -675,6 +696,7 @@
             this.ScholarHealGroup.SuspendLayout();
             this.ScholarRoleGroup.SuspendLayout();
             this.pgeWhiteMage.SuspendLayout();
+            this.WhiteMageDamageGroup.SuspendLayout();
             this.WhiteMageBuffGroup.SuspendLayout();
             this.WhiteMageHealGroup.SuspendLayout();
             this.WhiteMageRoleGroup.SuspendLayout();
@@ -2712,6 +2734,8 @@
             // pgeAstrologian
             // 
             this.pgeAstrologian.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeAstrologian.Controls.Add(this.AstrologianMiscGroup);
+            this.pgeAstrologian.Controls.Add(this.AstrologianDamageGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianAoEGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianSectGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianCardGroup);
@@ -2724,6 +2748,94 @@
             this.pgeAstrologian.TabIndex = 0;
             this.pgeAstrologian.Text = "Astrologian";
             this.pgeAstrologian.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // AstrologianMiscGroup
+            // 
+            this.AstrologianMiscGroup.Controls.Add(this.AstrologianCardOnly);
+            this.AstrologianMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianMiscGroup.Location = new System.Drawing.Point(283, 262);
+            this.AstrologianMiscGroup.Name = "AstrologianMiscGroup";
+            this.AstrologianMiscGroup.Size = new System.Drawing.Size(116, 43);
+            this.AstrologianMiscGroup.TabIndex = 6;
+            this.AstrologianMiscGroup.TabStop = false;
+            this.AstrologianMiscGroup.Text = "Misc";
+            // 
+            // AstrologianCardOnly
+            // 
+            this.AstrologianCardOnly.AutoSize = true;
+            this.AstrologianCardOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianCardOnly.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianCardOnly.ForeColor = System.Drawing.Color.White;
+            this.AstrologianCardOnly.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianCardOnly.Name = "AstrologianCardOnly";
+            this.AstrologianCardOnly.Size = new System.Drawing.Size(104, 17);
+            this.AstrologianCardOnly.TabIndex = 0;
+            this.AstrologianCardOnly.TabStop = false;
+            this.AstrologianCardOnly.Text = "Card only mode";
+            this.AstrologianCardOnly.UseVisualStyleBackColor = true;
+            this.AstrologianCardOnly.CheckedChanged += new System.EventHandler(this.AstrologianCardOnly_CheckedChanged);
+            // 
+            // AstrologianDamageGroup
+            // 
+            this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDotsPct);
+            this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDots);
+            this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDamage);
+            this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDamagePct);
+            this.AstrologianDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianDamageGroup.Location = new System.Drawing.Point(13, 262);
+            this.AstrologianDamageGroup.Name = "AstrologianDamageGroup";
+            this.AstrologianDamageGroup.Size = new System.Drawing.Size(264, 67);
+            this.AstrologianDamageGroup.TabIndex = 5;
+            this.AstrologianDamageGroup.TabStop = false;
+            this.AstrologianDamageGroup.Text = "Damage";
+            // 
+            // AstrologianStopDotsPct
+            // 
+            this.AstrologianStopDotsPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianStopDotsPct.Location = new System.Drawing.Point(169, 39);
+            this.AstrologianStopDotsPct.Name = "AstrologianStopDotsPct";
+            this.AstrologianStopDotsPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianStopDotsPct.TabIndex = 3;
+            this.AstrologianStopDotsPct.ValueChanged += new System.EventHandler(this.AstrologianStopDotsPct_ValueChanged);
+            // 
+            // AstrologianStopDots
+            // 
+            this.AstrologianStopDots.AutoSize = true;
+            this.AstrologianStopDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianStopDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianStopDots.ForeColor = System.Drawing.Color.White;
+            this.AstrologianStopDots.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianStopDots.Name = "AstrologianStopDots";
+            this.AstrologianStopDots.Size = new System.Drawing.Size(139, 17);
+            this.AstrologianStopDots.TabIndex = 2;
+            this.AstrologianStopDots.TabStop = false;
+            this.AstrologianStopDots.Text = "Stop dots at low mana";
+            this.AstrologianStopDots.UseVisualStyleBackColor = true;
+            this.AstrologianStopDots.CheckedChanged += new System.EventHandler(this.AstrologianStopDots_CheckedChanged);
+            // 
+            // AstrologianStopDamage
+            // 
+            this.AstrologianStopDamage.AutoSize = true;
+            this.AstrologianStopDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianStopDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianStopDamage.ForeColor = System.Drawing.Color.White;
+            this.AstrologianStopDamage.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianStopDamage.Name = "AstrologianStopDamage";
+            this.AstrologianStopDamage.Size = new System.Drawing.Size(157, 17);
+            this.AstrologianStopDamage.TabIndex = 1;
+            this.AstrologianStopDamage.TabStop = false;
+            this.AstrologianStopDamage.Text = "Stop damage at low mana";
+            this.AstrologianStopDamage.UseVisualStyleBackColor = true;
+            this.AstrologianStopDamage.CheckedChanged += new System.EventHandler(this.AstrologianStopDamage_CheckedChanged);
+            // 
+            // AstrologianStopDamagePct
+            // 
+            this.AstrologianStopDamagePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianStopDamagePct.Location = new System.Drawing.Point(169, 16);
+            this.AstrologianStopDamagePct.Name = "AstrologianStopDamagePct";
+            this.AstrologianStopDamagePct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianStopDamagePct.TabIndex = 0;
+            this.AstrologianStopDamagePct.ValueChanged += new System.EventHandler(this.AstrologianStopDamagePct_ValueChanged);
             // 
             // AstrologianAoEGroup
             // 
@@ -3264,6 +3376,7 @@
             // pgeScholar
             // 
             this.pgeScholar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeScholar.Controls.Add(this.ScholarDamageGroup);
             this.pgeScholar.Controls.Add(this.ScholarBuffGroup);
             this.pgeScholar.Controls.Add(this.ScholarCooldownGroup);
             this.pgeScholar.Controls.Add(this.ScholarPetGroup);
@@ -3277,6 +3390,68 @@
             this.pgeScholar.TabIndex = 1;
             this.pgeScholar.Text = "Scholar";
             this.pgeScholar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // ScholarDamageGroup
+            // 
+            this.ScholarDamageGroup.Controls.Add(this.ScholarStopDotsPct);
+            this.ScholarDamageGroup.Controls.Add(this.ScholarStopDots);
+            this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamage);
+            this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamagePct);
+            this.ScholarDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarDamageGroup.Location = new System.Drawing.Point(13, 285);
+            this.ScholarDamageGroup.Name = "ScholarDamageGroup";
+            this.ScholarDamageGroup.Size = new System.Drawing.Size(264, 67);
+            this.ScholarDamageGroup.TabIndex = 6;
+            this.ScholarDamageGroup.TabStop = false;
+            this.ScholarDamageGroup.Text = "Damage";
+            // 
+            // ScholarStopDotsPct
+            // 
+            this.ScholarStopDotsPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarStopDotsPct.Location = new System.Drawing.Point(169, 39);
+            this.ScholarStopDotsPct.Name = "ScholarStopDotsPct";
+            this.ScholarStopDotsPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarStopDotsPct.TabIndex = 3;
+            this.ScholarStopDotsPct.ValueChanged += new System.EventHandler(this.ScholarStopDotsPct_ValueChanged);
+            // 
+            // ScholarStopDots
+            // 
+            this.ScholarStopDots.AutoSize = true;
+            this.ScholarStopDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarStopDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarStopDots.ForeColor = System.Drawing.Color.White;
+            this.ScholarStopDots.Location = new System.Drawing.Point(6, 39);
+            this.ScholarStopDots.Name = "ScholarStopDots";
+            this.ScholarStopDots.Size = new System.Drawing.Size(139, 17);
+            this.ScholarStopDots.TabIndex = 2;
+            this.ScholarStopDots.TabStop = false;
+            this.ScholarStopDots.Text = "Stop dots at low mana";
+            this.ScholarStopDots.UseVisualStyleBackColor = true;
+            this.ScholarStopDots.CheckedChanged += new System.EventHandler(this.ScholarStopDots_CheckedChanged);
+            // 
+            // ScholarStopDamage
+            // 
+            this.ScholarStopDamage.AutoSize = true;
+            this.ScholarStopDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarStopDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarStopDamage.ForeColor = System.Drawing.Color.White;
+            this.ScholarStopDamage.Location = new System.Drawing.Point(6, 16);
+            this.ScholarStopDamage.Name = "ScholarStopDamage";
+            this.ScholarStopDamage.Size = new System.Drawing.Size(157, 17);
+            this.ScholarStopDamage.TabIndex = 1;
+            this.ScholarStopDamage.TabStop = false;
+            this.ScholarStopDamage.Text = "Stop damage at low mana";
+            this.ScholarStopDamage.UseVisualStyleBackColor = true;
+            this.ScholarStopDamage.CheckedChanged += new System.EventHandler(this.ScholarStopDamage_CheckedChanged);
+            // 
+            // ScholarStopDamagePct
+            // 
+            this.ScholarStopDamagePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarStopDamagePct.Location = new System.Drawing.Point(169, 16);
+            this.ScholarStopDamagePct.Name = "ScholarStopDamagePct";
+            this.ScholarStopDamagePct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarStopDamagePct.TabIndex = 0;
+            this.ScholarStopDamagePct.ValueChanged += new System.EventHandler(this.ScholarStopDamagePct_ValueChanged);
             // 
             // ScholarBuffGroup
             // 
@@ -3856,6 +4031,7 @@
             // pgeWhiteMage
             // 
             this.pgeWhiteMage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeWhiteMage.Controls.Add(this.WhiteMageDamageGroup);
             this.pgeWhiteMage.Controls.Add(this.WhiteMageBuffGroup);
             this.pgeWhiteMage.Controls.Add(this.WhiteMageHealGroup);
             this.pgeWhiteMage.Controls.Add(this.WhiteMageRoleGroup);
@@ -3867,12 +4043,74 @@
             this.pgeWhiteMage.Text = "White Mage";
             this.pgeWhiteMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // WhiteMageDamageGroup
+            // 
+            this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDotsPct);
+            this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDots);
+            this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamage);
+            this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamagePct);
+            this.WhiteMageDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageDamageGroup.Location = new System.Drawing.Point(13, 262);
+            this.WhiteMageDamageGroup.Name = "WhiteMageDamageGroup";
+            this.WhiteMageDamageGroup.Size = new System.Drawing.Size(264, 67);
+            this.WhiteMageDamageGroup.TabIndex = 6;
+            this.WhiteMageDamageGroup.TabStop = false;
+            this.WhiteMageDamageGroup.Text = "Damage";
+            // 
+            // WhiteMageStopDotsPct
+            // 
+            this.WhiteMageStopDotsPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageStopDotsPct.Location = new System.Drawing.Point(169, 39);
+            this.WhiteMageStopDotsPct.Name = "WhiteMageStopDotsPct";
+            this.WhiteMageStopDotsPct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageStopDotsPct.TabIndex = 3;
+            this.WhiteMageStopDotsPct.ValueChanged += new System.EventHandler(this.WhiteMageStopDotsPct_ValueChanged);
+            // 
+            // WhiteMageStopDots
+            // 
+            this.WhiteMageStopDots.AutoSize = true;
+            this.WhiteMageStopDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageStopDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageStopDots.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageStopDots.Location = new System.Drawing.Point(6, 39);
+            this.WhiteMageStopDots.Name = "WhiteMageStopDots";
+            this.WhiteMageStopDots.Size = new System.Drawing.Size(139, 17);
+            this.WhiteMageStopDots.TabIndex = 2;
+            this.WhiteMageStopDots.TabStop = false;
+            this.WhiteMageStopDots.Text = "Stop dots at low mana";
+            this.WhiteMageStopDots.UseVisualStyleBackColor = true;
+            this.WhiteMageStopDots.CheckedChanged += new System.EventHandler(this.WhiteMageStopDots_CheckedChanged);
+            // 
+            // WhiteMageStopDamage
+            // 
+            this.WhiteMageStopDamage.AutoSize = true;
+            this.WhiteMageStopDamage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageStopDamage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageStopDamage.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageStopDamage.Location = new System.Drawing.Point(6, 16);
+            this.WhiteMageStopDamage.Name = "WhiteMageStopDamage";
+            this.WhiteMageStopDamage.Size = new System.Drawing.Size(157, 17);
+            this.WhiteMageStopDamage.TabIndex = 1;
+            this.WhiteMageStopDamage.TabStop = false;
+            this.WhiteMageStopDamage.Text = "Stop damage at low mana";
+            this.WhiteMageStopDamage.UseVisualStyleBackColor = true;
+            this.WhiteMageStopDamage.CheckedChanged += new System.EventHandler(this.WhiteMageStopDamage_CheckedChanged);
+            // 
+            // WhiteMageStopDamagePct
+            // 
+            this.WhiteMageStopDamagePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageStopDamagePct.Location = new System.Drawing.Point(169, 16);
+            this.WhiteMageStopDamagePct.Name = "WhiteMageStopDamagePct";
+            this.WhiteMageStopDamagePct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageStopDamagePct.TabIndex = 0;
+            this.WhiteMageStopDamagePct.ValueChanged += new System.EventHandler(this.WhiteMageStopDamagePct_ValueChanged);
+            // 
             // WhiteMageBuffGroup
             // 
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMind);
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMageThinAir);
             this.WhiteMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(463, 6);
+            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(229, 6);
             this.WhiteMageBuffGroup.Name = "WhiteMageBuffGroup";
             this.WhiteMageBuffGroup.Size = new System.Drawing.Size(124, 66);
             this.WhiteMageBuffGroup.TabIndex = 2;
@@ -3934,7 +4172,7 @@
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageCure);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMagePartyHeal);
             this.WhiteMageHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.WhiteMageHealGroup.Location = new System.Drawing.Point(359, 6);
             this.WhiteMageHealGroup.Name = "WhiteMageHealGroup";
             this.WhiteMageHealGroup.Size = new System.Drawing.Size(228, 319);
             this.WhiteMageHealGroup.TabIndex = 1;
@@ -6354,9 +6592,9 @@
             this.BardMiscGroup.Controls.Add(this.BardPotion);
             this.BardMiscGroup.Controls.Add(this.BardOpener);
             this.BardMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardMiscGroup.Location = new System.Drawing.Point(218, 223);
+            this.BardMiscGroup.Location = new System.Drawing.Point(218, 246);
             this.BardMiscGroup.Name = "BardMiscGroup";
-            this.BardMiscGroup.Size = new System.Drawing.Size(109, 66);
+            this.BardMiscGroup.Size = new System.Drawing.Size(115, 66);
             this.BardMiscGroup.TabIndex = 4;
             this.BardMiscGroup.TabStop = false;
             this.BardMiscGroup.Text = "Misc";
@@ -6445,12 +6683,13 @@
             // 
             // BardCooldownGroup
             // 
+            this.BardCooldownGroup.Controls.Add(this.BardEmpyrealArrow);
             this.BardCooldownGroup.Controls.Add(this.BardSidewinder);
             this.BardCooldownGroup.Controls.Add(this.BardSongs);
             this.BardCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.BardCooldownGroup.Name = "BardCooldownGroup";
-            this.BardCooldownGroup.Size = new System.Drawing.Size(109, 66);
+            this.BardCooldownGroup.Size = new System.Drawing.Size(115, 89);
             this.BardCooldownGroup.TabIndex = 2;
             this.BardCooldownGroup.TabStop = false;
             this.BardCooldownGroup.Text = "Cooldown";
@@ -6461,7 +6700,7 @@
             this.BardSidewinder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BardSidewinder.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardSidewinder.ForeColor = System.Drawing.Color.White;
-            this.BardSidewinder.Location = new System.Drawing.Point(6, 39);
+            this.BardSidewinder.Location = new System.Drawing.Point(6, 62);
             this.BardSidewinder.Name = "BardSidewinder";
             this.BardSidewinder.Size = new System.Drawing.Size(81, 17);
             this.BardSidewinder.TabIndex = 1;
@@ -6491,9 +6730,9 @@
             this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardBuffGroup.Location = new System.Drawing.Point(218, 128);
+            this.BardBuffGroup.Location = new System.Drawing.Point(218, 151);
             this.BardBuffGroup.Name = "BardBuffGroup";
-            this.BardBuffGroup.Size = new System.Drawing.Size(109, 89);
+            this.BardBuffGroup.Size = new System.Drawing.Size(115, 89);
             this.BardBuffGroup.TabIndex = 1;
             this.BardBuffGroup.TabStop = false;
             this.BardBuffGroup.Text = "Buff";
@@ -9280,6 +9519,21 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // BardEmpyrealArrow
+            // 
+            this.BardEmpyrealArrow.AutoSize = true;
+            this.BardEmpyrealArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardEmpyrealArrow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardEmpyrealArrow.ForeColor = System.Drawing.Color.White;
+            this.BardEmpyrealArrow.Location = new System.Drawing.Point(6, 39);
+            this.BardEmpyrealArrow.Name = "BardEmpyrealArrow";
+            this.BardEmpyrealArrow.Size = new System.Drawing.Size(103, 17);
+            this.BardEmpyrealArrow.TabIndex = 2;
+            this.BardEmpyrealArrow.TabStop = false;
+            this.BardEmpyrealArrow.Text = "Empyreal Arrow";
+            this.BardEmpyrealArrow.UseVisualStyleBackColor = true;
+            this.BardEmpyrealArrow.CheckedChanged += new System.EventHandler(this.BardEmpyrealArrow_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9350,6 +9604,10 @@
             this.pgeHealers.ResumeLayout(false);
             this.tabHealers.ResumeLayout(false);
             this.pgeAstrologian.ResumeLayout(false);
+            this.AstrologianMiscGroup.ResumeLayout(false);
+            this.AstrologianMiscGroup.PerformLayout();
+            this.AstrologianDamageGroup.ResumeLayout(false);
+            this.AstrologianDamageGroup.PerformLayout();
             this.AstrologianAoEGroup.ResumeLayout(false);
             this.AstrologianAoEGroup.PerformLayout();
             this.AstrologianSectGroup.ResumeLayout(false);
@@ -9360,6 +9618,8 @@
             this.AstrologianRoleGroup.ResumeLayout(false);
             this.AstrologianRoleGroup.PerformLayout();
             this.pgeScholar.ResumeLayout(false);
+            this.ScholarDamageGroup.ResumeLayout(false);
+            this.ScholarDamageGroup.PerformLayout();
             this.ScholarBuffGroup.ResumeLayout(false);
             this.ScholarBuffGroup.PerformLayout();
             this.ScholarCooldownGroup.ResumeLayout(false);
@@ -9372,6 +9632,8 @@
             this.ScholarRoleGroup.ResumeLayout(false);
             this.ScholarRoleGroup.PerformLayout();
             this.pgeWhiteMage.ResumeLayout(false);
+            this.WhiteMageDamageGroup.ResumeLayout(false);
+            this.WhiteMageDamageGroup.PerformLayout();
             this.WhiteMageBuffGroup.ResumeLayout(false);
             this.WhiteMageBuffGroup.PerformLayout();
             this.WhiteMageHealGroup.ResumeLayout(false);
@@ -10095,5 +10357,23 @@
         private Design.CustomCheck SummonerOpenerGaruda;
         private Design.UserNumeric SummonerSustainPct;
         private Design.CustomCheck SummonerSustain;
+        private Design.CustomGroup AstrologianDamageGroup;
+        private Design.UserNumeric AstrologianStopDotsPct;
+        private Design.CustomCheck AstrologianStopDots;
+        private Design.CustomCheck AstrologianStopDamage;
+        private Design.UserNumeric AstrologianStopDamagePct;
+        private Design.CustomGroup AstrologianMiscGroup;
+        private Design.CustomCheck AstrologianCardOnly;
+        private Design.CustomGroup ScholarDamageGroup;
+        private Design.UserNumeric ScholarStopDotsPct;
+        private Design.CustomCheck ScholarStopDots;
+        private Design.CustomCheck ScholarStopDamage;
+        private Design.UserNumeric ScholarStopDamagePct;
+        private Design.CustomGroup WhiteMageDamageGroup;
+        private Design.UserNumeric WhiteMageStopDotsPct;
+        private Design.CustomCheck WhiteMageStopDots;
+        private Design.CustomCheck WhiteMageStopDamage;
+        private Design.UserNumeric WhiteMageStopDamagePct;
+        private Design.CustomCheck BardEmpyrealArrow;
     }
 }

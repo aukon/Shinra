@@ -234,6 +234,22 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianStopDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianStopDots { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int AstrologianStopDamagePct { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int AstrologianStopDotsPct { get; set; }
+
+        #endregion
+
         #region AoE
 
         [Setting, DefaultValue(true)]
@@ -313,6 +329,13 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool AstrologianCardOnly { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Bard
@@ -374,6 +397,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool BardSongs { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool BardEmpyrealArrow { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool BardSidewinder { get; set; }
@@ -1281,6 +1307,22 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarStopDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarStopDots { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int ScholarStopDamagePct { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int ScholarStopDotsPct { get; set; }
+
+        #endregion
+
         #region AoE
 
         [Setting, DefaultValue(true)]
@@ -1628,6 +1670,22 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(60)]
         public int WhiteMageLucidDreamingPct { get; set; }
+
+        #endregion
+
+        #region Damage
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageStopDamage { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageStopDots { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int WhiteMageStopDamagePct { get; set; }
+
+        [Setting, DefaultValue(20)]
+        public int WhiteMageStopDotsPct { get; set; }
 
         #endregion
 

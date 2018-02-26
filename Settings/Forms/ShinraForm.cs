@@ -118,6 +118,16 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Damage
+
+            AstrologianStopDamage.Checked = Shinra.Settings.AstrologianStopDamage;
+            AstrologianStopDots.Checked = Shinra.Settings.AstrologianStopDots;
+
+            AstrologianStopDamagePct.Value = Shinra.Settings.AstrologianStopDamagePct;
+            AstrologianStopDotsPct.Value = Shinra.Settings.AstrologianStopDotsPct;
+
+            #endregion
+
             #region AoE
 
             AstrologianEarthlyStar.Checked = Shinra.Settings.AstrologianEarthlyStar;
@@ -161,6 +171,12 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            AstrologianCardOnly.Checked = Shinra.Settings.AstrologianCardOnly;
+
+            #endregion
+
             #endregion
 
             #region Bard
@@ -192,6 +208,7 @@ namespace ShinraCo.Settings.Forms
             #region Cooldown
 
             BardSongs.Checked = Shinra.Settings.BardSongs;
+            BardEmpyrealArrow.Checked = Shinra.Settings.BardEmpyrealArrow;
             BardSidewinder.Checked = Shinra.Settings.BardSidewinder;
 
             #endregion
@@ -723,6 +740,16 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Damage
+
+            ScholarStopDamage.Checked = Shinra.Settings.ScholarStopDamage;
+            ScholarStopDots.Checked = Shinra.Settings.ScholarStopDots;
+
+            ScholarStopDamagePct.Value = Shinra.Settings.ScholarStopDamagePct;
+            ScholarStopDotsPct.Value = Shinra.Settings.ScholarStopDotsPct;
+
+            #endregion
+
             #region AoE
 
             ScholarBane.Checked = Shinra.Settings.ScholarBane;
@@ -924,6 +951,16 @@ namespace ShinraCo.Settings.Forms
             WhiteMageSwiftcast.Checked = Shinra.Settings.WhiteMageSwiftcast;
 
             WhiteMageLucidDreamingPct.Value = Shinra.Settings.WhiteMageLucidDreamingPct;
+
+            #endregion
+
+            #region Damage
+
+            WhiteMageStopDamage.Checked = Shinra.Settings.WhiteMageStopDamage;
+            WhiteMageStopDots.Checked = Shinra.Settings.WhiteMageStopDots;
+
+            WhiteMageStopDamagePct.Value = Shinra.Settings.WhiteMageStopDamagePct;
+            WhiteMageStopDotsPct.Value = Shinra.Settings.WhiteMageStopDotsPct;
 
             #endregion
 
@@ -1168,6 +1205,30 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Damage
+
+        private void AstrologianStopDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianStopDamage = AstrologianStopDamage.Checked;
+        }
+
+        private void AstrologianStopDots_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianStopDots = AstrologianStopDots.Checked;
+        }
+
+        private void AstrologianStopDamagePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianStopDamagePct = Convert.ToInt32(AstrologianStopDamagePct.Value);
+        }
+
+        private void AstrologianStopDotsPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianStopDotsPct = Convert.ToInt32(AstrologianStopDotsPct.Value);
+        }
+
+        #endregion
+
         #region AoE
 
         private void AstrologianEarthlyStar_CheckedChanged(object sender, EventArgs e)
@@ -1292,6 +1353,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Misc
+
+        private void AstrologianCardOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianCardOnly = AstrologianCardOnly.Checked;
+        }
+
+        #endregion
+
         #endregion
 
         #region Bard
@@ -1374,6 +1444,11 @@ namespace ShinraCo.Settings.Forms
         private void BardSongs_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardSongs = BardSongs.Checked;
+        }
+
+        private void BardEmpyrealArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardEmpyrealArrow = BardEmpyrealArrow.Checked;
         }
 
         private void BardSidewinder_CheckedChanged(object sender, EventArgs e)
@@ -2720,6 +2795,30 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Damage
+
+        private void ScholarStopDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarStopDamage = ScholarStopDamage.Checked;
+        }
+
+        private void ScholarStopDots_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarStopDots = ScholarStopDots.Checked;
+        }
+
+        private void ScholarStopDamagePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarStopDamagePct = Convert.ToInt32(ScholarStopDamagePct.Value);
+        }
+
+        private void ScholarStopDotsPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarStopDotsPct = Convert.ToInt32(ScholarStopDotsPct.Value);
+        }
+
+        #endregion
+
         #region AoE
 
         private void ScholarBane_CheckedChanged(object sender, EventArgs e)
@@ -3245,6 +3344,30 @@ namespace ShinraCo.Settings.Forms
         private void WhiteMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WhiteMageLucidDreamingPct = Convert.ToInt32(WhiteMageLucidDreamingPct.Value);
+        }
+
+        #endregion
+
+        #region Damage
+
+        private void WhiteMageStopDamage_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageStopDamage = WhiteMageStopDamage.Checked;
+        }
+
+        private void WhiteMageStopDots_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageStopDots = WhiteMageStopDots.Checked;
+        }
+
+        private void WhiteMageStopDamagePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageStopDamagePct = Convert.ToInt32(WhiteMageStopDamagePct.Value);
+        }
+
+        private void WhiteMageStopDotsPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageStopDotsPct = Convert.ToInt32(WhiteMageStopDotsPct.Value);
         }
 
         #endregion

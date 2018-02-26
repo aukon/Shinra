@@ -21,7 +21,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Ruin()
         {
-            if (!ActionManager.HasSpell(MySpells.Broil.Name))
+            if (!ActionManager.HasSpell(MySpells.Broil.Name) && !StopDamage)
             {
                 return await MySpells.Ruin.Cast();
             }
@@ -30,7 +30,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Broil()
         {
-            if (!ActionManager.HasSpell(MySpells.BroilII.Name))
+            if (!ActionManager.HasSpell(MySpells.BroilII.Name) && !StopDamage)
             {
                 return await MySpells.Broil.Cast();
             }
@@ -39,7 +39,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BroilII()
         {
-            return await MySpells.BroilII.Cast();
+            if (!StopDamage)
+            {
+                return await MySpells.BroilII.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -48,7 +52,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Bio()
         {
-            if (!ActionManager.HasSpell(MySpells.BioII.Name) && !Core.Player.CurrentTarget.HasAura(MySpells.Bio.Name, true, 3000))
+            if (!ActionManager.HasSpell(MySpells.BioII.Name) && !StopDots &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.Bio.Name, true, 3000))
             {
                 return await MySpells.Bio.Cast();
             }
@@ -57,7 +62,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BioII()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.BioII.Name, true, 3000))
+            if (!StopDots && !Core.Player.CurrentTarget.HasAura(MySpells.BioII.Name, true, 3000))
             {
                 return await MySpells.BioII.Cast();
             }
@@ -66,7 +71,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Miasma()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 4000))
+            if (!StopDots && !Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 4000))
             {
                 return await MySpells.Miasma.Cast();
             }
@@ -90,7 +95,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MiasmaII()
         {
-            if (Shinra.Settings.RotationMode != Modes.Single && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaII.Name, true, 3000))
+            if (Shinra.Settings.RotationMode != Modes.Single && !StopDamage &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaII.Name, true, 3000))
             {
                 return await MySpells.MiasmaII.Cast();
             }
@@ -429,6 +435,9 @@ namespace ShinraCo.Rotations
         #endregion
 
         #region Custom
+
+        private static bool StopDamage => Shinra.Settings.ScholarStopDamage && Core.Player.CurrentManaPercent <= Shinra.Settings.ScholarStopDamagePct;
+        private static bool StopDots => Shinra.Settings.ScholarStopDots && Core.Player.CurrentManaPercent <= Shinra.Settings.ScholarStopDotsPct;
 
         private static string BioDebuff => Core.Player.ClassLevel >= 26 ? "Bio II" : "Bio";
         private static bool PetExists => Core.Player.Pet != null;

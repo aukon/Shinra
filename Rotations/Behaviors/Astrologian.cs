@@ -48,12 +48,11 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await LucidDreaming()) return true;
+            if (await LordOfCrowns()) return true;
             if (await SleeveDraw()) return true;
             if (await RoyalRoad()) return true;
             if (await Redraw()) return true;
             if (await Spread()) return true;
-            if (await LordOfCrowns()) return true;
-            if (await LadyOfCrowns()) return true;
             if (await MinorArcana()) return true;
             if (await Undraw()) return true;
             if (await Draw()) return true;
@@ -69,6 +68,7 @@ namespace ShinraCo.Rotations
             if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await EssentialDignity()) return true;
+            if (await LadyOfCrowns()) return true;
             if (await AspectedHelios()) return true;
             if (await Helios()) return true;
             if (await BeneficII()) return true;

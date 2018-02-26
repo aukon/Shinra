@@ -6,6 +6,7 @@ using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
+using ff14bot.Objects;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 using Resource = ff14bot.Managers.ActionResourceManager.Astrologian;
@@ -20,7 +21,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Malefic()
         {
-            if (!ActionManager.HasSpell(MySpells.MaleficII.Name))
+            if (!ActionManager.HasSpell(MySpells.MaleficII.Name) && !StopDamage)
             {
                 return await MySpells.Malefic.Cast();
             }
@@ -29,7 +30,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MaleficII()
         {
-            if (!ActionManager.HasSpell(MySpells.MaleficIII.Name))
+            if (!ActionManager.HasSpell(MySpells.MaleficIII.Name) && !StopDamage)
             {
                 return await MySpells.MaleficII.Cast();
             }
@@ -38,7 +39,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MaleficIII()
         {
-            return await MySpells.MaleficIII.Cast();
+            if (!StopDamage)
+            {
+                return await MySpells.MaleficIII.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -47,7 +52,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Combust()
         {
-            if (!ActionManager.HasSpell(MySpells.CombustII.Name) && !Core.Player.CurrentTarget.HasAura(MySpells.Combust.Name, true, 4000))
+            if (!ActionManager.HasSpell(MySpells.CombustII.Name) && !StopDots &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.Combust.Name, true, 4000))
             {
                 return await MySpells.Combust.Cast();
             }
@@ -56,7 +62,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> CombustII()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.CombustII.Name, true, 4000))
+            if (!StopDots && !Core.Player.CurrentTarget.HasAura(MySpells.CombustII.Name, true, 4000))
             {
                 return await MySpells.CombustII.Cast();
             }
@@ -69,7 +75,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Gravity()
         {
-            if (Core.Player.CurrentManaPercent > 40)
+            if (!StopDamage)
             {
                 return await MySpells.Gravity.Cast();
             }
@@ -271,64 +277,35 @@ namespace ShinraCo.Rotations
 
         #region Card
 
-        private async Task<bool> Draw()
+        private async Task<bool> RoyalRoad()
         {
             if (Shinra.Settings.AstrologianDraw)
             {
-                if (CardBalance || CardArrow || CardSpear)
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
                 {
-                    var target = Shinra.Settings.AstrologianStyle == AstrologianStyles.Party
-                        ? Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) : Core.Player;
-
-                    if (target != null)
-                    {
-                        return await MySpells.Draw.Cast(target);
-                    }
-                }
-                return await MySpells.Draw.Cast();
-            }
-            return false;
-        }
-
-        private async Task<bool> Undraw()
-        {
-            if (Shinra.Settings.AstrologianDraw && !ActionManager.HasSpell(MySpells.MinorArcana.Name))
-            {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Solo)
-                {
-                    if (CardEwer || CardSpire)
-                    {
-                        return await MySpells.Undraw.Cast();
-                    }
-                }
-                else
-                {
-                    if (CardBole)
-                    {
-                        return await MySpells.Undraw.Cast();
-                    }
-                }
-            }
-            return false;
-        }
-
-        private async Task<bool> RoyalRoad()
-        {
-            if (Shinra.Settings.AstrologianDraw && !HasBuff)
-            {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Solo)
-                {
-                    if (CardBole)
+                    if (!BuffShared && (CardEwer || CardSpire))
                     {
                         return await MySpells.RoyalRoad.Cast();
                     }
                 }
                 else
                 {
-                    if (CardEwer || CardSpire)
+                    if (!BuffPotency && CardBole)
                     {
                         return await MySpells.RoyalRoad.Cast();
                     }
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Redraw()
+        {
+            if (Shinra.Settings.AstrologianDraw)
+            {
+                if (HasSpread || !CardBalance && !CardArrow && !CardSpear)
+                {
+                    return await MySpells.Redraw.Cast();
                 }
             }
             return false;
@@ -336,38 +313,110 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Spread()
         {
-            if (Shinra.Settings.AstrologianDraw && HasSpread && HasBuff)
+            if (Shinra.Settings.AstrologianDraw)
             {
-                var target = Shinra.Settings.AstrologianStyle == AstrologianStyles.Party
-                    ? Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) : Core.Player;
-
-                if (target != null)
+                if (!HasSpread && !HasBuff)
                 {
-                    return await MySpells.Spread.Cast(target);
+                    if (CardBalance || CardArrow || CardSpear)
+                    {
+                        return await MySpells.Spread.Cast();
+                    }
                 }
-                return await MySpells.Spread.Cast();
-            }
-            if (Shinra.Settings.AstrologianDraw && !HasSpread && !HasBuff && (CardBalance || CardArrow || CardSpear))
-            {
-                return await MySpells.Spread.Cast();
-            }
-            return false;
-        }
+                else if (HasSpread && HasBuff)
+                {
+                    var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) ?? Core.Player;
 
-        private async Task<bool> Redraw()
-        {
-            if (Shinra.Settings.AstrologianDraw && !CardBalance && !CardArrow && !CardSpear)
-            {
-                return await MySpells.Redraw.Cast();
+                    if (target != null)
+                    {
+                        return await MySpells.Spread.Cast(target);
+                    }
+                }
             }
             return false;
         }
 
         private async Task<bool> MinorArcana()
         {
-            if (Shinra.Settings.AstrologianDraw && !HasArcana && !CardBalance && !CardArrow && !CardSpear)
+            if (Shinra.Settings.AstrologianDraw)
             {
-                return await MySpells.MinorArcana.Cast();
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+                {
+                    if (!HasArcana && BuffShared && !CardBalance && !CardArrow && !CardSpear)
+                    {
+                        return await MySpells.MinorArcana.Cast();
+                    }
+                }
+                else
+                {
+                    if (!HasArcana && !CardBalance && !CardArrow && !CardSpear)
+                    {
+                        return await MySpells.MinorArcana.Cast();
+                    }
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Undraw()
+        {
+            if (Shinra.Settings.AstrologianDraw)
+            {
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+                {
+                    if (!ActionManager.HasSpell(MySpells.MinorArcana.Name) && BuffShared && !CardBalance && !CardArrow && !CardSpear)
+                    {
+                        return await MySpells.Undraw.Cast();
+                    }
+                }
+                else
+                {
+                    if (!ActionManager.HasSpell(MySpells.MinorArcana.Name) && (CardEwer || CardSpire))
+                    {
+                        return await MySpells.Undraw.Cast();
+                    }
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Draw()
+        {
+            if (Shinra.Settings.AstrologianDraw)
+            {
+                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+                {
+                    if (BuffShared || HasSpread || CardBole)
+                    {
+                        var target = Core.Player as BattleCharacter;
+
+                        if (CardBalance || CardArrow || CardSpear)
+                        {
+                            target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) ?? Core.Player;
+                        }
+                        else if (!BuffShared && CardBole)
+                        {
+                            target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank()) ?? Core.Player;
+                        }
+                        else if (!BuffShared && CardSpire)
+                        {
+                            target = Helpers.GoadManager.FirstOrDefault() ?? Core.Player;
+                        }
+
+                        if (target != null)
+                        {
+                            return await MySpells.Draw.Cast(target);
+                        }
+                    }
+
+                    if (!HasCard)
+                    {
+                        return await MySpells.Draw.Cast();
+                    }
+                }
+                else
+                {
+                    return await MySpells.Draw.Cast();
+                }
             }
             return false;
         }
@@ -398,7 +447,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SleeveDraw()
         {
-            if (Shinra.Settings.AstrologianSleeveDraw)
+            if (Shinra.Settings.AstrologianSleeveDraw && !HasCard)
             {
                 return await MySpells.SleeveDraw.Cast();
             }
@@ -509,12 +558,14 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static bool StopDamage => Shinra.Settings.AstrologianStopDamage && Core.Player.CurrentManaPercent <= Shinra.Settings.AstrologianStopDamagePct;
+        private static bool StopDots => Shinra.Settings.AstrologianStopDots && Core.Player.CurrentManaPercent <= Shinra.Settings.AstrologianStopDotsPct;
+
         private static bool HasCard => Resource.Cards[0] != Resource.AstrologianCard.None;
         private static bool HasBuff => Resource.Buff != Resource.AstrologianCardBuff.None;
         private static bool HasSpread => Resource.Cards[1] != Resource.AstrologianCard.None;
         private static bool HasArcana => Resource.Arcana != Resource.AstrologianCard.None;
 
-        private static bool BuffDuration => Resource.Buff == Resource.AstrologianCardBuff.Duration;
         private static bool BuffPotency => Resource.Buff == Resource.AstrologianCardBuff.Potency;
         private static bool BuffShared => Resource.Buff == Resource.AstrologianCardBuff.Shared;
 

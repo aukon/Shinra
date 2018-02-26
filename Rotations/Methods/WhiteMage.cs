@@ -7,7 +7,6 @@ using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
 using ShinraCo.Spells.Main;
-using Resource = ff14bot.Managers.ActionResourceManager.WhiteMage;
 
 namespace ShinraCo.Rotations
 {
@@ -19,7 +18,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Stone()
         {
-            if (!ActionManager.HasSpell(MySpells.StoneII.Name))
+            if (!ActionManager.HasSpell(MySpells.StoneII.Name) && !StopDamage)
             {
                 return await MySpells.Stone.Cast();
             }
@@ -28,7 +27,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StoneII()
         {
-            if (!ActionManager.HasSpell(MySpells.StoneIII.Name))
+            if (!ActionManager.HasSpell(MySpells.StoneIII.Name) && !StopDamage)
             {
                 return await MySpells.StoneII.Cast();
             }
@@ -37,7 +36,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StoneIII()
         {
-            if (!ActionManager.HasSpell(MySpells.StoneIV.Name))
+            if (!ActionManager.HasSpell(MySpells.StoneIV.Name) && !StopDamage)
             {
                 return await MySpells.StoneIII.Cast();
             }
@@ -46,7 +45,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StoneIV()
         {
-            return await MySpells.StoneIV.Cast();
+            if (!StopDamage)
+            {
+                return await MySpells.StoneIV.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -55,7 +58,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Aero()
         {
-            if (!ActionManager.HasSpell(MySpells.AeroII.Name) && !Core.Player.CurrentTarget.HasAura(MySpells.Aero.Name, true, 3000))
+            if (!ActionManager.HasSpell(MySpells.AeroII.Name) && !StopDots &&
+                !Core.Player.CurrentTarget.HasAura(MySpells.Aero.Name, true, 3000))
             {
                 return await MySpells.Aero.Cast();
             }
@@ -64,7 +68,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AeroII()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.AeroII.Name, true, 3000))
+            if (!StopDots && !Core.Player.CurrentTarget.HasAura(MySpells.AeroII.Name, true, 3000))
             {
                 return await MySpells.AeroII.Cast();
             }
@@ -73,7 +77,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AeroIII()
         {
-            if (!Core.Player.CurrentTarget.HasAura(MySpells.AeroIII.Name, true, 4000))
+            if (!StopDots && !Core.Player.CurrentTarget.HasAura(MySpells.AeroIII.Name, true, 4000))
             {
                 return await MySpells.AeroIII.Cast();
             }
@@ -86,15 +90,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Holy()
         {
-            if (Core.Player.CurrentManaPercent > 40 || Core.Player.HasAura(MySpells.ThinAir.Name))
+            if (Shinra.Settings.WhiteMageThinAir && ActionManager.CanCast(MySpells.Holy.Name, Core.Player))
             {
-                if (Shinra.Settings.WhiteMageThinAir && ActionManager.CanCast(MySpells.Holy.Name, Core.Player))
+                if (await MySpells.ThinAir.Cast(null, false))
                 {
-                    if (await MySpells.ThinAir.Cast(null, false))
-                    {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.ThinAir.Name));
-                    }
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.ThinAir.Name));
                 }
+            }
+            if (!StopDamage)
+            {
                 return await MySpells.Holy.Cast();
             }
             return false;
@@ -382,7 +386,11 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static int LilyCount => Resource.Lily;
+        private bool StopDamage => Shinra.Settings.WhiteMageStopDamage && !Core.Player.HasAura(MySpells.ThinAir.Name) &&
+                                   Core.Player.CurrentManaPercent <= Shinra.Settings.WhiteMageStopDamagePct;
+
+        private bool StopDots => Shinra.Settings.WhiteMageStopDots && !Core.Player.HasAura(MySpells.ThinAir.Name) &&
+                                 Core.Player.CurrentManaPercent <= Shinra.Settings.WhiteMageStopDotsPct;
 
         private bool UseAoEHeals => Shinra.LastSpell.Name != MySpells.Medica.Name && Shinra.LastSpell.Name != MySpells.MedicaII.Name &&
                                     Shinra.LastSpell.Name != MySpells.Assize.Name &&

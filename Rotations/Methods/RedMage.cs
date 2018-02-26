@@ -101,11 +101,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Verflare()
         {
-            if (WhiteMana >= BlackMana)
-            {
-                return await MySpells.Verflare.Cast();
-            }
-            return false;
+            return await MySpells.Verflare.Cast();
         }
 
         private async Task<bool> Verholy()

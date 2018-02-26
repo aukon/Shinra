@@ -299,6 +299,11 @@ namespace ShinraCo.Spells
                 return true;
             }
 
+            if (Shinra.Settings.AstrologianCardOnly && Core.Player.CurrentJob == ClassJobType.Astrologian)
+            {
+                return false;
+            }
+
             #endregion
 
             #region Ninjutsu
