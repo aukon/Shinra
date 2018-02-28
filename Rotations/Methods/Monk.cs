@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using ff14bot;
 using ff14bot.Managers;
@@ -30,7 +31,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SnapPunch()
         {
-            if (CoeurlForm || BalanceActive && Resource.GreasedLightning < 3)
+            if (CoeurlForm || BalanceActive && (Resource.GreasedLightning < 3 || Resource.Timer < TimeSpan.FromMilliseconds(6000)))
             {
                 return await MySpells.SnapPunch.Cast();
             }
@@ -39,7 +40,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TwinSnakes()
         {
-            if ((RaptorForm || BalanceActive) && !Core.Player.HasAura(MySpells.TwinSnakes.Name, true, 3000))
+            if ((RaptorForm || BalanceActive) && !Core.Player.HasAura(MySpells.TwinSnakes.Name, true, 6000))
             {
                 return await MySpells.TwinSnakes.Cast();
             }
@@ -48,7 +49,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DragonKick()
         {
-            if ((OpoOpoForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(821, false, 5000))
+            if ((OpoOpoForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(821, false, 6000))
             {
                 return await MySpells.DragonKick.Cast();
             }
@@ -64,7 +65,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.MonkDemolish && (Core.Player.CurrentTarget.IsBoss() ||
                                                  Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.MonkDemolishHP))
             {
-                if ((CoeurlForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(MySpells.Demolish.Name, true, 5000))
+                if ((CoeurlForm || BalanceActive) && !Core.Player.CurrentTarget.HasAura(MySpells.Demolish.Name, true, 6000))
                 {
                     return await MySpells.Demolish.Cast();
                 }

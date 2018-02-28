@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
@@ -15,6 +17,8 @@ namespace ShinraCo.Rotations
     {
         private BardSpells MySpells { get; } = new BardSpells();
         private BardOpener MyOpener { get; } = new BardOpener();
+
+        public static readonly Dictionary<string, Tuple<DateTime, int>> DotSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
 
         private int _heavyCount;
 
@@ -69,8 +73,11 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardPitchPerfect)
             {
+                DotSnapshots.RemoveAll(t => DateTime.UtcNow > t.Item1);
+                var critBuffs = DotSnapshots.ContainsKey(TargetId) ? DotSnapshots[TargetId].Item2 : 0;
+
                 if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000 ||
-                    CritBuff && NumRepertoire >= 2)
+                    critBuffs >= 2 && NumRepertoire >= 2)
                 {
                     return await MySpells.PitchPerfect.Cast();
                 }
@@ -103,7 +110,11 @@ namespace ShinraCo.Rotations
         {
             if (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000))
             {
-                return await MySpells.VenomousBite.Cast();
+                if (await MySpells.VenomousBite.Cast())
+                {
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    return true;
+                }
             }
             return false;
         }
@@ -112,7 +123,11 @@ namespace ShinraCo.Rotations
         {
             if (!Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000))
             {
-                return await MySpells.Windbite.Cast();
+                if (await MySpells.Windbite.Cast())
+                {
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    return true;
+                }
             }
             return false;
         }
@@ -122,7 +137,11 @@ namespace ShinraCo.Rotations
             if (Core.Player.CurrentTarget.HasAura(VenomDebuff, true) && !Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000) ||
                 Core.Player.CurrentTarget.HasAura(WindDebuff, true) && !Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000))
             {
-                return await MySpells.IronJaws.Cast();
+                if (await MySpells.IronJaws.Cast())
+                {
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    return true;
+                }
             }
             return false;
         }
@@ -279,6 +298,11 @@ namespace ShinraCo.Rotations
             if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0)
             {
                 Shinra.OpenerStep++;
+                if (spell.Name == "Iron Jaws")
+                {
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    return true;
+                }
             }
 
             if (Shinra.OpenerStep >= MyOpener.Spells.Count)
@@ -448,16 +472,18 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static string TargetId => $"{Core.Player.CurrentTarget.ObjectId}-{Core.Player.CurrentTarget.Name}";
         private static string VenomDebuff => Core.Player.ClassLevel < 64 ? "Venomous Bite" : "Caustic Bite";
         private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Storm Bite";
         private static double SongTimer => Resource.Timer.TotalMilliseconds;
         private static double BarrageCooldown => DataManager.GetSpellData(107).Cooldown.TotalMilliseconds;
         private static int NumRepertoire => Resource.Repertoire;
+        private static int NumCritBuffs => Convert.ToInt32(Core.Player.HasAura("Battle Litany")) + Convert.ToInt32(Core.Player.HasAura("The Spear")) +
+                                           Convert.ToInt32(Core.Player.CurrentTarget.HasAura("Chain Stratagem"));
 
         private static bool NoSong => Resource.ActiveSong == Resource.BardSong.None;
         private static bool MinuetActive => Resource.ActiveSong == Resource.BardSong.WanderersMinuet;
         private static bool PaeonActive => Resource.ActiveSong == Resource.BardSong.ArmysPaeon;
-        private static bool CritBuff => Core.Player.HasAura("Battle Litany") || Core.Player.HasTarget && Core.Player.CurrentTarget.HasAura("Chain Stratagem");
 
         private static bool RecentSong
         {

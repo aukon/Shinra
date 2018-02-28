@@ -6,6 +6,7 @@ using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
 
 namespace ShinraCo.Rotations
@@ -90,16 +91,21 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Holy()
         {
-            if (Shinra.Settings.WhiteMageThinAir && ActionManager.CanCast(MySpells.Holy.Name, Core.Player))
+            var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
+            if (!MovementManager.IsMoving && (Shinra.Settings.RotationMode == Modes.Multi || Helpers.EnemiesNearPlayer(8) >= count))
             {
-                if (await MySpells.ThinAir.Cast(null, false))
+                if (Shinra.Settings.WhiteMageThinAir && ActionManager.CanCast(MySpells.Holy.Name, Core.Player))
                 {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.ThinAir.Name));
+                    if (await MySpells.ThinAir.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.ThinAir.Name));
+                    }
                 }
-            }
-            if (!StopDamage)
-            {
-                return await MySpells.Holy.Cast();
+                if (!StopDamage)
+                {
+                    return await MySpells.Holy.Cast();
+                }
             }
             return false;
         }

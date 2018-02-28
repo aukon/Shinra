@@ -630,7 +630,7 @@ namespace ShinraCo.Spells
                         break;
                     case ClassJobType.Pugilist:
                     case ClassJobType.Monk:
-                        if (DataManager.GetSpellData(53).Cooldown.TotalMilliseconds < 1000)
+                        if (DataManager.GetSpellData(53).Cooldown.TotalMilliseconds < 1500)
                         {
                             return false;
                         }
