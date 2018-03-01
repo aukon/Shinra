@@ -463,7 +463,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FlarePVP()
         {
-            if (AstralFire && Resource.StackTimer.TotalMilliseconds > 6000)
+            if (AstralFire)
             {
                 if (ActionManager.CanCast(MySpells.PVP.Flare.Name, Core.Player.CurrentTarget))
                 {
