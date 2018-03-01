@@ -377,6 +377,108 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> FirePVP()
+        {
+            if (Core.Player.CurrentMana >= 2000 && (AstralFire || Core.Player.CurrentMana >= 8000))
+            {
+                return await MySpells.PVP.Fire.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BlizzardPVP()
+        {
+            if (!UmbralIce || Resource.StackTimer.TotalMilliseconds <= 6000)
+            {
+                return await MySpells.PVP.Blizzard.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> ThunderPVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.PVP.Thunder.Name, true, 3000))
+            {
+                if (!AstralFire && !UmbralIce || Resource.StackTimer.TotalMilliseconds > 6000)
+                {
+                    return await MySpells.PVP.Thunder.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> ThunderIIIPVP()
+        {
+            if (Core.Player.HasAura(1365) && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                return await MySpells.PVP.ThunderIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> EnochianPVP()
+        {
+            if (!Resource.Enochian && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                return await MySpells.PVP.Enochian.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> FireIVPVP()
+        {
+            if (AstralFire && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                return await MySpells.PVP.FireIV.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BlizzardIVPVP()
+        {
+            if (UmbralIce && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                return await MySpells.PVP.BlizzardIV.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FoulPVP()
+        {
+            if (!AstralFire && !UmbralIce)
+            {
+                if (ActionManager.CanCast(MySpells.PVP.Foul.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.PVP.Swiftcast.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.PVP.Swiftcast.Name));
+                    }
+                }
+                return await MySpells.PVP.Foul.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FlarePVP()
+        {
+            if (AstralFire && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                if (ActionManager.CanCast(MySpells.PVP.Flare.Name, Core.Player.CurrentTarget))
+                {
+                    if (await MySpells.PVP.Swiftcast.Cast(null, false))
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.PVP.Swiftcast.Name));
+                    }
+                }
+                return await MySpells.PVP.Flare.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static double ManaReduction => Resource.AstralStacks > 1 ? 0.25 : Resource.AstralStacks > 0 ? 0.5 : 1;

@@ -99,7 +99,15 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
-            return false;
+            if (await ThunderIIIPVP()) return true;
+            if (await ThunderPVP()) return true;
+            if (await FlarePVP()) return true;
+            if (await FoulPVP()) return true;
+            if (await FireIVPVP()) return true;
+            if (await EnochianPVP()) return true;
+            if (await FirePVP()) return true;
+            if (await BlizzardIVPVP()) return true;
+            return await BlizzardPVP();
         }
 
         #endregion

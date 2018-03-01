@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class ThaumaturgeSpells
     {
+        public BlackMagePVP PVP { get; } = new BlackMagePVP();
         public CasterSpells Role { get; } = new CasterSpells();
 
         public Spell Blizzard { get; } = new Spell
