@@ -119,11 +119,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Scatter()
         {
-            if (ActionManager.HasSpell(MySpells.EnchantedMoulinet.Name))
-            {
-                return await MySpells.Scatter.Cast();
-            }
-            return false;
+            return await MySpells.Scatter.Cast();
         }
 
         private async Task<bool> EnchantedMoulinet()
