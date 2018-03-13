@@ -474,7 +474,7 @@ namespace ShinraCo.Rotations
 
         private static string TargetId => $"{Core.Player.CurrentTarget.ObjectId}-{Core.Player.CurrentTarget.Name}";
         private static string VenomDebuff => Core.Player.ClassLevel < 64 ? "Venomous Bite" : "Caustic Bite";
-        private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Storm Bite";
+        private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Stormbite";
         private static double SongTimer => Resource.Timer.TotalMilliseconds;
         private static double BarrageCooldown => DataManager.GetSpellData(107).Cooldown.TotalMilliseconds;
         private static int NumRepertoire => Resource.Repertoire;
