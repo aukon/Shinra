@@ -401,7 +401,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StormbitePVP()
         {
-            if (!Core.Player.CurrentTarget.HasAura("Caustic Bite", true, 4000) || !Core.Player.CurrentTarget.HasAura("Storm Bite", true, 4000))
+            if (!Core.Player.CurrentTarget.HasAura("Caustic Bite", true, 4000) || !Core.Player.CurrentTarget.HasAura("Stormbite", true, 4000))
             {
                 return await MySpells.PVP.Stormbite.Cast();
             }
@@ -410,7 +410,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SidewinderPVP()
         {
-            if (Core.Player.CurrentTarget.HasAura("Caustic Bite", true, 1000) && Core.Player.CurrentTarget.HasAura("Storm Bite", true, 1000))
+            if (Core.Player.CurrentTarget.HasAura("Caustic Bite", true, 1000) && Core.Player.CurrentTarget.HasAura("Stormbite", true, 1000))
             {
                 return await MySpells.PVP.Sidewinder.Cast();
             }
