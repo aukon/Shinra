@@ -43,9 +43,34 @@ namespace ShinraCo
 
             6085, // Zuiko-maru
             6087, // Dojun-maru
-            6089 // Yojimbo
+            6089, // Yojimbo
 
             #endregion
+
+            #endregion
+
+            #region Eureka
+
+            7143, // Pazuzu
+            7147, // Lamashtu
+            7148, // Simurgh's Strider
+            7149, // Serket
+            7150, // Fafnir
+            7151, // The Lord Of Anemos
+            7152, // King Hazmat
+            7157, // Callisto
+            7158, // Jahannam
+            7160, // Number
+            7165, // Judgmental Julika
+            7166, // The Emperor Of Anemos
+            7167, // Caym
+            7168, // Bombadeel
+            7169, // Sabotender Corrido
+            7170, // Teles
+            7171, // Amemet
+            7172, // Polyphemus
+            7173, // The White Rider
+            7177, // Amarok
 
             #endregion
         };
@@ -109,30 +134,6 @@ namespace ShinraCo
             6522, 6523, 6524, 6530, 6532, 6536, 6538, 6539, 6540, 6542, 6545, 6546, 6551, 6552, 6553, 6555, 6556, 6557, 6558, 6559, 6562,
             6563, 6566, 6653, 6668, 6670, 6672, 6675, 6678, 6679, 6683, 6686, 6694, 6700, 6701, 6702, 6703, 6704, 6709, 6715, 6719, 6729,
             6738, 6788
-        };
-
-        public static readonly HashSet<uint> EurekaBossIds = new HashSet<uint>
-        {
-            7143, // Pazuzu
-            7147, // Lamashtu
-            7148, // Simurgh's Strider
-            7149, // Serket
-            7150, // Fafnir
-            7151, // The Lord Of Anemos
-            7152, // King Hazmat
-            7157, // Callisto
-            7158, // Jahannam
-            7160, // Number
-            7165, // Judgmental Julika
-            7166, // The Emperor Of Anemos
-            7167, // Caym
-            7168, // Bombadeel
-            7169, // Sabotender Corrido
-            7170, // Teles
-            7171, // Amemet
-            7172, // Polyphemus
-            7173, // The White Rider
-            7177, // Amarok
         };
     }
 }

@@ -398,15 +398,12 @@ namespace ShinraCo.Spells
 
             if (!target.CanAttack && CastType != CastType.Self && CastType != CastType.SelfLocation)
             {
-                if (!Helpers.EurekaBossIds.Contains(target.NpcId))
+                switch (SpellType)
                 {
-                    switch (SpellType)
-                    {
-                        case SpellType.Damage:
-                        case SpellType.DoT:
-                        case SpellType.Cooldown:
-                            return false;
-                    }
+                    case SpellType.Damage:
+                    case SpellType.DoT:
+                    case SpellType.Cooldown:
+                        return false;
                 }
             }
 

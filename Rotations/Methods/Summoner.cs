@@ -64,7 +64,10 @@ namespace ShinraCo.Rotations
             if (!ActionManager.HasSpell(MySpells.BioIII.Name) && !RecentDoT &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.BioII.Name, true, 3000))
             {
-                return await MySpells.BioII.Cast();
+                if (!ActionManager.HasSpell(MySpells.TriDisaster.Name) || MySpells.TriDisaster.Cooldown() > 5000)
+                {
+                    return await MySpells.BioII.Cast();
+                }
             }
             return false;
         }
@@ -73,7 +76,10 @@ namespace ShinraCo.Rotations
         {
             if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.BioIII.Name, true, 3000))
             {
-                return await MySpells.BioIII.Cast();
+                if (MySpells.TriDisaster.Cooldown() > 5000)
+                {
+                    return await MySpells.BioIII.Cast();
+                }
             }
             return false;
         }
@@ -83,7 +89,10 @@ namespace ShinraCo.Rotations
             if (!ActionManager.HasSpell(MySpells.MiasmaIII.Name) && !RecentDoT &&
                 !Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 4000))
             {
-                return await MySpells.Miasma.Cast();
+                if (!ActionManager.HasSpell(MySpells.TriDisaster.Name) || MySpells.TriDisaster.Cooldown() > 5000)
+                {
+                    return await MySpells.Miasma.Cast();
+                }
             }
             return false;
         }
@@ -92,7 +101,10 @@ namespace ShinraCo.Rotations
         {
             if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 4000))
             {
-                return await MySpells.MiasmaIII.Cast();
+                if (MySpells.TriDisaster.Cooldown() > 5000)
+                {
+                    return await MySpells.MiasmaIII.Cast();
+                }
             }
             return false;
         }
