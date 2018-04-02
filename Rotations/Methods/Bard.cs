@@ -43,7 +43,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StraightShotBuff()
         {
-            if (!Core.Player.HasAura(MySpells.StraightShot.Name, true, 4000))
+            if (!Core.Player.HasAura(MySpells.StraightShot.Name, true, 6000))
             {
                 return await MySpells.StraightShot.Cast();
             }
