@@ -92,14 +92,20 @@ namespace ShinraCo.Rotations
             {
                 return false;
             }
-            if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
+            if (ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
             {
-                if (await MySpells.Barrage.Cast(null, false))
-                {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
-                }
+                return await MySpells.RefulgentArrow.Cast();
             }
-            return await MySpells.RefulgentArrow.Cast();
+            return false;
+        }
+
+        private async Task<bool> RefulgentBarrage()
+        {
+            if (Core.Player.HasAura(MySpells.Barrage.Name) && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
+            {
+                return await MySpells.RefulgentArrow.Cast();
+            }
+            return false;
         }
 
         #endregion
@@ -256,6 +262,18 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.BardBarrage && !ActionManager.HasSpell(MySpells.EmpyrealArrow.Name))
             {
                 return await MySpells.Barrage.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> BarrageRefulgent()
+        {
+            if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
+            {
+                if (await MySpells.Barrage.Cast(null, false))
+                {
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                }
             }
             return false;
         }
