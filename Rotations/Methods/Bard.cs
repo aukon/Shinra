@@ -249,7 +249,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardRagingStrikes)
             {
-                if (MinuetActive || !ActionManager.HasSpell(MySpells.WanderersMinuet.Name))
+                if (MinuetActive || !ActionManager.HasSpell(MySpells.WanderersMinuet.ID))
                 {
                     return await MySpells.RagingStrikes.Cast();
                 }
