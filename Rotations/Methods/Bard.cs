@@ -87,16 +87,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RefulgentArrow()
         {
-            if (Shinra.Settings.BardBarrage && BarrageCooldown > 0 && BarrageCooldown < 5000 &&
+            if (!Core.Player.HasAura(122) || Shinra.Settings.BardBarrage && BarrageCooldown > 0 && BarrageCooldown < 5000 &&
                 Core.Player.HasAura(MySpells.StraightShot.Name, true, 8000))
             {
                 return false;
             }
-            if (ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
-            {
-                return await MySpells.RefulgentArrow.Cast();
-            }
-            return false;
+            return await MySpells.RefulgentArrow.Cast();
         }
 
         private async Task<bool> RefulgentBarrage()
