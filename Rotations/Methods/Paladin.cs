@@ -130,20 +130,20 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SpiritsWithin()
         {
-            if (Shinra.Settings.PaladinSpiritsWithin)
+            if (Shinra.Settings.PaladinSpiritsWithin && Shinra.LastSpell.Name != MySpells.CircleOfScorn.Name)
             {
-                return await MySpells.SpiritsWithin.Cast();
+                return await MySpells.SpiritsWithin.Cast(null, !Core.Player.HasAura(MySpells.Requiescat.Name));
             }
             return false;
         }
 
         private async Task<bool> CircleOfScorn()
         {
-            if (Shinra.Settings.PaladinCircleOfScorn)
+            if (Shinra.Settings.PaladinCircleOfScorn && Shinra.LastSpell.Name != MySpells.SpiritsWithin.Name)
             {
                 if (Core.Player.TargetDistance(5, false))
                 {
-                    return await MySpells.CircleOfScorn.Cast();
+                    return await MySpells.CircleOfScorn.Cast(null, !Core.Player.HasAura(MySpells.Requiescat.Name));
                 }
             }
             return false;
@@ -154,7 +154,7 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.PaladinRequiescat)
             {
                 if (!MovementManager.IsMoving && Core.Player.CurrentManaPercent > 80 &&
-                    Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 4000) &&
+                    Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 12000) &&
                     !Core.Player.HasAura(MySpells.FightOrFlight.Name))
                 {
                     return await MySpells.Requiescat.Cast();
@@ -298,7 +298,7 @@ namespace ShinraCo.Rotations
 
             var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
             Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
+            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Core.Player.IsCasting)
             {
                 Shinra.OpenerStep++;
             }
