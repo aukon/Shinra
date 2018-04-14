@@ -13,17 +13,18 @@ namespace ShinraCo.Spells.Opener
             MySpells.Enochian,
             MySpells.ThunderIII,
             MySpells.BlizzardIV,
-            MySpells.Thundercloud,
-            MySpells.LeyLines,
             MySpells.FireIII,
             MySpells.Triplecast,
             MySpells.FireIV,
+            MySpells.LeyLines,
             MySpells.FireIV,
-            MySpells.Role.Swiftcast,
+            MySpells.Sharpcast,
+            MySpells.FireIV,
+            MySpells.Fire,
             MySpells.FireIV,
             MySpells.FireIV,
-            MySpells.Convert,
-            MySpells.Fire
+            MySpells.FireIII,
+            MySpells.Convert
         };
     }
 }

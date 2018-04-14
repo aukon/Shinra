@@ -70,23 +70,6 @@ namespace ShinraCo.Rotations
         {
             if (Resource.StackTimer.TotalMilliseconds > 6000)
             {
-                if (ActionManager.CanCast(MySpells.FireIV.Name, Core.Player.CurrentTarget))
-                {
-                    if (Shinra.Settings.BlackMageTriplecast && ActionManager.LastSpell.Name == MySpells.FireIII.Name)
-                    {
-                        if (await MySpells.Triplecast.Cast(null, false))
-                        {
-                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Triplecast.Name));
-                        }
-                    }
-                    if (Shinra.Settings.BlackMageSwiftcast && !Core.Player.HasAura(MySpells.Triplecast.Name))
-                    {
-                        if (await MySpells.Role.Swiftcast.Cast(null, false))
-                        {
-                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
-                        }
-                    }
-                }
                 return await MySpells.FireIV.Cast();
             }
             return false;
@@ -121,7 +104,7 @@ namespace ShinraCo.Rotations
         {
             if (!ActionManager.HasSpell(MySpells.ThunderIII.Name))
             {
-                if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.Thunder.Name, true, 6000) ||
+                if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.Thunder.Name, true, 10000) ||
                     Core.Player.HasAura("Thundercloud"))
                 {
                     return await MySpells.Thunder.Cast();
@@ -132,10 +115,22 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ThunderIII()
         {
-            if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.ThunderIII.Name, true, 8000) ||
-                !Resource.Enochian && Core.Player.HasAura("Thundercloud"))
+            if (UmbralIce && !Core.Player.CurrentTarget.HasAura(MySpells.ThunderIII.Name, true, 12000))
             {
                 return await MySpells.ThunderIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Thundercloud()
+        {
+            if (Core.Player.HasAura("Thundercloud") && Resource.StackTimer.TotalMilliseconds > 6000)
+            {
+                if (!Core.Player.CurrentTarget.HasAura(MySpells.ThunderIII.Name, true, 3000) ||
+                    !Core.Player.HasAura("Thundercloud", false, 3000))
+                {
+                    return await MySpells.ThunderIII.Cast();
+                }
             }
             return false;
         }
@@ -208,7 +203,7 @@ namespace ShinraCo.Rotations
                     }
                 }
                 if (Shinra.Settings.BlackMageSwiftcast && ActionManager.CanCast(MySpells.Flare.Name, Core.Player.CurrentTarget) &&
-                    !Core.Player.HasAura(MySpells.Triplecast.Name))
+                    !RecentTriplecast)
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -294,9 +289,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Sharpcast()
         {
-            if (Shinra.Settings.BlackMageSharpcast && AstralFire && Core.Player.CurrentManaPercent > 60)
+            if (Shinra.Settings.BlackMageSharpcast && AstralFire && Core.Player.CurrentManaPercent > 60 && !Core.Player.HasAura("Firestarter"))
             {
-                return await MySpells.Sharpcast.Cast(null, false);
+                return await MySpells.Sharpcast.Cast();
             }
             return false;
         }
@@ -307,6 +302,18 @@ namespace ShinraCo.Rotations
                 Resource.StackTimer.TotalMilliseconds > 6000)
             {
                 return await MySpells.Enochian.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> Triplecast()
+        {
+            if (Shinra.Settings.BlackMageTriplecast && ActionManager.LastSpell.Name == MySpells.FireIII.Name && Core.Player.CurrentManaPercent > 80)
+            {
+                if (await MySpells.Triplecast.Cast(null, false))
+                {
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Triplecast.Name));
+                }
             }
             return false;
         }
@@ -322,15 +329,7 @@ namespace ShinraCo.Rotations
                 return false;
             }
 
-            if (Shinra.OpenerStep == 0)
-            {
-                if (await MySpells.Sharpcast.Cast(null, false))
-                {
-                    return true;
-                }
-            }
-
-            if (Shinra.Settings.BlackMagePotion && Shinra.OpenerStep == 9)
+            if (Shinra.Settings.BlackMagePotion && Shinra.OpenerStep == 7)
             {
                 if (await Helpers.UsePotion(Helpers.PotionIds.Int))
                 {
@@ -371,6 +370,19 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.BlackMageLucidDreaming && Core.Player.CurrentManaPercent < Shinra.Settings.BlackMageLucidDreamingPct)
             {
                 return await MySpells.Role.LucidDreaming.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Swiftcast()
+        {
+            if (Shinra.Settings.BlackMageSwiftcast && AstralFire && Resource.StackTimer.TotalMilliseconds > 8000 && !RecentTriplecast &&
+                Core.Player.CurrentManaPercent > 40)
+            {
+                if (await MySpells.Role.Swiftcast.Cast(null, false))
+                {
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
+                }
             }
             return false;
         }
@@ -483,8 +495,9 @@ namespace ShinraCo.Rotations
 
         private static double ManaReduction => Resource.AstralStacks > 1 ? 0.25 : Resource.AstralStacks > 0 ? 0.5 : 1;
         private static double BlizzardIIICost => DataManager.GetSpellData("Blizzard III").Cost * ManaReduction;
-
+        
         private static bool RecentTranspose { get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Transpose")); } }
+        private static bool RecentTriplecast => Core.Player.HasAura(1211) || Shinra.LastSpell.ID == 7421;
         private static bool AstralFire => Resource.AstralStacks > 0 && Shinra.LastSpell.Name != "Transpose";
         private static bool UmbralIce => Resource.UmbralStacks > 0;
 
