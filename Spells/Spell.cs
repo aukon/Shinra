@@ -396,7 +396,9 @@ namespace ShinraCo.Spells
 
             #region CanAttack
 
-            if (!target.CanAttack && CastType != CastType.Self && CastType != CastType.SelfLocation)
+            var bc = target as BattleCharacter;
+
+            if (!target.CanAttack && CastType != CastType.Self && CastType != CastType.SelfLocation && (bc == null || !bc.IsFate))
             {
                 switch (SpellType)
                 {
