@@ -1281,6 +1281,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Heal
+
+        [Setting, DefaultValue(true)]
+        public bool SamuraiMerciful { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int SamuraiMercifulPct { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Scholar

@@ -444,6 +444,7 @@
             this.BardPitchPerfect = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardRepertoireCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.BardCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardEmpyrealArrow = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardSidewinder = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardSongs = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -644,7 +645,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardEmpyrealArrow = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiMercifulPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.SamuraiMerciful = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -765,6 +768,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.SamuraiHealGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -6141,6 +6145,7 @@
             // pgeSamurai
             // 
             this.pgeSamurai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSamurai.Controls.Add(this.SamuraiHealGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiDamageGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiBuffGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiCooldownGroup);
@@ -6693,6 +6698,21 @@
             this.BardCooldownGroup.TabIndex = 2;
             this.BardCooldownGroup.TabStop = false;
             this.BardCooldownGroup.Text = "Cooldown";
+            // 
+            // BardEmpyrealArrow
+            // 
+            this.BardEmpyrealArrow.AutoSize = true;
+            this.BardEmpyrealArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardEmpyrealArrow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardEmpyrealArrow.ForeColor = System.Drawing.Color.White;
+            this.BardEmpyrealArrow.Location = new System.Drawing.Point(6, 39);
+            this.BardEmpyrealArrow.Name = "BardEmpyrealArrow";
+            this.BardEmpyrealArrow.Size = new System.Drawing.Size(103, 17);
+            this.BardEmpyrealArrow.TabIndex = 2;
+            this.BardEmpyrealArrow.TabStop = false;
+            this.BardEmpyrealArrow.Text = "Empyreal Arrow";
+            this.BardEmpyrealArrow.UseVisualStyleBackColor = true;
+            this.BardEmpyrealArrow.CheckedChanged += new System.EventHandler(this.BardEmpyrealArrow_CheckedChanged);
             // 
             // BardSidewinder
             // 
@@ -9519,20 +9539,41 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BardEmpyrealArrow
+            // SamuraiHealGroup
             // 
-            this.BardEmpyrealArrow.AutoSize = true;
-            this.BardEmpyrealArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardEmpyrealArrow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardEmpyrealArrow.ForeColor = System.Drawing.Color.White;
-            this.BardEmpyrealArrow.Location = new System.Drawing.Point(6, 39);
-            this.BardEmpyrealArrow.Name = "BardEmpyrealArrow";
-            this.BardEmpyrealArrow.Size = new System.Drawing.Size(103, 17);
-            this.BardEmpyrealArrow.TabIndex = 2;
-            this.BardEmpyrealArrow.TabStop = false;
-            this.BardEmpyrealArrow.Text = "Empyreal Arrow";
-            this.BardEmpyrealArrow.UseVisualStyleBackColor = true;
-            this.BardEmpyrealArrow.CheckedChanged += new System.EventHandler(this.BardEmpyrealArrow_CheckedChanged);
+            this.SamuraiHealGroup.Controls.Add(this.SamuraiMerciful);
+            this.SamuraiHealGroup.Controls.Add(this.SamuraiMercifulPct);
+            this.SamuraiHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiHealGroup.Location = new System.Drawing.Point(218, 250);
+            this.SamuraiHealGroup.Name = "SamuraiHealGroup";
+            this.SamuraiHealGroup.Size = new System.Drawing.Size(197, 44);
+            this.SamuraiHealGroup.TabIndex = 5;
+            this.SamuraiHealGroup.TabStop = false;
+            this.SamuraiHealGroup.Text = "Heal";
+            // 
+            // SamuraiMercifulPct
+            // 
+            this.SamuraiMercifulPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SamuraiMercifulPct.Location = new System.Drawing.Point(102, 16);
+            this.SamuraiMercifulPct.Name = "SamuraiMercifulPct";
+            this.SamuraiMercifulPct.Size = new System.Drawing.Size(89, 22);
+            this.SamuraiMercifulPct.TabIndex = 0;
+            this.SamuraiMercifulPct.ValueChanged += new System.EventHandler(this.SamuraiMercifulPct_ValueChanged);
+            // 
+            // SamuraiMerciful
+            // 
+            this.SamuraiMerciful.AutoSize = true;
+            this.SamuraiMerciful.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiMerciful.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiMerciful.ForeColor = System.Drawing.Color.White;
+            this.SamuraiMerciful.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiMerciful.Name = "SamuraiMerciful";
+            this.SamuraiMerciful.Size = new System.Drawing.Size(90, 17);
+            this.SamuraiMerciful.TabIndex = 1;
+            this.SamuraiMerciful.TabStop = false;
+            this.SamuraiMerciful.Text = "Merciful Eyes";
+            this.SamuraiMerciful.UseVisualStyleBackColor = true;
+            this.SamuraiMerciful.CheckedChanged += new System.EventHandler(this.SamuraiMerciful_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -9752,6 +9793,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.SamuraiHealGroup.ResumeLayout(false);
+            this.SamuraiHealGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10375,5 +10418,8 @@
         private Design.CustomCheck WhiteMageStopDamage;
         private Design.UserNumeric WhiteMageStopDamagePct;
         private Design.CustomCheck BardEmpyrealArrow;
+        private Design.CustomGroup SamuraiHealGroup;
+        private Design.CustomCheck SamuraiMerciful;
+        private Design.UserNumeric SamuraiMercifulPct;
     }
 }

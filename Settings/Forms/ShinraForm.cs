@@ -724,6 +724,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Heal
+
+            SamuraiMerciful.Checked = Shinra.Settings.SamuraiMerciful;
+            SamuraiMercifulPct.Value = Shinra.Settings.SamuraiMercifulPct;
+
+            #endregion
+
             #endregion
 
             #region Scholar
@@ -2753,6 +2760,20 @@ namespace ShinraCo.Settings.Forms
         private void SamuraiHagakure_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiHagakure = SamuraiHagakure.Checked;
+        }
+
+        #endregion
+
+        #region Heal
+
+        private void SamuraiMerciful_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiMerciful = SamuraiMerciful.Checked;
+        }
+
+        private void SamuraiMercifulPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiMercifulPct = Convert.ToInt32(SamuraiMercifulPct.Value);
         }
 
         #endregion

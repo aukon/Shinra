@@ -317,7 +317,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MercifulEyes()
         {
-            if (Core.Player.CurrentHealthPercent < 60)
+            if (Shinra.Settings.SamuraiMerciful && Core.Player.CurrentHealthPercent < Shinra.Settings.SamuraiMercifulPct)
             {
                 return await MySpells.MercifulEyes.Cast();
             }
