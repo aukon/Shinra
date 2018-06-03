@@ -106,6 +106,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
+        public Spell UndrawSpread { get; } = new Spell
+        {
+            Name = "Undraw Spread",
+            ID = 4646,
+            Level = 40,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Card,
+            CastType = CastType.Self
+        };
+
         public Spell Undraw { get; } = new Spell
         {
             Name = "Undraw",
@@ -242,7 +252,7 @@ namespace ShinraCo.Spells.Main
             ID = 3616,
             Level = 60,
             GCDType = GCDType.Off,
-            SpellType = SpellType.AoE,
+            SpellType = SpellType.Buff,
             CastType = CastType.Self
         };
 

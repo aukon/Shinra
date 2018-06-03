@@ -11,8 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
-                if (await StellarDetonation()) return true;
-                if (await EarthlyStar()) return true;
+                if (await EarthlyStarMulti()) return true;
                 if (await Gravity()) return true;
                 if (await CombustII()) return true;
                 if (await Combust()) return true;
@@ -30,8 +29,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Multi)
             {
-                if (await StellarDetonation()) return true;
-                if (await EarthlyStar()) return true;
+                if (await EarthlyStarMulti()) return true;
                 if (await Gravity()) return true;
                 if (await CombustII()) return true;
                 return await Combust();
@@ -45,17 +43,23 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatBuff()
         {
+            if (await CollectiveUnconscious()) return true;
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (await StellarDetonation()) return true;
+            if (await TimeDilation()) return true;
             if (await LucidDreaming()) return true;
             if (await LordOfCrowns()) return true;
+            if (await DrawnSupport()) return true;
+            if (await SpreadSupport()) return true;
             if (await SleeveDraw()) return true;
             if (await RoyalRoad()) return true;
             if (await Redraw()) return true;
+            if (await Draw()) return true;
             if (await Spread()) return true;
             if (await MinorArcana()) return true;
             if (await Undraw()) return true;
-            if (await Draw()) return true;
+            if (await UndrawSpread()) return true;
             return await ClericStance();
         }
 
@@ -65,17 +69,25 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Heal()
         {
+            if (await CollectiveUnconscious()) return true;
             if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
+            if (await CelestialOpposition()) return true;
             if (await EssentialDignity()) return true;
+            if (await EarthlyStar()) return true;
+            if (await SpeedGravity()) return true;
+            if (await Lightspeed()) return true;
+            if (await Largesse()) return true;
+            if (await Synastry()) return true;
+            if (await EyeForAnEye()) return true;
             if (await LadyOfCrowns()) return true;
             if (await AspectedHelios()) return true;
             if (await Helios()) return true;
             if (await BeneficII()) return true;
             if (await Benefic()) return true;
             if (await AspectedBenefic()) return true;
-            if (await Ascend()) return true;
             if (await Esuna()) return true;
+            if (await Ascend()) return true;
             return await Protect();
         }
 
@@ -87,7 +99,14 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await NocturnalSect()) return true;
-            return await DiurnalSect();
+            if (await DiurnalSect()) return true;
+            if (await SpreadPreCombat()) return true;
+            if (await RoyalRoadPreCombat()) return true;
+            if (await RedrawPreCombat()) return true;
+            if (await MinorArcanaCombat()) return true;
+            if (await UndrawPreCombat()) return true;
+            if (await UndrawSpreadPreCombat()) return true;
+            return await DrawPreCombat();
         }
 
         #endregion
