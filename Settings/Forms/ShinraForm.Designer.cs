@@ -206,7 +206,6 @@
             this.AstrologianLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.AstrologianLargesse = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -407,6 +406,9 @@
             this.NinjaArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.NinjaSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeSamurai = new System.Windows.Forms.TabPage();
+            this.SamuraiHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.SamuraiMerciful = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiMercifulPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SamuraiMidareHP = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.SamuraiMidare = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -645,9 +647,13 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.SamuraiHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.SamuraiMercifulPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.SamuraiMerciful = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianLightspeed = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianLightspeedCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLightspeedPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -722,6 +728,7 @@
             this.NinjaCooldownGroup.SuspendLayout();
             this.NinjaRoleGroup.SuspendLayout();
             this.pgeSamurai.SuspendLayout();
+            this.SamuraiHealGroup.SuspendLayout();
             this.SamuraiDamageGroup.SuspendLayout();
             this.SamuraiBuffGroup.SuspendLayout();
             this.SamuraiCooldownGroup.SuspendLayout();
@@ -768,7 +775,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.SamuraiHealGroup.SuspendLayout();
+            this.AstrologianBuffGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -2738,6 +2745,7 @@
             // pgeAstrologian
             // 
             this.pgeAstrologian.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeAstrologian.Controls.Add(this.AstrologianBuffGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianMiscGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianDamageGroup);
             this.pgeAstrologian.Controls.Add(this.AstrologianAoEGroup);
@@ -2845,7 +2853,7 @@
             // 
             this.AstrologianAoEGroup.Controls.Add(this.AstrologianEarthlyStar);
             this.AstrologianAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianAoEGroup.Location = new System.Drawing.Point(453, 6);
+            this.AstrologianAoEGroup.Location = new System.Drawing.Point(493, 6);
             this.AstrologianAoEGroup.Name = "AstrologianAoEGroup";
             this.AstrologianAoEGroup.Size = new System.Drawing.Size(112, 43);
             this.AstrologianAoEGroup.TabIndex = 4;
@@ -2871,7 +2879,7 @@
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(453, 184);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(493, 184);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
             this.AstrologianSectGroup.Size = new System.Drawing.Size(112, 43);
             this.AstrologianSectGroup.TabIndex = 3;
@@ -2903,7 +2911,7 @@
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(453, 55);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(493, 55);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
             this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 123);
             this.AstrologianCardGroup.TabIndex = 2;
@@ -2986,7 +2994,7 @@
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBeneficII);
             this.AstrologianHealGroup.Controls.Add(this.AstrologianBenefic);
             this.AstrologianHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.AstrologianHealGroup.Location = new System.Drawing.Point(269, 6);
             this.AstrologianHealGroup.Name = "AstrologianHealGroup";
             this.AstrologianHealGroup.Size = new System.Drawing.Size(218, 250);
             this.AstrologianHealGroup.TabIndex = 1;
@@ -3199,12 +3207,14 @@
             // 
             // AstrologianRoleGroup
             // 
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargesseCount);
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargessePct);
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargesse);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianEsuna);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianClericStance);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreamingPct);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianRescue);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSurecast);
-            this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargesse);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianEyeForAnEye);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSwiftcast);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreaming);
@@ -3213,7 +3223,7 @@
             this.AstrologianRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.AstrologianRoleGroup.Name = "AstrologianRoleGroup";
-            this.AstrologianRoleGroup.Size = new System.Drawing.Size(210, 250);
+            this.AstrologianRoleGroup.Size = new System.Drawing.Size(250, 250);
             this.AstrologianRoleGroup.TabIndex = 0;
             this.AstrologianRoleGroup.TabStop = false;
             this.AstrologianRoleGroup.Text = "Role";
@@ -3251,7 +3261,7 @@
             // AstrologianLucidDreamingPct
             // 
             this.AstrologianLucidDreamingPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianLucidDreamingPct.Location = new System.Drawing.Point(115, 108);
+            this.AstrologianLucidDreamingPct.Location = new System.Drawing.Point(155, 108);
             this.AstrologianLucidDreamingPct.Name = "AstrologianLucidDreamingPct";
             this.AstrologianLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.AstrologianLucidDreamingPct.TabIndex = 10;
@@ -3286,21 +3296,6 @@
             this.AstrologianSurecast.TabStop = false;
             this.AstrologianSurecast.Text = "Surecast";
             this.AstrologianSurecast.UseVisualStyleBackColor = true;
-            // 
-            // AstrologianLargesse
-            // 
-            this.AstrologianLargesse.AutoCheck = false;
-            this.AstrologianLargesse.AutoSize = true;
-            this.AstrologianLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianLargesse.ForeColor = System.Drawing.Color.DimGray;
-            this.AstrologianLargesse.Location = new System.Drawing.Point(6, 177);
-            this.AstrologianLargesse.Name = "AstrologianLargesse";
-            this.AstrologianLargesse.Size = new System.Drawing.Size(67, 17);
-            this.AstrologianLargesse.TabIndex = 7;
-            this.AstrologianLargesse.TabStop = false;
-            this.AstrologianLargesse.Text = "Largesse";
-            this.AstrologianLargesse.UseVisualStyleBackColor = true;
             // 
             // AstrologianEyeForAnEye
             // 
@@ -6158,6 +6153,42 @@
             this.pgeSamurai.TabIndex = 3;
             this.pgeSamurai.Text = "Samurai";
             this.pgeSamurai.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // SamuraiHealGroup
+            // 
+            this.SamuraiHealGroup.Controls.Add(this.SamuraiMerciful);
+            this.SamuraiHealGroup.Controls.Add(this.SamuraiMercifulPct);
+            this.SamuraiHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiHealGroup.Location = new System.Drawing.Point(218, 250);
+            this.SamuraiHealGroup.Name = "SamuraiHealGroup";
+            this.SamuraiHealGroup.Size = new System.Drawing.Size(197, 44);
+            this.SamuraiHealGroup.TabIndex = 5;
+            this.SamuraiHealGroup.TabStop = false;
+            this.SamuraiHealGroup.Text = "Heal";
+            // 
+            // SamuraiMerciful
+            // 
+            this.SamuraiMerciful.AutoSize = true;
+            this.SamuraiMerciful.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiMerciful.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiMerciful.ForeColor = System.Drawing.Color.White;
+            this.SamuraiMerciful.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiMerciful.Name = "SamuraiMerciful";
+            this.SamuraiMerciful.Size = new System.Drawing.Size(90, 17);
+            this.SamuraiMerciful.TabIndex = 1;
+            this.SamuraiMerciful.TabStop = false;
+            this.SamuraiMerciful.Text = "Merciful Eyes";
+            this.SamuraiMerciful.UseVisualStyleBackColor = true;
+            this.SamuraiMerciful.CheckedChanged += new System.EventHandler(this.SamuraiMerciful_CheckedChanged);
+            // 
+            // SamuraiMercifulPct
+            // 
+            this.SamuraiMercifulPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SamuraiMercifulPct.Location = new System.Drawing.Point(102, 16);
+            this.SamuraiMercifulPct.Name = "SamuraiMercifulPct";
+            this.SamuraiMercifulPct.Size = new System.Drawing.Size(89, 22);
+            this.SamuraiMercifulPct.TabIndex = 0;
+            this.SamuraiMercifulPct.ValueChanged += new System.EventHandler(this.SamuraiMercifulPct_ValueChanged);
             // 
             // SamuraiDamageGroup
             // 
@@ -9539,41 +9570,116 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // SamuraiHealGroup
+            // AstrologianLargesse
             // 
-            this.SamuraiHealGroup.Controls.Add(this.SamuraiMerciful);
-            this.SamuraiHealGroup.Controls.Add(this.SamuraiMercifulPct);
-            this.SamuraiHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiHealGroup.Location = new System.Drawing.Point(218, 250);
-            this.SamuraiHealGroup.Name = "SamuraiHealGroup";
-            this.SamuraiHealGroup.Size = new System.Drawing.Size(197, 44);
-            this.SamuraiHealGroup.TabIndex = 5;
-            this.SamuraiHealGroup.TabStop = false;
-            this.SamuraiHealGroup.Text = "Heal";
+            this.AstrologianLargesse.AutoSize = true;
+            this.AstrologianLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianLargesse.ForeColor = System.Drawing.Color.White;
+            this.AstrologianLargesse.Location = new System.Drawing.Point(6, 177);
+            this.AstrologianLargesse.Name = "AstrologianLargesse";
+            this.AstrologianLargesse.Size = new System.Drawing.Size(67, 17);
+            this.AstrologianLargesse.TabIndex = 13;
+            this.AstrologianLargesse.TabStop = false;
+            this.AstrologianLargesse.Text = "Largesse";
+            this.AstrologianLargesse.UseVisualStyleBackColor = true;
+            this.AstrologianLargesse.CheckedChanged += new System.EventHandler(this.AstrologianLargesse_CheckedChanged);
             // 
-            // SamuraiMercifulPct
+            // AstrologianLargessePct
             // 
-            this.SamuraiMercifulPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.SamuraiMercifulPct.Location = new System.Drawing.Point(102, 16);
-            this.SamuraiMercifulPct.Name = "SamuraiMercifulPct";
-            this.SamuraiMercifulPct.Size = new System.Drawing.Size(89, 22);
-            this.SamuraiMercifulPct.TabIndex = 0;
-            this.SamuraiMercifulPct.ValueChanged += new System.EventHandler(this.SamuraiMercifulPct_ValueChanged);
+            this.AstrologianLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLargessePct.Location = new System.Drawing.Point(155, 177);
+            this.AstrologianLargessePct.Name = "AstrologianLargessePct";
+            this.AstrologianLargessePct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianLargessePct.TabIndex = 14;
+            this.AstrologianLargessePct.ValueChanged += new System.EventHandler(this.AstrologianLargessePct_ValueChanged);
             // 
-            // SamuraiMerciful
+            // AstrologianLargesseCount
             // 
-            this.SamuraiMerciful.AutoSize = true;
-            this.SamuraiMerciful.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SamuraiMerciful.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiMerciful.ForeColor = System.Drawing.Color.White;
-            this.SamuraiMerciful.Location = new System.Drawing.Point(6, 16);
-            this.SamuraiMerciful.Name = "SamuraiMerciful";
-            this.SamuraiMerciful.Size = new System.Drawing.Size(90, 17);
-            this.SamuraiMerciful.TabIndex = 1;
-            this.SamuraiMerciful.TabStop = false;
-            this.SamuraiMerciful.Text = "Merciful Eyes";
-            this.SamuraiMerciful.UseVisualStyleBackColor = true;
-            this.SamuraiMerciful.CheckedChanged += new System.EventHandler(this.SamuraiMerciful_CheckedChanged);
+            this.AstrologianLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLargesseCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.Location = new System.Drawing.Point(79, 177);
+            this.AstrologianLargesseCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.Name = "AstrologianLargesseCount";
+            this.AstrologianLargesseCount.ShowSymbol = false;
+            this.AstrologianLargesseCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianLargesseCount.TabIndex = 15;
+            this.AstrologianLargesseCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.ValueChanged += new System.EventHandler(this.AstrologianLargesseCount_ValueChanged);
+            // 
+            // AstrologianBuffGroup
+            // 
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedPct);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedCount);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeed);
+            this.AstrologianBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianBuffGroup.Location = new System.Drawing.Point(13, 335);
+            this.AstrologianBuffGroup.Name = "AstrologianBuffGroup";
+            this.AstrologianBuffGroup.Size = new System.Drawing.Size(264, 44);
+            this.AstrologianBuffGroup.TabIndex = 7;
+            this.AstrologianBuffGroup.TabStop = false;
+            this.AstrologianBuffGroup.Text = "Buff";
+            // 
+            // AstrologianLightspeed
+            // 
+            this.AstrologianLightspeed.AutoSize = true;
+            this.AstrologianLightspeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianLightspeed.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianLightspeed.ForeColor = System.Drawing.Color.White;
+            this.AstrologianLightspeed.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianLightspeed.Name = "AstrologianLightspeed";
+            this.AstrologianLightspeed.Size = new System.Drawing.Size(80, 17);
+            this.AstrologianLightspeed.TabIndex = 0;
+            this.AstrologianLightspeed.TabStop = false;
+            this.AstrologianLightspeed.Text = "Lightspeed";
+            this.AstrologianLightspeed.UseVisualStyleBackColor = true;
+            this.AstrologianLightspeed.CheckedChanged += new System.EventHandler(this.AstrologianLightspeed_CheckedChanged);
+            // 
+            // AstrologianLightspeedCount
+            // 
+            this.AstrologianLightspeedCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLightspeedCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.Location = new System.Drawing.Point(93, 16);
+            this.AstrologianLightspeedCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.Name = "AstrologianLightspeedCount";
+            this.AstrologianLightspeedCount.ShowSymbol = false;
+            this.AstrologianLightspeedCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianLightspeedCount.TabIndex = 1;
+            this.AstrologianLightspeedCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.ValueChanged += new System.EventHandler(this.AstrologianLightspeedCount_ValueChanged);
+            // 
+            // AstrologianLightspeedPct
+            // 
+            this.AstrologianLightspeedPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLightspeedPct.Location = new System.Drawing.Point(169, 16);
+            this.AstrologianLightspeedPct.Name = "AstrologianLightspeedPct";
+            this.AstrologianLightspeedPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianLightspeedPct.TabIndex = 2;
+            this.AstrologianLightspeedPct.ValueChanged += new System.EventHandler(this.AstrologianLightspeedPct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -9712,6 +9818,8 @@
             this.NinjaRoleGroup.ResumeLayout(false);
             this.NinjaRoleGroup.PerformLayout();
             this.pgeSamurai.ResumeLayout(false);
+            this.SamuraiHealGroup.ResumeLayout(false);
+            this.SamuraiHealGroup.PerformLayout();
             this.SamuraiDamageGroup.ResumeLayout(false);
             this.SamuraiDamageGroup.PerformLayout();
             this.SamuraiBuffGroup.ResumeLayout(false);
@@ -9793,8 +9901,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.SamuraiHealGroup.ResumeLayout(false);
-            this.SamuraiHealGroup.PerformLayout();
+            this.AstrologianBuffGroup.ResumeLayout(false);
+            this.AstrologianBuffGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -9958,7 +10066,6 @@
         private Design.UserNumeric AstrologianLucidDreamingPct;
         private Design.CustomCheckDisabled AstrologianRescue;
         private Design.CustomCheckDisabled AstrologianSurecast;
-        private Design.CustomCheckDisabled AstrologianLargesse;
         private Design.CustomCheckDisabled AstrologianEyeForAnEye;
         private Design.CustomCheck AstrologianSwiftcast;
         private Design.CustomCheck AstrologianLucidDreaming;
@@ -10421,5 +10528,12 @@
         private Design.CustomGroup SamuraiHealGroup;
         private Design.CustomCheck SamuraiMerciful;
         private Design.UserNumeric SamuraiMercifulPct;
+        private Design.CustomGroup AstrologianBuffGroup;
+        private Design.UserNumeric AstrologianLightspeedPct;
+        private Design.UserNumeric AstrologianLightspeedCount;
+        private Design.CustomCheck AstrologianLightspeed;
+        private Design.UserNumeric AstrologianLargesseCount;
+        private Design.UserNumeric AstrologianLargessePct;
+        private Design.CustomCheck AstrologianLargesse;
     }
 }

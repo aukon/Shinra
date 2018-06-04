@@ -112,9 +112,11 @@ namespace ShinraCo.Settings.Forms
             AstrologianProtect.Checked = Shinra.Settings.AstrologianProtect;
             AstrologianEsuna.Checked = Shinra.Settings.AstrologianEsuna;
             AstrologianLucidDreaming.Checked = Shinra.Settings.AstrologianLucidDreaming;
-            AstrologianSwiftcast.Checked = Shinra.Settings.AstrologianSwiftcast;
-
             AstrologianLucidDreamingPct.Value = Shinra.Settings.AstrologianLucidDreamingPct;
+            AstrologianSwiftcast.Checked = Shinra.Settings.AstrologianSwiftcast;
+            AstrologianLargesse.Checked = Shinra.Settings.AstrologianLargesse;
+            AstrologianLargesseCount.Value = Shinra.Settings.AstrologianLargesseCount;
+            AstrologianLargessePct.Value = Shinra.Settings.AstrologianLargessePct;
 
             #endregion
 
@@ -131,6 +133,14 @@ namespace ShinraCo.Settings.Forms
             #region AoE
 
             AstrologianEarthlyStar.Checked = Shinra.Settings.AstrologianEarthlyStar;
+
+            #endregion
+
+            #region Buff
+
+            AstrologianLightspeed.Checked = Shinra.Settings.AstrologianLightspeed;
+            AstrologianLightspeedCount.Value = Shinra.Settings.AstrologianLightspeedCount;
+            AstrologianLightspeedPct.Value = Shinra.Settings.AstrologianLightspeedPct;
 
             #endregion
 
@@ -1200,14 +1210,29 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.AstrologianLucidDreaming = AstrologianLucidDreaming.Checked;
         }
 
+        private void AstrologianLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLucidDreamingPct = Convert.ToInt32(AstrologianLucidDreamingPct.Value);
+        }
+
         private void AstrologianSwiftcast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianSwiftcast = AstrologianSwiftcast.Checked;
         }
 
-        private void AstrologianLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        private void AstrologianLargesse_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.AstrologianLucidDreamingPct = Convert.ToInt32(AstrologianLucidDreamingPct.Value);
+            Shinra.Settings.AstrologianLargesse = AstrologianLargesse.Checked;
+        }
+
+        private void AstrologianLargesseCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLargesseCount = Convert.ToInt32(AstrologianLargesseCount.Value);
+        }
+
+        private void AstrologianLargessePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLargessePct = Convert.ToInt32(AstrologianLargessePct.Value);
         }
 
         #endregion
@@ -1241,6 +1266,25 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianEarthlyStar_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianEarthlyStar = AstrologianEarthlyStar.Checked;
+        }
+
+        #endregion
+
+        #region Buff
+
+        private void AstrologianLightspeed_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLightspeed = AstrologianLightspeed.Checked;
+        }
+
+        private void AstrologianLightspeedCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLightspeedCount = Convert.ToInt32(AstrologianLightspeedCount.Value);
+        }
+
+        private void AstrologianLightspeedPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianLightspeedPct = Convert.ToInt32(AstrologianLightspeedPct.Value);
         }
 
         #endregion

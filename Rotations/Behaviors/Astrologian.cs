@@ -68,6 +68,8 @@ namespace ShinraCo.Rotations
             if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await EssentialDignity()) return true;
+            if (await Lightspeed()) return true;
+            if (await Largesse()) return true;
             if (await LadyOfCrowns()) return true;
             if (await AspectedHelios()) return true;
             if (await Helios()) return true;

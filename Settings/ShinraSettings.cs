@@ -226,11 +226,20 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool AstrologianLucidDreaming { get; set; }
 
+        [Setting, DefaultValue(60)]
+        public int AstrologianLucidDreamingPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool AstrologianSwiftcast { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool AstrologianLargesse { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int AstrologianLargesseCount { get; set; }
+
         [Setting, DefaultValue(60)]
-        public int AstrologianLucidDreamingPct { get; set; }
+        public int AstrologianLargessePct { get; set; }
 
         #endregion
 
@@ -254,6 +263,19 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool AstrologianEarthlyStar { get; set; }
+
+        #endregion
+
+        #region Buff
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianLightspeed { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int AstrologianLightspeedCount { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int AstrologianLightspeedPct { get; set; }
 
         #endregion
 

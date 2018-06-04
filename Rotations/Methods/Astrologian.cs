@@ -111,7 +111,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Lightspeed()
         {
-            return await MySpells.Lightspeed.Cast();
+            if (Shinra.Settings.AstrologianLightspeed && Shinra.Settings.AstrologianPartyHeal)
+            {
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianLightspeedPct) >=
+                    Shinra.Settings.AstrologianLightspeedCount)
+                {
+                    return await MySpells.Lightspeed.Cast(null, false);
+                }
+            }
+            return false;
         }
 
         #endregion
@@ -540,18 +548,17 @@ namespace ShinraCo.Rotations
             return false;
         }
 
-        private async Task<bool> Swiftcast()
-        {
-            if (Shinra.Settings.AstrologianSwiftcast)
-            {
-                return await MySpells.Role.Swiftcast.Cast();
-            }
-            return false;
-        }
-
         private async Task<bool> Largesse()
         {
-            return await MySpells.Role.Largesse.Cast();
+            if (Shinra.Settings.AstrologianLargesse && Shinra.Settings.AstrologianPartyHeal)
+            {
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianLargessePct) >=
+                    Shinra.Settings.AstrologianLargesseCount)
+                {
+                    return await MySpells.Role.Largesse.Cast(null, false);
+                }
+            }
+            return false;
         }
 
         #endregion
