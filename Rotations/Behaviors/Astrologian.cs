@@ -48,14 +48,20 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await LucidDreaming()) return true;
-            if (await LordOfCrowns()) return true;
-            if (await SleeveDraw()) return true;
-            if (await RoyalRoad()) return true;
-            if (await Redraw()) return true;
-            if (await Spread()) return true;
-            if (await MinorArcana()) return true;
-            if (await Undraw()) return true;
-            if (await Draw()) return true;
+            if (Shinra.Settings.AstrologianDraw)
+            {
+                if (await LordOfCrowns()) return true;
+                if (await SleeveDraw()) return true;
+                if (await Draw()) return true;
+                if (await Spread()) return true;
+                if (await RoyalRoad()) return true;
+                if (await Redraw()) return true;
+                if (await MinorArcana()) return true;
+                if (await Undraw()) return true;
+                if (await UndrawSpread()) return true;
+                if (await DrawTargetted()) return true;
+                if (await SpreadTargetted()) return true;
+            }
             return await ClericStance();
         }
 
@@ -89,7 +95,18 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await NocturnalSect()) return true;
-            return await DiurnalSect();
+            if (await DiurnalSect()) return true;
+            if (Shinra.Settings.AstrologianDraw)
+            {
+                if (await Draw()) return true;
+                if (await Spread()) return true;
+                if (await RoyalRoad()) return true;
+                if (await Redraw()) return true;
+                if (await MinorArcana()) return true;
+                if (await Undraw()) return true;
+                if (await UndrawSpread()) return true;
+            }
+            return false;
         }
 
         #endregion

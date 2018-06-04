@@ -146,6 +146,16 @@ namespace ShinraCo.Spells.Main
             CastType = CastType.Self
         };
 
+        public Spell UndrawSpread { get; } = new Spell
+        {
+            Name = "Undraw Spread",
+            ID = 4646,
+            Level = 40,
+            GCDType = GCDType.On,
+            SpellType = SpellType.Card,
+            CastType = CastType.Self
+        };
+
         public Spell AspectedHelios { get; } = new Spell
         {
             Name = "Aspected Helios",

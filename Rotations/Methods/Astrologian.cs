@@ -98,7 +98,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StellarDetonation()
         {
-            if (Shinra.Settings.AstrologianEarthlyStar)
+            if (Shinra.Settings.AstrologianStellarDetonation)
             {
                 return await MySpells.StellarDetonation.Cast(null, false);
             }
@@ -128,7 +128,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> UpdateHealing()
         {
-            if (Shinra.Settings.AstrologianPartyHeal || Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+            if (Shinra.Settings.AstrologianPartyHeal || Shinra.Settings.AstrologianDraw)
             {
                 if (!await Helpers.UpdateHealManager())
                 {
@@ -285,103 +285,48 @@ namespace ShinraCo.Rotations
 
         #region Card
 
-        private async Task<bool> RoyalRoad()
+        private async Task<bool> DrawTargetted()
         {
-            if (Shinra.Settings.AstrologianDraw)
+            if (HasCard && !BuffOffensive)
             {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+                var target = Core.Player as BattleCharacter;
+
+                if (CardOffensive)
                 {
-                    if (!BuffShared && (CardEwer || CardSpire))
-                    {
-                        return await MySpells.RoyalRoad.Cast();
-                    }
+                    target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && !hm.HasAura("The Balance") &&
+                                                                      !hm.HasAura("The Arrow") && !hm.HasAura("The Spear")) ?? Core.Player;
                 }
-                else
+                else if (BuffShared)
                 {
-                    if (!BuffPotency && CardBole)
-                    {
-                        return await MySpells.RoyalRoad.Cast();
-                    }
+                    return false;
+                }
+                else if (CardBole)
+                {
+                    target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() && !hm.HasAura("The Bole")) ?? Core.Player;
+                }
+                else if (CardSpire)
+                {
+                    target = Helpers.GoadManager.FirstOrDefault(gm => !gm.HasAura("The Spire")) ?? Core.Player;
+                }
+
+                if (target != null)
+                {
+                    return await MySpells.Draw.Cast(target);
                 }
             }
             return false;
         }
 
-        private async Task<bool> Redraw()
+        private async Task<bool> SpreadTargetted()
         {
-            if (Shinra.Settings.AstrologianDraw)
+            if (SpreadOffensive && BuffShared && !BuffOffensive)
             {
-                if (HasSpread || !CardBalance && !CardArrow && !CardSpear)
-                {
-                    return await MySpells.Redraw.Cast();
-                }
-            }
-            return false;
-        }
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && !hm.HasAura("The Balance") &&
+                                                                      !hm.HasAura("The Arrow") && !hm.HasAura("The Spear")) ?? Core.Player;
 
-        private async Task<bool> Spread()
-        {
-            if (Shinra.Settings.AstrologianDraw)
-            {
-                if (!HasSpread && !HasBuff)
+                if (target != null)
                 {
-                    if (CardBalance || CardArrow || CardSpear)
-                    {
-                        return await MySpells.Spread.Cast();
-                    }
-                }
-                else if (HasSpread && HasBuff)
-                {
-                    var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) ?? Core.Player;
-
-                    if (target != null)
-                    {
-                        return await MySpells.Spread.Cast(target);
-                    }
-                }
-            }
-            return false;
-        }
-
-        private async Task<bool> MinorArcana()
-        {
-            if (Shinra.Settings.AstrologianDraw)
-            {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
-                {
-                    if (!HasArcana && BuffShared && !CardBalance && !CardArrow && !CardSpear)
-                    {
-                        return await MySpells.MinorArcana.Cast();
-                    }
-                }
-                else
-                {
-                    if (!HasArcana && !CardBalance && !CardArrow && !CardSpear)
-                    {
-                        return await MySpells.MinorArcana.Cast();
-                    }
-                }
-            }
-            return false;
-        }
-
-        private async Task<bool> Undraw()
-        {
-            if (Shinra.Settings.AstrologianDraw)
-            {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
-                {
-                    if (!ActionManager.HasSpell(MySpells.MinorArcana.Name) && BuffShared && !CardBalance && !CardArrow && !CardSpear)
-                    {
-                        return await MySpells.Undraw.Cast();
-                    }
-                }
-                else
-                {
-                    if (!ActionManager.HasSpell(MySpells.MinorArcana.Name) && (CardEwer || CardSpire))
-                    {
-                        return await MySpells.Undraw.Cast();
-                    }
+                    return await MySpells.Spread.Cast(target);
                 }
             }
             return false;
@@ -389,51 +334,66 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Draw()
         {
-            if (Shinra.Settings.AstrologianDraw)
+            if (!HasCard && (!BuffShared || !SpreadOffensive || Core.Player.InCombat))
             {
-                if (Shinra.Settings.AstrologianStyle == AstrologianStyles.Party)
+                return await MySpells.Draw.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Spread()
+        {
+            if (!HasSpread && CardOffensive && (!BuffShared || !Core.Player.InCombat))
+            {
+                return await MySpells.Spread.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> RoyalRoad()
+        {
+            if (!BuffShared && CardSupport)
+            {
+                return await MySpells.RoyalRoad.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Redraw()
+        {
+            if (!CardOffensive && (BuffShared || !CardSupport))
+            {
+                return await MySpells.Redraw.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> MinorArcana()
+        {
+            if (!HasArcana && !CardOffensive && (BuffShared || CardEwer))
+            {
+                return await MySpells.MinorArcana.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> Undraw()
+        {
+            if (HasArcana || !ActionManager.HasSpell(MySpells.MinorArcana.Name))
+            {
+                if (!CardOffensive && (BuffShared || CardEwer))
                 {
-                    if (BuffShared || HasSpread || CardBole)
-                    {
-                        var target = Core.Player as BattleCharacter;
-
-                        if (CardBalance || CardArrow || CardSpear)
-                        {
-                            target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) ?? Core.Player;
-                        }
-                        else if (!BuffShared && CardBole)
-                        {
-                            target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank()) ?? Core.Player;
-                        }
-                        else if (!BuffShared && CardSpire)
-                        {
-                            target = Helpers.GoadManager.FirstOrDefault() ?? Core.Player;
-                        }
-
-                        if (target != null)
-                        {
-                            return await MySpells.Draw.Cast(target);
-                        }
-                    }
-
-                    if (!HasCard)
-                    {
-                        return await MySpells.Draw.Cast();
-                    }
-                }
-                else
-                {
-                    return await MySpells.Draw.Cast();
+                    return await MySpells.Undraw.Cast();
                 }
             }
             return false;
         }
 
-        private async Task<bool> LordOfCrowns()
+        private async Task<bool> UndrawSpread()
         {
-            if (Shinra.Settings.AstrologianDraw && CardLord)
+            if (HasSpread && !SpreadOffensive)
             {
-                return await MySpells.LordOfCrowns.Cast();
+                return await MySpells.UndrawSpread.Cast();
             }
             return false;
         }
@@ -449,6 +409,15 @@ namespace ShinraCo.Rotations
                 {
                     return await MySpells.LadyOfCrowns.Cast(target);
                 }
+            }
+            return false;
+        }
+
+        private async Task<bool> LordOfCrowns()
+        {
+            if (CardLord)
+            {
+                return await MySpells.LordOfCrowns.Cast();
             }
             return false;
         }
@@ -569,21 +538,23 @@ namespace ShinraCo.Rotations
         private static bool StopDots => Shinra.Settings.AstrologianStopDots && Core.Player.CurrentManaPercent <= Shinra.Settings.AstrologianStopDotsPct;
 
         private static bool HasCard => Resource.Cards[0] != Resource.AstrologianCard.None;
-        private static bool HasBuff => Resource.Buff != Resource.AstrologianCardBuff.None;
         private static bool HasSpread => Resource.Cards[1] != Resource.AstrologianCard.None;
         private static bool HasArcana => Resource.Arcana != Resource.AstrologianCard.None;
 
-        private static bool BuffPotency => Resource.Buff == Resource.AstrologianCardBuff.Potency;
         private static bool BuffShared => Resource.Buff == Resource.AstrologianCardBuff.Shared;
+        private static bool BuffOffensive => Core.Player.HasAura("The Balance") || Core.Player.HasAura("The Arrow") || Core.Player.HasAura("The Spear");
 
-        private static bool CardBalance => Resource.Cards[0] == Resource.AstrologianCard.Balance;
-        private static bool CardBole => Resource.Cards[0] == Resource.AstrologianCard.Bole;
-        private static bool CardArrow => Resource.Cards[0] == Resource.AstrologianCard.Arrow;
-        private static bool CardSpear => Resource.Cards[0] == Resource.AstrologianCard.Spear;
-        private static bool CardEwer => Resource.Cards[0] == Resource.AstrologianCard.Ewer;
-        private static bool CardSpire => Resource.Cards[0] == Resource.AstrologianCard.Spire;
         private static bool CardLord => Resource.Arcana == Resource.AstrologianCard.LordofCrowns;
         private static bool CardLady => Resource.Arcana == Resource.AstrologianCard.LadyofCrowns;
+        private static bool CardBole => Resource.Cards[0] == Resource.AstrologianCard.Bole;
+        private static bool CardEwer => Resource.Cards[0] == Resource.AstrologianCard.Ewer;
+        private static bool CardSpire => Resource.Cards[0] == Resource.AstrologianCard.Spire;
+        private static bool CardSupport => Resource.Cards[0] == Resource.AstrologianCard.Ewer || Resource.Cards[0] == Resource.AstrologianCard.Spire;
+        private static bool CardOffensive => Resource.Cards[0] == Resource.AstrologianCard.Balance || Resource.Cards[0] == Resource.AstrologianCard.Arrow ||
+                                             Resource.Cards[0] == Resource.AstrologianCard.Spear;
+
+        private static bool SpreadOffensive => Resource.Cards[1] == Resource.AstrologianCard.Balance || Resource.Cards[1] == Resource.AstrologianCard.Arrow ||
+                                             Resource.Cards[1] == Resource.AstrologianCard.Spear;
 
         private bool UseAoEHeals => Shinra.LastSpell.Name != MySpells.Helios.Name && Shinra.LastSpell.Name != MySpells.AspectedHelios.Name;
         private bool SectActive => Core.Player.HasAura(MySpells.DiurnalSect.Name) || Core.Player.HasAura(MySpells.NocturnalSect.Name);

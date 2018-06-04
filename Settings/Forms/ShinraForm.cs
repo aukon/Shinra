@@ -133,6 +133,7 @@ namespace ShinraCo.Settings.Forms
             #region AoE
 
             AstrologianEarthlyStar.Checked = Shinra.Settings.AstrologianEarthlyStar;
+            AstrologianStellarDetonation.Checked = Shinra.Settings.AstrologianStellarDetonation;
 
             #endregion
 
@@ -170,8 +171,6 @@ namespace ShinraCo.Settings.Forms
 
             AstrologianDraw.Checked = Shinra.Settings.AstrologianDraw;
             AstrologianSleeveDraw.Checked = Shinra.Settings.AstrologianSleeveDraw;
-
-            AstrologianStyle.Text = Convert.ToString(Shinra.Settings.AstrologianStyle);
 
             #endregion
 
@@ -1268,6 +1267,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.AstrologianEarthlyStar = AstrologianEarthlyStar.Checked;
         }
 
+        private void AstrologianStellarDetonation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianStellarDetonation = AstrologianStellarDetonation.Checked;
+        }
+
         #endregion
 
         #region Buff
@@ -1383,12 +1387,6 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianSleeveDraw_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianSleeveDraw = AstrologianSleeveDraw.Checked;
-        }
-
-        private void AstrologianStyle_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (AstrologianStyle.Text == @"Solo") Shinra.Settings.AstrologianStyle = AstrologianStyles.Solo;
-            if (AstrologianStyle.Text == @"Party") Shinra.Settings.AstrologianStyle = AstrologianStyles.Party;
         }
 
         #endregion

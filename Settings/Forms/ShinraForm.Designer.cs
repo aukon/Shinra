@@ -167,6 +167,10 @@
             this.pgeHealers = new System.Windows.Forms.TabPage();
             this.tabHealers = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeAstrologian = new System.Windows.Forms.TabPage();
+            this.AstrologianBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianLightspeedPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLightspeedCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLightspeed = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianCardOnly = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -175,12 +179,11 @@
             this.AstrologianStopDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianStopDamagePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianAoEGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianStellarDetonation = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianEarthlyStar = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianSectGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianSect = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.AstrologianCardGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.AstrologianStyle = new ShinraCo.Settings.Forms.Design.CustomCombo();
-            this.AstrologianStyleLabel = new System.Windows.Forms.Label();
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -201,6 +204,9 @@
             this.AstrologianBeneficII = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -647,13 +653,6 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.AstrologianLightspeed = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianLightspeedCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianLightspeedPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -689,6 +688,7 @@
             this.pgeHealers.SuspendLayout();
             this.tabHealers.SuspendLayout();
             this.pgeAstrologian.SuspendLayout();
+            this.AstrologianBuffGroup.SuspendLayout();
             this.AstrologianMiscGroup.SuspendLayout();
             this.AstrologianDamageGroup.SuspendLayout();
             this.AstrologianAoEGroup.SuspendLayout();
@@ -775,7 +775,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.AstrologianBuffGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -783,7 +782,7 @@
             this.ShinraBorder.BackColor = System.Drawing.Color.GreenYellow;
             this.ShinraBorder.Location = new System.Drawing.Point(1, 1);
             this.ShinraBorder.Name = "ShinraBorder";
-            this.ShinraBorder.Size = new System.Drawing.Size(902, 502);
+            this.ShinraBorder.Size = new System.Drawing.Size(1002, 552);
             this.ShinraBorder.TabIndex = 0;
             // 
             // ShinraContainer
@@ -794,7 +793,7 @@
             this.ShinraContainer.Controls.Add(this.tabSettings);
             this.ShinraContainer.Location = new System.Drawing.Point(2, 2);
             this.ShinraContainer.Name = "ShinraContainer";
-            this.ShinraContainer.Size = new System.Drawing.Size(900, 500);
+            this.ShinraContainer.Size = new System.Drawing.Size(1000, 550);
             this.ShinraContainer.TabIndex = 1;
             this.ShinraContainer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
@@ -802,7 +801,7 @@
             // 
             this.ShinraBanner.Location = new System.Drawing.Point(0, 0);
             this.ShinraBanner.Name = "ShinraBanner";
-            this.ShinraBanner.Size = new System.Drawing.Size(900, 100);
+            this.ShinraBanner.Size = new System.Drawing.Size(1000, 100);
             this.ShinraBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ShinraBanner.TabIndex = 0;
             this.ShinraBanner.TabStop = false;
@@ -814,7 +813,7 @@
             this.ShinraClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ShinraClose.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShinraClose.ForeColor = System.Drawing.Color.White;
-            this.ShinraClose.Location = new System.Drawing.Point(790, 455);
+            this.ShinraClose.Location = new System.Drawing.Point(890, 505);
             this.ShinraClose.Name = "ShinraClose";
             this.ShinraClose.Size = new System.Drawing.Size(100, 35);
             this.ShinraClose.TabIndex = 0;
@@ -838,7 +837,7 @@
             this.tabSettings.Multiline = true;
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.SelectedIndex = 0;
-            this.tabSettings.Size = new System.Drawing.Size(900, 460);
+            this.tabSettings.Size = new System.Drawing.Size(1000, 460);
             this.tabSettings.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabSettings.TabIndex = 1;
             this.tabSettings.TabStop = false;
@@ -856,7 +855,7 @@
             this.pgeMain.Location = new System.Drawing.Point(104, 4);
             this.pgeMain.Name = "pgeMain";
             this.pgeMain.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeMain.Size = new System.Drawing.Size(792, 452);
+            this.pgeMain.Size = new System.Drawing.Size(892, 452);
             this.pgeMain.TabIndex = 0;
             this.pgeMain.Text = "Main";
             this.pgeMain.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -1062,7 +1061,7 @@
             // 
             // ShinraDonate
             // 
-            this.ShinraDonate.Location = new System.Drawing.Point(13, 330);
+            this.ShinraDonate.Location = new System.Drawing.Point(13, 380);
             this.ShinraDonate.Name = "ShinraDonate";
             this.ShinraDonate.Size = new System.Drawing.Size(170, 60);
             this.ShinraDonate.TabIndex = 2;
@@ -1367,7 +1366,7 @@
             this.pgeCasters.Location = new System.Drawing.Point(104, 4);
             this.pgeCasters.Name = "pgeCasters";
             this.pgeCasters.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeCasters.Size = new System.Drawing.Size(792, 452);
+            this.pgeCasters.Size = new System.Drawing.Size(892, 452);
             this.pgeCasters.TabIndex = 1;
             this.pgeCasters.Text = "Casters";
             this.pgeCasters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -1384,7 +1383,7 @@
             this.tabCasters.Multiline = true;
             this.tabCasters.Name = "tabCasters";
             this.tabCasters.SelectedIndex = 0;
-            this.tabCasters.Size = new System.Drawing.Size(796, 460);
+            this.tabCasters.Size = new System.Drawing.Size(896, 460);
             this.tabCasters.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabCasters.TabIndex = 0;
             this.tabCasters.TabStop = false;
@@ -1401,7 +1400,7 @@
             this.pgeBlackMage.Location = new System.Drawing.Point(104, 4);
             this.pgeBlackMage.Name = "pgeBlackMage";
             this.pgeBlackMage.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeBlackMage.Size = new System.Drawing.Size(688, 452);
+            this.pgeBlackMage.Size = new System.Drawing.Size(788, 452);
             this.pgeBlackMage.TabIndex = 0;
             this.pgeBlackMage.Text = "Black Mage";
             this.pgeBlackMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -1791,7 +1790,7 @@
             this.pgeRedMage.Location = new System.Drawing.Point(104, 4);
             this.pgeRedMage.Name = "pgeRedMage";
             this.pgeRedMage.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeRedMage.Size = new System.Drawing.Size(688, 452);
+            this.pgeRedMage.Size = new System.Drawing.Size(788, 452);
             this.pgeRedMage.TabIndex = 1;
             this.pgeRedMage.Text = "Red Mage";
             this.pgeRedMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -2177,7 +2176,7 @@
             this.pgeSummoner.Location = new System.Drawing.Point(104, 4);
             this.pgeSummoner.Name = "pgeSummoner";
             this.pgeSummoner.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeSummoner.Size = new System.Drawing.Size(688, 452);
+            this.pgeSummoner.Size = new System.Drawing.Size(788, 452);
             this.pgeSummoner.TabIndex = 2;
             this.pgeSummoner.Text = "Summoner";
             this.pgeSummoner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -2719,7 +2718,7 @@
             this.pgeHealers.Location = new System.Drawing.Point(104, 4);
             this.pgeHealers.Name = "pgeHealers";
             this.pgeHealers.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeHealers.Size = new System.Drawing.Size(792, 452);
+            this.pgeHealers.Size = new System.Drawing.Size(892, 452);
             this.pgeHealers.TabIndex = 2;
             this.pgeHealers.Text = "Healers";
             this.pgeHealers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -2736,7 +2735,7 @@
             this.tabHealers.Multiline = true;
             this.tabHealers.Name = "tabHealers";
             this.tabHealers.SelectedIndex = 0;
-            this.tabHealers.Size = new System.Drawing.Size(796, 460);
+            this.tabHealers.Size = new System.Drawing.Size(896, 460);
             this.tabHealers.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabHealers.TabIndex = 0;
             this.tabHealers.TabStop = false;
@@ -2756,18 +2755,80 @@
             this.pgeAstrologian.Location = new System.Drawing.Point(104, 4);
             this.pgeAstrologian.Name = "pgeAstrologian";
             this.pgeAstrologian.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeAstrologian.Size = new System.Drawing.Size(688, 452);
+            this.pgeAstrologian.Size = new System.Drawing.Size(788, 452);
             this.pgeAstrologian.TabIndex = 0;
             this.pgeAstrologian.Text = "Astrologian";
             this.pgeAstrologian.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // AstrologianBuffGroup
+            // 
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedPct);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedCount);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeed);
+            this.AstrologianBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianBuffGroup.Location = new System.Drawing.Point(13, 335);
+            this.AstrologianBuffGroup.Name = "AstrologianBuffGroup";
+            this.AstrologianBuffGroup.Size = new System.Drawing.Size(264, 44);
+            this.AstrologianBuffGroup.TabIndex = 7;
+            this.AstrologianBuffGroup.TabStop = false;
+            this.AstrologianBuffGroup.Text = "Buff";
+            // 
+            // AstrologianLightspeedPct
+            // 
+            this.AstrologianLightspeedPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLightspeedPct.Location = new System.Drawing.Point(169, 16);
+            this.AstrologianLightspeedPct.Name = "AstrologianLightspeedPct";
+            this.AstrologianLightspeedPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianLightspeedPct.TabIndex = 2;
+            this.AstrologianLightspeedPct.ValueChanged += new System.EventHandler(this.AstrologianLightspeedPct_ValueChanged);
+            // 
+            // AstrologianLightspeedCount
+            // 
+            this.AstrologianLightspeedCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLightspeedCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.Location = new System.Drawing.Point(93, 16);
+            this.AstrologianLightspeedCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.Name = "AstrologianLightspeedCount";
+            this.AstrologianLightspeedCount.ShowSymbol = false;
+            this.AstrologianLightspeedCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianLightspeedCount.TabIndex = 1;
+            this.AstrologianLightspeedCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLightspeedCount.ValueChanged += new System.EventHandler(this.AstrologianLightspeedCount_ValueChanged);
+            // 
+            // AstrologianLightspeed
+            // 
+            this.AstrologianLightspeed.AutoSize = true;
+            this.AstrologianLightspeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianLightspeed.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianLightspeed.ForeColor = System.Drawing.Color.White;
+            this.AstrologianLightspeed.Location = new System.Drawing.Point(6, 16);
+            this.AstrologianLightspeed.Name = "AstrologianLightspeed";
+            this.AstrologianLightspeed.Size = new System.Drawing.Size(80, 17);
+            this.AstrologianLightspeed.TabIndex = 0;
+            this.AstrologianLightspeed.TabStop = false;
+            this.AstrologianLightspeed.Text = "Lightspeed";
+            this.AstrologianLightspeed.UseVisualStyleBackColor = true;
+            this.AstrologianLightspeed.CheckedChanged += new System.EventHandler(this.AstrologianLightspeed_CheckedChanged);
             // 
             // AstrologianMiscGroup
             // 
             this.AstrologianMiscGroup.Controls.Add(this.AstrologianCardOnly);
             this.AstrologianMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianMiscGroup.Location = new System.Drawing.Point(283, 262);
+            this.AstrologianMiscGroup.Location = new System.Drawing.Point(493, 199);
             this.AstrologianMiscGroup.Name = "AstrologianMiscGroup";
-            this.AstrologianMiscGroup.Size = new System.Drawing.Size(116, 43);
+            this.AstrologianMiscGroup.Size = new System.Drawing.Size(129, 43);
             this.AstrologianMiscGroup.TabIndex = 6;
             this.AstrologianMiscGroup.TabStop = false;
             this.AstrologianMiscGroup.Text = "Misc";
@@ -2851,14 +2912,30 @@
             // 
             // AstrologianAoEGroup
             // 
+            this.AstrologianAoEGroup.Controls.Add(this.AstrologianStellarDetonation);
             this.AstrologianAoEGroup.Controls.Add(this.AstrologianEarthlyStar);
             this.AstrologianAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.AstrologianAoEGroup.Location = new System.Drawing.Point(493, 6);
             this.AstrologianAoEGroup.Name = "AstrologianAoEGroup";
-            this.AstrologianAoEGroup.Size = new System.Drawing.Size(112, 43);
+            this.AstrologianAoEGroup.Size = new System.Drawing.Size(129, 66);
             this.AstrologianAoEGroup.TabIndex = 4;
             this.AstrologianAoEGroup.TabStop = false;
             this.AstrologianAoEGroup.Text = "AoE";
+            // 
+            // AstrologianStellarDetonation
+            // 
+            this.AstrologianStellarDetonation.AutoSize = true;
+            this.AstrologianStellarDetonation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianStellarDetonation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianStellarDetonation.ForeColor = System.Drawing.Color.White;
+            this.AstrologianStellarDetonation.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianStellarDetonation.Name = "AstrologianStellarDetonation";
+            this.AstrologianStellarDetonation.Size = new System.Drawing.Size(117, 17);
+            this.AstrologianStellarDetonation.TabIndex = 1;
+            this.AstrologianStellarDetonation.TabStop = false;
+            this.AstrologianStellarDetonation.Text = "Stellar Detonation";
+            this.AstrologianStellarDetonation.UseVisualStyleBackColor = true;
+            this.AstrologianStellarDetonation.CheckedChanged += new System.EventHandler(this.AstrologianStellarDetonation_CheckedChanged);
             // 
             // AstrologianEarthlyStar
             // 
@@ -2879,9 +2956,9 @@
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(493, 184);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(493, 150);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
-            this.AstrologianSectGroup.Size = new System.Drawing.Size(112, 43);
+            this.AstrologianSectGroup.Size = new System.Drawing.Size(129, 43);
             this.AstrologianSectGroup.TabIndex = 3;
             this.AstrologianSectGroup.TabStop = false;
             this.AstrologianSectGroup.Text = "Sect";
@@ -2899,51 +2976,22 @@
             "Nocturnal"});
             this.AstrologianSect.Location = new System.Drawing.Point(6, 16);
             this.AstrologianSect.Name = "AstrologianSect";
-            this.AstrologianSect.Size = new System.Drawing.Size(100, 21);
+            this.AstrologianSect.Size = new System.Drawing.Size(117, 21);
             this.AstrologianSect.TabIndex = 0;
             this.AstrologianSect.TabStop = false;
             this.AstrologianSect.SelectedValueChanged += new System.EventHandler(this.AstrologianSect_SelectedValueChanged);
             // 
             // AstrologianCardGroup
             // 
-            this.AstrologianCardGroup.Controls.Add(this.AstrologianStyle);
-            this.AstrologianCardGroup.Controls.Add(this.AstrologianStyleLabel);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(493, 55);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(493, 78);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
-            this.AstrologianCardGroup.Size = new System.Drawing.Size(112, 123);
+            this.AstrologianCardGroup.Size = new System.Drawing.Size(129, 66);
             this.AstrologianCardGroup.TabIndex = 2;
             this.AstrologianCardGroup.TabStop = false;
             this.AstrologianCardGroup.Text = "Card";
-            // 
-            // AstrologianStyle
-            // 
-            this.AstrologianStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianStyle.ForeColor = System.Drawing.Color.White;
-            this.AstrologianStyle.FormattingEnabled = true;
-            this.AstrologianStyle.Items.AddRange(new object[] {
-            "Solo",
-            "Party"});
-            this.AstrologianStyle.Location = new System.Drawing.Point(6, 96);
-            this.AstrologianStyle.Name = "AstrologianStyle";
-            this.AstrologianStyle.Size = new System.Drawing.Size(100, 21);
-            this.AstrologianStyle.TabIndex = 3;
-            this.AstrologianStyle.TabStop = false;
-            this.AstrologianStyle.SelectedValueChanged += new System.EventHandler(this.AstrologianStyle_SelectedValueChanged);
-            // 
-            // AstrologianStyleLabel
-            // 
-            this.AstrologianStyleLabel.AutoSize = true;
-            this.AstrologianStyleLabel.ForeColor = System.Drawing.Color.White;
-            this.AstrologianStyleLabel.Location = new System.Drawing.Point(6, 79);
-            this.AstrologianStyleLabel.Name = "AstrologianStyleLabel";
-            this.AstrologianStyleLabel.Size = new System.Drawing.Size(56, 13);
-            this.AstrologianStyleLabel.TabIndex = 2;
-            this.AstrologianStyleLabel.Text = "Buff Style";
             // 
             // AstrologianSleeveDraw
             // 
@@ -3228,6 +3276,55 @@
             this.AstrologianRoleGroup.TabStop = false;
             this.AstrologianRoleGroup.Text = "Role";
             // 
+            // AstrologianLargesseCount
+            // 
+            this.AstrologianLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLargesseCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.Location = new System.Drawing.Point(79, 177);
+            this.AstrologianLargesseCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.Name = "AstrologianLargesseCount";
+            this.AstrologianLargesseCount.ShowSymbol = false;
+            this.AstrologianLargesseCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianLargesseCount.TabIndex = 15;
+            this.AstrologianLargesseCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianLargesseCount.ValueChanged += new System.EventHandler(this.AstrologianLargesseCount_ValueChanged);
+            // 
+            // AstrologianLargessePct
+            // 
+            this.AstrologianLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianLargessePct.Location = new System.Drawing.Point(155, 177);
+            this.AstrologianLargessePct.Name = "AstrologianLargessePct";
+            this.AstrologianLargessePct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianLargessePct.TabIndex = 14;
+            this.AstrologianLargessePct.ValueChanged += new System.EventHandler(this.AstrologianLargessePct_ValueChanged);
+            // 
+            // AstrologianLargesse
+            // 
+            this.AstrologianLargesse.AutoSize = true;
+            this.AstrologianLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianLargesse.ForeColor = System.Drawing.Color.White;
+            this.AstrologianLargesse.Location = new System.Drawing.Point(6, 177);
+            this.AstrologianLargesse.Name = "AstrologianLargesse";
+            this.AstrologianLargesse.Size = new System.Drawing.Size(67, 17);
+            this.AstrologianLargesse.TabIndex = 13;
+            this.AstrologianLargesse.TabStop = false;
+            this.AstrologianLargesse.Text = "Largesse";
+            this.AstrologianLargesse.UseVisualStyleBackColor = true;
+            this.AstrologianLargesse.CheckedChanged += new System.EventHandler(this.AstrologianLargesse_CheckedChanged);
+            // 
             // AstrologianEsuna
             // 
             this.AstrologianEsuna.AutoSize = true;
@@ -3385,7 +3482,7 @@
             this.pgeScholar.Location = new System.Drawing.Point(104, 4);
             this.pgeScholar.Name = "pgeScholar";
             this.pgeScholar.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeScholar.Size = new System.Drawing.Size(688, 452);
+            this.pgeScholar.Size = new System.Drawing.Size(788, 452);
             this.pgeScholar.TabIndex = 1;
             this.pgeScholar.Text = "Scholar";
             this.pgeScholar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -3397,7 +3494,7 @@
             this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamage);
             this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamagePct);
             this.ScholarDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarDamageGroup.Location = new System.Drawing.Point(13, 285);
+            this.ScholarDamageGroup.Location = new System.Drawing.Point(436, 6);
             this.ScholarDamageGroup.Name = "ScholarDamageGroup";
             this.ScholarDamageGroup.Size = new System.Drawing.Size(264, 67);
             this.ScholarDamageGroup.TabIndex = 6;
@@ -3457,7 +3554,7 @@
             this.ScholarBuffGroup.Controls.Add(this.ScholarEmergencyTactics);
             this.ScholarBuffGroup.Controls.Add(this.ScholarRouse);
             this.ScholarBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarBuffGroup.Location = new System.Drawing.Point(436, 127);
+            this.ScholarBuffGroup.Location = new System.Drawing.Point(436, 200);
             this.ScholarBuffGroup.Name = "ScholarBuffGroup";
             this.ScholarBuffGroup.Size = new System.Drawing.Size(125, 66);
             this.ScholarBuffGroup.TabIndex = 5;
@@ -3499,7 +3596,7 @@
             this.ScholarCooldownGroup.Controls.Add(this.ScholarChainStrategem);
             this.ScholarCooldownGroup.Controls.Add(this.ScholarShadowFlare);
             this.ScholarCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarCooldownGroup.Location = new System.Drawing.Point(436, 55);
+            this.ScholarCooldownGroup.Location = new System.Drawing.Point(436, 128);
             this.ScholarCooldownGroup.Name = "ScholarCooldownGroup";
             this.ScholarCooldownGroup.Size = new System.Drawing.Size(125, 66);
             this.ScholarCooldownGroup.TabIndex = 4;
@@ -3540,7 +3637,7 @@
             // 
             this.ScholarPetGroup.Controls.Add(this.ScholarPet);
             this.ScholarPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarPetGroup.Location = new System.Drawing.Point(436, 199);
+            this.ScholarPetGroup.Location = new System.Drawing.Point(567, 79);
             this.ScholarPetGroup.Name = "ScholarPetGroup";
             this.ScholarPetGroup.Size = new System.Drawing.Size(102, 43);
             this.ScholarPetGroup.TabIndex = 3;
@@ -3569,7 +3666,7 @@
             // 
             this.ScholarAoEGroup.Controls.Add(this.ScholarBane);
             this.ScholarAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarAoEGroup.Location = new System.Drawing.Point(436, 6);
+            this.ScholarAoEGroup.Location = new System.Drawing.Point(436, 79);
             this.ScholarAoEGroup.Name = "ScholarAoEGroup";
             this.ScholarAoEGroup.Size = new System.Drawing.Size(125, 43);
             this.ScholarAoEGroup.TabIndex = 2;
@@ -4037,7 +4134,7 @@
             this.pgeWhiteMage.Location = new System.Drawing.Point(104, 4);
             this.pgeWhiteMage.Name = "pgeWhiteMage";
             this.pgeWhiteMage.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeWhiteMage.Size = new System.Drawing.Size(688, 452);
+            this.pgeWhiteMage.Size = new System.Drawing.Size(788, 452);
             this.pgeWhiteMage.TabIndex = 2;
             this.pgeWhiteMage.Text = "White Mage";
             this.pgeWhiteMage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -4049,7 +4146,7 @@
             this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamage);
             this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamagePct);
             this.WhiteMageDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageDamageGroup.Location = new System.Drawing.Point(13, 262);
+            this.WhiteMageDamageGroup.Location = new System.Drawing.Point(463, 6);
             this.WhiteMageDamageGroup.Name = "WhiteMageDamageGroup";
             this.WhiteMageDamageGroup.Size = new System.Drawing.Size(264, 67);
             this.WhiteMageDamageGroup.TabIndex = 6;
@@ -4109,7 +4206,7 @@
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMind);
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMageThinAir);
             this.WhiteMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(229, 6);
+            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(463, 79);
             this.WhiteMageBuffGroup.Name = "WhiteMageBuffGroup";
             this.WhiteMageBuffGroup.Size = new System.Drawing.Size(124, 66);
             this.WhiteMageBuffGroup.TabIndex = 2;
@@ -4171,7 +4268,7 @@
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageCure);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMagePartyHeal);
             this.WhiteMageHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageHealGroup.Location = new System.Drawing.Point(359, 6);
+            this.WhiteMageHealGroup.Location = new System.Drawing.Point(229, 6);
             this.WhiteMageHealGroup.Name = "WhiteMageHealGroup";
             this.WhiteMageHealGroup.Size = new System.Drawing.Size(228, 319);
             this.WhiteMageHealGroup.TabIndex = 1;
@@ -4641,7 +4738,7 @@
             this.pgeMelee.Location = new System.Drawing.Point(104, 4);
             this.pgeMelee.Name = "pgeMelee";
             this.pgeMelee.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeMelee.Size = new System.Drawing.Size(792, 452);
+            this.pgeMelee.Size = new System.Drawing.Size(892, 452);
             this.pgeMelee.TabIndex = 3;
             this.pgeMelee.Text = "Melee";
             this.pgeMelee.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -4659,7 +4756,7 @@
             this.tabMelee.Multiline = true;
             this.tabMelee.Name = "tabMelee";
             this.tabMelee.SelectedIndex = 0;
-            this.tabMelee.Size = new System.Drawing.Size(796, 460);
+            this.tabMelee.Size = new System.Drawing.Size(896, 460);
             this.tabMelee.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMelee.TabIndex = 0;
             this.tabMelee.TabStop = false;
@@ -4674,7 +4771,7 @@
             this.pgeDragoon.Location = new System.Drawing.Point(104, 4);
             this.pgeDragoon.Name = "pgeDragoon";
             this.pgeDragoon.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeDragoon.Size = new System.Drawing.Size(688, 452);
+            this.pgeDragoon.Size = new System.Drawing.Size(788, 452);
             this.pgeDragoon.TabIndex = 0;
             this.pgeDragoon.Text = "Dragoon";
             this.pgeDragoon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -5064,7 +5161,7 @@
             this.pgeMonk.Location = new System.Drawing.Point(104, 4);
             this.pgeMonk.Name = "pgeMonk";
             this.pgeMonk.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeMonk.Size = new System.Drawing.Size(688, 452);
+            this.pgeMonk.Size = new System.Drawing.Size(788, 452);
             this.pgeMonk.TabIndex = 1;
             this.pgeMonk.Text = "Monk";
             this.pgeMonk.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -5547,7 +5644,7 @@
             this.pgeNinja.Location = new System.Drawing.Point(104, 4);
             this.pgeNinja.Name = "pgeNinja";
             this.pgeNinja.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeNinja.Size = new System.Drawing.Size(688, 452);
+            this.pgeNinja.Size = new System.Drawing.Size(788, 452);
             this.pgeNinja.TabIndex = 2;
             this.pgeNinja.Text = "Ninja";
             this.pgeNinja.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -6149,7 +6246,7 @@
             this.pgeSamurai.Location = new System.Drawing.Point(104, 4);
             this.pgeSamurai.Name = "pgeSamurai";
             this.pgeSamurai.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeSamurai.Size = new System.Drawing.Size(688, 452);
+            this.pgeSamurai.Size = new System.Drawing.Size(788, 452);
             this.pgeSamurai.TabIndex = 3;
             this.pgeSamurai.Text = "Samurai";
             this.pgeSamurai.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -6585,7 +6682,7 @@
             this.pgeRanged.Location = new System.Drawing.Point(104, 4);
             this.pgeRanged.Name = "pgeRanged";
             this.pgeRanged.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeRanged.Size = new System.Drawing.Size(792, 452);
+            this.pgeRanged.Size = new System.Drawing.Size(892, 452);
             this.pgeRanged.TabIndex = 4;
             this.pgeRanged.Text = "Ranged";
             this.pgeRanged.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -6601,7 +6698,7 @@
             this.tabRanged.Multiline = true;
             this.tabRanged.Name = "tabRanged";
             this.tabRanged.SelectedIndex = 0;
-            this.tabRanged.Size = new System.Drawing.Size(796, 460);
+            this.tabRanged.Size = new System.Drawing.Size(896, 460);
             this.tabRanged.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabRanged.TabIndex = 0;
             this.tabRanged.TabStop = false;
@@ -6618,7 +6715,7 @@
             this.pgeBard.Location = new System.Drawing.Point(104, 4);
             this.pgeBard.Name = "pgeBard";
             this.pgeBard.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeBard.Size = new System.Drawing.Size(688, 452);
+            this.pgeBard.Size = new System.Drawing.Size(788, 452);
             this.pgeBard.TabIndex = 0;
             this.pgeBard.Text = "Bard";
             this.pgeBard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -7064,7 +7161,7 @@
             this.pgeMachinist.Location = new System.Drawing.Point(104, 4);
             this.pgeMachinist.Name = "pgeMachinist";
             this.pgeMachinist.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeMachinist.Size = new System.Drawing.Size(688, 452);
+            this.pgeMachinist.Size = new System.Drawing.Size(788, 452);
             this.pgeMachinist.TabIndex = 1;
             this.pgeMachinist.Text = "Machinist";
             this.pgeMachinist.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -7698,7 +7795,7 @@
             this.pgeTanks.Location = new System.Drawing.Point(104, 4);
             this.pgeTanks.Name = "pgeTanks";
             this.pgeTanks.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeTanks.Size = new System.Drawing.Size(792, 452);
+            this.pgeTanks.Size = new System.Drawing.Size(892, 452);
             this.pgeTanks.TabIndex = 5;
             this.pgeTanks.Text = "Tanks";
             this.pgeTanks.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -7715,7 +7812,7 @@
             this.tabTanks.Multiline = true;
             this.tabTanks.Name = "tabTanks";
             this.tabTanks.SelectedIndex = 0;
-            this.tabTanks.Size = new System.Drawing.Size(796, 460);
+            this.tabTanks.Size = new System.Drawing.Size(896, 460);
             this.tabTanks.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabTanks.TabIndex = 0;
             this.tabTanks.TabStop = false;
@@ -7734,7 +7831,7 @@
             this.pgeDarkKnight.Location = new System.Drawing.Point(104, 4);
             this.pgeDarkKnight.Name = "pgeDarkKnight";
             this.pgeDarkKnight.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeDarkKnight.Size = new System.Drawing.Size(688, 452);
+            this.pgeDarkKnight.Size = new System.Drawing.Size(788, 452);
             this.pgeDarkKnight.TabIndex = 0;
             this.pgeDarkKnight.Text = "Dark Knight";
             this.pgeDarkKnight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -8351,7 +8448,7 @@
             this.pgePaladin.Location = new System.Drawing.Point(104, 4);
             this.pgePaladin.Name = "pgePaladin";
             this.pgePaladin.Padding = new System.Windows.Forms.Padding(3);
-            this.pgePaladin.Size = new System.Drawing.Size(688, 452);
+            this.pgePaladin.Size = new System.Drawing.Size(788, 452);
             this.pgePaladin.TabIndex = 1;
             this.pgePaladin.Text = "Paladin";
             this.pgePaladin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -8948,7 +9045,7 @@
             this.pgeWarrior.Location = new System.Drawing.Point(104, 4);
             this.pgeWarrior.Name = "pgeWarrior";
             this.pgeWarrior.Padding = new System.Windows.Forms.Padding(3);
-            this.pgeWarrior.Size = new System.Drawing.Size(688, 452);
+            this.pgeWarrior.Size = new System.Drawing.Size(788, 452);
             this.pgeWarrior.TabIndex = 2;
             this.pgeWarrior.Text = "Warrior";
             this.pgeWarrior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
@@ -9570,127 +9667,16 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // AstrologianLargesse
-            // 
-            this.AstrologianLargesse.AutoSize = true;
-            this.AstrologianLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianLargesse.ForeColor = System.Drawing.Color.White;
-            this.AstrologianLargesse.Location = new System.Drawing.Point(6, 177);
-            this.AstrologianLargesse.Name = "AstrologianLargesse";
-            this.AstrologianLargesse.Size = new System.Drawing.Size(67, 17);
-            this.AstrologianLargesse.TabIndex = 13;
-            this.AstrologianLargesse.TabStop = false;
-            this.AstrologianLargesse.Text = "Largesse";
-            this.AstrologianLargesse.UseVisualStyleBackColor = true;
-            this.AstrologianLargesse.CheckedChanged += new System.EventHandler(this.AstrologianLargesse_CheckedChanged);
-            // 
-            // AstrologianLargessePct
-            // 
-            this.AstrologianLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianLargessePct.Location = new System.Drawing.Point(155, 177);
-            this.AstrologianLargessePct.Name = "AstrologianLargessePct";
-            this.AstrologianLargessePct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianLargessePct.TabIndex = 14;
-            this.AstrologianLargessePct.ValueChanged += new System.EventHandler(this.AstrologianLargessePct_ValueChanged);
-            // 
-            // AstrologianLargesseCount
-            // 
-            this.AstrologianLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianLargesseCount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AstrologianLargesseCount.Location = new System.Drawing.Point(79, 177);
-            this.AstrologianLargesseCount.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.AstrologianLargesseCount.Name = "AstrologianLargesseCount";
-            this.AstrologianLargesseCount.ShowSymbol = false;
-            this.AstrologianLargesseCount.Size = new System.Drawing.Size(70, 22);
-            this.AstrologianLargesseCount.TabIndex = 15;
-            this.AstrologianLargesseCount.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.AstrologianLargesseCount.ValueChanged += new System.EventHandler(this.AstrologianLargesseCount_ValueChanged);
-            // 
-            // AstrologianBuffGroup
-            // 
-            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedPct);
-            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedCount);
-            this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeed);
-            this.AstrologianBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianBuffGroup.Location = new System.Drawing.Point(13, 335);
-            this.AstrologianBuffGroup.Name = "AstrologianBuffGroup";
-            this.AstrologianBuffGroup.Size = new System.Drawing.Size(264, 44);
-            this.AstrologianBuffGroup.TabIndex = 7;
-            this.AstrologianBuffGroup.TabStop = false;
-            this.AstrologianBuffGroup.Text = "Buff";
-            // 
-            // AstrologianLightspeed
-            // 
-            this.AstrologianLightspeed.AutoSize = true;
-            this.AstrologianLightspeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianLightspeed.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianLightspeed.ForeColor = System.Drawing.Color.White;
-            this.AstrologianLightspeed.Location = new System.Drawing.Point(6, 16);
-            this.AstrologianLightspeed.Name = "AstrologianLightspeed";
-            this.AstrologianLightspeed.Size = new System.Drawing.Size(80, 17);
-            this.AstrologianLightspeed.TabIndex = 0;
-            this.AstrologianLightspeed.TabStop = false;
-            this.AstrologianLightspeed.Text = "Lightspeed";
-            this.AstrologianLightspeed.UseVisualStyleBackColor = true;
-            this.AstrologianLightspeed.CheckedChanged += new System.EventHandler(this.AstrologianLightspeed_CheckedChanged);
-            // 
-            // AstrologianLightspeedCount
-            // 
-            this.AstrologianLightspeedCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianLightspeedCount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AstrologianLightspeedCount.Location = new System.Drawing.Point(93, 16);
-            this.AstrologianLightspeedCount.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.AstrologianLightspeedCount.Name = "AstrologianLightspeedCount";
-            this.AstrologianLightspeedCount.ShowSymbol = false;
-            this.AstrologianLightspeedCount.Size = new System.Drawing.Size(70, 22);
-            this.AstrologianLightspeedCount.TabIndex = 1;
-            this.AstrologianLightspeedCount.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.AstrologianLightspeedCount.ValueChanged += new System.EventHandler(this.AstrologianLightspeedCount_ValueChanged);
-            // 
-            // AstrologianLightspeedPct
-            // 
-            this.AstrologianLightspeedPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianLightspeedPct.Location = new System.Drawing.Point(169, 16);
-            this.AstrologianLightspeedPct.Name = "AstrologianLightspeedPct";
-            this.AstrologianLightspeedPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianLightspeedPct.TabIndex = 2;
-            this.AstrologianLightspeedPct.ValueChanged += new System.EventHandler(this.AstrologianLightspeedPct_ValueChanged);
-            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(904, 504);
+            this.ClientSize = new System.Drawing.Size(1004, 554);
             this.Controls.Add(this.ShinraContainer);
             this.Controls.Add(this.ShinraBorder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(904, 504);
+            this.MinimumSize = new System.Drawing.Size(1004, 554);
             this.Name = "ShinraForm";
             this.Text = "ShinraForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShinraForm_FormClosing);
@@ -9751,6 +9737,8 @@
             this.pgeHealers.ResumeLayout(false);
             this.tabHealers.ResumeLayout(false);
             this.pgeAstrologian.ResumeLayout(false);
+            this.AstrologianBuffGroup.ResumeLayout(false);
+            this.AstrologianBuffGroup.PerformLayout();
             this.AstrologianMiscGroup.ResumeLayout(false);
             this.AstrologianMiscGroup.PerformLayout();
             this.AstrologianDamageGroup.ResumeLayout(false);
@@ -9901,8 +9889,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.AstrologianBuffGroup.ResumeLayout(false);
-            this.AstrologianBuffGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10439,8 +10425,6 @@
         private Design.CustomCheck MachinistFlamethrower;
         private Design.CustomCheck MachinistCooldown;
         private Design.CustomCheck MachinistBarrelStabilizer;
-        private Design.CustomCombo AstrologianStyle;
-        private System.Windows.Forms.Label AstrologianStyleLabel;
         private Design.CustomGroup MachinistMiscGroup;
         private Design.CustomCheck MachinistSyncWildfire;
         private Design.CustomCheck MachinistOpener;
@@ -10535,5 +10519,6 @@
         private Design.UserNumeric AstrologianLargesseCount;
         private Design.UserNumeric AstrologianLargessePct;
         private Design.CustomCheck AstrologianLargesse;
+        private Design.CustomCheck AstrologianStellarDetonation;
     }
 }
