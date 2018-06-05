@@ -168,6 +168,11 @@
             this.tabHealers = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeAstrologian = new System.Windows.Forms.TabPage();
             this.AstrologianBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianSynastryPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianSynastryCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianCelestialOpposition = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianTimeDilation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianSynastry = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLightspeedPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianLightspeedCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianLightspeed = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -184,6 +189,7 @@
             this.AstrologianSectGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.AstrologianSect = new ShinraCo.Settings.Forms.Design.CustomCombo();
             this.AstrologianCardGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianCardPreCombat = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianSleeveDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianDraw = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -204,6 +210,8 @@
             this.AstrologianBeneficII = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianBenefic = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.AstrologianEyeForAnEyePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -212,7 +220,6 @@
             this.AstrologianLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.AstrologianRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.AstrologianEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.AstrologianSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.AstrologianProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -253,13 +260,16 @@
             this.ScholarPhysick = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarPartyHeal = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarEyeForAnEyePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ScholarRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.ScholarSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.ScholarLargesse = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.ScholarEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.ScholarSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -302,8 +312,6 @@
             this.WhiteMageLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMageRescue = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WhiteMageSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.WhiteMageLargesse = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.WhiteMageEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WhiteMageSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageProtect = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -653,12 +661,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianSynastry = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianTimeDilation = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianCelestialOpposition = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.AstrologianSynastryCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianSynastryPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.AstrologianCardPreCombat = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageEyeForAnEyePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -2784,6 +2791,85 @@
             this.AstrologianBuffGroup.TabStop = false;
             this.AstrologianBuffGroup.Text = "Buff";
             // 
+            // AstrologianSynastryPct
+            // 
+            this.AstrologianSynastryPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianSynastryPct.Location = new System.Drawing.Point(169, 39);
+            this.AstrologianSynastryPct.Name = "AstrologianSynastryPct";
+            this.AstrologianSynastryPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianSynastryPct.TabIndex = 7;
+            this.AstrologianSynastryPct.ValueChanged += new System.EventHandler(this.AstrologianSynastryPct_ValueChanged);
+            // 
+            // AstrologianSynastryCount
+            // 
+            this.AstrologianSynastryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianSynastryCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.Location = new System.Drawing.Point(93, 39);
+            this.AstrologianSynastryCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.Name = "AstrologianSynastryCount";
+            this.AstrologianSynastryCount.ShowSymbol = false;
+            this.AstrologianSynastryCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianSynastryCount.TabIndex = 6;
+            this.AstrologianSynastryCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.ValueChanged += new System.EventHandler(this.AstrologianSynastryCount_ValueChanged);
+            // 
+            // AstrologianCelestialOpposition
+            // 
+            this.AstrologianCelestialOpposition.AutoSize = true;
+            this.AstrologianCelestialOpposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianCelestialOpposition.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianCelestialOpposition.ForeColor = System.Drawing.Color.White;
+            this.AstrologianCelestialOpposition.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianCelestialOpposition.Name = "AstrologianCelestialOpposition";
+            this.AstrologianCelestialOpposition.Size = new System.Drawing.Size(128, 17);
+            this.AstrologianCelestialOpposition.TabIndex = 5;
+            this.AstrologianCelestialOpposition.TabStop = false;
+            this.AstrologianCelestialOpposition.Text = "Celestial Opposition";
+            this.AstrologianCelestialOpposition.UseVisualStyleBackColor = true;
+            this.AstrologianCelestialOpposition.CheckedChanged += new System.EventHandler(this.AstrologianCelestialOpposition_CheckedChanged);
+            // 
+            // AstrologianTimeDilation
+            // 
+            this.AstrologianTimeDilation.AutoSize = true;
+            this.AstrologianTimeDilation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianTimeDilation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianTimeDilation.ForeColor = System.Drawing.Color.White;
+            this.AstrologianTimeDilation.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianTimeDilation.Name = "AstrologianTimeDilation";
+            this.AstrologianTimeDilation.Size = new System.Drawing.Size(90, 17);
+            this.AstrologianTimeDilation.TabIndex = 4;
+            this.AstrologianTimeDilation.TabStop = false;
+            this.AstrologianTimeDilation.Text = "Time Dilation";
+            this.AstrologianTimeDilation.UseVisualStyleBackColor = true;
+            this.AstrologianTimeDilation.CheckedChanged += new System.EventHandler(this.AstrologianTimeDilation_CheckedChanged);
+            // 
+            // AstrologianSynastry
+            // 
+            this.AstrologianSynastry.AutoSize = true;
+            this.AstrologianSynastry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianSynastry.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianSynastry.ForeColor = System.Drawing.Color.White;
+            this.AstrologianSynastry.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianSynastry.Name = "AstrologianSynastry";
+            this.AstrologianSynastry.Size = new System.Drawing.Size(65, 17);
+            this.AstrologianSynastry.TabIndex = 3;
+            this.AstrologianSynastry.TabStop = false;
+            this.AstrologianSynastry.Text = "Synastry";
+            this.AstrologianSynastry.UseVisualStyleBackColor = true;
+            this.AstrologianSynastry.CheckedChanged += new System.EventHandler(this.AstrologianSynastry_CheckedChanged);
+            // 
             // AstrologianLightspeedPct
             // 
             this.AstrologianLightspeedPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
@@ -3004,6 +3090,21 @@
             this.AstrologianCardGroup.TabIndex = 2;
             this.AstrologianCardGroup.TabStop = false;
             this.AstrologianCardGroup.Text = "Card";
+            // 
+            // AstrologianCardPreCombat
+            // 
+            this.AstrologianCardPreCombat.AutoSize = true;
+            this.AstrologianCardPreCombat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianCardPreCombat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianCardPreCombat.ForeColor = System.Drawing.Color.White;
+            this.AstrologianCardPreCombat.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianCardPreCombat.Name = "AstrologianCardPreCombat";
+            this.AstrologianCardPreCombat.Size = new System.Drawing.Size(83, 17);
+            this.AstrologianCardPreCombat.TabIndex = 2;
+            this.AstrologianCardPreCombat.TabStop = false;
+            this.AstrologianCardPreCombat.Text = "Pre-Combat";
+            this.AstrologianCardPreCombat.UseVisualStyleBackColor = true;
+            this.AstrologianCardPreCombat.CheckedChanged += new System.EventHandler(this.AstrologianCardPreCombat_CheckedChanged);
             // 
             // AstrologianSleeveDraw
             // 
@@ -3267,6 +3368,8 @@
             // 
             // AstrologianRoleGroup
             // 
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianEyeForAnEyePct);
+            this.AstrologianRoleGroup.Controls.Add(this.AstrologianEyeForAnEye);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargesseCount);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargessePct);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLargesse);
@@ -3275,7 +3378,6 @@
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreamingPct);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianRescue);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSurecast);
-            this.AstrologianRoleGroup.Controls.Add(this.AstrologianEyeForAnEye);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianSwiftcast);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianLucidDreaming);
             this.AstrologianRoleGroup.Controls.Add(this.AstrologianProtect);
@@ -3287,6 +3389,30 @@
             this.AstrologianRoleGroup.TabIndex = 0;
             this.AstrologianRoleGroup.TabStop = false;
             this.AstrologianRoleGroup.Text = "Role";
+            // 
+            // AstrologianEyeForAnEyePct
+            // 
+            this.AstrologianEyeForAnEyePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianEyeForAnEyePct.Location = new System.Drawing.Point(155, 154);
+            this.AstrologianEyeForAnEyePct.Name = "AstrologianEyeForAnEyePct";
+            this.AstrologianEyeForAnEyePct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianEyeForAnEyePct.TabIndex = 17;
+            this.AstrologianEyeForAnEyePct.ValueChanged += new System.EventHandler(this.AstrologianEyeForAnEyePct_ValueChanged);
+            // 
+            // AstrologianEyeForAnEye
+            // 
+            this.AstrologianEyeForAnEye.AutoSize = true;
+            this.AstrologianEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianEyeForAnEye.ForeColor = System.Drawing.Color.White;
+            this.AstrologianEyeForAnEye.Location = new System.Drawing.Point(6, 154);
+            this.AstrologianEyeForAnEye.Name = "AstrologianEyeForAnEye";
+            this.AstrologianEyeForAnEye.Size = new System.Drawing.Size(94, 17);
+            this.AstrologianEyeForAnEye.TabIndex = 16;
+            this.AstrologianEyeForAnEye.TabStop = false;
+            this.AstrologianEyeForAnEye.Text = "Eye for an Eye";
+            this.AstrologianEyeForAnEye.UseVisualStyleBackColor = true;
+            this.AstrologianEyeForAnEye.CheckedChanged += new System.EventHandler(this.AstrologianEyeForAnEye_CheckedChanged);
             // 
             // AstrologianLargesseCount
             // 
@@ -3406,21 +3532,6 @@
             this.AstrologianSurecast.Text = "Surecast";
             this.AstrologianSurecast.UseVisualStyleBackColor = true;
             // 
-            // AstrologianEyeForAnEye
-            // 
-            this.AstrologianEyeForAnEye.AutoCheck = false;
-            this.AstrologianEyeForAnEye.AutoSize = true;
-            this.AstrologianEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianEyeForAnEye.ForeColor = System.Drawing.Color.DimGray;
-            this.AstrologianEyeForAnEye.Location = new System.Drawing.Point(6, 154);
-            this.AstrologianEyeForAnEye.Name = "AstrologianEyeForAnEye";
-            this.AstrologianEyeForAnEye.Size = new System.Drawing.Size(94, 17);
-            this.AstrologianEyeForAnEye.TabIndex = 6;
-            this.AstrologianEyeForAnEye.TabStop = false;
-            this.AstrologianEyeForAnEye.Text = "Eye for an Eye";
-            this.AstrologianEyeForAnEye.UseVisualStyleBackColor = true;
-            // 
             // AstrologianSwiftcast
             // 
             this.AstrologianSwiftcast.AutoSize = true;
@@ -3506,7 +3617,7 @@
             this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamage);
             this.ScholarDamageGroup.Controls.Add(this.ScholarStopDamagePct);
             this.ScholarDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarDamageGroup.Location = new System.Drawing.Point(436, 6);
+            this.ScholarDamageGroup.Location = new System.Drawing.Point(476, 6);
             this.ScholarDamageGroup.Name = "ScholarDamageGroup";
             this.ScholarDamageGroup.Size = new System.Drawing.Size(264, 67);
             this.ScholarDamageGroup.TabIndex = 6;
@@ -3566,7 +3677,7 @@
             this.ScholarBuffGroup.Controls.Add(this.ScholarEmergencyTactics);
             this.ScholarBuffGroup.Controls.Add(this.ScholarRouse);
             this.ScholarBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarBuffGroup.Location = new System.Drawing.Point(436, 200);
+            this.ScholarBuffGroup.Location = new System.Drawing.Point(476, 200);
             this.ScholarBuffGroup.Name = "ScholarBuffGroup";
             this.ScholarBuffGroup.Size = new System.Drawing.Size(125, 66);
             this.ScholarBuffGroup.TabIndex = 5;
@@ -3608,7 +3719,7 @@
             this.ScholarCooldownGroup.Controls.Add(this.ScholarChainStrategem);
             this.ScholarCooldownGroup.Controls.Add(this.ScholarShadowFlare);
             this.ScholarCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarCooldownGroup.Location = new System.Drawing.Point(436, 128);
+            this.ScholarCooldownGroup.Location = new System.Drawing.Point(476, 128);
             this.ScholarCooldownGroup.Name = "ScholarCooldownGroup";
             this.ScholarCooldownGroup.Size = new System.Drawing.Size(125, 66);
             this.ScholarCooldownGroup.TabIndex = 4;
@@ -3649,7 +3760,7 @@
             // 
             this.ScholarPetGroup.Controls.Add(this.ScholarPet);
             this.ScholarPetGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarPetGroup.Location = new System.Drawing.Point(567, 79);
+            this.ScholarPetGroup.Location = new System.Drawing.Point(607, 79);
             this.ScholarPetGroup.Name = "ScholarPetGroup";
             this.ScholarPetGroup.Size = new System.Drawing.Size(102, 43);
             this.ScholarPetGroup.TabIndex = 3;
@@ -3678,7 +3789,7 @@
             // 
             this.ScholarAoEGroup.Controls.Add(this.ScholarBane);
             this.ScholarAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarAoEGroup.Location = new System.Drawing.Point(436, 79);
+            this.ScholarAoEGroup.Location = new System.Drawing.Point(476, 79);
             this.ScholarAoEGroup.Name = "ScholarAoEGroup";
             this.ScholarAoEGroup.Size = new System.Drawing.Size(125, 43);
             this.ScholarAoEGroup.TabIndex = 2;
@@ -3721,7 +3832,7 @@
             this.ScholarHealGroup.Controls.Add(this.ScholarPhysick);
             this.ScholarHealGroup.Controls.Add(this.ScholarPartyHeal);
             this.ScholarHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.ScholarHealGroup.Location = new System.Drawing.Point(269, 6);
             this.ScholarHealGroup.Name = "ScholarHealGroup";
             this.ScholarHealGroup.Size = new System.Drawing.Size(201, 273);
             this.ScholarHealGroup.TabIndex = 1;
@@ -3958,13 +4069,16 @@
             // 
             // ScholarRoleGroup
             // 
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLargessePct);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLargesseCount);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarEyeForAnEyePct);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarLargesse);
+            this.ScholarRoleGroup.Controls.Add(this.ScholarEyeForAnEye);
             this.ScholarRoleGroup.Controls.Add(this.ScholarEsuna);
             this.ScholarRoleGroup.Controls.Add(this.ScholarClericStance);
             this.ScholarRoleGroup.Controls.Add(this.ScholarLucidDreamingPct);
             this.ScholarRoleGroup.Controls.Add(this.ScholarRescue);
             this.ScholarRoleGroup.Controls.Add(this.ScholarSurecast);
-            this.ScholarRoleGroup.Controls.Add(this.ScholarLargesse);
-            this.ScholarRoleGroup.Controls.Add(this.ScholarEyeForAnEye);
             this.ScholarRoleGroup.Controls.Add(this.ScholarSwiftcast);
             this.ScholarRoleGroup.Controls.Add(this.ScholarLucidDreaming);
             this.ScholarRoleGroup.Controls.Add(this.ScholarProtect);
@@ -3972,10 +4086,83 @@
             this.ScholarRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.ScholarRoleGroup.Name = "ScholarRoleGroup";
-            this.ScholarRoleGroup.Size = new System.Drawing.Size(210, 250);
+            this.ScholarRoleGroup.Size = new System.Drawing.Size(250, 250);
             this.ScholarRoleGroup.TabIndex = 0;
             this.ScholarRoleGroup.TabStop = false;
             this.ScholarRoleGroup.Text = "Role";
+            // 
+            // ScholarLargessePct
+            // 
+            this.ScholarLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarLargessePct.Location = new System.Drawing.Point(155, 177);
+            this.ScholarLargessePct.Name = "ScholarLargessePct";
+            this.ScholarLargessePct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarLargessePct.TabIndex = 28;
+            this.ScholarLargessePct.ValueChanged += new System.EventHandler(this.ScholarLargessePct_ValueChanged);
+            // 
+            // ScholarLargesseCount
+            // 
+            this.ScholarLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarLargesseCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ScholarLargesseCount.Location = new System.Drawing.Point(79, 177);
+            this.ScholarLargesseCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.ScholarLargesseCount.Name = "ScholarLargesseCount";
+            this.ScholarLargesseCount.ShowSymbol = false;
+            this.ScholarLargesseCount.Size = new System.Drawing.Size(70, 22);
+            this.ScholarLargesseCount.TabIndex = 27;
+            this.ScholarLargesseCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.ScholarLargesseCount.ValueChanged += new System.EventHandler(this.ScholarLargesseCount_ValueChanged);
+            // 
+            // ScholarEyeForAnEyePct
+            // 
+            this.ScholarEyeForAnEyePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarEyeForAnEyePct.Location = new System.Drawing.Point(155, 154);
+            this.ScholarEyeForAnEyePct.Name = "ScholarEyeForAnEyePct";
+            this.ScholarEyeForAnEyePct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarEyeForAnEyePct.TabIndex = 26;
+            this.ScholarEyeForAnEyePct.ValueChanged += new System.EventHandler(this.ScholarEyeForAnEyePct_ValueChanged);
+            // 
+            // ScholarLargesse
+            // 
+            this.ScholarLargesse.AutoSize = true;
+            this.ScholarLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarLargesse.ForeColor = System.Drawing.Color.White;
+            this.ScholarLargesse.Location = new System.Drawing.Point(6, 177);
+            this.ScholarLargesse.Name = "ScholarLargesse";
+            this.ScholarLargesse.Size = new System.Drawing.Size(67, 17);
+            this.ScholarLargesse.TabIndex = 25;
+            this.ScholarLargesse.TabStop = false;
+            this.ScholarLargesse.Text = "Largesse";
+            this.ScholarLargesse.UseVisualStyleBackColor = true;
+            this.ScholarLargesse.CheckedChanged += new System.EventHandler(this.ScholarLargesse_CheckedChanged);
+            // 
+            // ScholarEyeForAnEye
+            // 
+            this.ScholarEyeForAnEye.AutoSize = true;
+            this.ScholarEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEyeForAnEye.ForeColor = System.Drawing.Color.White;
+            this.ScholarEyeForAnEye.Location = new System.Drawing.Point(6, 154);
+            this.ScholarEyeForAnEye.Name = "ScholarEyeForAnEye";
+            this.ScholarEyeForAnEye.Size = new System.Drawing.Size(94, 17);
+            this.ScholarEyeForAnEye.TabIndex = 24;
+            this.ScholarEyeForAnEye.TabStop = false;
+            this.ScholarEyeForAnEye.Text = "Eye for an Eye";
+            this.ScholarEyeForAnEye.UseVisualStyleBackColor = true;
+            this.ScholarEyeForAnEye.CheckedChanged += new System.EventHandler(this.ScholarEyeForAnEye_CheckedChanged);
             // 
             // ScholarEsuna
             // 
@@ -4010,7 +4197,7 @@
             // ScholarLucidDreamingPct
             // 
             this.ScholarLucidDreamingPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarLucidDreamingPct.Location = new System.Drawing.Point(115, 108);
+            this.ScholarLucidDreamingPct.Location = new System.Drawing.Point(155, 108);
             this.ScholarLucidDreamingPct.Name = "ScholarLucidDreamingPct";
             this.ScholarLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.ScholarLucidDreamingPct.TabIndex = 21;
@@ -4045,36 +4232,6 @@
             this.ScholarSurecast.TabStop = false;
             this.ScholarSurecast.Text = "Surecast";
             this.ScholarSurecast.UseVisualStyleBackColor = true;
-            // 
-            // ScholarLargesse
-            // 
-            this.ScholarLargesse.AutoCheck = false;
-            this.ScholarLargesse.AutoSize = true;
-            this.ScholarLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ScholarLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarLargesse.ForeColor = System.Drawing.Color.DimGray;
-            this.ScholarLargesse.Location = new System.Drawing.Point(6, 177);
-            this.ScholarLargesse.Name = "ScholarLargesse";
-            this.ScholarLargesse.Size = new System.Drawing.Size(67, 17);
-            this.ScholarLargesse.TabIndex = 18;
-            this.ScholarLargesse.TabStop = false;
-            this.ScholarLargesse.Text = "Largesse";
-            this.ScholarLargesse.UseVisualStyleBackColor = true;
-            // 
-            // ScholarEyeForAnEye
-            // 
-            this.ScholarEyeForAnEye.AutoCheck = false;
-            this.ScholarEyeForAnEye.AutoSize = true;
-            this.ScholarEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ScholarEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarEyeForAnEye.ForeColor = System.Drawing.Color.DimGray;
-            this.ScholarEyeForAnEye.Location = new System.Drawing.Point(6, 154);
-            this.ScholarEyeForAnEye.Name = "ScholarEyeForAnEye";
-            this.ScholarEyeForAnEye.Size = new System.Drawing.Size(94, 17);
-            this.ScholarEyeForAnEye.TabIndex = 17;
-            this.ScholarEyeForAnEye.TabStop = false;
-            this.ScholarEyeForAnEye.Text = "Eye for an Eye";
-            this.ScholarEyeForAnEye.UseVisualStyleBackColor = true;
             // 
             // ScholarSwiftcast
             // 
@@ -4158,7 +4315,7 @@
             this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamage);
             this.WhiteMageDamageGroup.Controls.Add(this.WhiteMageStopDamagePct);
             this.WhiteMageDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageDamageGroup.Location = new System.Drawing.Point(463, 6);
+            this.WhiteMageDamageGroup.Location = new System.Drawing.Point(503, 6);
             this.WhiteMageDamageGroup.Name = "WhiteMageDamageGroup";
             this.WhiteMageDamageGroup.Size = new System.Drawing.Size(264, 67);
             this.WhiteMageDamageGroup.TabIndex = 6;
@@ -4218,7 +4375,7 @@
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMind);
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMageThinAir);
             this.WhiteMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(463, 79);
+            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(503, 79);
             this.WhiteMageBuffGroup.Name = "WhiteMageBuffGroup";
             this.WhiteMageBuffGroup.Size = new System.Drawing.Size(124, 66);
             this.WhiteMageBuffGroup.TabIndex = 2;
@@ -4280,7 +4437,7 @@
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMageCure);
             this.WhiteMageHealGroup.Controls.Add(this.WhiteMagePartyHeal);
             this.WhiteMageHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageHealGroup.Location = new System.Drawing.Point(229, 6);
+            this.WhiteMageHealGroup.Location = new System.Drawing.Point(269, 6);
             this.WhiteMageHealGroup.Name = "WhiteMageHealGroup";
             this.WhiteMageHealGroup.Size = new System.Drawing.Size(228, 319);
             this.WhiteMageHealGroup.TabIndex = 1;
@@ -4565,13 +4722,16 @@
             // 
             // WhiteMageRoleGroup
             // 
+            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLargessePct);
+            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLargesseCount);
+            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageEyeForAnEyePct);
+            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLargesse);
+            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageEyeForAnEye);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageEsuna);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageClericStance);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLucidDreamingPct);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageRescue);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageSurecast);
-            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLargesse);
-            this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageEyeForAnEye);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageSwiftcast);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageLucidDreaming);
             this.WhiteMageRoleGroup.Controls.Add(this.WhiteMageProtect);
@@ -4579,7 +4739,7 @@
             this.WhiteMageRoleGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.WhiteMageRoleGroup.Location = new System.Drawing.Point(13, 6);
             this.WhiteMageRoleGroup.Name = "WhiteMageRoleGroup";
-            this.WhiteMageRoleGroup.Size = new System.Drawing.Size(210, 250);
+            this.WhiteMageRoleGroup.Size = new System.Drawing.Size(250, 250);
             this.WhiteMageRoleGroup.TabIndex = 0;
             this.WhiteMageRoleGroup.TabStop = false;
             this.WhiteMageRoleGroup.Text = "Role";
@@ -4617,7 +4777,7 @@
             // WhiteMageLucidDreamingPct
             // 
             this.WhiteMageLucidDreamingPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageLucidDreamingPct.Location = new System.Drawing.Point(115, 108);
+            this.WhiteMageLucidDreamingPct.Location = new System.Drawing.Point(155, 108);
             this.WhiteMageLucidDreamingPct.Name = "WhiteMageLucidDreamingPct";
             this.WhiteMageLucidDreamingPct.Size = new System.Drawing.Size(89, 22);
             this.WhiteMageLucidDreamingPct.TabIndex = 21;
@@ -4652,36 +4812,6 @@
             this.WhiteMageSurecast.TabStop = false;
             this.WhiteMageSurecast.Text = "Surecast";
             this.WhiteMageSurecast.UseVisualStyleBackColor = true;
-            // 
-            // WhiteMageLargesse
-            // 
-            this.WhiteMageLargesse.AutoCheck = false;
-            this.WhiteMageLargesse.AutoSize = true;
-            this.WhiteMageLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageLargesse.ForeColor = System.Drawing.Color.DimGray;
-            this.WhiteMageLargesse.Location = new System.Drawing.Point(6, 177);
-            this.WhiteMageLargesse.Name = "WhiteMageLargesse";
-            this.WhiteMageLargesse.Size = new System.Drawing.Size(67, 17);
-            this.WhiteMageLargesse.TabIndex = 18;
-            this.WhiteMageLargesse.TabStop = false;
-            this.WhiteMageLargesse.Text = "Largesse";
-            this.WhiteMageLargesse.UseVisualStyleBackColor = true;
-            // 
-            // WhiteMageEyeForAnEye
-            // 
-            this.WhiteMageEyeForAnEye.AutoCheck = false;
-            this.WhiteMageEyeForAnEye.AutoSize = true;
-            this.WhiteMageEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageEyeForAnEye.ForeColor = System.Drawing.Color.DimGray;
-            this.WhiteMageEyeForAnEye.Location = new System.Drawing.Point(6, 154);
-            this.WhiteMageEyeForAnEye.Name = "WhiteMageEyeForAnEye";
-            this.WhiteMageEyeForAnEye.Size = new System.Drawing.Size(94, 17);
-            this.WhiteMageEyeForAnEye.TabIndex = 17;
-            this.WhiteMageEyeForAnEye.TabStop = false;
-            this.WhiteMageEyeForAnEye.Text = "Eye for an Eye";
-            this.WhiteMageEyeForAnEye.UseVisualStyleBackColor = true;
             // 
             // WhiteMageSwiftcast
             // 
@@ -9679,99 +9809,78 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // AstrologianSynastry
+            // WhiteMageEyeForAnEye
             // 
-            this.AstrologianSynastry.AutoSize = true;
-            this.AstrologianSynastry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianSynastry.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSynastry.ForeColor = System.Drawing.Color.White;
-            this.AstrologianSynastry.Location = new System.Drawing.Point(6, 39);
-            this.AstrologianSynastry.Name = "AstrologianSynastry";
-            this.AstrologianSynastry.Size = new System.Drawing.Size(65, 17);
-            this.AstrologianSynastry.TabIndex = 3;
-            this.AstrologianSynastry.TabStop = false;
-            this.AstrologianSynastry.Text = "Synastry";
-            this.AstrologianSynastry.UseVisualStyleBackColor = true;
-            this.AstrologianSynastry.CheckedChanged += new System.EventHandler(this.AstrologianSynastry_CheckedChanged);
+            this.WhiteMageEyeForAnEye.AutoSize = true;
+            this.WhiteMageEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageEyeForAnEye.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageEyeForAnEye.Location = new System.Drawing.Point(6, 154);
+            this.WhiteMageEyeForAnEye.Name = "WhiteMageEyeForAnEye";
+            this.WhiteMageEyeForAnEye.Size = new System.Drawing.Size(94, 17);
+            this.WhiteMageEyeForAnEye.TabIndex = 24;
+            this.WhiteMageEyeForAnEye.TabStop = false;
+            this.WhiteMageEyeForAnEye.Text = "Eye for an Eye";
+            this.WhiteMageEyeForAnEye.UseVisualStyleBackColor = true;
+            this.WhiteMageEyeForAnEye.CheckedChanged += new System.EventHandler(this.WhiteMageEyeForAnEye_CheckedChanged);
             // 
-            // AstrologianTimeDilation
+            // WhiteMageLargesse
             // 
-            this.AstrologianTimeDilation.AutoSize = true;
-            this.AstrologianTimeDilation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianTimeDilation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianTimeDilation.ForeColor = System.Drawing.Color.White;
-            this.AstrologianTimeDilation.Location = new System.Drawing.Point(6, 62);
-            this.AstrologianTimeDilation.Name = "AstrologianTimeDilation";
-            this.AstrologianTimeDilation.Size = new System.Drawing.Size(90, 17);
-            this.AstrologianTimeDilation.TabIndex = 4;
-            this.AstrologianTimeDilation.TabStop = false;
-            this.AstrologianTimeDilation.Text = "Time Dilation";
-            this.AstrologianTimeDilation.UseVisualStyleBackColor = true;
-            this.AstrologianTimeDilation.CheckedChanged += new System.EventHandler(this.AstrologianTimeDilation_CheckedChanged);
+            this.WhiteMageLargesse.AutoSize = true;
+            this.WhiteMageLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageLargesse.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageLargesse.Location = new System.Drawing.Point(6, 177);
+            this.WhiteMageLargesse.Name = "WhiteMageLargesse";
+            this.WhiteMageLargesse.Size = new System.Drawing.Size(67, 17);
+            this.WhiteMageLargesse.TabIndex = 25;
+            this.WhiteMageLargesse.TabStop = false;
+            this.WhiteMageLargesse.Text = "Largesse";
+            this.WhiteMageLargesse.UseVisualStyleBackColor = true;
+            this.WhiteMageLargesse.CheckedChanged += new System.EventHandler(this.WhiteMageLargesse_CheckedChanged);
             // 
-            // AstrologianCelestialOpposition
+            // WhiteMageEyeForAnEyePct
             // 
-            this.AstrologianCelestialOpposition.AutoSize = true;
-            this.AstrologianCelestialOpposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianCelestialOpposition.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCelestialOpposition.ForeColor = System.Drawing.Color.White;
-            this.AstrologianCelestialOpposition.Location = new System.Drawing.Point(6, 85);
-            this.AstrologianCelestialOpposition.Name = "AstrologianCelestialOpposition";
-            this.AstrologianCelestialOpposition.Size = new System.Drawing.Size(128, 17);
-            this.AstrologianCelestialOpposition.TabIndex = 5;
-            this.AstrologianCelestialOpposition.TabStop = false;
-            this.AstrologianCelestialOpposition.Text = "Celestial Opposition";
-            this.AstrologianCelestialOpposition.UseVisualStyleBackColor = true;
-            this.AstrologianCelestialOpposition.CheckedChanged += new System.EventHandler(this.AstrologianCelestialOpposition_CheckedChanged);
+            this.WhiteMageEyeForAnEyePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageEyeForAnEyePct.Location = new System.Drawing.Point(155, 154);
+            this.WhiteMageEyeForAnEyePct.Name = "WhiteMageEyeForAnEyePct";
+            this.WhiteMageEyeForAnEyePct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageEyeForAnEyePct.TabIndex = 26;
+            this.WhiteMageEyeForAnEyePct.ValueChanged += new System.EventHandler(this.WhiteMageEyeForAnEyePct_ValueChanged);
             // 
-            // AstrologianSynastryCount
+            // WhiteMageLargesseCount
             // 
-            this.AstrologianSynastryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianSynastryCount.Increment = new decimal(new int[] {
+            this.WhiteMageLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageLargesseCount.Increment = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.AstrologianSynastryCount.Location = new System.Drawing.Point(93, 39);
-            this.AstrologianSynastryCount.Maximum = new decimal(new int[] {
+            this.WhiteMageLargesseCount.Location = new System.Drawing.Point(79, 177);
+            this.WhiteMageLargesseCount.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.AstrologianSynastryCount.Name = "AstrologianSynastryCount";
-            this.AstrologianSynastryCount.ShowSymbol = false;
-            this.AstrologianSynastryCount.Size = new System.Drawing.Size(70, 22);
-            this.AstrologianSynastryCount.TabIndex = 6;
-            this.AstrologianSynastryCount.Value = new decimal(new int[] {
+            this.WhiteMageLargesseCount.Name = "WhiteMageLargesseCount";
+            this.WhiteMageLargesseCount.ShowSymbol = false;
+            this.WhiteMageLargesseCount.Size = new System.Drawing.Size(70, 22);
+            this.WhiteMageLargesseCount.TabIndex = 27;
+            this.WhiteMageLargesseCount.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.AstrologianSynastryCount.ValueChanged += new System.EventHandler(this.AstrologianSynastryCount_ValueChanged);
+            this.WhiteMageLargesseCount.ValueChanged += new System.EventHandler(this.WhiteMageLargesseCount_ValueChanged);
             // 
-            // AstrologianSynastryPct
+            // WhiteMageLargessePct
             // 
-            this.AstrologianSynastryPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.AstrologianSynastryPct.Location = new System.Drawing.Point(169, 39);
-            this.AstrologianSynastryPct.Name = "AstrologianSynastryPct";
-            this.AstrologianSynastryPct.Size = new System.Drawing.Size(89, 22);
-            this.AstrologianSynastryPct.TabIndex = 7;
-            this.AstrologianSynastryPct.ValueChanged += new System.EventHandler(this.AstrologianSynastryPct_ValueChanged);
-            // 
-            // AstrologianCardPreCombat
-            // 
-            this.AstrologianCardPreCombat.AutoSize = true;
-            this.AstrologianCardPreCombat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AstrologianCardPreCombat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardPreCombat.ForeColor = System.Drawing.Color.White;
-            this.AstrologianCardPreCombat.Location = new System.Drawing.Point(6, 62);
-            this.AstrologianCardPreCombat.Name = "AstrologianCardPreCombat";
-            this.AstrologianCardPreCombat.Size = new System.Drawing.Size(83, 17);
-            this.AstrologianCardPreCombat.TabIndex = 2;
-            this.AstrologianCardPreCombat.TabStop = false;
-            this.AstrologianCardPreCombat.Text = "Pre-Combat";
-            this.AstrologianCardPreCombat.UseVisualStyleBackColor = true;
-            this.AstrologianCardPreCombat.CheckedChanged += new System.EventHandler(this.AstrologianCardPreCombat_CheckedChanged);
+            this.WhiteMageLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageLargessePct.Location = new System.Drawing.Point(155, 177);
+            this.WhiteMageLargessePct.Name = "WhiteMageLargessePct";
+            this.WhiteMageLargessePct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageLargessePct.TabIndex = 28;
+            this.WhiteMageLargessePct.ValueChanged += new System.EventHandler(this.WhiteMageLargessePct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -10158,7 +10267,6 @@
         private Design.UserNumeric AstrologianLucidDreamingPct;
         private Design.CustomCheckDisabled AstrologianRescue;
         private Design.CustomCheckDisabled AstrologianSurecast;
-        private Design.CustomCheckDisabled AstrologianEyeForAnEye;
         private Design.CustomCheck AstrologianSwiftcast;
         private Design.CustomCheck AstrologianLucidDreaming;
         private Design.CustomCheck AstrologianProtect;
@@ -10315,8 +10423,6 @@
         private Design.UserNumeric WhiteMageLucidDreamingPct;
         private Design.CustomCheckDisabled WhiteMageRescue;
         private Design.CustomCheckDisabled WhiteMageSurecast;
-        private Design.CustomCheckDisabled WhiteMageLargesse;
-        private Design.CustomCheckDisabled WhiteMageEyeForAnEye;
         private Design.CustomCheck WhiteMageSwiftcast;
         private Design.CustomCheck WhiteMageLucidDreaming;
         private Design.CustomCheck WhiteMageProtect;
@@ -10412,8 +10518,6 @@
         private Design.UserNumeric ScholarLucidDreamingPct;
         private Design.CustomCheckDisabled ScholarRescue;
         private Design.CustomCheckDisabled ScholarSurecast;
-        private Design.CustomCheckDisabled ScholarLargesse;
-        private Design.CustomCheckDisabled ScholarEyeForAnEye;
         private Design.CustomCheck ScholarSwiftcast;
         private Design.CustomCheck ScholarLucidDreaming;
         private Design.CustomCheck ScholarProtect;
@@ -10632,5 +10736,17 @@
         private Design.UserNumeric AstrologianSynastryPct;
         private Design.UserNumeric AstrologianSynastryCount;
         private Design.CustomCheck AstrologianCardPreCombat;
+        private Design.UserNumeric AstrologianEyeForAnEyePct;
+        private Design.CustomCheck AstrologianEyeForAnEye;
+        private Design.CustomCheck ScholarLargesse;
+        private Design.CustomCheck ScholarEyeForAnEye;
+        private Design.UserNumeric ScholarLargessePct;
+        private Design.UserNumeric ScholarLargesseCount;
+        private Design.UserNumeric ScholarEyeForAnEyePct;
+        private Design.UserNumeric WhiteMageLargessePct;
+        private Design.UserNumeric WhiteMageLargesseCount;
+        private Design.UserNumeric WhiteMageEyeForAnEyePct;
+        private Design.CustomCheck WhiteMageLargesse;
+        private Design.CustomCheck WhiteMageEyeForAnEye;
     }
 }

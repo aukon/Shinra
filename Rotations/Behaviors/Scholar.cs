@@ -45,6 +45,8 @@ namespace ShinraCo.Rotations
             if (await UpdateHealing()) return true;
             if (await StopCasting()) return true;
             if (await Lustrate()) return true;
+            if (await Largesse()) return true;
+            if (await EyeForAnEye()) return true;
             if (await Aetherpact()) return true;
             if (await Indomitability()) return true;
             if (await Succor()) return true;

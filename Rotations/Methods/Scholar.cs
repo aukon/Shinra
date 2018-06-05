@@ -427,7 +427,36 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.ScholarLucidDreaming && Core.Player.CurrentManaPercent < Shinra.Settings.ScholarLucidDreamingPct)
             {
-                return await MySpells.Role.LucidDreaming.Cast();
+                return await MySpells.Role.LucidDreaming.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> EyeForAnEye()
+        {
+            if (Shinra.Settings.ScholarPartyHeal && Shinra.Settings.ScholarEyeForAnEye)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() &&
+                                                                      hm.CurrentHealthPercent < Shinra.Settings.ScholarEyeForAnEyePct &&
+                                                                      !hm.HasAura("Eye for an Eye"));
+
+                if (target != null)
+                {
+                    return await MySpells.Role.EyeForAnEye.Cast(target, false);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Largesse()
+        {
+            if (Shinra.Settings.ScholarPartyHeal && Shinra.Settings.ScholarLargesse)
+            {
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.ScholarLargessePct) >=
+                    Shinra.Settings.ScholarLargesseCount)
+                {
+                    return await MySpells.Role.Largesse.Cast(null, false);
+                }
             }
             return false;
         }

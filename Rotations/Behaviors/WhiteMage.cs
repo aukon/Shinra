@@ -61,6 +61,8 @@ namespace ShinraCo.Rotations
             if (await StopCasting()) return true;
             if (await Benediction()) return true;
             if (await Tetragrammaton()) return true;
+            if (await Largesse()) return true;
+            if (await EyeForAnEye()) return true;
             if (await PlenaryIndulgence()) return true;
             if (await Assize()) return true;
             if (await MedicaII()) return true;

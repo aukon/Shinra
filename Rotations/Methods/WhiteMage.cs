@@ -383,7 +383,36 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.WhiteMageLucidDreaming && Core.Player.CurrentManaPercent < Shinra.Settings.WhiteMageLucidDreamingPct)
             {
-                return await MySpells.Role.LucidDreaming.Cast();
+                return await MySpells.Role.LucidDreaming.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> EyeForAnEye()
+        {
+            if (Shinra.Settings.WhiteMagePartyHeal && Shinra.Settings.WhiteMageEyeForAnEye)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() &&
+                                                                      hm.CurrentHealthPercent < Shinra.Settings.WhiteMageEyeForAnEyePct &&
+                                                                      !hm.HasAura("Eye for an Eye"));
+
+                if (target != null)
+                {
+                    return await MySpells.Role.EyeForAnEye.Cast(target, false);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> Largesse()
+        {
+            if (Shinra.Settings.WhiteMagePartyHeal && Shinra.Settings.WhiteMageLargesse)
+            {
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.WhiteMageLargessePct) >=
+                    Shinra.Settings.WhiteMageLargesseCount)
+                {
+                    return await MySpells.Role.Largesse.Cast(null, false);
+                }
             }
             return false;
         }

@@ -114,6 +114,8 @@ namespace ShinraCo.Settings.Forms
             AstrologianLucidDreaming.Checked = Shinra.Settings.AstrologianLucidDreaming;
             AstrologianLucidDreamingPct.Value = Shinra.Settings.AstrologianLucidDreamingPct;
             AstrologianSwiftcast.Checked = Shinra.Settings.AstrologianSwiftcast;
+            AstrologianEyeForAnEye.Checked = Shinra.Settings.AstrologianEyeForAnEye;
+            AstrologianEyeForAnEyePct.Value = Shinra.Settings.AstrologianEyeForAnEyePct;
             AstrologianLargesse.Checked = Shinra.Settings.AstrologianLargesse;
             AstrologianLargesseCount.Value = Shinra.Settings.AstrologianLargesseCount;
             AstrologianLargessePct.Value = Shinra.Settings.AstrologianLargessePct;
@@ -756,9 +758,13 @@ namespace ShinraCo.Settings.Forms
             ScholarProtect.Checked = Shinra.Settings.ScholarProtect;
             ScholarEsuna.Checked = Shinra.Settings.ScholarEsuna;
             ScholarLucidDreaming.Checked = Shinra.Settings.ScholarLucidDreaming;
-            ScholarSwiftcast.Checked = Shinra.Settings.ScholarSwiftcast;
-
             ScholarLucidDreamingPct.Value = Shinra.Settings.ScholarLucidDreamingPct;
+            ScholarSwiftcast.Checked = Shinra.Settings.ScholarSwiftcast;
+            ScholarEyeForAnEye.Checked = Shinra.Settings.ScholarEyeForAnEye;
+            ScholarEyeForAnEyePct.Value = Shinra.Settings.ScholarEyeForAnEyePct;
+            ScholarLargesse.Checked = Shinra.Settings.ScholarLargesse;
+            ScholarLargesseCount.Value = Shinra.Settings.ScholarLargesseCount;
+            ScholarLargessePct.Value = Shinra.Settings.ScholarLargessePct;
 
             #endregion
 
@@ -970,9 +976,13 @@ namespace ShinraCo.Settings.Forms
             WhiteMageProtect.Checked = Shinra.Settings.WhiteMageProtect;
             WhiteMageEsuna.Checked = Shinra.Settings.WhiteMageEsuna;
             WhiteMageLucidDreaming.Checked = Shinra.Settings.WhiteMageLucidDreaming;
-            WhiteMageSwiftcast.Checked = Shinra.Settings.WhiteMageSwiftcast;
-
             WhiteMageLucidDreamingPct.Value = Shinra.Settings.WhiteMageLucidDreamingPct;
+            WhiteMageSwiftcast.Checked = Shinra.Settings.WhiteMageSwiftcast;
+            WhiteMageEyeForAnEye.Checked = Shinra.Settings.WhiteMageEyeForAnEye;
+            WhiteMageEyeForAnEyePct.Value = Shinra.Settings.WhiteMageEyeForAnEyePct;
+            WhiteMageLargesse.Checked = Shinra.Settings.WhiteMageLargesse;
+            WhiteMageLargesseCount.Value = Shinra.Settings.WhiteMageLargesseCount;
+            WhiteMageLargessePct.Value = Shinra.Settings.WhiteMageLargessePct;
 
             #endregion
 
@@ -1223,6 +1233,16 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianSwiftcast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianSwiftcast = AstrologianSwiftcast.Checked;
+        }
+
+        private void AstrologianEyeForAnEye_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianEyeForAnEye = AstrologianEyeForAnEye.Checked;
+        }
+
+        private void AstrologianEyeForAnEyePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianEyeForAnEyePct = Convert.ToInt32(AstrologianEyeForAnEyePct.Value);
         }
 
         private void AstrologianLargesse_CheckedChanged(object sender, EventArgs e)
@@ -2882,14 +2902,39 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.ScholarLucidDreaming = ScholarLucidDreaming.Checked;
         }
 
+        private void ScholarLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLucidDreamingPct = Convert.ToInt32(ScholarLucidDreamingPct.Value);
+        }
+
         private void ScholarSwiftcast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.ScholarSwiftcast = ScholarSwiftcast.Checked;
         }
 
-        private void ScholarLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        private void ScholarEyeForAnEye_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.ScholarLucidDreamingPct = Convert.ToInt32(ScholarLucidDreamingPct.Value);
+            Shinra.Settings.ScholarEyeForAnEye = ScholarEyeForAnEye.Checked;
+        }
+
+        private void ScholarEyeForAnEyePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarEyeForAnEyePct = Convert.ToInt32(ScholarEyeForAnEyePct.Value);
+        }
+
+        private void ScholarLargesse_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLargesse = ScholarLargesse.Checked;
+        }
+
+        private void ScholarLargesseCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLargesseCount = Convert.ToInt32(ScholarLargesseCount.Value);
+        }
+
+        private void ScholarLargessePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarLargessePct = Convert.ToInt32(ScholarLargessePct.Value);
         }
 
         #endregion
@@ -3435,14 +3480,39 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.WhiteMageLucidDreaming = WhiteMageLucidDreaming.Checked;
         }
 
+        private void WhiteMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLucidDreamingPct = Convert.ToInt32(WhiteMageLucidDreamingPct.Value);
+        }
+
         private void WhiteMageSwiftcast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WhiteMageSwiftcast = WhiteMageSwiftcast.Checked;
         }
 
-        private void WhiteMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
+        private void WhiteMageEyeForAnEye_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.WhiteMageLucidDreamingPct = Convert.ToInt32(WhiteMageLucidDreamingPct.Value);
+            Shinra.Settings.WhiteMageEyeForAnEye = WhiteMageEyeForAnEye.Checked;
+        }
+
+        private void WhiteMageEyeForAnEyePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageEyeForAnEyePct = Convert.ToInt32(WhiteMageEyeForAnEyePct.Value);
+        }
+
+        private void WhiteMageLargesse_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLargesse = WhiteMageLargesse.Checked;
+        }
+
+        private void WhiteMageLargesseCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLargesseCount = Convert.ToInt32(WhiteMageLargesseCount.Value);
+        }
+
+        private void WhiteMageLargessePct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMageLargessePct = Convert.ToInt32(WhiteMageLargessePct.Value);
         }
 
         #endregion

@@ -227,6 +227,12 @@ namespace ShinraCo.Settings
         public bool AstrologianSwiftcast { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool AstrologianEyeForAnEye { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int AstrologianEyeForAnEyePct { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool AstrologianLargesse { get; set; }
 
         [Setting, DefaultValue(2)]
@@ -1343,11 +1349,26 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool ScholarLucidDreaming { get; set; }
 
+        [Setting, DefaultValue(60)]
+        public int ScholarLucidDreamingPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool ScholarSwiftcast { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool ScholarEyeForAnEye { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int ScholarEyeForAnEyePct { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool ScholarLargesse { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int ScholarLargesseCount { get; set; }
+
         [Setting, DefaultValue(60)]
-        public int ScholarLucidDreamingPct { get; set; }
+        public int ScholarLargessePct { get; set; }
 
         #endregion
 
@@ -1709,11 +1730,26 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool WhiteMageLucidDreaming { get; set; }
 
+        [Setting, DefaultValue(60)]
+        public int WhiteMageLucidDreamingPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool WhiteMageSwiftcast { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageEyeForAnEye { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int WhiteMageEyeForAnEyePct { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool WhiteMageLargesse { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int WhiteMageLargesseCount { get; set; }
+
         [Setting, DefaultValue(60)]
-        public int WhiteMageLucidDreamingPct { get; set; }
+        public int WhiteMageLargessePct { get; set; }
 
         #endregion
 

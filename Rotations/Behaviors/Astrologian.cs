@@ -78,6 +78,7 @@ namespace ShinraCo.Rotations
             if (await Lightspeed()) return true;
             if (await Largesse()) return true;
             if (await Synastry()) return true;
+            if (await EyeForAnEye()) return true;
             if (await TimeDilation()) return true;
             if (await LadyOfCrowns()) return true;
             if (await AspectedHelios()) return true;

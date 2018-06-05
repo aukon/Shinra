@@ -549,14 +549,30 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.AstrologianLucidDreaming && Core.Player.CurrentManaPercent < Shinra.Settings.AstrologianLucidDreamingPct)
             {
-                return await MySpells.Role.LucidDreaming.Cast();
+                return await MySpells.Role.LucidDreaming.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> EyeForAnEye()
+        {
+            if (Shinra.Settings.AstrologianPartyHeal && Shinra.Settings.AstrologianEyeForAnEye)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() &&
+                                                                      hm.CurrentHealthPercent < Shinra.Settings.AstrologianEyeForAnEyePct &&
+                                                                      !hm.HasAura("Eye for an Eye"));
+
+                if (target != null)
+                {
+                    return await MySpells.Role.EyeForAnEye.Cast(target, false);
+                }
             }
             return false;
         }
 
         private async Task<bool> Largesse()
         {
-            if (Shinra.Settings.AstrologianLargesse && Shinra.Settings.AstrologianPartyHeal)
+            if (Shinra.Settings.AstrologianPartyHeal && Shinra.Settings.AstrologianLargesse)
             {
                 if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianLargessePct) >=
                     Shinra.Settings.AstrologianLargesseCount)
