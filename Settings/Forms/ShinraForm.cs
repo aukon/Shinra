@@ -142,6 +142,11 @@ namespace ShinraCo.Settings.Forms
             AstrologianLightspeed.Checked = Shinra.Settings.AstrologianLightspeed;
             AstrologianLightspeedCount.Value = Shinra.Settings.AstrologianLightspeedCount;
             AstrologianLightspeedPct.Value = Shinra.Settings.AstrologianLightspeedPct;
+            AstrologianSynastry.Checked = Shinra.Settings.AstrologianSynastry;
+            AstrologianSynastryCount.Value = Shinra.Settings.AstrologianSynastryCount;
+            AstrologianSynastryPct.Value = Shinra.Settings.AstrologianSynastryPct;
+            AstrologianTimeDilation.Checked = Shinra.Settings.AstrologianTimeDilation;
+            AstrologianCelestialOpposition.Checked = Shinra.Settings.AstrologianCelestialOpposition;
 
             #endregion
 
@@ -171,6 +176,7 @@ namespace ShinraCo.Settings.Forms
 
             AstrologianDraw.Checked = Shinra.Settings.AstrologianDraw;
             AstrologianSleeveDraw.Checked = Shinra.Settings.AstrologianSleeveDraw;
+            AstrologianCardPreCombat.Checked = Shinra.Settings.AstrologianCardPreCombat;
 
             #endregion
 
@@ -1291,6 +1297,31 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.AstrologianLightspeedPct = Convert.ToInt32(AstrologianLightspeedPct.Value);
         }
 
+        private void AstrologianSynastry_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianSynastry = AstrologianSynastry.Checked;
+        }
+
+        private void AstrologianSynastryCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianSynastryCount = Convert.ToInt32(AstrologianSynastryCount.Value);
+        }
+
+        private void AstrologianSynastryPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianSynastryPct = Convert.ToInt32(AstrologianSynastryPct.Value);
+        }
+
+        private void AstrologianTimeDilation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianTimeDilation = AstrologianTimeDilation.Checked;
+        }
+
+        private void AstrologianCelestialOpposition_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianCelestialOpposition = AstrologianCelestialOpposition.Checked;
+        }
+
         #endregion
 
         #region Heal
@@ -1387,6 +1418,11 @@ namespace ShinraCo.Settings.Forms
         private void AstrologianSleeveDraw_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.AstrologianSleeveDraw = AstrologianSleeveDraw.Checked;
+        }
+
+        private void AstrologianCardPreCombat_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.AstrologianCardPreCombat = AstrologianCardPreCombat.Checked;
         }
 
         #endregion

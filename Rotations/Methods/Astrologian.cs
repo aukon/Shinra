@@ -122,6 +122,47 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Synastry()
+        {
+            if (Shinra.Settings.AstrologianPartyHeal && Shinra.Settings.AstrologianSynastry)
+            {
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.AstrologianSynastryPct) >=
+                    Shinra.Settings.AstrologianSynastryCount)
+                {
+                    var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank());
+
+                    if (target != null)
+                    {
+                        return await MySpells.Synastry.Cast(target, false);
+                    }
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> TimeDilation()
+        {
+            if (Shinra.Settings.AstrologianPartyHeal && Shinra.Settings.AstrologianTimeDilation)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && IsBuffed(hm) || hm.IsTank() && hm.HasAura("The Bole"));
+
+                if (target != null)
+                {
+                    return await MySpells.TimeDilation.Cast(target, false);
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> CelestialOpposition()
+        {
+            if (Shinra.Settings.AstrologianCelestialOpposition && Core.Player.HasAura(MySpells.Role.LucidDreaming.Name))
+            {
+                return await MySpells.CelestialOpposition.Cast(null, false);
+            }
+            return false;
+        }
+
         #endregion
 
         #region Heal
@@ -287,42 +328,38 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DrawTargetted()
         {
-            if (HasCard && !BuffOffensive)
+            if (!HasCard || BuffShared && Helpers.HealManager.Any(IsBuffed))
             {
-                var target = Core.Player as BattleCharacter;
+                return false;
+            }
 
-                if (CardOffensive)
-                {
-                    target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && !hm.HasAura("The Balance") &&
-                                                                      !hm.HasAura("The Arrow") && !hm.HasAura("The Spear")) ?? Core.Player;
-                }
-                else if (BuffShared)
-                {
-                    return false;
-                }
-                else if (CardBole)
-                {
-                    target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() && !hm.HasAura("The Bole")) ?? Core.Player;
-                }
-                else if (CardSpire)
-                {
-                    target = Helpers.GoadManager.FirstOrDefault(gm => !gm.HasAura("The Spire")) ?? Core.Player;
-                }
+            var target = Core.Player as BattleCharacter;
 
-                if (target != null)
-                {
-                    return await MySpells.Draw.Cast(target);
-                }
+            if (CardOffensive)
+            {
+                target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && !IsBuffed(hm)) ?? Core.Player;
+            }
+            if (CardBole && !BuffShared)
+            {
+                target = Helpers.HealManager.FirstOrDefault(hm => hm.IsTank() && !hm.HasAura("The Bole"));
+            }
+            if (CardSpire && !BuffShared)
+            {
+                target = Helpers.GoadManager.FirstOrDefault(gm => !gm.HasAura("The Spire"));
+            }
+
+            if (target != null)
+            {
+                return await MySpells.Draw.Cast(target);
             }
             return false;
         }
 
         private async Task<bool> SpreadTargetted()
         {
-            if (SpreadOffensive && BuffShared && !BuffOffensive)
+            if (SpreadOffensive && BuffShared && !Helpers.HealManager.Any(IsBuffed))
             {
-                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS() && !hm.HasAura("The Balance") &&
-                                                                      !hm.HasAura("The Arrow") && !hm.HasAura("The Spear")) ?? Core.Player;
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.IsDPS()) ?? Core.Player;
 
                 if (target != null)
                 {
@@ -424,7 +461,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SleeveDraw()
         {
-            if (Shinra.Settings.AstrologianSleeveDraw && !HasCard)
+            if (Shinra.Settings.AstrologianSleeveDraw && !HasCard && (!HasSpread || !BuffShared))
             {
                 return await MySpells.SleeveDraw.Cast();
             }
@@ -534,6 +571,11 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static bool IsBuffed(GameObject unit)
+        {
+            return unit.HasAura("The Balance") || unit.HasAura("The Arrow") || unit.HasAura("The Spear");
+        }
+
         private static bool StopDamage => Shinra.Settings.AstrologianStopDamage && Core.Player.CurrentManaPercent <= Shinra.Settings.AstrologianStopDamagePct;
         private static bool StopDots => Shinra.Settings.AstrologianStopDots && Core.Player.CurrentManaPercent <= Shinra.Settings.AstrologianStopDotsPct;
 
@@ -542,7 +584,6 @@ namespace ShinraCo.Rotations
         private static bool HasArcana => Resource.Arcana != Resource.AstrologianCard.None;
 
         private static bool BuffShared => Resource.Buff == Resource.AstrologianCardBuff.Shared;
-        private static bool BuffOffensive => Core.Player.HasAura("The Balance") || Core.Player.HasAura("The Arrow") || Core.Player.HasAura("The Spear");
 
         private static bool CardLord => Resource.Arcana == Resource.AstrologianCard.LordofCrowns;
         private static bool CardLady => Resource.Arcana == Resource.AstrologianCard.LadyofCrowns;

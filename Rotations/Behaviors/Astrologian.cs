@@ -47,6 +47,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (await CelestialOpposition()) return true;
             if (await LucidDreaming()) return true;
             if (Shinra.Settings.AstrologianDraw)
             {
@@ -76,6 +77,8 @@ namespace ShinraCo.Rotations
             if (await EssentialDignity()) return true;
             if (await Lightspeed()) return true;
             if (await Largesse()) return true;
+            if (await Synastry()) return true;
+            if (await TimeDilation()) return true;
             if (await LadyOfCrowns()) return true;
             if (await AspectedHelios()) return true;
             if (await Helios()) return true;
@@ -96,7 +99,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await NocturnalSect()) return true;
             if (await DiurnalSect()) return true;
-            if (Shinra.Settings.AstrologianDraw)
+            if (Shinra.Settings.AstrologianDraw && Shinra.Settings.AstrologianCardPreCombat)
             {
                 if (await Draw()) return true;
                 if (await Spread()) return true;

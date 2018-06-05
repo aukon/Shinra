@@ -653,6 +653,12 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianSynastry = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianTimeDilation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianCelestialOpposition = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.AstrologianSynastryCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianSynastryPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.AstrologianCardPreCombat = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -2762,13 +2768,18 @@
             // 
             // AstrologianBuffGroup
             // 
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianSynastryPct);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianSynastryCount);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianCelestialOpposition);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianTimeDilation);
+            this.AstrologianBuffGroup.Controls.Add(this.AstrologianSynastry);
             this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedPct);
             this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeedCount);
             this.AstrologianBuffGroup.Controls.Add(this.AstrologianLightspeed);
             this.AstrologianBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianBuffGroup.Location = new System.Drawing.Point(13, 335);
+            this.AstrologianBuffGroup.Location = new System.Drawing.Point(493, 79);
             this.AstrologianBuffGroup.Name = "AstrologianBuffGroup";
-            this.AstrologianBuffGroup.Size = new System.Drawing.Size(264, 44);
+            this.AstrologianBuffGroup.Size = new System.Drawing.Size(264, 112);
             this.AstrologianBuffGroup.TabIndex = 7;
             this.AstrologianBuffGroup.TabStop = false;
             this.AstrologianBuffGroup.Text = "Buff";
@@ -2826,7 +2837,7 @@
             // 
             this.AstrologianMiscGroup.Controls.Add(this.AstrologianCardOnly);
             this.AstrologianMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianMiscGroup.Location = new System.Drawing.Point(493, 199);
+            this.AstrologianMiscGroup.Location = new System.Drawing.Point(283, 262);
             this.AstrologianMiscGroup.Name = "AstrologianMiscGroup";
             this.AstrologianMiscGroup.Size = new System.Drawing.Size(129, 43);
             this.AstrologianMiscGroup.TabIndex = 6;
@@ -2855,7 +2866,7 @@
             this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDamage);
             this.AstrologianDamageGroup.Controls.Add(this.AstrologianStopDamagePct);
             this.AstrologianDamageGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianDamageGroup.Location = new System.Drawing.Point(13, 262);
+            this.AstrologianDamageGroup.Location = new System.Drawing.Point(493, 6);
             this.AstrologianDamageGroup.Name = "AstrologianDamageGroup";
             this.AstrologianDamageGroup.Size = new System.Drawing.Size(264, 67);
             this.AstrologianDamageGroup.TabIndex = 5;
@@ -2915,7 +2926,7 @@
             this.AstrologianAoEGroup.Controls.Add(this.AstrologianStellarDetonation);
             this.AstrologianAoEGroup.Controls.Add(this.AstrologianEarthlyStar);
             this.AstrologianAoEGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianAoEGroup.Location = new System.Drawing.Point(493, 6);
+            this.AstrologianAoEGroup.Location = new System.Drawing.Point(13, 262);
             this.AstrologianAoEGroup.Name = "AstrologianAoEGroup";
             this.AstrologianAoEGroup.Size = new System.Drawing.Size(129, 66);
             this.AstrologianAoEGroup.TabIndex = 4;
@@ -2956,7 +2967,7 @@
             // 
             this.AstrologianSectGroup.Controls.Add(this.AstrologianSect);
             this.AstrologianSectGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianSectGroup.Location = new System.Drawing.Point(493, 150);
+            this.AstrologianSectGroup.Location = new System.Drawing.Point(493, 197);
             this.AstrologianSectGroup.Name = "AstrologianSectGroup";
             this.AstrologianSectGroup.Size = new System.Drawing.Size(129, 43);
             this.AstrologianSectGroup.TabIndex = 3;
@@ -2983,12 +2994,13 @@
             // 
             // AstrologianCardGroup
             // 
+            this.AstrologianCardGroup.Controls.Add(this.AstrologianCardPreCombat);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianSleeveDraw);
             this.AstrologianCardGroup.Controls.Add(this.AstrologianDraw);
             this.AstrologianCardGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.AstrologianCardGroup.Location = new System.Drawing.Point(493, 78);
+            this.AstrologianCardGroup.Location = new System.Drawing.Point(148, 262);
             this.AstrologianCardGroup.Name = "AstrologianCardGroup";
-            this.AstrologianCardGroup.Size = new System.Drawing.Size(129, 66);
+            this.AstrologianCardGroup.Size = new System.Drawing.Size(129, 89);
             this.AstrologianCardGroup.TabIndex = 2;
             this.AstrologianCardGroup.TabStop = false;
             this.AstrologianCardGroup.Text = "Card";
@@ -9667,6 +9679,100 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
+            // AstrologianSynastry
+            // 
+            this.AstrologianSynastry.AutoSize = true;
+            this.AstrologianSynastry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianSynastry.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianSynastry.ForeColor = System.Drawing.Color.White;
+            this.AstrologianSynastry.Location = new System.Drawing.Point(6, 39);
+            this.AstrologianSynastry.Name = "AstrologianSynastry";
+            this.AstrologianSynastry.Size = new System.Drawing.Size(65, 17);
+            this.AstrologianSynastry.TabIndex = 3;
+            this.AstrologianSynastry.TabStop = false;
+            this.AstrologianSynastry.Text = "Synastry";
+            this.AstrologianSynastry.UseVisualStyleBackColor = true;
+            this.AstrologianSynastry.CheckedChanged += new System.EventHandler(this.AstrologianSynastry_CheckedChanged);
+            // 
+            // AstrologianTimeDilation
+            // 
+            this.AstrologianTimeDilation.AutoSize = true;
+            this.AstrologianTimeDilation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianTimeDilation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianTimeDilation.ForeColor = System.Drawing.Color.White;
+            this.AstrologianTimeDilation.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianTimeDilation.Name = "AstrologianTimeDilation";
+            this.AstrologianTimeDilation.Size = new System.Drawing.Size(90, 17);
+            this.AstrologianTimeDilation.TabIndex = 4;
+            this.AstrologianTimeDilation.TabStop = false;
+            this.AstrologianTimeDilation.Text = "Time Dilation";
+            this.AstrologianTimeDilation.UseVisualStyleBackColor = true;
+            this.AstrologianTimeDilation.CheckedChanged += new System.EventHandler(this.AstrologianTimeDilation_CheckedChanged);
+            // 
+            // AstrologianCelestialOpposition
+            // 
+            this.AstrologianCelestialOpposition.AutoSize = true;
+            this.AstrologianCelestialOpposition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianCelestialOpposition.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianCelestialOpposition.ForeColor = System.Drawing.Color.White;
+            this.AstrologianCelestialOpposition.Location = new System.Drawing.Point(6, 85);
+            this.AstrologianCelestialOpposition.Name = "AstrologianCelestialOpposition";
+            this.AstrologianCelestialOpposition.Size = new System.Drawing.Size(128, 17);
+            this.AstrologianCelestialOpposition.TabIndex = 5;
+            this.AstrologianCelestialOpposition.TabStop = false;
+            this.AstrologianCelestialOpposition.Text = "Celestial Opposition";
+            this.AstrologianCelestialOpposition.UseVisualStyleBackColor = true;
+            this.AstrologianCelestialOpposition.CheckedChanged += new System.EventHandler(this.AstrologianCelestialOpposition_CheckedChanged);
+            // 
+            // AstrologianSynastryCount
+            // 
+            this.AstrologianSynastryCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianSynastryCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.Location = new System.Drawing.Point(93, 39);
+            this.AstrologianSynastryCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.Name = "AstrologianSynastryCount";
+            this.AstrologianSynastryCount.ShowSymbol = false;
+            this.AstrologianSynastryCount.Size = new System.Drawing.Size(70, 22);
+            this.AstrologianSynastryCount.TabIndex = 6;
+            this.AstrologianSynastryCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.AstrologianSynastryCount.ValueChanged += new System.EventHandler(this.AstrologianSynastryCount_ValueChanged);
+            // 
+            // AstrologianSynastryPct
+            // 
+            this.AstrologianSynastryPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.AstrologianSynastryPct.Location = new System.Drawing.Point(169, 39);
+            this.AstrologianSynastryPct.Name = "AstrologianSynastryPct";
+            this.AstrologianSynastryPct.Size = new System.Drawing.Size(89, 22);
+            this.AstrologianSynastryPct.TabIndex = 7;
+            this.AstrologianSynastryPct.ValueChanged += new System.EventHandler(this.AstrologianSynastryPct_ValueChanged);
+            // 
+            // AstrologianCardPreCombat
+            // 
+            this.AstrologianCardPreCombat.AutoSize = true;
+            this.AstrologianCardPreCombat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AstrologianCardPreCombat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.AstrologianCardPreCombat.ForeColor = System.Drawing.Color.White;
+            this.AstrologianCardPreCombat.Location = new System.Drawing.Point(6, 62);
+            this.AstrologianCardPreCombat.Name = "AstrologianCardPreCombat";
+            this.AstrologianCardPreCombat.Size = new System.Drawing.Size(83, 17);
+            this.AstrologianCardPreCombat.TabIndex = 2;
+            this.AstrologianCardPreCombat.TabStop = false;
+            this.AstrologianCardPreCombat.Text = "Pre-Combat";
+            this.AstrologianCardPreCombat.UseVisualStyleBackColor = true;
+            this.AstrologianCardPreCombat.CheckedChanged += new System.EventHandler(this.AstrologianCardPreCombat_CheckedChanged);
+            // 
             // ShinraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10520,5 +10626,11 @@
         private Design.UserNumeric AstrologianLargessePct;
         private Design.CustomCheck AstrologianLargesse;
         private Design.CustomCheck AstrologianStellarDetonation;
+        private Design.CustomCheck AstrologianCelestialOpposition;
+        private Design.CustomCheck AstrologianTimeDilation;
+        private Design.CustomCheck AstrologianSynastry;
+        private Design.UserNumeric AstrologianSynastryPct;
+        private Design.UserNumeric AstrologianSynastryCount;
+        private Design.CustomCheck AstrologianCardPreCombat;
     }
 }

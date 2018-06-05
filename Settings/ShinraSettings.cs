@@ -274,6 +274,21 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(50)]
         public int AstrologianLightspeedPct { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool AstrologianSynastry { get; set; }
+
+        [Setting, DefaultValue(2)]
+        public int AstrologianSynastryCount { get; set; }
+
+        [Setting, DefaultValue(60)]
+        public int AstrologianSynastryPct { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianTimeDilation { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianCelestialOpposition { get; set; }
+
         #endregion
 
         #region Heal
@@ -290,14 +305,26 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool AstrologianBenefic { get; set; }
 
+        [Setting, DefaultValue(50)]
+        public int AstrologianBeneficPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool AstrologianBeneficII { get; set; }
+
+        [Setting, DefaultValue(40)]
+        public int AstrologianBeneficIIPct { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool AstrologianEssDignity { get; set; }
 
+        [Setting, DefaultValue(30)]
+        public int AstrologianEssDignityPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool AstrologianAspBenefic { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int AstrologianAspBeneficPct { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool AstrologianHelios { get; set; }
@@ -305,23 +332,11 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool AstrologianAspHelios { get; set; }
 
-        [Setting, DefaultValue(true)]
-        public bool AstrologianAscend { get; set; }
-
-        [Setting, DefaultValue(50)]
-        public int AstrologianBeneficPct { get; set; }
-
-        [Setting, DefaultValue(40)]
-        public int AstrologianBeneficIIPct { get; set; }
-
-        [Setting, DefaultValue(30)]
-        public int AstrologianEssDignityPct { get; set; }
-
-        [Setting, DefaultValue(70)]
-        public int AstrologianAspBeneficPct { get; set; }
-
         [Setting, DefaultValue(60)]
         public int AstrologianHeliosPct { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianAscend { get; set; }
 
         [Setting, DefaultValue(60)]
         public int AstrologianAspHeliosPct { get; set; }
@@ -335,6 +350,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool AstrologianSleeveDraw { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool AstrologianCardPreCombat { get; set; }
 
         #endregion
 
