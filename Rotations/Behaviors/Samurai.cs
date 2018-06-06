@@ -123,7 +123,14 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
-            return false;
+            if (await MeikyoShisuiPVP()) return true;
+            if (await HissatsuShintenPVP()) return true;
+            if (await MidareSetsugekkaPVP()) return true;
+            if (await HiganbanaPVP()) return true;
+            if (await YukikazePVP()) return true;
+            if (await GekkoPVP()) return true;
+            if (await KashaPVP()) return true;
+            return await EnpiPVP();
         }
 
         #endregion

@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class SamuraiSpells
     {
+        public SamuraiPVP PVP { get; } = new SamuraiPVP();
         public MeleeSpells Role { get; } = new MeleeSpells();
 
         public Spell Hakaze { get; } = new Spell

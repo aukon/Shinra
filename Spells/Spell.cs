@@ -396,7 +396,7 @@ namespace ShinraCo.Spells
 
             #region CanAttack
 
-            /*var bc = target as BattleCharacter;
+            var bc = target as BattleCharacter;
 
             if (!target.CanAttack && CastType != CastType.Self && CastType != CastType.SelfLocation && (bc == null || !bc.IsFate))
             {
@@ -407,7 +407,7 @@ namespace ShinraCo.Spells
                     case SpellType.Cooldown:
                         return false;
                 }
-            }*/
+            }
 
             #endregion
 
@@ -721,6 +721,7 @@ namespace ShinraCo.Spells
                         {
                             return false;
                         }
+                        Logging.Write(Colors.Orange, $@"DoAction Combo {Combo} 0x{target.ObjectId:X}");
                     }
                     else
                     {
@@ -750,7 +751,7 @@ namespace ShinraCo.Spells
             #endregion
 
             Shinra.LastSpell = this;
-            Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}");
+            Logging.Write(Colors.GreenYellow, $@"[Shinra] Casting >>> {Name}{(SpellType == SpellType.PVP ? " Combo" : "")}");
 
             #region AddRecent
 

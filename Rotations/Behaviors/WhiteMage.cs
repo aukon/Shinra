@@ -47,7 +47,6 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await LucidDreaming()) return true;
-            if (await PresenceOfMind()) return true;
             return await ClericStance();
         }
 
@@ -61,6 +60,7 @@ namespace ShinraCo.Rotations
             if (await StopCasting()) return true;
             if (await Benediction()) return true;
             if (await Tetragrammaton()) return true;
+            if (await PresenceOfMind()) return true;
             if (await Largesse()) return true;
             if (await EyeForAnEye()) return true;
             if (await PlenaryIndulgence()) return true;

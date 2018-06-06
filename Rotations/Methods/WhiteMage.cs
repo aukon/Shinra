@@ -116,9 +116,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> PresenceOfMind()
         {
-            if (Shinra.Settings.WhiteMagePresenceOfMind && Core.Player.CurrentManaPercent > 20)
+            if (Shinra.Settings.WhiteMagePartyHeal && Shinra.Settings.WhiteMagePresenceOfMind)
             {
-                return await MySpells.PresenceOfMind.Cast(null, false);
+                if (Helpers.HealManager.Count(hm => hm.CurrentHealthPercent < Shinra.Settings.WhiteMagePresenceOfMindPct) >=
+                    Shinra.Settings.WhiteMagePresenceOfMindCount)
+                {
+                    return await MySpells.PresenceOfMind.Cast(null, false);
+                }
             }
             return false;
         }

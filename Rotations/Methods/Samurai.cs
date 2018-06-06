@@ -380,6 +380,86 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> YukikazePVP()
+        {
+            if (!SetsuActive && (Core.Player.HasAura(MySpells.MeikyoShisui.Name) ||
+                                 ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Gekko.Combo) == MySpells.PVP.Jinpu.ID &&
+                                 ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Kasha.Combo) == MySpells.PVP.Shifu.ID))
+            {
+                return await MySpells.PVP.Yukikaze.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> GekkoPVP()
+        {
+            if (!GetsuActive && (Core.Player.HasAura(MySpells.MeikyoShisui.Name) ||
+                                 ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Kasha.Combo) == MySpells.PVP.Shifu.ID))
+            {
+                return await MySpells.PVP.Gekko.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> KashaPVP()
+        {
+            return await MySpells.PVP.Kasha.Cast();
+        }
+
+        private async Task<bool> EnpiPVP()
+        {
+            return await MySpells.PVP.Enpi.Cast();
+        }
+
+        private async Task<bool> HissatsuShintenPVP()
+        {
+            if (Resource.Kenki >= 80 || Core.Player.CurrentTarget.CurrentHealthPercent < 30)
+            {
+                return await MySpells.PVP.HissatsuShinten.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> MeikyoShisuiPVP()
+        {
+            if (Core.Player.CurrentTP >= 750 || !SetsuActive && !Core.Player.CurrentTarget.HasAura(MySpells.Yukikaze.Name, true, 2500))
+            {
+                if (ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Yukikaze.Combo) == MySpells.PVP.Hakaze.ID &&
+                    ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Gekko.Combo) == MySpells.PVP.Jinpu.ID &&
+                    ActionManager.GetPvPComboCurrentActionId(MySpells.PVP.Kasha.Combo) == MySpells.PVP.Shifu.ID &&
+                    DataManager.GetSpellData(7477).Cooldown.TotalMilliseconds < 1500)
+                {
+                    if (await MySpells.PVP.MeikyoShisui.Cast())
+                    {
+                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.MeikyoShisui.Name));
+                    }
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> HiganbanaPVP()
+        {
+            if (NumSen == 1 && !MovementManager.IsMoving && !Core.Player.CurrentTarget.HasAura(MySpells.Higanbana.Name, true, 5000))
+            {
+                return await MySpells.PVP.Higanbana.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> MidareSetsugekkaPVP()
+        {
+            if (NumSen == 3 && !MovementManager.IsMoving)
+            {
+                return await MySpells.PVP.MidareSetsugekka.Cast();
+            }
+            return false;
+        }
+
+        #endregion
+
         #region Custom
 
         private static bool GetsuActive => Resource.Sen.HasFlag(Resource.Iaijutsu.Getsu);

@@ -1774,6 +1774,12 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool WhiteMagePresenceOfMind { get; set; }
 
+        [Setting, DefaultValue(2)]
+        public int WhiteMagePresenceOfMindCount { get; set; }
+
+        [Setting, DefaultValue(50)]
+        public int WhiteMagePresenceOfMindPct { get; set; }
+
         [Setting, DefaultValue(true)]
         public bool WhiteMageThinAir { get; set; }
 

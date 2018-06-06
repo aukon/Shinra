@@ -999,6 +999,8 @@ namespace ShinraCo.Settings.Forms
             #region Buff
 
             WhiteMagePresenceOfMind.Checked = Shinra.Settings.WhiteMagePresenceOfMind;
+            WhiteMagePresenceOfMindCount.Value = Shinra.Settings.WhiteMagePresenceOfMindCount;
+            WhiteMagePresenceOfMindPct.Value = Shinra.Settings.WhiteMagePresenceOfMindPct;
             WhiteMageThinAir.Checked = Shinra.Settings.WhiteMageThinAir;
 
             #endregion
@@ -3546,6 +3548,16 @@ namespace ShinraCo.Settings.Forms
         private void WhiteMagePresenceOfMind_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WhiteMagePresenceOfMind = WhiteMagePresenceOfMind.Checked;
+        }
+
+        private void WhiteMagePresenceOfMindCount_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePresenceOfMindCount = Convert.ToInt32(WhiteMagePresenceOfMindCount.Value);
+        }
+
+        private void WhiteMagePresenceOfMindPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WhiteMagePresenceOfMindPct = Convert.ToInt32(WhiteMagePresenceOfMindPct.Value);
         }
 
         private void WhiteMageThinAir_CheckedChanged(object sender, EventArgs e)

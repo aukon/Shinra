@@ -307,6 +307,11 @@
             this.WhiteMageCure = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMagePartyHeal = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageRoleGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WhiteMageLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageEyeForAnEyePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMageLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.WhiteMageEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageEsuna = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageClericStance = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageLucidDreamingPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -661,11 +666,8 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMageEyeForAnEye = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMageLargesse = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMageEyeForAnEyePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.WhiteMageLargesseCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.WhiteMageLargessePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMagePresenceOfMindCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMagePresenceOfMindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -4372,12 +4374,14 @@
             // 
             // WhiteMageBuffGroup
             // 
+            this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMindPct);
+            this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMindCount);
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMagePresenceOfMind);
             this.WhiteMageBuffGroup.Controls.Add(this.WhiteMageThinAir);
             this.WhiteMageBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(503, 79);
+            this.WhiteMageBuffGroup.Location = new System.Drawing.Point(269, 331);
             this.WhiteMageBuffGroup.Name = "WhiteMageBuffGroup";
-            this.WhiteMageBuffGroup.Size = new System.Drawing.Size(124, 66);
+            this.WhiteMageBuffGroup.Size = new System.Drawing.Size(295, 66);
             this.WhiteMageBuffGroup.TabIndex = 2;
             this.WhiteMageBuffGroup.TabStop = false;
             this.WhiteMageBuffGroup.Text = "Buff";
@@ -4743,6 +4747,79 @@
             this.WhiteMageRoleGroup.TabIndex = 0;
             this.WhiteMageRoleGroup.TabStop = false;
             this.WhiteMageRoleGroup.Text = "Role";
+            // 
+            // WhiteMageLargessePct
+            // 
+            this.WhiteMageLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageLargessePct.Location = new System.Drawing.Point(155, 177);
+            this.WhiteMageLargessePct.Name = "WhiteMageLargessePct";
+            this.WhiteMageLargessePct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageLargessePct.TabIndex = 28;
+            this.WhiteMageLargessePct.ValueChanged += new System.EventHandler(this.WhiteMageLargessePct_ValueChanged);
+            // 
+            // WhiteMageLargesseCount
+            // 
+            this.WhiteMageLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageLargesseCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.WhiteMageLargesseCount.Location = new System.Drawing.Point(79, 177);
+            this.WhiteMageLargesseCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.WhiteMageLargesseCount.Name = "WhiteMageLargesseCount";
+            this.WhiteMageLargesseCount.ShowSymbol = false;
+            this.WhiteMageLargesseCount.Size = new System.Drawing.Size(70, 22);
+            this.WhiteMageLargesseCount.TabIndex = 27;
+            this.WhiteMageLargesseCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.WhiteMageLargesseCount.ValueChanged += new System.EventHandler(this.WhiteMageLargesseCount_ValueChanged);
+            // 
+            // WhiteMageEyeForAnEyePct
+            // 
+            this.WhiteMageEyeForAnEyePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMageEyeForAnEyePct.Location = new System.Drawing.Point(155, 154);
+            this.WhiteMageEyeForAnEyePct.Name = "WhiteMageEyeForAnEyePct";
+            this.WhiteMageEyeForAnEyePct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMageEyeForAnEyePct.TabIndex = 26;
+            this.WhiteMageEyeForAnEyePct.ValueChanged += new System.EventHandler(this.WhiteMageEyeForAnEyePct_ValueChanged);
+            // 
+            // WhiteMageLargesse
+            // 
+            this.WhiteMageLargesse.AutoSize = true;
+            this.WhiteMageLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageLargesse.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageLargesse.Location = new System.Drawing.Point(6, 177);
+            this.WhiteMageLargesse.Name = "WhiteMageLargesse";
+            this.WhiteMageLargesse.Size = new System.Drawing.Size(67, 17);
+            this.WhiteMageLargesse.TabIndex = 25;
+            this.WhiteMageLargesse.TabStop = false;
+            this.WhiteMageLargesse.Text = "Largesse";
+            this.WhiteMageLargesse.UseVisualStyleBackColor = true;
+            this.WhiteMageLargesse.CheckedChanged += new System.EventHandler(this.WhiteMageLargesse_CheckedChanged);
+            // 
+            // WhiteMageEyeForAnEye
+            // 
+            this.WhiteMageEyeForAnEye.AutoSize = true;
+            this.WhiteMageEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WhiteMageEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.WhiteMageEyeForAnEye.ForeColor = System.Drawing.Color.White;
+            this.WhiteMageEyeForAnEye.Location = new System.Drawing.Point(6, 154);
+            this.WhiteMageEyeForAnEye.Name = "WhiteMageEyeForAnEye";
+            this.WhiteMageEyeForAnEye.Size = new System.Drawing.Size(94, 17);
+            this.WhiteMageEyeForAnEye.TabIndex = 24;
+            this.WhiteMageEyeForAnEye.TabStop = false;
+            this.WhiteMageEyeForAnEye.Text = "Eye for an Eye";
+            this.WhiteMageEyeForAnEye.UseVisualStyleBackColor = true;
+            this.WhiteMageEyeForAnEye.CheckedChanged += new System.EventHandler(this.WhiteMageEyeForAnEye_CheckedChanged);
             // 
             // WhiteMageEsuna
             // 
@@ -9809,78 +9886,39 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // WhiteMageEyeForAnEye
+            // WhiteMagePresenceOfMindCount
             // 
-            this.WhiteMageEyeForAnEye.AutoSize = true;
-            this.WhiteMageEyeForAnEye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageEyeForAnEye.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageEyeForAnEye.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageEyeForAnEye.Location = new System.Drawing.Point(6, 154);
-            this.WhiteMageEyeForAnEye.Name = "WhiteMageEyeForAnEye";
-            this.WhiteMageEyeForAnEye.Size = new System.Drawing.Size(94, 17);
-            this.WhiteMageEyeForAnEye.TabIndex = 24;
-            this.WhiteMageEyeForAnEye.TabStop = false;
-            this.WhiteMageEyeForAnEye.Text = "Eye for an Eye";
-            this.WhiteMageEyeForAnEye.UseVisualStyleBackColor = true;
-            this.WhiteMageEyeForAnEye.CheckedChanged += new System.EventHandler(this.WhiteMageEyeForAnEye_CheckedChanged);
-            // 
-            // WhiteMageLargesse
-            // 
-            this.WhiteMageLargesse.AutoSize = true;
-            this.WhiteMageLargesse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WhiteMageLargesse.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WhiteMageLargesse.ForeColor = System.Drawing.Color.White;
-            this.WhiteMageLargesse.Location = new System.Drawing.Point(6, 177);
-            this.WhiteMageLargesse.Name = "WhiteMageLargesse";
-            this.WhiteMageLargesse.Size = new System.Drawing.Size(67, 17);
-            this.WhiteMageLargesse.TabIndex = 25;
-            this.WhiteMageLargesse.TabStop = false;
-            this.WhiteMageLargesse.Text = "Largesse";
-            this.WhiteMageLargesse.UseVisualStyleBackColor = true;
-            this.WhiteMageLargesse.CheckedChanged += new System.EventHandler(this.WhiteMageLargesse_CheckedChanged);
-            // 
-            // WhiteMageEyeForAnEyePct
-            // 
-            this.WhiteMageEyeForAnEyePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageEyeForAnEyePct.Location = new System.Drawing.Point(155, 154);
-            this.WhiteMageEyeForAnEyePct.Name = "WhiteMageEyeForAnEyePct";
-            this.WhiteMageEyeForAnEyePct.Size = new System.Drawing.Size(89, 22);
-            this.WhiteMageEyeForAnEyePct.TabIndex = 26;
-            this.WhiteMageEyeForAnEyePct.ValueChanged += new System.EventHandler(this.WhiteMageEyeForAnEyePct_ValueChanged);
-            // 
-            // WhiteMageLargesseCount
-            // 
-            this.WhiteMageLargesseCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageLargesseCount.Increment = new decimal(new int[] {
+            this.WhiteMagePresenceOfMindCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMagePresenceOfMindCount.Increment = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.WhiteMageLargesseCount.Location = new System.Drawing.Point(79, 177);
-            this.WhiteMageLargesseCount.Maximum = new decimal(new int[] {
+            this.WhiteMagePresenceOfMindCount.Location = new System.Drawing.Point(124, 16);
+            this.WhiteMagePresenceOfMindCount.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.WhiteMageLargesseCount.Name = "WhiteMageLargesseCount";
-            this.WhiteMageLargesseCount.ShowSymbol = false;
-            this.WhiteMageLargesseCount.Size = new System.Drawing.Size(70, 22);
-            this.WhiteMageLargesseCount.TabIndex = 27;
-            this.WhiteMageLargesseCount.Value = new decimal(new int[] {
+            this.WhiteMagePresenceOfMindCount.Name = "WhiteMagePresenceOfMindCount";
+            this.WhiteMagePresenceOfMindCount.ShowSymbol = false;
+            this.WhiteMagePresenceOfMindCount.Size = new System.Drawing.Size(70, 22);
+            this.WhiteMagePresenceOfMindCount.TabIndex = 2;
+            this.WhiteMagePresenceOfMindCount.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.WhiteMageLargesseCount.ValueChanged += new System.EventHandler(this.WhiteMageLargesseCount_ValueChanged);
+            this.WhiteMagePresenceOfMindCount.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindCount_ValueChanged);
             // 
-            // WhiteMageLargessePct
+            // WhiteMagePresenceOfMindPct
             // 
-            this.WhiteMageLargessePct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMageLargessePct.Location = new System.Drawing.Point(155, 177);
-            this.WhiteMageLargessePct.Name = "WhiteMageLargessePct";
-            this.WhiteMageLargessePct.Size = new System.Drawing.Size(89, 22);
-            this.WhiteMageLargessePct.TabIndex = 28;
-            this.WhiteMageLargessePct.ValueChanged += new System.EventHandler(this.WhiteMageLargessePct_ValueChanged);
+            this.WhiteMagePresenceOfMindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMagePresenceOfMindPct.Location = new System.Drawing.Point(200, 16);
+            this.WhiteMagePresenceOfMindPct.Name = "WhiteMagePresenceOfMindPct";
+            this.WhiteMagePresenceOfMindPct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMagePresenceOfMindPct.TabIndex = 3;
+            this.WhiteMagePresenceOfMindPct.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindPct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -10748,5 +10786,7 @@
         private Design.UserNumeric WhiteMageEyeForAnEyePct;
         private Design.CustomCheck WhiteMageLargesse;
         private Design.CustomCheck WhiteMageEyeForAnEye;
+        private Design.UserNumeric WhiteMagePresenceOfMindPct;
+        private Design.UserNumeric WhiteMagePresenceOfMindCount;
     }
 }
