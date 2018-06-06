@@ -233,6 +233,7 @@ namespace ShinraCo.Settings.Forms
             #region Buff
 
             BardRagingStrikes.Checked = Shinra.Settings.BardRagingStrikes;
+            BardFoeRequiem.Checked = Shinra.Settings.BardFoeRequiem;
             BardBarrage.Checked = Shinra.Settings.BardBarrage;
             BardBattleVoice.Checked = Shinra.Settings.BardBattleVoice;
 
@@ -1570,6 +1571,11 @@ namespace ShinraCo.Settings.Forms
         private void BardRagingStrikes_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardRagingStrikes = BardRagingStrikes.Checked;
+        }
+
+        private void BardFoeRequiem_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardFoeRequiem = BardFoeRequiem.Checked;
         }
 
         private void BardBarrage_CheckedChanged(object sender, EventArgs e)

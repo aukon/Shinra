@@ -1,9 +1,11 @@
-﻿using ShinraCo.Spells.Role;
+﻿using ShinraCo.Spells.PVP;
+using ShinraCo.Spells.Role;
 
 namespace ShinraCo.Spells.Main
 {
     public class ArcanistSpells
     {
+        public SummonerPVP PVP { get; } = new SummonerPVP();
         public CasterSpells Role { get; } = new CasterSpells();
 
         public Spell Ruin { get; } = new Spell

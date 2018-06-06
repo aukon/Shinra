@@ -452,6 +452,9 @@ namespace ShinraCo.Settings
         public bool BardRagingStrikes { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool BardFoeRequiem { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool BardBarrage { get; set; }
 
         [Setting, DefaultValue(true)]

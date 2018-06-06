@@ -253,6 +253,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> FoeRequiem()
+        {
+            if (Shinra.Settings.BardFoeRequiem && !Core.Player.HasAura(MySpells.FoeRequiem.Name) && !MovementManager.IsMoving)
+            {
+                return await MySpells.FoeRequiem.Cast();
+            }
+            return false;
+        }
+
         private async Task<bool> Barrage()
         {
             if (Shinra.Settings.BardBarrage && !ActionManager.HasSpell(MySpells.EmpyrealArrow.Name))

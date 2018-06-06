@@ -281,6 +281,8 @@
             this.WhiteMageStopDamage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageStopDamagePct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMageBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.WhiteMagePresenceOfMindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.WhiteMagePresenceOfMindCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.WhiteMagePresenceOfMind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageThinAir = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WhiteMageHealGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -666,8 +668,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.WhiteMagePresenceOfMindCount = new ShinraCo.Settings.Forms.Design.UserNumeric();
-            this.WhiteMagePresenceOfMindPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.BardFoeRequiem = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -4386,6 +4387,40 @@
             this.WhiteMageBuffGroup.TabStop = false;
             this.WhiteMageBuffGroup.Text = "Buff";
             // 
+            // WhiteMagePresenceOfMindPct
+            // 
+            this.WhiteMagePresenceOfMindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMagePresenceOfMindPct.Location = new System.Drawing.Point(200, 16);
+            this.WhiteMagePresenceOfMindPct.Name = "WhiteMagePresenceOfMindPct";
+            this.WhiteMagePresenceOfMindPct.Size = new System.Drawing.Size(89, 22);
+            this.WhiteMagePresenceOfMindPct.TabIndex = 3;
+            this.WhiteMagePresenceOfMindPct.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindPct_ValueChanged);
+            // 
+            // WhiteMagePresenceOfMindCount
+            // 
+            this.WhiteMagePresenceOfMindCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.WhiteMagePresenceOfMindCount.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.WhiteMagePresenceOfMindCount.Location = new System.Drawing.Point(124, 16);
+            this.WhiteMagePresenceOfMindCount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.WhiteMagePresenceOfMindCount.Name = "WhiteMagePresenceOfMindCount";
+            this.WhiteMagePresenceOfMindCount.ShowSymbol = false;
+            this.WhiteMagePresenceOfMindCount.Size = new System.Drawing.Size(70, 22);
+            this.WhiteMagePresenceOfMindCount.TabIndex = 2;
+            this.WhiteMagePresenceOfMindCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.WhiteMagePresenceOfMindCount.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindCount_ValueChanged);
+            // 
             // WhiteMagePresenceOfMind
             // 
             this.WhiteMagePresenceOfMind.AutoSize = true;
@@ -6944,7 +6979,7 @@
             this.BardMiscGroup.Controls.Add(this.BardPotion);
             this.BardMiscGroup.Controls.Add(this.BardOpener);
             this.BardMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardMiscGroup.Location = new System.Drawing.Point(218, 246);
+            this.BardMiscGroup.Location = new System.Drawing.Point(218, 269);
             this.BardMiscGroup.Name = "BardMiscGroup";
             this.BardMiscGroup.Size = new System.Drawing.Size(115, 66);
             this.BardMiscGroup.TabIndex = 4;
@@ -7093,13 +7128,14 @@
             // 
             // BardBuffGroup
             // 
+            this.BardBuffGroup.Controls.Add(this.BardFoeRequiem);
             this.BardBuffGroup.Controls.Add(this.BardBarrage);
             this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardBuffGroup.Location = new System.Drawing.Point(218, 151);
             this.BardBuffGroup.Name = "BardBuffGroup";
-            this.BardBuffGroup.Size = new System.Drawing.Size(115, 89);
+            this.BardBuffGroup.Size = new System.Drawing.Size(115, 112);
             this.BardBuffGroup.TabIndex = 1;
             this.BardBuffGroup.TabStop = false;
             this.BardBuffGroup.Text = "Buff";
@@ -7110,7 +7146,7 @@
             this.BardBarrage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BardBarrage.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardBarrage.ForeColor = System.Drawing.Color.White;
-            this.BardBarrage.Location = new System.Drawing.Point(6, 39);
+            this.BardBarrage.Location = new System.Drawing.Point(6, 62);
             this.BardBarrage.Name = "BardBarrage";
             this.BardBarrage.Size = new System.Drawing.Size(63, 17);
             this.BardBarrage.TabIndex = 2;
@@ -7125,7 +7161,7 @@
             this.BardBattleVoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BardBattleVoice.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardBattleVoice.ForeColor = System.Drawing.Color.White;
-            this.BardBattleVoice.Location = new System.Drawing.Point(6, 62);
+            this.BardBattleVoice.Location = new System.Drawing.Point(6, 85);
             this.BardBattleVoice.Name = "BardBattleVoice";
             this.BardBattleVoice.Size = new System.Drawing.Size(83, 17);
             this.BardBattleVoice.TabIndex = 1;
@@ -9886,39 +9922,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // WhiteMagePresenceOfMindCount
+            // BardFoeRequiem
             // 
-            this.WhiteMagePresenceOfMindCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMagePresenceOfMindCount.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.WhiteMagePresenceOfMindCount.Location = new System.Drawing.Point(124, 16);
-            this.WhiteMagePresenceOfMindCount.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.WhiteMagePresenceOfMindCount.Name = "WhiteMagePresenceOfMindCount";
-            this.WhiteMagePresenceOfMindCount.ShowSymbol = false;
-            this.WhiteMagePresenceOfMindCount.Size = new System.Drawing.Size(70, 22);
-            this.WhiteMagePresenceOfMindCount.TabIndex = 2;
-            this.WhiteMagePresenceOfMindCount.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.WhiteMagePresenceOfMindCount.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindCount_ValueChanged);
-            // 
-            // WhiteMagePresenceOfMindPct
-            // 
-            this.WhiteMagePresenceOfMindPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.WhiteMagePresenceOfMindPct.Location = new System.Drawing.Point(200, 16);
-            this.WhiteMagePresenceOfMindPct.Name = "WhiteMagePresenceOfMindPct";
-            this.WhiteMagePresenceOfMindPct.Size = new System.Drawing.Size(89, 22);
-            this.WhiteMagePresenceOfMindPct.TabIndex = 3;
-            this.WhiteMagePresenceOfMindPct.ValueChanged += new System.EventHandler(this.WhiteMagePresenceOfMindPct_ValueChanged);
+            this.BardFoeRequiem.AutoSize = true;
+            this.BardFoeRequiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardFoeRequiem.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardFoeRequiem.ForeColor = System.Drawing.Color.White;
+            this.BardFoeRequiem.Location = new System.Drawing.Point(6, 39);
+            this.BardFoeRequiem.Name = "BardFoeRequiem";
+            this.BardFoeRequiem.Size = new System.Drawing.Size(90, 17);
+            this.BardFoeRequiem.TabIndex = 3;
+            this.BardFoeRequiem.TabStop = false;
+            this.BardFoeRequiem.Text = "Foe Requiem";
+            this.BardFoeRequiem.UseVisualStyleBackColor = true;
+            this.BardFoeRequiem.CheckedChanged += new System.EventHandler(this.BardFoeRequiem_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -10788,5 +10805,6 @@
         private Design.CustomCheck WhiteMageEyeForAnEye;
         private Design.UserNumeric WhiteMagePresenceOfMindPct;
         private Design.UserNumeric WhiteMagePresenceOfMindCount;
+        private Design.CustomCheck BardFoeRequiem;
     }
 }

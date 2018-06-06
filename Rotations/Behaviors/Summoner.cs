@@ -94,7 +94,17 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> CombatPVP()
         {
-            return false;
+            if (await EnkindleBahamutPVP()) return true;
+            if (await SummonBahamutPVP()) return true;
+            if (await DeathflarePVP()) return true;
+            if (await DreadwyrmTrancePVP()) return true;
+            if (await FesterPVP()) return true;
+            if (await EnergyDrainPVP()) return true;
+            if (await AetherflowPVP()) return true;
+            if (await WitherPVP()) return true;
+            if (await MiasmaIIIPVP()) return true;
+            if (await BioIIIPVP()) return true;
+            return await RuinIIIPVP();
         }
 
         #endregion

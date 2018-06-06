@@ -545,6 +545,103 @@ namespace ShinraCo.Rotations
 
         #endregion
 
+        #region PVP
+
+        private async Task<bool> RuinIIIPVP()
+        {
+            return await MySpells.PVP.RuinIII.Cast();
+        }
+
+        private async Task<bool> BioIIIPVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.PVP.BioIII.Name, true, 3000))
+            {
+                return await MySpells.PVP.BioIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> MiasmaIIIPVP()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(MySpells.PVP.MiasmaIII.Name, true, 4000))
+            {
+                return await MySpells.PVP.MiasmaIII.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> WitherPVP()
+        {
+            if (Core.Player.CurrentTarget.HasAura(MySpells.PVP.BioIII.Name, true) &&
+                Core.Player.CurrentTarget.HasAura(MySpells.PVP.MiasmaIII.Name, true))
+            {
+                if (!Core.Player.CurrentTarget.HasAura(MySpells.PVP.BioIII.Name, true, 5000) ||
+                    !Core.Player.CurrentTarget.HasAura(MySpells.PVP.MiasmaIII.Name, true, 5000))
+                {
+                    return await MySpells.PVP.Wither.Cast();
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> AetherflowPVP()
+        {
+            if (ResourceArcanist.Aetherflow == 0)
+            {
+                return await MySpells.PVP.Aetherflow.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> EnergyDrainPVP()
+        {
+            if (Core.Player.CurrentMana < 3000)
+            {
+                return await MySpells.PVP.EnergyDrain.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> FesterPVP()
+        {
+            if (Core.Player.CurrentTarget.HasAura(MySpells.PVP.BioIII.Name, true) &&
+                Core.Player.CurrentTarget.HasAura(MySpells.PVP.MiasmaIII.Name, true))
+            {
+                return await MySpells.PVP.Fester.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> DreadwyrmTrancePVP()
+        {
+            return await MySpells.PVP.DreadwyrmTrance.Cast();
+        }
+
+        private async Task<bool> SummonBahamutPVP()
+        {
+            if (ResourceArcanist.Aetherflow > 0)
+            {
+                return await MySpells.PVP.SummonBahamut.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> DeathflarePVP()
+        {
+            if (Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 2000)
+            {
+                return await MySpells.PVP.Deathflare.Cast(null, false);
+            }
+            return false;
+        }
+
+        private async Task<bool> EnkindleBahamutPVP()
+        {
+            return await MySpells.PVP.EnkindleBahamut.Cast();
+        }
+
+        #endregion
+
         #region Custom
 
         private static int AoECount => Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 2;

@@ -78,6 +78,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
+            if (await FoeRequiem()) return true;
             return await Combat();
         }
 
