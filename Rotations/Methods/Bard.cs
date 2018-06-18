@@ -8,7 +8,6 @@ using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
-using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.Bard;
 
 namespace ShinraCo.Rotations
@@ -16,7 +15,6 @@ namespace ShinraCo.Rotations
     public sealed partial class Bard
     {
         private BardSpells MySpells { get; } = new BardSpells();
-        private BardOpener MyOpener { get; } = new BardOpener();
 
         public static readonly Dictionary<string, Tuple<DateTime, int>> DotSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
 
@@ -290,53 +288,6 @@ namespace ShinraCo.Rotations
                 return await MySpells.BattleVoice.Cast();
             }
             return false;
-        }
-
-        #endregion
-
-        #region Opener
-
-        private async Task<bool> Opener()
-        {
-            if (!Shinra.Settings.BardOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
-            {
-                return false;
-            }
-
-            if (Shinra.Settings.BardPotion && Shinra.OpenerStep == 0)
-            {
-                if (await Helpers.UsePotion(Helpers.PotionIds.Dex))
-                {
-                    return true;
-                }
-            }
-
-            if (Resource.Repertoire == 3)
-            {
-                if (await MySpells.PitchPerfect.Cast(null, false))
-                {
-                    return true;
-                }
-            }
-
-            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
-            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0)
-            {
-                Shinra.OpenerStep++;
-                if (spell.Name == "Iron Jaws")
-                {
-                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
-                    return true;
-                }
-            }
-
-            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
-            {
-                Helpers.Debug("Opener finished.");
-                Shinra.OpenerFinished = true;
-            }
-            return true;
         }
 
         #endregion

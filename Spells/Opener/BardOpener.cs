@@ -5,20 +5,26 @@ namespace ShinraCo.Spells.Opener
 {
     public class BardOpener
     {
-        private static BardSpells MySpells { get; } = new BardSpells();
+        private static BardSpells Spells { get; } = new BardSpells();
 
-        public List<Spell> Spells = new List<Spell>
+        public static List<Spell> List = new List<Spell>
         {
-            MySpells.Windbite,
-            MySpells.Bloodletter,
-            MySpells.RagingStrikes,
-            MySpells.VenomousBite,
-            MySpells.WanderersMinuet,
-            MySpells.EmpyrealArrow,
-            MySpells.StraightShot,
-            MySpells.BattleVoice,
-            MySpells.IronJaws,
-            MySpells.Sidewinder
+            Spells.Windbite,
+            Spells.Bloodletter,
+            Spells.RagingStrikes,
+            Spells.VenomousBite,
+            Spells.WanderersMinuet,
+            Spells.BattleVoice,
+            Spells.StraightShot,
+            Spells.EmpyrealArrow,
+            Spells.IronJaws,
+            Spells.Sidewinder,
+            Spells.HeavyShot,
+            Spells.HeavyShot,
+            Spells.HeavyShot,
+            Spells.HeavyShot,
+            Spells.IronJaws,
+            Spells.EmpyrealArrow
         };
     }
 }
