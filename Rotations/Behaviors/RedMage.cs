@@ -11,7 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
-                if (await Opener()) return true;
+                if (Shinra.Settings.RedMageOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Drain()) return true;
                 if (await EnchantedMoulinet()) return true;
                 if (await Scatter()) return true;
@@ -31,7 +31,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
-                if (await Opener()) return true;
+                if (Shinra.Settings.RedMageOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Drain()) return true;
                 if (await Verholy()) return true;
                 if (await Verflare()) return true;
@@ -65,7 +65,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await Opener()) return true;
+            if (Shinra.Settings.RedMageOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Embolden()) return true;
             if (await CorpsACorps()) return true;
             if (await Displacement()) return true;

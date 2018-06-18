@@ -5,26 +5,26 @@ namespace ShinraCo.Spells.Opener
 {
     public class BlackMageOpener
     {
-        private static BlackMageSpells MySpells { get; } = new BlackMageSpells();
+        private static BlackMageSpells Spells { get; } = new BlackMageSpells();
 
-        public List<Spell> Spells = new List<Spell>
+        public static List<Spell> List = new List<Spell>
         {
-            MySpells.BlizzardIII,
-            MySpells.Enochian,
-            MySpells.ThunderIII,
-            MySpells.BlizzardIV,
-            MySpells.FireIII,
-            MySpells.Triplecast,
-            MySpells.FireIV,
-            MySpells.LeyLines,
-            MySpells.FireIV,
-            MySpells.Sharpcast,
-            MySpells.FireIV,
-            MySpells.Fire,
-            MySpells.FireIV,
-            MySpells.FireIV,
-            MySpells.FireIII,
-            MySpells.Convert
+            Spells.BlizzardIII,
+            Spells.Enochian,
+            Spells.ThunderIII,
+            Spells.BlizzardIV,
+            Spells.FireIII,
+            Spells.Triplecast,
+            Spells.FireIV,
+            Spells.LeyLines,
+            Spells.FireIV,
+            Spells.Sharpcast,
+            Spells.FireIV,
+            Spells.Fire,
+            Spells.FireIV,
+            Spells.FireIV,
+            Spells.FireIII,
+            Spells.Convert
         };
     }
 }

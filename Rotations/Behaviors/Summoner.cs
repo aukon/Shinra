@@ -8,7 +8,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (await Opener()) return true;
+            if (Shinra.Settings.SummonerOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Drain()) return true;
             if (await MiasmaIII()) return true;
             if (await Miasma()) return true;
@@ -28,7 +28,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await Opener()) return true;
+            if (Shinra.Settings.SummonerOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Sic()) return true;
             if (await SummonIII()) return true;
             if (await SummonII()) return true;
@@ -83,7 +83,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
-            if (await Opener()) return true;
+            if (Shinra.Settings.SummonerOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await TriDisaster()) return true;
             return await Combat();
         }

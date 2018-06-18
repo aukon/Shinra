@@ -5,30 +5,30 @@ namespace ShinraCo.Spells.Opener
 {
     public class RedMageOpener
     {
-        private static RedMageSpells MySpells { get; } = new RedMageSpells();
+        private static RedMageSpells Spells { get; } = new RedMageSpells();
 
-        public List<Spell> Spells = new List<Spell>
+        public static List<Spell> List = new List<Spell>
         {
-            MySpells.Veraero,
-            MySpells.Verthunder,
-            MySpells.Verstone,
-            MySpells.Veraero,
-            MySpells.Fleche,
-            MySpells.ContreSixte,
-            MySpells.JoltII,
-            MySpells.Verthunder,
-            MySpells.Role.Swiftcast,
-            MySpells.Verthunder,
-            MySpells.CorpsACorps,
-            MySpells.Embolden,
-            MySpells.Impact,
-            MySpells.Veraero,
-            MySpells.Manafication,
-            MySpells.CorpsACorps,
-            MySpells.EnchantedRiposte,
-            MySpells.EnchantedZwerchhau,
-            MySpells.EnchantedRedoublement,
-            MySpells.Verflare
+            Spells.Veraero,
+            Spells.Verthunder,
+            Spells.Verstone,
+            Spells.Veraero,
+            Spells.Fleche,
+            Spells.ContreSixte,
+            Spells.JoltII,
+            Spells.Verthunder,
+            Spells.Role.Swiftcast,
+            Spells.Verthunder,
+            Spells.CorpsACorps,
+            Spells.Embolden,
+            Spells.Impact,
+            Spells.Veraero,
+            Spells.Manafication,
+            Spells.CorpsACorps,
+            Spells.EnchantedRiposte,
+            Spells.EnchantedZwerchhau,
+            Spells.EnchantedRedoublement,
+            Spells.Verflare
         };
     }
 }

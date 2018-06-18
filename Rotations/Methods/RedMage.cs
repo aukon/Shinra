@@ -4,7 +4,6 @@ using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
-using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.RedMage;
 
 namespace ShinraCo.Rotations
@@ -12,7 +11,6 @@ namespace ShinraCo.Rotations
     public sealed partial class RedMage
     {
         private RedMageSpells MySpells { get; } = new RedMageSpells();
-        private RedMageOpener MyOpener { get; } = new RedMageOpener();
 
         #region Damage
 
@@ -262,55 +260,6 @@ namespace ShinraCo.Rotations
                 }
             }
             return false;
-        }
-
-        #endregion
-
-        #region Opener
-
-        private async Task<bool> Opener()
-        {
-            if (!Shinra.Settings.RedMageOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
-            {
-                return false;
-            }
-
-            if (Shinra.OpenerStep == 0)
-            {
-                if (await MySpells.Acceleration.Cast(null, false))
-                {
-                    return true;
-                }
-            }
-
-            if (Shinra.Settings.RedMagePotion && Shinra.OpenerStep == 3)
-            {
-                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
-                {
-                    return true;
-                }
-            }
-
-            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
-            if (spell.Name == MySpells.EnchantedRiposte.Name && (WhiteMana < 80 || BlackMana < 80))
-            {
-                Helpers.Debug("Aborted opener due to mana levels.");
-                Shinra.OpenerFinished = true;
-                return true;
-            }
-
-            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
-            {
-                Shinra.OpenerStep++;
-            }
-
-            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
-            {
-                Helpers.Debug("Opener finished.");
-                Shinra.OpenerFinished = true;
-            }
-            return true;
         }
 
         #endregion

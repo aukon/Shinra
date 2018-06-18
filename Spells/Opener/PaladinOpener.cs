@@ -5,33 +5,33 @@ namespace ShinraCo.Spells.Opener
 {
     public class PaladinOpener
     {
-        private static PaladinSpells MySpells { get; } = new PaladinSpells();
+        private static PaladinSpells Spells { get; } = new PaladinSpells();
 
-        public List<Spell> Spells = new List<Spell>
+        public static List<Spell> List = new List<Spell>
         {
-            MySpells.FastBlade,
-            MySpells.RiotBlade,
-            MySpells.FightOrFlight,
-            MySpells.GoringBlade,
-            MySpells.CircleOfScorn,
-            MySpells.SpiritsWithin,
-            MySpells.FastBlade,
-            MySpells.RiotBlade,
-            MySpells.RoyalAuthority,
-            MySpells.FastBlade,
-            MySpells.RiotBlade,
-            MySpells.RoyalAuthority,
-            MySpells.FastBlade,
-            MySpells.RiotBlade,
-            MySpells.GoringBlade,
-            MySpells.Requiescat,
-            MySpells.HolySpirit,
-            MySpells.CircleOfScorn,
-            MySpells.HolySpirit,
-            MySpells.HolySpirit,
-            MySpells.HolySpirit,
-            MySpells.SpiritsWithin,
-            MySpells.HolySpirit
+            Spells.FastBlade,
+            Spells.RiotBlade,
+            Spells.FightOrFlight,
+            Spells.GoringBlade,
+            Spells.CircleOfScorn,
+            Spells.SpiritsWithin,
+            Spells.FastBlade,
+            Spells.RiotBlade,
+            Spells.RoyalAuthority,
+            Spells.FastBlade,
+            Spells.RiotBlade,
+            Spells.RoyalAuthority,
+            Spells.FastBlade,
+            Spells.RiotBlade,
+            Spells.GoringBlade,
+            Spells.Requiescat,
+            Spells.HolySpirit,
+            Spells.CircleOfScorn,
+            Spells.HolySpirit,
+            Spells.HolySpirit,
+            Spells.HolySpirit,
+            Spells.SpiritsWithin,
+            Spells.HolySpirit
         };
     }
 }

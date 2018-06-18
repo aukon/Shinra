@@ -5,42 +5,42 @@ namespace ShinraCo.Spells.Opener
 {
     public class SummonerOpener
     {
-        private static SummonerSpells MySpells { get; } = new SummonerSpells();
+        private static SummonerSpells Spells { get; } = new SummonerSpells();
 
-        public List<Spell> Spells = new List<Spell>
+        public static List<Spell> List = new List<Spell>
         {
-            MySpells.RuinIII,
-            MySpells.RuinII,
-            MySpells.TriDisaster,
-            MySpells.RuinII,
-            MySpells.Fester,
-            MySpells.Role.Swiftcast,
-            MySpells.SummonIII,
-            MySpells.Painflare,
-            MySpells.Aetherpact,
-            MySpells.RuinII,
-            MySpells.Fester,
-            MySpells.DreadwyrmTrance,
-            MySpells.RuinIII,
-            MySpells.TriDisaster,
-            MySpells.Rouse,
-            MySpells.RuinIII,
-            MySpells.ShadowFlare,
-            MySpells.Deathflare,
-            MySpells.RuinII,
-            MySpells.Aetherflow,
-            MySpells.Enkindle,
-            MySpells.RuinII,
-            MySpells.Fester,
-            MySpells.RuinIII,
-            MySpells.RuinII,
-            MySpells.Fester,
-            MySpells.RuinIII,
-            MySpells.RuinII,
-            MySpells.Fester,
-            MySpells.RuinII,
-            MySpells.DreadwyrmTrance,
-            MySpells.TriDisaster
+            Spells.RuinIII,
+            Spells.RuinII,
+            Spells.TriDisaster,
+            Spells.RuinII,
+            Spells.Fester,
+            Spells.Role.Swiftcast,
+            Spells.SummonIII,
+            Spells.Painflare,
+            Spells.Aetherpact,
+            Spells.RuinII,
+            Spells.Fester,
+            Spells.DreadwyrmTrance,
+            Spells.RuinIII,
+            Spells.TriDisaster,
+            Spells.Rouse,
+            Spells.RuinIII,
+            Spells.ShadowFlare,
+            Spells.Deathflare,
+            Spells.RuinII,
+            Spells.Aetherflow,
+            Spells.Enkindle,
+            Spells.RuinII,
+            Spells.Fester,
+            Spells.RuinIII,
+            Spells.RuinII,
+            Spells.Fester,
+            Spells.RuinIII,
+            Spells.RuinII,
+            Spells.Fester,
+            Spells.RuinII,
+            Spells.DreadwyrmTrance,
+            Spells.TriDisaster
         };
     }
 }

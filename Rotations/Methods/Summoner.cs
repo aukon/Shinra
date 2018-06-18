@@ -9,7 +9,6 @@ using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
-using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.Summoner;
 using ResourceArcanist = ff14bot.Managers.ActionResourceManager.Arcanist;
 
@@ -18,7 +17,6 @@ namespace ShinraCo.Rotations
     public sealed partial class Summoner
     {
         private SummonerSpells MySpells { get; } = new SummonerSpells();
-        private SummonerOpener MyOpener { get; } = new SummonerOpener();
 
         #region Damage
 
@@ -419,97 +417,6 @@ namespace ShinraCo.Rotations
                 }
             }
             return false;
-        }
-
-        #endregion
-
-        #region Opener
-
-        private async Task<bool> Opener()
-        {
-            if (!Shinra.Settings.SummonerOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
-            {
-                return false;
-            }
-
-            #region Custom Logic
-
-            if (PetManager.ActivePetType == PetType.Ifrit_Egi && PetManager.PetMode != PetMode.Sic)
-            {
-                if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Core.Player)))
-                {
-                    Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Sic");
-                    return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Sic);
-                }
-            }
-
-            if (Shinra.OpenerStep == 1)
-            {
-                if (PetManager.ActivePetType == PetType.Garuda_Egi && PetManager.PetMode == PetMode.Obey)
-                {
-                    if (await MySpells.Contagion.Cast())
-                    {
-                        return true;
-                    }
-                }
-                if (ResourceArcanist.Aetherflow < 3 || MySpells.Aetherflow.Cooldown() > 15000)
-                {
-                    Helpers.Debug("Aborting opener due to Aetherflow charges.");
-                    Shinra.OpenerFinished = true;
-                    return true;
-                }
-            }
-
-            #endregion
-
-            if (Shinra.Settings.SummonerPotion && Shinra.OpenerStep == 2)
-            {
-                if (await Helpers.UsePotion(Helpers.PotionIds.Int))
-                {
-                    return true;
-                }
-            }
-
-            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
-
-            #region Custom Logic
-
-            if (spell.Name == MySpells.SummonIII.Name)
-            {
-                if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
-                    !Core.Player.HasAura(MySpells.Role.Swiftcast.Name))
-                {
-                    Shinra.OpenerStep++;
-                    return true;
-                }
-            }
-
-            if (spell.Name == MySpells.Fester.Name && ResourceArcanist.Aetherflow > 0)
-            {
-                if (spell.Cooldown() > 0)
-                {
-                    return true;
-                }
-            }
-
-            #endregion
-
-            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0 && !Core.Player.IsCasting)
-            {
-                Shinra.OpenerStep++;
-                if (spell.Name == MySpells.Role.Swiftcast.Name)
-                {
-                    await Coroutine.Wait(1000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
-                }
-            }
-
-            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
-            {
-                Helpers.Debug("Opener finished.");
-                Shinra.OpenerFinished = true;
-            }
-            return true;
         }
 
         #endregion

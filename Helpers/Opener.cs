@@ -25,6 +25,21 @@ namespace ShinraCo
                 case ClassJobType.Bard:
                     current = BardOpener.List;
                     break;
+                case ClassJobType.BlackMage:
+                    current = BlackMageOpener.List;
+                    break;
+                case ClassJobType.Machinist:
+                    current = MachinistOpener.List;
+                    break;
+                case ClassJobType.Paladin:
+                    current = PaladinOpener.List;
+                    break;
+                case ClassJobType.RedMage:
+                    current = RedMageOpener.List;
+                    break;
+                case ClassJobType.Summoner:
+                    current = SummonerOpener.List;
+                    break;
             }
             if (current == null)
             {

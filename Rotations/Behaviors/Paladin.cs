@@ -11,7 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
-                if (await Opener()) return true;
+                if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await TotalEclipse()) return true;
                 if (await Flash()) return true;
                 if (await HolySpirit()) return true;
@@ -24,7 +24,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
-                if (await Opener()) return true;
+                if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await HolySpirit()) return true;
                 if (await GoringBlade()) return true;
                 if (await RoyalAuthority()) return true;
@@ -60,7 +60,7 @@ namespace ShinraCo.Rotations
             if (await Anticipation()) return true;
             if (await Awareness()) return true;
             if (await Reprisal()) return true;
-            if (await Opener()) return true;
+            if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Sheltron()) return true;
             if (await Requiescat()) return true;
             if (await FightOrFlight()) return true;
@@ -95,7 +95,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
-            if (await Opener()) return true;
+            if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await ShieldLob()) return true;
             return await Combat();
         }

@@ -8,7 +8,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (await Opener()) return true;
+            if (Shinra.Settings.MachinistOpener) {if (await Helpers.ExecuteOpener()) return true; }
             if (await HotShot()) return true;
             if (await Flamethrower()) return true;
             if (await SpreadShot()) return true;
@@ -26,7 +26,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (await Opener()) return true;
+            if (Shinra.Settings.MachinistOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await FlamethrowerBuff()) return true;
             if (await BarrelStabilizer()) return true;
             if (await GaussBarrel()) return true;
@@ -78,7 +78,6 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
-            if (await Opener()) return true;
             return await Combat();
         }
 

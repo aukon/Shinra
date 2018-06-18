@@ -8,10 +8,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.BardOpener)
-            {
-                if (await Helpers.ExecuteOpener()) return true;
-            }
+            if (Shinra.Settings.BardOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await RefulgentBarrage()) return true;
             if (await IronJaws()) return true;
             if (await RefulgentArrow()) return true;
@@ -31,10 +28,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
-            if (Shinra.Settings.BardOpener)
-            {
-                if (await Helpers.ExecuteOpener()) return true;
-            }
+            if (Shinra.Settings.BardOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await BarrageRefulgent()) return true;
             // Songs
             if (await WanderersMinuet()) return true;

@@ -5,7 +5,6 @@ using ff14bot;
 using ff14bot.Managers;
 using ShinraCo.Settings;
 using ShinraCo.Spells.Main;
-using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager.Machinist;
 
 namespace ShinraCo.Rotations
@@ -13,7 +12,6 @@ namespace ShinraCo.Rotations
     public sealed partial class Machinist
     {
         private MachinistSpells MySpells { get; } = new MachinistSpells();
-        private MachinistOpener MyOpener { get; } = new MachinistOpener();
 
         #region Damage
 
@@ -319,68 +317,6 @@ namespace ShinraCo.Rotations
                 }
             }
             return false;
-        }
-
-        #endregion
-
-        #region Opener
-
-        private async Task<bool> Opener()
-        {
-            if (!Shinra.Settings.MachinistOpener || Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
-            {
-                return false;
-            }
-
-            if (Core.Player.HasAura(MySpells.Flamethrower.Name) && !Overheated)
-            {
-                return true;
-            }
-
-            if (PetManager.ActivePetType != PetType.Rook_Autoturret || TurretDistance > 23)
-            {
-                var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
-                            : Core.Player.CurrentTarget;
-
-                if (await MySpells.RookAutoturret.Cast(castLocation, false))
-                {
-                    return true;
-                }
-            }
-
-            if (Shinra.Settings.MachinistPotion && Shinra.OpenerStep == 0)
-            {
-                if (await Helpers.UsePotion(Helpers.PotionIds.Dex))
-                {
-                    return true;
-                }
-            }
-
-            if (TurretExists)
-            {
-                if (await MySpells.Hypercharge.Cast(null, false))
-                {
-                    return true;
-                }
-            }
-
-            var spell = MyOpener.Spells.ElementAt(Shinra.OpenerStep);
-            Helpers.Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 0)
-            {
-                Shinra.OpenerStep++;
-                if (spell.Name == MySpells.Flamethrower.Name)
-                {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Flamethrower.Name));
-                }
-            }
-
-            if (Shinra.OpenerStep >= MyOpener.Spells.Count)
-            {
-                Helpers.Debug("Opener finished.");
-                Shinra.OpenerFinished = true;
-            }
-            return true;
         }
 
         #endregion
