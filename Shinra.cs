@@ -37,7 +37,7 @@ namespace ShinraCo
         public sealed override void Pulse()
         {
             var _class = CurrentClass;
-            ResetOpener();
+            Helpers.ResetOpener();
         }
 
         public sealed override void ShutDown()
@@ -238,22 +238,6 @@ namespace ShinraCo
             }
             Logging.Write(Colors.Yellow, @"[Shinra] Resting...");
             return true;
-        }
-
-        #endregion
-
-        #region Opener
-
-        public static int OpenerStep;
-        public static bool OpenerFinished;
-
-        private static void ResetOpener()
-        {
-            if (!Core.Player.InCombat && !Spell.RecentSpell.ContainsKey("Opener"))
-            {
-                OpenerStep = 0;
-                OpenerFinished = false;
-            }
         }
 
         #endregion

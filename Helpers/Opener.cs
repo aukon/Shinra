@@ -10,9 +10,12 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
+        public static int OpenerStep;
+        public static bool OpenerFinished;
+
         public static async Task<bool> ExecuteOpener()
         {
-            if (Shinra.OpenerFinished || Core.Player.ClassLevel < 70)
+            if (OpenerFinished || Core.Player.ClassLevel < 70)
             {
                 return false;
             }
@@ -48,19 +51,29 @@ namespace ShinraCo
 
             #endregion
 
-            var spell = current.ElementAt(Shinra.OpenerStep);
-            Debug($"Executing opener step {Shinra.OpenerStep} >>> {spell.Name}");
+            var spell = current.ElementAt(OpenerStep);
+            Debug($"Executing opener step {OpenerStep} >>> {spell.Name}");
+
             if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Core.Player.IsCasting)
             {
-                Shinra.OpenerStep++;
+                OpenerStep++;
             }
 
-            if (Shinra.OpenerStep >= current.Count)
+            if (OpenerStep >= current.Count)
             {
                 Debug("Opener finished.");
-                Shinra.OpenerFinished = true;
+                OpenerFinished = true;
             }
             return true;
+        }
+
+        public static void ResetOpener()
+        {
+            if (!Core.Player.InCombat && !Spell.RecentSpell.ContainsKey("Opener"))
+            {
+                OpenerStep = 0;
+                OpenerFinished = false;
+            }
         }
     }
 }

@@ -322,7 +322,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Summon()
         {
-            if (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Shinra.OpenerFinished)
+            if (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Helpers.OpenerFinished)
             {
                 if (Shinra.Settings.SummonerPet == SummonerPets.None ||
                     Shinra.Settings.SummonerPet == SummonerPets.Titan && ActionManager.HasSpell(MySpells.SummonII.Name) ||
@@ -336,7 +336,7 @@ namespace ShinraCo.Rotations
             {
                 if (Shinra.Settings.SummonerSwiftcast && !Shinra.Settings.SummonerResurrection &&
                     ActionManager.CanCast(MySpells.Summon.Name, Core.Player) &&
-                    (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Shinra.OpenerFinished))
+                    (!Shinra.Settings.SummonerOpener || !Shinra.Settings.SummonerOpenerGaruda || Helpers.OpenerFinished))
                 {
                     if (await MySpells.Role.Swiftcast.Cast(null, false))
                     {
@@ -350,7 +350,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonII()
         {
-            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Shinra.OpenerFinished)
+            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Helpers.OpenerFinished)
             {
                 return false;
             }
@@ -373,7 +373,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SummonIII()
         {
-            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Shinra.OpenerFinished)
+            if (Shinra.Settings.SummonerOpener && Shinra.Settings.SummonerOpenerGaruda && !Helpers.OpenerFinished)
             {
                 return false;
             }
