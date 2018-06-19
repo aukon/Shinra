@@ -1,10 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Enums;
+using ff14bot.Helpers;
+using ff14bot.Managers;
+using ShinraCo.Settings;
 using ShinraCo.Spells;
+using ShinraCo.Spells.Main;
 using ShinraCo.Spells.Opener;
+using Resource = ff14bot.Managers.ActionResourceManager;
 
 namespace ShinraCo
 {
@@ -13,10 +20,22 @@ namespace ShinraCo
         public static int OpenerStep;
         public static bool OpenerFinished;
 
+        private static BardSpells Bard { get; } = new BardSpells();
+        private static BlackMageSpells BlackMage { get; } = new BlackMageSpells();
+        private static MachinistSpells Machinist { get; } = new MachinistSpells();
+        private static RedMageSpells RedMage { get; } = new RedMageSpells();
+        private static SummonerSpells Summoner { get; } = new SummonerSpells();
+
         public static async Task<bool> ExecuteOpener()
         {
             if (OpenerFinished || Core.Player.ClassLevel < 70)
             {
+                return false;
+            }
+
+            if (Shinra.Settings.CooldownMode == CooldownModes.Disabled)
+            {
+                AbortOpener("Please enable cooldown mode to use an opener.");
                 return false;
             }
 
@@ -51,20 +70,179 @@ namespace ShinraCo
 
             #endregion
 
+            #region Job-Specific
+
+            switch (Core.Player.CurrentJob)
+            {
+                case ClassJobType.Bard:
+                    if (Resource.Bard.Repertoire == 3)
+                    {
+                        if (await Bard.PitchPerfect.Cast(null, false))
+                        {
+                            return true;
+                        }
+                    }
+                    break;
+                case ClassJobType.Machinist:
+                    if (PetManager.ActivePetType != PetType.Rook_Autoturret)
+                    {
+                        var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
+                            : Core.Player.CurrentTarget;
+
+                        if (await Machinist.RookAutoturret.Cast(castLocation, false))
+                        {
+                            return true;
+                        }
+                    }
+
+                    if (Core.Player.Pet != null)
+                    {
+                        if (await Machinist.Hypercharge.Cast(null, false))
+                        {
+                            return true;
+                        }
+                    }
+                    break;
+                case ClassJobType.RedMage:
+                    if (!ActionManager.HasSpell("Swiftcast"))
+                    {
+                        AbortOpener("Aborting opener as Swiftcast is not set.");
+                        return false;
+                    }
+
+                    if (OpenerStep == 0)
+                    {
+                        if (await RedMage.Acceleration.Cast(null, false))
+                        {
+                            return await Coroutine.Wait(3000, () => Core.Player.HasAura(RedMage.Acceleration.Name));
+                        }
+
+                        if (!Core.Player.HasAura(RedMage.Acceleration.Name))
+                        {
+                            AbortOpener("Aborting opener due to cooldowns.");
+                            return false;
+                        }
+                    }
+                    break;
+                case ClassJobType.Summoner:
+                    if (!ActionManager.HasSpell("Swiftcast"))
+                    {
+                        AbortOpener("Aborting opener as Swiftcast is not set.");
+                        return false;
+                    }
+
+                    if (PetManager.ActivePetType == PetType.Ifrit_Egi && PetManager.PetMode != PetMode.Sic)
+                    {
+                        if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Core.Player)))
+                        {
+                            Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Sic");
+                            return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Sic);
+                        }
+                    }
+
+                    if (OpenerStep == 1)
+                    {
+                        if (PetManager.ActivePetType == PetType.Garuda_Egi && PetManager.PetMode == PetMode.Obey)
+                        {
+                            if (await Summoner.Contagion.Cast())
+                            {
+                                return true;
+                            }
+                        }
+
+                        if (Resource.Arcanist.Aetherflow < 3 || Summoner.Aetherflow.Cooldown() > 15000)
+                        {
+                            AbortOpener("Aborting opener due to Aetherflow charges.");
+                            return false;
+                        }
+                    }
+                    break;
+            }
+
+            #endregion
+
             var spell = current.ElementAt(OpenerStep);
             Debug($"Executing opener step {OpenerStep} >>> {spell.Name}");
 
-            if (await spell.Cast(null, false) || spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Core.Player.IsCasting)
+            #region Job-Specific
+
+            //Black Mage
+            if ((spell.Name == BlackMage.BlizzardIV.Name || spell.Name == BlackMage.FireIV.Name) && !Resource.BlackMage.Enochian)
             {
+                AbortOpener("Aborted opener due to Enochian.");
+                return true;
+            }
+
+            //Red Mage
+            if (spell.Name == RedMage.EnchantedRiposte.Name && (Resource.RedMage.WhiteMana < 80 || Resource.RedMage.BlackMana < 80))
+            {
+                AbortOpener("Aborted opener due to mana levels.");
+                return true;
+            }
+
+            //Summoner
+            if (spell.Name == Summoner.SummonIII.Name)
+            {
+                if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
+                    !Core.Player.HasAura(Summoner.Role.Swiftcast.Name))
+                {
+                    OpenerStep++;
+                    return true;
+                }
+            }
+
+            if (spell.Name == Summoner.Fester.Name && Resource.Arcanist.Aetherflow > 0)
+            {
+                if (spell.Cooldown() > 0)
+                {
+                    return true;
+                }
+            }
+
+            #endregion
+
+            if (await spell.Cast(null, false))
+            {
+                OpenerStep++;
+                if (spell.Name == "Swiftcast")
+                {
+                    await Coroutine.Wait(1000, () => Core.Player.HasAura("Swiftcast"));
+                }
+
+                #region Job-Specific
+
+                //Machinist
+                if (spell.Name == Machinist.Flamethrower.Name)
+                {
+                    await Coroutine.Wait(3000, () => Core.Player.HasAura(Machinist.Flamethrower.Name));
+                    await Coroutine.Wait(5000, () => Resource.Machinist.Heat == 100 || !Core.Player.HasAura(Machinist.Flamethrower.Name));
+                }
+
+                //Red Mage
+                if (spell.Name == RedMage.Manafication.Name)
+                {
+                    await Coroutine.Wait(3000, () => ActionManager.CanCast(RedMage.CorpsACorps.Name, Core.Player.CurrentTarget));
+                }
+
+                #endregion
+            }
+            else if (spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Core.Player.IsCasting)
+            {
+                Debug($"Skipped opener step {OpenerStep} due to cooldown >>> {spell.Name}");
                 OpenerStep++;
             }
 
             if (OpenerStep >= current.Count)
             {
-                Debug("Opener finished.");
-                OpenerFinished = true;
+                AbortOpener("Opener finished.");
             }
             return true;
+        }
+
+        public static void AbortOpener(string msg)
+        {
+            Debug(msg);
+            OpenerFinished = true;
         }
 
         public static void ResetOpener()
