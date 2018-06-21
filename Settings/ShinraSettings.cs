@@ -1401,6 +1401,12 @@ namespace ShinraCo.Settings
         #region Cooldown
 
         [Setting, DefaultValue(true)]
+        public bool ScholarEnergyDrain { get; set; }
+
+        [Setting, DefaultValue(70)]
+        public int ScholarEnergyDrainPct { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool ScholarShadowFlare { get; set; }
 
         [Setting, DefaultValue(true)]

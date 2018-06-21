@@ -787,6 +787,8 @@ namespace ShinraCo.Settings.Forms
 
             #region Cooldown
 
+            ScholarEnergyDrain.Checked = Shinra.Settings.ScholarEnergyDrain;
+            ScholarEnergyDrainPct.Value = Shinra.Settings.ScholarEnergyDrainPct;
             ScholarShadowFlare.Checked = Shinra.Settings.ScholarShadowFlare;
             ScholarChainStrategem.Checked = Shinra.Settings.ScholarChainStrategem;
 
@@ -2981,6 +2983,16 @@ namespace ShinraCo.Settings.Forms
         #endregion
 
         #region Cooldown
+
+        private void ScholarEnergyDrain_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarEnergyDrain = ScholarEnergyDrain.Checked;
+        }
+
+        private void ScholarEnergyDrainPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.ScholarEnergyDrainPct = Convert.ToInt32(ScholarEnergyDrainPct.Value);
+        }
 
         private void ScholarShadowFlare_CheckedChanged(object sender, EventArgs e)
         {

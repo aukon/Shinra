@@ -107,6 +107,18 @@ namespace ShinraCo.Rotations
 
         #region Cooldown
 
+        private async Task<bool> EnergyDrain()
+        {
+            if (Shinra.Settings.ScholarEnergyDrain)
+            {
+                if (Core.Player.CurrentManaPercent < Shinra.Settings.ScholarEnergyDrainPct && MySpells.Aetherflow.Cooldown() == 0)
+                {
+                    return await MySpells.EnergyDrain.Cast(null, false);
+                }
+            }
+            return false;
+        }
+
         private async Task<bool> ShadowFlare()
         {
             if (Shinra.Settings.ScholarShadowFlare && !MovementManager.IsMoving)

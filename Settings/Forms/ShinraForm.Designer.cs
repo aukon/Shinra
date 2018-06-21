@@ -471,6 +471,7 @@
             this.BardSidewinder = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardSongs = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardFoeRequiem = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardBarrage = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardBattleVoice = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardRagingStrikes = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -668,7 +669,8 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardFoeRequiem = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarEnergyDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.ScholarEnergyDrainPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -3680,7 +3682,7 @@
             this.ScholarBuffGroup.Controls.Add(this.ScholarEmergencyTactics);
             this.ScholarBuffGroup.Controls.Add(this.ScholarRouse);
             this.ScholarBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarBuffGroup.Location = new System.Drawing.Point(476, 200);
+            this.ScholarBuffGroup.Location = new System.Drawing.Point(476, 223);
             this.ScholarBuffGroup.Name = "ScholarBuffGroup";
             this.ScholarBuffGroup.Size = new System.Drawing.Size(125, 66);
             this.ScholarBuffGroup.TabIndex = 5;
@@ -3719,12 +3721,14 @@
             // 
             // ScholarCooldownGroup
             // 
+            this.ScholarCooldownGroup.Controls.Add(this.ScholarEnergyDrainPct);
+            this.ScholarCooldownGroup.Controls.Add(this.ScholarEnergyDrain);
             this.ScholarCooldownGroup.Controls.Add(this.ScholarChainStrategem);
             this.ScholarCooldownGroup.Controls.Add(this.ScholarShadowFlare);
             this.ScholarCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarCooldownGroup.Location = new System.Drawing.Point(476, 128);
             this.ScholarCooldownGroup.Name = "ScholarCooldownGroup";
-            this.ScholarCooldownGroup.Size = new System.Drawing.Size(125, 66);
+            this.ScholarCooldownGroup.Size = new System.Drawing.Size(215, 89);
             this.ScholarCooldownGroup.TabIndex = 4;
             this.ScholarCooldownGroup.TabStop = false;
             this.ScholarCooldownGroup.Text = "Cooldown";
@@ -3735,7 +3739,7 @@
             this.ScholarChainStrategem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarChainStrategem.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarChainStrategem.ForeColor = System.Drawing.Color.White;
-            this.ScholarChainStrategem.Location = new System.Drawing.Point(6, 39);
+            this.ScholarChainStrategem.Location = new System.Drawing.Point(6, 62);
             this.ScholarChainStrategem.Name = "ScholarChainStrategem";
             this.ScholarChainStrategem.Size = new System.Drawing.Size(108, 17);
             this.ScholarChainStrategem.TabIndex = 1;
@@ -3750,7 +3754,7 @@
             this.ScholarShadowFlare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ScholarShadowFlare.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.ScholarShadowFlare.ForeColor = System.Drawing.Color.White;
-            this.ScholarShadowFlare.Location = new System.Drawing.Point(6, 16);
+            this.ScholarShadowFlare.Location = new System.Drawing.Point(6, 39);
             this.ScholarShadowFlare.Name = "ScholarShadowFlare";
             this.ScholarShadowFlare.Size = new System.Drawing.Size(93, 17);
             this.ScholarShadowFlare.TabIndex = 0;
@@ -7140,6 +7144,21 @@
             this.BardBuffGroup.TabStop = false;
             this.BardBuffGroup.Text = "Buff";
             // 
+            // BardFoeRequiem
+            // 
+            this.BardFoeRequiem.AutoSize = true;
+            this.BardFoeRequiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardFoeRequiem.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardFoeRequiem.ForeColor = System.Drawing.Color.White;
+            this.BardFoeRequiem.Location = new System.Drawing.Point(6, 39);
+            this.BardFoeRequiem.Name = "BardFoeRequiem";
+            this.BardFoeRequiem.Size = new System.Drawing.Size(90, 17);
+            this.BardFoeRequiem.TabIndex = 3;
+            this.BardFoeRequiem.TabStop = false;
+            this.BardFoeRequiem.Text = "Foe Requiem";
+            this.BardFoeRequiem.UseVisualStyleBackColor = true;
+            this.BardFoeRequiem.CheckedChanged += new System.EventHandler(this.BardFoeRequiem_CheckedChanged);
+            // 
             // BardBarrage
             // 
             this.BardBarrage.AutoSize = true;
@@ -9922,20 +9941,29 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BardFoeRequiem
+            // ScholarEnergyDrain
             // 
-            this.BardFoeRequiem.AutoSize = true;
-            this.BardFoeRequiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardFoeRequiem.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardFoeRequiem.ForeColor = System.Drawing.Color.White;
-            this.BardFoeRequiem.Location = new System.Drawing.Point(6, 39);
-            this.BardFoeRequiem.Name = "BardFoeRequiem";
-            this.BardFoeRequiem.Size = new System.Drawing.Size(90, 17);
-            this.BardFoeRequiem.TabIndex = 3;
-            this.BardFoeRequiem.TabStop = false;
-            this.BardFoeRequiem.Text = "Foe Requiem";
-            this.BardFoeRequiem.UseVisualStyleBackColor = true;
-            this.BardFoeRequiem.CheckedChanged += new System.EventHandler(this.BardFoeRequiem_CheckedChanged);
+            this.ScholarEnergyDrain.AutoSize = true;
+            this.ScholarEnergyDrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEnergyDrain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEnergyDrain.ForeColor = System.Drawing.Color.White;
+            this.ScholarEnergyDrain.Location = new System.Drawing.Point(6, 16);
+            this.ScholarEnergyDrain.Name = "ScholarEnergyDrain";
+            this.ScholarEnergyDrain.Size = new System.Drawing.Size(89, 17);
+            this.ScholarEnergyDrain.TabIndex = 2;
+            this.ScholarEnergyDrain.TabStop = false;
+            this.ScholarEnergyDrain.Text = "Energy Drain";
+            this.ScholarEnergyDrain.UseVisualStyleBackColor = true;
+            this.ScholarEnergyDrain.CheckedChanged += new System.EventHandler(this.ScholarEnergyDrain_CheckedChanged);
+            // 
+            // ScholarEnergyDrainPct
+            // 
+            this.ScholarEnergyDrainPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarEnergyDrainPct.Location = new System.Drawing.Point(120, 16);
+            this.ScholarEnergyDrainPct.Name = "ScholarEnergyDrainPct";
+            this.ScholarEnergyDrainPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarEnergyDrainPct.TabIndex = 3;
+            this.ScholarEnergyDrainPct.ValueChanged += new System.EventHandler(this.ScholarEnergyDrainPct_ValueChanged);
             // 
             // ShinraForm
             // 
@@ -10806,5 +10834,7 @@
         private Design.UserNumeric WhiteMagePresenceOfMindPct;
         private Design.UserNumeric WhiteMagePresenceOfMindCount;
         private Design.CustomCheck BardFoeRequiem;
+        private Design.CustomCheck ScholarEnergyDrain;
+        private Design.UserNumeric ScholarEnergyDrainPct;
     }
 }

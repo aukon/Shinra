@@ -18,25 +18,11 @@ namespace ShinraCo.Rotations
 
         public static readonly Dictionary<string, Tuple<DateTime, int>> DotSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
 
-        private int _heavyCount;
-
         #region Damage
 
         private async Task<bool> HeavyShot()
         {
-            if (await MySpells.HeavyShot.Cast())
-            {
-                if (BarrageCooldown < 500)
-                {
-                    _heavyCount++;
-                }
-                else
-                {
-                    _heavyCount = 0;
-                }
-                return true;
-            }
-            return false;
+            return await MySpells.HeavyShot.Cast();
         }
 
         private async Task<bool> StraightShotBuff()
@@ -85,19 +71,21 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RefulgentArrow()
         {
-            if (!Core.Player.HasAura(122) || Shinra.Settings.BardBarrage && BarrageCooldown > 0 && BarrageCooldown < 5000 &&
-                Core.Player.HasAura(MySpells.StraightShot.Name, true, 8000))
+            if (Core.Player.HasAura(122) && (!Shinra.Settings.BardBarrage || MySpells.Barrage.Cooldown() > 8000))
             {
                 return false;
             }
             return await MySpells.RefulgentArrow.Cast();
         }
 
-        private async Task<bool> RefulgentBarrage()
+        private async Task<bool> BarrageActive()
         {
-            if (Core.Player.HasAura(MySpells.Barrage.Name) && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
+            if (Core.Player.HasAura(MySpells.Barrage.Name))
             {
-                return await MySpells.RefulgentArrow.Cast();
+                if (!Core.Player.HasAura(122) || !await MySpells.RefulgentArrow.Cast())
+                {
+                    return await EmpyrealArrow();
+                }
             }
             return false;
         }
@@ -212,15 +200,11 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardEmpyrealArrow)
             {
-                if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.EmpyrealArrow.Name, Core.Player.CurrentTarget) &&
-                    (!ActionManager.HasSpell(MySpells.RefulgentArrow.Name) || _heavyCount > 3))
+                if (Shinra.LastSpell.Name == MySpells.Barrage.Name || Shinra.LastSpell.Name == MySpells.HeavyShot.Name)
                 {
-                    if (await MySpells.Barrage.Cast(null, false))
-                    {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
-                    }
+                    await Coroutine.Wait(250, () => Core.Player.HasAura(122));
                 }
-                return await MySpells.EmpyrealArrow.Cast(null, !Core.Player.HasAura(MySpells.Barrage.Name));
+                return await MySpells.EmpyrealArrow.Cast();
             }
             return false;
         }
@@ -262,20 +246,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Barrage()
         {
-            if (Shinra.Settings.BardBarrage && !ActionManager.HasSpell(MySpells.EmpyrealArrow.Name))
+            if (Shinra.Settings.BardBarrage)
             {
-                return await MySpells.Barrage.Cast();
-            }
-            return false;
-        }
-
-        private async Task<bool> BarrageRefulgent()
-        {
-            if (Shinra.Settings.BardBarrage && ActionManager.CanCast(MySpells.RefulgentArrow.Name, Core.Player.CurrentTarget))
-            {
-                if (await MySpells.Barrage.Cast(null, false))
+                if (MySpells.EmpyrealArrow.Cooldown() == 0 ||
+                    Core.Player.HasAura(122) && ActionManager.HasSpell(MySpells.RefulgentArrow.Name) ||
+                    !ActionManager.HasSpell(MySpells.EmpyrealArrow.Name))
                 {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                    if (await MySpells.Barrage.Cast())
+                    {
+                        return await Coroutine.Wait(1000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                    }
                 }
             }
             return false;

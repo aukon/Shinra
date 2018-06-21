@@ -33,6 +33,7 @@ namespace ShinraCo.Rotations
             if (await ChainStrategem()) return true;
             if (await ClericStance()) return true;
             if (await Bane()) return true;
+            if (await EnergyDrain()) return true;
             return await ShadowFlare();
         }
 
