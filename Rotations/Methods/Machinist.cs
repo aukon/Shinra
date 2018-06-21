@@ -92,7 +92,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> GaussRound()
         {
-            return await MySpells.GaussRound.Cast();
+            if (!Shinra.Settings.MachinistSyncWildfire || MySpells.Wildfire.Cooldown() > 15000)
+            {
+                return await MySpells.GaussRound.Cast();
+            }
+            return false;
         }
 
         private async Task<bool> Ricochet()
@@ -160,7 +164,8 @@ namespace ShinraCo.Rotations
                 if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
                     WildfireCooldown > 25000)
                 {
-                    if (Resource.Ammo == 0 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
+                    if (Shinra.LastSpell.Name != MySpells.QuickReload.Name && Resource.Ammo == 0 &&
+                        !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
                         (Core.Player.HasAura(MySpells.HotShot.Name, true, 10000) || !ActionManager.HasSpell(MySpells.HotShot.Name)))
                     {
                         return await MySpells.Reload.Cast();
@@ -192,7 +197,8 @@ namespace ShinraCo.Rotations
             if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
                 WildfireCooldown > 10000)
             {
-                if (Resource.Ammo < 3 && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot"))
+                if (Shinra.LastSpell.Name != MySpells.Reload.Name && Resource.Ammo < 3 && !Core.Player.HasAura("Enhanced Slug Shot") &&
+                    !Core.Player.HasAura("Cleaner Shot"))
                 {
                     return await MySpells.QuickReload.Cast();
                 }

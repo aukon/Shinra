@@ -9,6 +9,7 @@ namespace ShinraCo.Spells.Opener
 
         public static List<Spell> List = new List<Spell>
         {
+            Spells.Acceleration,
             Spells.Veraero,
             Spells.Verthunder,
             Spells.Verstone,

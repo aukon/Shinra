@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
@@ -20,6 +21,7 @@ namespace ShinraCo
         public static int OpenerStep;
         public static bool OpenerFinished;
 
+        private static DateTime ResetTime;
         private static BardSpells Bard { get; } = new BardSpells();
         private static BlackMageSpells BlackMage { get; } = new BlackMageSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
@@ -28,7 +30,7 @@ namespace ShinraCo
 
         public static async Task<bool> ExecuteOpener()
         {
-            if (OpenerFinished || Core.Player.ClassLevel < 70)
+            if (OpenerFinished || Me.ClassLevel < 70)
             {
                 return false;
             }
@@ -42,7 +44,7 @@ namespace ShinraCo
             #region GetOpener
 
             List<Spell> current = null;
-            switch (Core.Player.CurrentJob)
+            switch (Me.CurrentJob)
             {
                 case ClassJobType.Bard:
                     current = BardOpener.List;
@@ -70,9 +72,12 @@ namespace ShinraCo
 
             #endregion
 
+            var spell = current.ElementAt(OpenerStep);
+            ResetTime = DateTime.Now.AddSeconds(10);
+
             #region Job-Specific
 
-            switch (Core.Player.CurrentJob)
+            switch (Me.CurrentJob)
             {
                 case ClassJobType.Bard:
                     if (Resource.Bard.Repertoire == 3)
@@ -83,11 +88,17 @@ namespace ShinraCo
                         }
                     }
                     break;
+                case ClassJobType.BlackMage:
+                    if ((spell.Name == BlackMage.BlizzardIV.Name || spell.Name == BlackMage.FireIV.Name) && !Resource.BlackMage.Enochian)
+                    {
+                        AbortOpener("Aborted opener due to Enochian.");
+                        return true;
+                    }
+                    break;
                 case ClassJobType.Machinist:
                     if (PetManager.ActivePetType != PetType.Rook_Autoturret)
                     {
-                        var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Core.Player
-                            : Core.Player.CurrentTarget;
+                        var castLocation = Shinra.Settings.MachinistTurretLocation == CastLocations.Self ? Me : Target;
 
                         if (await Machinist.RookAutoturret.Cast(castLocation, false))
                         {
@@ -95,7 +106,7 @@ namespace ShinraCo
                         }
                     }
 
-                    if (Core.Player.Pet != null)
+                    if (Pet != null)
                     {
                         if (await Machinist.Hypercharge.Cast(null, false))
                         {
@@ -109,19 +120,15 @@ namespace ShinraCo
                         AbortOpener("Aborting opener as Swiftcast is not set.");
                         return false;
                     }
-
-                    if (OpenerStep == 0)
+                    if (spell.Name == RedMage.Verstone.Name && !Me.HasAura("Verstone Ready"))
                     {
-                        if (await RedMage.Acceleration.Cast(null, false))
-                        {
-                            return await Coroutine.Wait(3000, () => Core.Player.HasAura(RedMage.Acceleration.Name));
-                        }
-
-                        if (!Core.Player.HasAura(RedMage.Acceleration.Name))
-                        {
-                            AbortOpener("Aborting opener due to cooldowns.");
-                            return false;
-                        }
+                        AbortOpener("Aborting opener due to cooldowns.");
+                        return false;
+                    }
+                    if (spell.Name == RedMage.EnchantedRiposte.Name && (Resource.RedMage.WhiteMana < 80 || Resource.RedMage.BlackMana < 80))
+                    {
+                        AbortOpener("Aborted opener due to mana levels.");
+                        return true;
                     }
                     break;
                 case ClassJobType.Summoner:
@@ -130,16 +137,14 @@ namespace ShinraCo
                         AbortOpener("Aborting opener as Swiftcast is not set.");
                         return false;
                     }
-
                     if (PetManager.ActivePetType == PetType.Ifrit_Egi && PetManager.PetMode != PetMode.Sic)
                     {
-                        if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Core.Player)))
+                        if (await Coroutine.Wait(1000, () => PetManager.DoAction("Sic", Me)))
                         {
                             Logging.Write(Colors.GreenYellow, @"[Shinra] Casting >>> Sic");
                             return await Coroutine.Wait(3000, () => PetManager.PetMode == PetMode.Sic);
                         }
                     }
-
                     if (OpenerStep == 1)
                     {
                         if (PetManager.ActivePetType == PetType.Garuda_Egi && PetManager.PetMode == PetMode.Obey)
@@ -149,11 +154,26 @@ namespace ShinraCo
                                 return true;
                             }
                         }
-
                         if (Resource.Arcanist.Aetherflow < 3 || Summoner.Aetherflow.Cooldown() > 15000)
                         {
                             AbortOpener("Aborting opener due to Aetherflow charges.");
                             return false;
+                        }
+                    }
+                    if (spell.Name == Summoner.SummonIII.Name)
+                    {
+                        if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
+                            !Me.HasAura(Summoner.Role.Swiftcast.Name))
+                        {
+                            OpenerStep++;
+                            return true;
+                        }
+                    }
+                    if (spell.Name == Summoner.Fester.Name && Resource.Arcanist.Aetherflow > 0)
+                    {
+                        if (spell.Cooldown() > 0)
+                        {
+                            return true;
                         }
                     }
                     break;
@@ -161,52 +181,13 @@ namespace ShinraCo
 
             #endregion
 
-            var spell = current.ElementAt(OpenerStep);
-            Debug($"Executing opener step {OpenerStep} >>> {spell.Name}");
-
-            #region Job-Specific
-
-            //Black Mage
-            if ((spell.Name == BlackMage.BlizzardIV.Name || spell.Name == BlackMage.FireIV.Name) && !Resource.BlackMage.Enochian)
-            {
-                AbortOpener("Aborted opener due to Enochian.");
-                return true;
-            }
-
-            //Red Mage
-            if (spell.Name == RedMage.EnchantedRiposte.Name && (Resource.RedMage.WhiteMana < 80 || Resource.RedMage.BlackMana < 80))
-            {
-                AbortOpener("Aborted opener due to mana levels.");
-                return true;
-            }
-
-            //Summoner
-            if (spell.Name == Summoner.SummonIII.Name)
-            {
-                if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
-                    !Core.Player.HasAura(Summoner.Role.Swiftcast.Name))
-                {
-                    OpenerStep++;
-                    return true;
-                }
-            }
-
-            if (spell.Name == Summoner.Fester.Name && Resource.Arcanist.Aetherflow > 0)
-            {
-                if (spell.Cooldown() > 0)
-                {
-                    return true;
-                }
-            }
-
-            #endregion
-
             if (await spell.Cast(null, false))
             {
+                Debug($"Executed opener step {OpenerStep} >>> {spell.Name}");
                 OpenerStep++;
                 if (spell.Name == "Swiftcast")
                 {
-                    await Coroutine.Wait(1000, () => Core.Player.HasAura("Swiftcast"));
+                    await Coroutine.Wait(1000, () => Me.HasAura("Swiftcast"));
                 }
 
                 #region Job-Specific
@@ -214,19 +195,19 @@ namespace ShinraCo
                 //Machinist
                 if (spell.Name == Machinist.Flamethrower.Name)
                 {
-                    await Coroutine.Wait(3000, () => Core.Player.HasAura(Machinist.Flamethrower.Name));
-                    await Coroutine.Wait(5000, () => Resource.Machinist.Heat == 100 || !Core.Player.HasAura(Machinist.Flamethrower.Name));
+                    await Coroutine.Wait(3000, () => Me.HasAura(Machinist.Flamethrower.Name));
+                    await Coroutine.Wait(5000, () => Resource.Machinist.Heat == 100 || !Me.HasAura(Machinist.Flamethrower.Name));
                 }
 
                 //Red Mage
                 if (spell.Name == RedMage.Manafication.Name)
                 {
-                    await Coroutine.Wait(3000, () => ActionManager.CanCast(RedMage.CorpsACorps.Name, Core.Player.CurrentTarget));
+                    await Coroutine.Wait(3000, () => ActionManager.CanCast(RedMage.CorpsACorps.Name, Target));
                 }
 
                 #endregion
             }
-            else if (spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Core.Player.IsCasting)
+            else if (spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Me.IsCasting)
             {
                 Debug($"Skipped opener step {OpenerStep} due to cooldown >>> {spell.Name}");
                 OpenerStep++;
@@ -247,11 +228,9 @@ namespace ShinraCo
 
         public static void ResetOpener()
         {
-            if (!Core.Player.InCombat && !Spell.RecentSpell.ContainsKey("Opener"))
-            {
-                OpenerStep = 0;
-                OpenerFinished = false;
-            }
+            if (Me.InCombat || DateTime.Now < ResetTime) return;
+            OpenerStep = 0;
+            OpenerFinished = false;
         }
     }
 }

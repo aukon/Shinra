@@ -26,6 +26,8 @@ namespace ShinraCo
         public sealed override bool WantButton => true;
         public sealed override CapabilityFlags SupportedCapabilities => CapabilityFlags.All;
 
+        private static DateTime runTime;
+
         public sealed override void Initialize()
         {
             Logging.Write(Colors.GreenYellow, $@"[Shinra] Loaded Version: {Helpers.GetLocalVersion()}");
@@ -36,6 +38,8 @@ namespace ShinraCo
 
         public sealed override void Pulse()
         {
+            if (DateTime.Now < runTime) return;
+            runTime = DateTime.Now.AddSeconds(1);
             var _class = CurrentClass;
             Helpers.ResetOpener();
         }

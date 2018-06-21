@@ -222,7 +222,7 @@ namespace ShinraCo.Spells.Main
             ID = 7410,
             Level = 62,
             GCDType = GCDType.On,
-            SpellType = SpellType.Cooldown,
+            SpellType = SpellType.Damage,
             CastType = CastType.Target
         };
 
