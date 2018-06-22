@@ -404,6 +404,7 @@ namespace ShinraCo.Settings.Forms
             DragoonBloodForBlood.Checked = Shinra.Settings.DragoonBloodForBlood;
             DragoonBattleLitany.Checked = Shinra.Settings.DragoonBattleLitany;
             DragoonBloodOfTheDragon.Checked = Shinra.Settings.DragoonBloodOfTheDragon;
+            DragoonDragonSight.Checked = Shinra.Settings.DragoonDragonSight;
 
             #endregion
 
@@ -2010,6 +2011,11 @@ namespace ShinraCo.Settings.Forms
         private void DragoonBloodOfTheDragon_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonBloodOfTheDragon = DragoonBloodOfTheDragon.Checked;
+        }
+
+        private void DragoonDragonSight_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonDragonSight = DragoonDragonSight.Checked;
         }
 
         #endregion

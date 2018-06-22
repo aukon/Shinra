@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ff14bot;
+using ff14bot.Enums;
 using ff14bot.Managers;
+using ff14bot.Objects;
 using ShinraCo.Settings;
 using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
@@ -226,6 +229,18 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> DragonSight()
+        {
+            if (!Shinra.Settings.DragoonDragonSight) return false;
+
+            var target = !PartyManager.IsInParty && ChocoboManager.Summoned ? ChocoboManager.Object
+                : DragonSightManager.FirstOrDefault();
+
+            if (target == null) return false;
+
+            return await MySpells.DragonSight.Cast(target);
+        }
+
         #endregion
 
         #region Role
@@ -371,6 +386,40 @@ namespace ShinraCo.Rotations
         private static double JumpCooldown => DataManager.GetSpellData(92).Cooldown.TotalSeconds;
         private static double SpineCooldown => DataManager.GetSpellData(95).Cooldown.TotalSeconds;
         private bool UseJump => BloodActive || !ActionManager.HasSpell(MySpells.BloodOfTheDragon.Name);
+
+        #region Dragon Sight
+
+        private static IEnumerable<BattleCharacter> PartyMembers
+        {
+            get
+            {
+                return PartyManager.VisibleMembers.Select(pm => pm.GameObject as BattleCharacter)
+                                   .Where(pm => pm != null && pm.IsTargetable);
+            }
+        }
+
+        private static IEnumerable<BattleCharacter> DragonSightManager
+        {
+            get
+            {
+                return PartyMembers.Where(pm => pm.InCombat && pm.IsAlive && pm.Distance(Core.Player) < 11)
+                                   .OrderByDescending(DragonSightScore);
+            }
+        }
+
+        private static int DragonSightScore(BattleCharacter c)
+        {
+            switch (c.CurrentJob)
+            {
+                case ClassJobType.Samurai: return 60;
+                case ClassJobType.Monk: return 50;
+                case ClassJobType.Ninja: return 40;
+                case ClassJobType.Dragoon: return 30;
+            }
+            return c.IsDPS() ? 20 : c.IsTank() ? 10 : 0;
+        }
+
+        #endregion
 
         #endregion
     }

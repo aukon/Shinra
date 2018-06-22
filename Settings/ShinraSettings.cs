@@ -741,6 +741,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool DragoonBloodOfTheDragon { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool DragoonDragonSight { get; set; }
+
         #endregion
 
         #endregion

@@ -53,6 +53,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
             if (await BloodOfTheDragon()) return true;
+            if (await DragonSight()) return true;
             if (await BloodForBlood()) return true;
             if (await TrueNorth()) return true;
             if (await BattleLitany()) return true;

@@ -462,6 +462,9 @@
             this.pgeRanged = new System.Windows.Forms.TabPage();
             this.tabRanged = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBard = new System.Windows.Forms.TabPage();
+            this.BardDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardUseDotsAoe = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardUseDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.BardPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -671,9 +674,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.BardUseDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardUseDotsAoe = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonDragonSight = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -758,6 +759,7 @@
             this.pgeRanged.SuspendLayout();
             this.tabRanged.SuspendLayout();
             this.pgeBard.SuspendLayout();
+            this.BardDoTGroup.SuspendLayout();
             this.BardMiscGroup.SuspendLayout();
             this.BardDamageGroup.SuspendLayout();
             this.BardCooldownGroup.SuspendLayout();
@@ -796,7 +798,6 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.BardDoTGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -5064,6 +5065,7 @@
             // 
             // DragoonBuffGroup
             // 
+            this.DragoonBuffGroup.Controls.Add(this.DragoonDragonSight);
             this.DragoonBuffGroup.Controls.Add(this.DragoonBloodOfTheDragon);
             this.DragoonBuffGroup.Controls.Add(this.DragoonBattleLitany);
             this.DragoonBuffGroup.Controls.Add(this.DragoonBloodForBlood);
@@ -5071,7 +5073,7 @@
             this.DragoonBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DragoonBuffGroup.Location = new System.Drawing.Point(366, 6);
             this.DragoonBuffGroup.Name = "DragoonBuffGroup";
-            this.DragoonBuffGroup.Size = new System.Drawing.Size(142, 112);
+            this.DragoonBuffGroup.Size = new System.Drawing.Size(142, 135);
             this.DragoonBuffGroup.TabIndex = 2;
             this.DragoonBuffGroup.TabStop = false;
             this.DragoonBuffGroup.Text = "Buff";
@@ -7006,6 +7008,48 @@
             this.pgeBard.TabIndex = 0;
             this.pgeBard.Text = "Bard";
             this.pgeBard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // BardDoTGroup
+            // 
+            this.BardDoTGroup.Controls.Add(this.BardUseDotsAoe);
+            this.BardDoTGroup.Controls.Add(this.BardUseDots);
+            this.BardDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardDoTGroup.Location = new System.Drawing.Point(218, 56);
+            this.BardDoTGroup.Name = "BardDoTGroup";
+            this.BardDoTGroup.Size = new System.Drawing.Size(140, 66);
+            this.BardDoTGroup.TabIndex = 5;
+            this.BardDoTGroup.TabStop = false;
+            this.BardDoTGroup.Text = "DoT";
+            // 
+            // BardUseDotsAoe
+            // 
+            this.BardUseDotsAoe.AutoSize = true;
+            this.BardUseDotsAoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardUseDotsAoe.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardUseDotsAoe.ForeColor = System.Drawing.Color.White;
+            this.BardUseDotsAoe.Location = new System.Drawing.Point(6, 39);
+            this.BardUseDotsAoe.Name = "BardUseDotsAoe";
+            this.BardUseDotsAoe.Size = new System.Drawing.Size(128, 17);
+            this.BardUseDotsAoe.TabIndex = 1;
+            this.BardUseDotsAoe.TabStop = false;
+            this.BardUseDotsAoe.Text = "Use dots during aoe";
+            this.BardUseDotsAoe.UseVisualStyleBackColor = true;
+            this.BardUseDotsAoe.CheckedChanged += new System.EventHandler(this.BardUseDotsAoe_CheckedChanged);
+            // 
+            // BardUseDots
+            // 
+            this.BardUseDots.AutoSize = true;
+            this.BardUseDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardUseDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardUseDots.ForeColor = System.Drawing.Color.White;
+            this.BardUseDots.Location = new System.Drawing.Point(6, 16);
+            this.BardUseDots.Name = "BardUseDots";
+            this.BardUseDots.Size = new System.Drawing.Size(68, 17);
+            this.BardUseDots.TabIndex = 0;
+            this.BardUseDots.TabStop = false;
+            this.BardUseDots.Text = "Use dots";
+            this.BardUseDots.UseVisualStyleBackColor = true;
+            this.BardUseDots.CheckedChanged += new System.EventHandler(this.BardUseDots_CheckedChanged);
             // 
             // BardMiscGroup
             // 
@@ -9970,47 +10014,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BardDoTGroup
+            // DragoonDragonSight
             // 
-            this.BardDoTGroup.Controls.Add(this.BardUseDotsAoe);
-            this.BardDoTGroup.Controls.Add(this.BardUseDots);
-            this.BardDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardDoTGroup.Location = new System.Drawing.Point(218, 56);
-            this.BardDoTGroup.Name = "BardDoTGroup";
-            this.BardDoTGroup.Size = new System.Drawing.Size(140, 66);
-            this.BardDoTGroup.TabIndex = 5;
-            this.BardDoTGroup.TabStop = false;
-            this.BardDoTGroup.Text = "DoT";
-            // 
-            // BardUseDots
-            // 
-            this.BardUseDots.AutoSize = true;
-            this.BardUseDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardUseDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardUseDots.ForeColor = System.Drawing.Color.White;
-            this.BardUseDots.Location = new System.Drawing.Point(6, 16);
-            this.BardUseDots.Name = "BardUseDots";
-            this.BardUseDots.Size = new System.Drawing.Size(68, 17);
-            this.BardUseDots.TabIndex = 0;
-            this.BardUseDots.TabStop = false;
-            this.BardUseDots.Text = "Use dots";
-            this.BardUseDots.UseVisualStyleBackColor = true;
-            this.BardUseDots.CheckedChanged += new System.EventHandler(this.BardUseDots_CheckedChanged);
-            // 
-            // BardUseDotsAoe
-            // 
-            this.BardUseDotsAoe.AutoSize = true;
-            this.BardUseDotsAoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardUseDotsAoe.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardUseDotsAoe.ForeColor = System.Drawing.Color.White;
-            this.BardUseDotsAoe.Location = new System.Drawing.Point(6, 39);
-            this.BardUseDotsAoe.Name = "BardUseDotsAoe";
-            this.BardUseDotsAoe.Size = new System.Drawing.Size(128, 17);
-            this.BardUseDotsAoe.TabIndex = 1;
-            this.BardUseDotsAoe.TabStop = false;
-            this.BardUseDotsAoe.Text = "Use dots during aoe";
-            this.BardUseDotsAoe.UseVisualStyleBackColor = true;
-            this.BardUseDotsAoe.CheckedChanged += new System.EventHandler(this.BardUseDotsAoe_CheckedChanged);
+            this.DragoonDragonSight.AutoSize = true;
+            this.DragoonDragonSight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonDragonSight.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonDragonSight.ForeColor = System.Drawing.Color.White;
+            this.DragoonDragonSight.Location = new System.Drawing.Point(6, 108);
+            this.DragoonDragonSight.Name = "DragoonDragonSight";
+            this.DragoonDragonSight.Size = new System.Drawing.Size(92, 17);
+            this.DragoonDragonSight.TabIndex = 4;
+            this.DragoonDragonSight.TabStop = false;
+            this.DragoonDragonSight.Text = "Dragon Sight";
+            this.DragoonDragonSight.UseVisualStyleBackColor = true;
+            this.DragoonDragonSight.CheckedChanged += new System.EventHandler(this.DragoonDragonSight_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -10166,6 +10183,8 @@
             this.pgeRanged.ResumeLayout(false);
             this.tabRanged.ResumeLayout(false);
             this.pgeBard.ResumeLayout(false);
+            this.BardDoTGroup.ResumeLayout(false);
+            this.BardDoTGroup.PerformLayout();
             this.BardMiscGroup.ResumeLayout(false);
             this.BardMiscGroup.PerformLayout();
             this.BardDamageGroup.ResumeLayout(false);
@@ -10234,8 +10253,6 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.BardDoTGroup.ResumeLayout(false);
-            this.BardDoTGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10888,5 +10905,6 @@
         private Design.CustomGroup BardDoTGroup;
         private Design.CustomCheck BardUseDotsAoe;
         private Design.CustomCheck BardUseDots;
+        private Design.CustomCheck DragoonDragonSight;
     }
 }
