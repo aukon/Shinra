@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
-using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
@@ -21,7 +20,12 @@ namespace ShinraCo
         public static int OpenerStep;
         public static bool OpenerFinished;
 
-        private static DateTime ResetTime;
+        private static List<Spell> current;
+        private static bool usePotion;
+        private static int potionStep;
+        private static HashSet<uint> potionType;
+        private static DateTime resetTime;
+
         private static BardSpells Bard { get; } = new BardSpells();
         private static BlackMageSpells BlackMage { get; } = new BlackMageSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
@@ -30,10 +34,7 @@ namespace ShinraCo
 
         public static async Task<bool> ExecuteOpener()
         {
-            if (OpenerFinished || Me.ClassLevel < 70)
-            {
-                return false;
-            }
+            if (OpenerFinished || Me.ClassLevel < 70) return false;
 
             if (Shinra.Settings.CooldownMode == CooldownModes.Disabled)
             {
@@ -43,37 +44,66 @@ namespace ShinraCo
 
             #region GetOpener
 
-            List<Spell> current = null;
             switch (Me.CurrentJob)
             {
                 case ClassJobType.Bard:
                     current = BardOpener.List;
+                    usePotion = Shinra.Settings.BardPotion;
+                    potionStep = 0;
+                    potionType = PotionIds.Dex;
                     break;
+
                 case ClassJobType.BlackMage:
                     current = BlackMageOpener.List;
+                    usePotion = Shinra.Settings.BlackMagePotion;
+                    potionStep = 7;
+                    potionType = PotionIds.Int;
                     break;
+
                 case ClassJobType.Machinist:
                     current = MachinistOpener.List;
+                    usePotion = Shinra.Settings.MachinistPotion;
+                    potionStep = 0;
+                    potionType = PotionIds.Dex;
                     break;
+
                 case ClassJobType.Paladin:
                     current = PaladinOpener.List;
+                    usePotion = Shinra.Settings.PaladinPotion;
+                    potionStep = 8;
+                    potionType = PotionIds.Str;
                     break;
+
                 case ClassJobType.RedMage:
                     current = RedMageOpener.List;
+                    usePotion = Shinra.Settings.RedMagePotion;
+                    potionStep = 3;
+                    potionType = PotionIds.Int;
                     break;
+
                 case ClassJobType.Summoner:
                     current = SummonerOpener.List;
+                    usePotion = Shinra.Settings.SummonerPotion;
+                    potionStep = 2;
+                    potionType = PotionIds.Int;
+                    break;
+
+                default:
+                    current = null;
                     break;
             }
-            if (current == null)
-            {
-                return false;
-            }
+
+            if (current == null) return false;
 
             #endregion
 
+            if (usePotion && OpenerStep == potionStep)
+            {
+                if (await UsePotion(potionType)) return true;
+            }
+
             var spell = current.ElementAt(OpenerStep);
-            ResetTime = DateTime.Now.AddSeconds(10);
+            resetTime = DateTime.Now.AddSeconds(10);
 
             #region Job-Specific
 
@@ -85,6 +115,7 @@ namespace ShinraCo
                         await Bard.PitchPerfect.Cast(null, false);
                     }
                     break;
+
                 case ClassJobType.BlackMage:
                     if ((spell.Name == BlackMage.BlizzardIV.Name || spell.Name == BlackMage.FireIV.Name) && !Resource.BlackMage.Enochian)
                     {
@@ -92,6 +123,7 @@ namespace ShinraCo
                         return true;
                     }
                     break;
+
                 case ClassJobType.Machinist:
                     if (PetManager.ActivePetType != PetType.Rook_Autoturret)
                     {
@@ -102,7 +134,6 @@ namespace ShinraCo
                             return true;
                         }
                     }
-
                     if (Pet != null)
                     {
                         if (await Machinist.Hypercharge.Cast(null, false))
@@ -111,6 +142,7 @@ namespace ShinraCo
                         }
                     }
                     break;
+
                 case ClassJobType.RedMage:
                     if (!ActionManager.HasSpell("Swiftcast"))
                     {
@@ -128,6 +160,7 @@ namespace ShinraCo
                         return true;
                     }
                     break;
+
                 case ClassJobType.Summoner:
                     if (!ActionManager.HasSpell("Swiftcast"))
                     {
@@ -189,14 +222,14 @@ namespace ShinraCo
 
                 #region Job-Specific
 
-                //Machinist
+                // Machinist
                 if (spell.Name == Machinist.Flamethrower.Name)
                 {
                     await Coroutine.Wait(3000, () => Me.HasAura(Machinist.Flamethrower.Name));
                     await Coroutine.Wait(5000, () => Resource.Machinist.Heat == 100 || !Me.HasAura(Machinist.Flamethrower.Name));
                 }
 
-                //Red Mage
+                // Red Mage
                 if (spell.Name == RedMage.Manafication.Name)
                 {
                     await Coroutine.Wait(3000, () => ActionManager.CanCast(RedMage.CorpsACorps.Name, Target));
@@ -225,7 +258,8 @@ namespace ShinraCo
 
         public static void ResetOpener()
         {
-            if (Me.InCombat || DateTime.Now < ResetTime) return;
+            if (Me.InCombat || DateTime.Now < resetTime) return;
+
             OpenerStep = 0;
             OpenerFinished = false;
         }
