@@ -17,7 +17,7 @@ namespace ShinraCo.Rotations
         private BardSpells MySpells { get; } = new BardSpells();
 
         private static readonly Dictionary<string, Tuple<DateTime, int>> CritSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
-        private static readonly Dictionary<string, DateTime> DotSnapshots = new Dictionary<string, DateTime>();
+        private static readonly Dictionary<string, Tuple<DateTime, int>> DotSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
 
         #region Damage
 
@@ -110,7 +110,8 @@ namespace ShinraCo.Rotations
             {
                 if (await MySpells.VenomousBite.Cast())
                 {
-                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), CritBuffs);
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(25), TotalBuffs);
                     return true;
                 }
             }
@@ -123,7 +124,8 @@ namespace ShinraCo.Rotations
             {
                 if (await MySpells.Windbite.Cast())
                 {
-                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), CritBuffs);
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(25), TotalBuffs);
                     return true;
                 }
             }
@@ -137,7 +139,8 @@ namespace ShinraCo.Rotations
             {
                 if (await MySpells.IronJaws.Cast())
                 {
-                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), CritBuffs);
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(25), TotalBuffs);
                     return true;
                 }
             }
@@ -149,31 +152,20 @@ namespace ShinraCo.Rotations
             if (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true) || !Core.Player.CurrentTarget.HasAura(WindDebuff, true))
                 return false;
 
-            DotSnapshots.RemoveAll(t => DateTime.UtcNow > t);
-            if (DotSnapshots.ContainsKey(TargetId))
+            DotSnapshots.RemoveAll(t => DateTime.UtcNow > t.Item1);
+            if (DotSnapshots.ContainsKey(TargetId) && DotSnapshots[TargetId].Item1 - DateTime.UtcNow > TimeSpan.FromSeconds(20))
                 return false;
 
-            if (Core.Player.HasAura("Embolden") && EmboldenStacks == 5)
+            var current = DotSnapshots.ContainsKey(TargetId) ? DotSnapshots[TargetId].Item2 : 0;
+
+            if (TotalBuffs > current || TotalBuffs >= current && BuffsExpiring)
             {
                 if (await MySpells.IronJaws.Cast())
                 {
-                    Helpers.Debug("Snapshotting now!");
-                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
-                    DotSnapshots[TargetId] = DateTime.UtcNow + TimeSpan.FromSeconds(25);
+                    Helpers.Debug($"Snapshotting with {TotalBuffs} buff(s) now!");
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), CritBuffs);
+                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(25), TotalBuffs);
                     return true;
-                }
-            }
-
-            foreach (var s in BuffList)
-            {
-                if (Core.Player.HasAura(s) && !Core.Player.HasAura(s, false, 4000))
-                {
-                    if (await MySpells.IronJaws.Cast())
-                    {
-                        Helpers.Debug("Snapshotting now!");
-                        DotSnapshots[TargetId] = DateTime.UtcNow + TimeSpan.FromSeconds(25);
-                        return true;
-                    }
                 }
             }
             return false;
@@ -476,15 +468,13 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private static readonly string[] BuffList = { "Raging Strikes", "Brotherhood", "The Balance", "Battle Litany", "The Spear", "Chain Stratagem" };
+        private static readonly string[] DamageList = { "Raging Strikes", "Brotherhood", "The Balance" };
+        private static readonly string[] CritList = { "Battle Litany", "The Spear", "Chain Stratagem" };
         private static string TargetId => $"{Core.Player.CurrentTarget.ObjectId}-{Core.Player.CurrentTarget.Name}";
         private static string VenomDebuff => Core.Player.ClassLevel < 64 ? "Venomous Bite" : "Caustic Bite";
         private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Stormbite";
         private static double SongTimer => Resource.Timer.TotalMilliseconds;
         private static int NumRepertoire => Resource.Repertoire;
-        private static int NumCritBuffs => Convert.ToInt32(Core.Player.HasAura("Battle Litany")) + Convert.ToInt32(Core.Player.HasAura("The Spear")) +
-                                           Convert.ToInt32(Core.Player.CurrentTarget.HasAura("Chain Stratagem"));
-
         private static bool NoSong => Resource.ActiveSong == Resource.BardSong.None;
         private static bool MinuetActive => Resource.ActiveSong == Resource.BardSong.WanderersMinuet;
         private static bool PaeonActive => Resource.ActiveSong == Resource.BardSong.ArmysPaeon;
@@ -493,6 +483,23 @@ namespace ShinraCo.Rotations
         {
             get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Minuet") || rs.Contains("Ballad") || rs.Contains("Paeon")); }
         }
+
+        #region Snapshotting
+
+        private static int DamageBuffs
+        {
+            get
+            {
+                var count = 0;
+                if (Core.Player.CurrentTarget.HasAura("Embolden")) count++;
+                if (Core.Player.CurrentTarget.HasAura("Trick Attack")) count++;
+                count += DamageList.Count(s => Core.Player.HasAura(s));
+                return count;
+            }
+        }
+
+        private static int CritBuffs { get { return CritList.Count(s => Core.Player.HasAura(s)); } }
+        private static int TotalBuffs => DamageBuffs + CritBuffs;
 
         private static int EmboldenStacks
         {
@@ -503,6 +510,18 @@ namespace ShinraCo.Rotations
                 return (int)value;
             }
         }
+
+        private static bool BuffsExpiring
+        {
+            get
+            {
+                if (Core.Player.HasAura("Embolden") && EmboldenStacks == 5) return true;
+                if (Core.Player.CurrentTarget.AuraExpiring("Trick Attack")) return true;
+                return DamageList.Any(s => Core.Player.AuraExpiring(s)) || CritList.Any(s => Core.Player.AuraExpiring(s));
+            }
+        }
+
+        #endregion
 
         #endregion
     }
