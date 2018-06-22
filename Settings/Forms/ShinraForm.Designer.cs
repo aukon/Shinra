@@ -234,6 +234,8 @@
             this.ScholarEmergencyTactics = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarRouse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.ScholarEnergyDrainPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.ScholarEnergyDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarChainStrategem = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarShadowFlare = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ScholarPetGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -669,8 +671,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.ScholarEnergyDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.ScholarEnergyDrainPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.BardDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardUseDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardUseDotsAoe = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -793,6 +796,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
+            this.BardDoTGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -3732,6 +3736,30 @@
             this.ScholarCooldownGroup.TabIndex = 4;
             this.ScholarCooldownGroup.TabStop = false;
             this.ScholarCooldownGroup.Text = "Cooldown";
+            // 
+            // ScholarEnergyDrainPct
+            // 
+            this.ScholarEnergyDrainPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.ScholarEnergyDrainPct.Location = new System.Drawing.Point(120, 16);
+            this.ScholarEnergyDrainPct.Name = "ScholarEnergyDrainPct";
+            this.ScholarEnergyDrainPct.Size = new System.Drawing.Size(89, 22);
+            this.ScholarEnergyDrainPct.TabIndex = 3;
+            this.ScholarEnergyDrainPct.ValueChanged += new System.EventHandler(this.ScholarEnergyDrainPct_ValueChanged);
+            // 
+            // ScholarEnergyDrain
+            // 
+            this.ScholarEnergyDrain.AutoSize = true;
+            this.ScholarEnergyDrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScholarEnergyDrain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ScholarEnergyDrain.ForeColor = System.Drawing.Color.White;
+            this.ScholarEnergyDrain.Location = new System.Drawing.Point(6, 16);
+            this.ScholarEnergyDrain.Name = "ScholarEnergyDrain";
+            this.ScholarEnergyDrain.Size = new System.Drawing.Size(89, 17);
+            this.ScholarEnergyDrain.TabIndex = 2;
+            this.ScholarEnergyDrain.TabStop = false;
+            this.ScholarEnergyDrain.Text = "Energy Drain";
+            this.ScholarEnergyDrain.UseVisualStyleBackColor = true;
+            this.ScholarEnergyDrain.CheckedChanged += new System.EventHandler(this.ScholarEnergyDrain_CheckedChanged);
             // 
             // ScholarChainStrategem
             // 
@@ -6965,6 +6993,7 @@
             // pgeBard
             // 
             this.pgeBard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeBard.Controls.Add(this.BardDoTGroup);
             this.pgeBard.Controls.Add(this.BardMiscGroup);
             this.pgeBard.Controls.Add(this.BardDamageGroup);
             this.pgeBard.Controls.Add(this.BardCooldownGroup);
@@ -6983,7 +7012,7 @@
             this.BardMiscGroup.Controls.Add(this.BardPotion);
             this.BardMiscGroup.Controls.Add(this.BardOpener);
             this.BardMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardMiscGroup.Location = new System.Drawing.Point(218, 269);
+            this.BardMiscGroup.Location = new System.Drawing.Point(364, 56);
             this.BardMiscGroup.Name = "BardMiscGroup";
             this.BardMiscGroup.Size = new System.Drawing.Size(115, 66);
             this.BardMiscGroup.TabIndex = 4;
@@ -7078,7 +7107,7 @@
             this.BardCooldownGroup.Controls.Add(this.BardSidewinder);
             this.BardCooldownGroup.Controls.Add(this.BardSongs);
             this.BardCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 56);
+            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 128);
             this.BardCooldownGroup.Name = "BardCooldownGroup";
             this.BardCooldownGroup.Size = new System.Drawing.Size(115, 89);
             this.BardCooldownGroup.TabIndex = 2;
@@ -7137,7 +7166,7 @@
             this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardBuffGroup.Location = new System.Drawing.Point(218, 151);
+            this.BardBuffGroup.Location = new System.Drawing.Point(218, 223);
             this.BardBuffGroup.Name = "BardBuffGroup";
             this.BardBuffGroup.Size = new System.Drawing.Size(115, 112);
             this.BardBuffGroup.TabIndex = 1;
@@ -9941,29 +9970,47 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // ScholarEnergyDrain
+            // BardDoTGroup
             // 
-            this.ScholarEnergyDrain.AutoSize = true;
-            this.ScholarEnergyDrain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ScholarEnergyDrain.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ScholarEnergyDrain.ForeColor = System.Drawing.Color.White;
-            this.ScholarEnergyDrain.Location = new System.Drawing.Point(6, 16);
-            this.ScholarEnergyDrain.Name = "ScholarEnergyDrain";
-            this.ScholarEnergyDrain.Size = new System.Drawing.Size(89, 17);
-            this.ScholarEnergyDrain.TabIndex = 2;
-            this.ScholarEnergyDrain.TabStop = false;
-            this.ScholarEnergyDrain.Text = "Energy Drain";
-            this.ScholarEnergyDrain.UseVisualStyleBackColor = true;
-            this.ScholarEnergyDrain.CheckedChanged += new System.EventHandler(this.ScholarEnergyDrain_CheckedChanged);
+            this.BardDoTGroup.Controls.Add(this.BardUseDotsAoe);
+            this.BardDoTGroup.Controls.Add(this.BardUseDots);
+            this.BardDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardDoTGroup.Location = new System.Drawing.Point(218, 56);
+            this.BardDoTGroup.Name = "BardDoTGroup";
+            this.BardDoTGroup.Size = new System.Drawing.Size(140, 66);
+            this.BardDoTGroup.TabIndex = 5;
+            this.BardDoTGroup.TabStop = false;
+            this.BardDoTGroup.Text = "DoT";
             // 
-            // ScholarEnergyDrainPct
+            // BardUseDots
             // 
-            this.ScholarEnergyDrainPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.ScholarEnergyDrainPct.Location = new System.Drawing.Point(120, 16);
-            this.ScholarEnergyDrainPct.Name = "ScholarEnergyDrainPct";
-            this.ScholarEnergyDrainPct.Size = new System.Drawing.Size(89, 22);
-            this.ScholarEnergyDrainPct.TabIndex = 3;
-            this.ScholarEnergyDrainPct.ValueChanged += new System.EventHandler(this.ScholarEnergyDrainPct_ValueChanged);
+            this.BardUseDots.AutoSize = true;
+            this.BardUseDots.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardUseDots.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardUseDots.ForeColor = System.Drawing.Color.White;
+            this.BardUseDots.Location = new System.Drawing.Point(6, 16);
+            this.BardUseDots.Name = "BardUseDots";
+            this.BardUseDots.Size = new System.Drawing.Size(68, 17);
+            this.BardUseDots.TabIndex = 0;
+            this.BardUseDots.TabStop = false;
+            this.BardUseDots.Text = "Use dots";
+            this.BardUseDots.UseVisualStyleBackColor = true;
+            this.BardUseDots.CheckedChanged += new System.EventHandler(this.BardUseDots_CheckedChanged);
+            // 
+            // BardUseDotsAoe
+            // 
+            this.BardUseDotsAoe.AutoSize = true;
+            this.BardUseDotsAoe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardUseDotsAoe.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardUseDotsAoe.ForeColor = System.Drawing.Color.White;
+            this.BardUseDotsAoe.Location = new System.Drawing.Point(6, 39);
+            this.BardUseDotsAoe.Name = "BardUseDotsAoe";
+            this.BardUseDotsAoe.Size = new System.Drawing.Size(128, 17);
+            this.BardUseDotsAoe.TabIndex = 1;
+            this.BardUseDotsAoe.TabStop = false;
+            this.BardUseDotsAoe.Text = "Use dots during aoe";
+            this.BardUseDotsAoe.UseVisualStyleBackColor = true;
+            this.BardUseDotsAoe.CheckedChanged += new System.EventHandler(this.BardUseDotsAoe_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -10187,6 +10234,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
+            this.BardDoTGroup.ResumeLayout(false);
+            this.BardDoTGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10836,5 +10885,8 @@
         private Design.CustomCheck BardFoeRequiem;
         private Design.CustomCheck ScholarEnergyDrain;
         private Design.UserNumeric ScholarEnergyDrainPct;
+        private Design.CustomGroup BardDoTGroup;
+        private Design.CustomCheck BardUseDotsAoe;
+        private Design.CustomCheck BardUseDots;
     }
 }

@@ -10,12 +10,13 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await BarrageActive()) return true;
+            if (await DotSnapshot()) return true;
             if (await IronJaws()) return true;
             if (await RefulgentArrow()) return true;
             if (await StraightShotBuff()) return true;
+            if (await QuickNock()) return true;
             if (await Windbite()) return true;
             if (await VenomousBite()) return true;
-            if (await QuickNock()) return true;
             if (await StraightShot()) return true;
             return await HeavyShot();
         }

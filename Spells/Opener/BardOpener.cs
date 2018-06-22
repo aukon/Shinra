@@ -18,12 +18,7 @@ namespace ShinraCo.Spells.Opener
             Spells.StraightShot,
             Spells.EmpyrealArrow,
             Spells.IronJaws,
-            Spells.Sidewinder,
-            Spells.HeavyShot,
-            Spells.HeavyShot,
-            Spells.HeavyShot,
-            Spells.HeavyShot,
-            Spells.IronJaws
+            Spells.Sidewinder
         };
     }
 }

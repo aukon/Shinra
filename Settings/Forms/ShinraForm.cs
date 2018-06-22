@@ -222,6 +222,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region DoT
+
+            BardUseDots.Checked = Shinra.Settings.BardUseDots;
+            BardUseDotsAoe.Checked = Shinra.Settings.BardUseDotsAoe;
+
+            #endregion
+
             #region Cooldown
 
             BardSongs.Checked = Shinra.Settings.BardSongs;
@@ -1545,6 +1552,20 @@ namespace ShinraCo.Settings.Forms
         private void BardRepertoireCount_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardRepertoireCount = Convert.ToInt32(BardRepertoireCount.Value);
+        }
+
+        #endregion
+
+        #region DoT
+
+        private void BardUseDots_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardUseDots = BardUseDots.Checked;
+        }
+
+        private void BardUseDotsAoe_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardUseDotsAoe = BardUseDotsAoe.Checked;
         }
 
         #endregion

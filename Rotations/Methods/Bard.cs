@@ -16,7 +16,8 @@ namespace ShinraCo.Rotations
     {
         private BardSpells MySpells { get; } = new BardSpells();
 
-        public static readonly Dictionary<string, Tuple<DateTime, int>> DotSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
+        private static readonly Dictionary<string, Tuple<DateTime, int>> CritSnapshots = new Dictionary<string, Tuple<DateTime, int>>();
+        private static readonly Dictionary<string, DateTime> DotSnapshots = new Dictionary<string, DateTime>();
 
         #region Damage
 
@@ -57,8 +58,8 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardPitchPerfect)
             {
-                DotSnapshots.RemoveAll(t => DateTime.UtcNow > t.Item1);
-                var critBuffs = DotSnapshots.ContainsKey(TargetId) ? DotSnapshots[TargetId].Item2 : 0;
+                CritSnapshots.RemoveAll(t => DateTime.UtcNow > t.Item1);
+                var critBuffs = CritSnapshots.ContainsKey(TargetId) ? CritSnapshots[TargetId].Item2 : 0;
 
                 if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000 ||
                     critBuffs >= 2 && NumRepertoire >= 2)
@@ -71,7 +72,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RefulgentArrow()
         {
-            if (Core.Player.HasAura(122) && (!Shinra.Settings.BardBarrage || MySpells.Barrage.Cooldown() > 8000 ||
+            if (Core.Player.HasAura(122) && (!Shinra.Settings.BardBarrage || MySpells.Barrage.Cooldown() > 7000 ||
                                              !Core.Player.HasAura(MySpells.StraightShot.Name, true, 6000)))
             {
                 return await MySpells.RefulgentArrow.Cast();
@@ -89,7 +90,7 @@ namespace ShinraCo.Rotations
                 }
                 if (ActionManager.LastSpell.Name == MySpells.HeavyShot.Name)
                 {
-                    await Coroutine.Wait(250, () => Core.Player.HasAura(122));
+                    await Coroutine.Wait(400, () => Core.Player.HasAura(122));
                 }
                 if (!Core.Player.HasAura(122))
                 {
@@ -105,11 +106,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> VenomousBite()
         {
-            if (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000))
+            if (Shinra.Settings.BardUseDots && !Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000))
             {
                 if (await MySpells.VenomousBite.Cast())
                 {
-                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
                     return true;
                 }
             }
@@ -118,11 +119,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Windbite()
         {
-            if (!Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000))
+            if (Shinra.Settings.BardUseDots && !Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000))
             {
                 if (await MySpells.Windbite.Cast())
                 {
-                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
                     return true;
                 }
             }
@@ -131,13 +132,48 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> IronJaws()
         {
-            if (Core.Player.CurrentTarget.HasAura(VenomDebuff, true) && !Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000) ||
-                Core.Player.CurrentTarget.HasAura(WindDebuff, true) && !Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000))
+            if (Core.Player.CurrentTarget.HasAura(VenomDebuff, true) && !Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 5000) ||
+                Core.Player.CurrentTarget.HasAura(WindDebuff, true) && !Core.Player.CurrentTarget.HasAura(WindDebuff, true, 5000))
             {
                 if (await MySpells.IronJaws.Cast())
                 {
-                    DotSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
                     return true;
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> DotSnapshot()
+        {
+            if (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true) || !Core.Player.CurrentTarget.HasAura(WindDebuff, true))
+                return false;
+
+            DotSnapshots.RemoveAll(t => DateTime.UtcNow > t);
+            if (DotSnapshots.ContainsKey(TargetId))
+                return false;
+
+            if (Core.Player.HasAura("Embolden") && EmboldenStacks == 5)
+            {
+                if (await MySpells.IronJaws.Cast())
+                {
+                    Helpers.Debug("Snapshotting now!");
+                    CritSnapshots[TargetId] = Tuple.Create(DateTime.UtcNow + TimeSpan.FromSeconds(30), NumCritBuffs);
+                    DotSnapshots[TargetId] = DateTime.UtcNow + TimeSpan.FromSeconds(25);
+                    return true;
+                }
+            }
+
+            foreach (var s in BuffList)
+            {
+                if (Core.Player.HasAura(s) && !Core.Player.HasAura(s, false, 4000))
+                {
+                    if (await MySpells.IronJaws.Cast())
+                    {
+                        Helpers.Debug("Snapshotting now!");
+                        DotSnapshots[TargetId] = DateTime.UtcNow + TimeSpan.FromSeconds(25);
+                        return true;
+                    }
                 }
             }
             return false;
@@ -149,6 +185,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickNock()
         {
+            if (Shinra.Settings.BardUseDotsAoe && (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true, 4000) ||
+                !Core.Player.CurrentTarget.HasAura(WindDebuff, true, 4000)))
+            {
+                return false;
+            }
+
             if (Core.Player.CurrentTPPercent > 40)
             {
                 var count = Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
@@ -434,11 +476,11 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
+        private static readonly string[] BuffList = { "Raging Strikes", "Brotherhood", "The Balance", "Battle Litany", "The Spear", "Chain Stratagem" };
         private static string TargetId => $"{Core.Player.CurrentTarget.ObjectId}-{Core.Player.CurrentTarget.Name}";
         private static string VenomDebuff => Core.Player.ClassLevel < 64 ? "Venomous Bite" : "Caustic Bite";
         private static string WindDebuff => Core.Player.ClassLevel < 64 ? "Windbite" : "Stormbite";
         private static double SongTimer => Resource.Timer.TotalMilliseconds;
-        private static double BarrageCooldown => DataManager.GetSpellData(107).Cooldown.TotalMilliseconds;
         private static int NumRepertoire => Resource.Repertoire;
         private static int NumCritBuffs => Convert.ToInt32(Core.Player.HasAura("Battle Litany")) + Convert.ToInt32(Core.Player.HasAura("The Spear")) +
                                            Convert.ToInt32(Core.Player.CurrentTarget.HasAura("Chain Stratagem"));
@@ -450,6 +492,16 @@ namespace ShinraCo.Rotations
         private static bool RecentSong
         {
             get { return Spell.RecentSpell.Keys.Any(rs => rs.Contains("Minuet") || rs.Contains("Ballad") || rs.Contains("Paeon")); }
+        }
+
+        private static int EmboldenStacks
+        {
+            get
+            {
+                var aura = Core.Player.GetAuraById(1239);
+                var value = aura?.Value ?? 0;
+                return (int)value;
+            }
         }
 
         #endregion

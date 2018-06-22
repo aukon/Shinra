@@ -82,18 +82,7 @@ namespace ShinraCo
                 case ClassJobType.Bard:
                     if (Resource.Bard.Repertoire == 3)
                     {
-                        if (await Bard.PitchPerfect.Cast(null, false))
-                        {
-                            return true;
-                        }
-                    }
-                    if (OpenerStep > 7 && Bard.Bloodletter.Cooldown() == 0)
-                    {
-                        await Bard.Bloodletter.Cast();
-                    }
-                    if (spell.Name == Bard.HeavyShot.Name && Core.Player.HasAura(122))
-                    {
-                        spell = Bard.RefulgentArrow;
+                        await Bard.PitchPerfect.Cast(null, false);
                     }
                     break;
                 case ClassJobType.BlackMage:
