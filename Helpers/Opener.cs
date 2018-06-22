@@ -87,6 +87,14 @@ namespace ShinraCo
                             return true;
                         }
                     }
+                    if (OpenerStep > 7 && Bard.Bloodletter.Cooldown() == 0)
+                    {
+                        await Bard.Bloodletter.Cast();
+                    }
+                    if (spell.Name == Bard.HeavyShot.Name && Core.Player.HasAura(122))
+                    {
+                        spell = Bard.RefulgentArrow;
+                    }
                     break;
                 case ClassJobType.BlackMage:
                     if ((spell.Name == BlackMage.BlizzardIV.Name || spell.Name == BlackMage.FireIV.Name) && !Resource.BlackMage.Enochian)

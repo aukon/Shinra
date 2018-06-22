@@ -36,7 +36,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StraightShot()
         {
-            if (Core.Player.HasAura("Straighter Shot"))
+            if (Core.Player.HasAura("Straighter Shot") && !ActionManager.HasSpell(MySpells.RefulgentArrow.Name))
             {
                 return await MySpells.StraightShot.Cast();
             }
@@ -71,20 +71,29 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RefulgentArrow()
         {
-            if (Core.Player.HasAura(122) && (!Shinra.Settings.BardBarrage || MySpells.Barrage.Cooldown() > 8000))
+            if (Core.Player.HasAura(122) && (!Shinra.Settings.BardBarrage || MySpells.Barrage.Cooldown() > 8000 ||
+                                             !Core.Player.HasAura(MySpells.StraightShot.Name, true, 6000)))
             {
-                return false;
+                return await MySpells.RefulgentArrow.Cast();
             }
-            return await MySpells.RefulgentArrow.Cast();
+            return false;
         }
 
         private async Task<bool> BarrageActive()
         {
             if (Core.Player.HasAura(MySpells.Barrage.Name))
             {
-                if (!Core.Player.HasAura(122) || !await MySpells.RefulgentArrow.Cast())
+                if (await MySpells.RefulgentArrow.Cast())
                 {
-                    return await EmpyrealArrow();
+                    return true;
+                }
+                if (ActionManager.LastSpell.Name == MySpells.HeavyShot.Name)
+                {
+                    await Coroutine.Wait(250, () => Core.Player.HasAura(122));
+                }
+                if (!Core.Player.HasAura(122))
+                {
+                    return await MySpells.EmpyrealArrow.Cast(null, false);
                 }
             }
             return false;
@@ -200,10 +209,6 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.BardEmpyrealArrow)
             {
-                if (Shinra.LastSpell.Name == MySpells.Barrage.Name || Shinra.LastSpell.Name == MySpells.HeavyShot.Name)
-                {
-                    await Coroutine.Wait(250, () => Core.Player.HasAura(122));
-                }
                 return await MySpells.EmpyrealArrow.Cast();
             }
             return false;

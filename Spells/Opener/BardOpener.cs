@@ -23,8 +23,7 @@ namespace ShinraCo.Spells.Opener
             Spells.HeavyShot,
             Spells.HeavyShot,
             Spells.HeavyShot,
-            Spells.IronJaws,
-            Spells.EmpyrealArrow
+            Spells.IronJaws
         };
     }
 }
