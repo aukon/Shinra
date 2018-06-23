@@ -764,6 +764,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            SamuraiOpener.Checked = Shinra.Settings.SamuraiOpener;
+            SamuraiPotion.Checked = Shinra.Settings.SamuraiPotion;
+
+            #endregion
+
             #endregion
 
             #region Scholar
@@ -2930,6 +2937,20 @@ namespace ShinraCo.Settings.Forms
         private void SamuraiMercifulPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SamuraiMercifulPct = Convert.ToInt32(SamuraiMercifulPct.Value);
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void SamuraiOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiOpener = SamuraiOpener.Checked;
+        }
+
+        private void SamuraiPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SamuraiPotion = SamuraiPotion.Checked;
         }
 
         #endregion

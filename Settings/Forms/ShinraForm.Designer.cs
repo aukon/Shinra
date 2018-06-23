@@ -328,6 +328,9 @@
             this.pgeMelee = new System.Windows.Forms.TabPage();
             this.tabMelee = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDragoon = new System.Windows.Forms.TabPage();
+            this.DragoonMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DragoonPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DragoonOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DragoonDragonSight = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DragoonBloodOfTheDragon = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -675,9 +678,9 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.DragoonOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DragoonPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SamuraiMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -737,6 +740,7 @@
             this.pgeMelee.SuspendLayout();
             this.tabMelee.SuspendLayout();
             this.pgeDragoon.SuspendLayout();
+            this.DragoonMiscGroup.SuspendLayout();
             this.DragoonBuffGroup.SuspendLayout();
             this.DragoonCooldownGroup.SuspendLayout();
             this.DragoonRoleGroup.SuspendLayout();
@@ -801,7 +805,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.DragoonMiscGroup.SuspendLayout();
+            this.SamuraiMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -5068,6 +5072,48 @@
             this.pgeDragoon.Text = "Dragoon";
             this.pgeDragoon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // DragoonMiscGroup
+            // 
+            this.DragoonMiscGroup.Controls.Add(this.DragoonPotion);
+            this.DragoonMiscGroup.Controls.Add(this.DragoonOpener);
+            this.DragoonMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonMiscGroup.Location = new System.Drawing.Point(218, 147);
+            this.DragoonMiscGroup.Name = "DragoonMiscGroup";
+            this.DragoonMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.DragoonMiscGroup.TabIndex = 3;
+            this.DragoonMiscGroup.TabStop = false;
+            this.DragoonMiscGroup.Text = "Misc";
+            // 
+            // DragoonPotion
+            // 
+            this.DragoonPotion.AutoSize = true;
+            this.DragoonPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonPotion.ForeColor = System.Drawing.Color.White;
+            this.DragoonPotion.Location = new System.Drawing.Point(6, 39);
+            this.DragoonPotion.Name = "DragoonPotion";
+            this.DragoonPotion.Size = new System.Drawing.Size(80, 17);
+            this.DragoonPotion.TabIndex = 1;
+            this.DragoonPotion.TabStop = false;
+            this.DragoonPotion.Text = "Use potion";
+            this.DragoonPotion.UseVisualStyleBackColor = true;
+            this.DragoonPotion.CheckedChanged += new System.EventHandler(this.DragoonPotion_CheckedChanged);
+            // 
+            // DragoonOpener
+            // 
+            this.DragoonOpener.AutoSize = true;
+            this.DragoonOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DragoonOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DragoonOpener.ForeColor = System.Drawing.Color.White;
+            this.DragoonOpener.Location = new System.Drawing.Point(6, 16);
+            this.DragoonOpener.Name = "DragoonOpener";
+            this.DragoonOpener.Size = new System.Drawing.Size(82, 17);
+            this.DragoonOpener.TabIndex = 0;
+            this.DragoonOpener.TabStop = false;
+            this.DragoonOpener.Text = "Use opener";
+            this.DragoonOpener.UseVisualStyleBackColor = true;
+            this.DragoonOpener.CheckedChanged += new System.EventHandler(this.DragoonOpener_CheckedChanged);
+            // 
             // DragoonBuffGroup
             // 
             this.DragoonBuffGroup.Controls.Add(this.DragoonDragonSight);
@@ -6545,6 +6591,7 @@
             // pgeSamurai
             // 
             this.pgeSamurai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeSamurai.Controls.Add(this.SamuraiMiscGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiHealGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiDamageGroup);
             this.pgeSamurai.Controls.Add(this.SamuraiBuffGroup);
@@ -6564,7 +6611,7 @@
             this.SamuraiHealGroup.Controls.Add(this.SamuraiMerciful);
             this.SamuraiHealGroup.Controls.Add(this.SamuraiMercifulPct);
             this.SamuraiHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiHealGroup.Location = new System.Drawing.Point(218, 250);
+            this.SamuraiHealGroup.Location = new System.Drawing.Point(218, 128);
             this.SamuraiHealGroup.Name = "SamuraiHealGroup";
             this.SamuraiHealGroup.Size = new System.Drawing.Size(197, 44);
             this.SamuraiHealGroup.TabIndex = 5;
@@ -6647,7 +6694,7 @@
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiMeikyo);
             this.SamuraiBuffGroup.Controls.Add(this.SamuraiHagakure);
             this.SamuraiBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiBuffGroup.Location = new System.Drawing.Point(218, 178);
+            this.SamuraiBuffGroup.Location = new System.Drawing.Point(345, 56);
             this.SamuraiBuffGroup.Name = "SamuraiBuffGroup";
             this.SamuraiBuffGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiBuffGroup.TabIndex = 3;
@@ -6689,7 +6736,7 @@
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGyoten);
             this.SamuraiCooldownGroup.Controls.Add(this.SamuraiGuren);
             this.SamuraiCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 106);
+            this.SamuraiCooldownGroup.Location = new System.Drawing.Point(218, 56);
             this.SamuraiCooldownGroup.Name = "SamuraiCooldownGroup";
             this.SamuraiCooldownGroup.Size = new System.Drawing.Size(121, 66);
             this.SamuraiCooldownGroup.TabIndex = 2;
@@ -6731,7 +6778,7 @@
             this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbanaHP);
             this.SamuraiDoTGroup.Controls.Add(this.SamuraiHiganbana);
             this.SamuraiDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SamuraiDoTGroup.Location = new System.Drawing.Point(218, 56);
+            this.SamuraiDoTGroup.Location = new System.Drawing.Point(468, 6);
             this.SamuraiDoTGroup.Name = "SamuraiDoTGroup";
             this.SamuraiDoTGroup.Size = new System.Drawing.Size(203, 44);
             this.SamuraiDoTGroup.TabIndex = 1;
@@ -10034,47 +10081,47 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // DragoonMiscGroup
+            // SamuraiPotion
             // 
-            this.DragoonMiscGroup.Controls.Add(this.DragoonPotion);
-            this.DragoonMiscGroup.Controls.Add(this.DragoonOpener);
-            this.DragoonMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonMiscGroup.Location = new System.Drawing.Point(218, 147);
-            this.DragoonMiscGroup.Name = "DragoonMiscGroup";
-            this.DragoonMiscGroup.Size = new System.Drawing.Size(94, 66);
-            this.DragoonMiscGroup.TabIndex = 3;
-            this.DragoonMiscGroup.TabStop = false;
-            this.DragoonMiscGroup.Text = "Misc";
+            this.SamuraiPotion.AutoSize = true;
+            this.SamuraiPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiPotion.ForeColor = System.Drawing.Color.White;
+            this.SamuraiPotion.Location = new System.Drawing.Point(6, 39);
+            this.SamuraiPotion.Name = "SamuraiPotion";
+            this.SamuraiPotion.Size = new System.Drawing.Size(80, 17);
+            this.SamuraiPotion.TabIndex = 1;
+            this.SamuraiPotion.TabStop = false;
+            this.SamuraiPotion.Text = "Use potion";
+            this.SamuraiPotion.UseVisualStyleBackColor = true;
+            this.SamuraiPotion.CheckedChanged += new System.EventHandler(this.SamuraiPotion_CheckedChanged);
             // 
-            // DragoonOpener
+            // SamuraiOpener
             // 
-            this.DragoonOpener.AutoSize = true;
-            this.DragoonOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonOpener.ForeColor = System.Drawing.Color.White;
-            this.DragoonOpener.Location = new System.Drawing.Point(6, 16);
-            this.DragoonOpener.Name = "DragoonOpener";
-            this.DragoonOpener.Size = new System.Drawing.Size(82, 17);
-            this.DragoonOpener.TabIndex = 0;
-            this.DragoonOpener.TabStop = false;
-            this.DragoonOpener.Text = "Use opener";
-            this.DragoonOpener.UseVisualStyleBackColor = true;
-            this.DragoonOpener.CheckedChanged += new System.EventHandler(this.DragoonOpener_CheckedChanged);
+            this.SamuraiOpener.AutoSize = true;
+            this.SamuraiOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SamuraiOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiOpener.ForeColor = System.Drawing.Color.White;
+            this.SamuraiOpener.Location = new System.Drawing.Point(6, 16);
+            this.SamuraiOpener.Name = "SamuraiOpener";
+            this.SamuraiOpener.Size = new System.Drawing.Size(82, 17);
+            this.SamuraiOpener.TabIndex = 0;
+            this.SamuraiOpener.TabStop = false;
+            this.SamuraiOpener.Text = "Use opener";
+            this.SamuraiOpener.UseVisualStyleBackColor = true;
+            this.SamuraiOpener.CheckedChanged += new System.EventHandler(this.SamuraiOpener_CheckedChanged);
             // 
-            // DragoonPotion
+            // SamuraiMiscGroup
             // 
-            this.DragoonPotion.AutoSize = true;
-            this.DragoonPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DragoonPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DragoonPotion.ForeColor = System.Drawing.Color.White;
-            this.DragoonPotion.Location = new System.Drawing.Point(6, 39);
-            this.DragoonPotion.Name = "DragoonPotion";
-            this.DragoonPotion.Size = new System.Drawing.Size(80, 17);
-            this.DragoonPotion.TabIndex = 1;
-            this.DragoonPotion.TabStop = false;
-            this.DragoonPotion.Text = "Use potion";
-            this.DragoonPotion.UseVisualStyleBackColor = true;
-            this.DragoonPotion.CheckedChanged += new System.EventHandler(this.DragoonPotion_CheckedChanged);
+            this.SamuraiMiscGroup.Controls.Add(this.SamuraiPotion);
+            this.SamuraiMiscGroup.Controls.Add(this.SamuraiOpener);
+            this.SamuraiMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.SamuraiMiscGroup.Location = new System.Drawing.Point(218, 178);
+            this.SamuraiMiscGroup.Name = "SamuraiMiscGroup";
+            this.SamuraiMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.SamuraiMiscGroup.TabIndex = 6;
+            this.SamuraiMiscGroup.TabStop = false;
+            this.SamuraiMiscGroup.Text = "Misc";
             // 
             // ShinraForm
             // 
@@ -10187,6 +10234,8 @@
             this.pgeMelee.ResumeLayout(false);
             this.tabMelee.ResumeLayout(false);
             this.pgeDragoon.ResumeLayout(false);
+            this.DragoonMiscGroup.ResumeLayout(false);
+            this.DragoonMiscGroup.PerformLayout();
             this.DragoonBuffGroup.ResumeLayout(false);
             this.DragoonBuffGroup.PerformLayout();
             this.DragoonCooldownGroup.ResumeLayout(false);
@@ -10300,8 +10349,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.DragoonMiscGroup.ResumeLayout(false);
-            this.DragoonMiscGroup.PerformLayout();
+            this.SamuraiMiscGroup.ResumeLayout(false);
+            this.SamuraiMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -10958,5 +11007,8 @@
         private Design.CustomGroup DragoonMiscGroup;
         private Design.CustomCheck DragoonPotion;
         private Design.CustomCheck DragoonOpener;
+        private Design.CustomGroup SamuraiMiscGroup;
+        private Design.CustomCheck SamuraiPotion;
+        private Design.CustomCheck SamuraiOpener;
     }
 }

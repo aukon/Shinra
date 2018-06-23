@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (Shinra.Settings.SamuraiOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await MidareSetsugekka()) return true;
                 if (await TenkaGoken()) return true;
                 if (await Higanbana()) return true;
@@ -31,6 +32,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (Shinra.Settings.SamuraiOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await MidareSetsugekka()) return true;
                 if (await Higanbana()) return true;
                 if (await Meikyo()) return true;
@@ -71,6 +73,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (Shinra.Settings.SamuraiOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Meditate()) return true;
             if (await HissatsuGyoten()) return true;
             if (await TrueNorth()) return true;

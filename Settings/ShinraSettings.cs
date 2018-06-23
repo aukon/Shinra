@@ -1357,6 +1357,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool SamuraiOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool SamuraiPotion { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Scholar

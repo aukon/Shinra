@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
+using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
@@ -31,6 +32,7 @@ namespace ShinraCo
         private static DragoonSpells Dragoon { get; } = new DragoonSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
         private static RedMageSpells RedMage { get; } = new RedMageSpells();
+        private static SamuraiSpells Samurai { get; } = new SamuraiSpells();
         private static SummonerSpells Summoner { get; } = new SummonerSpells();
 
         public static async Task<bool> ExecuteOpener()
@@ -87,6 +89,13 @@ namespace ShinraCo
                     usePotion = Shinra.Settings.RedMagePotion;
                     potionStep = 3;
                     potionType = PotionIds.Int;
+                    break;
+
+                case ClassJobType.Samurai:
+                    current = SamuraiOpener.List;
+                    usePotion = Shinra.Settings.SamuraiPotion;
+                    potionStep = 4;
+                    potionType = PotionIds.Str;
                     break;
 
                 case ClassJobType.Summoner:
@@ -186,6 +195,24 @@ namespace ShinraCo
                     if (spell.Name == RedMage.EnchantedRiposte.Name && (Resource.RedMage.WhiteMana < 80 || Resource.RedMage.BlackMana < 80))
                     {
                         AbortOpener("Aborted opener due to mana levels.");
+                        return true;
+                    }
+                    break;
+
+                case ClassJobType.Samurai:
+                    if (spell.Name == Samurai.MeikyoShisui.Name && Samurai.MeikyoShisui.Cooldown() > 0)
+                    {
+                        AbortOpener("Aborted opener due to Meikyo Shisui.");
+                        return true;
+                    }
+                    if (spell.Name == Samurai.HissatsuGuren.Name && Resource.Samurai.Kenki < 70)
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to kenki >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    if (spell.Name == Samurai.Higanbana.Name && MovementManager.IsMoving)
+                    {
                         return true;
                     }
                     break;
