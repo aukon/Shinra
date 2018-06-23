@@ -369,6 +369,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            DarkKnightOpener.Checked = Shinra.Settings.DarkKnightOpener;
+            DarkKnightPotion.Checked = Shinra.Settings.DarkKnightPotion;
+
+            #endregion
+
             #endregion
 
             #region Dragoon
@@ -587,6 +594,13 @@ namespace ShinraCo.Settings.Forms
             NinjaHuton.Checked = Shinra.Settings.NinjaHuton;
             NinjaDoton.Checked = Shinra.Settings.NinjaDoton;
             NinjaSuiton.Checked = Shinra.Settings.NinjaSuiton;
+
+            #endregion
+
+            #region Misc
+
+            NinjaOpener.Checked = Shinra.Settings.NinjaOpener;
+            NinjaPotion.Checked = Shinra.Settings.NinjaPotion;
 
             #endregion
 
@@ -1923,6 +1937,20 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Misc
+
+        private void DarkKnightOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightOpener = DarkKnightOpener.Checked;
+        }
+
+        private void DarkKnightPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightPotion = DarkKnightPotion.Checked;
+        }
+
+        #endregion
+
         #endregion
 
         #region Dragoon
@@ -2537,6 +2565,20 @@ namespace ShinraCo.Settings.Forms
         private void NinjaSuiton_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.NinjaSuiton = NinjaSuiton.Checked;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void NinjaOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaOpener = NinjaOpener.Checked;
+        }
+
+        private void NinjaPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.NinjaPotion = NinjaPotion.Checked;
         }
 
         #endregion

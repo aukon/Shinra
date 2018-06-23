@@ -673,6 +673,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool DarkKnightOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool DarkKnightPotion { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Dragoon
@@ -1080,6 +1090,16 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool NinjaSuiton { get; set; }
+
+        #endregion
+
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool NinjaOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool NinjaPotion { get; set; }
 
         #endregion
 

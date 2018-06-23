@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Quietus()) return true;
                 if (await AbyssalDrain()) return true;
                 if (await Unleash()) return true;
@@ -23,6 +24,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Bloodspiller()) return true;
                 if (await Souleater()) return true;
                 if (await SyphonStrike()) return true;
@@ -50,6 +52,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Grit()) return true;
             if (await LivingDead()) return true;
             if (await ShadowWall()) return true;

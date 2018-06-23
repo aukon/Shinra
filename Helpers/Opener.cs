@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
-using ff14bot;
 using ff14bot.Enums;
 using ff14bot.Helpers;
 using ff14bot.Managers;
@@ -29,8 +28,10 @@ namespace ShinraCo
 
         private static BardSpells Bard { get; } = new BardSpells();
         private static BlackMageSpells BlackMage { get; } = new BlackMageSpells();
+        private static DarkKnightSpells DarkKnight { get; } = new DarkKnightSpells();
         private static DragoonSpells Dragoon { get; } = new DragoonSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
+        private static NinjaSpells Ninja { get; } = new NinjaSpells();
         private static RedMageSpells RedMage { get; } = new RedMageSpells();
         private static SamuraiSpells Samurai { get; } = new SamuraiSpells();
         private static SummonerSpells Summoner { get; } = new SummonerSpells();
@@ -63,6 +64,13 @@ namespace ShinraCo
                     potionType = PotionIds.Int;
                     break;
 
+                case ClassJobType.DarkKnight:
+                    current = DarkKnightOpener.List;
+                    usePotion = Shinra.Settings.DarkKnightPotion;
+                    potionStep = 4;
+                    potionType = PotionIds.Str;
+                    break;
+
                 case ClassJobType.Dragoon:
                     current = DragoonOpener.List;
                     usePotion = Shinra.Settings.DragoonPotion;
@@ -74,6 +82,13 @@ namespace ShinraCo
                     current = MachinistOpener.List;
                     usePotion = Shinra.Settings.MachinistPotion;
                     potionStep = 0;
+                    potionType = PotionIds.Dex;
+                    break;
+
+                case ClassJobType.Ninja:
+                    current = NinjaOpener.List;
+                    usePotion = Shinra.Settings.NinjaPotion;
+                    potionStep = 7;
                     potionType = PotionIds.Dex;
                     break;
 
@@ -141,6 +156,15 @@ namespace ShinraCo
                     }
                     break;
 
+                case ClassJobType.DarkKnight:
+                    if (spell.Name == DarkKnight.BloodWeapon.Name && Me.HasAura(DarkKnight.Grit.Name))
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to Grit >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    break;
+
                 case ClassJobType.Dragoon:
                     if (OpenerStep > 4 && Resource.Dragoon.Timer == TimeSpan.Zero)
                     {
@@ -181,6 +205,25 @@ namespace ShinraCo
                     }
                     break;
 
+                case ClassJobType.Ninja:
+                    if (OpenerStep == 1 && (Resource.Ninja.HutonTimer == TimeSpan.Zero || Ninja.Ninjutsu.Cooldown() > 0))
+                    {
+                        AbortOpener("Aborted opener due to Ninjutsu.");
+                        return true;
+                    }
+                    if (spell.Name == Ninja.Kassatsu.Name && Ninja.Kassatsu.Cooldown() > 0)
+                    {
+                        AbortOpener("Aborted opener due to Kassatsu.");
+                        return true;
+                    }
+                    if (spell.Name == Ninja.TrickAttack.Name && !Me.HasAura(Ninja.Suiton.Name))
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to Suiton >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    break;
+
                 case ClassJobType.RedMage:
                     if (!ActionManager.HasSpell("Swiftcast"))
                     {
@@ -200,14 +243,15 @@ namespace ShinraCo
                     break;
 
                 case ClassJobType.Samurai:
-                    if (spell.Name == Samurai.MeikyoShisui.Name && Samurai.MeikyoShisui.Cooldown() > 0)
+                    if (spell.Name == Samurai.MeikyoShisui.Name && Samurai.MeikyoShisui.Cooldown() > 0 ||
+                        OpenerStep > 9 && !Me.HasAura(Samurai.MeikyoShisui.Name))
                     {
                         AbortOpener("Aborted opener due to Meikyo Shisui.");
                         return true;
                     }
                     if (spell.Name == Samurai.HissatsuGuren.Name && Resource.Samurai.Kenki < 70)
                     {
-                        Debug($"Skipping opener step {OpenerStep} due to kenki >>> {spell.Name}");
+                        Debug($"Skipping opener step {OpenerStep} due to Kenki >>> {spell.Name}");
                         OpenerStep++;
                         return true;
                     }
