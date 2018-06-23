@@ -746,6 +746,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool DragoonOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool DragoonPotion { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Machinist

@@ -408,6 +408,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            DragoonOpener.Checked = Shinra.Settings.DragoonOpener;
+            DragoonPotion.Checked = Shinra.Settings.DragoonPotion;
+
+            #endregion
+
             #endregion
 
             #region Machinist
@@ -2016,6 +2023,20 @@ namespace ShinraCo.Settings.Forms
         private void DragoonDragonSight_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DragoonDragonSight = DragoonDragonSight.Checked;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void DragoonOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonOpener = DragoonOpener.Checked;
+        }
+
+        private void DragoonPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DragoonPotion = DragoonPotion.Checked;
         }
 
         #endregion

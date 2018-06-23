@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (Shinra.Settings.DragoonOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await SonicThrust()) return true;
                 if (await DoomSpike()) return true;
                 if (await WheelingThrust()) return true;
@@ -25,6 +26,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (Shinra.Settings.DragoonOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await WheelingThrust()) return true;
                 if (await FangAndClaw()) return true;
                 if (await ChaosThrust()) return true;
@@ -52,6 +54,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (Shinra.Settings.DragoonOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await BloodOfTheDragon()) return true;
             if (await DragonSight()) return true;
             if (await BloodForBlood()) return true;

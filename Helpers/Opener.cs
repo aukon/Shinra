@@ -28,6 +28,7 @@ namespace ShinraCo
 
         private static BardSpells Bard { get; } = new BardSpells();
         private static BlackMageSpells BlackMage { get; } = new BlackMageSpells();
+        private static DragoonSpells Dragoon { get; } = new DragoonSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
         private static RedMageSpells RedMage { get; } = new RedMageSpells();
         private static SummonerSpells Summoner { get; } = new SummonerSpells();
@@ -58,6 +59,13 @@ namespace ShinraCo
                     usePotion = Shinra.Settings.BlackMagePotion;
                     potionStep = 7;
                     potionType = PotionIds.Int;
+                    break;
+
+                case ClassJobType.Dragoon:
+                    current = DragoonOpener.List;
+                    usePotion = Shinra.Settings.DragoonPotion;
+                    potionStep = 7;
+                    potionType = PotionIds.Str;
                     break;
 
                 case ClassJobType.Machinist:
@@ -121,6 +129,27 @@ namespace ShinraCo
                     {
                         AbortOpener("Aborted opener due to Enochian.");
                         return true;
+                    }
+                    break;
+
+                case ClassJobType.Dragoon:
+                    if (OpenerStep > 4 && Resource.Dragoon.Timer == TimeSpan.Zero)
+                    {
+                        AbortOpener("Aborted opener due to Blood of the Dragon.");
+                        return true;
+                    }
+                    if (spell.Name == Dragoon.DragonSight.Name)
+                    {
+                        var target = Managers.DragonSight.FirstOrDefault();
+
+                        if (target == null) break;
+
+                        if (await Dragoon.DragonSight.Cast(target, false))
+                        {
+                            Debug($"Executed opener step {OpenerStep} >>> {spell.Name}");
+                            OpenerStep++;
+                            return true;
+                        }
                     }
                     break;
 
