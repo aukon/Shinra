@@ -11,7 +11,6 @@ namespace ShinraCo.Spells.Opener
         {
             Spells.HardSlash,
             Spells.DarkArts,
-            Spells.BlackestNight,
             Spells.SyphonStrike,
             Spells.Souleater,
             Spells.SaltedEarth,

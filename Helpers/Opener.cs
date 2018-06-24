@@ -67,7 +67,7 @@ namespace ShinraCo
                 case ClassJobType.DarkKnight:
                     current = DarkKnightOpener.List;
                     usePotion = Shinra.Settings.DarkKnightPotion;
-                    potionStep = 4;
+                    potionStep = 3;
                     potionType = PotionIds.Str;
                     break;
 
@@ -157,9 +157,21 @@ namespace ShinraCo
                     break;
 
                 case ClassJobType.DarkKnight:
+                    if (spell.Name == DarkKnight.DarkArts.Name && !Me.HasAura(DarkKnight.Darkside.Name))
+                    {
+                        AbortOpener("Aborted opener due to Darkside.");
+                        return true;
+                    }
                     if (spell.Name == DarkKnight.BloodWeapon.Name && Me.HasAura(DarkKnight.Grit.Name))
                     {
                         Debug($"Skipping opener step {OpenerStep} due to Grit >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    if ((spell.Name == DarkKnight.Bloodspiller.Name || spell.Name == DarkKnight.Delirium.Name) &&
+                        Resource.DarkKnight.BlackBlood < 50)
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to Blood >>> {spell.Name}");
                         OpenerStep++;
                         return true;
                     }

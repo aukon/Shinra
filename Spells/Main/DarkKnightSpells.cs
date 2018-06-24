@@ -122,7 +122,7 @@ namespace ShinraCo.Spells.Main
             ID = 3633,
             Level = 40,
             GCDType = GCDType.Off,
-            SpellType = SpellType.AoE,
+            SpellType = SpellType.Cooldown,
             CastType = CastType.Target
         };
 
