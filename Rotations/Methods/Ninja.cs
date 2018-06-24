@@ -31,28 +31,24 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> AeolianEdge()
         {
-            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name)
-            {
-                if (Shinra.Settings.NinjaDuality && ActionManager.CanCast(MySpells.AeolianEdge.Name, Core.Player.CurrentTarget))
-                {
-                    if (await MySpells.Duality.Cast(null, false))
-                    {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Duality.Name));
-                    }
-                }
-                return await MySpells.AeolianEdge.Cast();
-            }
-            return false;
+            if (ActionManager.LastSpell.Name != MySpells.GustSlash.Name) return false;
+
+            return await MySpells.AeolianEdge.Cast();
         }
 
         private async Task<bool> ArmorCrush()
         {
-            if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name && Resource.HutonTimer.TotalMilliseconds > 0 &&
-                Resource.HutonTimer.TotalMilliseconds < 40000)
-            {
-                return await MySpells.ArmorCrush.Cast();
-            }
-            return false;
+            if (ActionManager.LastSpell.Name != MySpells.GustSlash.Name || !UseArmorCrush) return false;
+
+            return await MySpells.ArmorCrush.Cast();
+        }
+
+        private async Task<bool> DualityActive()
+        {
+            if (ActionManager.LastSpell.Name != MySpells.GustSlash.Name || !Core.Player.HasAura(MySpells.Duality.Name))
+                return false;
+
+            return await MySpells.AeolianEdge.Cast();
         }
 
         #endregion
@@ -61,16 +57,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> ShadowFang()
         {
-            if (Shinra.Settings.NinjaShadowFang && (Core.Player.CurrentTarget.IsBoss() ||
-                                                    Core.Player.CurrentTarget.CurrentHealth > Shinra.Settings.NinjaShadowFangHP))
-            {
-                if (ActionManager.LastSpell.Name == MySpells.GustSlash.Name &&
-                    !Core.Player.CurrentTarget.HasAura(MySpells.ShadowFang.Name, true, 6000))
-                {
-                    return await MySpells.ShadowFang.Cast();
-                }
-            }
-            return false;
+            if (ActionManager.LastSpell.Name != MySpells.GustSlash.Name || !UseShadowFang) return false;
+
+            return await MySpells.ShadowFang.Cast();
         }
 
         #endregion
@@ -145,7 +134,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DreamWithinADream()
         {
-            if (Shinra.Settings.NinjaDreamWithin && UseOffGCD)
+            if (Shinra.Settings.NinjaDreamWithin && UseOffGCD && TrickAttackActive)
             {
                 return await MySpells.DreamWithinADream.Cast();
             }
@@ -195,13 +184,21 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.NinjaKassatsu && UseOffGCD)
             {
-                if (Core.Player.CurrentTarget.HasAura(638) || Shinra.Settings.RotationMode == Modes.Multi || TrickCooldown > 30000 ||
+                if (TrickAttackActive || Shinra.Settings.RotationMode == Modes.Multi || TrickCooldown > 30000 ||
                     Shinra.Settings.RotationMode == Modes.Smart && Helpers.EnemiesNearTarget(5) >= AoECount)
                 {
                     return await MySpells.Kassatsu.Cast();
                 }
             }
             return false;
+        }
+
+        private async Task<bool> Duality()
+        {
+            if (!Shinra.Settings.NinjaDuality || ActionManager.LastSpell.Name != MySpells.GustSlash.Name || UseArmorCrush || UseShadowFang)
+                return false;
+
+            return await MySpells.Duality.Cast();
         }
 
         private async Task<bool> TenChiJin()
@@ -229,7 +226,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FumaShuriken()
         {
-            if (Shinra.Settings.NinjaFuma && UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null))
+            if (Shinra.Settings.NinjaFuma && UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null) &&
+                MySpells.TrickAttack.Cooldown() > 22000)
             {
                 if (!CanNinjutsu)
                 {
@@ -293,7 +291,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Raiton()
         {
-            if (Shinra.Settings.NinjaRaiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null))
+            if (Shinra.Settings.NinjaRaiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null) &&
+                MySpells.TrickAttack.Cooldown() > 22000)
             {
                 if (!CanNinjutsu)
                 {
@@ -418,7 +417,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> Suiton()
         {
             if (Shinra.Settings.NinjaSuiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Jin.ID, null) &&
-                !Core.Player.HasAura(MySpells.Suiton.Name) && TrickCooldown < 5000)
+                !Core.Player.HasAura(MySpells.Suiton.Name) && TrickCooldown < 9000)
             {
                 if (!CanNinjutsu)
                 {
@@ -580,8 +579,14 @@ namespace ShinraCo.Rotations
         #region Custom
 
         private static int AoECount => Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 2;
+        private static bool TrickAttackActive => Core.Player.CurrentTarget.HasAura(638);
         private static bool UseOffGCD => DataManager.GetSpellData(2260).Cooldown.TotalMilliseconds > 1000 || Core.Player.ClassLevel < 30;
         private static bool UseHellfrog => Resource.NinkiGauge == 100 && BhavacakraCooldown > 10000 && TenChiJinCooldown > 10000;
+        private static bool UseArmorCrush => Resource.HutonTimer.TotalMilliseconds > 0 && Resource.HutonTimer.TotalMilliseconds < 40000;
+        private static bool UseShadowFang => Shinra.Settings.NinjaShadowFang && !Core.Player.CurrentTarget.HasAura(508, true, 6000) &&
+                                             (Core.Player.CurrentTarget.IsBoss() ||
+                                              Core.Player.CurrentTarget.CurrentHealth >
+                                              Shinra.Settings.NinjaShadowFangHP);
 
         private static double TrickCooldown => DataManager.GetSpellData(2258).Cooldown.TotalMilliseconds;
         private static double NinjutsuGcd => DataManager.GetSpellData(2240).Cooldown.TotalMilliseconds;

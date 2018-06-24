@@ -17,9 +17,10 @@ namespace ShinraCo.Rotations
                 if (await Doton()) return true;
                 if (await Katon()) return true;
                 if (await Suiton()) return true;
-                if (await Raiton()) return true;
                 if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
+                if (await Duality()) return true;
+                if (await DualityActive()) return true;
                 if (await ShadowFang()) return true;
                 if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
@@ -32,8 +33,9 @@ namespace ShinraCo.Rotations
                 if (await TenChiJinBuff()) return true;
                 if (await Huton()) return true;
                 if (await Suiton()) return true;
-                if (await Raiton()) return true;
                 if (await FumaShuriken()) return true;
+                if (await Duality()) return true;
+                if (await DualityActive()) return true;
                 if (await ShadowFang()) return true;
                 if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
@@ -48,6 +50,8 @@ namespace ShinraCo.Rotations
                 if (await Katon()) return true;
                 if (await FumaShuriken()) return true;
                 if (await DeathBlossom()) return true;
+                if (await Duality()) return true;
+                if (await DualityActive()) return true;
                 if (await ShadowFang()) return true;
                 if (await ArmorCrush()) return true;
                 if (await AeolianEdge()) return true;
