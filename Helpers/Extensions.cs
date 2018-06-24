@@ -13,6 +13,8 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
+        public static int AoECount => Shinra.Settings.CustomAoE ? Shinra.Settings.CustomAoECount : 3;
+
         public static void RemoveAll<TKey, TValue>(this Dictionary<TKey, TValue> dic, Func<TValue, bool> predicate)
         {
             var keys = dic.Keys.Where(k => predicate(dic[k])).ToList();

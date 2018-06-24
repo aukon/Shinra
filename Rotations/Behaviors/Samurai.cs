@@ -15,6 +15,7 @@ namespace ShinraCo.Rotations
                 if (await MidareSetsugekka()) return true;
                 if (await TenkaGoken()) return true;
                 if (await Higanbana()) return true;
+                if (await Kaiten()) return true;
                 if (await Meikyo()) return true;
                 if (await Kasha()) return true;
                 if (await Gekko()) return true;
@@ -35,6 +36,7 @@ namespace ShinraCo.Rotations
                 if (Shinra.Settings.SamuraiOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await MidareSetsugekka()) return true;
                 if (await Higanbana()) return true;
+                if (await Kaiten()) return true;
                 if (await Meikyo()) return true;
                 if (await Kasha()) return true;
                 if (await Gekko()) return true;
@@ -51,6 +53,7 @@ namespace ShinraCo.Rotations
             {
                 if (await MidareSetsugekka()) return true;
                 if (await TenkaGoken()) return true;
+                if (await Kaiten()) return true;
                 if (await Meikyo()) return true;
                 if (await Kasha()) return true;
                 if (await Gekko()) return true;
@@ -75,6 +78,7 @@ namespace ShinraCo.Rotations
             if (await Shinra.ChocoboStance()) return true;
             if (Shinra.Settings.SamuraiOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Meditate()) return true;
+            if (await HissatsuKaiten()) return true;
             if (await HissatsuGyoten()) return true;
             if (await TrueNorth()) return true;
             if (await MeikyoShisui()) return true;
