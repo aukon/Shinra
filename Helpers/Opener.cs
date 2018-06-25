@@ -31,6 +31,7 @@ namespace ShinraCo
         private static DarkKnightSpells DarkKnight { get; } = new DarkKnightSpells();
         private static DragoonSpells Dragoon { get; } = new DragoonSpells();
         private static MachinistSpells Machinist { get; } = new MachinistSpells();
+        private static MonkSpells Monk { get; } = new MonkSpells();
         private static NinjaSpells Ninja { get; } = new NinjaSpells();
         private static RedMageSpells RedMage { get; } = new RedMageSpells();
         private static SamuraiSpells Samurai { get; } = new SamuraiSpells();
@@ -83,6 +84,13 @@ namespace ShinraCo
                     usePotion = Shinra.Settings.MachinistPotion;
                     potionStep = 0;
                     potionType = PotionIds.Dex;
+                    break;
+
+                case ClassJobType.Monk:
+                    current = MonkOpener.List;
+                    usePotion = Shinra.Settings.MonkPotion;
+                    potionStep = 4;
+                    potionType = PotionIds.Str;
                     break;
 
                 case ClassJobType.Ninja:
@@ -214,6 +222,53 @@ namespace ShinraCo
                         {
                             return true;
                         }
+                    }
+                    break;
+
+                case ClassJobType.Monk:
+                    if (OpenerStep == 0)
+                    {
+                        if (!Me.HasAura(109))
+                        {
+                            if (Me.HasAura(108)) await Monk.TwinSnakes.Cast();
+                            await Monk.Bootshine.Cast();
+                            return true;
+                        }
+                    }
+                    if (spell.Name == Monk.RiddleOfWind.Name && Monk.RiddleOfWind.Cooldown() > 0)
+                    {
+                        return true;
+                    }
+                    if (spell.Name == Monk.ForbiddenChakra.Name && Resource.Monk.FithChakra != 5)
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to Chakras >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    if (spell.Name == Monk.TornadoKick.Name && Resource.Monk.GreasedLightning != 3)
+                    {
+                        Debug($"Skipping opener step {OpenerStep} due to Greased Lightning >>> {spell.Name}");
+                        OpenerStep++;
+                        return true;
+                    }
+                    if (spell.Name == Monk.PerfectBalance.Name)
+                    {
+                        if (Monk.PerfectBalance.Cooldown() != 0)
+                        {
+                            AbortOpener("Aborted opener due to Perfect Balance.");
+                            return true;
+                        }
+                        if (Monk.Bootshine.Cooldown() > 700)
+                        {
+                            return true;
+                        }
+                    }
+                    if (Shinra.LastSpell.Name != Monk.PerfectBalance.Name && Monk.PerfectBalance.Cooldown() > 0 &&
+                        ActionManager.CanCast(Monk.Bootshine.Name, Target) && !ActionManager.CanCast(spell.Name, Target) &&
+                        !ActionManager.CanCast(spell.Name, Me))
+                    {
+                        AbortOpener("Aborted opener due to Perfect Balance.");
+                        return true;
                     }
                     break;
 
@@ -354,7 +409,7 @@ namespace ShinraCo
 
                 #endregion
             }
-            else if (spell.Cooldown(true) > 2500 && spell.Cooldown() > 500 && !Me.IsCasting)
+            else if (spell.Cooldown(true) > 3000 && spell.Cooldown() > 500 && !Me.IsCasting)
             {
                 Debug($"Skipped opener step {OpenerStep} due to cooldown >>> {spell.Name}");
                 OpenerStep++;

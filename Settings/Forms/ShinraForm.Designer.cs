@@ -392,6 +392,9 @@
             this.MonkArmsLength = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.MonkSecondWind = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeNinja = new System.Windows.Forms.TabPage();
+            this.NinjaMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.NinjaPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.NinjaOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaNinjutsuGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.NinjaSuiton = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.NinjaDoton = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -550,6 +553,9 @@
             this.pgeTanks = new System.Windows.Forms.TabPage();
             this.tabTanks = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDarkKnight = new System.Windows.Forms.TabPage();
+            this.DarkKnightMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DarkKnightBloodspiller = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -681,12 +687,11 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
-            this.NinjaPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.NinjaMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.MonkMeditation = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.MonkFormShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -757,6 +762,7 @@
             this.MonkBuffGroup.SuspendLayout();
             this.MonkRoleGroup.SuspendLayout();
             this.pgeNinja.SuspendLayout();
+            this.NinjaMiscGroup.SuspendLayout();
             this.NinjaNinjutsuGroup.SuspendLayout();
             this.NinjaDoTGroup.SuspendLayout();
             this.NinjaBuffGroup.SuspendLayout();
@@ -788,6 +794,7 @@
             this.pgeTanks.SuspendLayout();
             this.tabTanks.SuspendLayout();
             this.pgeDarkKnight.SuspendLayout();
+            this.DarkKnightMiscGroup.SuspendLayout();
             this.DarkKnightDamageGroup.SuspendLayout();
             this.DarkKnightCooldownGroup.SuspendLayout();
             this.DarkKnightArtsGroup.SuspendLayout();
@@ -812,8 +819,7 @@
             this.WarriorBuffGroup.SuspendLayout();
             this.WarriorAoEGroup.SuspendLayout();
             this.WarriorRoleGroup.SuspendLayout();
-            this.DarkKnightMiscGroup.SuspendLayout();
-            this.NinjaMiscGroup.SuspendLayout();
+            this.MonkMiscGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // ShinraBorder
@@ -5515,6 +5521,7 @@
             // pgeMonk
             // 
             this.pgeMonk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.pgeMonk.Controls.Add(this.MonkMiscGroup);
             this.pgeMonk.Controls.Add(this.MonkCooldownGroup);
             this.pgeMonk.Controls.Add(this.MonkDoTGroup);
             this.pgeMonk.Controls.Add(this.MonkFistsGroup);
@@ -5685,7 +5692,7 @@
             // 
             this.MonkFistsGroup.Controls.Add(this.MonkFist);
             this.MonkFistsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkFistsGroup.Location = new System.Drawing.Point(218, 220);
+            this.MonkFistsGroup.Location = new System.Drawing.Point(326, 220);
             this.MonkFistsGroup.Name = "MonkFistsGroup";
             this.MonkFistsGroup.Size = new System.Drawing.Size(102, 43);
             this.MonkFistsGroup.TabIndex = 2;
@@ -5713,6 +5720,8 @@
             // 
             // MonkBuffGroup
             // 
+            this.MonkBuffGroup.Controls.Add(this.MonkFormShift);
+            this.MonkBuffGroup.Controls.Add(this.MonkMeditation);
             this.MonkBuffGroup.Controls.Add(this.MonkBrotherhood);
             this.MonkBuffGroup.Controls.Add(this.MonkRiddleOfFire);
             this.MonkBuffGroup.Controls.Add(this.MonkPerfectBalance);
@@ -5720,7 +5729,7 @@
             this.MonkBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MonkBuffGroup.Location = new System.Drawing.Point(352, 56);
             this.MonkBuffGroup.Name = "MonkBuffGroup";
-            this.MonkBuffGroup.Size = new System.Drawing.Size(117, 112);
+            this.MonkBuffGroup.Size = new System.Drawing.Size(117, 158);
             this.MonkBuffGroup.TabIndex = 1;
             this.MonkBuffGroup.TabStop = false;
             this.MonkBuffGroup.Text = "Buff";
@@ -5731,7 +5740,7 @@
             this.MonkBrotherhood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MonkBrotherhood.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MonkBrotherhood.ForeColor = System.Drawing.Color.White;
-            this.MonkBrotherhood.Location = new System.Drawing.Point(6, 85);
+            this.MonkBrotherhood.Location = new System.Drawing.Point(6, 131);
             this.MonkBrotherhood.Name = "MonkBrotherhood";
             this.MonkBrotherhood.Size = new System.Drawing.Size(90, 17);
             this.MonkBrotherhood.TabIndex = 5;
@@ -5746,7 +5755,7 @@
             this.MonkRiddleOfFire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MonkRiddleOfFire.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.MonkRiddleOfFire.ForeColor = System.Drawing.Color.White;
-            this.MonkRiddleOfFire.Location = new System.Drawing.Point(6, 62);
+            this.MonkRiddleOfFire.Location = new System.Drawing.Point(6, 108);
             this.MonkRiddleOfFire.Name = "MonkRiddleOfFire";
             this.MonkRiddleOfFire.Size = new System.Drawing.Size(92, 17);
             this.MonkRiddleOfFire.TabIndex = 4;
@@ -6011,6 +6020,48 @@
             this.pgeNinja.TabIndex = 2;
             this.pgeNinja.Text = "Ninja";
             this.pgeNinja.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
+            // 
+            // NinjaMiscGroup
+            // 
+            this.NinjaMiscGroup.Controls.Add(this.NinjaPotion);
+            this.NinjaMiscGroup.Controls.Add(this.NinjaOpener);
+            this.NinjaMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaMiscGroup.Location = new System.Drawing.Point(218, 266);
+            this.NinjaMiscGroup.Name = "NinjaMiscGroup";
+            this.NinjaMiscGroup.Size = new System.Drawing.Size(94, 66);
+            this.NinjaMiscGroup.TabIndex = 5;
+            this.NinjaMiscGroup.TabStop = false;
+            this.NinjaMiscGroup.Text = "Misc";
+            // 
+            // NinjaPotion
+            // 
+            this.NinjaPotion.AutoSize = true;
+            this.NinjaPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaPotion.ForeColor = System.Drawing.Color.White;
+            this.NinjaPotion.Location = new System.Drawing.Point(6, 39);
+            this.NinjaPotion.Name = "NinjaPotion";
+            this.NinjaPotion.Size = new System.Drawing.Size(80, 17);
+            this.NinjaPotion.TabIndex = 1;
+            this.NinjaPotion.TabStop = false;
+            this.NinjaPotion.Text = "Use potion";
+            this.NinjaPotion.UseVisualStyleBackColor = true;
+            this.NinjaPotion.CheckedChanged += new System.EventHandler(this.NinjaPotion_CheckedChanged);
+            // 
+            // NinjaOpener
+            // 
+            this.NinjaOpener.AutoSize = true;
+            this.NinjaOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NinjaOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NinjaOpener.ForeColor = System.Drawing.Color.White;
+            this.NinjaOpener.Location = new System.Drawing.Point(6, 16);
+            this.NinjaOpener.Name = "NinjaOpener";
+            this.NinjaOpener.Size = new System.Drawing.Size(82, 17);
+            this.NinjaOpener.TabIndex = 0;
+            this.NinjaOpener.TabStop = false;
+            this.NinjaOpener.Text = "Use opener";
+            this.NinjaOpener.UseVisualStyleBackColor = true;
+            this.NinjaOpener.CheckedChanged += new System.EventHandler(this.NinjaOpener_CheckedChanged);
             // 
             // NinjaNinjutsuGroup
             // 
@@ -8302,6 +8353,48 @@
             this.pgeDarkKnight.Text = "Dark Knight";
             this.pgeDarkKnight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShinraForm_MouseDown);
             // 
+            // DarkKnightMiscGroup
+            // 
+            this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightPotion);
+            this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightOpener);
+            this.DarkKnightMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightMiscGroup.Location = new System.Drawing.Point(344, 243);
+            this.DarkKnightMiscGroup.Name = "DarkKnightMiscGroup";
+            this.DarkKnightMiscGroup.Size = new System.Drawing.Size(114, 66);
+            this.DarkKnightMiscGroup.TabIndex = 7;
+            this.DarkKnightMiscGroup.TabStop = false;
+            this.DarkKnightMiscGroup.Text = "Misc";
+            // 
+            // DarkKnightPotion
+            // 
+            this.DarkKnightPotion.AutoSize = true;
+            this.DarkKnightPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightPotion.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightPotion.Location = new System.Drawing.Point(6, 39);
+            this.DarkKnightPotion.Name = "DarkKnightPotion";
+            this.DarkKnightPotion.Size = new System.Drawing.Size(80, 17);
+            this.DarkKnightPotion.TabIndex = 1;
+            this.DarkKnightPotion.TabStop = false;
+            this.DarkKnightPotion.Text = "Use potion";
+            this.DarkKnightPotion.UseVisualStyleBackColor = true;
+            this.DarkKnightPotion.CheckedChanged += new System.EventHandler(this.DarkKnightPotion_CheckedChanged);
+            // 
+            // DarkKnightOpener
+            // 
+            this.DarkKnightOpener.AutoSize = true;
+            this.DarkKnightOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightOpener.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightOpener.Location = new System.Drawing.Point(6, 16);
+            this.DarkKnightOpener.Name = "DarkKnightOpener";
+            this.DarkKnightOpener.Size = new System.Drawing.Size(82, 17);
+            this.DarkKnightOpener.TabIndex = 0;
+            this.DarkKnightOpener.TabStop = false;
+            this.DarkKnightOpener.Text = "Use opener";
+            this.DarkKnightOpener.UseVisualStyleBackColor = true;
+            this.DarkKnightOpener.CheckedChanged += new System.EventHandler(this.DarkKnightOpener_CheckedChanged);
+            // 
             // DarkKnightDamageGroup
             // 
             this.DarkKnightDamageGroup.Controls.Add(this.DarkKnightBloodspiller);
@@ -10133,89 +10226,77 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // DarkKnightPotion
+            // MonkPotion
             // 
-            this.DarkKnightPotion.AutoSize = true;
-            this.DarkKnightPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightPotion.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightPotion.Location = new System.Drawing.Point(6, 39);
-            this.DarkKnightPotion.Name = "DarkKnightPotion";
-            this.DarkKnightPotion.Size = new System.Drawing.Size(80, 17);
-            this.DarkKnightPotion.TabIndex = 1;
-            this.DarkKnightPotion.TabStop = false;
-            this.DarkKnightPotion.Text = "Use potion";
-            this.DarkKnightPotion.UseVisualStyleBackColor = true;
-            this.DarkKnightPotion.CheckedChanged += new System.EventHandler(this.DarkKnightPotion_CheckedChanged);
+            this.MonkPotion.AutoSize = true;
+            this.MonkPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkPotion.ForeColor = System.Drawing.Color.White;
+            this.MonkPotion.Location = new System.Drawing.Point(6, 39);
+            this.MonkPotion.Name = "MonkPotion";
+            this.MonkPotion.Size = new System.Drawing.Size(80, 17);
+            this.MonkPotion.TabIndex = 1;
+            this.MonkPotion.TabStop = false;
+            this.MonkPotion.Text = "Use potion";
+            this.MonkPotion.UseVisualStyleBackColor = true;
+            this.MonkPotion.CheckedChanged += new System.EventHandler(this.MonkPotion_CheckedChanged);
             // 
-            // DarkKnightOpener
+            // MonkOpener
             // 
-            this.DarkKnightOpener.AutoSize = true;
-            this.DarkKnightOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightOpener.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightOpener.Location = new System.Drawing.Point(6, 16);
-            this.DarkKnightOpener.Name = "DarkKnightOpener";
-            this.DarkKnightOpener.Size = new System.Drawing.Size(82, 17);
-            this.DarkKnightOpener.TabIndex = 0;
-            this.DarkKnightOpener.TabStop = false;
-            this.DarkKnightOpener.Text = "Use opener";
-            this.DarkKnightOpener.UseVisualStyleBackColor = true;
-            this.DarkKnightOpener.CheckedChanged += new System.EventHandler(this.DarkKnightOpener_CheckedChanged);
+            this.MonkOpener.AutoSize = true;
+            this.MonkOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkOpener.ForeColor = System.Drawing.Color.White;
+            this.MonkOpener.Location = new System.Drawing.Point(6, 16);
+            this.MonkOpener.Name = "MonkOpener";
+            this.MonkOpener.Size = new System.Drawing.Size(82, 17);
+            this.MonkOpener.TabIndex = 0;
+            this.MonkOpener.TabStop = false;
+            this.MonkOpener.Text = "Use opener";
+            this.MonkOpener.UseVisualStyleBackColor = true;
+            this.MonkOpener.CheckedChanged += new System.EventHandler(this.MonkOpener_CheckedChanged);
             // 
-            // DarkKnightMiscGroup
+            // MonkMiscGroup
             // 
-            this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightPotion);
-            this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightOpener);
-            this.DarkKnightMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightMiscGroup.Location = new System.Drawing.Point(344, 243);
-            this.DarkKnightMiscGroup.Name = "DarkKnightMiscGroup";
-            this.DarkKnightMiscGroup.Size = new System.Drawing.Size(114, 66);
-            this.DarkKnightMiscGroup.TabIndex = 7;
-            this.DarkKnightMiscGroup.TabStop = false;
-            this.DarkKnightMiscGroup.Text = "Misc";
+            this.MonkMiscGroup.Controls.Add(this.MonkPotion);
+            this.MonkMiscGroup.Controls.Add(this.MonkOpener);
+            this.MonkMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkMiscGroup.Location = new System.Drawing.Point(218, 220);
+            this.MonkMiscGroup.Name = "MonkMiscGroup";
+            this.MonkMiscGroup.Size = new System.Drawing.Size(102, 66);
+            this.MonkMiscGroup.TabIndex = 6;
+            this.MonkMiscGroup.TabStop = false;
+            this.MonkMiscGroup.Text = "Misc";
             // 
-            // NinjaPotion
+            // MonkMeditation
             // 
-            this.NinjaPotion.AutoSize = true;
-            this.NinjaPotion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaPotion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaPotion.ForeColor = System.Drawing.Color.White;
-            this.NinjaPotion.Location = new System.Drawing.Point(6, 39);
-            this.NinjaPotion.Name = "NinjaPotion";
-            this.NinjaPotion.Size = new System.Drawing.Size(80, 17);
-            this.NinjaPotion.TabIndex = 1;
-            this.NinjaPotion.TabStop = false;
-            this.NinjaPotion.Text = "Use potion";
-            this.NinjaPotion.UseVisualStyleBackColor = true;
-            this.NinjaPotion.CheckedChanged += new System.EventHandler(this.NinjaPotion_CheckedChanged);
+            this.MonkMeditation.AutoSize = true;
+            this.MonkMeditation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkMeditation.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkMeditation.ForeColor = System.Drawing.Color.White;
+            this.MonkMeditation.Location = new System.Drawing.Point(6, 85);
+            this.MonkMeditation.Name = "MonkMeditation";
+            this.MonkMeditation.Size = new System.Drawing.Size(80, 17);
+            this.MonkMeditation.TabIndex = 7;
+            this.MonkMeditation.TabStop = false;
+            this.MonkMeditation.Text = "Meditation";
+            this.MonkMeditation.UseVisualStyleBackColor = true;
+            this.MonkMeditation.CheckedChanged += new System.EventHandler(this.MonkMeditation_CheckedChanged);
             // 
-            // NinjaOpener
+            // MonkFormShift
             // 
-            this.NinjaOpener.AutoSize = true;
-            this.NinjaOpener.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NinjaOpener.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaOpener.ForeColor = System.Drawing.Color.White;
-            this.NinjaOpener.Location = new System.Drawing.Point(6, 16);
-            this.NinjaOpener.Name = "NinjaOpener";
-            this.NinjaOpener.Size = new System.Drawing.Size(82, 17);
-            this.NinjaOpener.TabIndex = 0;
-            this.NinjaOpener.TabStop = false;
-            this.NinjaOpener.Text = "Use opener";
-            this.NinjaOpener.UseVisualStyleBackColor = true;
-            this.NinjaOpener.CheckedChanged += new System.EventHandler(this.NinjaOpener_CheckedChanged);
-            // 
-            // NinjaMiscGroup
-            // 
-            this.NinjaMiscGroup.Controls.Add(this.NinjaPotion);
-            this.NinjaMiscGroup.Controls.Add(this.NinjaOpener);
-            this.NinjaMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaMiscGroup.Location = new System.Drawing.Point(218, 266);
-            this.NinjaMiscGroup.Name = "NinjaMiscGroup";
-            this.NinjaMiscGroup.Size = new System.Drawing.Size(94, 66);
-            this.NinjaMiscGroup.TabIndex = 5;
-            this.NinjaMiscGroup.TabStop = false;
-            this.NinjaMiscGroup.Text = "Misc";
+            this.MonkFormShift.AutoSize = true;
+            this.MonkFormShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MonkFormShift.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.MonkFormShift.ForeColor = System.Drawing.Color.White;
+            this.MonkFormShift.Location = new System.Drawing.Point(6, 62);
+            this.MonkFormShift.Name = "MonkFormShift";
+            this.MonkFormShift.Size = new System.Drawing.Size(76, 17);
+            this.MonkFormShift.TabIndex = 8;
+            this.MonkFormShift.TabStop = false;
+            this.MonkFormShift.Text = "Form Shift";
+            this.MonkFormShift.UseVisualStyleBackColor = true;
+            this.MonkFormShift.CheckedChanged += new System.EventHandler(this.MonkFormShift_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -10347,6 +10428,8 @@
             this.MonkRoleGroup.ResumeLayout(false);
             this.MonkRoleGroup.PerformLayout();
             this.pgeNinja.ResumeLayout(false);
+            this.NinjaMiscGroup.ResumeLayout(false);
+            this.NinjaMiscGroup.PerformLayout();
             this.NinjaNinjutsuGroup.ResumeLayout(false);
             this.NinjaNinjutsuGroup.PerformLayout();
             this.NinjaDoTGroup.ResumeLayout(false);
@@ -10401,6 +10484,8 @@
             this.pgeTanks.ResumeLayout(false);
             this.tabTanks.ResumeLayout(false);
             this.pgeDarkKnight.ResumeLayout(false);
+            this.DarkKnightMiscGroup.ResumeLayout(false);
+            this.DarkKnightMiscGroup.PerformLayout();
             this.DarkKnightDamageGroup.ResumeLayout(false);
             this.DarkKnightDamageGroup.PerformLayout();
             this.DarkKnightCooldownGroup.ResumeLayout(false);
@@ -10445,10 +10530,8 @@
             this.WarriorAoEGroup.PerformLayout();
             this.WarriorRoleGroup.ResumeLayout(false);
             this.WarriorRoleGroup.PerformLayout();
-            this.DarkKnightMiscGroup.ResumeLayout(false);
-            this.DarkKnightMiscGroup.PerformLayout();
-            this.NinjaMiscGroup.ResumeLayout(false);
-            this.NinjaMiscGroup.PerformLayout();
+            this.MonkMiscGroup.ResumeLayout(false);
+            this.MonkMiscGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -11114,5 +11197,10 @@
         private Design.CustomGroup NinjaMiscGroup;
         private Design.CustomCheck NinjaPotion;
         private Design.CustomCheck NinjaOpener;
+        private Design.CustomGroup MonkMiscGroup;
+        private Design.CustomCheck MonkPotion;
+        private Design.CustomCheck MonkOpener;
+        private Design.CustomCheck MonkMeditation;
+        private Design.CustomCheck MonkFormShift;
     }
 }

@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Rockbreaker()) return true;
                 if (await Demolish()) return true;
                 if (await SnapPunch()) return true;
@@ -21,6 +22,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Demolish()) return true;
                 if (await SnapPunch()) return true;
                 if (await DragonKick()) return true;
@@ -47,6 +49,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await FistsOfFire()) return true;
             if (await FistsOfWind()) return true;
             if (await FistsOfEarth()) return true;
@@ -83,6 +86,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> PreCombatBuff()
         {
             if (await Shinra.SummonChocobo()) return true;
+            if (await Meditation()) return true;
+            if (await FormShift()) return true;
             if (await FistsOfFire()) return true;
             if (await FistsOfWind()) return true;
             return await FistsOfEarth();

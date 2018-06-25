@@ -525,6 +525,8 @@ namespace ShinraCo.Settings.Forms
 
             MonkInternalRelease.Checked = Shinra.Settings.MonkInternalRelease;
             MonkPerfectBalance.Checked = Shinra.Settings.MonkPerfectBalance;
+            MonkFormShift.Checked = Shinra.Settings.MonkFormShift;
+            MonkMeditation.Checked = Shinra.Settings.MonkMeditation;
             MonkRiddleOfFire.Checked = Shinra.Settings.MonkRiddleOfFire;
             MonkBrotherhood.Checked = Shinra.Settings.MonkBrotherhood;
 
@@ -533,6 +535,13 @@ namespace ShinraCo.Settings.Forms
             #region Fists
 
             MonkFist.Text = Convert.ToString(Shinra.Settings.MonkFist);
+
+            #endregion
+
+            #region Misc
+
+            MonkOpener.Checked = Shinra.Settings.MonkOpener;
+            MonkPotion.Checked = Shinra.Settings.MonkPotion;
 
             #endregion
 
@@ -2371,6 +2380,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.MonkPerfectBalance = MonkPerfectBalance.Checked;
         }
 
+        private void MonkFormShift_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkFormShift = MonkFormShift.Checked;
+        }
+
+        private void MonkMeditation_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkMeditation = MonkMeditation.Checked;
+        }
+
         private void MonkRiddleOfFire_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.MonkRiddleOfFire = MonkRiddleOfFire.Checked;
@@ -2391,6 +2410,20 @@ namespace ShinraCo.Settings.Forms
             if (MonkFist.Text == @"Earth") Shinra.Settings.MonkFist = MonkFists.Earth;
             if (MonkFist.Text == @"Wind") Shinra.Settings.MonkFist = MonkFists.Wind;
             if (MonkFist.Text == @"Fire") Shinra.Settings.MonkFist = MonkFists.Fire;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void MonkOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkOpener = MonkOpener.Checked;
+        }
+
+        private void MonkPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.MonkPotion = MonkPotion.Checked;
         }
 
         #endregion

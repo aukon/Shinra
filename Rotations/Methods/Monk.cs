@@ -166,6 +166,20 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> FormShift()
+        {
+            if (!Shinra.Settings.MonkFormShift || !Core.Player.HasTarget || CoeurlForm) return false;
+
+            return await MySpells.FormShift.Cast();
+        }
+
+        private async Task<bool> Meditation()
+        {
+            if (!Shinra.Settings.MonkMeditation || Resource.FithChakra == 5) return false;
+
+            return await MySpells.Meditation.Cast();
+        }
+
         private async Task<bool> RiddleOfFire()
         {
             if (Shinra.Settings.MonkRiddleOfFire)

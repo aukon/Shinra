@@ -965,6 +965,12 @@ namespace ShinraCo.Settings
         public bool MonkPerfectBalance { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool MonkFormShift { get; set; }
+
+        [Setting, DefaultValue(true)]
+        public bool MonkMeditation { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool MonkRiddleOfFire { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -976,6 +982,16 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(MonkFists.Fire)]
         public MonkFists MonkFist { get; set; }
+
+        #endregion
+
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool MonkOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool MonkPotion { get; set; }
 
         #endregion
 
