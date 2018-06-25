@@ -68,18 +68,15 @@ namespace ShinraCo
 
         public static void Debug(string msg)
         {
-            if (Shinra.Settings.DebugLogging)
-            {
-                Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - {msg}");
-            }
+            Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - {msg}");
         }
 
-        public static void DisplayToast(string msg)
+        public static void DisplayToast(string msg, int duration = 1000)
         {
             if (Shinra.Settings.RotationMessages)
             {
-                Core.OverlayManager.AddToast(() => msg, TimeSpan.FromMilliseconds(1000), Colors.GreenYellow, Color.FromRgb(0, 0, 0),
-                                             new FontFamily("Agency FB"));
+                Core.OverlayManager.AddToast(() => msg, TimeSpan.FromMilliseconds(duration), Colors.GreenYellow, Color.FromRgb(0, 0, 0),
+                    new FontFamily("Agency FB"));
             }
         }
 

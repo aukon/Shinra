@@ -332,6 +332,11 @@ namespace ShinraCo
                     await Coroutine.Wait(1000, () => Me.HasAura("Swiftcast"));
                 }
 
+                if (OpenerStep == 1)
+                {
+                    DisplayToast("Shinra >>> Opener Started", 2500);
+                }
+
                 #region Job-Specific
 
                 // Machinist
@@ -357,7 +362,7 @@ namespace ShinraCo
 
             if (OpenerStep >= current.Count)
             {
-                AbortOpener("Opener finished.");
+                AbortOpener("Shinra >>> Opener Finished");
             }
             return true;
         }
@@ -366,6 +371,7 @@ namespace ShinraCo
         {
             Debug(msg);
             OpenerFinished = true;
+            DisplayToast("Opener finished!", 2500);
         }
 
         public static void ResetOpener()

@@ -71,12 +71,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HolySpirit()
         {
-            if (Shinra.Settings.TankMode == TankModes.DPS)
+            if (Shinra.Settings.TankMode != TankModes.DPS || MovementManager.IsMoving) return false;
+
+            if (Shinra.LastSpell.Name == MySpells.Requiescat.Name || Core.Player.HasAura(MySpells.Requiescat.Name, true, 1000))
             {
-                if (!MovementManager.IsMoving && Core.Player.HasAura(MySpells.Requiescat.Name, true, 2000))
-                {
-                    return await MySpells.HolySpirit.Cast();
-                }
+                return await MySpells.HolySpirit.Cast();
             }
             return false;
         }
@@ -129,7 +128,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.PaladinSpiritsWithin && Shinra.LastSpell.Name != MySpells.CircleOfScorn.Name)
             {
-                return await MySpells.SpiritsWithin.Cast(null, !Core.Player.HasAura(MySpells.Requiescat.Name));
+                return await MySpells.SpiritsWithin.Cast();
             }
             return false;
         }
@@ -140,7 +139,7 @@ namespace ShinraCo.Rotations
             {
                 if (Core.Player.TargetDistance(5, false))
                 {
-                    return await MySpells.CircleOfScorn.Cast(null, !Core.Player.HasAura(MySpells.Requiescat.Name));
+                    return await MySpells.CircleOfScorn.Cast();
                 }
             }
             return false;
@@ -148,16 +147,18 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Requiescat()
         {
-            if (Shinra.Settings.PaladinRequiescat)
+            if (!Shinra.Settings.PaladinRequiescat || !Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 12000) ||
+                MovementManager.IsMoving || Core.Player.CurrentManaPercent < 80 || Shinra.LastSpell.Name == MySpells.FightOrFlight.Name ||
+                Core.Player.HasAura(MySpells.FightOrFlight.Name))
             {
-                if (!MovementManager.IsMoving && Core.Player.CurrentManaPercent > 80 &&
-                    Core.Player.CurrentTarget.HasAura(MySpells.GoringBlade.Name, true, 12000) &&
-                    !Core.Player.HasAura(MySpells.FightOrFlight.Name))
-                {
-                    return await MySpells.Requiescat.Cast();
-                }
+                return false;
             }
-            return false;
+
+            var gcd = DataManager.GetSpellData(9).Cooldown.TotalMilliseconds;
+
+            if (gcd == 0 || gcd > 500) return false;
+
+            return await MySpells.Requiescat.Cast(null, false);
         }
 
         #endregion
@@ -166,14 +167,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FightOrFlight()
         {
-            if (Shinra.Settings.PaladinFightOrFlight)
+            if (!Shinra.Settings.PaladinFightOrFlight || Shinra.LastSpell.Name == MySpells.Requiescat.Name ||
+                Core.Player.HasAura(MySpells.Requiescat.Name) || !Core.Player.TargetDistance(5, false))
             {
-                if (!Core.Player.HasAura(MySpells.Requiescat.Name) && Core.Player.TargetDistance(5, false))
-                {
-                    return await MySpells.FightOrFlight.Cast();
-                }
+                return false;
             }
-            return false;
+
+            return await MySpells.FightOrFlight.Cast();
         }
 
         private async Task<bool> Sentinel()
