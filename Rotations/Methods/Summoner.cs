@@ -88,7 +88,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> Miasma()
         {
             if (!ActionManager.HasSpell(MySpells.MiasmaIII.Name) && !RecentDoT &&
-                !Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 4000))
+                !Core.Player.CurrentTarget.HasAura(MySpells.Miasma.Name, true, 5000))
             {
                 if (!ActionManager.HasSpell(MySpells.TriDisaster.Name) || MySpells.TriDisaster.Cooldown() > 5000)
                 {
@@ -100,7 +100,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MiasmaIII()
         {
-            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 4000))
+            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 5000))
             {
                 if (MySpells.TriDisaster.Cooldown() > 5000)
                 {
@@ -562,8 +562,8 @@ namespace ShinraCo.Rotations
         private static bool PetExists => Core.Player.Pet != null;
 
         private static bool UseTriDisaster => Shinra.Settings.SummonerTriDisaster &&
-                                              (!Core.Player.CurrentTarget.HasAura(BioDebuff, true, 5000) ||
-                                               !Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 5000));
+                                              (!Core.Player.CurrentTarget.HasAura(BioDebuff, true, 3000) ||
+                                               !Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 3000));
 
         private bool AetherLow => !ActionManager.HasSpell(MySpells.DreadwyrmTrance.Name) && ResourceArcanist.Aetherflow == 1 &&
                                   DataManager.GetSpellData(166).Cooldown.TotalMilliseconds > 8000;

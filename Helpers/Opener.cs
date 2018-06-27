@@ -12,6 +12,7 @@ using ShinraCo.Spells;
 using ShinraCo.Spells.Main;
 using ShinraCo.Spells.Opener;
 using Resource = ff14bot.Managers.ActionResourceManager;
+using static ShinraCo.Constants;
 
 namespace ShinraCo
 {

@@ -3,7 +3,7 @@ using ff14bot.Objects;
 
 namespace ShinraCo
 {
-    public static partial class Helpers
+    public class Constants
     {
         internal static LocalPlayer Me => Core.Me;
         internal static GameObject Target => Core.Player.CurrentTarget;
