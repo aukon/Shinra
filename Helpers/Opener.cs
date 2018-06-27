@@ -431,6 +431,12 @@ namespace ShinraCo
 
                 #region Job-Specific
 
+                // Bard
+                if (spell.Name == Bard.IronJaws.Name)
+                {
+                    DotManager.Add(Target);
+                }
+
                 // Machinist
                 if (spell.Name == Machinist.Flamethrower.Name)
                 {

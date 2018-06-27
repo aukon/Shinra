@@ -71,7 +71,9 @@ namespace ShinraCo
         public static int Check(GameObject tar, bool crit = false)
         {
             DotSnapshots.RemoveAll(t => DateTime.Now > t.Item1);
-            return crit ? DotSnapshots[ObjectId(tar)]?.Item3 ?? 0 : DotSnapshots[ObjectId(tar)]?.Item2 ?? 0;
+            if (!DotSnapshots.ContainsKey(ObjectId(tar))) return 0;
+
+            return crit ? DotSnapshots[ObjectId(tar)].Item3 : DotSnapshots[ObjectId(tar)].Item2;
         }
 
         public static int Difference(GameObject tar, bool crit = false)
