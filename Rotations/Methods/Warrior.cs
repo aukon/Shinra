@@ -38,15 +38,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Maim()
         {
-            if (ActionManager.LastSpell.Name == MySpells.HeavySwing.Name)
+            if (ActionManager.LastSpell.Name != MySpells.HeavySwing.Name) return false;
+
+            if (Shinra.Settings.TankMode == TankModes.DPS && ActionManager.HasSpell(MySpells.StormsPath.Name) ||
+                Shinra.Settings.WarriorMaim && !Core.Player.CurrentTarget.HasAura(819, false, 6000) ||
+                ActionManager.HasSpell(MySpells.StormsEye.Name) && UseStormsEye)
             {
-                if (Shinra.Settings.TankMode == TankModes.DPS && ActionManager.HasSpell(MySpells.StormsPath.Name) ||
-                    Shinra.Settings.WarriorMaim && !Core.Player.CurrentTarget.HasAura(819, false, 6000) ||
-                    Shinra.Settings.WarriorStormsEye && ActionManager.HasSpell(MySpells.StormsEye.Name) &&
-                    !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
-                {
-                    return await MySpells.Maim.Cast();
-                }
+                return await MySpells.Maim.Cast();
             }
             return false;
         }
@@ -62,16 +60,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> StormsEye()
         {
-            if (ActionManager.LastSpell.Name == MySpells.Maim.Name && !Core.Player.HasAura(MySpells.StormsEye.Name, true, 6000))
-            {
-                return await MySpells.StormsEye.Cast();
-            }
-            return false;
+            if (ActionManager.LastSpell.Name != MySpells.Maim.Name || !UseStormsEye)
+                return false;
+
+            return await MySpells.StormsEye.Cast();
         }
 
         private async Task<bool> InnerBeast()
         {
-            if (Shinra.Settings.WarriorInnerBeast && DefianceStance && BeastValue >= 50 && !Core.Player.HasAura(MySpells.InnerBeast.Name))
+            if (Shinra.Settings.WarriorInnerBeast && DefianceStance && Resource.BeastGauge >= 50 && !Core.Player.HasAura(MySpells.InnerBeast.Name))
             {
                 return await MySpells.InnerBeast.Cast();
             }
@@ -80,12 +77,12 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FellCleave()
         {
-            if (Shinra.Settings.WarriorFellCleave && DeliveranceStance)
+            if (!Shinra.Settings.WarriorFellCleave || !DeliveranceStance) return false;
+
+            if (Core.Player.HasAura(1177) || Resource.BeastGauge == 100 && !HeavySwingNext || MySpells.Infuriate.Cooldown() < 6000 ||
+                ActionManager.LastSpell.Name == MySpells.Maim.Name && Resource.BeastGauge > 80 && !UseStormsEye)
             {
-                if (BeastValue >= 90 || Core.Player.CurrentTarget.HasAura(819) && Core.Player.HasAura(MySpells.StormsEye.Name))
-                {
-                    return await MySpells.FellCleave.Cast();
-                }
+                return await MySpells.FellCleave.Cast();
             }
             return false;
         }
@@ -105,7 +102,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> SteelCyclone()
         {
-            if (Shinra.Settings.WarriorSteelCyclone && DefianceStance && BeastValue >= 50)
+            if (Shinra.Settings.WarriorSteelCyclone && DefianceStance && Resource.BeastGauge >= 50)
             {
                 return await MySpells.SteelCyclone.Cast();
             }
@@ -114,7 +111,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Decimate()
         {
-            if (Shinra.Settings.WarriorDecimate && DeliveranceStance && BeastValue >= 50)
+            if (Shinra.Settings.WarriorDecimate && DeliveranceStance && Resource.BeastGauge >= 50)
             {
                 return await MySpells.Decimate.Cast();
             }
@@ -220,11 +217,13 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> InnerRelease()
         {
-            if (Shinra.Settings.WarriorInnerRelease && DeliveranceStance)
-            {
-                return await MySpells.InnerRelease.Cast();
-            }
-            return false;
+            if (!Shinra.Settings.WarriorInnerRelease || !DeliveranceStance) return false;
+
+            var gcd = DataManager.GetSpellData(31).Cooldown.TotalMilliseconds;
+
+            if (gcd == 0 || gcd > 700) return false;
+
+            return await MySpells.InnerRelease.Cast();
         }
 
         #endregion
@@ -323,11 +322,16 @@ namespace ShinraCo.Rotations
 
         #region Custom
 
-        private int BeastValue => Core.Player.HasAura(MySpells.InnerRelease.Name) ? 100 : Resource.BeastGauge;
-        private int BeastDeficit => 100 - BeastValue;
+        private static int BeastDeficit => 100 - Resource.BeastGauge;
+        private static bool DefianceStance => Core.Player.HasAura(91);
+        private static bool DeliveranceStance => Core.Player.HasAura(729);
+        private static bool HeavySwingNext => ActionManager.LastSpellId == 42 || ActionManager.LastSpellId == 45 || 
+                                              ActionManager.LastSpellId == 47;
 
-        private bool DefianceStance => Core.Player.HasAura(MySpells.Defiance.Name);
-        private bool DeliveranceStance => Core.Player.HasAura(MySpells.Deliverance.Name);
+        private int StormEyeTime => (int)MySpells.InnerRelease.Cooldown() + 17000;
+        private bool UseStormsEye => Shinra.Settings.WarriorStormsEye &&
+                                     (!Core.Player.HasAura(90, true, 9000) || Core.Player.ClassLevel == 70 &&
+                                      MySpells.InnerRelease.Cooldown() < 10000 && !Core.Player.HasAura(90, true, StormEyeTime));
 
         #endregion
     }

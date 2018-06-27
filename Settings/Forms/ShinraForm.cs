@@ -1014,6 +1014,13 @@ namespace ShinraCo.Settings.Forms
 
             #endregion
 
+            #region Misc
+
+            WarriorOpener.Checked = Shinra.Settings.WarriorOpener;
+            WarriorPotion.Checked = Shinra.Settings.WarriorPotion;
+
+            #endregion
+
             #endregion
 
             #region White Mage
@@ -3614,6 +3621,20 @@ namespace ShinraCo.Settings.Forms
             if (WarriorStance.Text == @"None") Shinra.Settings.WarriorStance = WarriorStances.None;
             if (WarriorStance.Text == @"Defiance") Shinra.Settings.WarriorStance = WarriorStances.Defiance;
             if (WarriorStance.Text == @"Deliverance") Shinra.Settings.WarriorStance = WarriorStances.Deliverance;
+        }
+
+        #endregion
+
+        #region Misc
+
+        private void WarriorOpener_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorOpener = WarriorOpener.Checked;
+        }
+
+        private void WarriorPotion_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorPotion = WarriorPotion.Checked;
         }
 
         #endregion

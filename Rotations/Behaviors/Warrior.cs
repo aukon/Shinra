@@ -11,6 +11,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.RotationMode == Modes.Smart)
             {
+                if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await Decimate()) return true;
                 if (await SteelCyclone()) return true;
                 if (await FellCleave()) return true;
@@ -25,6 +26,7 @@ namespace ShinraCo.Rotations
             }
             if (Shinra.Settings.RotationMode == Modes.Single)
             {
+                if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
                 if (await FellCleave()) return true;
                 if (await InnerBeast()) return true;
                 if (await StormsEye()) return true;
@@ -55,6 +57,7 @@ namespace ShinraCo.Rotations
         {
             if (await Shinra.SummonChocobo()) return true;
             if (await Shinra.ChocoboStance()) return true;
+            if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
             if (await Deliverance()) return true;
             if (await Defiance()) return true;
             if (await ThrillOfBattle()) return true;

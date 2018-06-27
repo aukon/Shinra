@@ -36,6 +36,7 @@ namespace ShinraCo
         private static RedMageSpells RedMage { get; } = new RedMageSpells();
         private static SamuraiSpells Samurai { get; } = new SamuraiSpells();
         private static SummonerSpells Summoner { get; } = new SummonerSpells();
+        private static WarriorSpells Warrior { get; } = new WarriorSpells();
 
         public static async Task<bool> ExecuteOpener()
         {
@@ -128,6 +129,13 @@ namespace ShinraCo
                     potionType = PotionIds.Int;
                     break;
 
+                case ClassJobType.Warrior:
+                    current = WarriorOpener.List;
+                    usePotion = Shinra.Settings.WarriorPotion;
+                    potionStep = 5;
+                    potionType = PotionIds.Str;
+                    break;
+
                 default:
                     current = null;
                     break;
@@ -136,6 +144,12 @@ namespace ShinraCo
             if (current == null) return false;
 
             #endregion
+
+            if (OpenerStep >= current.Count)
+            {
+                AbortOpener("Shinra >>> Opener Finished");
+                return false;
+            }
 
             if (usePotion && OpenerStep == potionStep)
             {
@@ -374,6 +388,28 @@ namespace ShinraCo
                         }
                     }
                     break;
+
+                case ClassJobType.Warrior:
+                    if (OpenerStep == 0 && !Me.HasAura(Warrior.Deliverance.Name))
+                    {
+                        if (Shinra.LastSpell.Name != Warrior.Deliverance.Name && Warrior.Deliverance.Cooldown() > 3000)
+                        {
+                            AbortOpener("Aborting opener due to Deliverance cooldown.");
+                            return false;
+                        }
+                        await Warrior.Deliverance.Cast();
+                        return true;
+                    }
+                    if (spell.Name == Warrior.FellCleave.Name)
+                    {
+                        if (Resource.Warrior.BeastGauge < 50 && !Me.HasAura(1177))
+                        {
+                            Debug($"Skipping opener step {OpenerStep} due to Beast Gauge >>> {spell.Name}");
+                            OpenerStep++;
+                            return true;
+                        }
+                    }
+                    break;
             }
 
             #endregion
@@ -413,11 +449,6 @@ namespace ShinraCo
             {
                 Debug($"Skipped opener step {OpenerStep} due to cooldown >>> {spell.Name}");
                 OpenerStep++;
-            }
-
-            if (OpenerStep >= current.Count)
-            {
-                AbortOpener("Shinra >>> Opener Finished");
             }
             return true;
         }

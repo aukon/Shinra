@@ -1790,6 +1790,16 @@ namespace ShinraCo.Settings
 
         #endregion
 
+        #region Misc
+
+        [Setting, DefaultValue(false)]
+        public bool WarriorOpener { get; set; }
+
+        [Setting, DefaultValue(false)]
+        public bool WarriorPotion { get; set; }
+
+        #endregion
+
         #endregion
 
         #region White Mage
