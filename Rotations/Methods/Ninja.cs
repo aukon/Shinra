@@ -227,7 +227,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> FumaShuriken()
         {
             if (Shinra.Settings.NinjaFuma && UseNinjutsu() && ActionManager.CanCast(MySpells.Ten.Name, null) &&
-                MySpells.TrickAttack.Cooldown() > 22000)
+                (MySpells.TrickAttack.Cooldown() > 22000 || !ActionManager.HasSpell(MySpells.Suiton.Name)))
             {
                 if (!CanNinjutsu)
                 {
@@ -292,7 +292,7 @@ namespace ShinraCo.Rotations
         private async Task<bool> Raiton()
         {
             if (Shinra.Settings.NinjaRaiton && UseNinjutsu() && ActionManager.CanCast(MySpells.Chi.ID, null) &&
-                MySpells.TrickAttack.Cooldown() > 22000)
+                (MySpells.TrickAttack.Cooldown() > 22000 || !ActionManager.HasSpell(MySpells.Suiton.Name)))
             {
                 if (!CanNinjutsu)
                 {
