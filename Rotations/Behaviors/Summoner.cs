@@ -70,7 +70,7 @@ namespace ShinraCo.Rotations
         public override async Task<bool> PreCombatBuff()
         {
             if (await Shinra.SummonChocobo()) return true;
-            if (await Aetherflow()) return true;
+            if (await AetherflowPreCombat()) return true;
             if (await SummonIII()) return true;
             if (await SummonII()) return true;
             if (await Summon()) return true;

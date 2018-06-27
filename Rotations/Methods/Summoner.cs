@@ -32,7 +32,10 @@ namespace ShinraCo.Rotations
         private async Task<bool> RuinII()
         {
             if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
-                (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare))
+                (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare ||
+                 UseTriDisaster || ResourceArcanist.Aetherflow == 0 && MySpells.Aetherflow.Cooldown() == 0 ||
+                 ActionManager.CanCast(MySpells.DreadwyrmTrance.Name, Core.Player) ||
+                 ActionManager.CanCast(MySpells.SummonBahamut.Name, Core.Player)))
             {
                 return await MySpells.RuinII.Cast();
             }
@@ -171,22 +174,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TriDisaster()
         {
-            if (Shinra.Settings.SummonerTriDisaster)
-            {
-                if (!Core.Player.CurrentTarget.HasAura(BioDebuff, true, 5000) ||
-                    !Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 5000))
-                {
-                    return await MySpells.TriDisaster.Cast(null, false);
-                }
-            }
-            return false;
+            if (!UseTriDisaster) return false;
+
+            return await MySpells.TriDisaster.Cast();
         }
 
         private async Task<bool> Deathflare()
         {
             if (Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 2000)
             {
-                return await MySpells.Deathflare.Cast(null, false);
+                return await MySpells.Deathflare.Cast();
             }
             return false;
         }
@@ -206,8 +203,14 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Aetherflow()
         {
-            if (ResourceArcanist.Aetherflow == 0 || Shinra.Settings.SummonerOpener && !Core.Player.InCombat &&
-                ResourceArcanist.Aetherflow < 3)
+            if (ResourceArcanist.Aetherflow > 0) return false;
+
+            return await MySpells.Aetherflow.Cast();
+        }
+
+        private async Task<bool> AetherflowPreCombat()
+        {
+            if (ResourceArcanist.Aetherflow == 0 || Shinra.Settings.SummonerOpener && ResourceArcanist.Aetherflow < 3)
             {
                 return await MySpells.Aetherflow.Cast(null, false);
             }
@@ -227,7 +230,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.SummonerDreadwyrmTrance)
             {
-                return await MySpells.DreadwyrmTrance.Cast(null, false);
+                return await MySpells.DreadwyrmTrance.Cast();
             }
             return false;
         }
@@ -245,7 +248,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.SummonerSummonBahamut && ResourceArcanist.Aetherflow == 3)
             {
-                if (await MySpells.SummonBahamut.Cast(null, false))
+                if (await MySpells.SummonBahamut.Cast())
                 {
                     Spell.RecentSpell.Add("Summon Bahamut", DateTime.UtcNow + TimeSpan.FromMilliseconds(22000));
                     return true;
@@ -557,6 +560,10 @@ namespace ShinraCo.Rotations
         private static bool RecentDoT { get { return Spell.RecentSpell.Keys.Any(key => key.Contains("Tri-disaster")); } }
         private static bool RecentBahamut => Spell.RecentSpell.ContainsKey("Summon Bahamut") || (int)PetManager.ActivePetType == 10;
         private static bool PetExists => Core.Player.Pet != null;
+
+        private static bool UseTriDisaster => Shinra.Settings.SummonerTriDisaster &&
+                                              (!Core.Player.CurrentTarget.HasAura(BioDebuff, true, 5000) ||
+                                               !Core.Player.CurrentTarget.HasAura(MiasmaDebuff, true, 5000));
 
         private bool AetherLow => !ActionManager.HasSpell(MySpells.DreadwyrmTrance.Name) && ResourceArcanist.Aetherflow == 1 &&
                                   DataManager.GetSpellData(166).Cooldown.TotalMilliseconds > 8000;
