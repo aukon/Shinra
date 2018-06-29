@@ -91,7 +91,7 @@ namespace ShinraCo
                 case ClassJobType.Monk:
                     current = MonkOpener.List;
                     usePotion = Shinra.Settings.MonkPotion;
-                    potionStep = 4;
+                    potionStep = 3;
                     potionType = PotionIds.Str;
                     break;
 
@@ -247,6 +247,11 @@ namespace ShinraCo
                         {
                             if (Me.HasAura(108)) await Monk.TwinSnakes.Cast();
                             await Monk.Bootshine.Cast();
+                            return true;
+                        }
+                        if (!Me.HasAura(105))
+                        {
+                            await Monk.FistsOfWind.Cast(null, false);
                             return true;
                         }
                     }

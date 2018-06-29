@@ -121,7 +121,7 @@ namespace ShinraCo.Rotations
         {
             if (Shinra.Settings.MonkForbiddenChakra && Resource.FithChakra == 5)
             {
-                return await MySpells.ForbiddenChakra.Cast();
+                return await MySpells.ForbiddenChakra.Cast(null, false);
             }
             return false;
         }
@@ -218,7 +218,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FistsOfWind()
         {
-            if (Shinra.Settings.MonkFist == MonkFists.Wind && !Core.Player.HasAura(MySpells.FistsOfWind.Name))
+            if (Shinra.Settings.MonkFist == MonkFists.Wind && !Core.Player.HasAura(MySpells.FistsOfWind.Name) &&
+                !Core.Player.HasAura(MySpells.RiddleOfEarth.Name))
             {
                 return await MySpells.FistsOfWind.Cast(null, false);
             }
@@ -227,7 +228,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FistsOfFire()
         {
-            if (Shinra.Settings.MonkFist == MonkFists.Fire && !Core.Player.HasAura(MySpells.FistsOfFire.Name))
+            if (Shinra.Settings.MonkFist == MonkFists.Fire && !Core.Player.HasAura(MySpells.FistsOfFire.Name) &&
+                !Core.Player.HasAura(MySpells.RiddleOfEarth.Name))
             {
                 return await MySpells.FistsOfFire.Cast(null, false);
             }

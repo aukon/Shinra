@@ -10,10 +10,9 @@ namespace ShinraCo.Spells.Opener
         public static List<Spell> List = new List<Spell>
         {
             Spells.Demolish,
-            Spells.FistsOfWind,
             Spells.WindTackle,
-            Spells.DragonKick,
             Spells.RiddleOfWind,
+            Spells.DragonKick,
             Spells.TwinSnakes,
             Spells.InternalRelease,
             Spells.RiddleOfFire,
