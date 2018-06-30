@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
@@ -48,7 +49,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> HotShot()
         {
-            if (!Core.Player.HasAura(MySpells.HotShot.Name, true, 6000))
+            if (!Core.Player.HasAura(MySpells.HotShot.Name, true, 6000) ||
+                !Core.Player.HasAura(MySpells.HotShot.Name, true, 55000) && Resource.Heat == 0 &&
+                Resource.Timer < TimeSpan.FromMilliseconds(3000))
             {
                 return await MySpells.HotShot.Cast();
             }
@@ -159,20 +162,10 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Reload()
         {
-            if (Shinra.Settings.MachinistReload)
-            {
-                if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
-                    WildfireCooldown > 25000)
-                {
-                    if (Shinra.LastSpell.Name != MySpells.QuickReload.Name && Resource.Ammo == 0 &&
-                        !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") &&
-                        (Core.Player.HasAura(MySpells.HotShot.Name, true, 10000) || !ActionManager.HasSpell(MySpells.HotShot.Name)))
-                    {
-                        return await MySpells.Reload.Cast();
-                    }
-                }
-            }
-            return false;
+            if (!Shinra.Settings.MachinistReload || Shinra.LastSpell.Name == MySpells.QuickReload.Name || Resource.Ammo > 0)
+                return false;
+
+            return await MySpells.Reload.Cast();
         }
 
         private async Task<bool> Reassemble()
@@ -194,16 +187,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> QuickReload()
         {
-            if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true) ||
-                WildfireCooldown > 10000)
-            {
-                if (Shinra.LastSpell.Name != MySpells.Reload.Name && Resource.Ammo < 3 && !Core.Player.HasAura("Enhanced Slug Shot") &&
-                    !Core.Player.HasAura("Cleaner Shot"))
-                {
-                    return await MySpells.QuickReload.Cast();
-                }
-            }
-            return false;
+            if (Shinra.LastSpell.Name == MySpells.Reload.Name || Resource.Ammo == 3) return false;
+
+            return await MySpells.QuickReload.Cast();
         }
 
         private async Task<bool> QuickReloadPre()

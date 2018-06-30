@@ -68,6 +68,7 @@ namespace ShinraCo
 
         public static void Debug(string msg)
         {
+            if (Shinra.Settings.DisableDebug) return;
             Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - {msg}");
         }
 

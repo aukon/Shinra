@@ -195,8 +195,8 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool IgnoreSmart { get; set; }
 
-        [Setting, DefaultValue(true)]
-        public bool DebugLogging { get; set; }
+        [Setting, DefaultValue(false)]
+        public bool DisableDebug { get; set; }
 
         #endregion
 
@@ -463,6 +463,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool BardFoeRequiem { get; set; }
+
+        [Setting, DefaultValue(100)]
+        public int BardFoeRequiemPct { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool BardBarrage { get; set; }

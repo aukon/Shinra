@@ -269,7 +269,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> FoeRequiem()
         {
-            if (Shinra.Settings.BardFoeRequiem && !Core.Player.HasAura(MySpells.FoeRequiem.Name) && !MovementManager.IsMoving)
+            if (Shinra.Settings.BardFoeRequiem && !Core.Player.HasAura(MySpells.FoeRequiem.Name) &&
+                Core.Player.CurrentManaPercent >= Shinra.Settings.BardFoeRequiemPct)
             {
                 return await MySpells.FoeRequiem.Cast();
             }

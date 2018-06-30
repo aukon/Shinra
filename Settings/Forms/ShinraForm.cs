@@ -96,7 +96,7 @@ namespace ShinraCo.Settings.Forms
             #region Misc
 
             IgnoreSmart.Checked = Shinra.Settings.IgnoreSmart;
-            DebugLogging.Checked = Shinra.Settings.DebugLogging;
+            DisableDebug.Checked = Shinra.Settings.DisableDebug;
 
             #endregion
 
@@ -241,6 +241,7 @@ namespace ShinraCo.Settings.Forms
 
             BardRagingStrikes.Checked = Shinra.Settings.BardRagingStrikes;
             BardFoeRequiem.Checked = Shinra.Settings.BardFoeRequiem;
+            BardFoeRequiemPct.Value = Shinra.Settings.BardFoeRequiemPct;
             BardBarrage.Checked = Shinra.Settings.BardBarrage;
             BardBattleVoice.Checked = Shinra.Settings.BardBattleVoice;
 
@@ -1247,9 +1248,9 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.IgnoreSmart = IgnoreSmart.Checked;
         }
 
-        private void DebugLogging_CheckedChanged(object sender, EventArgs e)
+        private void DisableDebug_CheckedChanged(object sender, EventArgs e)
         {
-            Shinra.Settings.DebugLogging = DebugLogging.Checked;
+            Shinra.Settings.DisableDebug = DisableDebug.Checked;
         }
 
         #endregion
@@ -1644,6 +1645,11 @@ namespace ShinraCo.Settings.Forms
         private void BardFoeRequiem_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardFoeRequiem = BardFoeRequiem.Checked;
+        }
+
+        private void BardFoeRequiemPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardFoeRequiemPct = Convert.ToInt32(BardFoeRequiemPct.Value);
         }
 
         private void BardBarrage_CheckedChanged(object sender, EventArgs e)

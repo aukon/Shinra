@@ -23,8 +23,16 @@ namespace ShinraCo
             new Dictionary<string, int>
             {
                 { "Brotherhood", 5 },
+                { "Dragon Sight", 5 },
                 { "Raging Strikes", 10 },
                 { "The Balance", 5 }
+            };
+
+        private static readonly Dictionary<uint, int> DamageDebuffs =
+            new Dictionary<uint, int>
+            {
+                { 638, 10 },    // Trick Attack
+                { 1208, 5 }     // Hypercharge
             };
 
         public static bool BuffExpiring => CritExpiring || DamageExpiring;
@@ -37,8 +45,8 @@ namespace ShinraCo
             {
                 var count = 0;
                 if (Me.HasAura("Embolden")) count += 2 * EmboldenStacks;
-                if (Target.HasAura("Trick Attack")) count += 10;
                 count += DamageBuffs.Where(dic => Me.HasAura(dic.Key)).Sum(dic => dic.Value);
+                count += DamageDebuffs.Where(dic => Target.HasAura(dic.Key)).Sum(dic => dic.Value);
                 return count;
             }
         }
@@ -47,8 +55,8 @@ namespace ShinraCo
         {
             get
             {
-                return Me.HasAura("Embolden") && EmboldenStacks == 5 || Target.AuraExpiring("Trick Attack") ||
-                       DamageBuffs.Any(dic => Me.AuraExpiring(dic.Key));
+                return Me.HasAura("Embolden") && EmboldenStacks == 5 || DamageBuffs.Any(dic => Me.AuraExpiring(dic.Key)) ||
+                       DamageDebuffs.Any(dic => Target.AuraExpiring(dic.Key));
             }
         }
 

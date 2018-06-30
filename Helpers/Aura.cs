@@ -55,5 +55,18 @@ namespace ShinraCo
 
             return auras.Any(aura => aura.TimespanLeft.TotalMilliseconds <= msLeft);
         }
+
+        public static bool AuraExpiring(this GameObject unit, uint auraid, bool isMyAura = false, int msLeft = 4000)
+        {
+            var unitasc = unit as Character;
+
+            if (unit == null || unitasc == null) return false;
+
+            var auras = isMyAura
+                ? unitasc.CharacterAuras.Where(r => r.CasterId == Core.Player.ObjectId && r.Id == auraid)
+                : unitasc.CharacterAuras.Where(r => r.Id == auraid);
+
+            return auras.Any(aura => aura.TimespanLeft.TotalMilliseconds <= msLeft);
+        }
     }
 }
