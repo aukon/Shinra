@@ -137,9 +137,10 @@ namespace ShinraCo.Rotations
             }
 
             var crit = DotManager.Difference(Target, true);
+            var damage = crit + DotManager.Difference(Target);
 
             // Prioritise 30% crit buff
-            if (crit >= 30 || crit >= 0 && DotManager.CritExpiring)
+            if (crit >= 30 || crit >= 0 && damage >= 0 && (DotManager.CritExpiring || DotManager.DamageExpiring))
             {
                 if (await MySpells.IronJaws.Cast())
                 {
@@ -151,8 +152,6 @@ namespace ShinraCo.Rotations
             if (DotManager.Check(Target, true) >= 30) return false;
 
             // Refresh during damage buffs
-            var damage = crit + DotManager.Difference(Target);
-
             if (damage >= 20 || damage >= 10 && Target.AuraExpiring(WindDebuff, true, 10000) || damage >= 0 && DotManager.BuffExpiring)
             {
                 if (await MySpells.IronJaws.Cast())
