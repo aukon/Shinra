@@ -91,7 +91,7 @@ namespace ShinraCo
                 case ClassJobType.Monk:
                     current = MonkOpener.List;
                     usePotion = Shinra.Settings.MonkPotion;
-                    potionStep = 3;
+                    potionStep = 4;
                     potionType = PotionIds.Str;
                     break;
 
@@ -412,6 +412,13 @@ namespace ShinraCo
                         {
                             Debug($"Skipping opener step {OpenerStep} due to Beast Gauge >>> {spell.Name}");
                             OpenerStep++;
+                            return true;
+                        }
+                    }
+                    if (spell.Name == Warrior.InnerRelease.Name)
+                    {
+                        if (DataManager.GetSpellData(31).Cooldown.TotalMilliseconds > 700)
+                        {
                             return true;
                         }
                     }
