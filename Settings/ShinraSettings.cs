@@ -441,6 +441,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool BardUseDotsAoe { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool BardDotSnapshot { get; set; }
+
         #endregion
 
         #region Cooldown

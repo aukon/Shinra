@@ -407,13 +407,6 @@ namespace ShinraCo.Rotations
 
                 if (target != null)
                 {
-                    if (Shinra.Settings.ScholarSwiftcast && ActionManager.CanCast(MySpells.Role.Protect.Name, target) && PetExists)
-                    {
-                        if (await MySpells.Role.Swiftcast.Cast(null, false))
-                        {
-                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
-                        }
-                    }
                     return await MySpells.Role.Protect.Cast(target);
                 }
             }

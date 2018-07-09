@@ -226,6 +226,7 @@ namespace ShinraCo.Settings.Forms
 
             BardUseDots.Checked = Shinra.Settings.BardUseDots;
             BardUseDotsAoe.Checked = Shinra.Settings.BardUseDotsAoe;
+            BardDotSnapshot.Checked = Shinra.Settings.BardDotSnapshot;
 
             #endregion
 
@@ -1612,6 +1613,11 @@ namespace ShinraCo.Settings.Forms
         private void BardUseDotsAoe_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BardUseDotsAoe = BardUseDotsAoe.Checked;
+        }
+
+        private void BardDotSnapshot_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BardDotSnapshot = BardDotSnapshot.Checked;
         }
 
         #endregion

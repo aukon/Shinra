@@ -41,6 +41,7 @@
             this.RandomCastLocations = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.QueueSpellsLabel = new System.Windows.Forms.Label();
             this.MiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DisableDebug = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.IgnoreSmart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RestGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RestEnergyPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -695,7 +696,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DisableDebug = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BardDotSnapshot = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1016,6 +1017,21 @@
             this.MiscGroup.TabIndex = 4;
             this.MiscGroup.TabStop = false;
             this.MiscGroup.Text = "Misc";
+            // 
+            // DisableDebug
+            // 
+            this.DisableDebug.AutoSize = true;
+            this.DisableDebug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisableDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DisableDebug.ForeColor = System.Drawing.Color.White;
+            this.DisableDebug.Location = new System.Drawing.Point(6, 39);
+            this.DisableDebug.Name = "DisableDebug";
+            this.DisableDebug.Size = new System.Drawing.Size(142, 17);
+            this.DisableDebug.TabIndex = 2;
+            this.DisableDebug.TabStop = false;
+            this.DisableDebug.Text = "Disable debug logging";
+            this.DisableDebug.UseVisualStyleBackColor = true;
+            this.DisableDebug.CheckedChanged += new System.EventHandler(this.DisableDebug_CheckedChanged);
             // 
             // IgnoreSmart
             // 
@@ -7242,12 +7258,13 @@
             // 
             // BardDoTGroup
             // 
+            this.BardDoTGroup.Controls.Add(this.BardDotSnapshot);
             this.BardDoTGroup.Controls.Add(this.BardUseDotsAoe);
             this.BardDoTGroup.Controls.Add(this.BardUseDots);
             this.BardDoTGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.BardDoTGroup.Location = new System.Drawing.Point(218, 56);
             this.BardDoTGroup.Name = "BardDoTGroup";
-            this.BardDoTGroup.Size = new System.Drawing.Size(140, 66);
+            this.BardDoTGroup.Size = new System.Drawing.Size(140, 89);
             this.BardDoTGroup.TabIndex = 5;
             this.BardDoTGroup.TabStop = false;
             this.BardDoTGroup.Text = "DoT";
@@ -7287,7 +7304,7 @@
             this.BardMiscGroup.Controls.Add(this.BardPotion);
             this.BardMiscGroup.Controls.Add(this.BardOpener);
             this.BardMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardMiscGroup.Location = new System.Drawing.Point(364, 56);
+            this.BardMiscGroup.Location = new System.Drawing.Point(218, 269);
             this.BardMiscGroup.Name = "BardMiscGroup";
             this.BardMiscGroup.Size = new System.Drawing.Size(115, 66);
             this.BardMiscGroup.TabIndex = 4;
@@ -7382,7 +7399,7 @@
             this.BardCooldownGroup.Controls.Add(this.BardSidewinder);
             this.BardCooldownGroup.Controls.Add(this.BardSongs);
             this.BardCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardCooldownGroup.Location = new System.Drawing.Point(218, 128);
+            this.BardCooldownGroup.Location = new System.Drawing.Point(364, 56);
             this.BardCooldownGroup.Name = "BardCooldownGroup";
             this.BardCooldownGroup.Size = new System.Drawing.Size(115, 89);
             this.BardCooldownGroup.TabIndex = 2;
@@ -7442,7 +7459,7 @@
             this.BardBuffGroup.Controls.Add(this.BardBattleVoice);
             this.BardBuffGroup.Controls.Add(this.BardRagingStrikes);
             this.BardBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardBuffGroup.Location = new System.Drawing.Point(218, 223);
+            this.BardBuffGroup.Location = new System.Drawing.Point(218, 151);
             this.BardBuffGroup.Name = "BardBuffGroup";
             this.BardBuffGroup.Size = new System.Drawing.Size(204, 112);
             this.BardBuffGroup.TabIndex = 1;
@@ -10341,20 +10358,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // DisableDebug
+            // BardDotSnapshot
             // 
-            this.DisableDebug.AutoSize = true;
-            this.DisableDebug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisableDebug.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DisableDebug.ForeColor = System.Drawing.Color.White;
-            this.DisableDebug.Location = new System.Drawing.Point(6, 39);
-            this.DisableDebug.Name = "DisableDebug";
-            this.DisableDebug.Size = new System.Drawing.Size(142, 17);
-            this.DisableDebug.TabIndex = 2;
-            this.DisableDebug.TabStop = false;
-            this.DisableDebug.Text = "Disable debug logging";
-            this.DisableDebug.UseVisualStyleBackColor = true;
-            this.DisableDebug.CheckedChanged += new System.EventHandler(this.DisableDebug_CheckedChanged);
+            this.BardDotSnapshot.AutoSize = true;
+            this.BardDotSnapshot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardDotSnapshot.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardDotSnapshot.ForeColor = System.Drawing.Color.White;
+            this.BardDotSnapshot.Location = new System.Drawing.Point(6, 62);
+            this.BardDotSnapshot.Name = "BardDotSnapshot";
+            this.BardDotSnapshot.Size = new System.Drawing.Size(98, 17);
+            this.BardDotSnapshot.TabIndex = 2;
+            this.BardDotSnapshot.TabStop = false;
+            this.BardDotSnapshot.Text = "Snapshot dots";
+            this.BardDotSnapshot.UseVisualStyleBackColor = true;
+            this.BardDotSnapshot.CheckedChanged += new System.EventHandler(this.BardDotSnapshot_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -11266,5 +11283,6 @@
         private Design.CustomCheck WarriorOpener;
         private Design.UserNumeric BardFoeRequiemPct;
         private Design.CustomCheck DisableDebug;
+        private Design.CustomCheck BardDotSnapshot;
     }
 }

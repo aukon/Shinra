@@ -517,13 +517,6 @@ namespace ShinraCo.Rotations
 
                 if (target != null)
                 {
-                    if (Shinra.Settings.AstrologianSwiftcast && ActionManager.CanCast(MySpells.Role.Protect.Name, target))
-                    {
-                        if (await MySpells.Role.Swiftcast.Cast(null, false))
-                        {
-                            await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.Role.Swiftcast.Name));
-                        }
-                    }
                     return await MySpells.Role.Protect.Cast(target);
                 }
             }

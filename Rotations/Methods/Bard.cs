@@ -130,7 +130,9 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DotSnapshot()
         {
-            if (!Core.Player.CurrentTarget.HasAura(VenomDebuff, true) || !Core.Player.CurrentTarget.HasAura(WindDebuff, true) ||
+            if (!Shinra.Settings.BardDotSnapshot ||
+                !Core.Player.CurrentTarget.HasAura(VenomDebuff, true) ||
+                !Core.Player.CurrentTarget.HasAura(WindDebuff, true) ||
                 DotManager.Recent(Target))
             {
                 return false;
