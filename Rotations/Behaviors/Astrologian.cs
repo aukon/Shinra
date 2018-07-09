@@ -120,7 +120,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Pull()
         {
             if (await CombustII()) return true;
-            return await Combust();
+            if (await Combust()) return true;
+            return await Combat();
         }
 
         #endregion

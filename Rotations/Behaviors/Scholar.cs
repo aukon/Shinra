@@ -78,7 +78,8 @@ namespace ShinraCo.Rotations
         public override async Task<bool> Pull()
         {
             if (await BioII()) return true;
-            return await Bio();
+            if (await Bio()) return true;
+            return await Combat();
         }
 
         #endregion
