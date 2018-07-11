@@ -31,11 +31,20 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> RuinII()
         {
-            if (Core.Player.HasAura("Further Ruin") || RecentBahamut || !Resource.DreadwyrmTrance &&
-                (MovementManager.IsMoving || UseBane || UseFester || UsePainflare || UseAddle || UsePet || UseShadowFlare ||
-                 UseTriDisaster || ResourceArcanist.Aetherflow == 0 && MySpells.Aetherflow.Cooldown() == 0 ||
-                 ActionManager.CanCast(MySpells.DreadwyrmTrance.Name, Core.Player) ||
-                 ActionManager.CanCast(MySpells.SummonBahamut.Name, Core.Player)))
+            if (Resource.DreadwyrmTrance && !Core.Player.HasAura("Further Ruin") && !RecentBahamut)
+                return false;
+
+            if (MovementManager.IsMoving ||
+                UseBane ||
+                UseFester ||
+                UsePainflare ||
+                UseAddle ||
+                UsePet ||
+                UseShadowFlare ||
+                UseTriDisaster ||
+                ResourceArcanist.Aetherflow == 0 && MySpells.Aetherflow.Cooldown() <= 0 ||
+                ResourceArcanist.Aetherflow == 3 && ActionManager.CanCast(MySpells.SummonBahamut.Name, Core.Player) ||
+                ActionManager.CanCast(MySpells.DreadwyrmTrance.Name, Core.Player))
             {
                 return await MySpells.RuinII.Cast();
             }
