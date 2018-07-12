@@ -35,6 +35,8 @@ namespace ShinraCo.Rotations
                 return false;
 
             if (MovementManager.IsMoving ||
+                Core.Player.HasAura("Further Ruin") ||
+                RecentBahamut ||
                 UseBane ||
                 UseFester ||
                 UsePainflare ||
