@@ -371,7 +371,7 @@ namespace ShinraCo
                                 return true;
                             }
                         }
-                        if (Resource.Arcanist.Aetherflow < 3 || Summoner.Aetherflow.Cooldown() > 15000)
+                        if (Resource.Arcanist.Aetherflow < 3 && Summoner.Aetherflow.Cooldown() > 15000)
                         {
                             AbortOpener("Aborting opener due to Aetherflow charges.");
                             return false;
@@ -382,15 +382,31 @@ namespace ShinraCo
                         if (!Shinra.Settings.SummonerOpenerGaruda || PetManager.ActivePetType == PetType.Ifrit_Egi ||
                             !Me.HasAura(Summoner.Role.Swiftcast.Name))
                         {
+                            Debug($"Skipping opener step {OpenerStep} due to Swiftcast/not using Garuda >>> {spell.Name}");
                             OpenerStep++;
                             return true;
                         }
                     }
-                    if (spell.Name == Summoner.Fester.Name && Resource.Arcanist.Aetherflow > 0)
+                    if (spell.Name == Summoner.Fester.Name)
                     {
-                        if (spell.Cooldown() > 0)
+                        if (Resource.Arcanist.Aetherflow > 0 && spell.Cooldown() > 0)
                         {
                             return true;
+                        }
+                        if (Resource.Arcanist.Aetherflow == 0)
+                        {
+                            Debug($"Skipping opener step {OpenerStep} due to Aetherflow charges >>> {spell.Name}");
+                            OpenerStep++;
+                            return true;
+                        }
+                    }
+                    if (spell.Name == Summoner.DreadwyrmTrance.Name && Resource.Arcanist.AetherAttunement < 3)
+                    {
+                        await Coroutine.Wait(2000, () => Resource.Arcanist.AetherAttunement == 3);
+                        if (Resource.Arcanist.AetherAttunement < 3)
+                        {
+                            AbortOpener("Aborting opener due to Aethertrail Attunement.");
+                            return false;
                         }
                     }
                     break;
@@ -433,7 +449,7 @@ namespace ShinraCo
                 OpenerStep++;
                 if (spell.Name == "Swiftcast")
                 {
-                    await Coroutine.Wait(1000, () => Me.HasAura("Swiftcast"));
+                    await Coroutine.Wait(3000, () => Me.HasAura("Swiftcast"));
                 }
 
                 if (OpenerStep == 1)
