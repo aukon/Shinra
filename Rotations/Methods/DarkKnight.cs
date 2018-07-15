@@ -61,16 +61,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Bloodspiller()
         {
-            if (Shinra.Settings.DarkKnightBloodspiller && BloodValue >= 50)
+            if (Shinra.Settings.DarkKnightBloodspiller && BloodValue >= 50 && Core.Player.HasAura(MySpells.DarkArts.Name))
             {
-                if (Shinra.Settings.DarkKnightBloodspillerArts && Core.Player.CurrentManaPercent > 40 &&
-                    ActionManager.CanCast(MySpells.Bloodspiller.Name, Core.Player.CurrentTarget))
-                {
-                    if (await MySpells.DarkArts.Cast(null, false))
-                    {
-                        await Coroutine.Wait(3000, () => Core.Player.HasAura(MySpells.DarkArts.Name));
-                    }
-                }
                 return await MySpells.Bloodspiller.Cast();
             }
             return false;
@@ -194,8 +186,16 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DarkArts()
         {
-            if (Core.Player.CurrentManaPercent > 60 && !Core.Player.HasAura(MySpells.DarkArts.Name))
+            if (!Core.Player.HasAura(MySpells.DarkArts.Name))
             {
+                // Bloodspiller
+                if (Shinra.Settings.DarkKnightBloodspillerArts && Resource.BlackBlood >= 50 && ActionManager.HasSpell(MySpells.Bloodspiller.Name))
+                {
+                    return await MySpells.DarkArts.Cast();
+                }
+
+                if (Core.Player.CurrentManaPercent < 70) return false;
+
                 // Souleater
                 if (Shinra.Settings.DarkKnightSouleaterArts && ActionManager.LastSpell.Name == MySpells.SyphonStrike.Name)
                 {
@@ -231,12 +231,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Delirium()
         {
-            if (Shinra.Settings.DarkKnightDelirium && Core.Player.CurrentManaPercent < 70 && BloodValue >= 50)
+            if (!Shinra.Settings.DarkKnightDelirium) return false;
+
+            if (Core.Player.HasAura(MySpells.BloodWeapon.Name) || Core.Player.HasAura(MySpells.BloodPrice.Name))
             {
-                if (Core.Player.HasAura(MySpells.BloodWeapon.Name) || Core.Player.HasAura(MySpells.BloodPrice.Name))
-                {
-                    return await MySpells.Delirium.Cast();
-                }
+                return await MySpells.Delirium.Cast();
             }
             return false;
         }

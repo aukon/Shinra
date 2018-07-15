@@ -198,6 +198,19 @@ namespace ShinraCo
                         OpenerStep++;
                         return true;
                     }
+                    if (spell.Name == DarkKnight.BlackestNight.Name && Shinra.Settings.DarkKnightOffTank)
+                    {
+                        await UpdateHealManager();
+
+                        var target = HealManager.FirstOrDefault(hm => hm.IsTank() && !hm.IsMe);
+
+                        if (target != null && await DarkKnight.BlackestNight.Cast(target, false))
+                        {
+                            Debug($"Casting opener step {OpenerStep} on the main tank >>> {spell.Name}");
+                            OpenerStep++;
+                            return true;
+                        }
+                    }
                     break;
 
                 case ClassJobType.Dragoon:
@@ -273,7 +286,7 @@ namespace ShinraCo
                     }
                     if (spell.Name == Monk.PerfectBalance.Name)
                     {
-                        if (Monk.PerfectBalance.Cooldown() != 0)
+                        if (Monk.PerfectBalance.Cooldown() <= 0)
                         {
                             AbortOpener("Aborted opener due to Perfect Balance.");
                             return true;

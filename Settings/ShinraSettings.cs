@@ -687,6 +687,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(false)]
         public bool DarkKnightPotion { get; set; }
 
+        [Setting, DefaultValue(false)]
+        public bool DarkKnightOffTank { get; set; }
+
         #endregion
 
         #endregion

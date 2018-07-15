@@ -478,6 +478,7 @@
             this.tabRanged = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeBard = new System.Windows.Forms.TabPage();
             this.BardDoTGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.BardDotSnapshot = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardUseDotsAoe = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardUseDots = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BardMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -696,7 +697,7 @@
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.BardDotSnapshot = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.DarkKnightOffTank = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -7269,6 +7270,21 @@
             this.BardDoTGroup.TabStop = false;
             this.BardDoTGroup.Text = "DoT";
             // 
+            // BardDotSnapshot
+            // 
+            this.BardDotSnapshot.AutoSize = true;
+            this.BardDotSnapshot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BardDotSnapshot.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.BardDotSnapshot.ForeColor = System.Drawing.Color.White;
+            this.BardDotSnapshot.Location = new System.Drawing.Point(6, 62);
+            this.BardDotSnapshot.Name = "BardDotSnapshot";
+            this.BardDotSnapshot.Size = new System.Drawing.Size(98, 17);
+            this.BardDotSnapshot.TabIndex = 2;
+            this.BardDotSnapshot.TabStop = false;
+            this.BardDotSnapshot.Text = "Snapshot dots";
+            this.BardDotSnapshot.UseVisualStyleBackColor = true;
+            this.BardDotSnapshot.CheckedChanged += new System.EventHandler(this.BardDotSnapshot_CheckedChanged);
+            // 
             // BardUseDotsAoe
             // 
             this.BardUseDotsAoe.AutoSize = true;
@@ -8444,12 +8460,13 @@
             // 
             // DarkKnightMiscGroup
             // 
+            this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightOffTank);
             this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightPotion);
             this.DarkKnightMiscGroup.Controls.Add(this.DarkKnightOpener);
             this.DarkKnightMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightMiscGroup.Location = new System.Drawing.Point(344, 243);
             this.DarkKnightMiscGroup.Name = "DarkKnightMiscGroup";
-            this.DarkKnightMiscGroup.Size = new System.Drawing.Size(114, 66);
+            this.DarkKnightMiscGroup.Size = new System.Drawing.Size(129, 91);
             this.DarkKnightMiscGroup.TabIndex = 7;
             this.DarkKnightMiscGroup.TabStop = false;
             this.DarkKnightMiscGroup.Text = "Misc";
@@ -10358,20 +10375,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // BardDotSnapshot
+            // DarkKnightOffTank
             // 
-            this.BardDotSnapshot.AutoSize = true;
-            this.BardDotSnapshot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BardDotSnapshot.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BardDotSnapshot.ForeColor = System.Drawing.Color.White;
-            this.BardDotSnapshot.Location = new System.Drawing.Point(6, 62);
-            this.BardDotSnapshot.Name = "BardDotSnapshot";
-            this.BardDotSnapshot.Size = new System.Drawing.Size(98, 17);
-            this.BardDotSnapshot.TabIndex = 2;
-            this.BardDotSnapshot.TabStop = false;
-            this.BardDotSnapshot.Text = "Snapshot dots";
-            this.BardDotSnapshot.UseVisualStyleBackColor = true;
-            this.BardDotSnapshot.CheckedChanged += new System.EventHandler(this.BardDotSnapshot_CheckedChanged);
+            this.DarkKnightOffTank.AutoSize = true;
+            this.DarkKnightOffTank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightOffTank.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightOffTank.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightOffTank.Location = new System.Drawing.Point(6, 62);
+            this.DarkKnightOffTank.Name = "DarkKnightOffTank";
+            this.DarkKnightOffTank.Size = new System.Drawing.Size(117, 17);
+            this.DarkKnightOffTank.TabIndex = 2;
+            this.DarkKnightOffTank.TabStop = false;
+            this.DarkKnightOffTank.Text = "TBN on other tank";
+            this.DarkKnightOffTank.UseVisualStyleBackColor = true;
+            this.DarkKnightOffTank.CheckedChanged += new System.EventHandler(this.DarkKnightOffTank_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -11284,5 +11301,6 @@
         private Design.UserNumeric BardFoeRequiemPct;
         private Design.CustomCheck DisableDebug;
         private Design.CustomCheck BardDotSnapshot;
+        private Design.CustomCheck DarkKnightOffTank;
     }
 }

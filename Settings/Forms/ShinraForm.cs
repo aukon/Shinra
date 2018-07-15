@@ -375,6 +375,7 @@ namespace ShinraCo.Settings.Forms
 
             DarkKnightOpener.Checked = Shinra.Settings.DarkKnightOpener;
             DarkKnightPotion.Checked = Shinra.Settings.DarkKnightPotion;
+            DarkKnightOffTank.Checked = Shinra.Settings.DarkKnightOffTank;
 
             #endregion
 
@@ -1975,6 +1976,11 @@ namespace ShinraCo.Settings.Forms
         private void DarkKnightPotion_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightPotion = DarkKnightPotion.Checked;
+        }
+
+        private void DarkKnightOffTank_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightOffTank = DarkKnightOffTank.Checked;
         }
 
         #endregion
