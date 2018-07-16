@@ -84,7 +84,7 @@ namespace ShinraCo.Rotations
                 }
                 if (ActionManager.LastSpell.Name == MySpells.HeavyShot.Name)
                 {
-                    await Coroutine.Wait(400, () => Core.Player.HasAura(122));
+                    await Coroutine.Wait(1000, () => Core.Player.HasAura(122));
                 }
                 if (!Core.Player.HasAura(122))
                 {
@@ -280,15 +280,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Barrage()
         {
-            if (Shinra.Settings.BardBarrage)
+            if (Shinra.Settings.BardBarrage && Core.Player.HasAura(MySpells.RagingStrikes.Name))
             {
-                if (MySpells.EmpyrealArrow.Cooldown() == 0 ||
+                if (MySpells.EmpyrealArrow.Cooldown() < 500 ||
                     Core.Player.HasAura(122) && ActionManager.HasSpell(MySpells.RefulgentArrow.Name) ||
                     !ActionManager.HasSpell(MySpells.EmpyrealArrow.Name))
                 {
                     if (await MySpells.Barrage.Cast())
                     {
-                        return await Coroutine.Wait(1000, () => Core.Player.HasAura(MySpells.Barrage.Name));
+                        return await Coroutine.Wait(2000, () => Core.Player.HasAura(MySpells.Barrage.Name));
                     }
                 }
             }
