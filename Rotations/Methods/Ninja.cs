@@ -45,7 +45,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> DualityActive()
         {
-            if (ActionManager.LastSpell.Name != MySpells.GustSlash.Name || !Core.Player.HasAura(MySpells.Duality.Name))
+            if (Shinra.LastSpell.Name != MySpells.Duality.Name && !Core.Player.HasAura(MySpells.Duality.Name))
                 return false;
 
             return await MySpells.AeolianEdge.Cast();
@@ -195,7 +195,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Duality()
         {
-            if (!Shinra.Settings.NinjaDuality || ActionManager.LastSpell.Name != MySpells.GustSlash.Name || UseArmorCrush || UseShadowFang)
+            if (!Shinra.Settings.NinjaDuality || Shinra.LastSpell.Name != MySpells.GustSlash.Name || UseArmorCrush || UseShadowFang)
                 return false;
 
             return await MySpells.Duality.Cast();
