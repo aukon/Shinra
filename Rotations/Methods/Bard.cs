@@ -56,7 +56,7 @@ namespace ShinraCo.Rotations
 
             var critBonus = DotManager.Check(Target, true);
 
-            if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 3000 ||
+            if (NumRepertoire >= Shinra.Settings.BardRepertoireCount || MinuetActive && SongTimer < 2000 ||
                 critBonus >= 20 && NumRepertoire >= 2)
             {
                 return await MySpells.PitchPerfect.Cast();
@@ -206,8 +206,11 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MagesBallad()
         {
-            if (Shinra.Settings.BardSongs && !RecentSong &&
-                (NoSong || PaeonActive && DataManager.GetSpellData(3559).Cooldown.TotalSeconds < 30))
+            if (Shinra.Settings.BardSongs &&
+                !RecentSong &&
+                (NoSong ||
+                 PaeonActive && DataManager.GetSpellData(3559).Cooldown.TotalSeconds < 30 ||
+                 MinuetActive && SongTimer < 2000 && MySpells.PitchPerfect.Cooldown() > 0))
             {
                 return await MySpells.MagesBallad.Cast();
             }
