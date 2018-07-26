@@ -16,6 +16,7 @@ namespace ShinraCo.Rotations
             if (await BioII()) return true;
             if (await Bio()) return true;
             if (await RuinII()) return true;
+            if (await TriBind()) return true;
             if (await RuinIII()) return true;
             return await Ruin();
         }

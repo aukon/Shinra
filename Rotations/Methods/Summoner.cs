@@ -86,14 +86,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> BioIII()
         {
-            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.BioIII.Name, true, 3000))
+            if (RecentDoT ||
+                Core.Player.CurrentTarget.HasAura(MySpells.BioIII.Name, true, 3000) ||
+                RecentBahamut ||
+                MySpells.TriDisaster.Cooldown() < 5000)
             {
-                if (MySpells.TriDisaster.Cooldown() > 5000)
-                {
-                    return await MySpells.BioIII.Cast();
-                }
+                return false;
             }
-            return false;
+
+            return await MySpells.BioIII.Cast();
         }
 
         private async Task<bool> Miasma()
@@ -111,14 +112,15 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> MiasmaIII()
         {
-            if (!RecentDoT && !Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 5000))
+            if (RecentDoT ||
+                Core.Player.CurrentTarget.HasAura(MySpells.MiasmaIII.Name, true, 5000) ||
+                RecentBahamut ||
+                MySpells.TriDisaster.Cooldown() < 5000)
             {
-                if (MySpells.TriDisaster.Cooldown() > 5000)
-                {
-                    return await MySpells.MiasmaIII.Cast();
-                }
+                return false;
             }
-            return false;
+
+            return await MySpells.MiasmaIII.Cast();
         }
 
         #endregion
@@ -139,6 +141,19 @@ namespace ShinraCo.Rotations
             if (UsePainflare)
             {
                 return await MySpells.Painflare.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> TriBind()
+        {
+            if (Shinra.Settings.RotationMode == Modes.Single) return false;
+
+            if (Shinra.Settings.RotationMode == Modes.Multi ||
+                Resource.DreadwyrmTrance && Helpers.EnemiesNearTarget(5) >= 2 ||
+                Helpers.EnemiesNearTarget(5) >= 5)
+            {
+                return await MySpells.TriBind.Cast();
             }
             return false;
         }
