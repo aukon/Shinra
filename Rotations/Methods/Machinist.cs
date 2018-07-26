@@ -58,6 +58,21 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Cooldown()
+        {
+            if (!Shinra.Settings.MachinistCooldown) return false;
+
+            if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") && Resource.Ammo < 2)
+                return await MySpells.Cooldown.Cast();
+
+            if (Overheated || Resource.Heat < 90 || Resource.Ammo > 0) return false;
+
+            if (!ActionManager.CanCast(MySpells.BarrelStabilizer.Name, Core.Player) || !UseWildfire || WildfireCooldown > 3000)
+                return await MySpells.Cooldown.Cast();
+
+            return false;
+        }
+
         #endregion
 
         #region AoE
@@ -109,23 +124,6 @@ namespace ShinraCo.Rotations
                 if (!Shinra.Settings.MachinistSyncWildfire || Core.Player.CurrentTarget.HasAura(MySpells.Wildfire.Name, true))
                 {
                     return await MySpells.Ricochet.Cast();
-                }
-            }
-            return false;
-        }
-
-        private async Task<bool> Cooldown()
-        {
-            if (Shinra.Settings.MachinistCooldown)
-            {
-                if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") && Resource.Ammo < 2)
-                {
-                    return await MySpells.Cooldown.Cast();
-                }
-                if (!Overheated && Resource.Heat >= 90 && (!ActionManager.CanCast(MySpells.BarrelStabilizer.Name, Core.Player) ||
-                                                           !UseWildfire || WildfireCooldown > 3000))
-                {
-                    return await MySpells.Cooldown.Cast();
                 }
             }
             return false;
