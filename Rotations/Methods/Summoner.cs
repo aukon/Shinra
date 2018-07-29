@@ -147,7 +147,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TriBind()
         {
-            if (Shinra.Settings.RotationMode == Modes.Single) return false;
+            if (Shinra.Settings.RotationMode == Modes.Single || Resource.DreadwyrmTrance && Resource.Timer.TotalMilliseconds < 3500)
+                return false;
 
             if (Shinra.Settings.RotationMode == Modes.Multi ||
                 Resource.DreadwyrmTrance && Helpers.EnemiesNearTarget(5) >= 2 ||

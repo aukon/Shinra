@@ -37,26 +37,34 @@ namespace ShinraCo
                 : cp.Distance2D(unit) - cp.CombatReach - unit.CombatReach <= range;
         }
 
-        private static bool IsEnemy(this BattleCharacter ie)
+        private static bool ValidEnemy(this GameObject unit)
         {
-            return GameObjectManager.Attackers.Contains(ie) && ie.IsAlive && ie.CanAttack && ie.IsTargetable;
+            if (unit == null || !unit.IsValid || !unit.CanAttack || !unit.IsTargetable)
+                return false;
+
+            if (!GameObjectManager.Attackers.Contains(unit) && Core.Me.Distance2D(unit) > 25)
+                return false;
+
+            return unit.CurrentHealth > 0;
         }
 
-        public static IEnumerable<BattleCharacter> EnemyUnit
+        public static IEnumerable<BattleCharacter> Enemies
         {
-            get { return GameObjectManager.GetObjectsOfType<BattleCharacter>(true).Where(eu => eu.IsEnemy()); }
+            get { return GameObjectManager.GetObjectsOfType<BattleCharacter>(true).Where(eu => eu.ValidEnemy()); }
         }
 
-        public static int EnemiesNearTarget(float radius)
+        public static int EnemiesNearTarget(int range)
         {
-            return Core.Player.CurrentTarget == null ? 0
-                : EnemyUnit.Count(eu => eu.Distance2D(Core.Player.CurrentTarget) - eu.CombatReach - Core.Player.CurrentTarget.CombatReach <=
-                                        radius);
+            if (Core.Me.CurrentTarget == null)
+                return 0;
+
+            return Enemies.Count(u =>
+                u.Distance2D(Core.Player.CurrentTarget) - Math.Max(u.CombatReach, Core.Player.CurrentTarget.CombatReach) <= range);
         }
 
         public static int EnemiesNearPlayer(float radius)
         {
-            return EnemyUnit.Count(eu => eu.Distance2D(Core.Player) - eu.CombatReach - Core.Player.CombatReach <= radius);
+            return Enemies.Count(eu => eu.Distance2D(Core.Player) - eu.CombatReach - Core.Player.CombatReach <= radius);
         }
     }
 }

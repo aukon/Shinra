@@ -65,7 +65,7 @@ namespace ShinraCo.Rotations
             if (Overheated && !Core.Player.HasAura("Enhanced Slug Shot") && !Core.Player.HasAura("Cleaner Shot") && Resource.Ammo < 2)
                 return await MySpells.Cooldown.Cast();
 
-            if (Overheated || Resource.Heat < 90 || Resource.Ammo > 0) return false;
+            if (Overheated || Resource.Heat < 95 || Resource.Ammo > 0) return false;
 
             if (!ActionManager.CanCast(MySpells.BarrelStabilizer.Name, Core.Player) || !UseWildfire || WildfireCooldown > 3000)
                 return await MySpells.Cooldown.Cast();

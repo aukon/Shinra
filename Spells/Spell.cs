@@ -130,7 +130,7 @@ namespace ShinraCo.Spells
                 }
 
                 var enemyCount =
-                    Helpers.EnemyUnit.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
+                    Helpers.Enemies.Count(eu => eu.Distance2D(target) - eu.CombatReach - target.CombatReach <=
                                                   DataManager.GetSpellData(ID).Radius);
 
                 if (Shinra.Settings.CustomAoE)
