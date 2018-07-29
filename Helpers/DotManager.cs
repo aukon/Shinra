@@ -15,8 +15,13 @@ namespace ShinraCo
             new Dictionary<string, int>
             {
                 { "Battle Litany", 15 },
-                { "Chain Stratagem", 15 },
                 { "The Spear", 5 }
+            };
+
+        private static readonly Dictionary<string, int> CritDebuffs =
+            new Dictionary<string, int>
+            {
+                { "Chain Stratagem", 15 }
             };
 
         private static readonly Dictionary<string, int> DamageBuffs =
@@ -36,8 +41,22 @@ namespace ShinraCo
             };
 
         public static bool BuffExpiring => CritExpiring || DamageExpiring;
-        public static int CritBonus { get { return CritBuffs.Where(dic => Me.HasAura(dic.Key)).Sum(dic => dic.Value); } }
-        public static bool CritExpiring { get { return CritBuffs.Any(dic => Me.AuraExpiring(dic.Key)); } }
+
+        public static int CritBonus
+        {
+            get
+            {
+                var count = 0;
+                count += CritBuffs.Where(dic => Me.HasAura(dic.Key)).Sum(dic => dic.Value);
+                count += CritDebuffs.Where(dic => Target.HasAura(dic.Key)).Sum(dic => dic.Value);
+                return count;
+            }
+        }
+
+        public static bool CritExpiring
+        {
+            get { return CritBuffs.Any(dic => Me.AuraExpiring(dic.Key)) || CritDebuffs.Any(dic => Target.AuraExpiring(dic.Key)); }
+        }
 
         public static int DamageBonus
         {
