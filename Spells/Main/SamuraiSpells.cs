@@ -91,7 +91,7 @@ namespace ShinraCo.Spells.Main
         public Spell Higanbana { get; } = new Spell
         {
             Name = "Higanbana",
-            ID = 7489,
+            ID = 7867,
             Level = 30,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
@@ -101,7 +101,7 @@ namespace ShinraCo.Spells.Main
         public Spell TenkaGoken { get; } = new Spell
         {
             Name = "Tenka Goken",
-            ID = 7488,
+            ID = 7867,
             Level = 30,
             GCDType = GCDType.On,
             SpellType = SpellType.AoE,
@@ -111,7 +111,7 @@ namespace ShinraCo.Spells.Main
         public Spell MidareSetsugekka { get; } = new Spell
         {
             Name = "Midare Setsugekka",
-            ID = 7487,
+            ID = 7867,
             Level = 30,
             GCDType = GCDType.On,
             SpellType = SpellType.Damage,
