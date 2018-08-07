@@ -217,7 +217,7 @@ namespace ShinraCo.Rotations
         private static bool UseNinjutsu(bool targetSelf = false, int range = 15)
         {
             return Core.Player.HasAura(496) ||
-                   (NinjutsuGcd > 1000 || NinjutsuGcd == 0 && !ActionManager.CanCast(2240, Core.Player.CurrentTarget)) &&
+                   (NinjutsuGcd > 1000 || NinjutsuGcd <= 0 && !ActionManager.CanCast(2240, Core.Player.CurrentTarget)) &&
                    (targetSelf || Core.Player.HasTarget && Core.Player.CurrentTarget.CanAttack &&
                     Core.Player.TargetDistance(range, false) && Core.Player.CurrentTarget.InLineOfSight());
         }
@@ -456,68 +456,57 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> TenChiJinBuff()
         {
-            if (Core.Player.HasAura(MySpells.TenChiJin.Name))
+            if (!Core.Player.HasAura(MySpells.TenChiJin.Name)) return false;
+
+            #region Fuma
+
+            if (!Core.Player.HasAura("Mudra"))
             {
-                #region Fuma
-
-                if (!Core.Player.HasAura("Mudra"))
-                {
-                    if (await MySpells.Ten.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
-                    }
-                }
-                if (LastTen)
-                {
-                    if (await MySpells.FumaShuriken.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => !CanNinjutsu);
-                    }
-                }
-
-                #endregion
-
-                #region Raiton
-
-                if (Shinra.LastSpell.ID == MySpells.FumaShuriken.ID)
-                {
-                    if (await MySpells.Chi.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
-                    }
-                }
-                if (LastChi)
-                {
-                    if (await MySpells.Raiton.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => !CanNinjutsu);
-                    }
-                }
-
-                #endregion
-
-                #region Suiton
-
-                if (Shinra.LastSpell.ID == MySpells.Raiton.ID)
-                {
-                    if (await MySpells.Jin.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => CanNinjutsu);
-                    }
-                }
-                if (LastJin)
-                {
-                    if (await MySpells.Suiton.Cast())
-                    {
-                        await Coroutine.Wait(2000, () => !CanNinjutsu);
-                    }
-                }
-
-                #endregion
-
-                return true;
+                if (TrickCooldown > 9000 && await MySpells.Jin.Cast() || await MySpells.Ten.Cast())
+                    await Coroutine.Wait(2000, () => CanNinjutsu);
             }
-            return false;
+
+            if (LastJin || LastTen)
+            {
+                if (await MySpells.FumaShuriken.Cast())
+                    await Coroutine.Wait(2000, () => !CanNinjutsu);
+            }
+
+            #endregion
+
+            #region Raiton / Katon
+
+            if (Shinra.LastSpell.ID == MySpells.FumaShuriken.ID)
+            {
+                if (TrickCooldown > 9000 && await MySpells.Ten.Cast() || await MySpells.Chi.Cast())
+                    await Coroutine.Wait(2000, () => CanNinjutsu);
+            }
+
+            if (LastChi && await MySpells.Raiton.Cast())
+                await Coroutine.Wait(2000, () => !CanNinjutsu);
+
+            if (LastTen && await MySpells.Katon.Cast())
+                await Coroutine.Wait(2000, () => !CanNinjutsu);
+
+            #endregion
+
+            #region Suiton / Doton
+
+            if (Shinra.LastSpell.ID == MySpells.Raiton.ID && await MySpells.Jin.Cast())
+                await Coroutine.Wait(2000, () => CanNinjutsu);
+
+            if (Shinra.LastSpell.ID == MySpells.Katon.ID && await MySpells.Chi.Cast())
+                await Coroutine.Wait(2000, () => CanNinjutsu);
+
+            if (LastJin && await MySpells.Suiton.Cast())
+                await Coroutine.Wait(2000, () => !CanNinjutsu);
+
+            if (LastChi && await MySpells.Doton.Cast())
+                await Coroutine.Wait(2000, () => !CanNinjutsu);
+
+            #endregion
+
+            return true;
         }
 
         #endregion
