@@ -238,8 +238,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> EmpyrealArrow()
         {
-            //Hold EA for Raging Strikes
-            if (Shinra.Settings.BardEmpyrealArrow && DataManager.GetSpellData(101).Cooldown.TotalSeconds > 12)
+            if (Shinra.Settings.BardEmpyrealArrow && DataManager.GetSpellData(MySpells.RagingStrikes.ID).Cooldown.TotalSeconds > 12)
             {
                 return await MySpells.EmpyrealArrow.Cast();
             }
