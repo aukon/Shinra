@@ -49,7 +49,9 @@ namespace ShinraCo.Rotations
             if (await ShadowFlare()) return true;
             if (await Aetherpact()) return true;
             if (await Addle()) return true;
-            return await LucidDreaming();
+            if (await LucidDreaming()) return true;
+            return await ManaShift();
+
         }
 
         #endregion
