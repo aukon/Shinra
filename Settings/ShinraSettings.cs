@@ -496,6 +496,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool BlackMageDrain { get; set; }
+		
+		[Setting, DefaultValue(true)]
+        public bool BlackMageManaShift { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool BlackMageLucidDreaming { get; set; }
@@ -505,6 +508,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int BlackMageDrainPct { get; set; }
+		
+		[Setting, DefaultValue(50)]
+        public int BlackMageManaShiftPct { get; set; }
 
         [Setting, DefaultValue(60)]
         public int BlackMageLucidDreamingPct { get; set; }
@@ -1259,6 +1265,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool RedMageDrain { get; set; }
+		
+		[Setting, DefaultValue(true)]
+        public bool RedMageManaShift { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool RedMageLucidDreaming { get; set; }
@@ -1268,6 +1277,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int RedMageDrainPct { get; set; }
+		
+		[Setting, DefaultValue(50)]
+        public int RedMageManaShiftPct { get; set; }
 
         [Setting, DefaultValue(60)]
         public int RedMageLucidDreamingPct { get; set; }
@@ -1575,6 +1587,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(true)]
         public bool SummonerAddle { get; set; }
+		
+		[Setting, DefaultValue(true)]
+        public bool SummonerManaShift { get; set; }
 
         [Setting, DefaultValue(true)]
         public bool SummonerDrain { get; set; }
@@ -1587,6 +1602,9 @@ namespace ShinraCo.Settings
 
         [Setting, DefaultValue(50)]
         public int SummonerDrainPct { get; set; }
+		
+		[Setting, DefaultValue(50)]
+        public int SummonerManaShiftPct { get; set; }
 
         [Setting, DefaultValue(60)]
         public int SummonerLucidDreamingPct { get; set; }
