@@ -66,7 +66,9 @@ namespace ShinraCo.Rotations
             if (await Convert()) return true;
             if (await Enochian()) return true;
             if (await LeyLines()) return true;
-            return await LucidDreaming();
+			if (await LucidDreaming()) return true;
+			return await ManaShift();
+
         }
 
         #endregion
