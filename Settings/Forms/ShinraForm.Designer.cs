@@ -92,7 +92,8 @@
             this.BlackMageErase = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.BlackMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.BlackMageManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+			this.BlackMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -119,7 +120,8 @@
             this.RedMageErase = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.RedMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.RedMageManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+			this.RedMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -158,7 +160,8 @@
             this.SummonerErase = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.SummonerSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.SummonerApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.SummonerManaShift = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.SummonerManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+			this.SummonerManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -1648,6 +1651,7 @@
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageErase);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageSurecast);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageApocatastasis);
+			this.BlackMageRoleGroup.Controls.Add(this.BlackMageManaShiftPct);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageManaShift);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageSwiftcast);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageLucidDreaming);
@@ -1725,14 +1729,22 @@
             this.BlackMageApocatastasis.TabStop = false;
             this.BlackMageApocatastasis.Text = "Apocatastasis";
             this.BlackMageApocatastasis.UseVisualStyleBackColor = true;
+			// 
+            // BlackMageManaShiftPct
+            // 
+            this.BlackMageManaShiftPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.BlackMageManaShiftPct.Location = new System.Drawing.Point(115, 154);
+            this.BlackMageManaShiftPct.Name = "BlackMageManaShiftPct";
+            this.BlackMageManaShiftPct.Size = new System.Drawing.Size(89, 22);
+            this.BlackMageManaShiftPct.TabIndex = 24;
+            this.BlackMageManaShiftPct.ValueChanged += new System.EventHandler(this.BlackMageManaShiftPct_ValueChanged);
             // 
             // BlackMageManaShift
             // 
-            this.BlackMageManaShift.AutoCheck = false;
             this.BlackMageManaShift.AutoSize = true;
             this.BlackMageManaShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BlackMageManaShift.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageManaShift.ForeColor = System.Drawing.Color.DimGray;
+            this.BlackMageManaShift.ForeColor = System.Drawing.Color.White;
             this.BlackMageManaShift.Location = new System.Drawing.Point(6, 154);
             this.BlackMageManaShift.Name = "BlackMageManaShift";
             this.BlackMageManaShift.Size = new System.Drawing.Size(79, 17);
@@ -1740,6 +1752,7 @@
             this.BlackMageManaShift.TabStop = false;
             this.BlackMageManaShift.Text = "Mana Shift";
             this.BlackMageManaShift.UseVisualStyleBackColor = true;
+            this.BlackMageManaShift.CheckedChanged += new System.EventHandler(this.BlackMageManaShift_CheckedChanged);
             // 
             // BlackMageSwiftcast
             // 
@@ -2032,6 +2045,7 @@
             this.RedMageRoleGroup.Controls.Add(this.RedMageErase);
             this.RedMageRoleGroup.Controls.Add(this.RedMageSurecast);
             this.RedMageRoleGroup.Controls.Add(this.RedMageApocatastasis);
+			this.RedMageRoleGroup.Controls.Add(this.RedMageManaShiftPct);
             this.RedMageRoleGroup.Controls.Add(this.RedMageManaShift);
             this.RedMageRoleGroup.Controls.Add(this.RedMageSwiftcast);
             this.RedMageRoleGroup.Controls.Add(this.RedMageLucidDreaming);
@@ -2109,14 +2123,22 @@
             this.RedMageApocatastasis.TabStop = false;
             this.RedMageApocatastasis.Text = "Apocatastasis";
             this.RedMageApocatastasis.UseVisualStyleBackColor = true;
+			// 
+            // RedMageManaShiftPct
+            // 
+            this.RedMageManaShiftPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.RedMageManaShiftPct.Location = new System.Drawing.Point(115, 154);
+            this.RedMageManaShiftPct.Name = "RedMageManaShiftPct";
+            this.RedMageManaShiftPct.Size = new System.Drawing.Size(89, 22);
+            this.RedMageManaShiftPct.TabIndex = 12;
+            this.RedMageManaShiftPct.ValueChanged += new System.EventHandler(this.RedMageManaShiftPct_ValueChanged);
             // 
             // RedMageManaShift
             // 
-            this.RedMageManaShift.AutoCheck = false;
             this.RedMageManaShift.AutoSize = true;
             this.RedMageManaShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RedMageManaShift.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMageManaShift.ForeColor = System.Drawing.Color.DimGray;
+            this.RedMageManaShift.ForeColor = System.Drawing.Color.White;
             this.RedMageManaShift.Location = new System.Drawing.Point(6, 154);
             this.RedMageManaShift.Name = "RedMageManaShift";
             this.RedMageManaShift.Size = new System.Drawing.Size(79, 17);
@@ -2124,6 +2146,7 @@
             this.RedMageManaShift.TabStop = false;
             this.RedMageManaShift.Text = "Mana Shift";
             this.RedMageManaShift.UseVisualStyleBackColor = true;
+            this.RedMageManaShift.CheckedChanged += new System.EventHandler(this.RedMageManaShift_CheckedChanged);
             // 
             // RedMageSwiftcast
             // 
@@ -2581,6 +2604,7 @@
             this.SummonerRoleGroup.Controls.Add(this.SummonerErase);
             this.SummonerRoleGroup.Controls.Add(this.SummonerSurecast);
             this.SummonerRoleGroup.Controls.Add(this.SummonerApocatastasis);
+			this.SummonerRoleGroup.Controls.Add(this.SummonerManaShiftPct);
             this.SummonerRoleGroup.Controls.Add(this.SummonerManaShift);
             this.SummonerRoleGroup.Controls.Add(this.SummonerSwiftcast);
             this.SummonerRoleGroup.Controls.Add(this.SummonerLucidDreaming);
@@ -2672,14 +2696,22 @@
             this.SummonerApocatastasis.TabStop = false;
             this.SummonerApocatastasis.Text = "Apocatastasis";
             this.SummonerApocatastasis.UseVisualStyleBackColor = true;
+			// 
+            // SummonerManaShiftPct
+            // 
+            this.SummonerManaShiftPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.SummonerManaShiftPct.Location = new System.Drawing.Point(115, 154);
+            this.SummonerManaShiftPct.Name = "SummonerManaShiftPct";
+            this.SummonerManaShiftPct.Size = new System.Drawing.Size(89, 22);
+            this.SummonerManaShiftPct.TabIndex = 23;
+            this.SummonerManaShiftPct.ValueChanged += new System.EventHandler(this.SummonerManaShiftPct_ValueChanged);
             // 
             // SummonerManaShift
             // 
-            this.SummonerManaShift.AutoCheck = false;
             this.SummonerManaShift.AutoSize = true;
             this.SummonerManaShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SummonerManaShift.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.SummonerManaShift.ForeColor = System.Drawing.Color.DimGray;
+            this.SummonerManaShift.ForeColor = System.Drawing.Color.White;
             this.SummonerManaShift.Location = new System.Drawing.Point(6, 154);
             this.SummonerManaShift.Name = "SummonerManaShift";
             this.SummonerManaShift.Size = new System.Drawing.Size(79, 17);
@@ -2687,6 +2719,7 @@
             this.SummonerManaShift.TabStop = false;
             this.SummonerManaShift.Text = "Mana Shift";
             this.SummonerManaShift.UseVisualStyleBackColor = true;
+            this.SummonerManaShift.CheckedChanged += new System.EventHandler(this.SummonerManaShift_CheckedChanged);
             // 
             // SummonerSwiftcast
             // 
@@ -10696,7 +10729,8 @@
         private Design.CustomCheckDisabled RedMageErase;
         private Design.CustomCheckDisabled RedMageSurecast;
         private Design.CustomCheckDisabled RedMageApocatastasis;
-        private Design.CustomCheckDisabled RedMageManaShift;
+        private Design.UserNumeric RedMageManaShiftPct;
+        private Design.CustomCheck RedMageManaShift;
         private Design.UserNumeric RedMageLucidDreamingPct;
         private Design.UserNumeric RedMageDrainPct;
         private Design.CustomGroup RedMageHealGroup;
@@ -10735,7 +10769,8 @@
         private Design.CustomCheckDisabled SummonerErase;
         private Design.CustomCheckDisabled SummonerSurecast;
         private Design.CustomCheckDisabled SummonerApocatastasis;
-        private Design.CustomCheckDisabled SummonerManaShift;
+        private Design.UserNumeric SummonerManaShiftPct;
+        private Design.CustomCheck SummonerManaShift;
         private Design.CustomCheck SummonerSwiftcast;
         private Design.CustomCheck SummonerLucidDreaming;
         private Design.CustomCheckDisabled SummonerDiversion;
@@ -11021,7 +11056,8 @@
         private Design.CustomCheckDisabled BlackMageErase;
         private Design.CustomCheckDisabled BlackMageSurecast;
         private Design.CustomCheckDisabled BlackMageApocatastasis;
-        private Design.CustomCheckDisabled BlackMageManaShift;
+        private Design.UserNumeric BlackMageManaShiftPct;
+        private Design.CustomCheck BlackMageManaShift;
         private Design.CustomCheck BlackMageSwiftcast;
         private Design.CustomCheck BlackMageLucidDreaming;
         private Design.CustomCheckDisabled BlackMageDiversion;
