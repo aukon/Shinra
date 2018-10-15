@@ -75,8 +75,9 @@ namespace ShinraCo.Rotations
             if (await Acceleration()) return true;
             if (await Swiftcast()) return true;
             if (await LucidDreaming()) return true;
+		
+            await Helpers.UpdateParty();
             return await ManaShift();
-
         }
 
         #endregion
