@@ -67,9 +67,9 @@ namespace ShinraCo.Rotations
             if (await Enochian()) return true;
             if (await LeyLines()) return true;
 	    if (await LucidDreaming()) return true;
-	    
-	    await Helpers.UpdateParty();
-	    return await ManaShift();
+		
+            await Helpers.UpdateParty();
+            return await ManaShift();
 
         }
 
