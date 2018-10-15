@@ -265,6 +265,20 @@ namespace ShinraCo.Rotations
         #endregion
 
         #region Role
+		
+		private async Task<bool> ManaShift()
+        {
+            if (Shinra.Settings.RedMageManaShift)
+            {
+                var target = Helpers.HealManager.FirstOrDefault(hm => hm.CurrentManaPercent < Shinra.Settings.RedMageManaShiftPct && hm.IsHealer());
+
+                if (target != null)
+                {
+                    return await MySpells.Role.ManaShift.Cast(target);
+                }
+            }
+            return false;
+        }
 
         private async Task<bool> Drain()
         {

@@ -264,7 +264,9 @@ namespace ShinraCo.Settings.Forms
             BlackMageDrain.Checked = Shinra.Settings.BlackMageDrain;
             BlackMageLucidDreaming.Checked = Shinra.Settings.BlackMageLucidDreaming;
             BlackMageSwiftcast.Checked = Shinra.Settings.BlackMageSwiftcast;
-
+			BlackMageManaShift.Checked = Shinra.Settings.BlackMageManaShift; 
+			
+			BlackMageManaShiftPct.Value = Shinra.Settings.BlackMageManaShiftPct;
             BlackMageDrainPct.Value = Shinra.Settings.BlackMageDrainPct;
             BlackMageLucidDreamingPct.Value = Shinra.Settings.BlackMageLucidDreamingPct;
 
@@ -700,7 +702,9 @@ namespace ShinraCo.Settings.Forms
             RedMageDrain.Checked = Shinra.Settings.RedMageDrain;
             RedMageLucidDreaming.Checked = Shinra.Settings.RedMageLucidDreaming;
             RedMageSwiftcast.Checked = Shinra.Settings.RedMageSwiftcast;
-
+			RedMageManaShift.Checked = Shinra.Settings.RedMageManaShift; 
+			
+			RedMageManaShiftPct.Value = Shinra.Settings.RedMageManaShiftPct;
             RedMageDrainPct.Value = Shinra.Settings.RedMageDrainPct;
             RedMageLucidDreamingPct.Value = Shinra.Settings.RedMageLucidDreamingPct;
 
@@ -889,7 +893,9 @@ namespace ShinraCo.Settings.Forms
             SummonerDrain.Checked = Shinra.Settings.SummonerDrain;
             SummonerLucidDreaming.Checked = Shinra.Settings.SummonerLucidDreaming;
             SummonerSwiftcast.Checked = Shinra.Settings.SummonerSwiftcast;
-
+			SummonerManaShift.Checked = Shinra.Settings.SummonerManaShift; 
+			
+			SummonerManaShiftPct.Value = Shinra.Settings.SummonerManaShiftPct;
             SummonerDrainPct.Value = Shinra.Settings.SummonerDrainPct;
             SummonerLucidDreamingPct.Value = Shinra.Settings.SummonerLucidDreamingPct;
 
@@ -1690,6 +1696,11 @@ namespace ShinraCo.Settings.Forms
         #region Black Mage
 
         #region Role
+		
+        private void BlackMageManaShift_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageManaShift = BlackMageManaShift.Checked;
+        }	
 
         private void BlackMageDrain_CheckedChanged(object sender, EventArgs e)
         {
@@ -1704,6 +1715,11 @@ namespace ShinraCo.Settings.Forms
         private void BlackMageSwiftcast_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageSwiftcast = BlackMageSwiftcast.Checked;
+        }
+
+        private void BlackMageManaShiftPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageManaShiftPct = Convert.ToInt32(BlackMageManaShiftPct.Value);
         }
 
         private void BlackMageDrainPct_ValueChanged(object sender, EventArgs e)
@@ -2830,6 +2846,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Role
 
+        private void RedMageManaShift_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageManaShift = RedMageManaShift.Checked;
+        }	
+
         private void RedMageDrain_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageDrain = RedMageDrain.Checked;
@@ -2848,6 +2869,11 @@ namespace ShinraCo.Settings.Forms
         private void RedMageDrainPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageDrainPct = Convert.ToInt32(RedMageDrainPct.Value);
+        }
+        
+        private void RedMageManaShiftPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageManaShiftPct = Convert.ToInt32(RedMageManaShiftPct.Value);
         }
 
         private void RedMageLucidDreamingPct_ValueChanged(object sender, EventArgs e)
@@ -3299,6 +3325,11 @@ namespace ShinraCo.Settings.Forms
         #region Summoner
 
         #region Role
+		
+        private void SummonerManaShift_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerManaShift = SummonerManaShift.Checked;
+        }
 
         private void SummonerAddle_CheckedChanged(object sender, EventArgs e)
         {
@@ -3319,7 +3350,12 @@ namespace ShinraCo.Settings.Forms
         {
             Shinra.Settings.SummonerSwiftcast = SummonerSwiftcast.Checked;
         }
-
+        
+        private void SummonerManaShiftPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.SummonerManaShiftPct = Convert.ToInt32(SummonerManaShiftPct.Value);
+        }        
+        
         private void SummonerDrainPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.SummonerDrainPct = Convert.ToInt32(SummonerDrainPct.Value);
