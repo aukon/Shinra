@@ -50,8 +50,9 @@ namespace ShinraCo.Rotations
             if (await Aetherpact()) return true;
             if (await Addle()) return true;
             if (await LucidDreaming()) return true;
+		
+            await Helpers.UpdateParty();
             return await ManaShift();
-
         }
 
         #endregion
