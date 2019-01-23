@@ -1,4 +1,4 @@
-﻿namespace ShinraCo.Settings.Forms
+namespace ShinraCo.Settings.Forms
 {
     partial class ShinraForm
     {
@@ -93,13 +93,13 @@
             this.BlackMageSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-			this.BlackMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.BlackMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.BlackMageDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.BlackMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.BlackMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.BlackMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeRedMage = new System.Windows.Forms.TabPage();
             this.RedMageMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.RedMagePotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -121,13 +121,13 @@
             this.RedMageSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-			this.RedMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.RedMageManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.RedMageDrain = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.RedMageBreak = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.RedMageAddle = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeSummoner = new System.Windows.Forms.TabPage();
             this.SummonerMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.SummonerOpenerGaruda = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -161,7 +161,7 @@
             this.SummonerSurecast = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.SummonerApocatastasis = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
             this.SummonerManaShiftPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
-			this.SummonerManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.SummonerManaShift = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerSwiftcast = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerLucidDreaming = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.SummonerDiversion = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
@@ -564,11 +564,13 @@
             this.tabTanks = new ShinraCo.Settings.Forms.Design.CustomTab();
             this.pgeDarkKnight = new System.Windows.Forms.TabPage();
             this.DarkKnightMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightOffTank = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightPotion = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightOpener = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightDamageGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
             this.DarkKnightBloodspiller = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.DarkKnightUnmend = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightCarveAndSpit = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightPlunge = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightSaltedEarth = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -607,7 +609,7 @@
             this.DarkKnightAnticipation = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightConvalescence = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.DarkKnightLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.DarkKnightLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.DarkKnightRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgePaladin = new System.Windows.Forms.TabPage();
             this.PaladinMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -619,6 +621,8 @@
             this.PaladinClemencyPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.PaladinClemency = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinBuffGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.PaladinDivineVeilPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
+            this.PaladinDivineVeil = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinSheltron = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinBulwarkPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
             this.PaladinSentinelPct = new ShinraCo.Settings.Forms.Design.UserNumeric();
@@ -631,6 +635,7 @@
             this.PaladinTotalEclipse = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinFlash = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinCooldownGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
+            this.PaladinShieldBash = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinRequiescat = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinCircleOfScorn = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinSpiritsWithin = new ShinraCo.Settings.Forms.Design.CustomCheck();
@@ -650,7 +655,7 @@
             this.PaladinAnticipation = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinConvalescence = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.PaladinLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.PaladinLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.PaladinRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.pgeWarrior = new System.Windows.Forms.TabPage();
             this.WarriorMiscGroup = new ShinraCo.Settings.Forms.Design.CustomGroup();
@@ -698,9 +703,9 @@
             this.WarriorAnticipation = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorConvalescence = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorProvoke = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
-            this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheckDisabled();
+            this.WarriorLowBlow = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.WarriorRampart = new ShinraCo.Settings.Forms.Design.CustomCheck();
-            this.DarkKnightOffTank = new ShinraCo.Settings.Forms.Design.CustomCheck();
+            this.PaladinTemperedWill = new ShinraCo.Settings.Forms.Design.CustomCheck();
             this.ShinraContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShinraBanner)).BeginInit();
             this.tabSettings.SuspendLayout();
@@ -1651,7 +1656,7 @@
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageErase);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageSurecast);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageApocatastasis);
-			this.BlackMageRoleGroup.Controls.Add(this.BlackMageManaShiftPct);
+            this.BlackMageRoleGroup.Controls.Add(this.BlackMageManaShiftPct);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageManaShift);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageSwiftcast);
             this.BlackMageRoleGroup.Controls.Add(this.BlackMageLucidDreaming);
@@ -1831,11 +1836,10 @@
             // 
             // BlackMageAddle
             // 
-            this.BlackMageAddle.AutoCheck = false;
             this.BlackMageAddle.AutoSize = true;
             this.BlackMageAddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BlackMageAddle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.BlackMageAddle.ForeColor = System.Drawing.Color.DimGray;
+            this.BlackMageAddle.ForeColor = System.Drawing.Color.White;
             this.BlackMageAddle.Location = new System.Drawing.Point(6, 16);
             this.BlackMageAddle.Name = "BlackMageAddle";
             this.BlackMageAddle.Size = new System.Drawing.Size(53, 17);
@@ -1843,6 +1847,7 @@
             this.BlackMageAddle.TabStop = false;
             this.BlackMageAddle.Text = "Addle";
             this.BlackMageAddle.UseVisualStyleBackColor = true;
+            this.BlackMageAddle.CheckedChanged += new System.EventHandler(this.BlackMageAddle_CheckedChanged);
             // 
             // pgeRedMage
             // 
@@ -2045,7 +2050,7 @@
             this.RedMageRoleGroup.Controls.Add(this.RedMageErase);
             this.RedMageRoleGroup.Controls.Add(this.RedMageSurecast);
             this.RedMageRoleGroup.Controls.Add(this.RedMageApocatastasis);
-			this.RedMageRoleGroup.Controls.Add(this.RedMageManaShiftPct);
+            this.RedMageRoleGroup.Controls.Add(this.RedMageManaShiftPct);
             this.RedMageRoleGroup.Controls.Add(this.RedMageManaShift);
             this.RedMageRoleGroup.Controls.Add(this.RedMageSwiftcast);
             this.RedMageRoleGroup.Controls.Add(this.RedMageLucidDreaming);
@@ -2225,11 +2230,10 @@
             // 
             // RedMageAddle
             // 
-            this.RedMageAddle.AutoCheck = false;
             this.RedMageAddle.AutoSize = true;
             this.RedMageAddle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RedMageAddle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.RedMageAddle.ForeColor = System.Drawing.Color.DimGray;
+            this.RedMageAddle.ForeColor = System.Drawing.Color.White;
             this.RedMageAddle.Location = new System.Drawing.Point(6, 16);
             this.RedMageAddle.Name = "RedMageAddle";
             this.RedMageAddle.Size = new System.Drawing.Size(53, 17);
@@ -2237,6 +2241,7 @@
             this.RedMageAddle.TabStop = false;
             this.RedMageAddle.Text = "Addle";
             this.RedMageAddle.UseVisualStyleBackColor = true;
+            this.RedMageAddle.CheckedChanged += new System.EventHandler(this.RedMageAddle_CheckedChanged);
             // 
             // pgeSummoner
             // 
@@ -2604,7 +2609,7 @@
             this.SummonerRoleGroup.Controls.Add(this.SummonerErase);
             this.SummonerRoleGroup.Controls.Add(this.SummonerSurecast);
             this.SummonerRoleGroup.Controls.Add(this.SummonerApocatastasis);
-			this.SummonerRoleGroup.Controls.Add(this.SummonerManaShiftPct);
+            this.SummonerRoleGroup.Controls.Add(this.SummonerManaShiftPct);
             this.SummonerRoleGroup.Controls.Add(this.SummonerManaShift);
             this.SummonerRoleGroup.Controls.Add(this.SummonerSwiftcast);
             this.SummonerRoleGroup.Controls.Add(this.SummonerLucidDreaming);
@@ -5580,7 +5585,7 @@
             this.MonkMiscGroup.Controls.Add(this.MonkPotion);
             this.MonkMiscGroup.Controls.Add(this.MonkOpener);
             this.MonkMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkMiscGroup.Location = new System.Drawing.Point(218, 220);
+            this.MonkMiscGroup.Location = new System.Drawing.Point(326, 220);
             this.MonkMiscGroup.Name = "MonkMiscGroup";
             this.MonkMiscGroup.Size = new System.Drawing.Size(102, 66);
             this.MonkMiscGroup.TabIndex = 6;
@@ -5774,7 +5779,7 @@
             // 
             this.MonkFistsGroup.Controls.Add(this.MonkFist);
             this.MonkFistsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.MonkFistsGroup.Location = new System.Drawing.Point(326, 220);
+            this.MonkFistsGroup.Location = new System.Drawing.Point(218, 220);
             this.MonkFistsGroup.Name = "MonkFistsGroup";
             this.MonkFistsGroup.Size = new System.Drawing.Size(102, 43);
             this.MonkFistsGroup.TabIndex = 2;
@@ -6138,7 +6143,7 @@
             this.NinjaMiscGroup.Controls.Add(this.NinjaPotion);
             this.NinjaMiscGroup.Controls.Add(this.NinjaOpener);
             this.NinjaMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.NinjaMiscGroup.Location = new System.Drawing.Point(218, 266);
+            this.NinjaMiscGroup.Location = new System.Drawing.Point(441, 124);
             this.NinjaMiscGroup.Name = "NinjaMiscGroup";
             this.NinjaMiscGroup.Size = new System.Drawing.Size(94, 66);
             this.NinjaMiscGroup.TabIndex = 5;
@@ -8504,6 +8509,21 @@
             this.DarkKnightMiscGroup.TabStop = false;
             this.DarkKnightMiscGroup.Text = "Misc";
             // 
+            // DarkKnightOffTank
+            // 
+            this.DarkKnightOffTank.AutoSize = true;
+            this.DarkKnightOffTank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightOffTank.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightOffTank.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightOffTank.Location = new System.Drawing.Point(6, 62);
+            this.DarkKnightOffTank.Name = "DarkKnightOffTank";
+            this.DarkKnightOffTank.Size = new System.Drawing.Size(117, 17);
+            this.DarkKnightOffTank.TabIndex = 2;
+            this.DarkKnightOffTank.TabStop = false;
+            this.DarkKnightOffTank.Text = "TBN on other tank";
+            this.DarkKnightOffTank.UseVisualStyleBackColor = true;
+            this.DarkKnightOffTank.CheckedChanged += new System.EventHandler(this.DarkKnightOffTank_CheckedChanged);
+            // 
             // DarkKnightPotion
             // 
             this.DarkKnightPotion.AutoSize = true;
@@ -8562,16 +8582,32 @@
             // 
             // DarkKnightCooldownGroup
             // 
+            this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightUnmend);
             this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightCarveAndSpit);
             this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightPlunge);
             this.DarkKnightCooldownGroup.Controls.Add(this.DarkKnightSaltedEarth);
             this.DarkKnightCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.DarkKnightCooldownGroup.Location = new System.Drawing.Point(224, 104);
             this.DarkKnightCooldownGroup.Name = "DarkKnightCooldownGroup";
-            this.DarkKnightCooldownGroup.Size = new System.Drawing.Size(114, 89);
+            this.DarkKnightCooldownGroup.Size = new System.Drawing.Size(114, 112);
             this.DarkKnightCooldownGroup.TabIndex = 5;
             this.DarkKnightCooldownGroup.TabStop = false;
             this.DarkKnightCooldownGroup.Text = "Cooldown";
+            // 
+            // DarkKnightUnmend
+            // 
+            this.DarkKnightUnmend.AutoSize = true;
+            this.DarkKnightUnmend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DarkKnightUnmend.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.DarkKnightUnmend.ForeColor = System.Drawing.Color.White;
+            this.DarkKnightUnmend.Location = new System.Drawing.Point(6, 85);
+            this.DarkKnightUnmend.Name = "DarkKnightUnmend";
+            this.DarkKnightUnmend.Size = new System.Drawing.Size(67, 17);
+            this.DarkKnightUnmend.TabIndex = 3;
+            this.DarkKnightUnmend.TabStop = false;
+            this.DarkKnightUnmend.Text = "Unmend";
+            this.DarkKnightUnmend.UseVisualStyleBackColor = true;
+            this.DarkKnightUnmend.CheckedChanged += new System.EventHandler(this.DarkKnightUnmend_CheckedChanged);
             // 
             // DarkKnightCarveAndSpit
             // 
@@ -8626,7 +8662,7 @@
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightAbyssalArts);
             this.DarkKnightArtsGroup.Controls.Add(this.DarkKnightSouleaterArts);
             this.DarkKnightArtsGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightArtsGroup.Location = new System.Drawing.Point(224, 199);
+            this.DarkKnightArtsGroup.Location = new System.Drawing.Point(224, 222);
             this.DarkKnightArtsGroup.Name = "DarkKnightArtsGroup";
             this.DarkKnightArtsGroup.Size = new System.Drawing.Size(114, 135);
             this.DarkKnightArtsGroup.TabIndex = 4;
@@ -9104,11 +9140,10 @@
             // 
             // DarkKnightLowBlow
             // 
-            this.DarkKnightLowBlow.AutoCheck = false;
             this.DarkKnightLowBlow.AutoSize = true;
             this.DarkKnightLowBlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DarkKnightLowBlow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightLowBlow.ForeColor = System.Drawing.Color.DimGray;
+            this.DarkKnightLowBlow.ForeColor = System.Drawing.Color.White;
             this.DarkKnightLowBlow.Location = new System.Drawing.Point(6, 39);
             this.DarkKnightLowBlow.Name = "DarkKnightLowBlow";
             this.DarkKnightLowBlow.Size = new System.Drawing.Size(73, 17);
@@ -9116,6 +9151,7 @@
             this.DarkKnightLowBlow.TabStop = false;
             this.DarkKnightLowBlow.Text = "Low Blow";
             this.DarkKnightLowBlow.UseVisualStyleBackColor = true;
+            this.DarkKnightLowBlow.CheckedChanged += new System.EventHandler(this.DarkKnightLowBlow_CheckedChanged);
             // 
             // DarkKnightRampart
             // 
@@ -9156,7 +9192,7 @@
             this.PaladinMiscGroup.Controls.Add(this.PaladinPotion);
             this.PaladinMiscGroup.Controls.Add(this.PaladinOpener);
             this.PaladinMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinMiscGroup.Location = new System.Drawing.Point(344, 197);
+            this.PaladinMiscGroup.Location = new System.Drawing.Point(344, 242);
             this.PaladinMiscGroup.Name = "PaladinMiscGroup";
             this.PaladinMiscGroup.Size = new System.Drawing.Size(94, 66);
             this.PaladinMiscGroup.TabIndex = 7;
@@ -9197,9 +9233,9 @@
             // 
             this.PaladinOathGroup.Controls.Add(this.PaladinOath);
             this.PaladinOathGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinOathGroup.Location = new System.Drawing.Point(224, 246);
+            this.PaladinOathGroup.Location = new System.Drawing.Point(444, 242);
             this.PaladinOathGroup.Name = "PaladinOathGroup";
-            this.PaladinOathGroup.Size = new System.Drawing.Size(102, 43);
+            this.PaladinOathGroup.Size = new System.Drawing.Size(114, 43);
             this.PaladinOathGroup.TabIndex = 6;
             this.PaladinOathGroup.TabStop = false;
             this.PaladinOathGroup.Text = "Oath";
@@ -9217,7 +9253,7 @@
             "Sword"});
             this.PaladinOath.Location = new System.Drawing.Point(6, 16);
             this.PaladinOath.Name = "PaladinOath";
-            this.PaladinOath.Size = new System.Drawing.Size(90, 21);
+            this.PaladinOath.Size = new System.Drawing.Size(102, 21);
             this.PaladinOath.TabIndex = 1;
             this.PaladinOath.TabStop = false;
             this.PaladinOath.SelectedValueChanged += new System.EventHandler(this.PaladinOath_SelectedValueChanged);
@@ -9227,7 +9263,7 @@
             this.PaladinHealGroup.Controls.Add(this.PaladinClemencyPct);
             this.PaladinHealGroup.Controls.Add(this.PaladinClemency);
             this.PaladinHealGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinHealGroup.Location = new System.Drawing.Point(344, 147);
+            this.PaladinHealGroup.Location = new System.Drawing.Point(344, 192);
             this.PaladinHealGroup.Name = "PaladinHealGroup";
             this.PaladinHealGroup.Size = new System.Drawing.Size(180, 44);
             this.PaladinHealGroup.TabIndex = 5;
@@ -9260,6 +9296,9 @@
             // 
             // PaladinBuffGroup
             // 
+            this.PaladinBuffGroup.Controls.Add(this.PaladinTemperedWill);
+            this.PaladinBuffGroup.Controls.Add(this.PaladinDivineVeilPct);
+            this.PaladinBuffGroup.Controls.Add(this.PaladinDivineVeil);
             this.PaladinBuffGroup.Controls.Add(this.PaladinSheltron);
             this.PaladinBuffGroup.Controls.Add(this.PaladinBulwarkPct);
             this.PaladinBuffGroup.Controls.Add(this.PaladinSentinelPct);
@@ -9271,10 +9310,34 @@
             this.PaladinBuffGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinBuffGroup.Location = new System.Drawing.Point(344, 6);
             this.PaladinBuffGroup.Name = "PaladinBuffGroup";
-            this.PaladinBuffGroup.Size = new System.Drawing.Size(222, 135);
+            this.PaladinBuffGroup.Size = new System.Drawing.Size(222, 180);
             this.PaladinBuffGroup.TabIndex = 4;
             this.PaladinBuffGroup.TabStop = false;
             this.PaladinBuffGroup.Text = "Buff";
+            // 
+            // PaladinDivineVeilPct
+            // 
+            this.PaladinDivineVeilPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.PaladinDivineVeilPct.Location = new System.Drawing.Point(127, 16);
+            this.PaladinDivineVeilPct.Name = "PaladinDivineVeilPct";
+            this.PaladinDivineVeilPct.Size = new System.Drawing.Size(89, 22);
+            this.PaladinDivineVeilPct.TabIndex = 8;
+            this.PaladinDivineVeilPct.ValueChanged += new System.EventHandler(this.PaladinDivineVeilPct_ValueChanged);
+            // 
+            // PaladinDivineVeil
+            // 
+            this.PaladinDivineVeil.AutoSize = true;
+            this.PaladinDivineVeil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaladinDivineVeil.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinDivineVeil.ForeColor = System.Drawing.Color.White;
+            this.PaladinDivineVeil.Location = new System.Drawing.Point(6, 16);
+            this.PaladinDivineVeil.Name = "PaladinDivineVeil";
+            this.PaladinDivineVeil.Size = new System.Drawing.Size(76, 17);
+            this.PaladinDivineVeil.TabIndex = 7;
+            this.PaladinDivineVeil.TabStop = false;
+            this.PaladinDivineVeil.Text = "Divine Veil";
+            this.PaladinDivineVeil.UseVisualStyleBackColor = true;
+            this.PaladinDivineVeil.CheckedChanged += new System.EventHandler(this.PaladinDivineVeil_CheckedChanged);
             // 
             // PaladinSheltron
             // 
@@ -9282,7 +9345,7 @@
             this.PaladinSheltron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinSheltron.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinSheltron.ForeColor = System.Drawing.Color.White;
-            this.PaladinSheltron.Location = new System.Drawing.Point(6, 108);
+            this.PaladinSheltron.Location = new System.Drawing.Point(6, 131);
             this.PaladinSheltron.Name = "PaladinSheltron";
             this.PaladinSheltron.Size = new System.Drawing.Size(67, 17);
             this.PaladinSheltron.TabIndex = 0;
@@ -9294,7 +9357,7 @@
             // PaladinBulwarkPct
             // 
             this.PaladinBulwarkPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.PaladinBulwarkPct.Location = new System.Drawing.Point(127, 39);
+            this.PaladinBulwarkPct.Location = new System.Drawing.Point(127, 62);
             this.PaladinBulwarkPct.Name = "PaladinBulwarkPct";
             this.PaladinBulwarkPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinBulwarkPct.TabIndex = 6;
@@ -9303,7 +9366,7 @@
             // PaladinSentinelPct
             // 
             this.PaladinSentinelPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.PaladinSentinelPct.Location = new System.Drawing.Point(127, 62);
+            this.PaladinSentinelPct.Location = new System.Drawing.Point(127, 85);
             this.PaladinSentinelPct.Name = "PaladinSentinelPct";
             this.PaladinSentinelPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinSentinelPct.TabIndex = 5;
@@ -9312,7 +9375,7 @@
             // PaladinHallowedGroundPct
             // 
             this.PaladinHallowedGroundPct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
-            this.PaladinHallowedGroundPct.Location = new System.Drawing.Point(127, 85);
+            this.PaladinHallowedGroundPct.Location = new System.Drawing.Point(127, 108);
             this.PaladinHallowedGroundPct.Name = "PaladinHallowedGroundPct";
             this.PaladinHallowedGroundPct.Size = new System.Drawing.Size(89, 22);
             this.PaladinHallowedGroundPct.TabIndex = 4;
@@ -9324,7 +9387,7 @@
             this.PaladinHallowedGround.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinHallowedGround.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinHallowedGround.ForeColor = System.Drawing.Color.White;
-            this.PaladinHallowedGround.Location = new System.Drawing.Point(6, 85);
+            this.PaladinHallowedGround.Location = new System.Drawing.Point(6, 108);
             this.PaladinHallowedGround.Name = "PaladinHallowedGround";
             this.PaladinHallowedGround.Size = new System.Drawing.Size(115, 17);
             this.PaladinHallowedGround.TabIndex = 3;
@@ -9339,7 +9402,7 @@
             this.PaladinSentinel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinSentinel.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinSentinel.ForeColor = System.Drawing.Color.White;
-            this.PaladinSentinel.Location = new System.Drawing.Point(6, 62);
+            this.PaladinSentinel.Location = new System.Drawing.Point(6, 85);
             this.PaladinSentinel.Name = "PaladinSentinel";
             this.PaladinSentinel.Size = new System.Drawing.Size(65, 17);
             this.PaladinSentinel.TabIndex = 2;
@@ -9354,7 +9417,7 @@
             this.PaladinBulwark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinBulwark.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinBulwark.ForeColor = System.Drawing.Color.White;
-            this.PaladinBulwark.Location = new System.Drawing.Point(6, 39);
+            this.PaladinBulwark.Location = new System.Drawing.Point(6, 62);
             this.PaladinBulwark.Name = "PaladinBulwark";
             this.PaladinBulwark.Size = new System.Drawing.Size(65, 17);
             this.PaladinBulwark.TabIndex = 1;
@@ -9369,7 +9432,7 @@
             this.PaladinFightOrFlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinFightOrFlight.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinFightOrFlight.ForeColor = System.Drawing.Color.White;
-            this.PaladinFightOrFlight.Location = new System.Drawing.Point(6, 16);
+            this.PaladinFightOrFlight.Location = new System.Drawing.Point(6, 39);
             this.PaladinFightOrFlight.Name = "PaladinFightOrFlight";
             this.PaladinFightOrFlight.Size = new System.Drawing.Size(97, 17);
             this.PaladinFightOrFlight.TabIndex = 0;
@@ -9422,6 +9485,7 @@
             // 
             // PaladinCooldownGroup
             // 
+            this.PaladinCooldownGroup.Controls.Add(this.PaladinShieldBash);
             this.PaladinCooldownGroup.Controls.Add(this.PaladinRequiescat);
             this.PaladinCooldownGroup.Controls.Add(this.PaladinCircleOfScorn);
             this.PaladinCooldownGroup.Controls.Add(this.PaladinSpiritsWithin);
@@ -9429,10 +9493,25 @@
             this.PaladinCooldownGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinCooldownGroup.Location = new System.Drawing.Point(224, 127);
             this.PaladinCooldownGroup.Name = "PaladinCooldownGroup";
-            this.PaladinCooldownGroup.Size = new System.Drawing.Size(114, 113);
+            this.PaladinCooldownGroup.Size = new System.Drawing.Size(114, 136);
             this.PaladinCooldownGroup.TabIndex = 2;
             this.PaladinCooldownGroup.TabStop = false;
             this.PaladinCooldownGroup.Text = "Cooldown";
+            // 
+            // PaladinShieldBash
+            // 
+            this.PaladinShieldBash.AutoSize = true;
+            this.PaladinShieldBash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaladinShieldBash.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinShieldBash.ForeColor = System.Drawing.Color.White;
+            this.PaladinShieldBash.Location = new System.Drawing.Point(6, 17);
+            this.PaladinShieldBash.Name = "PaladinShieldBash";
+            this.PaladinShieldBash.Size = new System.Drawing.Size(83, 17);
+            this.PaladinShieldBash.TabIndex = 4;
+            this.PaladinShieldBash.TabStop = false;
+            this.PaladinShieldBash.Text = "Shield Bash";
+            this.PaladinShieldBash.UseVisualStyleBackColor = true;
+            this.PaladinShieldBash.CheckedChanged += new System.EventHandler(this.PaladinShieldBash_CheckedChanged);
             // 
             // PaladinRequiescat
             // 
@@ -9440,7 +9519,7 @@
             this.PaladinRequiescat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinRequiescat.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinRequiescat.ForeColor = System.Drawing.Color.White;
-            this.PaladinRequiescat.Location = new System.Drawing.Point(6, 85);
+            this.PaladinRequiescat.Location = new System.Drawing.Point(6, 109);
             this.PaladinRequiescat.Name = "PaladinRequiescat";
             this.PaladinRequiescat.Size = new System.Drawing.Size(79, 17);
             this.PaladinRequiescat.TabIndex = 3;
@@ -9455,7 +9534,7 @@
             this.PaladinCircleOfScorn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinCircleOfScorn.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinCircleOfScorn.ForeColor = System.Drawing.Color.White;
-            this.PaladinCircleOfScorn.Location = new System.Drawing.Point(6, 62);
+            this.PaladinCircleOfScorn.Location = new System.Drawing.Point(6, 86);
             this.PaladinCircleOfScorn.Name = "PaladinCircleOfScorn";
             this.PaladinCircleOfScorn.Size = new System.Drawing.Size(97, 17);
             this.PaladinCircleOfScorn.TabIndex = 2;
@@ -9470,7 +9549,7 @@
             this.PaladinSpiritsWithin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinSpiritsWithin.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinSpiritsWithin.ForeColor = System.Drawing.Color.White;
-            this.PaladinSpiritsWithin.Location = new System.Drawing.Point(6, 39);
+            this.PaladinSpiritsWithin.Location = new System.Drawing.Point(6, 63);
             this.PaladinSpiritsWithin.Name = "PaladinSpiritsWithin";
             this.PaladinSpiritsWithin.Size = new System.Drawing.Size(93, 17);
             this.PaladinSpiritsWithin.TabIndex = 1;
@@ -9485,7 +9564,7 @@
             this.PaladinShieldSwipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinShieldSwipe.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.PaladinShieldSwipe.ForeColor = System.Drawing.Color.White;
-            this.PaladinShieldSwipe.Location = new System.Drawing.Point(6, 16);
+            this.PaladinShieldSwipe.Location = new System.Drawing.Point(6, 40);
             this.PaladinShieldSwipe.Name = "PaladinShieldSwipe";
             this.PaladinShieldSwipe.Size = new System.Drawing.Size(89, 17);
             this.PaladinShieldSwipe.TabIndex = 0;
@@ -9702,11 +9781,10 @@
             // 
             // PaladinLowBlow
             // 
-            this.PaladinLowBlow.AutoCheck = false;
             this.PaladinLowBlow.AutoSize = true;
             this.PaladinLowBlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PaladinLowBlow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.PaladinLowBlow.ForeColor = System.Drawing.Color.DimGray;
+            this.PaladinLowBlow.ForeColor = System.Drawing.Color.White;
             this.PaladinLowBlow.Location = new System.Drawing.Point(6, 39);
             this.PaladinLowBlow.Name = "PaladinLowBlow";
             this.PaladinLowBlow.Size = new System.Drawing.Size(73, 17);
@@ -9754,7 +9832,7 @@
             this.WarriorMiscGroup.Controls.Add(this.WarriorPotion);
             this.WarriorMiscGroup.Controls.Add(this.WarriorOpener);
             this.WarriorMiscGroup.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorMiscGroup.Location = new System.Drawing.Point(559, 6);
+            this.WarriorMiscGroup.Location = new System.Drawing.Point(344, 268);
             this.WarriorMiscGroup.Name = "WarriorMiscGroup";
             this.WarriorMiscGroup.Size = new System.Drawing.Size(94, 66);
             this.WarriorMiscGroup.TabIndex = 7;
@@ -10380,11 +10458,10 @@
             // 
             // WarriorLowBlow
             // 
-            this.WarriorLowBlow.AutoCheck = false;
             this.WarriorLowBlow.AutoSize = true;
             this.WarriorLowBlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WarriorLowBlow.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.WarriorLowBlow.ForeColor = System.Drawing.Color.DimGray;
+            this.WarriorLowBlow.ForeColor = System.Drawing.Color.White;
             this.WarriorLowBlow.Location = new System.Drawing.Point(6, 39);
             this.WarriorLowBlow.Name = "WarriorLowBlow";
             this.WarriorLowBlow.Size = new System.Drawing.Size(73, 17);
@@ -10392,6 +10469,7 @@
             this.WarriorLowBlow.TabStop = false;
             this.WarriorLowBlow.Text = "Low Blow";
             this.WarriorLowBlow.UseVisualStyleBackColor = true;
+            this.WarriorLowBlow.CheckedChanged += new System.EventHandler(this.WarriorLowBlow_CheckedChanged);
             // 
             // WarriorRampart
             // 
@@ -10408,20 +10486,20 @@
             this.WarriorRampart.UseVisualStyleBackColor = true;
             this.WarriorRampart.CheckedChanged += new System.EventHandler(this.WarriorRampart_CheckedChanged);
             // 
-            // DarkKnightOffTank
+            // PaladinTemperedWill
             // 
-            this.DarkKnightOffTank.AutoSize = true;
-            this.DarkKnightOffTank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DarkKnightOffTank.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.DarkKnightOffTank.ForeColor = System.Drawing.Color.White;
-            this.DarkKnightOffTank.Location = new System.Drawing.Point(6, 62);
-            this.DarkKnightOffTank.Name = "DarkKnightOffTank";
-            this.DarkKnightOffTank.Size = new System.Drawing.Size(117, 17);
-            this.DarkKnightOffTank.TabIndex = 2;
-            this.DarkKnightOffTank.TabStop = false;
-            this.DarkKnightOffTank.Text = "TBN on other tank";
-            this.DarkKnightOffTank.UseVisualStyleBackColor = true;
-            this.DarkKnightOffTank.CheckedChanged += new System.EventHandler(this.DarkKnightOffTank_CheckedChanged);
+            this.PaladinTemperedWill.AutoSize = true;
+            this.PaladinTemperedWill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaladinTemperedWill.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.PaladinTemperedWill.ForeColor = System.Drawing.Color.White;
+            this.PaladinTemperedWill.Location = new System.Drawing.Point(6, 154);
+            this.PaladinTemperedWill.Name = "PaladinTemperedWill";
+            this.PaladinTemperedWill.Size = new System.Drawing.Size(95, 17);
+            this.PaladinTemperedWill.TabIndex = 9;
+            this.PaladinTemperedWill.TabStop = false;
+            this.PaladinTemperedWill.Text = "Tempered Will";
+            this.PaladinTemperedWill.UseVisualStyleBackColor = true;
+            this.PaladinTemperedWill.CheckedChanged += new System.EventHandler(this.PaladinTemperedWill_CheckedChanged);
             // 
             // ShinraForm
             // 
@@ -10722,7 +10800,7 @@
         private Design.CustomGroup RedMageRoleGroup;
         private Design.CustomCheck RedMageDrain;
         private Design.CustomCheckDisabled RedMageBreak;
-        private Design.CustomCheckDisabled RedMageAddle;
+        private Design.CustomCheck RedMageAddle;
         private Design.CustomCheck RedMageSwiftcast;
         private Design.CustomCheck RedMageLucidDreaming;
         private Design.CustomCheckDisabled RedMageDiversion;
@@ -10798,7 +10876,7 @@
         private Design.CustomCheck PaladinAnticipation;
         private Design.CustomCheck PaladinConvalescence;
         private Design.CustomCheckDisabled PaladinProvoke;
-        private Design.CustomCheckDisabled PaladinLowBlow;
+        private Design.CustomCheck PaladinLowBlow;
         private Design.CustomCheck PaladinRampart;
         private Design.CustomCheck PaladinRequiescat;
         private Design.CustomCheck PaladinCircleOfScorn;
@@ -10891,7 +10969,7 @@
         private Design.CustomCheck WarriorAnticipation;
         private Design.CustomCheck WarriorConvalescence;
         private Design.CustomCheckDisabled WarriorProvoke;
-        private Design.CustomCheckDisabled WarriorLowBlow;
+        private Design.CustomCheck WarriorLowBlow;
         private Design.CustomCheck WarriorRampart;
         private Design.UserNumeric WarriorAwarenessPct;
         private Design.UserNumeric WarriorAnticipationPct;
@@ -10944,7 +11022,7 @@
         private Design.CustomCheck DarkKnightAnticipation;
         private Design.CustomCheck DarkKnightConvalescence;
         private Design.CustomCheckDisabled DarkKnightProvoke;
-        private Design.CustomCheckDisabled DarkKnightLowBlow;
+        private Design.CustomCheck DarkKnightLowBlow;
         private Design.CustomCheck DarkKnightRampart;
         private Design.CustomGroup DarkKnightAuraGroup;
         private Design.CustomCheck DarkKnightDarkside;
@@ -10967,6 +11045,7 @@
         private Design.CustomCheck DarkKnightSaltedEarth;
         private Design.CustomCheck DarkKnightDelirium;
         private Design.CustomCheck DarkKnightCarveArts;
+        private Design.CustomCheck DarkKnightUnmend;
         private Design.CustomCheck DarkKnightAbyssalArts;
         private Design.CustomGroup DarkKnightDamageGroup;
         private Design.CustomCheck DarkKnightBloodspiller;
@@ -11063,7 +11142,7 @@
         private Design.CustomCheckDisabled BlackMageDiversion;
         private Design.CustomCheck BlackMageDrain;
         private Design.CustomCheckDisabled BlackMageBreak;
-        private Design.CustomCheckDisabled BlackMageAddle;
+        private Design.CustomCheck BlackMageAddle;
         private Design.CustomGroup BlackMageBuffGroup;
         private Design.CustomCheck BlackMageEnochian;
         private Design.CustomCheck BlackMageSharpcast;
@@ -11338,5 +11417,9 @@
         private Design.CustomCheck DisableDebug;
         private Design.CustomCheck BardDotSnapshot;
         private Design.CustomCheck DarkKnightOffTank;
+        private Design.CustomCheck PaladinShieldBash;
+        private Design.UserNumeric PaladinDivineVeilPct;
+        private Design.CustomCheck PaladinDivineVeil;
+        private Design.CustomCheck PaladinTemperedWill;
     }
 }

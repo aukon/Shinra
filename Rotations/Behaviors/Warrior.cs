@@ -9,42 +9,47 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await Decimate()) return true;
-                if (await SteelCyclone()) return true;
-                if (await FellCleave()) return true;
-                if (await InnerBeast()) return true;
-                if (await Overpower()) return true;
-                if (await StormsEye()) return true;
-                if (await StormsPath()) return true;
-                if (await Maim()) return true;
-                if (await ButchersBlock()) return true;
-                if (await SkullSunder()) return true;
-                return await HeavySwing();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await FellCleave()) return true;
-                if (await InnerBeast()) return true;
-                if (await StormsEye()) return true;
-                if (await StormsPath()) return true;
-                if (await Maim()) return true;
-                if (await ButchersBlock()) return true;
-                if (await SkullSunder()) return true;
-                return await HeavySwing();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await Decimate()) return true;
-                if (await SteelCyclone()) return true;
-                if (await Overpower()) return true;
-                if (await StormsEye()) return true;
-                if (await StormsPath()) return true;
-                if (await Maim()) return true;
-                return await HeavySwing();
+                case Modes.Smart:
+                {
+                    if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await Decimate()) return true;
+                    if (await SteelCyclone()) return true;
+                    if (await FellCleave()) return true;
+                    if (await InnerBeast()) return true;
+                    if (await Overpower()) return true;
+                    if (await StormsEye()) return true;
+                    if (await StormsPath()) return true;
+                    if (await Maim()) return true;
+                    if (await ButchersBlock()) return true;
+                    if (await SkullSunder()) return true;
+                    return await HeavySwing();
+                }
+                case Modes.Single:
+                {
+                    if (Shinra.Settings.WarriorOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await FellCleave()) return true;
+                    if (await InnerBeast()) return true;
+                    if (await StormsEye()) return true;
+                    if (await StormsPath()) return true;
+                    if (await Maim()) return true;
+                    if (await ButchersBlock()) return true;
+                    if (await SkullSunder()) return true;
+                    return await HeavySwing();
+                }
+                case Modes.Multi:
+                {
+                    if (await Decimate()) return true;
+                    if (await SteelCyclone()) return true;
+                    if (await Overpower()) return true;
+                    if (await StormsEye()) return true;
+                    if (await StormsPath()) return true;
+                    if (await Maim()) return true;
+                    return await HeavySwing();
+                }
             }
             return false;
         }

@@ -9,54 +9,57 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (Shinra.Settings.NinjaOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await TenChiJinBuff()) return true;
-                if (await Huton()) return true;
-                if (await Doton()) return true;
-                if (await Katon()) return true;
-                if (await Suiton()) return true;
-                if (await FumaShuriken()) return true;
-                if (await DeathBlossom()) return true;
-                if (await Duality()) return true;
-                if (await DualityActive()) return true;
-                if (await ShadowFang()) return true;
-                if (await ArmorCrush()) return true;
-                if (await AeolianEdge()) return true;
-                if (await GustSlash()) return true;
-                return await SpinningEdge();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (Shinra.Settings.NinjaOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await TenChiJinBuff()) return true;
-                if (await Huton()) return true;
-                if (await Suiton()) return true;
-                if (await FumaShuriken()) return true;
-                if (await Duality()) return true;
-                if (await DualityActive()) return true;
-                if (await ShadowFang()) return true;
-                if (await ArmorCrush()) return true;
-                if (await AeolianEdge()) return true;
-                if (await GustSlash()) return true;
-                return await SpinningEdge();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await TenChiJinBuff()) return true;
-                if (await Huton()) return true;
-                if (await Doton()) return true;
-                if (await Katon()) return true;
-                if (await FumaShuriken()) return true;
-                if (await DeathBlossom()) return true;
-                if (await Duality()) return true;
-                if (await DualityActive()) return true;
-                if (await ShadowFang()) return true;
-                if (await ArmorCrush()) return true;
-                if (await AeolianEdge()) return true;
-                if (await GustSlash()) return true;
-                return await SpinningEdge();
+                case Modes.Smart:
+                {
+                    if (Shinra.Settings.NinjaOpener) { if (await Helpers.ExecuteOpener()) return true; }   
+                    if (await TenChiJinBuff()) return true;
+                    if (await Huton()) return true;
+                    if (await Doton()) return true;
+                    if (await Katon()) return true;
+                    if (await Suiton()) return true;
+                    if (await FumaShuriken()) return true;
+                    if (await DeathBlossom()) return true;
+                    if (await Duality()) return true;
+                    if (await DualityActive()) return true;
+                    if (await ShadowFang()) return true;
+                    if (await ArmorCrush()) return true;
+                    if (await AeolianEdge()) return true;
+                    if (await GustSlash()) return true;
+                    return await SpinningEdge();
+                }
+                case Modes.Single:
+                {
+                    if (Shinra.Settings.NinjaOpener) { if (await Helpers.ExecuteOpener()) return true; }   
+                    if (await TenChiJinBuff()) return true;
+                    if (await Huton()) return true;
+                    if (await Suiton()) return true;
+                    if (await FumaShuriken()) return true;
+                    if (await Duality()) return true;
+                    if (await DualityActive()) return true;
+                    if (await ShadowFang()) return true;
+                    if (await ArmorCrush()) return true;
+                    if (await AeolianEdge()) return true;
+                    if (await GustSlash()) return true;
+                    return await SpinningEdge();
+                }
+                case Modes.Multi:
+                {
+                    if (await TenChiJinBuff()) return true;
+                    if (await Huton()) return true;
+                    if (await Doton()) return true;
+                    if (await Katon()) return true;
+                    if (await FumaShuriken()) return true;
+                    if (await DeathBlossom()) return true;
+                    if (await Duality()) return true;
+                    if (await DualityActive()) return true;
+                    if (await ShadowFang()) return true;
+                    if (await ArmorCrush()) return true;
+                    if (await AeolianEdge()) return true;
+                    if (await GustSlash()) return true;
+                    return await SpinningEdge();
+                }
             }
             return false;
         }

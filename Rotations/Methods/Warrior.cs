@@ -282,6 +282,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> LowBlow()
+        {
+            if (Shinra.Settings.WarriorLowBlow && Core.Player.CurrentTarget.IsInterruptible() && Core.Player.CurrentTarget.IsInterruptibleSpell())
+            {
+                return await MySpells.Role.LowBlow.Cast();
+            }
+            return false;
+        }
+        
         private async Task<bool> Convalescence()
         {
             if (Shinra.Settings.WarriorConvalescence && Core.Player.CurrentHealthPercent < Shinra.Settings.WarriorConvalescencePct)

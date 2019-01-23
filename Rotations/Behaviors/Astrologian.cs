@@ -9,32 +9,35 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (await StellarDetonation()) return true;
-                if (await EarthlyStar()) return true;
-                if (await Gravity()) return true;
-                if (await CombustII()) return true;
-                if (await Combust()) return true;
-                if (await MaleficIII()) return true;
-                if (await MaleficII()) return true;
-                return await Malefic();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (await CombustII()) return true;
-                if (await Combust()) return true;
-                if (await MaleficIII()) return true;
-                if (await MaleficII()) return true;
-                return await Malefic();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await StellarDetonation()) return true;
-                if (await EarthlyStar()) return true;
-                if (await Gravity()) return true;
-                if (await CombustII()) return true;
-                return await Combust();
+                case Modes.Smart:
+                {
+                    if (await StellarDetonation()) return true;
+                    if (await EarthlyStar()) return true;
+                    if (await Gravity()) return true;
+                    if (await CombustII()) return true;
+                    if (await Combust()) return true;
+                    if (await MaleficIII()) return true;
+                    if (await MaleficII()) return true;
+                    return await Malefic();
+                }
+                case Modes.Single:
+                {
+                    if (await CombustII()) return true;
+                    if (await Combust()) return true;
+                    if (await MaleficIII()) return true;
+                    if (await MaleficII()) return true;
+                    return await Malefic();
+                }
+                case Modes.Multi:
+                {
+                    if (await StellarDetonation()) return true;
+                    if (await EarthlyStar()) return true;
+                    if (await Gravity()) return true;
+                    if (await CombustII()) return true;
+                    return await Combust();
+                }
             }
             return false;
         }

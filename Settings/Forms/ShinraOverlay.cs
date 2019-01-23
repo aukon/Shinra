@@ -18,14 +18,14 @@ namespace ShinraCo.Settings.Forms
         #region Draggable
 
         [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
+        private static extern bool ReleaseCapture();
 
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
 
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        public const int WM_EXITSIZEMOVE = 0x0232;
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+        private const int WM_EXITSIZEMOVE = 0x0232;
 
         private void ShinraOverlay_MouseDown(object sender, MouseEventArgs e)
         {
@@ -58,7 +58,7 @@ namespace ShinraCo.Settings.Forms
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
 
         #endregion
 

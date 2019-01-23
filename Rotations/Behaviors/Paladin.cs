@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System.Runtime.Remoting.Messaging;
+using System.Threading.Tasks;
 using ShinraCo.Settings;
 
 namespace ShinraCo.Rotations
@@ -9,34 +10,41 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await TotalEclipse()) return true;
-                if (await Flash()) return true;
-                if (await HolySpirit()) return true;
-                if (await GoringBlade()) return true;
-                if (await RoyalAuthority()) return true;
-                if (await RiotBlade()) return true;
-                if (await RageOfHalone()) return true;
-                if (await SavageBlade()) return true;
-                return await FastBlade();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await HolySpirit()) return true;
-                if (await GoringBlade()) return true;
-                if (await RoyalAuthority()) return true;
-                if (await RiotBlade()) return true;
-                if (await RageOfHalone()) return true;
-                if (await SavageBlade()) return true;
-                return await FastBlade();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await TotalEclipse()) return true;
-                return await Flash();
+                case Modes.Smart:
+                {
+                    if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await ShieldBash()) return true;
+                    if (await TotalEclipse()) return true;
+                    if (await Flash()) return true;
+                    if (await HolySpirit()) return true;
+                    if (await GoringBlade()) return true;
+                    if (await RoyalAuthority()) return true;
+                    if (await RiotBlade()) return true;
+                    if (await RageOfHalone()) return true;
+                    if (await SavageBlade()) return true;
+                    return await FastBlade();
+                }
+                case Modes.Single:
+                {
+                    if (Shinra.Settings.PaladinOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await ShieldBash()) return true;
+                    if (await HolySpirit()) return true;
+                    if (await GoringBlade()) return true;
+                    if (await RoyalAuthority()) return true;
+                    if (await RiotBlade()) return true;
+                    if (await RageOfHalone()) return true;
+                    if (await SavageBlade()) return true;
+                    return await FastBlade();
+                }
+                case Modes.Multi:
+                {
+                    if (await TotalEclipse()) return true;
+                    return await Flash();
+                }
             }
             return false;
         }
@@ -56,6 +64,8 @@ namespace ShinraCo.Rotations
             if (await Sentinel()) return true;
             if (await Bulwark()) return true;
             if (await Rampart()) return true;
+            if (await DivineVeil()) return true;
+            if (await TemperedWill()) return true;
             if (await Convalescence()) return true;
             if (await Anticipation()) return true;
             if (await Awareness()) return true;

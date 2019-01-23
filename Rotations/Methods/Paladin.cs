@@ -115,6 +115,15 @@ namespace ShinraCo.Rotations
 
         #region Cooldown
 
+        private async Task<bool> ShieldBash()
+        {
+            if (Shinra.Settings.PaladinShieldBash && Core.Player.CurrentTarget.IsInterruptible() && Core.Player.CurrentTarget.IsInterruptibleSpell())
+            {
+                return await MySpells.ShieldBash.Cast();
+            }
+            return false;
+        }
+
         private async Task<bool> ShieldSwipe()
         {
             if (Shinra.Settings.PaladinShieldSwipe)
@@ -165,6 +174,24 @@ namespace ShinraCo.Rotations
 
         #region Buff
 
+        private async Task<bool> DivineVeil()
+        {
+            if (Shinra.Settings.PaladinDivineVeil && Core.Player.CurrentHealthPercent < Shinra.Settings.PaladinDivineVeilPct)
+            {
+                return await MySpells.DivineVeil.Cast();
+            }
+            return false;
+        }
+        
+        private async Task<bool> TemperedWill()
+        {
+            if (Shinra.Settings.PaladinTemperedWill && Core.Player.HasDispellable())
+            {
+                return await MySpells.TemperedWill.Cast();
+            }
+            return false;
+        }
+        
         private async Task<bool> FightOrFlight()
         {
             if (!Shinra.Settings.PaladinFightOrFlight || Shinra.LastSpell.Name == MySpells.Requiescat.Name ||
@@ -287,6 +314,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> LowBlow()
+        {
+            if (Shinra.Settings.PaladinLowBlow && Core.Player.CurrentTarget.IsInterruptible() && Core.Player.CurrentTarget.IsInterruptibleSpell())
+            {
+                return await MySpells.Role.LowBlow.Cast();
+            }
+            return false;
+        }
+        
         private async Task<bool> Convalescence()
         {
             if (Shinra.Settings.PaladinConvalescence && Core.Player.CurrentHealthPercent < Shinra.Settings.PaladinConvalescencePct)

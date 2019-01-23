@@ -9,34 +9,37 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await Rockbreaker()) return true;
-                if (await Demolish()) return true;
-                if (await SnapPunch()) return true;
-                if (await DragonKick()) return true;
-                if (await TwinSnakes()) return true;
-                if (await TrueStrike()) return true;
-                return await Bootshine();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await Demolish()) return true;
-                if (await SnapPunch()) return true;
-                if (await DragonKick()) return true;
-                if (await TwinSnakes()) return true;
-                if (await TrueStrike()) return true;
-                return await Bootshine();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await Rockbreaker()) return true;
-                if (await TwinSnakes()) return true;
-                if (await TrueStrike()) return true;
-                if (await DragonKick()) return true;
-                return await Bootshine();
+                case Modes.Smart:
+                {
+                    if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await Rockbreaker()) return true;
+                    if (await Demolish()) return true;
+                    if (await SnapPunch()) return true;
+                    if (await DragonKick()) return true;
+                    if (await TwinSnakes()) return true;
+                    if (await TrueStrike()) return true;
+                    return await Bootshine();
+                }
+                case Modes.Single:
+                {
+                    if (Shinra.Settings.MonkOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await Demolish()) return true;
+                    if (await SnapPunch()) return true;
+                    if (await DragonKick()) return true;
+                    if (await TwinSnakes()) return true;
+                    if (await TrueStrike()) return true;
+                    return await Bootshine();
+                }
+                case Modes.Multi:
+                {
+                    if (await Rockbreaker()) return true;
+                    if (await TwinSnakes()) return true;
+                    if (await TrueStrike()) return true;
+                    if (await DragonKick()) return true;
+                    return await Bootshine();
+                }
             }
             return false;
         }

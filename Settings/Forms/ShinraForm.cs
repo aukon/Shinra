@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -261,6 +261,7 @@ namespace ShinraCo.Settings.Forms
 
             #region Role
 
+            BlackMageAddle.Checked = Shinra.Settings.BlackMageAddle;
             BlackMageDrain.Checked = Shinra.Settings.BlackMageDrain;
             BlackMageLucidDreaming.Checked = Shinra.Settings.BlackMageLucidDreaming;
             BlackMageSwiftcast.Checked = Shinra.Settings.BlackMageSwiftcast;
@@ -308,6 +309,7 @@ namespace ShinraCo.Settings.Forms
             #region Role
 
             DarkKnightRampart.Checked = Shinra.Settings.DarkKnightRampart;
+            DarkKnightLowBlow.Checked = Shinra.Settings.DarkKnightLowBlow;
             DarkKnightConvalescence.Checked = Shinra.Settings.DarkKnightConvalescence;
             DarkKnightAnticipation.Checked = Shinra.Settings.DarkKnightAnticipation;
             DarkKnightReprisal.Checked = Shinra.Settings.DarkKnightReprisal;
@@ -625,6 +627,7 @@ namespace ShinraCo.Settings.Forms
             #region Role
 
             PaladinRampart.Checked = Shinra.Settings.PaladinRampart;
+            PaladinLowBlow.Checked = Shinra.Settings.PaladinLowBlow;
             PaladinConvalescence.Checked = Shinra.Settings.PaladinConvalescence;
             PaladinAnticipation.Checked = Shinra.Settings.PaladinAnticipation;
             PaladinReprisal.Checked = Shinra.Settings.PaladinReprisal;
@@ -699,6 +702,7 @@ namespace ShinraCo.Settings.Forms
 
             #region Role
 
+            RedMageAddle.Checked = Shinra.Settings.RedMageAddle;
             RedMageDrain.Checked = Shinra.Settings.RedMageDrain;
             RedMageLucidDreaming.Checked = Shinra.Settings.RedMageLucidDreaming;
             RedMageSwiftcast.Checked = Shinra.Settings.RedMageSwiftcast;
@@ -957,6 +961,7 @@ namespace ShinraCo.Settings.Forms
             #region Role
 
             WarriorRampart.Checked = Shinra.Settings.WarriorRampart;
+            WarriorLowBlow.Checked = Shinra.Settings.WarriorLowBlow;
             WarriorConvalescence.Checked = Shinra.Settings.WarriorConvalescence;
             WarriorAnticipation.Checked = Shinra.Settings.WarriorAnticipation;
             WarriorReprisal.Checked = Shinra.Settings.WarriorReprisal;
@@ -1697,6 +1702,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Role
 		
+        private void BlackMageAddle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.BlackMageAddle = BlackMageAddle.Checked;
+        }
+        
         private void BlackMageManaShift_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.BlackMageManaShift = BlackMageManaShift.Checked;
@@ -1806,6 +1816,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.DarkKnightRampart = DarkKnightRampart.Checked;
         }
 
+        private void DarkKnightLowBlow_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightLowBlow = DarkKnightLowBlow.Checked;
+        }
+
         private void DarkKnightConvalescence_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.DarkKnightConvalescence = DarkKnightConvalescence.Checked;
@@ -1885,6 +1900,15 @@ namespace ShinraCo.Settings.Forms
 
         #endregion
 
+        #region Pull
+        
+        private void DarkKnightUnmend_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.DarkKnightUnmend = DarkKnightUnmend.Checked;
+        }
+        
+        #endregion
+        
         #region Buff
 
         private void DarkKnightBloodWeapon_CheckedChanged(object sender, EventArgs e)
@@ -2668,6 +2692,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.PaladinRampart = PaladinRampart.Checked;
         }
 
+        private void PaladinLowBlow_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinLowBlow = PaladinLowBlow.Checked;
+        }
+        
         private void PaladinConvalescence_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.PaladinConvalescence = PaladinConvalescence.Checked;
@@ -2735,6 +2764,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Cooldown
 
+        private void PaladinShieldBash_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinShieldBash = PaladinShieldBash.Checked;
+        }
+        
         private void PaladinShieldSwipe_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.PaladinShieldSwipe = PaladinShieldSwipe.Checked;
@@ -2759,6 +2793,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Buff
 
+        private void PaladinDivineVeil_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinDivineVeil = PaladinDivineVeil.Checked;
+        }
+        
         private void PaladinFightOrFlight_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.PaladinFightOrFlight = PaladinFightOrFlight.Checked;
@@ -2784,6 +2823,16 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.PaladinSheltron = PaladinSheltron.Checked;
         }
 
+        private void PaladinTemperedWill_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinTemperedWill = PaladinTemperedWill.Checked;
+        }
+        
+        private void PaladinDivineVeilPct_ValueChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.PaladinDivineVeilPct = Convert.ToInt32(PaladinDivineVeilPct.Value);
+        }
+        
         private void PaladinBulwarkPct_ValueChanged(object sender, EventArgs e)
         {
             Shinra.Settings.PaladinBulwarkPct = Convert.ToInt32(PaladinBulwarkPct.Value);
@@ -2846,6 +2895,11 @@ namespace ShinraCo.Settings.Forms
 
         #region Role
 
+        private void RedMageAddle_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.RedMageAddle = RedMageAddle.Checked;
+        }
+        
         private void RedMageManaShift_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.RedMageManaShift = RedMageManaShift.Checked;
@@ -3496,6 +3550,11 @@ namespace ShinraCo.Settings.Forms
             Shinra.Settings.WarriorRampart = WarriorRampart.Checked;
         }
 
+        private void WarriorLowBlow_CheckedChanged(object sender, EventArgs e)
+        {
+            Shinra.Settings.WarriorLowBlow = WarriorLowBlow.Checked;
+        }
+        
         private void WarriorConvalescence_CheckedChanged(object sender, EventArgs e)
         {
             Shinra.Settings.WarriorConvalescence = WarriorConvalescence.Checked;

@@ -715,20 +715,20 @@ namespace ShinraCo.Spells
                     }
                     break;
                 default:
-                    if (SpellType == SpellType.PVP)
+                    switch (SpellType)
                     {
-                        if (!await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(Combo, target)))
-                        {
+                        case SpellType.PVP when !await Coroutine.Wait(1000, () => ActionManager.DoPvPCombo(Combo, target)):
                             return false;
-                        }
-                        Logging.Write(Colors.Orange, $@"DoAction Combo {Combo} 0x{target.ObjectId:X}");
-                    }
-                    else
-                    {
-                        if (!await Coroutine.Wait(1000, () => ActionManager.DoAction(ID, target)))
-                        {
-                            return false;
-                        }
+                        case SpellType.PVP:
+                            Logging.Write(Colors.Orange, $@"DoAction Combo {Combo} 0x{target.ObjectId:X}");
+                            break;
+                        default:
+                            if (!await Coroutine.Wait(1000, () => ActionManager.DoAction(ID, target)))
+                            {
+                                return false;
+                            }
+
+                            break;
                     }
                     break;
             }
@@ -763,13 +763,12 @@ namespace ShinraCo.Spells
                 RecentSpell.Add(key, val);
             }
 
-            if (SpellType == SpellType.Damage || SpellType == SpellType.DoT)
+            if (SpellType != SpellType.Damage && SpellType != SpellType.DoT) return true;
             {
-                if (!Helpers.OpenerFinished && !RecentSpell.ContainsKey("Opener") && await CastComplete(this, true))
-                {
-                    var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
-                    RecentSpell.Add("Opener", val);
-                }
+                if (Helpers.OpenerFinished || RecentSpell.ContainsKey("Opener") ||
+                    !await CastComplete(this, true)) return true;
+                var val = DateTime.UtcNow + DataManager.GetSpellData(ID).AdjustedCastTime + TimeSpan.FromSeconds(3);
+                RecentSpell.Add("Opener", val);
             }
 
             #endregion
@@ -781,23 +780,19 @@ namespace ShinraCo.Spells
 
         private static async Task<bool> CastComplete(Spell spell, bool opener = false)
         {
-            if (spell.SpellType == SpellType.DoT || opener)
+            if (spell.SpellType != SpellType.DoT && !opener) return true;
+            var castTime = DataManager.GetSpellData(spell.ID).AdjustedCastTime;
+            if (!(castTime.TotalMilliseconds > 0)) return true;
+            var timer = new Stopwatch();
+            timer.Start();
+            await Coroutine.Wait(castTime, () => Core.Player.IsCasting);
+            while (timer.ElapsedMilliseconds < castTime.TotalMilliseconds - 100)
             {
-                var castTime = DataManager.GetSpellData(spell.ID).AdjustedCastTime;
-                if (castTime.TotalMilliseconds > 0)
+                if (!Core.Player.IsCasting)
                 {
-                    var timer = new Stopwatch();
-                    timer.Start();
-                    await Coroutine.Wait(castTime, () => Core.Player.IsCasting);
-                    while (timer.ElapsedMilliseconds < castTime.TotalMilliseconds - 100)
-                    {
-                        if (!Core.Player.IsCasting)
-                        {
-                            return false;
-                        }
-                        await Coroutine.Yield();
-                    }
+                    return false;
                 }
+                await Coroutine.Yield();
             }
             return true;
         }

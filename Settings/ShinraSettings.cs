@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
 using System.IO;
@@ -495,6 +495,9 @@ namespace ShinraCo.Settings
         #region Role
 
         [Setting, DefaultValue(true)]
+        public bool BlackMageAddle { get; set; }
+        
+        [Setting, DefaultValue(true)]
         public bool BlackMageDrain { get; set; }
 		
 		[Setting, DefaultValue(true)]
@@ -570,6 +573,9 @@ namespace ShinraCo.Settings
         public bool DarkKnightRampart { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool DarkKnightLowBlow { get; set; }
+
+        [Setting, DefaultValue(true)]
         public bool DarkKnightConvalescence { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -620,6 +626,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool DarkKnightCarveAndSpit { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool DarkKnightUnmend { get; set; } 
+        
         #endregion
 
         #region Buff
@@ -1144,6 +1153,9 @@ namespace ShinraCo.Settings
         public bool PaladinRampart { get; set; }
 
         [Setting, DefaultValue(true)]
+        public bool PaladinLowBlow { get; set; }
+        
+        [Setting, DefaultValue(true)]
         public bool PaladinConvalescence { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -1189,6 +1201,9 @@ namespace ShinraCo.Settings
         #region Cooldown
 
         [Setting, DefaultValue(true)]
+        public bool PaladinShieldBash { get; set; }
+        
+        [Setting, DefaultValue(true)]
         public bool PaladinShieldSwipe { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -1205,6 +1220,12 @@ namespace ShinraCo.Settings
         #region Buff
 
         [Setting, DefaultValue(true)]
+        public bool PaladinDivineVeil { get; set; }
+        
+        [Setting, DefaultValue(true)]
+        public bool PaladinTemperedWill { get; set; }
+        
+        [Setting, DefaultValue(true)]
         public bool PaladinFightOrFlight { get; set; }
 
         [Setting, DefaultValue(true)]
@@ -1219,6 +1240,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool PaladinSheltron { get; set; }
 
+        [Setting, DefaultValue(60)]
+        public int PaladinDivineVeilPct { get; set; }
+        
         [Setting, DefaultValue(60)]
         public int PaladinSentinelPct { get; set; }
 
@@ -1263,6 +1287,9 @@ namespace ShinraCo.Settings
 
         #region Role
 
+        [Setting, DefaultValue(true)]
+        public bool RedMageAddle { get; set; }
+        
         [Setting, DefaultValue(true)]
         public bool RedMageDrain { get; set; }
 		
@@ -1698,6 +1725,9 @@ namespace ShinraCo.Settings
         [Setting, DefaultValue(true)]
         public bool WarriorRampart { get; set; }
 
+        [Setting, DefaultValue(true)]
+        public bool WarriorLowBlow { get; set; }
+        
         [Setting, DefaultValue(true)]
         public bool WarriorConvalescence { get; set; }
 

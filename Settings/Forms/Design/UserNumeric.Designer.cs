@@ -50,7 +50,7 @@
             this.button1.TabStop = false;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -65,7 +65,7 @@
             this.button2.TabStop = false;
             this.button2.Text = "-";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // customNumeric1
             // 
@@ -91,7 +91,7 @@
             0,
             0,
             0});
-            this.customNumeric1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customNumeric1_KeyPress);
+            this.customNumeric1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomNumeric1_KeyPress);
             // 
             // label1
             // 

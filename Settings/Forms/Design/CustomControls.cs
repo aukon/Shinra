@@ -100,11 +100,9 @@ namespace ShinraCo.Settings.Forms.Design
 
     public class HotkeyBox : TextBox
     {
-        private Keys _hotkey;
-
         [Browsable(false)]
         [DefaultValue(Keys.None)]
-        public Keys Hotkey { get { return _hotkey; } set { _hotkey = value; } }
+        public Keys Hotkey { get; private set; }
 
         public HotkeyBox()
         {
@@ -153,13 +151,11 @@ namespace ShinraCo.Settings.Forms.Design
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
-            if (m.Msg == WmPaint)
+            if (m.Msg != WmPaint) return;
+            var dc = GetWindowDC(Handle);
+            var g = Graphics.FromHdc(dc);
             {
-                var dc = GetWindowDC(Handle);
-                var g = Graphics.FromHdc(dc);
-                {
-                    g.DrawRectangle(Pens.White, 0, 0, Width - 1, Height - 1);
-                }
+                g.DrawRectangle(Pens.White, 0, 0, Width - 1, Height - 1);
             }
         }
     }
@@ -185,7 +181,7 @@ namespace ShinraCo.Settings.Forms.Design
         private bool _showSymbol;
         public bool ShowSymbol
         {
-            get { return _showSymbol; }
+            get => _showSymbol;
             set
             {
                 if (_showSymbol == value) { return; }
@@ -209,11 +205,9 @@ namespace ShinraCo.Settings.Forms.Design
         protected override void UpdateEditText()
         {
             base.UpdateEditText();
-            if (ShowSymbol)
-            {
-                ChangingText = true;
-                Text += "%";
-            }
+            if (!ShowSymbol) return;
+            ChangingText = true;
+            Text += @"%";
         }
 
         [DllImport("user32")]
@@ -223,14 +217,12 @@ namespace ShinraCo.Settings.Forms.Design
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
-            if (m.Msg == WmPaint)
+            if (m.Msg != WmPaint) return;
+            var dc = GetWindowDC(Handle);
+            var g = Graphics.FromHdc(dc);
             {
-                var dc = GetWindowDC(Handle);
-                var g = Graphics.FromHdc(dc);
-                {
-                    g.Clear(BackColor);
-                    g.DrawRectangle(Pens.White, 0, 0, Width - 1, Height - 1);
-                }
+                g.Clear(BackColor);
+                g.DrawRectangle(Pens.White, 0, 0, Width - 1, Height - 1);
             }
         }
     }
@@ -246,8 +238,7 @@ namespace ShinraCo.Settings.Forms.Design
 
         public CustomTab()
         {
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer,
-                     true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.ResizeRedraw | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             SizeMode = TabSizeMode.Fixed;
             ItemSize = new Size(35, 100);
             Font = new Font("Segoe UI", 8.25F);
@@ -268,7 +259,7 @@ namespace ShinraCo.Settings.Forms.Design
             {
                 SelectedTab.BackColor = BackgroundColor;
             }
-            catch (Exception) {}
+            catch (Exception) { /* ignored */ }
             g.Clear(BackgroundColor);
             g.DrawLine(new Pen(Color.GreenYellow), new Point(ItemSize.Height + 3, 4), new Point(ItemSize.Height + 3, 999));
             for (var i = 0; i < TabCount; i++)

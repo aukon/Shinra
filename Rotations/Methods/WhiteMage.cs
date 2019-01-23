@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using Buddy.Coroutines;
@@ -133,11 +133,7 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> UpdateHealing()
         {
-            if (Shinra.Settings.WhiteMagePartyHeal && !await Helpers.UpdateHealManager())
-            {
-                return true;
-            }
-            return false;
+            return Shinra.Settings.WhiteMagePartyHeal && !await Helpers.UpdateHealManager();
         }
 
         private async Task<bool> StopCasting()
@@ -283,7 +279,8 @@ namespace ShinraCo.Rotations
 
         private async Task<bool> Assize()
         {
-            if (Shinra.Settings.WhiteMageAssize && Shinra.Settings.WhiteMagePartyHeal && UseAoEHeals && Core.Player.CurrentManaPercent < 85)
+            if (Shinra.Settings.WhiteMageAssize && Shinra.Settings.WhiteMagePartyHeal && UseAoEHeals && 
+                Core.Player.CurrentManaPercent < 85)
             {
                 var count = Helpers.FriendsNearPlayer(Shinra.Settings.WhiteMageAssizePct);
 

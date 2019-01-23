@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using ff14bot;
 using ff14bot.Managers;
@@ -280,6 +280,16 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Addle()
+        {
+            if (Shinra.Settings.RedMageAddle && ActionManager.CanCast(MySpells.Role.Addle.Name, Core.Player.CurrentTarget))
+            {
+                return await MySpells.Role.Addle.Cast();
+            }
+            return false;
+        }
+
+		
         private async Task<bool> Drain()
         {
             if (Shinra.Settings.RedMageDrain && Core.Player.CurrentHealthPercent < Shinra.Settings.RedMageDrainPct)

@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using ShinraCo.Settings;
 
 namespace ShinraCo.Rotations
@@ -9,31 +9,34 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (await AeroIII()) return true;
-                if (await Holy()) return true;
-                if (await AeroII()) return true;
-                if (await Aero()) return true;
-                if (await StoneIV()) return true;
-                if (await StoneIII()) return true;
-                if (await StoneII()) return true;
-                return await Stone();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (await AeroIII()) return true;
-                if (await AeroII()) return true;
-                if (await Aero()) return true;
-                if (await StoneIV()) return true;
-                if (await StoneIII()) return true;
-                if (await StoneII()) return true;
-                return await Stone();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await AeroIII()) return true;
-                return await Holy();
+                case Modes.Smart:
+                {
+                    if (await AeroIII()) return true;
+                    if (await Holy()) return true;
+                    if (await AeroII()) return true;
+                    if (await Aero()) return true;
+                    if (await StoneIV()) return true;
+                    if (await StoneIII()) return true;
+                    if (await StoneII()) return true;
+                    return await Stone();
+                }
+                case Modes.Single:
+                {
+                    if (await AeroIII()) return true;
+                    if (await AeroII()) return true;
+                    if (await Aero()) return true;
+                    if (await StoneIV()) return true;
+                    if (await StoneIII()) return true;
+                    if (await StoneII()) return true;
+                    return await Stone();
+                }
+                case Modes.Multi:
+                {
+                    if (await AeroIII()) return true;
+                    return await Holy();
+                }
             }
             return false;
         }

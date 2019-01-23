@@ -10,7 +10,7 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
-        public class PotionIds
+        private class PotionIds
         {
             public static readonly HashSet<uint> Str = new HashSet<uint>
             {
@@ -41,14 +41,11 @@ namespace ShinraCo
             };
         }
 
-        public static async Task<bool> UsePotion(HashSet<uint> potionType)
+        private static async Task<bool> UsePotion(ICollection<uint> potionType)
         {
             var item = InventoryManager.FilledSlots.FirstOrDefault(s => potionType.Contains(s.RawItemId));
 
-            if (item == null || !item.CanUse())
-            {
-                return false;
-            }
+            if (item == null || !item.CanUse()) return false;
 
             item.UseItem();
             await Coroutine.Wait(1000, () => !item.CanUse());

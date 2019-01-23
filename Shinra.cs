@@ -26,7 +26,7 @@ namespace ShinraCo
         public sealed override bool WantButton => true;
         public sealed override CapabilityFlags SupportedCapabilities => CapabilityFlags.All;
 
-        private static DateTime runTime;
+        private static DateTime _runTime;
 
         public sealed override void Initialize()
         {
@@ -38,8 +38,8 @@ namespace ShinraCo
 
         public sealed override void Pulse()
         {
-            if (DateTime.Now < runTime) return;
-            runTime = DateTime.Now.AddSeconds(1);
+            if (DateTime.Now < _runTime) return;
+            _runTime = DateTime.Now.AddSeconds(1);
             var _class = CurrentClass;
             Helpers.ResetOpener();
         }
@@ -56,15 +56,14 @@ namespace ShinraCo
 
         private Form _configForm;
 
-        public static ShinraSettings Settings = ShinraSettings.Instance;
+        public static readonly ShinraSettings Settings = ShinraSettings.Instance;
         public static readonly ShinraOverlay Overlay = new ShinraOverlay();
 
         public sealed override void OnButtonPress()
         {
             if (_configForm == null || _configForm.IsDisposed || _configForm.Disposing)
-            {
                 _configForm = new ShinraForm();
-            }
+
             _configForm.ShowDialog();
         }
 
@@ -186,7 +185,7 @@ namespace ShinraCo
                 case ClassJobType.WhiteMage:
                     return new WhiteMage();
                 default:
-                    //Logging.Write(Colors.OrangeRed, $@"[Shinra] {classJob} is not supported.");
+                    Logging.Write(Colors.OrangeRed, $@"[Shinra] {classJob} is not supported.");
                     return new Default();
             }
         }
@@ -228,7 +227,7 @@ namespace ShinraCo
 
         #region Rest
 
-        public async Task<bool> Rest()
+        private static async Task<bool> Rest()
         {
             if (!BotManager.Current.IsAutonomous || WorldManager.InSanctuary || Core.Player.HasAura("Sprint") ||
                 (!Settings.RestHealth || Core.Player.CurrentHealthPercent > Settings.RestHealthPct) &&
@@ -236,10 +235,8 @@ namespace ShinraCo
             {
                 return false;
             }
-            if (MovementManager.IsMoving)
-            {
-                Navigator.PlayerMover.MoveStop();
-            }
+            if (MovementManager.IsMoving) Navigator.PlayerMover.MoveStop();
+
             Logging.Write(Colors.Yellow, @"[Shinra] Resting...");
             return true;
         }
@@ -262,9 +259,8 @@ namespace ShinraCo
             Logging.Write(Colors.Yellow, @"[Shinra] Summoning Chocobo...");
 
             if (!ChocoboManager.Summoned)
-            {
                 return await SummonChocobo();
-            }
+
             return true;
         }
 
@@ -275,9 +271,7 @@ namespace ShinraCo
         public static async Task<bool> ChocoboStance()
         {
             if (!Settings.SummonChocobo || !ChocoboManager.Summoned || Core.Player.IsMounted || ChocoboManager.Object == null)
-            {
                 return false;
-            }
 
             if (Settings.ChocoboStanceDance)
             {
@@ -300,9 +294,8 @@ namespace ShinraCo
             {
                 case Stances.Free:
                     if (ChocoboManager.Stance == CompanionStance.Free)
-                    {
                         break;
-                    }
+
                     ChocoboManager.FreeStance();
                     await Coroutine.Wait(1000, () => ChocoboManager.Stance == CompanionStance.Free);
                     Logging.Write(Colors.Yellow, @"[Shinra] Chocobo Stance >>> Free");
@@ -345,7 +338,10 @@ namespace ShinraCo
         #region LastSpell
 
         private static Spell _lastSpell;
-        public static Spell LastSpell { get { return _lastSpell ?? (_lastSpell = new Spell()); } set { _lastSpell = value; } }
+        public static Spell LastSpell {
+            get => _lastSpell ?? (_lastSpell = new Spell());
+            set => _lastSpell = value;
+        }
 
         #endregion
     }

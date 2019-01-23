@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Buddy.Coroutines;
 using ff14bot;
 using ff14bot.Managers;
@@ -162,6 +162,15 @@ namespace ShinraCo.Rotations
             return false;
         }
 
+        private async Task<bool> Unmend()
+        {
+            if (Shinra.Settings.DarkKnightPlunge && Core.Player.TargetDistance(10))
+            {
+                return await MySpells.Unmend.Cast();
+            }
+            return false;
+        }
+        
         #endregion
 
         #region Buff
@@ -280,6 +289,15 @@ namespace ShinraCo.Rotations
             if (Shinra.Settings.DarkKnightRampart && Core.Player.CurrentHealthPercent < Shinra.Settings.DarkKnightRampartPct)
             {
                 return await MySpells.Role.Rampart.Cast();
+            }
+            return false;
+        }
+
+        private async Task<bool> LowBlow()
+        {
+            if (Shinra.Settings.DarkKnightLowBlow && Core.Player.CurrentTarget.IsInterruptible() && Core.Player.CurrentTarget.IsInterruptibleSpell())
+            {
+                return await MySpells.Role.LowBlow.Cast();
             }
             return false;
         }

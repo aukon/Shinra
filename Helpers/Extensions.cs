@@ -72,7 +72,7 @@ namespace ShinraCo
             Logging.Write(Colors.OrangeRed, $@"[Shinra] DEBUG - {msg}");
         }
 
-        public static void DisplayToast(string msg, int duration = 1000)
+        private static void DisplayToast(string msg, int duration = 1000)
         {
             if (Shinra.Settings.RotationMessages)
             {

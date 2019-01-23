@@ -9,37 +9,42 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Combat()
         {
-            if (Shinra.Settings.RotationMode == Modes.Smart)
+            switch (Shinra.Settings.RotationMode)
             {
-                if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await Quietus()) return true;
-                if (await AbyssalDrain()) return true;
-                if (await Unleash()) return true;
-                if (await Bloodspiller()) return true;
-                if (await Souleater()) return true;
-                if (await SyphonStrike()) return true;
-                if (await PowerSlash()) return true;
-                if (await SpinningSlash()) return true;
-                return await HardSlash();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Single)
-            {
-                if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
-                if (await Bloodspiller()) return true;
-                if (await Souleater()) return true;
-                if (await SyphonStrike()) return true;
-                if (await PowerSlash()) return true;
-                if (await SpinningSlash()) return true;
-                return await HardSlash();
-            }
-            if (Shinra.Settings.RotationMode == Modes.Multi)
-            {
-                if (await Quietus()) return true;
-                if (await AbyssalDrain()) return true;
-                if (await Unleash()) return true;
-                if (await Souleater()) return true;
-                if (await SyphonStrike()) return true;
-                return await HardSlash();
+                case Modes.Smart:
+                {
+                    if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await Quietus()) return true;
+                    if (await AbyssalDrain()) return true;
+                    if (await Unleash()) return true;
+                    if (await Bloodspiller()) return true;
+                    if (await Souleater()) return true;
+                    if (await SyphonStrike()) return true;
+                    if (await PowerSlash()) return true;
+                    if (await SpinningSlash()) return true;
+                    return await HardSlash();
+                }
+                case Modes.Single:
+                {
+                    if (Shinra.Settings.DarkKnightOpener) { if (await Helpers.ExecuteOpener()) return true; }
+                    if (await LowBlow()) return true;
+                    if (await Bloodspiller()) return true;
+                    if (await Souleater()) return true;
+                    if (await SyphonStrike()) return true;
+                    if (await PowerSlash()) return true;
+                    if (await SpinningSlash()) return true;
+                    return await HardSlash();
+                }
+                case Modes.Multi:
+                {
+                    if (await Quietus()) return true;
+                    if (await AbyssalDrain()) return true;
+                    if (await Unleash()) return true;
+                    if (await Souleater()) return true;
+                    if (await SyphonStrike()) return true;
+                    return await HardSlash();
+                }
             }
             return false;
         }
@@ -98,6 +103,7 @@ namespace ShinraCo.Rotations
 
         public override async Task<bool> Pull()
         {
+            if (await Unmend()) return true;
             return await Combat();
         }
 

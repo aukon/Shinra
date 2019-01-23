@@ -10,9 +10,9 @@ namespace ShinraCo
 {
     public static partial class Helpers
     {
-        public static List<BattleCharacter> HealManager = new List<BattleCharacter>();
-        public static List<BattleCharacter> RessManager = new List<BattleCharacter>();
-        public static List<BattleCharacter> GoadManager = new List<BattleCharacter>();
+        public static List<BattleCharacter> HealManager = new List<BattleCharacter>(), 
+                                            RessManager = new List<BattleCharacter>(),
+                                            GoadManager = new List<BattleCharacter>();
 
         public static readonly HashSet<string> HealingSpells = new HashSet<string>
         {
@@ -36,7 +36,7 @@ namespace ShinraCo
                                            hm.Distance2D(Core.Player) - hm.CombatReach - Core.Player.CombatReach <= radius);
         }
 
-        public static bool IsHealable(this BattleCharacter c)
+        private static bool IsHealable(this GameObject c)
         {
             return c.IsTargetable && c.InLineOfSight() && Core.Player.UnitDistance(c, 25, false);
         }
@@ -88,14 +88,8 @@ namespace ShinraCo
         {
             var score = c.CurrentHealthPercent;
 
-            if (c.IsTank())
-            {
-                score -= 5f;
-            }
-            if (c.IsHealer())
-            {
-                score -= 3f;
-            }
+            if (c.IsTank()) score -= 5f;
+            if (c.IsHealer()) score -= 3f;
             return score;
         }
 
@@ -103,10 +97,7 @@ namespace ShinraCo
         {
             var score = c.CurrentTPPercent;
 
-            if (c.IsDPS())
-            {
-                score -= 10;
-            }
+            if (c.IsDPS()) score -= 10;
             return score;
         }
 
